@@ -72,9 +72,9 @@ const WhyVriksh = () => {
                                     alt={item.title}
                                     className="w-10 h-10 md:w-12 md:h-12 object-contain shrink-0"
                                 />
-                                <span className="font-bold text-[14px] md:text-[17px] leading-snug">
+                                <h3 className="font-bold text-[14px] md:text-[17px] leading-snug">
                                     {item.title}
-                                </span>
+                                </h3>
                             </div>
                         ))}
                     </div>

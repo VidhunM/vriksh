@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -5,12 +6,23 @@
   --color-brand-purple-light: #6a0b9e;
   --color-brand-cream: #FFFDEA;
 
-  --font-family-sans: "Inter", "system-ui", "sans-serif";
+  --font-inter-tight: "Inter Tight", sans-serif;
+  --font-geist: "Geist", sans-serif;
+  --font-family-sans: var(--font-geist);
 }
 
 @layer base {
   body {
-    @apply font-sans antialiased text-gray-800 bg-white;
+    @apply font-[Geist] antialiased text-gray-800 bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-[Inter_Tight];
   }
 }
 

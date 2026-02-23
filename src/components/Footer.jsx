@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 items-start mb-12">
 
                     {/* Column 1: Counselling & Academy */}
-                    <div className="space-y-10">
+                    <div className="space-y-10 lg:pl-12 md:pl-8">
                         <div className="space-y-4">
                             <h3 className="text-base font-semibold">Counselling</h3>
                             <ul className="space-y-2 opacity-90 text-[14px] font-light">
@@ -30,7 +30,7 @@ const Footer = () => {
                     </div>
 
                     {/* Column 2: Corporate & Useful Links */}
-                    <div className="space-y-10">
+                    <div className="space-y-10 lg:pl-8 md:pl-4">
                         <div className="space-y-4">
                             <h3 className="text-base font-semibold">Corporate</h3>
                             <ul className="space-y-2 opacity-90 text-[14px] font-light">
@@ -55,7 +55,7 @@ const Footer = () => {
                     </div>
 
                     {/* Column 3: Institution Wellness Program */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 lg:pl-4">
                         <h3 className="text-base font-semibold">Institution Wellness Program</h3>
                         <ul className="space-y-2 opacity-90 text-[14px] font-light">
                             <li><a href="#" className="hover:opacity-100 transition-opacity">For Schools</a></li>
@@ -70,20 +70,20 @@ const Footer = () => {
                                 <img
                                     src="/logo.png"
                                     alt="VRIKSH Logo"
-                                    className="h-18 w-auto object-contain mb-2 -translate-x-3"
+                                    className="h-14 w-auto object-contain mb-2 -translate-x-3"
                                 />
-                                <div className="w-full h-[2px] bg-black/20 my-4 max-w-[200px]"></div>
+                                <div className="w-full h-[2px] bg-black/20 my-4 max-w-[160px]"></div>
                             </div>
 
-                            <div className="flex gap-1.5">
-                                <a href="#" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaFacebookF size={22} className="stroke-[1]" />
+                            <div className="flex gap-4">
+                                <a href="#" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                    <FaFacebookF size={14} className="stroke-[1]" />
                                 </a>
-                                <a href="#" className="w-10 h-10 bg-[#520378] text-white rounded-lg flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaInstagram size={24} className="stroke-[1]" />
+                                <a href="#" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                    <FaInstagram size={14} className="stroke-[1]" />
                                 </a>
-                                <a href="#" className="w-10 h-10 bg-[#520378] text-white rounded-lg flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaLinkedinIn size={24} className="stroke-[1]" />
+                                <a href="#" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                    <FaLinkedinIn size={14} className="stroke-[1]" />
                                 </a>
                             </div>
                         </div>
