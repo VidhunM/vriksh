@@ -15,7 +15,7 @@ const About = () => {
                 {/* Decorative background element */}
                 <div className="absolute top-0 left-0 w-full sm:w-[50%] h-full pointer-events-none opacity-[0.4] sm:opacity-[0.3]">
                     <img
-                        src="/images/who we are background.png"
+                        src="/images/abt.png"
                         alt=""
                         className="w-full h-full object-contain object-left scale-150 sm:scale-100 mix-blend-multiply"
                     />
@@ -41,7 +41,7 @@ const About = () => {
             </div>
 
             {/* Mission & Vision Section */}
-            <div className="bg-gradient-to-b from-white via-[#FFFDEA] to-white py-8 sm:py-10 relative overflow-hidden">
+            <div className="bg-gradient-to-b from-white via-[#FEFCE8] to-[#FEFCE8] py-12 sm:py-16 relative overflow-hidden">
                 <div className="max-w-[1240px] mx-auto px-6 relative z-10">
                     <h2 className="text-[clamp(26px,3vw,36px)] font-bold text-gray-950 text-center mb-10 tracking-tight">
                         Mission & vision
@@ -49,34 +49,34 @@ const About = () => {
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch relative px-4">
                         {/* Vision Card */}
-                        <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-transform duration-500 hover:scale-[1.02]">
-                            <div className="w-16 h-16 mb-8">
+                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-lg border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
+                            <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">
                                 <img src="/icons/v1.png" alt="Vision Icon" className="w-full h-full object-contain" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6 text-gray-900">Vision</h3>
-                            <p className="text-[15px] leading-relaxed text-gray-700">
+                            <h3 className="text-2xl font-bold mb-6 text-gray-900 group-hover:text-white transition-colors duration-300">Vision</h3>
+                            <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 transition-colors duration-300">
                                 To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities
                             </p>
                         </div>
 
                         {/* Mission Card (Highlighted) */}
-                        <div className="bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center md:-translate-y-4 relative z-10 text-white transition-transform duration-500 hover:scale-[1.05]">
-                            <div className="w-16 h-16 mb-8">
+                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center md:-translate-y-6 relative z-10 transition-all duration-300 hover:scale-[1.05]">
+                            <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">
                                 <img src="/icons/v2.png" alt="Mission Icon" className="w-full h-full object-contain" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6">Mission</h3>
-                            <p className="text-[15px] leading-relaxed opacity-90">
+                            <h3 className="text-2xl font-bold mb-6 text-gray-900 group-hover:text-white transition-colors duration-300">Mission</h3>
+                            <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 transition-colors duration-300">
                                 To deliver accessible, ethical, and evidence-based mental health services that create meaningful impact across individuals and institutions. Through structured interventions, professional excellence, and collaborative outreach, we strengthen emotional resilience and contribute to a responsive mental health ecosystem.
                             </p>
                         </div>
 
                         {/* Our Values Card */}
-                        <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-transform duration-500 hover:scale-[1.02]">
-                            <div className="w-16 h-16 mb-8">
+                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-lg border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
+                            <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">
                                 <img src="/icons/v3.png" alt="Values Icon" className="w-full h-full object-contain" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6 text-gray-900">Our values</h3>
-                            <p className="text-[15px] leading-relaxed text-gray-700">
+                            <h3 className="text-2xl font-bold mb-6 text-gray-900 group-hover:text-white transition-colors duration-300">Our values</h3>
+                            <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 transition-colors duration-300">
                                 To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities
                             </p>
                         </div>
@@ -89,11 +89,11 @@ const About = () => {
                         viewBox="0 0 1440 120"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="relative block w-full h-[60px] sm:h-[80px]"
+                        className="relative block w-full h-[40px] sm:h-[50px]"
                         preserveAspectRatio="none"
                     >
                         <path
-                            d="M0,120 C180,120 180,60 360,60 C540,60 540,120 720,120 C900,120 900,60 1080,60 C1260,60 1260,120 1440,120 V120 H0 Z"
+                            d="M0,120 C180,120 180,90 360,90 C540,90 540,120 720,120 C900,120 900,90 1080,90 C1260,90 1260,120 1440,120 V120 H0 Z"
                             fill="white"
                         />
                     </svg>
@@ -147,35 +147,35 @@ const About = () => {
             </div>
 
             {/* Enriching Minds & Stats Section */}
-            <div className="max-w-[1240px] mx-auto px-6 py-10 sm:py-14 border-t border-gray-100">
-                <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-10">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:ml-[10%]">
                     {/* Left Column: Heading */}
-                    <div>
-                        <h2 className="text-[clamp(32px,5vw,40px)] font-bold text-gray-950 leading-[1.2] mb-6 lg:mb-8 text-center lg:text-left">
+                    <div className="lg:pt-10">
+                        <h2 className="text-[clamp(28px,4vw,34px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left">
                             Enriching <br className="hidden lg:block" /> Minds
                         </h2>
-                        <p className="text-[16px] sm:text-[18px] text-gray-700 max-w-[400px] leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
+                        <p className="text-[15px] sm:text-[16px] text-gray-700 leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
                             Where people feel heard, supported and empowered
                         </p>
                     </div>
 
                     {/* Right Column: Stats Grid */}
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:gap-x-12 sm:gap-y-16">
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12">
                         <div className="text-center lg:text-left">
-                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">50,000+</div>
-                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Lives Impacted</div>
+                            <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1">50,000+</div>
+                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Lives Impacted</div>
                         </div>
                         <div className="text-center lg:text-left">
-                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">4.8/5</div>
-                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Client Ratings</div>
+                            <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1">4.8/5</div>
+                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Client Ratings</div>
                         </div>
                         <div className="text-center lg:text-left">
-                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">5,000+</div>
-                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Active Learners</div>
+                            <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1">5,000+</div>
+                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Active Learners</div>
                         </div>
                         <div className="text-center lg:text-left">
-                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">300+</div>
-                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Sessions conducted</div>
+                            <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1">300+</div>
+                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Sessions conducted</div>
                         </div>
                     </div>
                 </div>
