@@ -70,6 +70,22 @@
   }
 }
 
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
 .animate-marquee-vertical {
   display: flex;
   flex-direction: column;

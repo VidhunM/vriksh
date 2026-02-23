@@ -64,26 +64,26 @@ const Footer = () => {
                     </div>
 
                     {/* Column 4: Logo Section */}
-                    <div className="flex justify-center lg:justify-end">
-                        <div className="bg-[#EEEAF4] w-[320px] h-[320px] aspect-square flex-shrink-0 rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 relative -left-8 top-12">
+                    <div className="flex justify-center lg:justify-end lg:pl-8">
+                        <div className="bg-[#EEEAF4] w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] flex-shrink-0 rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 relative lg:-left-8 lg:top-12 aspect-square">
                             <div className="mb-6 flex flex-col items-center">
                                 <img
                                     src="/logo.png"
                                     alt="VRIKSH Logo"
-                                    className="h-14 w-auto object-contain mb-2 -translate-x-3"
+                                    className="h-14 w-auto object-contain mb-2 lg:-translate-x-3"
                                 />
                                 <div className="w-full h-[2px] bg-black/20 my-4 max-w-[160px]"></div>
                             </div>
 
                             <div className="flex gap-4">
-                                <a href="#" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaFacebookF size={14} className="stroke-[1]" />
+                                <a href="#" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                    <FaFacebookF size={16} className="stroke-[1]" />
                                 </a>
-                                <a href="#" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaInstagram size={14} className="stroke-[1]" />
+                                <a href="#" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                    <FaInstagram size={16} className="stroke-[1]" />
                                 </a>
-                                <a href="#" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaLinkedinIn size={14} className="stroke-[1]" />
+                                <a href="#" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                    <FaLinkedinIn size={16} className="stroke-[1]" />
                                 </a>
                             </div>
                         </div>

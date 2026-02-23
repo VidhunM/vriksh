@@ -16,7 +16,7 @@ const Hero = () => {
 
             <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-8 sm:py-12">
                 <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
-                    <h1 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.2] tracking-tight mb-5 drop-shadow-md text-center">
+                    <h1 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.2] tracking-tight mb-5 drop-shadow-md text-center font-inter-tight">
                         Enriching Minds.<br />
                         <span className="text-white">Strengthening Futures.</span>
                     </h1>

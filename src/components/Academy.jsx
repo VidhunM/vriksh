@@ -36,17 +36,17 @@ const Academy = () => {
 
                     {/* Right: Content & Cards */}
                     <div className="lg:w-[60%]">
-                        <div className="mb-10 text-left">
-                            <h2 className="text-3xl sm:text-[42px] font-bold mb-6 text-gray-950 leading-tight">Vriksh E-Academy</h2>
-                            <p className="text-[17px] text-gray-800 max-w-[620px] leading-[1.6] font-normal text-left">
+                        <div className="mb-10 text-center lg:text-left">
+                            <h2 className="text-3xl sm:text-[42px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
+                            <p className="text-[17px] text-gray-800 max-w-[620px] leading-[1.6] font-normal mx-auto lg:mx-0">
                                 We empower aspiring professionals and communities with live, interactive, skill-based mental health training, bridging theory and real-world practice
                             </p>
                         </div>
 
-                        <div className="grid sm:grid-cols-3 gap-4">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {categories.map((cat, index) => (
                                 <div key={index} className="bg-[#FCA65B] p-5 rounded-2xl flex flex-col items-center justify-center text-center shadow-lg border border-black/5 hover:scale-[1.02] transition-transform">
-                                    <h3 className="text-base font-bold mb-3 text-gray-950 uppercase tracking-tight w-full">{cat.title}</h3>
+                                    <h3 className="text-base font-bold mb-3 text-gray-950 uppercase tracking-tight w-full font-inter-tight">{cat.title}</h3>
                                     <p className="text-[12.5px] text-gray-950/90 mb-5 leading-[1.5] flex-grow font-medium w-full text-center">
                                         {cat.desc}
                                     </p>

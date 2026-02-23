@@ -11,15 +11,15 @@ const Wellness = () => {
                             <img
                                 src="/images/wellness.png"
                                 alt="Students in Classroom"
-                                className="w-full h-full object-cover aspect-[4/3] lg:aspect-square"
+                                className="w-full h-full object-cover aspect-[4/3] lg:aspect-square animate-breathe"
                             />
                         </div>
                     </div>
 
                     {/* Right Column: Content */}
-                    <div className="lg:w-1/2">
-                        <div className="max-w-[550px]">
-                            <h2 className="text-[32px] sm:text-[40px] font-bold mb-6 text-gray-950 leading-tight">
+                    <div className="lg:w-1/2 text-center lg:text-left">
+                        <div className="max-w-[550px] mx-auto lg:mx-0">
+                            <h2 className="text-[30px] sm:text-[40px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">
                                 Vriksh Institution Wellness Program
                             </h2>
 
@@ -29,19 +29,19 @@ const Wellness = () => {
 
                             <div className="mb-10">
                                 <h4 className="text-[17px] font-bold text-gray-900 mb-5">Choose Your Institution</h4>
-                                <div className="flex gap-3 sm:gap-4">
-                                    <button className="bg-[#520378] text-white px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] shadow-sm transform transition-all hover:scale-105 active:scale-95">
+                                <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
+                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
                                         School
                                     </button>
-                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] hover:bg-gray-50 transition-all transform hover:scale-105 active:scale-95">
+                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
                                         College
                                     </button>
                                 </div>
                             </div>
 
                             {/* Existing Card Design with Internal Marquee */}
-                            <div className="border border-gray-200 rounded-[20px] p-4 sm:p-6 bg-white shadow-sm max-w-[500px] mx-auto lg:mx-0 overflow-hidden">
-                                <div className="animate-marquee hover:pause-animation flex items-center gap-10">
+                            <div className="border border-gray-200 rounded-[24px] p-5 sm:p-6 bg-white shadow-sm max-w-[500px] mx-auto lg:mx-0 overflow-hidden">
+                                <div className="animate-marquee hover:pause-animation flex items-center gap-6 sm:gap-10">
                                     {[
                                         { icon: '/icons/w icon1.png', label: 'Counselling' },
                                         { icon: '/icons/w icon2.png', label: 'Career Guidance' },
@@ -51,13 +51,10 @@ const Wellness = () => {
                                         { icon: '/icons/w icon6.png', label: 'Teacher Training' },
                                         { icon: '/icons/w icon7.png', label: 'Parenting Sessions' },
                                     ].map((item, idx) => (
-                                        <div key={idx} className="flex flex-col items-center gap-2 shrink-0 group min-w-[60px]">
-                                            <div className="h-[35px] sm:h-[50px] w-auto transition-transform duration-300 group-hover:scale-110">
+                                        <div key={idx} className="flex flex-col items-center justify-center shrink-0 min-w-[75px] sm:min-w-[85px]">
+                                            <div className="h-[45px] sm:h-[55px] w-auto bg-gray-50/50 rounded-xl p-2 border border-gray-100/50 transition-all duration-300 hover:scale-110 shadow-sm">
                                                 <img src={item.icon} alt={item.label} className="h-full w-auto object-contain" />
                                             </div>
-                                            <span className="text-[10px] font-bold text-gray-700 whitespace-nowrap">
-                                                {item.label}
-                                            </span>
                                         </div>
                                     ))}
                                     {/* Duplicate for seamless loop */}
@@ -70,13 +67,10 @@ const Wellness = () => {
                                         { icon: '/icons/w icon6.png', label: 'Teacher Training' },
                                         { icon: '/icons/w icon7.png', label: 'Parenting Sessions' },
                                     ].map((item, idx) => (
-                                        <div key={`dup-${idx}`} className="flex flex-col items-center gap-2 shrink-0 group min-w-[60px]">
-                                            <div className="h-[35px] sm:h-[50px] w-auto transition-transform duration-300 group-hover:scale-110">
+                                        <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 min-w-[75px] sm:min-w-[85px]">
+                                            <div className="h-[45px] sm:h-[55px] w-auto bg-gray-50/50 rounded-xl p-2 border border-gray-100/50 transition-all duration-300 hover:scale-110 shadow-sm">
                                                 <img src={item.icon} alt={item.label} className="h-full w-auto object-contain" />
                                             </div>
-                                            <span className="text-[10px] font-bold text-gray-700 whitespace-nowrap">
-                                                {item.label}
-                                            </span>
                                         </div>
                                     ))}
                                 </div>
