@@ -4,14 +4,14 @@ const About = () => {
     return (
         <section id="about" className="bg-white pt-16 sm:pt-20">
             {/* Header Banner */}
-            <div className="bg-[#520378] py-20 sm:py-32 flex items-center justify-center">
-                <h1 className="text-white text-[clamp(44px,7vw,80px)] font-bold tracking-[0.05em] uppercase">
+            <div className="bg-[#520378] py-8 sm:py-10 flex items-center justify-center">
+                <h1 className="text-white text-[clamp(28px,4vw,44px)] font-bold tracking-[0.05em] uppercase">
                     ABOUT US
                 </h1>
             </div>
 
             {/* Content Section */}
-            <div className="relative max-w-[1240px] mx-auto px-6 py-24 sm:py-32 overflow-hidden">
+            <div className="relative max-w-[1240px] mx-auto px-6 py-12 sm:py-16 overflow-hidden">
                 {/* Decorative background element (leaf-like pattern) */}
                 <div className="absolute top-[10%] left-0 w-[40%] h-[80%] pointer-events-none opacity-[0.03]">
                     <img
@@ -22,11 +22,11 @@ const About = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[950px] mx-auto text-center">
-                    <h2 className="text-[clamp(34px,4vw,52px)] font-bold text-[#520378] mb-14 tracking-tight">
+                    <h2 className="text-[clamp(28px,3vw,38px)] font-bold text-[#520378] mb-8 tracking-tight">
                         Who We Are ?
                     </h2>
 
-                    <div className="space-y-10 text-gray-800 text-[clamp(17px,1.1vw,20px)] leading-[1.8] font-normal text-justify sm:text-center">
+                    <div className="space-y-6 text-gray-800 text-[clamp(15px,1vw,17px)] leading-[1.8] font-normal text-justify sm:text-center">
                         <p className="px-4">
                             Vriksh Psychological Support Services was established to strengthen emotional wellbeing across individuals, institutions, and organisations. We are committed to delivering compassionate, ethical, and evidence-based care, ensuring that the wellbeing and privacy of our clients remain our highest priority.
                         </p>
@@ -41,17 +41,17 @@ const About = () => {
             </div>
 
             {/* Mission & Vision Section */}
-            <div className="bg-gradient-to-b from-white via-[#FFFDEA] to-white py-20 relative overflow-hidden">
+            <div className="bg-gradient-to-b from-white via-[#FFFDEA] to-white py-10 sm:py-12 relative overflow-hidden">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h2 className="text-[clamp(32px,4vw,48px)] font-bold text-gray-950 text-center mb-20 tracking-tight">
+                    <h2 className="text-[clamp(26px,3vw,36px)] font-bold text-gray-950 text-center mb-10 tracking-tight">
                         Mission & vision
                     </h2>
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch relative px-4">
                         {/* Vision Card */}
                         <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center">
-                            <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-8">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+                            <div className="w-16 h-16 mb-8">
+                                <img src="/icons/v1.png" alt="Vision Icon" className="w-full h-full object-contain" />
                             </div>
                             <h3 className="text-2xl font-bold mb-6 text-gray-900">Vision</h3>
                             <p className="text-[15px] leading-relaxed text-gray-700">
@@ -61,8 +61,8 @@ const About = () => {
 
                         {/* Mission Card (Highlighted) */}
                         <div className="bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center md:-translate-y-4 relative z-10 text-white">
-                            <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-8">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fb923c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+                            <div className="w-16 h-16 mb-8">
+                                <img src="/icons/v2.png" alt="Mission Icon" className="w-full h-full object-contain" />
                             </div>
                             <h3 className="text-2xl font-bold mb-6">Mission</h3>
                             <p className="text-[15px] leading-relaxed opacity-90">
@@ -72,8 +72,8 @@ const About = () => {
 
                         {/* Our Values Card */}
                         <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center">
-                            <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-8">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" /><path d="M12 12h.01" /><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" /></svg>
+                            <div className="w-16 h-16 mb-8">
+                                <img src="/icons/v3.png" alt="Values Icon" className="w-full h-full object-contain" />
                             </div>
                             <h3 className="text-2xl font-bold mb-6 text-gray-900">Our values</h3>
                             <p className="text-[15px] leading-relaxed text-gray-700">
@@ -85,38 +85,35 @@ const About = () => {
             </div>
 
             {/* Founder Section */}
-            <div className="max-w-[1240px] mx-auto px-6 py-20 pb-24 relative">
+            <div className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16 relative">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
                     {/* Founder Image Area */}
                     <div className="lg:w-1/2 relative flex justify-center">
-                        {/* Blob Backgrounds */}
-                        <div className="absolute top-0 right-10 w-[80%] h-[80%] bg-[#f97316] rounded-full opacity-10 blur-3xl animate-pulse"></div>
-                        <div className="absolute bottom-10 left-10 w-[60%] h-[60%] bg-[#520378] rounded-full opacity-10 blur-3xl"></div>
-
-                        <div className="relative w-full max-w-[450px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+                        <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl bg-[#520378]">
+                            {/* Orange Blobs */}
+                            <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#FCA65B] rounded-full opacity-90"></div>
+                            <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-[#FCA65B] rounded-full opacity-90"></div>
+                            
                             <img
-                                src="/images/banupriya.png"
+                                src="/images/banu.png"
                                 alt="Banu Priya - Founder & CEO"
-                                className="w-full h-full object-cover"
+                                className="relative z-10 w-full h-full object-contain object-bottom scale-110"
                                 onError={(e) => {
                                     e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                                 }}
                             />
-                            {/* Decorative Orange/Purple accents like in the image */}
-                            <div className="absolute top-0 right-0 w-[40%] h-[30%] bg-[#f97316] opacity-90 rounded-bl-[100px]"></div>
-                            <div className="absolute bottom-0 left-0 w-[100%] h-[40%] bg-[#520378] opacity-90 rounded-tr-[100px] z-[-1]"></div>
                         </div>
                     </div>
 
                     {/* Founder Content */}
-                    <div className="lg:w-1/2">
-                        <div className="space-y-6">
+                    <div className="lg:w-1/2 text-center lg:text-left">
+                        <div className="space-y-4">
                             <div>
-                                <h2 className="text-[48px] font-bold text-gray-950 mb-1">Banu priya</h2>
-                                <p className="text-[20px] text-[#520378] font-semibold">Founder and CEO</p>
+                                <h2 className="text-[32px] sm:text-[36px] font-bold text-gray-950 mb-1 leading-tight">Banu priya</h2>
+                                <p className="text-[17px] text-[#520378] font-semibold">Founder and CEO</p>
                             </div>
 
-                            <div className="space-y-6 text-[17px] leading-relaxed text-gray-800">
+                            <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-gray-800">
                                 <p className="font-bold">
                                     Hi, I'm Banupriya, founder of Vriksh Psychological Support Services. I'm a Psychologist, Certified Emotional Intelligence Coach Practitioner, and Career Coach.
                                 </p>
@@ -133,41 +130,41 @@ const About = () => {
             </div>
 
             {/* Enriching Minds & Stats Section */}
-            <div className="max-w-[1240px] mx-auto px-6 py-24 border-t border-gray-100">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16 border-t border-gray-100">
+                <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     {/* Left Column: Heading */}
                     <div>
-                        <h2 className="text-[clamp(40px,5vw,60px)] font-bold text-gray-950 leading-[1.1] mb-8">
+                        <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-gray-950 leading-[1.1] mb-4">
                             Enriching <br /> Minds
                         </h2>
-                        <p className="text-[18px] text-gray-700 max-w-[400px] leading-relaxed">
+                        <p className="text-[16px] text-gray-700 max-w-[400px] leading-relaxed">
                             Where people feel heard, supported and empowered
                         </p>
                     </div>
 
                     {/* Right Column: Stats Grid */}
-                    <div className="grid grid-cols-2 gap-x-12 gap-y-16">
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-10">
                         <div>
-                            <div className="text-[40px] font-bold text-[#520378] mb-1">50,000+</div>
-                            <div className="text-[16px] text-gray-600 font-medium">Lives Impacted</div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">50,000+</div>
+                            <div className="text-[14px] text-gray-600 font-medium">Lives Impacted</div>
                         </div>
                         <div>
-                            <div className="text-[40px] font-bold text-[#520378] mb-1">4.8/5</div>
-                            <div className="text-[16px] text-gray-600 font-medium">Client Ratings</div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">4.8/5</div>
+                            <div className="text-[14px] text-gray-600 font-medium">Client Ratings</div>
                         </div>
                         <div>
-                            <div className="text-[40px] font-bold text-[#520378] mb-1">5,000+</div>
-                            <div className="text-[16px] text-gray-600 font-medium">Active Learners</div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">5,000+</div>
+                            <div className="text-[14px] text-gray-600 font-medium">Active Learners</div>
                         </div>
                         <div>
-                            <div className="text-[40px] font-bold text-[#520378] mb-1">300+</div>
-                            <div className="text-[16px] text-gray-600 font-medium">Sessions conducted</div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">300+</div>
+                            <div className="text-[14px] text-gray-600 font-medium">Sessions conducted</div>
                         </div>
                     </div>
                 </div>
 
                 {/* Banner Section */}
-                <div className="mt-24 relative rounded-[32px] overflow-hidden h-[450px] sm:h-[500px] group">
+                <div className="mt-12 sm:mt-14 relative rounded-[20px] overflow-hidden h-[250px] sm:h-[320px] group">
                     <img
                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
                         alt="Community engagement"
@@ -175,10 +172,10 @@ const About = () => {
                     />
                     {/* Overlay with Text and Button */}
                     <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-6">
-                        <h3 className="text-white text-[clamp(28px,4vw,48px)] font-bold mb-10 max-w-[600px] leading-tight">
+                        <h3 className="text-white text-[clamp(20px,3vw,30px)] font-bold mb-4 max-w-[600px] leading-tight">
                             Rooted in care, <br className="hidden sm:block" /> growing with you
                         </h3>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-10 py-4 rounded-full font-bold text-[16px] transition-all transform hover:scale-105 shadow-lg">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[14px] transition-all transform hover:scale-105 shadow-lg">
                             Get Started
                         </button>
                     </div>
