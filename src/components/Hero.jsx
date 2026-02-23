@@ -71,21 +71,21 @@ const Hero = () => {
                 ))}
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-8 sm:py-12">
-                <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
+            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-start sm:items-center justify-center text-left sm:text-center text-white py-8 sm:py-12">
+                <div className="max-w-[900px] animate-fade-in-up flex flex-col items-start sm:items-center">
                     {/* Animated Text Content */}
                     <div className="relative w-full flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
                         {banners.map((banner, index) => (
                             <div
                                 key={index}
-                                className={`transition-all duration-700 w-full flex flex-col items-center ${index === currentSlide
+                                className={`transition-all duration-700 w-full flex flex-col items-start sm:items-center ${index === currentSlide
                                     ? 'opacity-100 translate-y-0 relative'
                                     : 'opacity-0 translate-y-8 absolute pointer-events-none'
                                     }`}
                             >
                                 <h1
                                     key={`title-${index}`}
-                                    className={`text-[clamp(32px,7vw,54px)] font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-xl text-center max-w-[850px] ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
+                                    className={`text-[clamp(32px,7vw,54px)] font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-xl text-left sm:text-center max-w-[850px] ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
                                         }`}
                                 >
                                     {banner.title}
@@ -94,7 +94,7 @@ const Hero = () => {
                                 {banner.description && (
                                     <p
                                         key={`desc-${currentSlide}`}
-                                        className={`text-[clamp(15px,2vw,18px)] mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
+                                        className={`text-[clamp(15px,2vw,18px)] mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-justify sm:text-center mx-auto px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
                                             }`}
                                     >
                                         {banner.description}
@@ -103,7 +103,7 @@ const Hero = () => {
 
                                 <div
                                     key={`btn-${currentSlide}`}
-                                    className={`flex justify-center ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-400' : ''
+                                    className={`flex justify-start sm:justify-center ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-400' : ''
                                         }`}
                                 >
                                     <button className="bg-white text-brand-purple px-10 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl">

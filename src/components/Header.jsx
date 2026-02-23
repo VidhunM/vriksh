@@ -20,8 +20,8 @@ const Header = () => {
   const headerClasses = isAboutPage
     ? 'bg-white border-b border-gray-100 shadow-sm'
     : isScrolled
-      ? 'bg-white/95 backdrop-blur-lg shadow-md border-b border-gray-100'
-      : 'bg-white/60 backdrop-blur-md border-b border-white/20';
+      ? 'bg-white/30 backdrop-blur-xl border-b border-white/30 shadow-lg'
+      : 'bg-white/10 backdrop-blur-xl border-b border-white/20';
 
   const textClasses = isScrolled || isAboutPage ? 'text-gray-800' : 'text-gray-800';
 
