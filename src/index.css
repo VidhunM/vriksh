@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #4A148C;
+  --color-brand-purple-light: #6A1B9A;
+  --color-brand-cream: #FFFDEA;
+
+  --font-family-sans: "Inter", "system-ui", "sans-serif";
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-gray-800 bg-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-purple text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all hover:bg-brand-purple-light hover:-translate-y-0.5 hover:shadow-lg active:scale-95;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-5;
+  }
+
+  .container {
+    @apply max-w-[1200px] mx-auto px-5;
+  }
+}
