@@ -22,18 +22,18 @@ const About = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[950px] mx-auto text-center">
-                    <h2 className="text-[clamp(28px,4vw,38px)] font-bold text-[#520378] mb-10 tracking-tight">
+                    <h2 className="text-[clamp(32px,4vw,52px)] font-bold text-[#520378] mb-10 tracking-tight">
                         Who We Are ?
                     </h2>
 
-                    <div className="space-y-6 text-gray-800 text-[clamp(15px,1.1vw,17px)] leading-[1.8] font-normal text-left sm:text-center">
+                    <div className="space-y-8 text-gray-800 text-[clamp(16px,1.1vw,19px)] leading-[1.8] font-normal text-justify sm:text-center">
                         <p className="px-4">
                             Vriksh Psychological Support Services was established to strengthen emotional wellbeing across individuals, institutions, and organisations. We are committed to delivering compassionate, ethical, and evidence-based care, ensuring that the wellbeing and privacy of our clients remain our highest priority.
                         </p>
                         <p className="px-4">
                             From individual wellbeing and student development to campus-wide initiatives and corporate resilience programs, we design structured interventions that enhance emotional agility, strengthen performance, and promote sustainable growth.
                         </p>
-                        <p className="font-medium text-gray-950 px-4">
+                        <p className="font-semibold text-gray-950 text-[clamp(17px,1.2vw,20px)] px-4">
                             At Vriksh, our focus extends beyond addressing concerns — we are dedicated to building resilient individuals and thriving communities.
                         </p>
                     </div>
@@ -42,14 +42,14 @@ const About = () => {
 
             {/* Mission & Vision Section */}
             <div className="bg-gradient-to-b from-white via-[#FFFDEA] to-white py-8 sm:py-10 relative overflow-hidden">
-                <div className="max-w-[1240px] mx-auto px-6">
+                <div className="max-w-[1240px] mx-auto px-6 relative z-10">
                     <h2 className="text-[clamp(26px,3vw,36px)] font-bold text-gray-950 text-center mb-10 tracking-tight">
                         Mission & vision
                     </h2>
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch relative px-4">
                         {/* Vision Card */}
-                        <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                        <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-transform duration-500 hover:scale-[1.02]">
                             <div className="w-16 h-16 mb-8">
                                 <img src="/icons/v1.png" alt="Vision Icon" className="w-full h-full object-contain" />
                             </div>
@@ -60,7 +60,7 @@ const About = () => {
                         </div>
 
                         {/* Mission Card (Highlighted) */}
-                        <div className="bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center md:-translate-y-4 relative z-10 text-white">
+                        <div className="bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center md:-translate-y-4 relative z-10 text-white transition-transform duration-500 hover:scale-[1.05]">
                             <div className="w-16 h-16 mb-8">
                                 <img src="/icons/v2.png" alt="Mission Icon" className="w-full h-full object-contain" />
                             </div>
@@ -71,7 +71,7 @@ const About = () => {
                         </div>
 
                         {/* Our Values Card */}
-                        <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                        <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-transform duration-500 hover:scale-[1.02]">
                             <div className="w-16 h-16 mb-8">
                                 <img src="/icons/v3.png" alt="Values Icon" className="w-full h-full object-contain" />
                             </div>
@@ -82,6 +82,22 @@ const About = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Curvy Bottom Edge (Subtle M-Shape) */}
+                <div className="absolute bottom-0 left-0 w-full leading-[0] transform translate-y-[1px]">
+                    <svg
+                        viewBox="0 0 1440 120"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="relative block w-full h-[60px] sm:h-[80px]"
+                        preserveAspectRatio="none"
+                    >
+                        <path
+                            d="M0,120 C180,120 180,60 360,60 C540,60 540,120 720,120 C900,120 900,60 1080,60 C1260,60 1260,120 1440,120 V120 H0 Z"
+                            fill="white"
+                        />
+                    </svg>
+                </div>
             </div>
 
             {/* Founder Section */}
@@ -91,13 +107,14 @@ const About = () => {
                     <div className="lg:w-1/2 relative flex justify-center">
                         <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl bg-[#520378]">
                             {/* Orange Blobs */}
-                            <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#FCA65B] rounded-full opacity-90"></div>
-                            <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-[#FCA65B] rounded-full opacity-90"></div>
+                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#FB8A27] rounded-full opacity-90"></div>
+                            <div className="absolute top-24 -left-24 w-72 h-72 bg-[#FB8A27] rounded-full opacity-90"></div>
+                            <div className="absolute -bottom-16 -right-16 w-52 h-52 bg-[#FB8A27] rounded-full opacity-90"></div>
 
                             <img
                                 src="/images/banu.png"
                                 alt="Banu Priya - Founder & CEO"
-                                className="relative z-10 w-full h-full object-contain object-bottom scale-110"
+                                className="relative z-10 w-full h-full object-contain object-top scale-[1.75] origin-top -translate-x-10 -translate-y-45"
                                 onError={(e) => {
                                     e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                                 }}
@@ -166,7 +183,7 @@ const About = () => {
                 {/* Banner Section */}
                 <div className="mt-12 sm:mt-14 relative rounded-[20px] overflow-hidden h-[250px] sm:h-[320px] group">
                     <img
-                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                        src="/images/dabt.png"
                         alt="Community engagement"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
