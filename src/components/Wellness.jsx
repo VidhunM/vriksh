@@ -29,22 +29,22 @@ const Wellness = () => {
 
                             <div className="mb-8">
                                 <h4 className="text-[17px] font-bold text-gray-900 mb-5">Choose Your Institution</h4>
-                                <div className="flex gap-4">
-                                    <button className="bg-[#520378] text-white px-9 py-2 rounded-full font-semibold text-[14px] shadow-sm">
+                                <div className="flex gap-3 sm:gap-4">
+                                    <button className="bg-[#520378] text-white px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] shadow-sm">
                                         School
                                     </button>
-                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-9 py-2 rounded-full font-semibold text-[14px] hover:bg-gray-50 transition-all">
+                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] hover:bg-gray-50 transition-all">
                                         College
                                     </button>
                                 </div>
                             </div>
 
                             {/* Icon Box */}
-                            <div className="border border-gray-200 rounded-[20px] p-6 sm:p-8 flex flex-wrap items-center justify-center sm:justify-between gap-6 sm:gap-4 bg-white shadow-sm max-w-[500px] mx-auto lg:mx-0">
-                                <img src="/icons/w icon1.png" alt="Icon 1" className="h-[40px] sm:h-[55px] object-contain transition-all" />
-                                <img src="/icons/w icon2.png" alt="Icon 2" className="h-[40px] sm:h-[55px] object-contain transition-all" />
-                                <img src="/icons/w icon3.png" alt="Icon 3" className="h-[40px] sm:h-[55px] object-contain transition-all" />
-                                <img src="/icons/w icon4.png" alt="Icon 4" className="h-[40px] sm:h-[55px] object-contain transition-all" />
+                            <div className="border border-gray-200 rounded-[20px] p-5 sm:p-8 flex items-center justify-between gap-1 sm:gap-4 bg-white shadow-sm max-w-[500px] mx-auto lg:mx-0">
+                                <img src="/icons/w icon1.png" alt="Icon 1" className="h-[35px] sm:h-[55px] object-contain transition-all" />
+                                <img src="/icons/w icon2.png" alt="Icon 2" className="h-[35px] sm:h-[55px] object-contain transition-all" />
+                                <img src="/icons/w icon3.png" alt="Icon 3" className="h-[35px] sm:h-[55px] object-contain transition-all" />
+                                <img src="/icons/w icon4.png" alt="Icon 4" className="h-[45px] sm:h-[65px] object-contain transition-all" />
                             </div>
                         </div>
                     </div>

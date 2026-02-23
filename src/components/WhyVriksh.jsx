@@ -53,7 +53,7 @@ const WhyVriksh = () => {
     ];
 
     return (
-        <section className="py-16 bg-white overflow-hidden">
+        <section className="py-10 sm:py-14 bg-white overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                 <h2 className="text-[22px] md:text-[30px] font-bold text-center text-brand-purple mb-12">
                     Why Vriksh?

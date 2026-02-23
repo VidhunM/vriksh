@@ -13,7 +13,7 @@ const Counselling = () => {
     return (
         <section
             id="counselling"
-            className="relative pt-24 pb-20 bg-[#520378] text-white overflow-hidden"
+            className="relative pt-16 sm:pt-20 pb-10 sm:pb-14 bg-[#520378] text-white overflow-hidden"
         >
             {/* ✅ Background Image with Overlay - Improved Visibility */}
             <div className="absolute inset-0 z-0">

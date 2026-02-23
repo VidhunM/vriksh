@@ -20,7 +20,7 @@ const Academy = () => {
     ];
 
     return (
-        <section id="academy" className="py-20 bg-[#FFFBEB] overflow-hidden">
+        <section id="academy" className="py-12 sm:py-16 bg-[#FFFBEB] overflow-hidden">
             <div className="max-w-[1240px] mx-auto px-6">
                 <div className="flex flex-col lg:flex-row gap-12 lg:items-center justify-center">
                     {/* Left: Image */}

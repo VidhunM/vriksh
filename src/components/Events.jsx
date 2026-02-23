@@ -26,7 +26,7 @@ const Events = () => {
     ];
 
     return (
-        <section id="events" className="py-20 bg-white">
+        <section id="events" className="py-12 sm:py-16 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
                     <div className="max-w-[700px]">
@@ -51,10 +51,44 @@ const Events = () => {
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Mobile Slider View */}
+                <div className="md:hidden relative overflow-hidden">
+                    <div className="animate-marquee hover:pause-animation flex gap-6 py-4">
+                        {[...events, ...events].map((event, index) => (
+                            <div key={index} className="flex flex-col w-[300px] shrink-0">
+                                <div className="h-[180px] rounded-[24px] overflow-hidden mb-5 shadow-md">
+                                    <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+                                </div>
+                                <div className="px-1">
+                                    <h3 className="text-[17px] font-bold mb-3 text-gray-950 leading-snug h-[45px] overflow-hidden">
+                                        {event.title}
+                                    </h3>
+                                    <div className="flex items-center gap-1.5 mb-6">
+                                        <span className="text-[12px] text-gray-600">({event.rating})</span>
+                                        <div className="flex text-orange-400 text-[10px]">
+                                            {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-gray-400 line-through text-[14px]">{event.originalPrice}</span>
+                                            <span className="text-gray-950 font-bold text-[17px]">{event.currentPrice}</span>
+                                        </div>
+                                        <button className="bg-[#520378] text-white px-5 py-2 rounded-full font-bold text-[12px]">
+                                            Enroll Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Desktop Grid View */}
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {events.map((event, index) => (
                         <div key={index} className="flex flex-col">
-                            <div className="h-[220px] rounded-[24px] overflow-hidden mb-5">
+                            <div className="h-[220px] rounded-[24px] overflow-hidden mb-5 shadow-sm">
                                 <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="px-2">

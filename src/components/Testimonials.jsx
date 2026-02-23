@@ -29,7 +29,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <section id="testimonials" className="py-16 bg-[#FEF9E7]">
+        <section id="testimonials" className="py-10 sm:py-14 bg-[#FEF9E7]">
             <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-6 sm:gap-0">
                     <h2 className="text-[22px] md:text-[30px] font-bold text-gray-900 leading-[1.2] max-w-[500px]">

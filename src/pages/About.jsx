@@ -11,13 +11,13 @@ const About = () => {
             </div>
 
             {/* Content Section */}
-            <div className="relative max-w-[1240px] mx-auto px-6 py-12 sm:py-16 overflow-hidden">
+            <div className="relative max-w-[1240px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
                 {/* Decorative background element */}
-                <div className="absolute top-0 left-0 w-full sm:w-[50%] h-full pointer-events-none opacity-[0.15] sm:opacity-[0.1]">
+                <div className="absolute top-0 left-0 w-full sm:w-[50%] h-full pointer-events-none opacity-[0.4] sm:opacity-[0.3]">
                     <img
                         src="/images/who we are background.png"
                         alt=""
-                        className="w-full h-full object-contain object-left scale-150 sm:scale-100"
+                        className="w-full h-full object-contain object-left scale-150 sm:scale-100 mix-blend-multiply"
                     />
                 </div>
 
@@ -41,7 +41,7 @@ const About = () => {
             </div>
 
             {/* Mission & Vision Section */}
-            <div className="bg-gradient-to-b from-white via-[#FFFDEA] to-white py-10 sm:py-12 relative overflow-hidden">
+            <div className="bg-gradient-to-b from-white via-[#FFFDEA] to-white py-8 sm:py-10 relative overflow-hidden">
                 <div className="max-w-[1240px] mx-auto px-6">
                     <h2 className="text-[clamp(26px,3vw,36px)] font-bold text-gray-950 text-center mb-10 tracking-tight">
                         Mission & vision
@@ -85,7 +85,7 @@ const About = () => {
             </div>
 
             {/* Founder Section */}
-            <div className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16 relative">
+            <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12 relative">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
                     {/* Founder Image Area */}
                     <div className="lg:w-1/2 relative flex justify-center">
@@ -130,7 +130,7 @@ const About = () => {
             </div>
 
             {/* Enriching Minds & Stats Section */}
-            <div className="max-w-[1240px] mx-auto px-6 py-12 sm:py-16 border-t border-gray-100">
+            <div className="max-w-[1240px] mx-auto px-6 py-10 sm:py-14 border-t border-gray-100">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     {/* Left Column: Heading */}
                     <div>
