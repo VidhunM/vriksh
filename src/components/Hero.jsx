@@ -21,7 +21,7 @@ const Hero = () => {
                         <span className="text-white">Strengthening Futures.</span>
                     </h1>
 
-                    <p className="text-[clamp(14px,2.5vw,16px)] mb-8 max-w-[550px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2">
+                    <p className="text-[clamp(15px,2.5vw,18px)] mb-10 max-w-[550px] opacity-95 leading-relaxed font-normal text-center mx-auto px-4">
                         Confidential, evidence-based mental health and wellbeing solutions for individuals, institutions, and organisations
                     </p>
 

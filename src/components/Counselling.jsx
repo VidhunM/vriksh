@@ -25,15 +25,15 @@ const Counselling = () => {
                 <div className="absolute inset-0 bg-[#520378]/70"></div>
             </div>
 
-            {/* ✅ Minimal Top Curve - Restored and Forced Visibility */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20">
+            {/* ✅ Minimal Top Curve - Refined for Mobile to remove top line */}
+            <div className="absolute top-[-0.5px] sm:top-0 left-0 w-full overflow-hidden leading-[0] z-20">
                 <svg
-                    className="relative block w-full h-[50px] sm:h-[70px] lg:h-[90px]"
+                    className="relative block w-full h-[40px] sm:h-[70px] lg:h-[90px]"
                     viewBox="0 0 1440 80"
                     preserveAspectRatio="none"
                 >
                     <path
-                        d="M0,0 L1440,0 L1440,40 C1200,80 960,10 720,10 C480,10 240,80 0,40 Z"
+                        d="M0,0 L1440,0 L1440,40 C1200,80 960,0 720,0 C480,0 240,80 0,40 Z"
                         fill="#FFFFFF"
                     />
                 </svg>
@@ -46,13 +46,30 @@ const Counselling = () => {
                     Counselling
                 </h2>
 
-                {/* Category Buttons */}
-                <div className="flex overflow-x-auto pb-4 gap-3 justify-start lg:justify-center mb-8 scrollbar-hide">
+                {/* Category Buttons - Mobile Auto Slider */}
+                <div className="lg:hidden relative overflow-hidden mb-8 py-2">
+                    <div className="animate-marquee hover:pause-animation flex gap-4">
+                        {[...categories, ...categories].map((cat, index) => (
+                            <button
+                                key={index}
+                                className={`whitespace-nowrap px-6 py-2 rounded-full text-[13px] font-medium transition-all flex-shrink-0 ${index === 0
+                                    ? 'bg-white text-[#520378] shadow-md'
+                                    : 'bg-transparent text-white border border-white/40 hover:bg-white/10'
+                                    }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Category Buttons - Desktop (Static & Centered) */}
+                <div className="hidden lg:flex gap-3 justify-center mb-10">
                     {categories.map((cat, index) => (
                         <button
                             key={index}
-                            className={`whitespace-nowrap px-6 py-2 rounded-full text-[13px] font-medium transition-all flex-shrink-0 ${index === 0
-                                ? 'bg-white text-[#520378] shadow-md'
+                            className={`whitespace-nowrap px-7 py-2.5 rounded-full text-[14px] font-medium transition-all ${index === 0
+                                ? 'bg-white text-[#520378] shadow-md scale-105'
                                 : 'bg-transparent text-white border border-white/40 hover:bg-white/10'
                                 }`}
                         >

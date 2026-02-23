@@ -40,11 +40,11 @@ const Wellness = () => {
                             </div>
 
                             {/* Icon Box */}
-                            <div className="border border-gray-200 rounded-[20px] p-6 sm:p-8 flex items-center justify-between bg-white shadow-sm max-w-[500px]">
-                                <img src="/icons/w icon1.png" alt="Icon 1" className="h-[45px] sm:h-[55px] object-contain transition-all" />
-                                <img src="/icons/w icon2.png" alt="Icon 2" className="h-[45px] sm:h-[55px] object-contain transition-all" />
-                                <img src="/icons/w icon3.png" alt="Icon 3" className="h-[45px] sm:h-[55px] object-contain transition-all" />
-                                <img src="/icons/w icon4.png" alt="Icon 4" className="h-[45px] sm:h-[55px] object-contain transition-all" />
+                            <div className="border border-gray-200 rounded-[20px] p-6 sm:p-8 flex flex-wrap items-center justify-center sm:justify-between gap-6 sm:gap-4 bg-white shadow-sm max-w-[500px] mx-auto lg:mx-0">
+                                <img src="/icons/w icon1.png" alt="Icon 1" className="h-[40px] sm:h-[55px] object-contain transition-all" />
+                                <img src="/icons/w icon2.png" alt="Icon 2" className="h-[40px] sm:h-[55px] object-contain transition-all" />
+                                <img src="/icons/w icon3.png" alt="Icon 3" className="h-[40px] sm:h-[55px] object-contain transition-all" />
+                                <img src="/icons/w icon4.png" alt="Icon 4" className="h-[40px] sm:h-[55px] object-contain transition-all" />
                             </div>
                         </div>
                     </div>

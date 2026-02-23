@@ -35,9 +35,9 @@ const Corporate = () => {
 
             <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                    <div>
+                    <div className="text-center lg:text-left">
                         <h2 className="text-[30px] md:text-[40px] font-bold mb-6 leading-tight">Corporate Institutions</h2>
-                        <p className="text-[16px] md:text-[17px] opacity-90 mb-8 leading-relaxed max-w-[500px]">
+                        <p className="text-[16px] md:text-[17px] opacity-90 mb-8 leading-relaxed max-w-[500px] mx-auto lg:mx-0">
                             At Vriksh, we help organisations build emotionally strong, focused, and future-ready teams. Our structured workplace wellbeing solutions enhance productivity, engagement, and overall performance. We design personalised programs that align with your organisational goals - because when your people thrive, your business grows.
                         </p>
                         <button className="bg-white text-[#4A148C] px-8 py-2.5 rounded-full font-bold text-base hover:bg-brand-cream hover:-translate-y-1 transition-all shadow-lg active:scale-95">

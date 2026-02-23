@@ -12,21 +12,21 @@ const About = () => {
 
             {/* Content Section */}
             <div className="relative max-w-[1240px] mx-auto px-6 py-12 sm:py-16 overflow-hidden">
-                {/* Decorative background element (leaf-like pattern) */}
-                <div className="absolute top-[10%] left-0 w-[40%] h-[80%] pointer-events-none opacity-[0.03]">
+                {/* Decorative background element */}
+                <div className="absolute top-0 left-0 w-full sm:w-[50%] h-full pointer-events-none opacity-[0.15] sm:opacity-[0.1]">
                     <img
-                        src="/images/hero.png"
+                        src="/images/who we are background.png"
                         alt=""
-                        className="w-full h-full object-contain object-left transform -translate-x-1/2 scale-150 rotate-[-10deg] grayscale"
+                        className="w-full h-full object-contain object-left scale-150 sm:scale-100"
                     />
                 </div>
 
                 <div className="relative z-10 max-w-[950px] mx-auto text-center">
-                    <h2 className="text-[clamp(28px,3vw,38px)] font-bold text-[#520378] mb-8 tracking-tight">
+                    <h2 className="text-[clamp(28px,4vw,38px)] font-bold text-[#520378] mb-10 tracking-tight">
                         Who We Are ?
                     </h2>
 
-                    <div className="space-y-6 text-gray-800 text-[clamp(15px,1vw,17px)] leading-[1.8] font-normal text-justify sm:text-center">
+                    <div className="space-y-6 text-gray-800 text-[clamp(15px,1.1vw,17px)] leading-[1.8] font-normal text-left sm:text-center">
                         <p className="px-4">
                             Vriksh Psychological Support Services was established to strengthen emotional wellbeing across individuals, institutions, and organisations. We are committed to delivering compassionate, ethical, and evidence-based care, ensuring that the wellbeing and privacy of our clients remain our highest priority.
                         </p>
@@ -93,7 +93,7 @@ const About = () => {
                             {/* Orange Blobs */}
                             <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#FCA65B] rounded-full opacity-90"></div>
                             <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-[#FCA65B] rounded-full opacity-90"></div>
-                            
+
                             <img
                                 src="/images/banu.png"
                                 alt="Banu Priya - Founder & CEO"
@@ -134,31 +134,31 @@ const About = () => {
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     {/* Left Column: Heading */}
                     <div>
-                        <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-gray-950 leading-[1.1] mb-4">
-                            Enriching <br /> Minds
+                        <h2 className="text-[clamp(32px,5vw,40px)] font-bold text-gray-950 leading-[1.2] mb-6 lg:mb-8 text-center lg:text-left">
+                            Enriching <br className="hidden lg:block" /> Minds
                         </h2>
-                        <p className="text-[16px] text-gray-700 max-w-[400px] leading-relaxed">
+                        <p className="text-[16px] sm:text-[18px] text-gray-700 max-w-[400px] leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
                             Where people feel heard, supported and empowered
                         </p>
                     </div>
 
                     {/* Right Column: Stats Grid */}
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-10">
-                        <div>
-                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">50,000+</div>
-                            <div className="text-[14px] text-gray-600 font-medium">Lives Impacted</div>
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:gap-x-12 sm:gap-y-16">
+                        <div className="text-center lg:text-left">
+                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">50,000+</div>
+                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Lives Impacted</div>
                         </div>
-                        <div>
-                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">4.8/5</div>
-                            <div className="text-[14px] text-gray-600 font-medium">Client Ratings</div>
+                        <div className="text-center lg:text-left">
+                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">4.8/5</div>
+                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Client Ratings</div>
                         </div>
-                        <div>
-                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">5,000+</div>
-                            <div className="text-[14px] text-gray-600 font-medium">Active Learners</div>
+                        <div className="text-center lg:text-left">
+                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">5,000+</div>
+                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Active Learners</div>
                         </div>
-                        <div>
-                            <div className="text-[28px] sm:text-[32px] font-bold text-[#520378] mb-1">300+</div>
-                            <div className="text-[14px] text-gray-600 font-medium">Sessions conducted</div>
+                        <div className="text-center lg:text-left">
+                            <div className="text-[28px] sm:text-[40px] font-bold text-[#520378] mb-1">300+</div>
+                            <div className="text-[14px] sm:text-[16px] text-gray-600 font-medium uppercase tracking-wider">Sessions conducted</div>
                         </div>
                     </div>
                 </div>
