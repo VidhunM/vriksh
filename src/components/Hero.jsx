@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-60 sm:pt-80">
+        <section className="relative h-[550px] sm:h-[650px] lg:h-[800px] flex items-center justify-center overflow-hidden pt-20 sm:pt-32 lg:pt-40">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0 text-justify">
                 <img
@@ -14,14 +14,14 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white">
+            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-12 sm:py-20">
                 <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
-                    <h1 className="text-[clamp(28px,4.5vw,48px)] font-bold leading-[1.2] tracking-tight mb-5 drop-shadow-md text-center">
+                    <h1 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.2] tracking-tight mb-5 drop-shadow-md text-center">
                         Enriching Minds.<br />
                         <span className="text-white">Strengthening Futures.</span>
                     </h1>
 
-                    <p className="text-[clamp(14px,1.3vw,16px)] mb-8 max-w-[550px] opacity-90 leading-relaxed font-normal text-justify">
+                    <p className="text-[clamp(14px,2.5vw,16px)] mb-8 max-w-[550px] opacity-90 leading-relaxed font-normal text-center sm:text-justify px-2">
                         Confidential, evidence-based mental health and wellbeing solutions for individuals, institutions, and organisations
                     </p>
 

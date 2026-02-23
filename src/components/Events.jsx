@@ -3,54 +3,79 @@ import React from 'react';
 const Events = () => {
     const events = [
         {
-            image: 'https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            title: 'Youth Leadership Program',
-            rating: 4.8,
-            price: '$49.00'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            title: 'Mental Health Workshop',
+            image: '/images/events.png',
+            title: 'Neuro Linguistic Programming - Basics ( Direct )',
             rating: 4.9,
-            price: '$29.00'
+            originalPrice: '₹65,000',
+            currentPrice: '₹49,999'
         },
         {
-            image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            title: 'Career Guidance Seminar',
-            rating: 4.7,
-            price: '$39.00'
+            image: '/images/events.png',
+            title: 'Neuro Linguistic Programming - Basics ( Direct )',
+            rating: 4.9,
+            originalPrice: '₹65,000',
+            currentPrice: '₹49,999'
+        },
+        {
+            image: '/images/events.png',
+            title: 'Neuro Linguistic Programming - Basics ( Direct )',
+            rating: 4.9,
+            originalPrice: '₹65,000',
+            currentPrice: '₹49,999'
         }
     ];
 
     return (
         <section id="events" className="py-20 bg-white">
-            <div className="max-w-[1200px] mx-auto px-5">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-5">
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-3">Upcoming Events</h2>
-                        <p className="text-gray-600">Join our upcoming events and webinars led by world-class instructors.</p>
+            <div className="max-w-[1240px] mx-auto px-6">
+                <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
+                    <div className="max-w-[700px]">
+                        <h2 className="text-4xl font-bold mb-5 text-gray-900">Upcoming Event</h2>
+                        <p className="text-[16px] text-gray-700 leading-relaxed font-normal">
+                            We empower aspiring professionals and communities with live, interactive, skill-based mental health training, bridging theory and real-world practice
+                        </p>
                     </div>
-                    <div className="flex gap-2.5">
-                        <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all">←</button>
-                        <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all">→</button>
+                    <div className="flex gap-3 mt-4 md:mt-0">
+                        <button className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <button className="w-11 h-11 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-gray-500 transition-all">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7.5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {events.map((event, index) => (
-                        <div key={index} className="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                            <div className="h-[200px]">
+                        <div key={index} className="flex flex-col">
+                            <div className="h-[220px] rounded-[24px] overflow-hidden mb-5">
                                 <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-4">{event.title}</h3>
-                                <div className="flex justify-between items-center mb-5">
-                                    <span className="font-semibold text-yellow-500">⭐ {event.rating}</span>
-                                    <span className="font-bold text-lg text-brand-purple">{event.price}</span>
+                            <div className="px-2">
+                                <h3 className="text-[18px] font-bold mb-3 text-gray-950 leading-snug h-[50px] overflow-hidden">
+                                    {event.title}
+                                </h3>
+                                <div className="flex items-center gap-1.5 mb-6">
+                                    <span className="text-[13px] text-gray-600">({event.rating})</span>
+                                    <div className="flex text-orange-400 text-[11px]">
+                                        {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                    </div>
                                 </div>
-                                <button className="w-full bg-brand-purple text-white py-3 rounded-full font-bold hover:bg-brand-purple-light transition-colors">
-                                    Register Now
-                                </button>
+                                <div className="flex justify-between items-center">
+                                    <div className="flex items-center gap-3">
+                                        <span className="text-gray-400 line-through text-[15px]">{event.originalPrice}</span>
+                                        <span className="text-gray-950 font-bold text-[18px]">{event.currentPrice}</span>
+                                    </div>
+                                    <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all">
+                                        Enroll Now
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}
