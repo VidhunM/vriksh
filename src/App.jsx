@@ -1,32 +1,34 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Academy from './components/Academy';
-import Events from './components/Events';
-import Counselling from './components/Counselling';
-import Wellness from './components/Wellness';
-import Corporate from './components/Corporate';
-import Testimonials from './components/Testimonials';
-import WhyVriksh from './components/WhyVriksh';
+import Home from './pages/Home';
+import About from './pages/About';
 import ContactFooter from './components/ContactFooter';
 import './index.css';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isAboutPage = location.pathname === '/about';
+
   return (
     <div className="app">
       <Header />
       <main>
-        <Hero />
-        <Academy />
-        <Events />
-        <Counselling />
-        <Wellness />
-        <Corporate />
-        <WhyVriksh />
-        <Testimonials />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </main>
-      <ContactFooter />
+      {!isAboutPage && <ContactFooter />}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

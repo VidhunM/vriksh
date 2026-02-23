@@ -1,36 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isAboutPage = location.pathname === '/about';
+
+  // State to handle header background on scroll for home page
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const headerClasses = isAboutPage
+    ? 'bg-white border-b border-gray-100 shadow-sm'
+    : isScrolled
+      ? 'bg-[#520378]/80 backdrop-blur-lg shadow-lg'
+      : 'bg-black/10 backdrop-blur-md border-b border-white/5';
+
+  const textClasses = isAboutPage ? 'text-gray-900' : 'text-white';
+  const logoClasses = isAboutPage ? 'brightness-100' : 'brightness-0 invert';
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/5 backdrop-blur-md z-[1000] border-b border-white/10">
+    <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ${headerClasses}`}>
       <div className="max-w-[1240px] mx-auto px-6 flex justify-between items-center h-16 sm:h-20">
-        <div className="flex items-center">
-          <img src="/logo (1) 1.png" alt="VRIKSH Logo" className="h-8 sm:h-11 w-auto object-contain" />
-        </div>
+        <Link to="/" className="flex items-center">
+          <img
+            src="/logo (1) 1.png"
+            alt="VRIKSH Logo"
+            className={`h-8 sm:h-11 w-auto object-contain transition-all ${isAboutPage ? '' : 'brightness-0 invert'}`}
+          />
+        </Link>
 
         <nav className="hidden lg:block ml-auto mr-10">
           <ul className="flex gap-8 sm:gap-10">
             {[
               { label: 'Home', href: '/' },
-              { label: 'About us', href: '#about' },
+              { label: 'About us', href: '/about' },
               { label: 'Services', href: '#services', hasDropdown: true },
               { label: 'Blogs', href: '#blogs' },
               { label: 'Contact us', href: '#contact' }
             ].map((item) => (
               <li key={item.label} className="flex items-center gap-1 group cursor-pointer">
-                <a
-                  href={item.href}
-                  className="font-medium text-[14px] sm:text-[15px] text-white/90 hover:text-white transition-colors flex items-center gap-1"
-                >
-                  {item.label}
-                  {item.hasDropdown && (
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover:opacity-100 transition-opacity">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  )}
-                </a>
+                {item.href.startsWith('/') ? (
+                  <Link
+                    to={item.href}
+                    className={`font-medium text-[14px] sm:text-[15px] transition-colors flex items-center gap-1 hover:text-brand-purple ${textClasses}`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={`font-medium text-[14px] sm:text-[15px] transition-colors flex items-center gap-1 hover:text-brand-purple ${textClasses}`}
+                  >
+                    {item.label}
+                    {item.hasDropdown && (
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover:opacity-100 transition-opacity">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    )}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -48,7 +84,7 @@ const Header = () => {
           </button>
 
           <button
-            className="lg:hidden ml-4 text-2xl text-white p-2"
+            className={`lg:hidden ml-4 text-2xl p-2 md:block ${textClasses}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? '✕' : '☰'}
@@ -59,15 +95,31 @@ const Header = () => {
       {/* Mobile Menu */}
       <div className={`lg:hidden absolute top-full left-0 w-full bg-brand-purple border-t border-white/10 overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[400px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
         <ul className="flex flex-col gap-5 px-6">
-          {['Home', 'About us', 'Services', 'Blogs', 'Contact us'].map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="block text-lg font-medium text-white/90 hover:text-white"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'About us', href: '/about' },
+            { label: 'Services', href: '#services' },
+            { label: 'Blogs', href: '#blogs' },
+            { label: 'Contact us', href: '#contact' }
+          ].map((item) => (
+            <li key={item.label}>
+              {item.href.startsWith('/') ? (
+                <Link
+                  to={item.href}
+                  className="block text-lg font-medium text-white/90 hover:text-white"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  href={item.href}
+                  className="block text-lg font-medium text-white/90 hover:text-white"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
           <li className="pt-2">
