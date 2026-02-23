@@ -28,12 +28,12 @@ const Counselling = () => {
             {/* ✅ Minimal Top Curve - Restored and Forced Visibility */}
             <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20">
                 <svg
-                    className="relative block w-full h-[80px] sm:h-[100px] lg:h-[120px]"
-                    viewBox="0 0 1440 120"
+                    className="relative block w-full h-[50px] sm:h-[70px] lg:h-[90px]"
+                    viewBox="0 0 1440 80"
                     preserveAspectRatio="none"
                 >
                     <path
-                        d="M0,0 L1440,0 L1440,60 C1200,120 1000,0 720,0 C440,0 240,120 0,60 Z"
+                        d="M0,0 L1440,0 L1440,40 C1200,80 960,10 720,10 C480,10 240,80 0,40 Z"
                         fill="#FFFFFF"
                     />
                 </svg>
