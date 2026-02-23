@@ -1,39 +1,120 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Hero = () => {
+    const banners = [
+        {
+            image: '/images/hero.png',
+            title: <span>Enriching Minds.<br />Strengthening Futures.</span>,
+            description: 'Confidential, evidence-based mental health and wellbeing solutions for individuals, institutions, and organisations',
+            buttonText: "Let's Talk"
+        },
+        {
+            image: '/images/banner 2.png',
+            title: "Learn real-world mental health skills with Vriksh E Academy",
+            description: "",
+            buttonText: "Explore Courses"
+        },
+        {
+            image: '/images/banner 3.png',
+            title: "Safe and confidential counselling where your voice truly matters.",
+            description: "",
+            buttonText: "Start Your Healing Journey"
+        },
+        {
+            image: '/images/banner 4.png',
+            title: "Empowering campuses. Transforming young minds",
+            description: "",
+            buttonText: "Get in Touch"
+        },
+        {
+            image: '/images/banner 5.png',
+            title: "Partnering with colleges to shape confident, resilient students",
+            description: "",
+            buttonText: "Partner with us"
+        },
+        {
+            image: '/images/banner 6.png',
+            title: <span>Stronger employees. Resilient teams.<br />Powered by Vriksh EAP</span>,
+            description: "",
+            buttonText: "Get Started"
+        }
+    ];
+
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % banners.length);
+        }, 6000); // 6 seconds per slide
+        return () => clearInterval(interval);
+    }, [banners.length]);
+
     return (
-        <section className="relative h-[450px] sm:h-[550px] lg:h-[650px] flex items-center justify-center overflow-hidden pt-16 sm:pt-24 lg:pt-28">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0 z-0 text-justify">
-                <img
-                    src="/images/hero.png"
-                    alt="Enriching Minds"
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/30"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <section className="relative h-[400px] sm:h-[500px] lg:h-[600px] flex items-end justify-center overflow-hidden pb-8 sm:pb-10">
+            {/* Multi-Banner Slider */}
+            <div className="absolute inset-0 z-0">
+                {banners.map((banner, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                            }`}
+                    >
+                        <img
+                            src={banner.image}
+                            alt={`Banner ${index + 1}`}
+                            className={`w-full h-full object-cover ${index === 1 ? 'object-center' : 'object-top'
+                                } ${index === currentSlide ? 'animate-ken-burns' : ''}`}
+                        />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-black/40"></div>
+                    </div>
+                ))}
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-8 sm:py-12">
-                <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
-                    <h1 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.2] tracking-tight mb-5 drop-shadow-md text-center">
-                        Enriching Minds.<br />
-                        <span className="text-white">Strengthening Futures.</span>
-                    </h1>
+            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white">
+                <div className="max-w-[900px] flex flex-col items-center">
+                    {/* Animated Text Content */}
+                    <div className="relative w-full flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
+                        {banners.map((banner, index) => (
+                            <div
+                                key={index}
+                                className={`transition-all duration-700 w-full flex flex-col items-center ${index === currentSlide
+                                    ? 'opacity-100 translate-y-0 relative'
+                                    : 'opacity-0 translate-y-8 absolute pointer-events-none'
+                                    }`}
+                            >
+                                <h1
+                                    key={`title-${currentSlide}`}
+                                    className={`text-[clamp(32px,7vw,54px)] font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-xl text-center max-w-[850px] ${index === currentSlide ? 'animate-slide-up-fade opacity-0' : ''
+                                        }`}
+                                >
+                                    {banner.title}
+                                </h1>
 
-                    <p className="text-[clamp(15px,2.5vw,18px)] mb-10 max-w-[550px] opacity-95 leading-relaxed font-normal text-center mx-auto px-4">
-                        Confidential, evidence-based mental health and wellbeing solutions for individuals, institutions, and organisations
-                    </p>
+                                {banner.description && (
+                                    <p
+                                        key={`desc-${currentSlide}`}
+                                        className={`text-[clamp(15px,2vw,18px)] mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
+                                            }`}
+                                    >
+                                        {banner.description}
+                                    </p>
+                                )}
 
-                    <div className="flex justify-center">
-                        <button className="bg-white text-brand-purple px-8 py-2.5 rounded-full font-bold text-sm hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl">
-                            Let's Talk
-                        </button>
+                                <div
+                                    key={`btn-${currentSlide}`}
+                                    className={`flex justify-center ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-400' : ''
+                                        }`}
+                                >
+                                    <button className="bg-white text-brand-purple px-10 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                                        {banner.buttonText}
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
-            {/* Subtle bottom fade */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
         </section>
     );
 };
