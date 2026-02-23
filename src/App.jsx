@@ -7,6 +7,7 @@ import Counselling from './components/Counselling';
 import Wellness from './components/Wellness';
 import Corporate from './components/Corporate';
 import Testimonials from './components/Testimonials';
+import WhyVriksh from './components/WhyVriksh';
 import ContactFooter from './components/ContactFooter';
 import './index.css';
 
@@ -21,6 +22,7 @@ function App() {
         <Counselling />
         <Wellness />
         <Corporate />
+        <WhyVriksh />
         <Testimonials />
       </main>
       <ContactFooter />
