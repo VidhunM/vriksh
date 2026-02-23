@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <section className="relative h-[550px] sm:h-[650px] lg:h-[800px] flex items-center justify-center overflow-hidden pt-20 sm:pt-32 lg:pt-40">
+        <section className="relative h-[450px] sm:h-[550px] lg:h-[650px] flex items-center justify-center overflow-hidden pt-16 sm:pt-24 lg:pt-28">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0 text-justify">
                 <img
@@ -14,7 +14,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-12 sm:py-20">
+            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-8 sm:py-12">
                 <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
                     <h1 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.2] tracking-tight mb-5 drop-shadow-md text-center">
                         Enriching Minds.<br />

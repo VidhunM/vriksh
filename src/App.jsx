@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import ContactFooter from './components/ContactFooter';
+import Footer from './components/Footer';
 import './index.css';
 
 function AppContent() {
@@ -20,6 +21,7 @@ function AppContent() {
         </Routes>
       </main>
       {!isAboutPage && <ContactFooter />}
+      <Footer />
     </div>
   );
 }

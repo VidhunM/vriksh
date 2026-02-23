@@ -48,14 +48,10 @@ const Testimonials = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {reviews.map((rev, index) => (
                         <div key={index} className="bg-white p-6 md:p-8 rounded-[32px] shadow-sm flex flex-col h-full">
-                            <div className="flex items-center gap-3.5 mb-6">
-                                <img src={rev.avatar} alt={rev.name} className="w-10 h-10 rounded-full object-cover shadow-sm" />
-                                <h4 className="text-[18px] font-bold text-gray-900">{rev.name}</h4>
-                            </div>
-
                             <div className="mb-4">
-                                <span className="text-[16px] font-medium text-gray-800 block mb-4">{rev.role}</span>
-                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-6 flex-grow">
+                                <h4 className="text-[18px] font-bold text-gray-900 mb-0.5">{rev.name}</h4>
+                                <span className="text-[14px] font-medium text-gray-500 block mb-6">{rev.role}</span>
+                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow">
                                     "{rev.text}"
                                 </p>
                             </div>
