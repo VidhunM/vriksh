@@ -71,8 +71,8 @@ const Hero = () => {
                 ))}
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white">
-                <div className="max-w-[900px] flex flex-col items-center">
+            <div className="relative z-10 max-w-[1240px] w-full px-6 flex flex-col items-center justify-center text-center text-white py-8 sm:py-12">
+                <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
                     {/* Animated Text Content */}
                     <div className="relative w-full flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
                         {banners.map((banner, index) => (
@@ -84,8 +84,8 @@ const Hero = () => {
                                     }`}
                             >
                                 <h1
-                                    key={`title-${currentSlide}`}
-                                    className={`text-[clamp(32px,7vw,54px)] font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-xl text-center max-w-[850px] ${index === currentSlide ? 'animate-slide-up-fade opacity-0' : ''
+                                    key={`title-${index}`}
+                                    className={`text-[clamp(32px,7vw,54px)] font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-xl text-center max-w-[850px] ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
                                         }`}
                                 >
                                     {banner.title}

@@ -31,16 +31,16 @@ const Testimonials = () => {
     return (
         <section id="testimonials" className="py-10 sm:py-14 bg-[#FEF9E7]">
             <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-6 sm:gap-0">
-                    <h2 className="text-[22px] md:text-[30px] font-bold text-gray-900 leading-[1.2] max-w-[500px]">
+                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-12 gap-6 sm:gap-0">
+                    <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2] max-w-[500px] text-center sm:text-left font-inter-tight">
                         Trusted by Individuals, Institutions & Professionals
                     </h2>
                     <div className="flex gap-3 mb-1">
-                        <button className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all">
-                            <svg className="w-4 h-4 text-[#2563eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                        <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <svg className="w-5 h-5 text-[#2563eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                         </button>
-                        <button className="w-9 h-9 rounded-full bg-[#E5E7EB] flex items-center justify-center hover:bg-gray-300 transition-all">
-                            <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        <button className="w-10 h-10 rounded-full bg-[#E5E7EB] flex items-center justify-center hover:bg-gray-300 transition-all">
+                            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ const Testimonials = () => {
                     {reviews.map((rev, index) => (
                         <div key={index} className="bg-white p-6 md:p-8 rounded-[32px] shadow-sm flex flex-col h-full">
                             <div className="mb-4">
-                                <h4 className="text-[18px] font-bold text-gray-900 mb-0.5">{rev.name}</h4>
+                                <h4 className="text-[18px] font-bold text-gray-900 mb-0.5 font-inter-tight">{rev.name}</h4>
                                 <span className="text-[14px] font-medium text-gray-500 block mb-6">{rev.role}</span>
                                 <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow">
                                     "{rev.text}"
