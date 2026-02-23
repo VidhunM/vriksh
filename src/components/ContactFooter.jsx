@@ -105,44 +105,6 @@ const ContactFooter = () => {
                     </div>
                 </div>
             </section>
-
-            <div className="py-12 bg-gray-50 border-t border-gray-100">
-                <div className="max-w-[1100px] mx-auto px-5">
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                        <div className="space-y-4">
-                            <h3 className="text-sm font-bold text-brand-purple uppercase tracking-widest">Counselling</h3>
-                            <ul className="space-y-2 text-sm">
-                                {['Personal Therapy', 'Group therapy', 'Workshops'].map((item) => (
-                                    <li key={item}><a href="#" className="text-gray-500 hover:text-brand-purple transition-colors">{item}</a></li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="space-y-4">
-                            <h3 className="text-sm font-bold text-brand-purple uppercase tracking-widest">Programs</h3>
-                            <ul className="space-y-2 text-sm">
-                                {['E-Academy', 'Skill Dev', 'Events'].map((item) => (
-                                    <li key={item}><a href="#" className="text-gray-500 hover:text-brand-purple transition-colors">{item}</a></li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="space-y-4">
-                            <h3 className="text-sm font-bold text-brand-purple uppercase tracking-widest">Quick Links</h3>
-                            <ul className="space-y-2 text-sm">
-                                {['About Us', 'Careers', 'Contact'].map((item) => (
-                                    <li key={item}><a href="#" className="text-gray-500 hover:text-brand-purple transition-colors">{item}</a></li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="lg:text-right space-y-4">
-                            <div className="inline-flex items-center gap-2 font-extrabold text-xl text-brand-purple tracking-wider">
-                                <span>🌿</span>
-                                <span>VRIKSH</span>
-                            </div>
-                            <p className="text-xs text-gray-400">© 2026 Vriksh. All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </footer>
     );
 };

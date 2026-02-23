@@ -29,8 +29,13 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -41,4 +46,21 @@
 
 .pause-animation:hover {
   animation-play-state: paused;
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-vertical {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  animation: marquee-vertical 20s linear infinite;
 }

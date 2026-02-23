@@ -11,6 +11,8 @@ import WhyVriksh from './components/WhyVriksh';
 import ContactFooter from './components/ContactFooter';
 import './index.css';
 
+import Footer from './components/Footer';
+
 function App() {
   return (
     <div className="app">
@@ -26,6 +28,7 @@ function App() {
         <Testimonials />
       </main>
       <ContactFooter />
+      <Footer />
     </div>
   );
 }
