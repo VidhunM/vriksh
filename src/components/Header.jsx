@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ${headerClasses}`}>
-      <div className="max-w-[1240px] mx-auto px-6 flex justify-between items-center h-16 sm:h-20">
+      <div className="max-w-[1240px] mx-auto px-16 flex justify-between items-center h-18 sm:h-22">
         <Link to="/" className="flex items-center">
           <img
             src="/logo.png"
@@ -61,7 +61,7 @@ const Header = () => {
             ].map((item) => (
               <li
                 key={item.label}
-                className="relative flex items-center gap-1 group cursor-pointer h-full py-4 text-[14px] sm:text-[15px] font-medium transition-colors"
+                className="relative flex items-center gap-1 group cursor-pointer h-full py-4 text-lg sm:text-[19px] font-medium transition-colors"
                 onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
                 onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
               >
@@ -117,7 +117,7 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/upcoming-events" className="hidden sm:flex items-center  bg-[#520378] text-white px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-brand-purple-light transition-all">
+          <Link to="/upcoming-events" className="hidden sm:flex items-center  bg-[#520378] text-white px-8 py-3 rounded-full font-semibold text-[18px] hover:bg-brand-purple-light transition-all">
             Upcoming events
           </Link>
           <Link to="/upcoming-events" className="hidden sm:flex items-center justify-center bg-[#520378] text-white p-3 rounded-full hover:bg-brand-purple-light transition-all group">
@@ -153,7 +153,7 @@ const Header = () => {
               {item.href.startsWith('/') ? (
                 <Link
                   to={item.href}
-                  className={`block text-lg font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
+                  className={`block text-[22px] font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -161,7 +161,7 @@ const Header = () => {
               ) : (
                 <div className="flex flex-col gap-3">
                   <button
-                    className={`flex items-center justify-between w-full text-lg font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
+                    className={`flex items-center justify-between w-full text-[22px] font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
                     onClick={() => item.hasDropdown && setIsServicesOpen(!isServicesOpen)}
                   >
                     {item.label}
@@ -179,7 +179,7 @@ const Header = () => {
                           <Link
                             key={service.label}
                             to={service.href}
-                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-base font-medium`}
+                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-lg font-medium`}
                             onClick={() => {
                               setIsMenuOpen(false);
                               setIsServicesOpen(false);
@@ -191,7 +191,7 @@ const Header = () => {
                           <a
                             key={service.label}
                             href={service.href}
-                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-base font-medium`}
+                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-lg font-medium`}
                             onClick={() => {
                               setIsMenuOpen(false);
                               setIsServicesOpen(false);
@@ -210,7 +210,7 @@ const Header = () => {
           <li className="pt-2">
             <Link
               to="/upcoming-events"
-              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-[#520378] text-white'} py-3 rounded-full font-bold text-center`}
+              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-[#520378] text-white'} py-3 rounded-full font-bold text-center text-lg`}
               onClick={() => setIsMenuOpen(false)}
             >
               Upcoming events

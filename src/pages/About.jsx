@@ -11,9 +11,9 @@ const About = () => {
             </div>
 
             {/* Content Section */}
-            <div className="relative max-w-[1240px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
+            <div className="relative max-w-[1440px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
-                <div 
+                <div
                     className="absolute top-[-80px] left-[-5%] sm:left-[-2%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.4] animate-slide-up-fade"
                     style={{
                         maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 100%)',
@@ -27,19 +27,19 @@ const About = () => {
                     />
                 </div>
 
-                <div className="relative z-10 max-w-[950px] mx-auto text-center">
-                    <h2 className="text-[clamp(32px,4vw,52px)] font-bold text-[#520378] mb-10 tracking-tight font-inter-tight">
+                <div className="relative z-10 max-w-[1435px] mx-auto text-center">
+                    <h2 className="text-[clamp(30px,3vw,50px)] font-bold text-[#520378] mb-10 tracking-tight font-inter-tight">
                         Who We Are ?
                     </h2>
 
-                    <div className="space-y-8 text-gray-800 text-[clamp(16px,1.1vw,19px)] leading-[1.8] font-normal text-justify sm:text-center">
-                        <p className="px-4">
+                    <div className="space-y-8 text-gray-800 max-w-[1100px] mx-auto text-[clamp(19px,1.4vw,22px)] leading-[1.8] font-normal text-justify sm:text-center">
+                        <p className="">
                             Vriksh Psychological Support Services was established to strengthen emotional wellbeing across individuals, institutions, and organisations. We are committed to delivering compassionate, ethical, and evidence-based care, ensuring that the wellbeing and privacy of our clients remain our highest priority.
                         </p>
-                        <p className="px-4">
-                            From individual wellbeing and student development to campus-wide initiatives and corporate resilience programs, we design structured interventions that enhance emotional agility, strengthen performance, and promote sustainable growth.
+                        <p className="">
+                            Through clinical counseling, institutional mental health programs, and high-impact training, we provide accessible and inclusive mental health support. Our goal is to create a nurturing environment where everyone feels heard, valued, and empowered to navigate life's challenges with resilience.
                         </p>
-                        <p className="font-semibold text-gray-950 text-[clamp(17px,1.2vw,20px)] px-4">
+                        <p className="font-semibold text-gray-950 text-[clamp(19px,1.4vw,22px)] px-4">
                             At Vriksh, our focus extends beyond addressing concerns — we are dedicated to building resilient individuals and thriving communities.
                         </p>
                     </div>
@@ -195,10 +195,10 @@ const About = () => {
                     />
                     {/* Overlay with Text and Button */}
                     <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-6">
-                        <h3 className="text-white text-[clamp(20px,3vw,30px)] font-bold mb-4 max-w-[600px] leading-tight font-inter-tight">
+                        <h3 className="text-white text-[clamp(24px,5vw,34px)] font-bold mb-4 max-w-[600px] leading-tight font-inter-tight">
                             Rooted in care, <br className="hidden sm:block" />  Growing with you
                         </h3>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[14px] transition-all transform hover:scale-105">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[17px] transition-all transform hover:scale-115">
                             Get Started
                         </button>
                     </div>

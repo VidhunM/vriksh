@@ -134,7 +134,7 @@ const Hero = () => {
                                     className={`flex justify-start sm:justify-center ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-400' : ''
                                         }`}
                                 >
-                                    <button className="bg-white text-brand-purple px-10 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                                    <button className="bg-white text-[#520378] px-10 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl">
                                         {banner.buttonText}
                                     </button>
                                 </div>
