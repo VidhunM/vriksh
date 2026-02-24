@@ -12,10 +12,10 @@ const ContactFooter = () => {
                                 Get in Touch with <br /> Vriksh
                             </h2>
                             <div className="space-y-6">
-                                <p className="text-[#64748b] text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
                                     Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
                                 </p>
-                                <p className="text-[#64748b] text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
                                     From professional counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide practical, evidence-based support that truly makes a difference.
                                 </p>
                             </div>
@@ -31,29 +31,29 @@ const ContactFooter = () => {
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-[#94a3b8] text-gray-800"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-[#94a3b8] text-gray-800"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
                                     />
                                 </div>
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"
                                         placeholder="Phone Number"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-[#94a3b8] text-gray-800"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Location"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-[#94a3b8] text-gray-800"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
                                     />
                                 </div>
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <div className="relative">
-                                        <select className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all bg-white appearance-none text-[#94a3b8]">
+                                        <select className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all bg-white appearance-none text-gray-950">
                                             <option value="">Services interested in</option>
                                             <option value="counselling">Counselling</option>
                                             <option value="online-workshop">Online Workshop</option>
@@ -69,7 +69,7 @@ const ContactFooter = () => {
                                         </div>
                                     </div>
                                     <div className="relative">
-                                        <select className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all bg-white appearance-none text-[#94a3b8]">
+                                        <select className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all bg-white appearance-none text-gray-950">
                                             <option value="">How did you hear about us?</option>
                                             <option value="google">Google Search</option>
                                             <option value="instagram">Instagram</option>
@@ -90,7 +90,7 @@ const ContactFooter = () => {
                                 <textarea
                                     placeholder="Your message"
                                     rows="4"
-                                    className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-[#94a3b8] text-gray-800 resize-none font-sans"
+                                    className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 resize-none font-sans"
                                 ></textarea>
 
                                 <div className="flex items-start gap-4 py-1">
@@ -101,7 +101,7 @@ const ContactFooter = () => {
                                             className="w-5 h-5 rounded border-[#94a3b8] text-brand-purple focus:ring-0 cursor-pointer"
                                         />
                                     </div>
-                                    <label htmlFor="authorize" className="text-[14px] text-[#64748b] cursor-pointer leading-snug font-medium">
+                                    <label htmlFor="authorize" className="text-[14px] text-gray-950 cursor-pointer leading-snug font-medium">
                                         I authorize Vriksh Psychological Support Services to contact me with <br className="hidden sm:block" /> updates and notifications
                                     </label>
                                 </div>

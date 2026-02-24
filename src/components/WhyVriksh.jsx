@@ -9,14 +9,14 @@ const WhyVriksh = () => {
             text: 'text-white'
         },
         {
-            title: 'Private & Confidential',
-            icon: '/icons/wk2.png',
+            title: 'Customised Guidance',
+            icon: '/icons/wk5.png',
             bg: 'bg-[#FFAB6F]',
             text: 'text-brand-purple'
         },
         {
-            title: 'Access Anywhere',
-            icon: '/icons/wk3.png',
+            title: 'Private & Confidential',
+            icon: '/icons/wk2.png',
             bg: 'bg-brand-purple',
             text: 'text-white'
         },
@@ -27,28 +27,28 @@ const WhyVriksh = () => {
             text: 'text-brand-purple'
         },
         {
-            title: 'Customised Guidance',
-            icon: '/icons/wk5.png',
-            bg: 'bg-[#FFAB6F]',
-            text: 'text-brand-purple'
+            title: 'Access Anywhere',
+            icon: '/icons/wk3.png',
+            bg: 'bg-brand-purple',
+            text: 'text-white'
         },
         {
             title: 'Indepth Analysis',
             icon: '/icons/wk6.png',
-            bg: 'bg-brand-purple',
-            text: 'text-white'
-        },
-        {
-            title: 'Engaging Sessions',
-            icon: '/icons/wk7.png',
             bg: 'bg-[#FFAB6F]',
             text: 'text-brand-purple'
         },
         {
-            title: 'Follow-Up Care',
-            icon: '/icons/wk8.png',
+            title: 'Engaging Sessions',
+            icon: '/icons/wk7.png',
             bg: 'bg-brand-purple',
             text: 'text-white'
+        },
+        {
+            title: 'Follow-Up Care',
+            icon: '/icons/wk8.png',
+            bg: 'bg-[#FFAB6F]',
+            text: 'text-brand-purple'
         }
     ];
 
