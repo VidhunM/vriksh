@@ -8,6 +8,7 @@ const Header = () => {
 
   // State to handle header background on scroll for home page
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,13 @@ const Header = () => {
       : 'bg-white/10 backdrop-blur-xl border-b border-white/20';
 
   const textClasses = isScrolled || isAboutPage ? 'text-gray-800' : 'text-gray-800';
+
+  const services = [
+    { label: 'Individual Counselling', href: '#individual' },
+    { label: 'Career Counselling', href: '/career-counselling' },
+    { label: 'Group Therapy', href: '#group' },
+    { label: 'Workshops', href: '#workshops' }
+  ];
 
   return (
     <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ${headerClasses}`}>
@@ -45,7 +53,12 @@ const Header = () => {
               { label: 'Blogs', href: '#blogs' },
               { label: 'Contact us', href: '#contact' }
             ].map((item) => (
-              <li key={item.label} className="flex items-center gap-1 group cursor-pointer">
+              <li
+                key={item.label}
+                className="relative flex items-center gap-1 group cursor-pointer h-full py-4"
+                onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
+                onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
+              >
                 {item.href.startsWith('/') ? (
                   <Link
                     to={item.href}
@@ -54,17 +67,46 @@ const Header = () => {
                     {item.label}
                   </Link>
                 ) : (
-                  <a
-                    href={item.href}
-                    className="font-medium text-[14px] sm:text-[15px] text-gray-700 transition-colors flex items-center gap-1 hover:text-brand-purple"
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover:opacity-100 transition-opacity">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={item.label === 'Services' ? undefined : item.href}
+                      className="font-medium text-[14px] sm:text-[15px] text-gray-700 transition-colors flex items-center gap-1 hover:text-brand-purple"
+                    >
+                      {item.label}
+                      {item.hasDropdown && (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`opacity-70 group-hover:opacity-100 transition-all ${isServicesOpen && item.hasDropdown ? 'rotate-180' : ''}`}>
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      )}
+                    </a>
+
+                    {/* Services Dropdown */}
+                    {item.hasDropdown && isServicesOpen && (
+                      <div className="absolute top-full left-0 w-64 bg-white shadow-xl rounded-2xl py-4 flex flex-col border border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
+                        {services.map((service) => (
+                          service.href.startsWith('/') ? (
+                            <Link
+                              key={service.label}
+                              to={service.href}
+                              className="px-6 py-2.5 text-sm text-gray-700 hover:bg-brand-purple/10 hover:text-brand-purple transition-colors font-medium"
+                              onClick={() => setIsServicesOpen(false)}
+                            >
+                              {service.label}
+                            </Link>
+                          ) : (
+                            <a
+                              key={service.label}
+                              href={service.href}
+                              className="px-6 py-2.5 text-sm text-gray-700 hover:bg-brand-purple/10 hover:text-brand-purple transition-colors font-medium"
+                              onClick={() => setIsServicesOpen(false)}
+                            >
+                              {service.label}
+                            </a>
+                          )
+                        ))}
+                      </div>
                     )}
-                  </a>
+                  </div>
                 )}
               </li>
             ))}
@@ -72,15 +114,15 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button className="hidden sm:flex items-center bg-brand-purple text-white px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-brand-purple-light transition-all">
+          <Link to="/upcoming-events" className="hidden sm:flex items-center bg-brand-purple text-white px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-brand-purple-light transition-all">
             Upcoming events
-          </button>
-          <button className="hidden sm:flex items-center justify-center bg-brand-purple text-white p-3 rounded-full hover:bg-brand-purple-light transition-all group">
+          </Link>
+          <Link to="/upcoming-events" className="hidden sm:flex items-center justify-center bg-brand-purple text-white p-3 rounded-full hover:bg-brand-purple-light transition-all group">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-          </button>
+          </Link>
 
           <button
             className="lg:hidden ml-4 text-2xl p-2 md:block text-brand-purple"
@@ -97,7 +139,7 @@ const Header = () => {
           {[
             { label: 'Home', href: '/' },
             { label: 'About us', href: '/about' },
-            { label: 'Services', href: '#services' },
+            { label: 'Services', href: '#services', hasDropdown: true },
             { label: 'Blogs', href: '#blogs' },
             { label: 'Contact us', href: '#contact' }
           ].map((item) => (
@@ -111,18 +153,62 @@ const Header = () => {
                   {item.label}
                 </Link>
               ) : (
-                <a
-                  href={item.href}
-                  className="block text-lg font-medium text-white/90 hover:text-white"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
+                <div className="flex flex-col gap-3">
+                  <button
+                    className="flex items-center justify-between w-full text-lg font-medium text-white/90 hover:text-white"
+                    onClick={() => item.hasDropdown && setIsServicesOpen(!isServicesOpen)}
+                  >
+                    {item.label}
+                    {item.hasDropdown && (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    )}
+                  </button>
+
+                  {item.hasDropdown && isServicesOpen && (
+                    <div className="flex flex-col gap-4 pl-4 pb-2 border-l-2 border-white/20 ml-2 animate-in fade-in slide-in-from-top-1">
+                      {services.map((service) => (
+                        service.href.startsWith('/') ? (
+                          <Link
+                            key={service.label}
+                            to={service.href}
+                            className="text-white/70 hover:text-white text-base font-medium"
+                            onClick={() => {
+                              setIsMenuOpen(false);
+                              setIsServicesOpen(false);
+                            }}
+                          >
+                            {service.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={service.label}
+                            href={service.href}
+                            className="text-white/70 hover:text-white text-base font-medium"
+                            onClick={() => {
+                              setIsMenuOpen(false);
+                              setIsServicesOpen(false);
+                            }}
+                          >
+                            {service.label}
+                          </a>
+                        )
+                      ))}
+                    </div>
+                  )}
+                </div>
               )}
             </li>
           ))}
           <li className="pt-2">
-            <button className="w-full bg-white text-brand-purple py-3 rounded-full font-bold">Upcoming events</button>
+            <Link
+              to="/upcoming-events"
+              className="block w-full bg-white text-brand-purple py-3 rounded-full font-bold text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Upcoming events
+            </Link>
           </li>
         </ul>
       </div>
