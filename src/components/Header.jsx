@@ -14,6 +14,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    handleScroll(); // Initialize on mount
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -21,10 +22,12 @@ const Header = () => {
   const headerClasses = isAboutPage
     ? 'bg-white border-b border-gray-100 shadow-sm'
     : isScrolled
-      ? 'bg-white/30 backdrop-blur-xl border-b border-white/30 shadow-lg'
+      ? 'bg-brand-purple/40 backdrop-blur-xl border-b border-white/10 shadow-lg'
       : 'bg-white/10 backdrop-blur-xl border-b border-white/20';
 
-  const textClasses = isScrolled || isAboutPage ? 'text-gray-800' : 'text-gray-800';
+  const textClasses = isAboutPage
+    ? (isScrolled ? 'text-gray-900 hover:text-brand-purple' : 'text-gray-700 hover:text-brand-purple')
+    : 'text-white/90 hover:text-white';
 
   const services = [
     { label: 'Individual Counselling', href: '#individual' },
@@ -38,7 +41,7 @@ const Header = () => {
       <div className="max-w-[1240px] mx-auto px-6 flex justify-between items-center h-16 sm:h-20">
         <Link to="/" className="flex items-center">
           <img
-            src="/logo (1) 1.png"
+            src="/logo.png"
             alt="VRIKSH Logo"
             className="h-8 sm:h-11 w-auto object-contain"
           />
@@ -62,11 +65,12 @@ const Header = () => {
                 {item.href.startsWith('/') ? (
                   <Link
                     to={item.href}
-                    className="font-medium text-[14px] sm:text-[15px] text-gray-700 transition-colors flex items-center gap-1 hover:text-brand-purple"
+                    className={`font-medium text-[14px] sm:text-[15px] transition-colors flex items-center gap-1 ${textClasses}`}
                   >
                     {item.label}
                   </Link>
                 ) : (
+<<<<<<< Updated upstream
                   <div className="flex items-center gap-1">
                     <a
                       href={item.label === 'Services' ? undefined : item.href}
@@ -105,6 +109,17 @@ const Header = () => {
                           )
                         ))}
                       </div>
+=======
+                  <a
+                    href={item.href}
+                    className={`font-medium text-[14px] sm:text-[15px] transition-colors flex items-center gap-1 ${textClasses}`}
+                  >
+                    {item.label}
+                    {item.hasDropdown && (
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover:opacity-100 transition-opacity">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+>>>>>>> Stashed changes
                     )}
                   </div>
                 )}

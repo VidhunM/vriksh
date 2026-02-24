@@ -24,8 +24,8 @@ const Wellness = () => {
                             </h2>
 
                             <p className="text-[15px] text-gray-800 leading-relaxed font-normal mb-8">
-                                We partner with schools and colleges to strengthen student communities through counselling, career guidance, life skills training, personality development, and more - nurturing confident, resilient young individuals.
-                            </p>
+                                Want to build a supportive ecosystem that empowers your students to thrive emotionally and academically?
+                                We partner with schools and colleges to strengthen student communities through counselling, career guidance, life skills training, personality development, and more - nurturing confident, resilient young individuals.                             </p>
 
                             <div className="mb-10">
                                 <h4 className="text-[17px] font-bold text-gray-900 mb-5">Choose Your Institution</h4>
@@ -39,9 +39,9 @@ const Wellness = () => {
                                 </div>
                             </div>
 
-                            {/* Existing Card Design with Internal Marquee */}
-                            <div className="border border-gray-200 rounded-[24px] p-5 sm:p-6 bg-white shadow-sm max-w-[500px] mx-auto lg:mx-0 overflow-hidden">
-                                <div className="animate-marquee hover:pause-animation flex items-center gap-6 sm:gap-10">
+                            {/* Logo Card with Internal Marquee */}
+                            <div className="border border-gray-200 rounded-[20px] py-1.5 sm:py-2.5 px-6 sm:px-10 bg-white shadow-sm max-w-[700px] mx-auto lg:mx-0 overflow-hidden">
+                                <div className="animate-marquee hover:pause-animation flex items-center gap-12 sm:gap-20">
                                     {[
                                         { icon: '/icons/w icon1.png', label: 'Counselling' },
                                         { icon: '/icons/w icon2.png', label: 'Career Guidance' },
@@ -51,8 +51,8 @@ const Wellness = () => {
                                         { icon: '/icons/w icon6.png', label: 'Teacher Training' },
                                         { icon: '/icons/w icon7.png', label: 'Parenting Sessions' },
                                     ].map((item, idx) => (
-                                        <div key={idx} className="flex flex-col items-center justify-center shrink-0 min-w-[75px] sm:min-w-[85px]">
-                                            <div className="h-[45px] sm:h-[55px] w-auto bg-gray-50/50 rounded-xl p-2 border border-gray-100/50 transition-all duration-300 hover:scale-110 shadow-sm">
+                                        <div key={idx} className="flex flex-col items-center justify-center shrink-0 min-w-[90px] sm:min-w-[110px]">
+                                            <div className="h-[45px] sm:h-[60px] w-auto transition-all duration-300 hover:scale-110">
                                                 <img src={item.icon} alt={item.label} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>
@@ -67,8 +67,8 @@ const Wellness = () => {
                                         { icon: '/icons/w icon6.png', label: 'Teacher Training' },
                                         { icon: '/icons/w icon7.png', label: 'Parenting Sessions' },
                                     ].map((item, idx) => (
-                                        <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 min-w-[75px] sm:min-w-[85px]">
-                                            <div className="h-[45px] sm:h-[55px] w-auto bg-gray-50/50 rounded-xl p-2 border border-gray-100/50 transition-all duration-300 hover:scale-110 shadow-sm">
+                                        <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 min-w-[90px] sm:min-w-[110px]">
+                                            <div className="h-[45px] sm:h-[60px] w-auto transition-all duration-300 hover:scale-110">
                                                 <img src={item.icon} alt={item.label} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>

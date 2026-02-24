@@ -29,10 +29,10 @@ const Events = () => {
         <section id="events" className="py-12 sm:py-16 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
-                    <div className="max-w-[700px] text-center md:text-left">
+                    <div className="max-w-[850px] text-center md:text-left">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-5 text-gray-900 font-inter-tight">Upcoming Event</h2>
                         <p className="text-[16px] text-gray-700 leading-relaxed font-normal">
-                            We empower aspiring professionals and communities with live, interactive, skill-based mental health training, bridging theory and real-world practice
+                            We empower aspiring professionals and communities with live, interactive, skill-based mental health learning through trainings, experiential workshops, and certificate courses designed for real-world practice.
                         </p>
                     </div>
                     <div className="flex gap-3 mt-4 md:mt-0">

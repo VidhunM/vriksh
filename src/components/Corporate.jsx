@@ -5,19 +5,19 @@ const Corporate = () => {
         {
             number: '01',
             title: 'Webinars',
-            desc: 'Led by experienced psychologists, our curated and highly interactive sessions foster insight, reflection, and practical workplace application',
+            desc: 'Led by experienced psychologists, our curated and highly interactive sessions foster insight, reflection, and practical workplace application.',
             buttonText: 'Elevate Your Workforce'
         },
         {
             number: '02',
             title: 'Training Programs',
-            desc: 'Expert-led, experiential programs designed to foster insight, enhance capabilities, and drive workplace excellence',
+            desc: 'Expert-led, experiential programs designed to foster insight, enhance capabilities, and drive workplace excellence.',
             buttonText: 'Strengthen Your Team'
         },
         {
             number: '03',
             title: 'Employee Assistance Program (EAP)',
-            desc: 'Expert-designed, tailored wellbeing solutions that strengthen employee resilience, improve performance, and support a healthier workplace culture',
+            desc: 'Expert-designed, tailored wellbeing solutions that strengthen employee resilience, improve performance, and support a healthier workplace culture.',
             buttonText: 'Build a Resilient Workforce'
         }
     ];
@@ -38,7 +38,8 @@ const Corporate = () => {
                     <div className="text-center lg:text-left">
                         <h2 className="text-[28px] md:text-[40px] font-bold mb-6 leading-tight font-inter-tight">Corporate Institutions</h2>
                         <p className="text-[16px] md:text-[17px] opacity-90 mb-8 leading-relaxed max-w-[500px] mx-auto lg:mx-0">
-                            At Vriksh, we help organisations build emotionally strong, focused, and future-ready teams. Our structured workplace wellbeing solutions enhance productivity, engagement, and overall performance. We design personalised programs that align with your organisational goals - because when your people thrive, your business grows.
+                            A resilient workforce is the foundation of a high-performing organisation.
+                            At Vriksh, we help organisations build emotionally strong, focused, and future-ready teams. Our structured workplace wellbeing solutions enhance productivity, engagement, and overall performance. We design personalised programs that align with your organisational goals -  because when your people thrive, your business grows.
                         </p>
                         <button className="bg-white text-[#4A148C] px-8 py-2.5 rounded-full font-bold text-base hover:bg-brand-cream hover:-translate-y-1 transition-all shadow-lg active:scale-95">
                             Enquire Now
