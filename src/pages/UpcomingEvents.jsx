@@ -12,7 +12,10 @@ const UpcomingEvents = () => {
             </div>
 
             {/* Main Content */}
-            <div className="bg-[#FFFCE4] py-8 sm:py-14">
+            <div
+                className="py-8 sm:py-14"
+                style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
+            >
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                     {/* Left Column: Text Content */}
@@ -92,13 +95,13 @@ const UpcomingEvents = () => {
                                     <h3 className="text-lg font-bold text-[#520378] leading-tight mb-2">
                                         Intervention strategies in school counselling
                                     </h3>
-                                    <p className="text-[13px] text-gray-600 mb-3 line-clamp-2">
+                                    <p className="text-base text-gray-600 mb-3 line-clamp-2">
                                         From theory to practice: Activity-based school counselling tools
                                     </p>
 
                                     <div className="h-px bg-gray-200 mb-3"></div>
 
-                                    <p className="text-[13px] font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                    <p className="text-base font-bold text-gray-900 mb-3 flex items-center gap-2">
                                         Live | Online | Accessible Worldwide
                                     </p>
 
@@ -126,7 +129,7 @@ const UpcomingEvents = () => {
                                     <div className="flex justify-between items-center mb-4">
                                         <div className="flex items-center gap-1.5">
                                             <span className="text-[13px] font-bold text-gray-700">(4.9)</span>
-                                            <div className="flex text-orange-400 text-[14px]">
+                                            <div className="flex text-orange-400 text-[18px]">
                                                 {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                             </div>
                                         </div>
@@ -135,10 +138,10 @@ const UpcomingEvents = () => {
 
                                     {/* Action Buttons */}
                                     <div className="flex gap-2.5 mt-auto pb-1">
-                                        <button className="flex-1 bg-[#520378] text-white py-2 rounded-full font-bold text-[13px] hover:bg-[#6b049d] transition-colors whitespace-nowrap">
+                                        <button className="flex-1 bg-[#520378] text-white py-2 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors whitespace-nowrap">
                                             Know more
                                         </button>
-                                        <button className="flex-1 border-2 border-[#520378] text-[#520378] py-2 rounded-full font-bold text-[13px] hover:bg-[#520378] hover:text-white transition-all whitespace-nowrap">
+                                        <button className="flex-1 border-2 border-[#520378] text-[#520378] py-2 rounded-full font-bold text-sm hover:bg-[#520378] hover:text-white transition-all whitespace-nowrap">
                                             Enroll Now
                                         </button>
                                     </div>
@@ -156,7 +159,7 @@ const UpcomingEvents = () => {
                     <img
                         src="/images/journey background.png"
                         alt=""
-                        className="w-full h-full object-cover object-bottom opacity-80 brightness-[0.8]"
+                        className="w-full h-full object-cover object-bottom opacity-80 brightness-[0.7]"
                     />
                 </div>
 
@@ -210,7 +213,10 @@ const UpcomingEvents = () => {
             </div>
 
             {/* Testimonials Section */}
-            <div className="bg-[#FFFCE4] py-8 sm:py-16">
+            <div
+                className="py-8 sm:py-16"
+                style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
+            >
                 <div className="max-w-[1240px] mx-auto px-6">
                     {/* Header with Title and Nav Arrows */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
@@ -239,9 +245,9 @@ const UpcomingEvents = () => {
                             <div key={item} className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow">
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-gray-950 mb-1">Ananya R.</h3>
-                                    <p className="text-sm text-gray-600">Individual Counselling Client</p>
+                                    <p className="text-base text-gray-600">Individual Counselling Client</p>
                                 </div>
-                                <p className="text-gray-700 leading-relaxed mb-8 italic">
+                                <p className="text-base text-gray-700 leading-relaxed mb-8 italic">
                                     "Vriksh provided me with a safe and understanding space to express myself.
                                     The sessions helped me manage my anxiety and rebuild my confidence step
                                     by step. I truly felt heard and supported throughout my journey."
@@ -254,11 +260,11 @@ const UpcomingEvents = () => {
                                             <path d="M5.84 14.09c-.22-.67-.35-1.39-.35-2.09s.13-1.42.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05" />
                                             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                                         </svg>
-                                        <div className="flex text-orange-400 text-[14px]">
+                                        <div className="flex text-orange-400 text-[18px]">
                                             {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                         </div>
                                     </div>
-                                    <span className="text-sm font-bold text-gray-800">June 2025</span>
+                                    <span className="text-base font-bold text-gray-800">June 2025</span>
                                 </div>
                             </div>
                         ))}
@@ -267,34 +273,26 @@ const UpcomingEvents = () => {
             </div>
 
             {/* Our Trusted Partners Section */}
-            <div className="bg-white py-6 sm:py-10 overflow-hidden">
-                <div className="max-w-[1240px] mx-auto px-6 mb-8 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-3"> Trusted by the Best</h2>
-                    <div className="w-16 h-1 bg-brand-purple mx-auto rounded-full"></div>
-                </div>
+            <div className="bg-white py-8 sm:py-12">
+                <div className="max-w-[1240px] mx-auto px-6 text-center">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide">
+                        Trusted by the Best
+                    </h2>
 
-                <div className="relative">
-                    <div className="animate-marquee flex gap-8 items-center">
-                        {/* First set of logos */}
-                        {[1, 2, 3, 4, 5, 6].map((num) => (
-                            <div key={`logo-1-${num}`} className="bg-gray-50 p-4 rounded-xl min-w-[160px] flex items-center justify-center hover:bg-white hover:shadow-md transition-all duration-300">
-                                <img
-                                    src={`/icons/w icon${num}.png`}
-                                    alt={`Partner Logo ${num}`}
-                                    className="max-h-12 w-auto object-contain transition-all duration-300"
-                                />
-                            </div>
-                        ))}
-                        {/* Second set of logos for seamless loop */}
-                        {[1, 2, 3, 4, 5, 6].map((num) => (
-                            <div key={`logo-2-${num}`} className="bg-gray-50 p-4 rounded-xl min-w-[160px] flex items-center justify-center hover:bg-white hover:shadow-md transition-all duration-300">
-                                <img
-                                    src={`/icons/w icon${num}.png`}
-                                    alt={`Partner Logo ${num}`}
-                                    className="max-h-12 w-auto object-contain transition-all duration-300"
-                                />
-                            </div>
-                        ))}
+                    {/* Logos Container Capsule - Exactly matching the image style */}
+                    <div className="max-w-[1200px] mx-auto border border-black rounded-full py-5 sm:py-8 px-4 overflow-hidden relative">
+                        <div className="animate-marquee flex gap-12 sm:gap-20 items-center">
+                            {/* Duplicate set of logos for seamless loop */}
+                            {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((num, index) => (
+                                <div key={index} className="flex-shrink-0 flex items-center justify-center">
+                                    <img
+                                        src={`/icons/w icon${num}.png`}
+                                        alt={`Partner Logo ${index + 1}`}
+                                        className="h-8 sm:h-11 w-auto object-contain"
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -321,10 +319,9 @@ const UpcomingEvents = () => {
                                     <span className="text-base sm:text-lg font-bold text-gray-900 pr-6">
                                         {index + 1}. {question}
                                     </span>
-                                    <div className="w-9 h-9 rounded-full bg-[#520378] text-white flex items-center justify-center shrink-0 shadow-md transform group-hover:scale-105 transition-transform">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <line x1="12" y1="19" x2="12" y2="5"></line>
-                                            <polyline points="5 12 12 5 19 12"></polyline>
+                                    <div className="text-gray-900 transition-colors shrink-0">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M7 10l5 5 5-5z" />
                                         </svg>
                                     </div>
                                 </div>
