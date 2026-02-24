@@ -67,7 +67,7 @@ const Academy = () => {
 
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {categories.map((cat, index) => (
-                                <div key={index} className="bg-[#FCA65B] p-5 rounded-2xl flex flex-col items-center justify-center text-center shadow-lg border border-black/5 hover:scale-[1.02] transition-transform">
+                                <div key={index} className={`bg-[#FCA65B] p-5 ${index === 0 ? 'pt-10' : ''} rounded-2xl flex flex-col items-center justify-center text-center shadow-lg border border-black/5 hover:scale-[1.02] transition-transform`}>
                                     <h3 className="text-[16px] font-bold mb-3 text-gray-950 uppercase tracking-[0.05em] [word-spacing:0.15em] w-full font-inter-tight leading-tight">{cat.title}</h3>
                                     <p className="text-[12.5px] text-gray-950/90 mb-8 leading-[1.6] flex-grow font-medium w-full text-center">
                                         {cat.desc}
