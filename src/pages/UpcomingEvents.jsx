@@ -6,33 +6,35 @@ const UpcomingEvents = () => {
         <div className="pt-0">
             {/* Header Banner - Adjusted for fixed glassy header */}
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
-                <h1 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-wider">
-                    Upcoming Workshop
+                <h1 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-wider font-geist">
+                    UPCOMING WORKSHOP
                 </h1>
             </div>
 
             {/* Main Content */}
             <div
-                className="py-8 sm:py-14"
+                className="py-10 sm:py-20"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                     {/* Left Column: Text Content */}
                     <div className="flex-1 text-left">
-                        <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-[1.1] mb-6 font-inter-tight">
+                        <h2 className="text-[28px] sm:text-[36px] lg:text-[32px] font-semibold text-gray-900 leading-[1.25] mb-8 font-geist tracking-normal">
                             Bridging Education to <br /> Professional Practice
                         </h2>
 
-                        <p className="text-lg sm:text-xl font-bold text-[#520378] mb-5 italic">
-                            Join 5,000+ learners mastering psychology with confidence
-                        </p>
+                        <div className="space-y-3">
+                            <p className="text-lg sm:text-xl font-bold text-[#520378] italic whitespace-nowrap break-keep">
+                                Join 5,000+ learners mastering psychology with confidence
+                            </p>
 
-                        <p className="text-base text-gray-700 leading-relaxed max-w-[480px]">
-                            Bridging theory and real-world practice to deliver accessible,
-                            lifelong learning through customized workshops, training
-                            programs, and certification courses
-                        </p>
+                            <p className="text-base text-gray-700 leading-relaxed max-w-[440px]">
+                                Bridging theory and real-world practice to deliver accessible,
+                                lifelong learning through customized workshops, training
+                                programs, and certification courses
+                            </p>
+                        </div>
                     </div>
 
                     {/* Right Column: New Composite Hero Image */}
@@ -43,7 +45,6 @@ const UpcomingEvents = () => {
                             className="w-full h-auto object-contain"
                         />
                     </div>
-
                 </div>
             </div>
 
@@ -53,7 +54,7 @@ const UpcomingEvents = () => {
                     {/* Header with Title and Nav Arrows */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
                         <div className="max-w-[800px]">
-                            <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-gray-900">
+                            <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-gray-900 font-geist">
                                 Explore Upcoming Events
                             </h2>
                             <p className="text-base text-gray-700 leading-relaxed">
@@ -92,7 +93,7 @@ const UpcomingEvents = () => {
 
                                 {/* Card Content */}
                                 <div className="px-1.5">
-                                    <h3 className="text-lg font-bold text-[#520378] leading-tight mb-2">
+                                    <h3 className="text-lg font-bold text-[#520378] leading-tight mb-2 font-geist">
                                         Intervention strategies in school counselling
                                     </h3>
                                     <p className="text-base text-gray-600 mb-3 line-clamp-2">
@@ -153,9 +154,9 @@ const UpcomingEvents = () => {
             </div>
 
             {/* Choose the Right Program Section */}
-            <div className="bg-white py-6 sm:py-12 relative overflow-hidden">
+            <div className="bg-white py-4 sm:py-8 relative overflow-hidden">
                 {/* Background Image Asset */}
-                <div className="absolute bottom-0 left-0 w-full h-full pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-full h-[60%] pointer-events-none">
                     <img
                         src="/images/journey background.png"
                         alt=""
@@ -165,7 +166,7 @@ const UpcomingEvents = () => {
 
                 <div className="max-w-[1240px] mx-auto px-6 relative z-10">
                     <div className="text-center max-w-[1100px] mx-auto mb-10">
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-gray-950 whitespace-nowrap overflow-hidden text-ellipsis">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-gray-950 whitespace-nowrap overflow-hidden text-ellipsis font-geist">
                             Choose the Right Program for Your Learning Journey
                         </h2>
                         <p className="text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
@@ -197,7 +198,7 @@ const UpcomingEvents = () => {
                                 <div className="bg-white p-3.5 rounded-2xl text-[#FFB169] mb-6 shadow-sm">
                                     {program.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-950 mb-4">
+                                <h3 className="text-xl font-bold text-gray-950 mb-4 font-geist">
                                     {program.title}
                                 </h3>
                                 <p className="text-base text-gray-900 leading-relaxed mb-auto pb-6">
@@ -220,7 +221,7 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1240px] mx-auto px-6">
                     {/* Header with Title and Nav Arrows */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
-                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-950">
+                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-950 font-geist">
                             What our leaners say
                         </h2>
                         <div className="flex gap-4">
@@ -244,7 +245,7 @@ const UpcomingEvents = () => {
                         {[1, 2, 3].map((item) => (
                             <div key={item} className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow">
                                 <div className="mb-6">
-                                    <h3 className="text-xl font-bold text-gray-950 mb-1">Ananya R.</h3>
+                                    <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">Ananya R.</h3>
                                     <p className="text-base text-gray-600">Individual Counselling Client</p>
                                 </div>
                                 <p className="text-base text-gray-700 leading-relaxed mb-8 italic">
@@ -275,7 +276,7 @@ const UpcomingEvents = () => {
             {/* Our Trusted Partners Section */}
             <div className="bg-white py-8 sm:py-12">
                 <div className="max-w-[1240px] mx-auto px-6 text-center">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
                         Trusted by the Best
                     </h2>
 
@@ -302,7 +303,7 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1100px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full scale-90 lg:scale-95 origin-left">
-                        <h2 className="text-3xl sm:text-[48px] font-black mb-8 text-gray-900 leading-[1.1] tracking-tight">
+                        <h2 className="text-3xl sm:text-[48px] font-black mb-8 text-gray-900 leading-[1.1] tracking-tight font-geist">
                             Frequently asked <br /> questions
                         </h2>
 
