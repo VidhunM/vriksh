@@ -75,7 +75,7 @@ const Events = () => {
                                             <span className="text-gray-950 font-bold text-[17px]">{event.currentPrice}</span>
                                         </div>
                                         <button className="bg-[#520378] text-white px-3 py-2 rounded-full font-bold text-[12px] whitespace-nowrap">
-                                            Enroll Now
+                                            Know more
                                         </button>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@ const Events = () => {
                                         <span className="text-gray-950 font-bold text-[18px]">{event.currentPrice}</span>
                                     </div>
                                     <button className="bg-[#520378] text-white px-6 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all shadow-sm whitespace-nowrap">
-                                        Enroll Now
+                                        Know more
                                     </button>
                                 </div>
                             </div>

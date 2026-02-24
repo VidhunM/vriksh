@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="absolute inset-0 z-20 flex items-center justify-between px-4 sm:px-8 lg:px-12 pointer-events-none">
+            <div className="absolute inset-0 z-20 flex items-center justify-between px-4 sm:px-8 lg:px-12 pointer-events-none translate-y-8">
                 <button
                     onClick={prevSlide}
                     className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white transition-all pointer-events-auto group cursor-pointer"

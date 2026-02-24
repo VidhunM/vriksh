@@ -78,7 +78,7 @@ const Testimonials = () => {
     };
 
     return (
-        <section id="testimonials" className="py-12 sm:py-16 bg-[#FEF9E7]">
+        <section id="testimonials" className="py-12 sm:py-16 bg-gradient-to-b from-[#FEF9E7] to-white">
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-10 gap-6 sm:gap-0">
                     <div className="max-w-[550px]">
@@ -116,8 +116,8 @@ const Testimonials = () => {
                             className="bg-white p-7 md:p-8 rounded-[32px] shadow-sm border border-gray-100 flex flex-col h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
                         >
                             <div className="mb-5">
-                                <h4 className="text-[18px] font-bold text-gray-900 mb-0.5 font-inter-tight">{rev.name}</h4>
-                                <span className="text-[13px] font-semibold text-[#2563eb] bg-blue-50 px-2.5 py-0.5 rounded-full inline-block mb-6">{rev.role}</span>
+                                <h4 className="text-[18px] font-bold text-black mb-0.5 font-inter-tight">{rev.name}</h4>
+                                <span className="text-[13px] font-semibold text-[#272727CC] inline-block mb-4">{rev.role}</span>
                                 <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic">
                                     "{rev.text}"
                                 </p>
@@ -153,8 +153,8 @@ const Testimonials = () => {
                             key={index}
                             onClick={() => setCurrentIndex(index)}
                             className={`h-1.5 rounded-full transition-all duration-300 ${currentIndex === index
-                                    ? 'w-6 bg-[#2563eb]'
-                                    : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                                ? 'w-6 bg-[#2563eb]'
+                                : 'w-1.5 bg-gray-300 hover:bg-gray-400'
                                 }`}
                             aria-label={`Go to slide ${index + 1}`}
                         />
