@@ -35,7 +35,7 @@ const CareerCounselling = () => {
                     <div className="flex-1 order-1 lg:order-2 w-full">
                         <div className="rounded-[24px] overflow-hidden shadow-xl transition-transform hover:scale-[1.01] duration-500">
                             <img
-                                src="/images/counselling 2.png"
+                                src="/images/career hero.png"
                                 alt="Professional career counsellor with student"
                                 className="w-full h-auto object-cover"
                             />
@@ -43,6 +43,7 @@ const CareerCounselling = () => {
                     </div>
                 </div>
             </div>
+
 
             {/* Signs You Might Need Career Guidance Section - Exact match to reference image */}
             <div className="relative py-6 sm:py-10 overflow-hidden bg-white">
@@ -111,9 +112,9 @@ const CareerCounselling = () => {
                 </div>
             </div>
 
-            {/* Stats Section - New section exactly matching reference image */}
-            <div className="bg-white py-12 border-t border-gray-100">
-                <div className="max-w-[1240px] mx-auto px-6">
+            {/* Stats Section - Standardized width for "straight even" layout */}
+            <div className="bg-white py-10 border-t border-gray-100">
+                <div className="max-w-[1320px] mx-auto px-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
@@ -151,14 +152,14 @@ const CareerCounselling = () => {
                 </div>
             </div>
 
-            {/* Make Better Decisions Section - Moved down as requested */}
-            <div className="relative bg-[#520378] pt-10 pb-6 sm:pt-12 sm:pb-8 overflow-hidden">
+            {/* Make Better Decisions Section - Compact styling */}
+            <div className="relative bg-[#520378] pt-8 pb-4 sm:pt-10 sm:pb-6 overflow-hidden">
                 {/* Wavy Top Divider - Matching About page style but for top */}
                 <div className="absolute top-0 left-0 w-full leading-[0] transform rotate-180 -translate-y-[1px]">
                     <svg
                         viewBox="0 0 1440 120"
                         preserveAspectRatio="none"
-                        className="relative block w-full h-[30px] sm:h-[45px]"
+                        className="relative block w-full h-[25px] sm:h-[40px]"
                     >
                         <path
                             d="M0,120 C180,120 180,90 360,90 C540,90 540,120 720,120 C900,120 900,90 1080,90 C1260,90 1260,120 1440,120 V120 H0 Z"
@@ -179,7 +180,7 @@ const CareerCounselling = () => {
                 <div className="relative z-10 max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
                     {/* Left Side: Text Content */}
                     <div className="flex-1 space-y-4">
-                        <h2 className="text-[28px] sm:text-[34px] font-bold leading-[1.05] tracking-tight font-inter-tight">
+                        <h2 className="text-[24px] sm:text-[30px] font-bold leading-[1.05] tracking-tight font-inter-tight">
                             <span className="bg-white text-black px-3 py-1 inline-block mb-2 rounded-sm">Make Better</span>
                             <br />
                             <span className="bg-white text-black px-3 py-1 inline-block rounded-sm">Decisions</span>
@@ -222,6 +223,242 @@ const CareerCounselling = () => {
                                 Ease your career confusion
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Our Career Guidance Services Includes Section - Precisely matching reference image */}
+            <div className="bg-[#FEF8E4] py-12 sm:py-16">
+                <div className="max-w-[1320px] mx-auto px-6">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-black text-center mb-12 font-inter-tight">
+                        Our career guidance services includes
+                    </h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        {[
+                            {
+                                title: "Career Assessments",
+                                text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best",
+                                iconSrc: "/icons/career assement.png"
+                            },
+                            {
+                                title: "Career Counselling",
+                                text: "Get expert guidance and insights to understand your options and make informed decisions for a successful career journey",
+                                iconSrc: "/icons/career counselling.png"
+                            },
+                            {
+                                title: "Career Recommendations",
+                                text: "Receive personalised recommendations based on your strengths, interests, and potential to help you take the next steps toward a successful career",
+                                iconSrc: "/icons/career recommentations.png"
+                            },
+                            {
+                                title: "Career Updates",
+                                text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions",
+                                iconSrc: "/icons/career updates.png"
+                            }
+                        ].map((service, index) => (
+                            <div
+                                key={index}
+                                className="bg-[#FCA65B] p-7 rounded-[20px] flex flex-col min-h-[340px] shadow-sm hover:shadow-md transition-all group"
+                            >
+                                <h3 className="text-[#520378] text-xl font-bold mb-4 font-inter-tight leading-tight">
+                                    {service.title}
+                                </h3>
+                                <p className="text-gray-900 text-[14px] sm:text-[15px] leading-relaxed mb-6 font-medium">
+                                    {service.text}
+                                </p>
+                                <div className="mt-auto ml-auto w-24 h-24">
+                                    <img
+                                        src={service.iconSrc}
+                                        alt={service.title}
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="flex justify-center">
+                        <button className="bg-[#520378] text-white px-10 py-3 rounded-full font-bold text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-lg active:scale-95">
+                            Discover your path
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* What do we assure? Section - Precisely matching reference image */}
+            <div className="bg-white py-12 sm:py-16">
+                <div className="max-w-[1320px] mx-auto px-6">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] text-center mb-16 font-inter-tight">
+                        What do we assure?
+                    </h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-4 lg:gap-6">
+                        {[
+                            {
+                                title: "Personalized Guidance",
+                                text: "Tailored Support for You",
+                                icon: "/icons/Guidance.png"
+                            },
+                            {
+                                title: "Confidentiality",
+                                text: "Secure and Private Sessions",
+                                icon: "/icons/confidential.png"
+                            },
+                            {
+                                title: "Convenience",
+                                text: "Online sessions from the comfort of the your home",
+                                icon: "/icons/convenices.png"
+                            },
+                            {
+                                title: "Expert Support",
+                                text: "Guided by qualified professionals",
+                                icon: "/icons/export support.png"
+                            },
+                            {
+                                title: "Clear Direction",
+                                text: "Make confident career choices.",
+                                icon: "/icons/clear direction.png"
+                            }
+                        ].map((item, index) => (
+                            <div key={index} className="flex flex-col items-center">
+                                {/* Icon Container */}
+                                <div className="w-24 h-24 mb-6 flex items-center justify-center">
+                                    <img
+                                        src={item.icon}
+                                        alt={item.title}
+                                        className="max-w-full max-h-full object-contain"
+                                    />
+                                </div>
+                                {/* Purple Card */}
+                                <div className="bg-[#520378] rounded-[12px] p-5 w-full text-center flex flex-col items-center min-h-[120px] justify-center shadow-lg transform transition-all hover:-translate-y-1">
+                                    <h3 className="text-white text-[15px] sm:text-[17px] font-bold mb-2 font-inter-tight leading-tight px-2">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-white/80 text-[11px] sm:text-[12px] leading-tight font-medium">
+                                        {item.text}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            {/* Testimonials Section - What our Clients say */}
+            <div
+                className="py-16 sm:py-20 border-t border-black/5"
+                style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
+            >
+                <div className="max-w-[1320px] mx-auto px-6">
+                    {/* Header with Navigation */}
+                    <div className="flex justify-between items-end mb-12">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
+                            What our Clients say
+                        </h2>
+                        {/* Carousel Controls */}
+                        <div className="flex gap-3 mb-2">
+                            <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white text-gray-400 hover:border-[#520378] hover:text-[#520378] transition-all shadow-sm">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#520378] hover:text-white transition-all shadow-sm">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Testimonial Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[1, 2, 3].map((_, index) => (
+                            <div key={index} className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
+                                <div className="mb-6">
+                                    <h4 className="text-lg font-bold text-gray-950 mb-0.5">Ananya R.</h4>
+                                    <p className="text-sm text-gray-500 font-medium italic">Individual Counselling Client</p>
+                                </div>
+                                <p className="text-gray-800 text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                    "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."
+                                </p>
+                                {/* Footer with Google & Stars */}
+                                <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-auto">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 flex items-center justify-center">
+                                            <svg viewBox="0 0 24 24" className="w-6 h-6">
+                                                <path
+                                                    fill="#4285F4"
+                                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                                />
+                                                <path
+                                                    fill="#34A853"
+                                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                                />
+                                                <path
+                                                    fill="#FBBC05"
+                                                    d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.84z"
+                                                />
+                                                <path
+                                                    fill="#EA4335"
+                                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <div className="flex">
+                                            {[1, 2, 3, 4, 5].map((star) => (
+                                                <svg key={star} className="w-4 h-4 text-[#FCA65B]" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                                </svg>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <span className="text-sm font-bold text-gray-800">June 2025</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div className="bg-white py-12 sm:py-20">
+                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+                    {/* Left: Questions List */}
+                    <div className="flex-1 w-full">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-10 text-gray-950 font-inter-tight text-left leading-tight">
+                            Frequently asked questions
+                        </h2>
+
+                        <div className="space-y-4">
+                            {[
+                                "What is career counselling?",
+                                "How do I know if I need career guidance?",
+                                "What can I expect from a career assessment?",
+                                "How many sessions will I need?",
+                                "Who are the counsellors?",
+                                "Can I switch career paths after the sessions?"
+                            ].map((question, index) => (
+                                <div key={index} className="bg-[#FFFCE4] hover:bg-[#FFF9CC] py-4 px-8 rounded-[22px] flex items-center justify-between group transition-all cursor-pointer shadow-sm border border-transparent hover:border-orange-100">
+                                    <span className="text-base sm:text-lg font-bold text-gray-900 pr-6 font-inter-tight">
+                                        {index + 1}. {question}
+                                    </span>
+                                    <div className="text-gray-900 transition-colors shrink-0">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M7 10l5 5 5-5z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right: Side Image */}
+                    <div className="flex-1 w-full lg:max-w-[500px] h-auto aspect-[3/3.8] rounded-[36px] overflow-hidden shadow-2xl relative">
+                        <img
+                            src="/images/FAQ.png"
+                            alt="Student taking notes"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                 </div>
             </div>
