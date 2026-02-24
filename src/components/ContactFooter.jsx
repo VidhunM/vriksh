@@ -56,8 +56,13 @@ const ContactFooter = () => {
                                         <select className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all bg-white appearance-none text-[#94a3b8]">
                                             <option value="">Services interested in</option>
                                             <option value="counselling">Counselling</option>
-                                            <option value="wellness">Wellness Programs</option>
-                                            <option value="academy">E-Academy</option>
+                                            <option value="online-workshop">Online Workshop</option>
+                                            <option value="online-training">Online Training Programs</option>
+                                            <option value="online-certificate">Online Certificate Courses</option>
+                                            <option value="career-guidance">Career Guidance</option>
+                                            <option value="corporate">Corporate Programs</option>
+                                            <option value="institution-school">Institution Wellness Program - School</option>
+                                            <option value="institution-college">Institution Wellness Program - College</option>
                                         </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                             <svg className="w-4 h-4 text-[#94a3b8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -66,9 +71,16 @@ const ContactFooter = () => {
                                     <div className="relative">
                                         <select className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all bg-white appearance-none text-[#94a3b8]">
                                             <option value="">How did you hear about us?</option>
-                                            <option value="social">Social Media</option>
-                                            <option value="referral">Referral</option>
-                                            <option value="search">Search Engine</option>
+                                            <option value="google">Google Search</option>
+                                            <option value="instagram">Instagram</option>
+                                            <option value="facebook">Facebook</option>
+                                            <option value="linkedin">LinkedIn</option>
+                                            <option value="referral">Friend/Referral</option>
+                                            <option value="advertisement">Advertisement</option>
+                                            <option value="website">Website</option>
+                                            <option value="email">Email</option>
+                                            <option value="newsletter">Newsletter</option>
+                                            <option value="other">Other</option>
                                         </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                             <svg className="w-4 h-4 text-[#94a3b8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>

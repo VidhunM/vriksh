@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const Testimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
     const reviews = [
         {
@@ -48,61 +49,81 @@ const Testimonials = () => {
         }
     ];
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         setCurrentIndex((prev) => (prev + 1) % reviews.length);
-    };
+    }, [reviews.length]);
 
     const prevSlide = () => {
         setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
     };
 
+    // Auto-advance logic
+    useEffect(() => {
+        if (isPaused) return;
+
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 5000); // 5 seconds
+
+        return () => clearInterval(interval);
+    }, [isPaused, nextSlide]);
+
     // Helper to get visible reviews (handling loop)
     const getVisibleReviews = () => {
-        return [
-            reviews[currentIndex % reviews.length],
-            reviews[(currentIndex + 1) % reviews.length],
-            reviews[(currentIndex + 2) % reviews.length]
-        ];
+        const items = [];
+        for (let i = 0; i < 3; i++) {
+            items.push(reviews[(currentIndex + i) % reviews.length]);
+        }
+        return items;
     };
 
     return (
-        <section id="testimonials" className="py-10 sm:py-14 bg-[#FEF9E7]">
+        <section id="testimonials" className="py-12 sm:py-16 bg-[#FEF9E7]">
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
-                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-12 gap-6 sm:gap-0">
-                    <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2] max-w-[500px] text-center sm:text-left font-inter-tight">
-                        Trusted by Individuals, Institutions & Professionals
-                    </h2>
+                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-10 gap-6 sm:gap-0">
+                    <div className="max-w-[550px]">
+                        <h2 className="text-[24px] md:text-[34px] font-bold text-gray-900 leading-[1.1] text-center sm:text-left font-inter-tight mb-3">
+                            Trusted by Individuals, Institutions & Professionals
+                        </h2>
+                        <p className="text-[#4b5563] text-base md:text-lg text-center sm:text-left">
+                            Real stories from those whose lives have been transformed through Vriksh.
+                        </p>
+                    </div>
                     <div className="flex gap-3 mb-1">
                         <button
                             onClick={prevSlide}
-                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-90"
+                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
                         >
-                            <svg className="w-5 h-5 text-[#2563eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                            <svg className="w-5 h-5 text-gray-600 group-hover:text-[#2563eb] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-90"
+                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
                         >
-                            <svg className="w-5 h-5 text-[#2563eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
+                            <svg className="w-5 h-5 text-gray-600 group-hover:text-[#2563eb] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 transition-all duration-700"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     {getVisibleReviews().map((rev, index) => (
                         <div
                             key={`${rev.name}-${currentIndex}-${index}`}
-                            className="bg-white p-6 md:p-8 rounded-[32px] shadow-sm flex flex-col h-full animate-fadeIn"
+                            className="bg-white p-7 md:p-8 rounded-[32px] shadow-sm border border-gray-100 flex flex-col h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
                         >
-                            <div className="mb-4">
+                            <div className="mb-5">
                                 <h4 className="text-[18px] font-bold text-gray-900 mb-0.5 font-inter-tight">{rev.name}</h4>
-                                <span className="text-[14px] font-medium text-gray-500 block mb-6">{rev.role}</span>
-                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow">
+                                <span className="text-[13px] font-semibold text-[#2563eb] bg-blue-50 px-2.5 py-0.5 rounded-full inline-block mb-6">{rev.role}</span>
+                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic">
                                     "{rev.text}"
                                 </p>
                             </div>
 
-                            <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
+                            <div className="mt-auto pt-5 border-t border-gray-50 flex items-center justify-between">
                                 <div className="flex items-center gap-2.5">
                                     <div className="w-5 h-5 flex items-center justify-center">
                                         <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -120,9 +141,23 @@ const Testimonials = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <span className="text-[13px] font-medium text-gray-800">{rev.date}</span>
+                                <span className="text-[13px] font-medium text-gray-500">{rev.date}</span>
                             </div>
                         </div>
+                    ))}
+                </div>
+
+                <div className="flex justify-center gap-1.5">
+                    {reviews.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentIndex(index)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${currentIndex === index
+                                    ? 'w-6 bg-[#2563eb]'
+                                    : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                                }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
                     ))}
                 </div>
             </div>

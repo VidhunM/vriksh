@@ -41,7 +41,7 @@ const Wellness = () => {
 
                             {/* Logo Card with Internal Marquee */}
                             <div className="border border-gray-200 rounded-[20px] py-1.5 sm:py-2.5 px-6 sm:px-10 bg-white shadow-sm max-w-[700px] mx-auto lg:mx-0 overflow-hidden">
-                                <div className="animate-marquee hover:pause-animation flex items-center gap-12 sm:gap-20">
+                                <div className="animate-marquee hover:pause-animation flex items-center gap-4 sm:gap-8">
                                     {[
                                         { icon: '/icons/w icon1.png', label: 'Counselling' },
                                         { icon: '/icons/w icon2.png', label: 'Career Guidance' },

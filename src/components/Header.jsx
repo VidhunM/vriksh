@@ -22,12 +22,14 @@ const Header = () => {
 
   const headerClasses = isHomePage
     ? (isScrolled
-      ? 'bg-brand-purple/40 backdrop-blur-xl border-b border-white/10 shadow-lg'
+      ? 'bg-white border-b border-gray-100 shadow-md'
       : 'bg-white/10 backdrop-blur-xl border-b border-white/20')
     : 'bg-white border-b border-gray-100 shadow-sm';
 
   const textClasses = isHomePage
-    ? 'text-white/90 hover:text-white'
+    ? (isScrolled
+      ? 'text-gray-950 hover:text-brand-purple'
+      : 'text-white/90 hover:text-white')
     : 'text-gray-950 hover:text-brand-purple';
 
   const services = [
@@ -126,7 +128,10 @@ const Header = () => {
           </Link>
 
           <button
-            className={`lg:hidden ml-4 text-2xl p-2 md:block transition-colors ${isHomePage ? 'text-white' : 'text-gray-900'}`}
+            className={`lg:hidden ml-4 text-2xl p-2 md:block transition-colors ${isHomePage
+              ? (isScrolled ? 'text-gray-900' : 'text-white')
+              : 'text-gray-900'
+              }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? '✕' : '☰'}

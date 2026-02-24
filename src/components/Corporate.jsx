@@ -23,7 +23,7 @@ const Corporate = () => {
     ];
 
     return (
-        <section id="corporate" className="py-10 sm:py-14 bg-[#4A148C] relative overflow-hidden text-white">
+        <section id="corporate" className="py-10 sm:py-14 bg-[#520378] relative overflow-hidden text-white">
             {/* Background Pattern/Overlay */}
             <div className="absolute inset-0 z-0 opacity-40">
                 <img

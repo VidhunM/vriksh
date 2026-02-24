@@ -4,7 +4,7 @@ const Hero = () => {
     const banners = [
         {
             image: '/images/hero.png',
-            title: <span>Enriching Minds.<br />Strengthening Futures.</span>,
+            title: <span>Enriching Minds.<br />Strengthening Future</span>,
             description: 'Confidential, evidence-based mental health and wellbeing solutions for individuals, institutions, and organisations',
             buttonText: "Let's Talk"
         },
@@ -22,7 +22,7 @@ const Hero = () => {
         },
         {
             image: '/images/banner 4.png',
-            title: "Empowering campuses. Transforming young minds",
+            title: "Empowering Campuses Transforming Young Minds",
             description: "",
             buttonText: "Get in Touch"
         },
