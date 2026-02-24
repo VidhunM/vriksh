@@ -19,7 +19,7 @@ const Wellness = () => {
                     {/* Right Column: Content */}
                     <div className="lg:w-1/2 text-center lg:text-left">
                         <div className="max-w-[550px] mx-auto lg:mx-0">
-                            <h2 className="text-[30px] sm:text-[40px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">
+                            <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">
                                 Vriksh Institution Wellness Program
                             </h2>
 

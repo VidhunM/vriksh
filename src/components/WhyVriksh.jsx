@@ -5,49 +5,49 @@ const WhyVriksh = () => {
         {
             title: 'Qualified Experts',
             icon: '/icons/wk1.png',
-            bg: 'bg-brand-purple',
+            bg: 'bg-[#520378]',
             text: 'text-white'
         },
         {
             title: 'Customised Guidance',
             icon: '/icons/wk5.png',
-            bg: 'bg-[#FFAB6F]',
+            bg: 'bg-[#FCA65B]',
             text: 'text-brand-purple'
         },
         {
             title: 'Private & Confidential',
             icon: '/icons/wk2.png',
-            bg: 'bg-brand-purple',
+            bg: 'bg-[#520378]',
             text: 'text-white'
         },
         {
             title: 'One-One Support',
             icon: '/icons/wk4.png',
-            bg: 'bg-[#FFAB6F]',
+            bg: 'bg-[#FCA65B]',
             text: 'text-brand-purple'
         },
         {
             title: 'Access Anywhere',
             icon: '/icons/wk3.png',
-            bg: 'bg-brand-purple',
+            bg: 'bg-[#520378]',
             text: 'text-white'
         },
         {
             title: 'Indepth Analysis',
             icon: '/icons/wk6.png',
-            bg: 'bg-[#FFAB6F]',
+            bg: 'bg-[#FCA65B]',
             text: 'text-brand-purple'
         },
         {
             title: 'Engaging Sessions',
             icon: '/icons/wk7.png',
-            bg: 'bg-brand-purple',
+            bg: 'bg-[#520378]',
             text: 'text-white'
         },
         {
             title: 'Follow-Up Care',
             icon: '/icons/wk8.png',
-            bg: 'bg-[#FFAB6F]',
+            bg: 'bg-[#FCA65B]',
             text: 'text-brand-purple'
         }
     ];

@@ -8,7 +8,7 @@ const ContactFooter = () => {
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
                         {/* Left Side: Content */}
                         <div className="w-full lg:w-[45%] space-y-8">
-                            <h2 className="text-[40px] md:text-[48px] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                            <h2 className="text-[28px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
                                 Get in Touch with <br /> Vriksh
                             </h2>
                             <div className="space-y-6">

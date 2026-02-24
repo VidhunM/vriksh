@@ -36,7 +36,7 @@ const Corporate = () => {
             <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div className="text-center lg:text-left">
-                        <h2 className="text-[28px] md:text-[40px] font-bold mb-6 leading-tight font-inter-tight">Corporate Institutions</h2>
+                        <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 leading-tight font-inter-tight">Corporate Institutions</h2>
                         <p className="text-[16px] md:text-[17px] opacity-90 mb-8 leading-relaxed max-w-[500px] mx-auto lg:mx-0">
                             A resilient workforce is the foundation of a high-performing organisation.
                             At Vriksh, we help organisations build emotionally strong, focused, and future-ready teams. Our structured workplace wellbeing solutions enhance productivity, engagement, and overall performance. We design personalised programs that align with your organisational goals -  because when your people thrive, your business grows.
@@ -61,7 +61,7 @@ const Corporate = () => {
                                     <p className="text-[13px] sm:text-[14px] md:text-[15px] text-gray-600 mb-6 leading-relaxed">
                                         {card.desc}
                                     </p>
-                                    <button className="bg-[#4A148C] text-white px-6 py-2.5 rounded-full font-semibold text-[14px] hover:bg-[#6A1B9A] transition-all hover:-translate-y-0.5 shadow-md active:scale-95">
+                                    <button className="bg-[#520378] text-white px-6 py-2.5 rounded-full font-semibold text-[14px] hover:bg-[#6A1B9A] transition-all hover:-translate-y-0.5 shadow-md active:scale-95">
                                         {card.buttonText}
                                     </button>
                                 </div>

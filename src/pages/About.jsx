@@ -28,7 +28,7 @@ const About = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[1435px] mx-auto text-center">
-                    <h2 className="text-[clamp(30px,3vw,50px)] font-bold text-[#520378] mb-10 tracking-tight font-inter-tight">
+                    <h2 className="text-[28px] sm:text-[34px] font-bold text-[#520378] mb-10 tracking-tight font-inter-tight">
                         Who We Are ?
                     </h2>
 
@@ -49,7 +49,7 @@ const About = () => {
             {/* Mission & Vision Section */}
             <div className="bg-gradient-to-b from-white via-[#FEFCE8] to-[#FEFCE8] py-12 sm:py-16 relative overflow-hidden">
                 <div className="max-w-[1240px] mx-auto px-6 relative z-10">
-                    <h2 className="text-[clamp(26px,3vw,36px)] font-bold text-gray-950 text-center mb-10 tracking-tight font-inter-tight">
+                    <h2 className="text-[28px] sm:text-[34px] font-bold text-gray-950 text-center mb-10 tracking-tight font-inter-tight">
                         Mission & vision
                     </h2>
 

@@ -20,12 +20,34 @@ const Academy = () => {
     ];
 
     return (
-        <section id="academy" className="py-12 sm:py-16 bg-gradient-to-b from-[#FFF9E1] to-white overflow-hidden">
-            <div className="max-w-[1240px] mx-auto px-6">
-                <div className="flex flex-col lg:flex-row gap-12 lg:items-center justify-center">
+        <section id="academy" className="py-12 sm:py-16 bg-gradient-to-b from-[#FFF9E1] to-white overflow-hidden relative">
+            {/* Decorative background element - Top Left */}
+            <div
+                className="absolute top-[-40px] left-[-40px] w-80 h-80 pointer-events-none opacity-[0.5] -rotate-12"
+            >
+                <img
+                    src="/images/abt.png"
+                    alt=""
+                    className="w-full h-full object-contain mix-blend-multiply brightness-[0.9] contrast-[1.1]"
+                />
+            </div>
+
+            {/* Decorative background element - Bottom Right */}
+            <div
+                className="absolute bottom-[-60px] right-[-60px] w-80 h-80 pointer-events-none opacity-[0.5] rotate-[15deg] scale-x-[-1]"
+            >
+                <img
+                    src="/images/abt.png"
+                    alt=""
+                    className="w-full h-full object-contain mix-blend-multiply brightness-[0.9] contrast-[1.1] transition-transform duration-700 hover:scale-105"
+                />
+            </div>
+
+            <div className="max-w-[1240px] mx-auto px-6 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-12 lg:items-center justify-center relative z-10">
                     {/* Left: Image */}
-                    <div className="lg:w-[40%] flex justify-center lg:justify-end">
-                        <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] lg:aspect-square max-w-[400px]">
+                    <div className="lg:w-[45%] flex justify-center lg:justify-end">
+                        <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] lg:aspect-square max-w-[500px]">
                             <img
                                 src="/images/Academy.png"
                                 alt="Student waves at laptop"
@@ -35,9 +57,9 @@ const Academy = () => {
                     </div>
 
                     {/* Right: Content & Cards */}
-                    <div className="lg:w-[60%]">
+                    <div className="lg:w-[55%]">
                         <div className="mb-10 text-center lg:text-left">
-                            <h2 className="text-3xl sm:text-[42px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
+                            <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
                             <p className="text-[19px] text-gray-800 max-w-[660px] leading-[1.8] font-normal mx-auto lg:mx-0">
                                 We empower aspiring professionals and communities with live, interactive, skill based mental health training, bridging theory and real-world practice.
                             </p>

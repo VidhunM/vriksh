@@ -110,6 +110,121 @@ const CareerCounselling = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Stats Section - New section exactly matching reference image */}
+            <div className="bg-white py-12 border-t border-gray-100">
+                <div className="max-w-[1240px] mx-auto px-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
+                        {/* Stat Item 1 */}
+                        <div className="flex-1 flex flex-col items-center text-center">
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">20,000+</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Lives Impacted</p>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-[1px] h-16 bg-black/10"></div>
+
+                        {/* Stat Item 2 */}
+                        <div className="flex-1 flex flex-col items-center text-center">
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">4.8/5</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Client Ratings</p>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-[1px] h-16 bg-black/10"></div>
+
+                        {/* Stat Item 3 */}
+                        <div className="flex-1 flex flex-col items-center text-center">
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">5,000+</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-[1px] h-16 bg-black/10"></div>
+
+                        {/* Stat Item 4 */}
+                        <div className="flex-1 flex flex-col items-center text-center">
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">300+</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Sessions conducted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Make Better Decisions Section - Moved down as requested */}
+            <div className="relative bg-[#520378] pt-10 pb-6 sm:pt-12 sm:pb-8 overflow-hidden">
+                {/* Wavy Top Divider - Matching About page style but for top */}
+                <div className="absolute top-0 left-0 w-full leading-[0] transform rotate-180 -translate-y-[1px]">
+                    <svg
+                        viewBox="0 0 1440 120"
+                        preserveAspectRatio="none"
+                        className="relative block w-full h-[30px] sm:h-[45px]"
+                    >
+                        <path
+                            d="M0,120 C180,120 180,90 360,90 C540,90 540,120 720,120 C900,120 900,90 1080,90 C1260,90 1260,120 1440,120 V120 H0 Z"
+                            fill="white"
+                        />
+                    </svg>
+                </div>
+
+                {/* Background Image Line Art */}
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+                    <img
+                        src="/images/mbd.png"
+                        alt=""
+                        className="w-full h-full object-contain object-center scale-150 sm:scale-110"
+                    />
+                </div>
+
+                <div className="relative z-10 max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
+                    {/* Left Side: Text Content */}
+                    <div className="flex-1 space-y-4">
+                        <h2 className="text-[28px] sm:text-[34px] font-bold leading-[1.05] tracking-tight font-inter-tight">
+                            <span className="bg-white text-black px-3 py-1 inline-block mb-2 rounded-sm">Make Better</span>
+                            <br />
+                            <span className="bg-white text-black px-3 py-1 inline-block rounded-sm">Decisions</span>
+                        </h2>
+                        <p className="text-white/90 text-[15px] sm:text-[16px] leading-relaxed max-w-[450px]">
+                            Discover Yourself To Understand What Truly Drives You, And Choose A Career Path That Fits Your Strengths, Interests, And Aspirations.
+                        </p>
+                    </div>
+
+                    {/* Right Side: Overlapping Circular Process Steps */}
+                    <div className="flex-1 relative w-full max-w-[450px] aspect-[1.1/1] mx-auto lg:mx-0">
+                        {/* Step 01 - Outlined (Top Left) */}
+                        <div className="absolute top-0 left-0 w-[52%] aspect-square rounded-full border border-white/30 flex flex-col justify-center p-4 sm:p-6 text-white text-left z-0">
+                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">01</span>
+                            <p className="text-[11px] sm:text-[14px] font-medium leading-tight">
+                                Know your interest, personality and aptitude
+                            </p>
+                        </div>
+
+                        {/* Step 02 - Solid White (Top Right) */}
+                        <div className="absolute top-[8%] left-[42%] w-[52%] aspect-square rounded-full bg-white flex flex-col justify-center p-4 sm:p-6 text-[#520378] text-left z-20 shadow-xl">
+                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">02</span>
+                            <p className="text-[11px] sm:text-[14px] font-bold leading-tight">
+                                Identify your career path
+                            </p>
+                        </div>
+
+                        {/* Step 03 - Solid White (Bottom Left) */}
+                        <div className="absolute top-[40%] left-[8%] w-[52%] aspect-square rounded-full bg-white flex flex-col justify-center p-4 sm:p-6 text-[#520378] text-left z-30 shadow-xl">
+                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">03</span>
+                            <p className="text-[11px] sm:text-[14px] font-bold leading-tight">
+                                Know your strength and weaknesses
+                            </p>
+                        </div>
+
+                        {/* Step 04 - Outlined (Bottom Right) */}
+                        <div className="absolute top-[48%] left-[48%] w-[52%] aspect-square rounded-full border border-white/30 flex flex-col justify-center p-4 sm:p-6 text-white text-left z-10">
+                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">04</span>
+                            <p className="text-[11px] sm:text-[14px] font-medium leading-tight">
+                                Ease your career confusion
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
