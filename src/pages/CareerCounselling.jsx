@@ -57,7 +57,7 @@ const CareerCounselling = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[1320px] mx-auto px-6">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-[#00382D] text-center mb-8 px-4 font-inter-tight">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-[#062623] text-center mb-8 px-4 font-inter-tight">
                         Signs You Might Need Career Guidance
                     </h2>
 
