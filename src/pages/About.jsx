@@ -12,10 +12,10 @@ const About = () => {
 
             {/* Content Section */}
             <div className="relative max-w-[1240px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
-                {/* Decorative background element - Further lightened for subtle aesthetic */}
-                <div className="absolute top-0 left-[2%] sm:left-[5%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.4] sm:opacity-[0.3]">
-                    {/* Top Gradient Fade */}
-                    <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent z-10"></div>
+                {/* Decorative background element - Positioned significantly higher with slide-up animation */}
+                <div className="absolute top-[-80px] left-[2%] sm:left-[5%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.3] animate-slide-up-fade">
+                    {/* Top Gradient Fade - Darker for white header text contrast */}
+                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 via-black/5 to-transparent z-10"></div>
                     <img
                         src="/images/abt.png"
                         alt=""
@@ -152,11 +152,11 @@ const About = () => {
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-10">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:ml-[10%]">
                     {/* Left Column: Heading */}
-                    <div className="lg:pt-10">
-                        <h2 className="text-[clamp(28px,4vw,34px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
+                    <div className="lg:pt-4">
+                        <h2 className="text-[clamp(36px,5vw,48px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
                             Enriching <br className="hidden lg:block" /> Minds
                         </h2>
-                        <p className="text-[15px] sm:text-[16px] text-gray-700 leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
+                        <p className="text-[18px] sm:text-[20px] text-gray-700 leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
                             Where people feel heard, supported and empowered
                         </p>
                     </div>
@@ -192,7 +192,7 @@ const About = () => {
                     {/* Overlay with Text and Button */}
                     <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-6">
                         <h3 className="text-white text-[clamp(20px,3vw,30px)] font-bold mb-4 max-w-[600px] leading-tight font-inter-tight">
-                            Rooted in care, <br className="hidden sm:block" /> growing with you
+                            Rooted in care, <br className="hidden sm:block" />  Growing with you
                         </h3>
                         <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[14px] transition-all transform hover:scale-105 shadow-lg">
                             Get Started

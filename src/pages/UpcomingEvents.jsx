@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const UpcomingEvents = () => {
     return (
-        <div className="pt-20">
-            {/* Header Banner */}
-            <div className="bg-[#520378] py-4 sm:py-8 text-center">
+        <div className="pt-0">
+            {/* Header Banner - Adjusted for fixed glassy header */}
+            <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
                 <h1 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-wider">
                     Upcoming Workshop
                 </h1>

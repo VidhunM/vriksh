@@ -6,7 +6,6 @@ const Header = () => {
   const location = useLocation();
   const isAboutPage = location.pathname === '/about';
 
-  // State to handle header background on scroll for home page
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
@@ -14,17 +13,16 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const headerClasses = isAboutPage
-    ? 'bg-white border-b border-gray-100 shadow-sm'
-    : isScrolled
-      ? 'bg-white/30 backdrop-blur-xl border-b border-white/30 shadow-lg'
-      : 'bg-white/10 backdrop-blur-xl border-b border-white/20';
+  const headerClasses = isScrolled
+    ? 'bg-brand-purple/40 backdrop-blur-xl border-b border-white/10 shadow-lg'
+    : 'bg-white/10 backdrop-blur-xl border-b border-white/20';
 
-  const textClasses = isScrolled || isAboutPage ? 'text-gray-800' : 'text-gray-800';
+  const textClasses = 'text-white/90 hover:text-white';
 
   const services = [
     { label: 'Individual Counselling', href: '#individual' },
@@ -38,7 +36,7 @@ const Header = () => {
       <div className="max-w-[1240px] mx-auto px-6 flex justify-between items-center h-16 sm:h-20">
         <Link to="/" className="flex items-center">
           <img
-            src="/logo (1) 1.png"
+            src="/logo.png"
             alt="VRIKSH Logo"
             className="h-8 sm:h-11 w-auto object-contain"
           />
@@ -55,22 +53,19 @@ const Header = () => {
             ].map((item) => (
               <li
                 key={item.label}
-                className="relative flex items-center gap-1 group cursor-pointer h-full py-4"
+                className="relative flex items-center gap-1 group cursor-pointer h-full py-4 text-[14px] sm:text-[15px] font-medium transition-colors"
                 onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
                 onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
               >
                 {item.href.startsWith('/') ? (
-                  <Link
-                    to={item.href}
-                    className="font-medium text-[14px] sm:text-[15px] text-gray-700 transition-colors flex items-center gap-1 hover:text-brand-purple"
-                  >
+                  <Link to={item.href} className={`flex items-center gap-1 ${textClasses}`}>
                     {item.label}
                   </Link>
                 ) : (
                   <div className="flex items-center gap-1">
                     <a
                       href={item.label === 'Services' ? undefined : item.href}
-                      className="font-medium text-[14px] sm:text-[15px] text-gray-700 transition-colors flex items-center gap-1 hover:text-brand-purple"
+                      className={`flex items-center gap-1 ${textClasses}`}
                     >
                       {item.label}
                       {item.hasDropdown && (
@@ -125,7 +120,7 @@ const Header = () => {
           </Link>
 
           <button
-            className="lg:hidden ml-4 text-2xl p-2 md:block text-brand-purple"
+            className="lg:hidden ml-4 text-2xl p-2 md:block transition-colors text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? '✕' : '☰'}
@@ -134,7 +129,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 w-full bg-brand-purple border-t border-white/10 overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[400px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
+      <div className={`lg:hidden absolute top-full left-0 w-full bg-brand-purple border-t border-white/10 overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
         <ul className="flex flex-col gap-5 px-6">
           {[
             { label: 'Home', href: '/' },

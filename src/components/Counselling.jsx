@@ -16,7 +16,7 @@ const Counselling = () => {
         'Stress & Anxiety': {
             title: 'Counselling for Stress and Anxiety',
             desc: "Nothing diminishes anxiety faster than action. Of course, it is easier said than done. But if you've come this far, we want you to know that you are one step closer to taking control of your health and well-being.",
-            stat: 'Stress and anxiety affect over 70% of urban professionals in India.',
+            stat: 'Millions of Indians face anxiety and stress. You are not alone.',
             cta: 'Book an Appointment'
         },
         'Depression': {
@@ -140,11 +140,11 @@ const Counselling = () => {
                     {/* Text Column */}
                     <div className="lg:w-[60%] text-center lg:text-left">
                         <div className="max-w-[550px] lg:ml-4 mx-auto lg:mx-0">
-                            <h3 className="text-[24px] sm:text-[30px] font-bold mb-4 leading-tight transition-all duration-300 font-inter-tight">
+                            <h3 className="text-[24px] sm:text-[30px] font-bold mb-1 leading-tight transition-all duration-300 font-inter-tight">
                                 {activeContent.title}
                             </h3>
 
-                            <p className="text-[15px] mb-6 opacity-90 leading-relaxed min-h-[100px]">
+                            <p className="text-[15px] mb-2 opacity-90 leading-relaxed min-h-[70px]">
                                 {activeContent.desc}
                             </p>
 
