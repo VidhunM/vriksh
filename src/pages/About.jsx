@@ -12,10 +12,10 @@ const About = () => {
 
             {/* Content Section */}
             <div className="relative max-w-[1240px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
-                {/* Decorative background element - Positioned even further upwards with slide-up animation */}
-                <div className="absolute top-[-60px] left-[2%] sm:left-[5%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.3] animate-slide-up-fade">
-                    {/* Top Gradient Fade */}
-                    <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent z-10"></div>
+                {/* Decorative background element - Positioned significantly higher with slide-up animation */}
+                <div className="absolute top-[-80px] left-[2%] sm:left-[5%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.3] animate-slide-up-fade">
+                    {/* Top Gradient Fade - Darker for white header text contrast */}
+                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 via-black/5 to-transparent z-10"></div>
                     <img
                         src="/images/abt.png"
                         alt=""
@@ -152,7 +152,7 @@ const About = () => {
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-10">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:ml-[10%]">
                     {/* Left Column: Heading */}
-                    <div className="lg:pt-10">
+                    <div className="lg:pt-4">
                         <h2 className="text-[clamp(36px,5vw,48px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
                             Enriching <br className="hidden lg:block" /> Minds
                         </h2>

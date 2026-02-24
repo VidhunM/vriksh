@@ -2,9 +2,9 @@ import React from 'react';
 
 const CareerCounselling = () => {
     return (
-        <div className="pt-20 bg-white">
-            {/* Hero Header Banner */}
-            <div className="bg-[#520378] py-8 sm:py-12 flex items-center justify-center">
+        <div className="pt-0 bg-white">
+            {/* Hero Header Banner - Adjusted for fixed glassy header */}
+            <div className="bg-[#520378] pt-24 pb-8 sm:pt-32 sm:pb-12 flex items-center justify-center">
                 <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-black text-center tracking-tight px-4 uppercase">
                     Career Counselling
                 </h1>
