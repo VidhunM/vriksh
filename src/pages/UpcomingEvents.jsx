@@ -7,7 +7,7 @@ const UpcomingEvents = () => {
             {/* Header Banner - Centered alignment requested */}
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1320px] mx-auto px-6">
-                    <h1 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-wider font-geist">
+                    <h1 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         UPCOMING WORKSHOP
                     </h1>
                 </div>

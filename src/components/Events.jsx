@@ -29,9 +29,9 @@ const Events = () => {
         <section id="events" className="py-12 sm:py-16 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
-                    <div className="max-w-[850px] text-center md:text-left">
+                    <div className="max-w-[950px] text-center md:text-left">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-5 text-gray-900 font-inter-tight">Upcoming Event</h2>
-                        <p className="text-[16px] text-gray-700 leading-relaxed font-normal">
+                        <p className="text-[19px] text-gray-700 leading-relaxed font-normal">
                             We empower aspiring professionals and communities with live, interactive, skill-based mental health learning through trainings, experiential workshops, and certificate courses designed for real-world practice.
                         </p>
                     </div>
@@ -64,17 +64,17 @@ const Events = () => {
                                         {event.title}
                                     </h3>
                                     <div className="flex items-center gap-1.5 mb-6">
-                                        <span className="text-[12px] text-gray-600">({event.rating})</span>
-                                        <div className="flex text-orange-400 text-[10px]">
+                                        <span className="text-[16px] text-gray-600 font-bold">({event.rating})</span>
+                                        <div className="flex text-orange-400 text-[15px]">
                                             {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                         </div>
                                     </div>
-                                    <div className="flex justify-between items-center">
+                                    <div className="flex justify-between items-center gap-2">
                                         <div className="flex items-center gap-2">
                                             <span className="text-gray-400 line-through text-[14px]">{event.originalPrice}</span>
                                             <span className="text-gray-950 font-bold text-[17px]">{event.currentPrice}</span>
                                         </div>
-                                        <button className="bg-[#520378] text-white px-5 py-2 rounded-full font-bold text-[12px]">
+                                        <button className="bg-[#520378] text-white px-3 py-2 rounded-full font-bold text-[12px] whitespace-nowrap">
                                             Enroll Now
                                         </button>
                                     </div>
@@ -85,7 +85,7 @@ const Events = () => {
                 </div>
 
                 {/* Desktop Grid View */}
-                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-3 gap-8">
                     {events.map((event, index) => (
                         <div key={index} className="flex flex-col">
                             <div className="h-[220px] rounded-[24px] overflow-hidden mb-5 shadow-sm">
@@ -95,18 +95,18 @@ const Events = () => {
                                 <h3 className="text-[18px] font-bold mb-3 text-gray-950 leading-snug h-[50px] overflow-hidden">
                                     {event.title}
                                 </h3>
-                                <div className="flex items-center gap-1.5 mb-6">
-                                    <span className="text-[13px] text-gray-600">({event.rating})</span>
-                                    <div className="flex text-orange-400 text-[11px]">
+                                <div className="flex items-center gap-2 mb-6">
+                                    <span className="text-[18px] text-gray-600 font-bold">({event.rating})</span>
+                                    <div className="flex text-orange-400 text-[17px]">
                                         {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                     </div>
                                 </div>
-                                <div className="flex justify-between items-center">
+                                <div className="flex justify-between items-center gap-6">
                                     <div className="flex items-center gap-3">
                                         <span className="text-gray-400 line-through text-[15px]">{event.originalPrice}</span>
                                         <span className="text-gray-950 font-bold text-[18px]">{event.currentPrice}</span>
                                     </div>
-                                    <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all">
+                                    <button className="bg-[#520378] text-white px-6 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all shadow-sm whitespace-nowrap">
                                         Enroll Now
                                     </button>
                                 </div>
