@@ -4,21 +4,21 @@ const CareerCounselling = () => {
     return (
         <div className="pt-0 bg-white">
             {/* Hero Header Banner - Precisely matching reference image */}
-            <div className="bg-[#520378] pt-24 pb-8 sm:pt-32 sm:pb-10 flex items-center justify-center">
-                <h1 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold text-center tracking-tight px-4 uppercase font-inter-tight">
+            <div className="bg-[#520378] pt-20 pb-6 sm:pt-28 sm:pb-8 flex items-center justify-center">
+                <h1 className="text-white text-2xl sm:text-3xl lg:text-5xl font-bold text-center tracking-tight px-4 uppercase font-inter-tight">
                     CAREER COUNSELLING
                 </h1>
             </div>
 
             {/* Main Content Section - Standardized width and layout */}
             <div
-                className="py-10 sm:py-16 animate-in fade-in duration-700"
+                className="py-8 sm:py-12 animate-in fade-in duration-700"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                     {/* Left Column: Text Content */}
                     <div className="flex-1 order-2 lg:order-1 slide-in-from-left-4 duration-700">
-                        <h2 className="text-3xl sm:text-[44px] font-bold text-gray-950 leading-[1.1] mb-8 font-inter-tight">
+                        <h2 className="text-2xl sm:text-[38px] font-bold text-gray-950 leading-[1.1] mb-8 font-inter-tight">
                             Not sure what career is <br /> right for you?
                         </h2>
 
@@ -44,17 +44,19 @@ const CareerCounselling = () => {
                 </div>
             </div>
 
-            {/* Signs You Might Need Career Guidance Section */}
-            <div className="relative py-8 sm:py-12 overflow-hidden">
-                {/* Background Image */}
-                <img
-                    src="/images/career guidance background.png"
-                    alt="Background Decor"
-                    className="absolute inset-0 w-full h-full object-cover opacity-30 select-none pointer-events-none"
-                />
+            {/* Signs You Might Need Career Guidance Section - Exact match to reference image */}
+            <div className="relative py-6 sm:py-10 overflow-hidden bg-white">
+                {/* Background Image - More prominent as per reference */}
+                <div className="absolute inset-0 w-full h-full pointer-events-none">
+                    <img
+                        src="/images/career guidance background.png"
+                        alt=""
+                        className="w-full h-full object-cover opacity-100"
+                    />
+                </div>
 
-                <div className="relative z-10 max-w-[1000px] mx-auto px-6">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-[#00382D] text-center mb-10 px-4 font-inter-tight">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-6">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-[#00382D] text-center mb-8 px-4 font-inter-tight">
                         Signs You Might Need Career Guidance
                     </h2>
 
@@ -62,39 +64,39 @@ const CareerCounselling = () => {
                         {[
                             {
                                 text: "You've Completed High School Or Are Unsure About Your Next Step",
-                                color: "bg-[#FFF9E5]"
+                                color: "bg-[#FEF8E4]"
                             },
                             {
                                 text: "You're Exploring Your Strengths, Interests, And Career Preferences",
-                                color: "bg-[#FFB169]"
+                                color: "bg-[#FCA65B]"
                             },
                             {
                                 text: "You Have Multiple Interests And Can't Decide Between Them",
-                                color: "bg-[#FFF9E5]"
+                                color: "bg-[#FEF8E4]"
                             },
                             {
                                 text: "You're Unsure Which Career Path Suits You Best",
-                                color: "bg-[#FFF9E5]"
+                                color: "bg-[#FEF8E4]"
                             },
                             {
                                 text: "You're Confused About Educational Or Professional Options",
-                                color: "bg-[#FFB169]"
+                                color: "bg-[#FCA65B]"
                             },
                             {
                                 text: "You Want Guidance On Skill Development And Long-Term Career Growth",
-                                color: "bg-[#FFF9E5]"
+                                color: "bg-[#FEF8E4]"
                             }
                         ].map((item, index) => (
                             <div
                                 key={index}
-                                className={`${item.color} p-5 sm:p-7 rounded-[22px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start`}
+                                className={`${item.color} p-6 sm:p-8 rounded-[16px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[160px] lg:min-h-[200px]`}
                             >
-                                <div className="w-6 h-6 rounded-full bg-black flex items-center justify-center mb-5 shrink-0">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                <div className="w-6 h-6 rounded-full bg-black flex items-center justify-center mb-5 shrink-0 shadow-sm">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="mb-[1px] mr-[0.5px]">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-sm sm:text-base font-bold text-gray-900 leading-tight">
+                                <p className="text-lg sm:text-[21px] font-bold text-gray-950 leading-[1.1] font-inter-tight max-w-[280px]">
                                     {item.text}
                                 </p>
                             </div>
@@ -102,7 +104,7 @@ const CareerCounselling = () => {
                     </div>
 
                     <div className="flex justify-center">
-                        <button className="bg-[#520378] text-white px-10 py-3 rounded-full font-black text-sm hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-xl active:scale-95">
+                        <button className="bg-[#4C0070] text-white px-10 py-3 rounded-full font-bold text-base hover:bg-[#520378] transition-all transform hover:scale-105 shadow-lg active:scale-95">
                             Talk to an Expert
                         </button>
                     </div>
