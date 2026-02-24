@@ -39,7 +39,7 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Right Column: New Composite Hero Image */}
-                    <div className="flex-1 relative w-full lg:w-auto flex items-center justify-center">
+                    <div className="flex-1 relative w-full lg:w-auto flex items-center justify-center lg:translate-x-10">
                         <img
                             src="/images/Vriksh upcoming events (1) 1.png"
                             alt="Upcoming Workshop Details"
