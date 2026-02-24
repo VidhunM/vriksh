@@ -18,11 +18,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const headerClasses = isScrolled
-    ? 'bg-brand-purple/40 backdrop-blur-xl border-b border-white/10 shadow-lg'
-    : 'bg-white/10 backdrop-blur-xl border-b border-white/20';
+  const isHomePage = location.pathname === '/';
 
-  const textClasses = 'text-white/90 hover:text-white';
+  const headerClasses = isHomePage
+    ? (isScrolled
+      ? 'bg-brand-purple/40 backdrop-blur-xl border-b border-white/10 shadow-lg'
+      : 'bg-white/10 backdrop-blur-xl border-b border-white/20')
+    : 'bg-white border-b border-gray-100 shadow-sm';
+
+  const textClasses = isHomePage
+    ? 'text-white/90 hover:text-white'
+    : 'text-gray-950 hover:text-brand-purple';
 
   const services = [
     { label: 'Individual Counselling', href: '#individual' },
@@ -120,7 +126,7 @@ const Header = () => {
           </Link>
 
           <button
-            className="lg:hidden ml-4 text-2xl p-2 md:block transition-colors text-white"
+            className={`lg:hidden ml-4 text-2xl p-2 md:block transition-colors ${isHomePage ? 'text-white' : 'text-gray-900'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? '✕' : '☰'}
@@ -129,7 +135,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 w-full bg-brand-purple border-t border-white/10 overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
+      <div className={`lg:hidden absolute top-full left-0 w-full ${isHomePage ? 'bg-brand-purple' : 'bg-white'} border-t ${isHomePage ? 'border-white/10' : 'border-gray-100'} overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
         <ul className="flex flex-col gap-5 px-6">
           {[
             { label: 'Home', href: '/' },
@@ -142,7 +148,7 @@ const Header = () => {
               {item.href.startsWith('/') ? (
                 <Link
                   to={item.href}
-                  className="block text-lg font-medium text-white/90 hover:text-white"
+                  className={`block text-lg font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -150,7 +156,7 @@ const Header = () => {
               ) : (
                 <div className="flex flex-col gap-3">
                   <button
-                    className="flex items-center justify-between w-full text-lg font-medium text-white/90 hover:text-white"
+                    className={`flex items-center justify-between w-full text-lg font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
                     onClick={() => item.hasDropdown && setIsServicesOpen(!isServicesOpen)}
                   >
                     {item.label}
@@ -168,7 +174,7 @@ const Header = () => {
                           <Link
                             key={service.label}
                             to={service.href}
-                            className="text-white/70 hover:text-white text-base font-medium"
+                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-base font-medium`}
                             onClick={() => {
                               setIsMenuOpen(false);
                               setIsServicesOpen(false);
@@ -180,7 +186,7 @@ const Header = () => {
                           <a
                             key={service.label}
                             href={service.href}
-                            className="text-white/70 hover:text-white text-base font-medium"
+                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-base font-medium`}
                             onClick={() => {
                               setIsMenuOpen(false);
                               setIsServicesOpen(false);
@@ -199,7 +205,7 @@ const Header = () => {
           <li className="pt-2">
             <Link
               to="/upcoming-events"
-              className="block w-full bg-white text-brand-purple py-3 rounded-full font-bold text-center"
+              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-brand-purple text-white'} py-3 rounded-full font-bold text-center`}
               onClick={() => setIsMenuOpen(false)}
             >
               Upcoming events
