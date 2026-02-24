@@ -31,10 +31,9 @@ const UpcomingEvents = () => {
                                 Join 5,000+ learners mastering psychology with confidence
                             </p>
 
-                            <p className="text-base text-gray-700 leading-relaxed max-w-[440px]">
-                                Bridging theory and real-world practice to deliver accessible,
-                                lifelong learning through customized workshops, training
-                                programs, and certification courses
+                            <p className="text-base text-gray-700 leading-relaxed max-w-[540px]">
+                                Bridging theory and real-world practice to deliver accessible, <br />
+                                lifelong learning through customized workshops, training programs, and certification courses
                             </p>
                         </div>
                     </div>
@@ -120,9 +119,9 @@ const UpcomingEvents = () => {
                                 price: "Rs.800"
                             }
                         ].map((event) => (
-                            <div key={event.id} className="bg-white rounded-[40px] overflow-hidden flex flex-col shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 w-full group">
-                                {/* Card Image - Increased Height */}
-                                <div className="h-[240px] overflow-hidden">
+                            <div key={event.id} className="bg-[#FFFAE4] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 w-full group">
+                                {/* Card Image - Full Bleed with Internal Padding effect */}
+                                <div className="h-[240px] rounded-[24px] overflow-hidden mb-3">
                                     <img
                                         src="/images/events.png"
                                         alt={event.title}
@@ -131,7 +130,7 @@ const UpcomingEvents = () => {
                                 </div>
 
                                 {/* Card Content */}
-                                <div className="p-3.5 flex flex-col">
+                                <div className="px-4 pb-4 flex flex-col">
                                     <h3 className="text-[17px] font-bold text-[#520378] leading-tight mb-0.5 font-geist line-clamp-2">
                                         {event.title}
                                     </h3>
@@ -336,8 +335,8 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 leading-[1.1] tracking-tight font-geist text-left">
-                            Frequently asked <br /> questions
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 leading-[1.1] tracking-tight font-inter-tight text-left">
+                            Frequently asked questions
                         </h2>
 
                         <div className="space-y-3">
