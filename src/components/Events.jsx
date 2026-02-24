@@ -22,6 +22,13 @@ const Events = () => {
             rating: 4.9,
             originalPrice: '₹65,000',
             currentPrice: '₹49,999'
+        },
+        {
+            image: '/images/events.png',
+            title: 'Neuro Linguistic Programming - Basics ( Direct )',
+            rating: 4.9,
+            originalPrice: '₹65,000',
+            currentPrice: '₹49,999'
         }
     ];
 
@@ -85,7 +92,7 @@ const Events = () => {
                 </div>
 
                 {/* Desktop Grid View */}
-                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {events.map((event, index) => (
                         <div key={index} className="flex flex-col">
                             <div className="h-[220px] rounded-[24px] overflow-hidden mb-5 shadow-sm">

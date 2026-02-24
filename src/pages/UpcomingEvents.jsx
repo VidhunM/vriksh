@@ -2,6 +2,49 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UpcomingEvents = () => {
+    const upcomingEvents = [
+        {
+            id: 1,
+            title: 'Intervention strategies in school counselling',
+            description: 'From theory to practice: Activity-based school counselling tools',
+            image: '/images/events.png',
+            date: '20-02-2026',
+            time: '6:00 - 7:30PM',
+            rating: '4.9',
+            price: 'Rs.800'
+        },
+        {
+            id: 2,
+            title: 'Child Psychology and Development',
+            description: 'Understanding the developmental milestones and emotional needs of children from birth to adolescence.',
+            image: '/images/events.png',
+            date: '25-02-2026',
+            time: '5:30 - 7:00PM',
+            rating: '4.8',
+            price: 'Rs.950'
+        },
+        {
+            id: 3,
+            title: 'Cognitive Behavioral Therapy Workshop',
+            description: 'Practical techniques and evidence-based strategies for implementing CBT in clinical practice.',
+            image: '/images/events.png',
+            date: '02-03-2026',
+            time: '10:00AM - 1:00PM',
+            rating: '4.9',
+            price: 'Rs.1500'
+        },
+        {
+            id: 4,
+            title: 'Mindfulness and Stress Management',
+            description: 'Learn mindfulness-based techniques to reduce stress and improve mental well-being in daily life.',
+            image: '/images/events.png',
+            date: '08-03-2026',
+            time: '4:00 - 6:00PM',
+            rating: '4.7',
+            price: 'Rs.700'
+        }
+    ];
+
     return (
         <div className="pt-0">
             {/* Header Banner - Adjusted for fixed glassy header */}
@@ -78,35 +121,35 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Events Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="bg-[#FFFCE4]/50 rounded-[32px] p-3.5 flex flex-col shadow-sm border border-orange-100 hover:shadow-md transition-shadow max-w-[400px] mx-auto w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {upcomingEvents.map((event) => (
+                            <div key={event.id} className="bg-[#FFFCE4]/50 rounded-[32px] p-3.5 flex flex-col shadow-sm border border-orange-100 hover:shadow-md transition-shadow max-w-[400px] mx-auto w-full">
                                 {/* Card Image */}
-                                <div className="h-[180px] rounded-[28px] overflow-hidden mb-4">
+                                <div className="h-[400px] rounded-[28px] overflow-hidden mb-4">
                                     <img
-                                        src="/images/events.png"
-                                        alt="Event"
+                                        src={event.image}
+                                        alt={event.title}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
 
                                 {/* Card Content */}
-                                <div className="px-1.5">
-                                    <h3 className="text-lg font-bold text-[#520378] leading-tight mb-2">
-                                        Intervention strategies in school counselling
+                                <div className="px-1.5 flex flex-col h-full">
+                                    <h3 className="text-lg font-bold text-[#520378] leading-tight mb-2 min-h-[50px]">
+                                        {event.title}
                                     </h3>
-                                    <p className="text-base text-gray-600 mb-3 line-clamp-2">
-                                        From theory to practice: Activity-based school counselling tools
+                                    <p className="text-base text-gray-600 mb-0.5 line-clamp-2">
+                                        {event.description}
                                     </p>
 
-                                    <div className="h-px bg-gray-200 mb-3"></div>
+                                    <div className="h-px bg-gray-200 mb-0.5"></div>
 
-                                    <p className="text-base font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                    <p className="text-base font-bold text-gray-900 mb-1 flex items-center gap-2 mt-auto">
                                         Live | Online | Accessible Worldwide
                                     </p>
 
                                     {/* Date and Time */}
-                                    <div className="flex flex-wrap gap-x-4 gap-y-1.5 mb-3 text-[13px] font-bold text-gray-700">
+                                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-1 text-[13px] font-bold text-gray-700">
                                         <div className="flex items-center gap-2">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
                                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -114,30 +157,30 @@ const UpcomingEvents = () => {
                                                 <line x1="8" y1="2" x2="8" y2="6"></line>
                                                 <line x1="3" y1="10" x2="21" y2="10"></line>
                                             </svg>
-                                            20-02-2026
+                                            {event.date}
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
                                                 <circle cx="12" cy="12" r="10"></circle>
                                                 <polyline points="12 6 12 12 16 14"></polyline>
                                             </svg>
-                                            6:00 - 7:30PM
+                                            {event.time}
                                         </div>
                                     </div>
 
                                     {/* Bottom Info: Rating and Price */}
-                                    <div className="flex justify-between items-center mb-4">
+                                    <div className="flex justify-between items-center mb-1">
                                         <div className="flex items-center gap-1.5">
-                                            <span className="text-[13px] font-bold text-gray-700">(4.9)</span>
+                                            <span className="text-[13px] font-bold text-gray-700">({event.rating})</span>
                                             <div className="flex text-orange-400 text-[18px]">
                                                 {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                             </div>
                                         </div>
-                                        <span className="text-lg font-bold text-gray-900">Rs.800</span>
+                                        <span className="text-lg font-bold text-gray-900">{event.price}</span>
                                     </div>
 
                                     {/* Action Buttons */}
-                                    <div className="flex gap-2.5 mt-auto pb-1">
+                                    <div className="flex gap-2.5 pb-1">
                                         <button className="flex-1 bg-[#520378] text-white py-2 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors whitespace-nowrap">
                                             Know more
                                         </button>

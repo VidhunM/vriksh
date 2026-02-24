@@ -117,10 +117,10 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/upcoming-events" className="hidden sm:flex items-center bg-brand-purple text-white px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-brand-purple-light transition-all">
+          <Link to="/upcoming-events" className="hidden sm:flex items-center  bg-[#520378] text-white px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-brand-purple-light transition-all">
             Upcoming events
           </Link>
-          <Link to="/upcoming-events" className="hidden sm:flex items-center justify-center bg-brand-purple text-white p-3 rounded-full hover:bg-brand-purple-light transition-all group">
+          <Link to="/upcoming-events" className="hidden sm:flex items-center justify-center bg-[#520378] text-white p-3 rounded-full hover:bg-brand-purple-light transition-all group">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
@@ -210,7 +210,7 @@ const Header = () => {
           <li className="pt-2">
             <Link
               to="/upcoming-events"
-              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-brand-purple text-white'} py-3 rounded-full font-bold text-center`}
+              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-[#520378] text-white'} py-3 rounded-full font-bold text-center`}
               onClick={() => setIsMenuOpen(false)}
             >
               Upcoming events
