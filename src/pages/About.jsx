@@ -2,9 +2,9 @@ import React from 'react';
 
 const About = () => {
     return (
-        <section id="about" className="bg-white pt-16 sm:pt-20">
+        <section id="about" className="bg-white">
             {/* Header Banner */}
-            <div className="bg-[#520378] py-8 sm:py-10 flex items-center justify-center">
+            <div className="bg-[#520378] pt-24 pb-8 sm:pt-32 sm:pb-10 flex items-center justify-center">
                 <h1 className="text-white text-[clamp(28px,4vw,44px)] font-bold tracking-[0.05em] uppercase font-inter-tight">
                     ABOUT US
                 </h1>
@@ -13,13 +13,17 @@ const About = () => {
             {/* Content Section */}
             <div className="relative max-w-[1240px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
-                <div className="absolute top-[-80px] left-[2%] sm:left-[5%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.3] animate-slide-up-fade">
-                    {/* Top Gradient Fade - Darker for white header text contrast */}
-                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 via-black/5 to-transparent z-10"></div>
+                <div 
+                    className="absolute top-[-80px] left-[-5%] sm:left-[-2%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.4] animate-slide-up-fade"
+                    style={{
+                        maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 100%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 100%)'
+                    }}
+                >
                     <img
                         src="/images/abt.png"
                         alt=""
-                        className="w-full h-full object-contain object-left scale-150 sm:scale-100 mix-blend-multiply brightness-[0.85] contrast-[1.1]"
+                        className="w-full h-full object-contain object-left scale-150 sm:scale-100 mix-blend-multiply brightness-[0.85] contrast-[1.1] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
                     />
                 </div>
 
@@ -51,7 +55,7 @@ const About = () => {
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch relative px-4">
                         {/* Vision Card */}
-                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-lg border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
+                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
                             <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">
                                 <img src="/icons/v1.png" alt="Vision Icon" className="w-full h-full object-contain" />
                             </div>
@@ -62,7 +66,7 @@ const About = () => {
                         </div>
 
                         {/* Mission Card (Highlighted) */}
-                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center md:-translate-y-6 relative z-10 transition-all duration-300 hover:scale-[1.05]">
+                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 flex flex-col items-center text-center md:-translate-y-6 relative z-10 transition-all duration-300 hover:scale-[1.05]">
                             <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">
                                 <img src="/icons/v2.png" alt="Mission Icon" className="w-full h-full object-contain" />
                             </div>
@@ -73,7 +77,7 @@ const About = () => {
                         </div>
 
                         {/* Our Values Card */}
-                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 shadow-lg border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
+                        <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
                             <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">
                                 <img src="/icons/v3.png" alt="Values Icon" className="w-full h-full object-contain" />
                             </div>
@@ -104,10 +108,10 @@ const About = () => {
 
             {/* Founder Section */}
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12 relative">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
                     {/* Founder Image Area */}
                     <div className="lg:w-1/2 relative flex justify-center">
-                        <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl bg-[#520378]">
+                        <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[32px] overflow-hidden bg-[#520378]">
                             {/* Orange Blobs */}
                             <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#FB8A27] rounded-full opacity-90"></div>
                             <div className="absolute top-24 -left-24 w-72 h-72 bg-[#FB8A27] rounded-full opacity-90"></div>
@@ -152,7 +156,7 @@ const About = () => {
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-10">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:ml-[10%]">
                     {/* Left Column: Heading */}
-                    <div className="lg:pt-4">
+                    <div className="lg:pt-2">
                         <h2 className="text-[clamp(36px,5vw,48px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
                             Enriching <br className="hidden lg:block" /> Minds
                         </h2>
@@ -194,7 +198,7 @@ const About = () => {
                         <h3 className="text-white text-[clamp(20px,3vw,30px)] font-bold mb-4 max-w-[600px] leading-tight font-inter-tight">
                             Rooted in care, <br className="hidden sm:block" />  Growing with you
                         </h3>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[14px] transition-all transform hover:scale-105 shadow-lg">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[14px] transition-all transform hover:scale-105">
                             Get Started
                         </button>
                     </div>
