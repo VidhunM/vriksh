@@ -159,7 +159,7 @@ const UpcomingEvents = () => {
                     <img
                         src="/images/journey background.png"
                         alt=""
-                        className="w-full h-full object-cover object-bottom opacity-80 brightness-[0.7]"
+                        className="w-full h-full object-cover object-bottom opacity-80 brightness-[1.1]"
                     />
                 </div>
 
