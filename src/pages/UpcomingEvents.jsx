@@ -269,7 +269,7 @@ const UpcomingEvents = () => {
             {/* Our Trusted Partners Section */}
             <div className="bg-white py-6 sm:py-10 overflow-hidden">
                 <div className="max-w-[1240px] mx-auto px-6 mb-8 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-3">Our Trusted Partners</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-3"> Trusted by the Part</h2>
                     <div className="w-16 h-1 bg-brand-purple mx-auto rounded-full"></div>
                 </div>
 
