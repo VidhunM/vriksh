@@ -23,7 +23,7 @@ const Academy = () => {
         <section id="academy" className="py-12 sm:py-16 bg-gradient-to-b from-[#FFF9E1] to-white overflow-hidden relative">
             {/* Decorative background element - Top Left */}
             <div
-                className="absolute top-[-40px] left-[-40px] w-80 h-80 pointer-events-none opacity-[0.8] -rotate-12"
+                className="absolute top-[-170px] left-[-90px] w-[600px] h-[600px] pointer-events-none opacity-[0.8] rotate-12 animate-slide-up-fade"
             >
                 <img
                     src="/images/abt.png"
@@ -34,8 +34,9 @@ const Academy = () => {
 
             {/* Decorative background element - Bottom Right */}
             <div
-                className="absolute bottom-[-60px] right-[-60px] w-80 h-80 pointer-events-none opacity-[0.8] rotate-[15deg] scale-x-[-1]"
+                className="absolute bottom-[-100px] right-[-150px] w-[450px] h-[450px] pointer-events-none opacity-[0.8] -rotate-[15deg] scale-x-[-1] animate-slide-up-fade"
             >
+
                 <img
                     src="/images/abt.png"
                     alt=""

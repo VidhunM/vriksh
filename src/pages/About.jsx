@@ -110,7 +110,7 @@ const About = () => {
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12 relative">
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
                     {/* Founder Image Area */}
-                    <div className="lg:w-1/2 relative flex justify-center">
+                    <div className="lg:w-1/2 relative flex justify-center animate-slide-up-fade">
                         <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[32px] overflow-hidden bg-[#520378]">
                             {/* Orange Blobs */}
                             <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#FB8A27] rounded-full opacity-90"></div>
@@ -120,7 +120,7 @@ const About = () => {
                             <img
                                 src="/images/banu 1.png"
                                 alt="Banu Priya - Founder & CEO"
-                                className="relative z-10 w-full h-full object-contain object-top scale-[1.75] origin-top -translate-x-10 -translate-y-15"
+                                className="relative z-10 w-full h-full object-contain object-top scale-[1.95] origin-top -translate-x-10 -translate-y-40 animate-zoom-image"
                                 onError={(e) => {
                                     e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                                 }}
