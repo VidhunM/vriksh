@@ -140,7 +140,7 @@ const Counselling = () => {
                     {/* Text Column */}
                     <div className="lg:w-[60%] text-center lg:text-left">
                         <div className="max-w-[550px] lg:ml-4 mx-auto lg:mx-0">
-                            <h3 className="text-[24px] sm:text-[30px] font-bold mb-1 leading-tight transition-all duration-300 font-inter-tight">
+                            <h3 className="text-[22px] sm:text-[26px] font-bold mb-1 leading-tight transition-all duration-300 font-inter-tight lg:whitespace-nowrap">
                                 {activeContent.title}
                             </h3>
 
