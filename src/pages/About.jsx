@@ -14,7 +14,7 @@ const About = () => {
             <div className="relative max-w-[1440px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
                 <div
-                    className="absolute top-[-80px] left-[-5%] sm:left-[-2%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.4] animate-slide-up-fade"
+                    className="absolute top-[-80px] left-[-5%] sm:left-[-2%] w-full sm:w-[50%] h-full pointer-events-none opacity-[0.8] animate-slide-up-fade"
                     style={{
                         maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 100%)',
                         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 100%)'
@@ -23,7 +23,7 @@ const About = () => {
                     <img
                         src="/images/abt.png"
                         alt=""
-                        className="w-full h-full object-contain object-left scale-150 sm:scale-100 mix-blend-multiply brightness-[0.85] contrast-[1.1] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
+                        className="w-full h-full object-contain object-left scale-150 sm:scale-100 mix-blend-multiply brightness-[0.7] contrast-[1.1] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
                     />
                 </div>
 
