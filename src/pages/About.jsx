@@ -118,7 +118,7 @@ const About = () => {
                             <div className="absolute -bottom-16 -right-16 w-52 h-52 bg-[#FB8A27] rounded-full opacity-90"></div>
 
                             <img
-                                src="/images/banu.png"
+                                src="/images/banu 1.png"
                                 alt="Banu Priya - Founder & CEO"
                                 className="relative z-10 w-full h-full object-contain object-top scale-[1.75] origin-top -translate-x-10 -translate-y-45"
                                 onError={(e) => {

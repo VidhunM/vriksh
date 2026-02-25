@@ -40,36 +40,20 @@ const Wellness = () => {
                             </div>
 
                             {/* Logo Card with Internal Marquee */}
-                            <div className="border border-gray-200 rounded-[20px] py-1.5 sm:py-2.5 px-6 sm:px-10 bg-white shadow-sm max-w-[700px] mx-auto lg:mx-0 overflow-hidden">
-                                <div className="animate-marquee hover:pause-animation flex items-center gap-4 sm:gap-8">
-                                    {[
-                                        { icon: '/icons/w icon1.png', label: 'Counselling' },
-                                        { icon: '/icons/w icon2.png', label: 'Career Guidance' },
-                                        { icon: '/icons/w icon3.png', label: 'Life Skills Training' },
-                                        { icon: '/icons/w icon4.png', label: 'Personality Development' },
-                                        { icon: '/icons/w icon5.png', label: 'Mental Health Orientation' },
-                                        { icon: '/icons/w icon6.png', label: 'Teacher Training' },
-                                        { icon: '/icons/w icon7.png', label: 'Parenting Sessions' },
-                                    ].map((item, idx) => (
-                                        <div key={idx} className="flex flex-col items-center justify-center shrink-0 min-w-[90px] sm:min-w-[110px]">
+                            <div className="border border-gray-200 rounded-[20px] py-1.5 sm:py-2.5 bg-white shadow-sm max-w-[1000px] mx-auto lg:mx-0 overflow-hidden">
+                                <div className="animate-marquee hover:pause-animation flex items-center">
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                                        <div key={num} className="flex flex-col items-center justify-center shrink-0 px-4 sm:px-8">
                                             <div className="h-[45px] sm:h-[60px] w-auto transition-all duration-300 hover:scale-110">
-                                                <img src={item.icon} alt={item.label} className="h-full w-auto object-contain" />
+                                                <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>
                                     ))}
                                     {/* Duplicate for seamless loop */}
-                                    {[
-                                        { icon: '/icons/w icon1.png', label: 'Counselling' },
-                                        { icon: '/icons/w icon2.png', label: 'Career Guidance' },
-                                        { icon: '/icons/w icon3.png', label: 'Life Skills Training' },
-                                        { icon: '/icons/w icon4.png', label: 'Personality Development' },
-                                        { icon: '/icons/w icon5.png', label: 'Mental Health Orientation' },
-                                        { icon: '/icons/w icon6.png', label: 'Teacher Training' },
-                                        { icon: '/icons/w icon7.png', label: 'Parenting Sessions' },
-                                    ].map((item, idx) => (
-                                        <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 min-w-[90px] sm:min-w-[110px]">
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                                        <div key={`dup-${num}`} className="flex flex-col items-center justify-center shrink-0 px-4 sm:px-8">
                                             <div className="h-[45px] sm:h-[60px] w-auto transition-all duration-300 hover:scale-110">
-                                                <img src={item.icon} alt={item.label} className="h-full w-auto object-contain" />
+                                                <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>
                                     ))}

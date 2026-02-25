@@ -193,8 +193,8 @@ const UpcomingEvents = () => {
 
             {/* Choose the Right Program Section */}
             <div
-                className="py-12 sm:py-20 relative overflow-hidden bg-cover bg-center"
-                style={{ backgroundImage: "url('/images/background journey.png')" }}
+                className="py-8 sm:py-12 relative overflow-hidden bg-cover bg-center"
+                style={{ backgroundImage: "url('/images/wallpaper.png')" }}
             >
                 <div className="max-w-[1320px] mx-auto px-6 relative z-10">
                     <div className="text-center max-w-[1100px] mx-auto mb-12">
@@ -313,14 +313,24 @@ const UpcomingEvents = () => {
                     </h2>
 
                     {/* Logos Container Capsule - Exactly matching the image style */}
-                    <div className="max-w-[1200px] mx-auto border border-black rounded-full py-5 sm:py-8 px-4 overflow-hidden relative">
-                        <div className="animate-marquee flex gap-12 sm:gap-20 items-center">
+                    <div className="max-w-[1200px] mx-auto border border-black rounded-full py-5 sm:py-8 overflow-hidden relative">
+                        <div className="animate-marquee flex items-center">
                             {/* Duplicate set of logos for seamless loop */}
-                            {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((num, index) => (
-                                <div key={index} className="flex-shrink-0 flex items-center justify-center">
+                            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                                <div key={num} className="flex-shrink-0 flex items-center justify-center px-6 sm:px-10">
                                     <img
-                                        src={`/icons/w icon${num}.png`}
-                                        alt={`Partner Logo ${index + 1}`}
+                                        src={`/images/school ${num}.png`}
+                                        alt={`Partner Logo ${num}`}
+                                        className="h-8 sm:h-11 w-auto object-contain"
+                                    />
+                                </div>
+                            ))}
+                            {/* Duplicate for seamless loop */}
+                            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                                <div key={`dup-${num}`} className="flex-shrink-0 flex items-center justify-center px-6 sm:px-10">
+                                    <img
+                                        src={`/images/school ${num}.png`}
+                                        alt={`Partner Logo ${num}`}
                                         className="h-8 sm:h-11 w-auto object-contain"
                                     />
                                 </div>

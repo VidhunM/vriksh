@@ -44,7 +44,7 @@ const Header = () => {
       <div className="max-w-[1240px] mx-auto px-16 flex justify-between items-center h-18 sm:h-22">
         <Link to="/" className="flex items-center">
           <img
-            src="/logo.png"
+            src="/images/logo2.png"
             alt="VRIKSH Logo"
             className="h-8 sm:h-11 w-auto object-contain"
           />
