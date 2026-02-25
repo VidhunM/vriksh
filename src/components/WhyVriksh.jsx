@@ -6,56 +6,56 @@ const WhyVriksh = () => {
             title: 'Qualified Experts',
             icon: '/icons/wk1.png',
             bg: 'bg-[#520378]',
-            text: 'text-white'
+            text: 'text-[#EDD982]'
         },
         {
             title: 'Customised Guidance',
             icon: '/icons/wk5.png',
             bg: 'bg-[#FCA65B]',
-            text: 'text-brand-purple'
+            text: 'text-[#520378]'
         },
         {
             title: 'Private & Confidential',
             icon: '/icons/wk2.png',
             bg: 'bg-[#520378]',
-            text: 'text-white'
+            text: 'text-[#EDD982]'
         },
         {
             title: 'One-One Support',
             icon: '/icons/wk4.png',
             bg: 'bg-[#FCA65B]',
-            text: 'text-brand-purple'
+            text: 'text-[#520378]'
         },
         {
             title: 'Access Anywhere',
             icon: '/icons/wk3.png',
             bg: 'bg-[#520378]',
-            text: 'text-white'
+            text: 'text-[#EDD982]'
         },
         {
             title: 'Indepth Analysis',
             icon: '/icons/wk6.png',
             bg: 'bg-[#FCA65B]',
-            text: 'text-brand-purple'
+            text: 'text-[#520378]'
         },
         {
             title: 'Engaging Sessions',
             icon: '/icons/wk7.png',
             bg: 'bg-[#520378]',
-            text: 'text-white'
+            text: 'text-[#EDD982]'
         },
         {
             title: 'Follow-Up Care',
             icon: '/icons/wk8.png',
             bg: 'bg-[#FCA65B]',
-            text: 'text-brand-purple'
+            text: 'text-[#520378]'
         }
     ];
 
     return (
         <section className="py-10 sm:py-14 bg-white overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-                <h2 className="text-[24px] md:text-[32px] font-bold text-center text-brand-purple mb-12 font-inter-tight">
+                <h2 className="text-[24px] md:text-[32px] font-bold text-center text-[#520378] mb-12 font-inter-tight">
                     Why Vriksh?
                 </h2>
 
