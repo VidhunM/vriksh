@@ -44,7 +44,7 @@ const Wellness = () => {
                                 <div className="animate-marquee hover:pause-animation flex items-center">
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                         <div key={num} className="flex flex-col items-center justify-center shrink-0 px-4 sm:px-8">
-                                            <div className={`${num === 2 ? 'h-[75px] sm:h-[95px]' : 'h-[55px] sm:h-[75px]'} w-auto transition-all duration-300 hover:scale-110`}>
+                                            <div className={`${num === 2 ? 'h-[85px] sm:h-[105px]' : 'h-[55px] sm:h-[75px]'} w-auto transition-all duration-300 hover:scale-110`}>
                                                 <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>
