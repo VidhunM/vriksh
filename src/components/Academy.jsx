@@ -5,7 +5,7 @@ const Academy = () => {
         {
             title: 'Webinars',
             desc: 'Our experts conduct curated webinars to provide the most engaging and effective learning experience',
-            btnText: 'Start Learning Today'
+            btnText: 'browse topics'
         },
         {
             title: 'Training Programs',
