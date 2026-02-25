@@ -24,7 +24,7 @@ const CareerCounselling = () => {
                             Not sure what career is <br /> right for you?
                         </h2>
 
-                        <p className="text-base text-gray-700 leading-relaxed mb-10 max-w-[540px]">
+                        <p className="text-[clamp(17px,1.2vw,20px)] text-gray-700 leading-[1.8] mb-10 max-w-[540px]">
                             Let's explore your strengths, interests, and natural abilities to uncover a career path that truly fits you. Through guided assessments and personalised counselling, we help you gain clarity, confidence, and direction for your future. Whether you're a student choosing your first path or someone considering a change, we're here to support you at every step.
                         </p>
 
@@ -182,7 +182,7 @@ const CareerCounselling = () => {
                             <br />
                             <span className="bg-white text-black px-3 py-1 inline-block rounded-sm">Decisions</span>
                         </h2>
-                        <p className="text-white/90 text-[15px] sm:text-[16px] leading-relaxed max-w-[450px]">
+                        <p className="text-white/90 text-[clamp(17px,1.2vw,20px)] leading-[1.8] max-w-[450px]">
                             Discover Yourself To Understand What Truly Drives You, And Choose A Career Path That Fits Your Strengths, Interests, And Aspirations.
                         </p>
                     </div>
@@ -235,7 +235,7 @@ const CareerCounselling = () => {
                                 <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">
                                     {service.title}
                                 </h3>
-                                <p className="text-gray-900 text-[14px] sm:text-[15px] leading-relaxed mb-4 font-medium">
+                                <p className="text-gray-900 text-[clamp(15px,1.1vw,17px)] leading-[1.7] mb-4 font-medium">
                                     {service.text}
                                 </p>
                                 <div className="absolute bottom-2 right-2 w-28 h-28 transform group-hover:scale-110 transition-transform duration-500">
@@ -306,7 +306,7 @@ const CareerCounselling = () => {
                                     <h3 className="text-white text-[15px] sm:text-[17px] font-bold mb-2 font-inter-tight leading-tight px-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-white/80 text-[11px] sm:text-[12px] leading-tight font-medium">
+                                    <p className="text-white/80 text-[clamp(13px,0.9vw,15px)] leading-[1.6] font-medium">
                                         {item.text}
                                     </p>
                                 </div>

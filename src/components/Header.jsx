@@ -33,9 +33,9 @@ const Header = () => {
     : 'text-gray-950 hover:text-brand-purple';
 
   const services = [
-    { label: 'Individual Counselling', href: '#individual' },
+    // { label: 'Individual Counselling', href: '#individual' },
     { label: 'Career Counselling', href: '/career-counselling' },
-    { label: 'Group Therapy', href: '#group' },
+    
     { label: 'Workshops', href: '#workshops' }
   ];
 
