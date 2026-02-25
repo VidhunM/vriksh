@@ -34,20 +34,20 @@ const Academy = () => {
 
             {/* Decorative background element - Bottom Right */}
             <div
-                className="absolute bottom-[-100px] right-[-150px] w-[450px] h-[450px] pointer-events-none opacity-[0.8] -rotate-[15deg] scale-x-[-1] animate-slide-up-fade"
+                className="absolute bottom-[30px] right-[-10px] w-[450px] h-[450px] pointer-events-none opacity-[0.8] animate-slide-up-fade"
             >
 
                 <img
-                    src="/images/abt.png"
+                    src="/images/hml.png"
                     alt=""
                     className="w-full h-full object-contain mix-blend-multiply brightness-[0.7] contrast-[1.1] transition-transform duration-700 hover:scale-105"
                 />
             </div>
 
             <div className="max-w-[1240px] mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row gap-12 lg:items-center justify-center relative z-10">
+                <div className="flex flex-col lg:flex-row gap-8 lg:items-center justify-center relative z-10">
                     {/* Left: Image */}
-                    <div className="lg:w-[45%] flex justify-center lg:justify-end">
+                    <div className="lg:w-[40%] flex justify-center lg:justify-end">
                         <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3.2] lg:aspect-[4.4/4.5] max-w-[500px]">
                             <img
                                 src="/images/Academy.png"
@@ -58,7 +58,7 @@ const Academy = () => {
                     </div>
 
                     {/* Right: Content & Cards */}
-                    <div className="lg:w-[55%]">
+                    <div className="lg:w-[60%]">
                         <div className="mb-10 text-center lg:text-left">
                             <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
                             <p className="text-[19px] text-gray-800 max-w-[660px] leading-[1.8] font-normal mx-auto lg:mx-0">
