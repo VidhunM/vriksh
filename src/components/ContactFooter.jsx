@@ -48,7 +48,7 @@ const ContactFooter = () => {
 
     return (
         <footer className="footer-area">
-            <section id="contact" className="py-16 bg-white overflow-hidden">
+            <section id="contact" className="pt-6 pb-16 bg-white overflow-hidden">
                 <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
                         {/* Left Side: Content */}
@@ -68,7 +68,7 @@ const ContactFooter = () => {
 
                         {/* Right Side: Form */}
                         <div className="w-full lg:w-[50%]">
-                            <h3 className="text-[20px] font-bold text-gray-900 mb-8 leading-snug">
+                            <h3 className="text-[20px] font-bold text-[#520378] mb-8 leading-snug">
                                 Start your journey with us Enriching Minds.
                             </h3>
                             <form className="space-y-5">
