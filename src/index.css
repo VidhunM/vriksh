@@ -181,18 +181,3 @@
 .delay-400 {
   animation-delay: 400ms;
 }
-
-
-@keyframes zoom-in-slow {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.5);
-  }
-}
-
-.animate-zoom-image {
-  animation: zoom-in-slow 8s ease-in-out infinite alternate;
-}
