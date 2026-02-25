@@ -153,19 +153,14 @@ const CareerCounselling = () => {
             </div>
 
             {/* Make Better Decisions Section - Compact styling */}
-            <div className="relative bg-[#520378] pt-8 pb-4 sm:pt-10 sm:pb-6 overflow-hidden">
-                {/* Wavy Top Divider - Matching About page style but for top */}
-                <div className="absolute top-0 left-0 w-full leading-[0] transform rotate-180 -translate-y-[1px]">
-                    <svg
-                        viewBox="0 0 1440 120"
-                        preserveAspectRatio="none"
-                        className="relative block w-full h-[25px] sm:h-[40px]"
-                    >
-                        <path
-                            d="M0,120 C180,120 180,90 360,90 C540,90 540,120 720,120 C900,120 900,90 1080,90 C1260,90 1260,120 1440,120 V120 H0 Z"
-                            fill="white"
-                        />
-                    </svg>
+            <div className="relative pt-12 pb-6 sm:pt-20 sm:pb-10 overflow-hidden">
+                {/* Background Image - Precisely aligned to top curve */}
+                <div className="absolute inset-0 w-full h-full pointer-events-none">
+                    <img
+                        src="/images/make decision.png"
+                        alt=""
+                        className="w-full h-full object-cover object-top"
+                    />
                 </div>
 
                 {/* Background Image Line Art */}
@@ -191,38 +186,12 @@ const CareerCounselling = () => {
                     </div>
 
                     {/* Right Side: Overlapping Circular Process Steps */}
-                    <div className="flex-1 relative w-full max-w-[450px] aspect-[1.1/1] mx-auto lg:mx-0">
-                        {/* Step 01 - Outlined (Top Left) */}
-                        <div className="absolute top-0 left-0 w-[52%] aspect-square rounded-full border border-white/30 flex flex-col justify-center p-4 sm:p-6 text-white text-left z-0">
-                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">01</span>
-                            <p className="text-[11px] sm:text-[14px] font-medium leading-tight">
-                                Know your interest, personality and aptitude
-                            </p>
-                        </div>
-
-                        {/* Step 02 - Solid White (Top Right) */}
-                        <div className="absolute top-[8%] left-[42%] w-[52%] aspect-square rounded-full bg-white flex flex-col justify-center p-4 sm:p-6 text-[#520378] text-left z-20 shadow-xl">
-                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">02</span>
-                            <p className="text-[11px] sm:text-[14px] font-bold leading-tight">
-                                Identify your career path
-                            </p>
-                        </div>
-
-                        {/* Step 03 - Solid White (Bottom Left) */}
-                        <div className="absolute top-[40%] left-[8%] w-[52%] aspect-square rounded-full bg-white flex flex-col justify-center p-4 sm:p-6 text-[#520378] text-left z-30 shadow-xl">
-                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">03</span>
-                            <p className="text-[11px] sm:text-[14px] font-bold leading-tight">
-                                Know your strength and weaknesses
-                            </p>
-                        </div>
-
-                        {/* Step 04 - Outlined (Bottom Right) */}
-                        <div className="absolute top-[48%] left-[48%] w-[52%] aspect-square rounded-full border border-white/30 flex flex-col justify-center p-4 sm:p-6 text-white text-left z-10">
-                            <span className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">04</span>
-                            <p className="text-[11px] sm:text-[14px] font-medium leading-tight">
-                                Ease your career confusion
-                            </p>
-                        </div>
+                    <div className="flex-1 relative w-full max-w-[500px] mx-auto lg:mx-0 flex items-center justify-center">
+                        <img
+                            src="/images/circle image.png"
+                            alt="Professional career counselling process cycles"
+                            className="w-full h-auto object-contain drop-shadow-2xl"
+                        />
                     </div>
                 </div>
             </div>
@@ -259,15 +228,15 @@ const CareerCounselling = () => {
                         ].map((service, index) => (
                             <div
                                 key={index}
-                                className="bg-[#FCA65B] p-7 rounded-[20px] flex flex-col min-h-[340px] shadow-sm hover:shadow-md transition-all group"
+                                className="bg-[#FCA65B] p-6 rounded-[20px] flex flex-col min-h-[280px] shadow-sm hover:shadow-md transition-all group"
                             >
-                                <h3 className="text-[#520378] text-xl font-bold mb-4 font-inter-tight leading-tight">
+                                <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">
                                     {service.title}
                                 </h3>
-                                <p className="text-gray-900 text-[14px] sm:text-[15px] leading-relaxed mb-6 font-medium">
+                                <p className="text-gray-900 text-[14px] sm:text-[15px] leading-relaxed mb-4 font-medium">
                                     {service.text}
                                 </p>
-                                <div className="mt-auto ml-auto w-24 h-24">
+                                <div className="mt-auto ml-auto w-20 h-20">
                                     <img
                                         src={service.iconSrc}
                                         alt={service.title}
