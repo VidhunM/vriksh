@@ -1,7 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const UpcomingEvents = () => {
+    const testimonials = [
+        {
+            name: "Madhavi",
+            role: "Counsellor",
+            text: "Vriksh training webinars are crisp and clearly explained. I thoroughly enjoyed all the sessions. The trainers are highly knowledgeable and experienced. Thank you for such insightful learning experiences.",
+            date: "February 2025"
+        },
+        {
+            name: "Dr. Ashwini Kamath",
+            role: "Special Educator",
+            text: "Very informative and useful seminar on DTLD conducted by Vriksh. I would highly recommend all special educators and counselors to attend their sessions.",
+            date: "October 2025"
+        },
+        {
+            name: "Suriyasre",
+            role: "Counsellor",
+            text: "The workshop on Crisis Intervention was highly informative and interactive — truly worth our time. I sincerely appreciate the effort invested in preparing detailed study material, along with the necessary diagnostic tools relevant to the topic. Thank you for the valuable learning experience.",
+            date: "November 2024"
+        },
+        {
+            name: "Pooja",
+            role: "Counsellor",
+            text: "I have attended a few workshops with Vriksh, and each time I was satisfied with the content and the way the sessions were delivered. The experts are highly interactive and engaging. I look forward to learning more with Vriksh.",
+            date: "May 2025"
+        },
+        {
+            name: "Dambar Sensei",
+            role: "Counsellor",
+            text: "I have attended two workshops conducted by your organization. The material was very crisp, and the delivery was effective with excellent engagement. The sessions were highly interactive as well. Thank you for the enriching experience.",
+            date: "January 2025"
+        },
+        {
+            name: "Veena Padmanabha",
+            role: "Counsellor",
+            text: "An excellent initiative with a professional and well-structured approach. One can truly rely on the information provided. Superb coordination among the team. Highly commendable!",
+            date: "July 2025"
+        },
+        {
+            name: "Ananya R.",
+            role: "Individual Counselling Client",
+            text: "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.",
+            date: "June 2025"
+        },
+        {
+            name: "Disha Arunagiri",
+            role: "Counsellor",
+            text: "Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.",
+            date: "January 2025"
+        },
+        {
+            name: "Ayesha Barvin",
+            role: "Special Educator",
+            text: "I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently.",
+            date: "March 2025"
+        }
+    ];
+
+    const [testIndex, setTestIndex] = useState(0);
+    const cardsPerView = 3;
+    const totalSlides = Math.ceil(testimonials.length / cardsPerView);
+    const prevSlide = () => setTestIndex(i => (i === 0 ? totalSlides - 1 : i - 1));
+    const nextSlide = () => setTestIndex(i => (i === totalSlides - 1 ? 0 : i + 1));
+    const visibleTestimonials = testimonials.slice(testIndex * cardsPerView, testIndex * cardsPerView + cardsPerView);
+
+    // Auto-slide every 4 seconds
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTestIndex(i => (i === totalSlides - 1 ? 0 : i + 1));
+        }, 4000);
+        return () => clearInterval(timer);
+    }, [totalSlides]);
     return (
         <div className="pt-0">
             {/* Header Banner - Centered alignment requested */}
@@ -262,13 +333,19 @@ const UpcomingEvents = () => {
                             What our learners say
                         </h2>
                         <div className="flex gap-4">
-                            <button className="w-12 h-12 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-purple">
+                            <button
+                                onClick={prevSlide}
+                                className="w-12 h-12 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all"
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="19" y1="12" x2="5" y2="12"></line>
                                     <polyline points="12 19 5 12 12 5"></polyline>
                                 </svg>
                             </button>
-                            <button className="w-12 h-12 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+                            <button
+                                onClick={nextSlide}
+                                className="w-12 h-12 rounded-full bg-[#520378] text-white flex items-center justify-center hover:bg-black transition-all"
+                            >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -277,51 +354,56 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Testimonials Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                name: "Ananya R.",
-                                role: "Individual Counselling Client",
-                                text: "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.",
-                                date: "June 2025"
-                            },
-                            {
-                                name: "Disha Arunagiri",
-                                role: "Counsellor",
-                                text: "Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.",
-                                date: "January 2025"
-                            },
-                            {
-                                name: "Ayesha Barvin",
-                                role: "Special Educator",
-                                text: "I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently.",
-                                date: "March 2025"
-                            }
-                        ].map((item, index) => (
-                            <div key={index} className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow h-full">
-                                <div className="mb-6">
-                                    <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
-                                    <p className="text-base text-gray-600">{item.role}</p>
-                                </div>
-                                <p className="text-base text-gray-700 leading-relaxed mb-8 italic">
-                                    "{item.text}"
-                                </p>
-                                <div className="mt-auto flex justify-between items-center">
-                                    <div className="flex items-center gap-2">
-                                        <svg width="24" height="24" viewBox="0 0 24 24">
-                                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-1 .67-2.28 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                                            <path d="M5.84 14.09c-.22-.67-.35-1.39-.35-2.09s.13-1.42.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05" />
-                                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
-                                        </svg>
-                                        <div className="flex text-orange-400 text-[18px]">
-                                            {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                    {/* Testimonials Slider */}
+                    <div className="overflow-hidden">
+                        <div
+                            className="flex transition-transform duration-500 ease-in-out gap-0"
+                            style={{ transform: `translateX(-${testIndex * 100}%)` }}
+                        >
+                            {Array.from({ length: totalSlides }).map((_, slideIdx) => (
+                                <div
+                                    key={slideIdx}
+                                    className="grid grid-cols-1 md:grid-cols-3 gap-8 min-w-full"
+                                >
+                                    {testimonials.slice(slideIdx * cardsPerView, slideIdx * cardsPerView + cardsPerView).map((item, index) => (
+                                        <div key={index} className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow h-full">
+                                            <div className="mb-6">
+                                                <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
+                                                <p className="text-base text-gray-600">{item.role}</p>
+                                            </div>
+                                            <p className="text-base text-gray-700 leading-relaxed mb-8 italic">
+                                                &ldquo;{item.text}&rdquo;
+                                            </p>
+                                            <div className="mt-auto flex justify-between items-center">
+                                                <div className="flex items-center gap-2">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                                                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-1 .67-2.28 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                                                        <path d="M5.84 14.09c-.22-.67-.35-1.39-.35-2.09s.13-1.42.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05" />
+                                                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                                                    </svg>
+                                                    <div className="flex text-orange-400 text-[18px]">
+                                                        {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                                    </div>
+                                                </div>
+                                                <span className="text-base font-bold text-gray-800">{item.date}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span className="text-base font-bold text-gray-800">{item.date}</span>
+                                    ))}
                                 </div>
-                            </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Dot Indicators */}
+                    <div className="flex justify-center gap-2 mt-8">
+                        {Array.from({ length: totalSlides }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setTestIndex(i)}
+                                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === testIndex ? 'bg-[#520378] w-6' : 'bg-gray-300'
+                                    }`}
+                            />
                         ))}
                     </div>
                 </div>
@@ -395,7 +477,7 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Right: Side Image */}
-                    <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/3.8] rounded-[36px] overflow-hidden shadow-2xl relative">
+                    <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/3.3] rounded-[36px] overflow-hidden shadow-2xl relative">
                         <img
                             src="/images/FAQ.png"
                             alt="Student taking notes"

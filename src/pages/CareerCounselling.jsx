@@ -5,7 +5,7 @@ const CareerCounselling = () => {
         <div className="pt-0 bg-white">
             {/* Hero Header Banner - Precisely matching Upcoming Workshops page banner size and text */}
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
-                <div className="max-w-[1320px] mx-auto px-6">
+                <div className="max-w-[1240px] mx-auto px-6">
                     <h1 className="text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         CAREER COUNSELLING
                     </h1>
@@ -14,21 +14,26 @@ const CareerCounselling = () => {
 
             {/* Main Content Section - Standardized width and layout */}
             <div
-                className="py-8 sm:py-12 animate-in fade-in duration-700"
+                className="pt-12 pb-6 sm:pt-16 sm:pb-8 animate-in fade-in duration-700"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
-                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                     {/* Left Column: Text Content */}
                     <div className="flex-1 order-2 lg:order-1 slide-in-from-left-4 duration-700">
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-8 font-geist tracking-normal">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-tight">
                             Not sure what career is <br /> right for you?
                         </h2>
 
-                        <p className="text-[clamp(17px,1.2vw,20px)] text-gray-700 leading-[1.8] mb-10 max-w-[540px]">
-                            Let's explore your strengths, interests, and natural abilities to uncover a career path that truly fits you. Through guided assessments and personalised counselling, we help you gain clarity, confidence, and direction for your future. Whether you're a student choosing your first path or someone considering a change, we're here to support you at every step.
+                        <p className="text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium">
+                            Let's explore your strengths, interests, and natural abilities to <br className="hidden lg:block" />
+                            uncover a career path that truly fits you. Through guided <br className="hidden lg:block" />
+                            assessments and personalised counselling, we help you gain <br className="hidden lg:block" />
+                            clarity, confidence, and direction for your future. Whether you're <br className="hidden lg:block" />
+                            a student choosing your first path or someone considering a <br className="hidden lg:block" />
+                            change, we're here to support you at every step.
                         </p>
 
-                        <button className="bg-[#520378] text-white px-10 py-3.5 rounded-full font-bold text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
+                        <button className="bg-[#520378] text-white px-10 py-4 rounded-full font-bold text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                             Discover your path
                         </button>
                     </div>
@@ -47,23 +52,23 @@ const CareerCounselling = () => {
             </div>
 
 
-            {/* Signs You Might Need Career Guidance Section - More compact sizing */}
-            <div className="relative py-4 sm:py-6 overflow-hidden bg-white">
-                {/* Background Image - More prominent as per reference */}
-                <div className="absolute inset-0 w-full h-full pointer-events-none">
+            {/* Signs You Might Need Career Guidance Section - Precisely matching reference image */}
+            <div className="relative py-12 sm:py-20 overflow-hidden bg-white">
+                {/* Background Image - Precisely aligned as per reference */}
+                <div className="absolute inset-0 w-full h-[100%] -translate-y-12 pointer-events-none">
                     <img
                         src="/images/career guidance background.png"
                         alt=""
-                        className="w-full h-full object-cover opacity-100"
+                        className="w-full h-full object-fill object-bottom opacity-100"
                     />
                 </div>
 
-                <div className="relative z-10 max-w-[1320px] mx-auto px-6">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-[#062623] text-center mb-8 px-4 font-inter-tight">
+                <div className="relative z-10 max-w-[1240px] mx-auto px-6">
+                    <h2 className="text-2xl sm:text-[34px] font-bold text-[#062623] text-center mb-12 px-4 font-inter-tight">
                         Signs You Might Need Career Guidance
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-[1100px] mx-auto">
                         {[
                             {
                                 text: "You've Completed High School Or Are Unsure About Your Next Step",
@@ -92,10 +97,10 @@ const CareerCounselling = () => {
                         ].map((item, index) => (
                             <div
                                 key={index}
-                                className={`${item.color} p-5 rounded-[16px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[130px] lg:min-h-[160px]`}
+                                className={`${item.color} p-8 sm:p-10 rounded-[12px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[160px] lg:min-h-[200px]`}
                             >
-                                <div className="w-6 h-6 rounded-full bg-black flex items-center justify-center mb-5 shrink-0 shadow-sm">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="mb-[1px] mr-[0.5px]">
+                                <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center mb-7 shrink-0 shadow-sm">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="mb-[1px] mr-[0.5px]">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
@@ -106,8 +111,8 @@ const CareerCounselling = () => {
                         ))}
                     </div>
 
-                    <div className="flex justify-center">
-                        <button className="bg-[#4C0070] text-white px-10 py-3 rounded-full font-bold text-base hover:bg-[#520378] transition-all transform hover:scale-105 shadow-lg active:scale-95">
+                    <div className="flex justify-center relative z-20">
+                        <button className="bg-[#520378] text-white px-12 py-3.5 rounded-full font-bold text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-xl active:scale-95">
                             Talk to an Expert
                         </button>
                     </div>
@@ -116,7 +121,7 @@ const CareerCounselling = () => {
 
             {/* Stats Section - Standardized width for "straight even" layout */}
             <div className="bg-white py-10 border-t border-gray-100">
-                <div className="max-w-[1320px] mx-auto px-6">
+                <div className="max-w-[1240px] mx-auto px-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
@@ -170,25 +175,25 @@ const CareerCounselling = () => {
                     <img
                         src="/images/mbd.png"
                         alt=""
-                        className="w-full h-full object-contain object-center scale-150 sm:scale-110"
+                        className="w-full h-full object-contain object-center scale-150 sm:scale-100 lg:-translate-x-16"
                     />
                 </div>
 
-                <div className="relative z-10 max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+                <div className="relative z-10 max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
                     {/* Left Side: Text Content */}
-                    <div className="flex-1 space-y-4">
-                        <h2 className="text-[24px] sm:text-[30px] font-bold leading-[1.05] tracking-tight font-inter-tight">
-                            <span className="bg-white text-black px-3 py-1 inline-block mb-2 rounded-sm">Make Better</span>
+                    <div className="flex-1 space-y-2 lg:translate-x-16">
+                        <h2 className="text-[32px] sm:text-[42px] font-bold leading-[1.05] tracking-tight font-inter-tight">
+                            <span className="bg-white text-[#000000] px-4 py-1.5 sm:px-5 sm:py-2 inline-block mb-1 rounded-none shadow-sm">Make Better</span>
                             <br />
-                            <span className="bg-white text-black px-3 py-1 inline-block rounded-sm">Decisions</span>
+                            <span className="bg-white text-[#000000] px-4 py-1.5 sm:px-5 sm:py-2 inline-block rounded-none shadow-sm">Decisions</span>
                         </h2>
-                        <p className="text-white/90 text-[clamp(17px,1.2vw,20px)] leading-[1.8] max-w-[450px]">
+                        <p className="text-white text-[18px] sm:text-[20px] leading-relaxed max-w-[480px] font-medium pt-1">
                             Discover Yourself To Understand What Truly Drives You, And Choose A Career Path That Fits Your Strengths, Interests, And Aspirations.
                         </p>
                     </div>
 
                     {/* Right Side: Overlapping Circular Process Steps */}
-                    <div className="flex-1 relative w-full max-w-[420px] mx-auto lg:mx-0 flex items-center justify-center">
+                    <div className="flex-1 relative w-full max-w-[420px] mx-auto lg:mx-0 flex items-center justify-center lg:-translate-x-18">
                         <img
                             src="/images/circle image.png"
                             alt="Professional career counselling process cycles"
@@ -200,7 +205,7 @@ const CareerCounselling = () => {
 
             {/* Our Career Guidance Services Includes Section - Precisely matching reference image */}
             <div className="bg-[#FEF8E4] py-12 sm:py-16">
-                <div className="max-w-[1320px] mx-auto px-6">
+                <div className="max-w-[1240px] mx-auto px-6">
                     <h2 className="text-3xl sm:text-4xl font-bold text-black text-center mb-12 font-inter-tight">
                         Our career guidance services includes
                     </h2>
@@ -259,7 +264,7 @@ const CareerCounselling = () => {
 
             {/* What do we assure? Section - Precisely matching reference image */}
             <div className="bg-white py-12 sm:py-16">
-                <div className="max-w-[1320px] mx-auto px-6">
+                <div className="max-w-[1240px] mx-auto px-6">
                     <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] text-center mb-16 font-inter-tight">
                         What do we assure?
                     </h2>
@@ -320,7 +325,7 @@ const CareerCounselling = () => {
                 className="py-16 sm:py-20 border-t border-black/5"
                 style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
             >
-                <div className="max-w-[1320px] mx-auto px-6">
+                <div className="max-w-[1240px] mx-auto px-6">
                     {/* Header with Navigation */}
                     <div className="flex justify-between items-end mb-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
@@ -393,7 +398,7 @@ const CareerCounselling = () => {
 
             {/* FAQ Section */}
             <div className="bg-white py-12 sm:py-20">
-                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+                <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
                         <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-10 text-gray-950 font-inter-tight text-left leading-tight">
