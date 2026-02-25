@@ -35,8 +35,7 @@ const Header = () => {
   const services = [
     // { label: 'Individual Counselling', href: '#individual' },
     { label: 'Career Counselling', href: '/career-counselling' },
-    
-    { label: 'Workshops', href: '#workshops' }
+    { label: 'Workshops', href: '/workshop' }
   ];
 
   return (
