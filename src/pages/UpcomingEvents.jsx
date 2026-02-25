@@ -192,10 +192,15 @@ const UpcomingEvents = () => {
             </div>
 
             {/* Choose the Right Program Section */}
-            <div
-                className="py-8 sm:py-12 relative overflow-hidden bg-cover bg-bottom"
-                style={{ backgroundImage: "url('/images/wallpaper.png')" }}
-            >
+            <div className="py-12 sm:py-20 relative overflow-hidden bg-white">
+                {/* Process Wallpaper Image */}
+                <img
+                    src="/images/wallpaper.png"
+                    alt=""
+                    className="absolute bottom-0 left-0 w-full h-auto min-h-[50%] object-contain object-bottom pointer-events-none"
+                    style={{ zIndex: 0 }}
+                />
+
                 <div className="max-w-[1320px] mx-auto px-6 relative z-10">
                     <div className="text-center max-w-[1100px] mx-auto mb-12">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-950 font-geist">
