@@ -46,15 +46,36 @@ const Testimonials = () => {
             text: 'The content was simple to understand yet comprehensive. The course and curriculum offered by Vriksh sparked intellectual curiosity. Overall, it was an incredible journey with the mentors and mentees.',
             rating: 5,
             date: 'December 2023'
+        },
+        {
+            name: 'Pratheeksha',
+            role: 'Special Educator',
+            text: 'One of the best sessions I have attended. All the topics were explained in a clear and simple way. As a learner, it was very helpful for me to understand each topic in detail. One of the best things I found was the flow of the topics and the resources, activities, worksheets, and videos shared by Shivani ma\'am. Looking forward to attending more classes. Thank you so much',
+            rating: 5,
+            date: 'July 2025'
+        },
+        {
+            name: 'Madhu Mitha',
+            role: 'Counselling Psychologist',
+            text: 'I have attended some online courses before, but this online course on Career Counselling was truly professional. Although the duration was short, the way it was conducted and the attention given to the participants were excellent. In one sentence, what was promised was delivered. I am very satisfied with this online course. My best wishes to Vriksh Academy for the future. Good day.',
+            rating: 5,
+            date: 'November 2024'
+        },
+        {
+            name: 'Disha Arunagiri',
+            role: 'Counsellor',
+            text: 'Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.',
+            rating: 5,
+            date: 'April 2025'
         }
     ];
 
     const nextSlide = useCallback(() => {
-        setCurrentIndex((prev) => (prev + 1) % reviews.length);
+        setCurrentIndex((prev) => (prev + 3) % reviews.length);
     }, [reviews.length]);
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+        setCurrentIndex((prev) => (prev - 3 + reviews.length) % reviews.length);
     };
 
     // Auto-advance logic
@@ -118,7 +139,7 @@ const Testimonials = () => {
                             <div className="mb-5">
                                 <h4 className="text-[18px] font-bold text-black mb-0.5 font-inter-tight">{rev.name}</h4>
                                 <span className="text-[13px] font-semibold text-[#272727CC] inline-block mb-4">{rev.role}</span>
-                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic">
+                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic overflow-hidden line-clamp-[6]">
                                     "{rev.text}"
                                 </p>
                             </div>
@@ -148,15 +169,15 @@ const Testimonials = () => {
                 </div>
 
                 <div className="flex justify-center gap-1.5">
-                    {reviews.map((_, index) => (
+                    {[0, 1, 2].map((index) => (
                         <button
                             key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${currentIndex === index
+                            onClick={() => setCurrentIndex(index * 3)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${Math.floor(currentIndex / 3) === index
                                 ? 'w-6 bg-[#2563eb]'
                                 : 'w-1.5 bg-gray-300 hover:bg-gray-400'
                                 }`}
-                            aria-label={`Go to slide ${index + 1}`}
+                            aria-label={`Go to page ${index + 1}`}
                         />
                     ))}
                 </div>

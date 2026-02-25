@@ -44,7 +44,7 @@ const Wellness = () => {
                                 <div className="animate-marquee hover:pause-animation flex items-center">
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                         <div key={num} className="flex flex-col items-center justify-center shrink-0 px-4 sm:px-8">
-                                            <div className="h-[45px] sm:h-[60px] w-auto transition-all duration-300 hover:scale-110">
+                                            <div className="h-[55px] sm:h-[75px] w-auto transition-all duration-300 hover:scale-110">
                                                 <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@ const Wellness = () => {
                                     {/* Duplicate for seamless loop */}
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                         <div key={`dup-${num}`} className="flex flex-col items-center justify-center shrink-0 px-4 sm:px-8">
-                                            <div className="h-[45px] sm:h-[60px] w-auto transition-all duration-300 hover:scale-110">
+                                            <div className="h-[55px] sm:h-[75px] w-auto transition-all duration-300 hover:scale-110">
                                                 <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>

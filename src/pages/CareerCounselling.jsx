@@ -3,11 +3,13 @@ import React from 'react';
 const CareerCounselling = () => {
     return (
         <div className="pt-0 bg-white">
-            {/* Hero Header Banner - Precisely matching reference image */}
-            <div className="bg-[#520378] pt-20 pb-6 sm:pt-28 sm:pb-8 flex items-center justify-center">
-                <h1 className="text-white text-2xl sm:text-3xl lg:text-5xl font-bold text-center tracking-tight px-4 uppercase font-inter-tight">
-                    CAREER COUNSELLING
-                </h1>
+            {/* Hero Header Banner - Precisely matching Upcoming Workshops page banner size and text */}
+            <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
+                <div className="max-w-[1320px] mx-auto px-6">
+                    <h1 className="text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
+                        CAREER COUNSELLING
+                    </h1>
+                </div>
             </div>
 
             {/* Main Content Section - Standardized width and layout */}
@@ -18,11 +20,11 @@ const CareerCounselling = () => {
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                     {/* Left Column: Text Content */}
                     <div className="flex-1 order-2 lg:order-1 slide-in-from-left-4 duration-700">
-                        <h2 className="text-2xl sm:text-[38px] font-bold text-gray-950 leading-[1.1] mb-8 font-inter-tight">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-8 font-geist tracking-normal">
                             Not sure what career is <br /> right for you?
                         </h2>
 
-                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-10 max-w-[540px]">
+                        <p className="text-base text-gray-700 leading-relaxed mb-10 max-w-[540px]">
                             Let's explore your strengths, interests, and natural abilities to uncover a career path that truly fits you. Through guided assessments and personalised counselling, we help you gain clarity, confidence, and direction for your future. Whether you're a student choosing your first path or someone considering a change, we're here to support you at every step.
                         </p>
 
@@ -45,8 +47,8 @@ const CareerCounselling = () => {
             </div>
 
 
-            {/* Signs You Might Need Career Guidance Section - Exact match to reference image */}
-            <div className="relative py-6 sm:py-10 overflow-hidden bg-white">
+            {/* Signs You Might Need Career Guidance Section - More compact sizing */}
+            <div className="relative py-4 sm:py-6 overflow-hidden bg-white">
                 {/* Background Image - More prominent as per reference */}
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                     <img
@@ -61,7 +63,7 @@ const CareerCounselling = () => {
                         Signs You Might Need Career Guidance
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                         {[
                             {
                                 text: "You've Completed High School Or Are Unsure About Your Next Step",
@@ -90,14 +92,14 @@ const CareerCounselling = () => {
                         ].map((item, index) => (
                             <div
                                 key={index}
-                                className={`${item.color} p-6 sm:p-8 rounded-[16px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[160px] lg:min-h-[200px]`}
+                                className={`${item.color} p-5 rounded-[16px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[130px] lg:min-h-[160px]`}
                             >
                                 <div className="w-6 h-6 rounded-full bg-black flex items-center justify-center mb-5 shrink-0 shadow-sm">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="mb-[1px] mr-[0.5px]">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-lg sm:text-[21px] font-bold text-gray-950 leading-[1.1] font-inter-tight max-w-[280px]">
+                                <p className="text-base sm:text-[18px] font-bold text-gray-950 leading-[1.1] font-inter-tight max-w-[280px]">
                                     {item.text}
                                 </p>
                             </div>
@@ -152,8 +154,8 @@ const CareerCounselling = () => {
                 </div>
             </div>
 
-            {/* Make Better Decisions Section - Compact styling */}
-            <div className="relative pt-12 pb-6 sm:pt-20 sm:pb-10 overflow-hidden">
+            {/* Make Better Decisions Section - More compact sizing */}
+            <div className="relative pt-8 pb-4 sm:pt-14 sm:pb-8 overflow-hidden">
                 {/* Background Image - Precisely aligned to top curve */}
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                     <img
@@ -172,7 +174,7 @@ const CareerCounselling = () => {
                     />
                 </div>
 
-                <div className="relative z-10 max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
                     {/* Left Side: Text Content */}
                     <div className="flex-1 space-y-4">
                         <h2 className="text-[24px] sm:text-[30px] font-bold leading-[1.05] tracking-tight font-inter-tight">
@@ -186,7 +188,7 @@ const CareerCounselling = () => {
                     </div>
 
                     {/* Right Side: Overlapping Circular Process Steps */}
-                    <div className="flex-1 relative w-full max-w-[500px] mx-auto lg:mx-0 flex items-center justify-center">
+                    <div className="flex-1 relative w-full max-w-[420px] mx-auto lg:mx-0 flex items-center justify-center">
                         <img
                             src="/images/circle image.png"
                             alt="Professional career counselling process cycles"
@@ -228,7 +230,7 @@ const CareerCounselling = () => {
                         ].map((service, index) => (
                             <div
                                 key={index}
-                                className="bg-[#FCA65B] p-6 rounded-[20px] flex flex-col min-h-[280px] shadow-sm hover:shadow-md transition-all group"
+                                className="bg-[#FCA65B] p-6 rounded-[20px] flex flex-col min-h-[280px] shadow-sm hover:shadow-md transition-all group relative overflow-hidden"
                             >
                                 <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">
                                     {service.title}
@@ -236,11 +238,11 @@ const CareerCounselling = () => {
                                 <p className="text-gray-900 text-[14px] sm:text-[15px] leading-relaxed mb-4 font-medium">
                                     {service.text}
                                 </p>
-                                <div className="mt-auto ml-auto w-20 h-20">
+                                <div className="absolute bottom-2 right-2 w-28 h-28 transform group-hover:scale-110 transition-transform duration-500">
                                     <img
                                         src={service.iconSrc}
                                         alt={service.title}
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-full object-contain opacity-90"
                                     />
                                 </div>
                             </div>
