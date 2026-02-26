@@ -1,9 +1,9 @@
 import React from 'react';
 
 const stats = [
-    { value: '5000+', label: 'Active Learners' },
-    { value: '4.9', label: 'Google Rating' },
-    { value: '300+', label: 'Workshop conducted' },
+    { value: '5000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
+    { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group2.png' },
+    { value: '300+', label: 'Workshop conducted', icon: '/icons/Mask group3.png' },
 ];
 
 const Workshop = () => {
@@ -14,8 +14,8 @@ const Workshop = () => {
             <div className="relative bg-[#FEF9E7] overflow-hidden">
 
                 {/* Purple top banner */}
-                <div className="bg-[#520378] flex items-center justify-center pt-16 pb-8 sm:pt-24 sm:pb-10 relative z-10">
-                    <h1 className="text-white text-[clamp(24px,4vw,36px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                <div className="bg-[#520378] flex items-center justify-center pt-26 pb-10 sm:pt-32 sm:pb-12 relative z-10">
+                    <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
                         WORKSHOP
                     </h1>
                 </div>
@@ -23,7 +23,7 @@ const Workshop = () => {
                 {/* Hero content area — person image overlaps the purple banner */}
                 <div className="relative overflow-hidden">
                     {/* Person image — cropped from center to bottom */}
-                    <div className="absolute top-9 top-half right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[120%] sm:w-[45%] lg:w-[40%] max-w-[400px] h-[130%] overflow-hidden pointer-events-none">
+                    <div className="absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[120%] sm:w-[45%] lg:w-[40%] max-w-[400px] h-[130%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/hwrkshp.png"
                             alt="Workshop learner"
@@ -32,15 +32,15 @@ const Workshop = () => {
                     </div>
 
                     {/* Text content */}
-                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-10 sm:py-14">
-                        <div className="max-w-[52%] sm:max-w-[50%]">
-                            <h2 className="text-[clamp(22px,3vw,34px)] font-bold text-gray-950 leading-[1.2] mb-4 font-inter-tight">
+                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
+                        <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
+                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-gray-950 leading-[1.2] mb-4 font-inter-tight tracking-tight">
                                 Join 5,000+ learners mastering psychology with confidence
                             </h2>
-                            <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed mb-6 max-w-[380px]">
+                            <p className="text-[14px] sm:text-[15px] text-gray-600 leading-relaxed mb-6 max-w-[420px] font-medium">
                                 Step into a world of learning – practical, engaging, and skill boosting workshops under one roof. Build clarity, competence, and confidence with every session you attend.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-7 py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                 Explore workshop
                             </button>
                         </div>
@@ -51,30 +51,28 @@ const Workshop = () => {
             {/* ── Stats Section ── */}
             <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-2 sm:-mt-4">
                 <div
-                    className="max-w-[1240px] mx-auto rounded-[22px] py-7 px-6 sm:px-10 shadow-md"
+                    className="max-w-[1240px] mx-auto rounded-[16px] pt-12 pb-10 px-6 sm:px-12 shadow-lg"
                     style={{ background: '#520378' }}
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6 lg:gap-10">
                         {stats.map((stat, index) => (
-                            <div
-                                key={index}
-                                className="bg-white rounded-[18px] p-5 sm:p-6 flex flex-col gap-3 shadow-sm"
-                            >
-                                {/* Icon top-left */}
-                                <div className="w-11 h-11 bg-orange-50 rounded-[11px] flex items-center justify-center">
+                            <div key={index} className="relative mt-6 sm:mt-4">
+                                {/* Icon top-left - absolutely positioned to overlap */}
+                                <div className="absolute -top-[26px] left-[-6%] w-[54px] h-[54px] bg-white rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
-                                        src="/icons/workshop.png"
-                                        alt="Workshop icon"
-                                        className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
+                                        src={stat.icon}
+                                        alt={stat.label}
+                                        className="w-10 h-10 object-contain"
                                     />
                                 </div>
-                                {/* Number */}
-                                <div className="text-[24px] sm:text-[26px] font-bold text-gray-950 font-inter-tight leading-tight">
-                                    {stat.value}
-                                </div>
-                                {/* Label */}
-                                <div className="text-[13px] sm:text-[14px] text-gray-500 font-medium -mt-1">
-                                    {stat.label}
+                                {/* Content Card */}
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[12px] pt-[44px] pb-6 px-7 h-full w-full">
+                                    <div className="text-[26px] sm:text-[28px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-[13px] sm:text-[14px] text-gray-700 font-medium">
+                                        {stat.label}
+                                    </div>
                                 </div>
                             </div>
                         ))}
