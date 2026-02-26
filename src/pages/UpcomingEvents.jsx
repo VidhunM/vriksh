@@ -515,7 +515,7 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900 leading-[1.1] tracking-tight font-inter-tight text-left">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-950 font-geist leading-[1.1] tracking-tight  text-left">
                             Frequently asked questions
                         </h2>
 
