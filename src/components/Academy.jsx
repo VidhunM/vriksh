@@ -54,6 +54,7 @@ const Academy = () => {
                                 alt="Student waves at laptop"
                                 className="w-full h-full object-cover"
                             />
+                            <div className="absolute inset-0 bg-black/30 rounded-2xl" />
                         </div>
                     </div>
 

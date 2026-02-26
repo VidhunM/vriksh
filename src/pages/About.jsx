@@ -116,11 +116,13 @@ const About = () => {
                             <img
                                 src="/images/banu 1.png"
                                 alt="Banu Priya - Founder & CEO"
-                                className="relative z-10 w-full h-full object-contain object-top scale-[2.25] origin-top -translate-x-15 -translate-y-55"
+                                className="relative z-10 w-full h-full object-contain object-top scale-[2.25] origin-top -translate-x-15 -translate-y-55 brightness-110 saturate-150"
                                 onError={(e) => {
                                     e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib2=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                                 }}
                             />
+                            {/* Colorful brightness overlay */}
+                            <div className="absolute inset-0 z-20 bg-gradient-to-br from-[#a855f7]/30 via-[#f97316]/20 to-[#ec4899]/25 mix-blend-screen pointer-events-none" />
                         </div>
                     </div>
 
