@@ -14,12 +14,12 @@ const About = () => {
             <div className="relative max-w-[1440px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
                 <div
-                    className="absolute top-[-110px] left-[12%] sm:left-[12%] w-full sm:w-[70%] h-full pointer-events-none opacity-[0.8] z-20 animate-fadeIn"
+                    className="absolute top-[-145px] left-[15%] sm:left-[22%] w-full sm:w-[70%] h-full pointer-events-none opacity-[0.8] z-20 animate-fadeIn"
                 >
                     <img
                         src="/images/abt.png"
                         alt=""
-                        className="w-full h-full object-contain object-left scale-275 sm:scale-135 mix-blend-multiply brightness-[0.7] contrast-[1.1] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
+                        className="w-full h-full object-contain object-left scale-[7.5] sm:scale-170 mix-blend-multiply brightness-[0.75] contrast-[0.95] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
                     />
                 </div>
 
@@ -194,7 +194,7 @@ const About = () => {
                         <h3 className="text-white text-[clamp(24px,5vw,34px)] font-bold mb-4 max-w-[600px] leading-tight font-inter-tight">
                             Rooted in care, <br className="hidden sm:block" />  Growing with you
                         </h3>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[17px] transition-all transform hover:scale-115">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[20px] transition-all transform hover:scale-115">
                             Get Started
                         </button>
                     </div>
