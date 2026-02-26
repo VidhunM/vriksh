@@ -1,4 +1,5 @@
 import React from 'react';
+import WorkshopsListing from '../components/WorkshopsListing';
 
 const stats = [
     { value: '5000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
@@ -275,108 +276,6 @@ const WorkshopTestimonials = () => {
                             </div>
                         </div>
                     ))}
-                </div>
-
-            </div>
-        </div>
-    );
-};
-
-const categories = ['Counselling', 'Special Education', 'Corporate', 'Teachers', 'Students', 'Parents'];
-
-const workshopCards = [
-    { title: 'Counselling Skills 101', duration: '1.5 Hours', rating: '4.9 Google review', image: '/images/hwrkshp.png' },
-    { title: 'Counselling Skills 101', duration: '1.5 Hours', rating: '4.9 Google review', image: '/images/hwrkshp.png' },
-    { title: 'Counselling Skills 101', duration: '1.5 Hours', rating: '4.9 Google review', image: '/images/hwrkshp.png' },
-    { title: 'Counselling Skills 101', duration: '1.5 Hours', rating: '4.9 Google review', image: '/images/hwrkshp.png' },
-];
-
-const WorkshopsListing = () => {
-    const [activeCategory, setActiveCategory] = React.useState('Counselling');
-
-    return (
-        <div className="bg-white py-14 sm:py-20 px-6 sm:px-12">
-            <div className="max-w-[1240px] mx-auto">
-
-                {/* Header */}
-                <div className="text-center mb-8">
-                    <h2 className="text-[clamp(26px,3vw,40px)] font-bold text-gray-950 font-inter-tight mb-3">
-                        All Workshops at One Place
-                    </h2>
-                    <p className="text-[14px] sm:text-[15px] text-gray-500 max-w-[520px] mx-auto leading-relaxed mb-3">
-                        Led by experienced psychologists, our curated and highly interactive sessions encourage deep insight, meaningful reflection, and practical real-world application.
-                    </p>
-                    <p className="text-[13px] text-gray-400 font-medium tracking-wide">
-                        Live • Online • Accessible Worldwide
-                    </p>
-                </div>
-
-                {/* Category Tabs */}
-                <div className="flex flex-wrap gap-2 sm:gap-3 justify-start mb-10">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium border transition-all ${activeCategory === cat
-                                ? 'bg-gray-950 text-white border-gray-950'
-                                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-500'
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Workshop Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-                    {workshopCards.map((card, index) => (
-                        <div
-                            key={index}
-                            className="rounded-[18px] overflow-hidden border border-[#520378]/20 shadow-sm hover:shadow-md transition-shadow bg-white"
-                        >
-                            {/* Card Image */}
-                            <div className="h-[160px] overflow-hidden">
-                                <img
-                                    src={card.image}
-                                    alt={card.title}
-                                    className="w-full h-full object-cover object-center"
-                                />
-                            </div>
-
-                            {/* Purple Card Info */}
-                            <div className="bg-[#520378] p-4">
-                                <h3 className="text-white font-bold text-[15px] leading-tight mb-3 font-inter-tight">
-                                    {card.title}
-                                </h3>
-                                <div className="border-t border-white/20 pt-3 flex flex-col gap-1.5 mb-4">
-                                    <div className="flex items-center gap-2 text-white/80 text-[12px]">
-                                        {/* Clock icon */}
-                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                                        </svg>
-                                        Duration: {card.duration}
-                                    </div>
-                                    <div className="flex items-center gap-2 text-white/80 text-[12px]">
-                                        {/* Star icon */}
-                                        <svg width="13" height="13" viewBox="0 0 20 20" fill="#fbbf24">
-                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                        </svg>
-                                        Rating: {card.rating}
-                                    </div>
-                                </div>
-                                <button className="bg-white text-[#520378] px-4 py-1.5 rounded-full text-[12px] font-semibold hover:bg-gray-100 transition-all active:scale-95">
-                                    Know more
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Load More */}
-                <div className="flex justify-center">
-                    <button className="bg-[#520378] hover:bg-[#400260] text-white px-10 py-3 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
-                        Load more
-                    </button>
                 </div>
 
             </div>
