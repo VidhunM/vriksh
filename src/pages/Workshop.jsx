@@ -1,7 +1,7 @@
 import React from 'react';
 
 const stats = [
-    { value: '5K+', label: 'Active Learners' },
+    { value: '5000+', label: 'Active Learners' },
     { value: '4.9', label: 'Google Rating' },
     { value: '300+', label: 'Workshop conducted' },
 ];
@@ -52,7 +52,7 @@ const Workshop = () => {
             <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-2 sm:-mt-4">
                 <div
                     className="max-w-[1240px] mx-auto rounded-[22px] py-7 px-6 sm:px-10 shadow-md"
-                    style={{ background: 'linear-gradient(to right, #EDD9F7, #FDE8C8)' }}
+                    style={{ background: '#520378' }}
                 >
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                         {stats.map((stat, index) => (
