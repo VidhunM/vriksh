@@ -3,6 +3,46 @@ import React, { useState, useEffect } from 'react';
 const CareerCounselling = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const faqs = [
+        {
+            question: "What is career counselling?",
+            answer: "Career counselling is a process where a trained counsellor helps you understand your interests, strengths, and values, and guides you in making informed career choices."
+        },
+        {
+            question: "Who can benefit from career counselling?",
+            answer: "Career counselling can help students choosing streams after 10th or 12th, college students exploring career options, professionals considering a career switch, and anyone feeling unsure about their career path."
+        },
+        {
+            question: "How is the counselling conducted?",
+            answer: "Sessions are conducted online at a mutually convenient time. First, we provide an assessment, followed by a one-on-one session that’s interactive and personalized, helping you understand your strengths and make career choices that truly fit you."
+        },
+        {
+            question: "How long is a career counselling session?",
+            answer: "Sessions typically range from 40–60 minutes, depending on your needs. Some may need multiple sessions for deeper guidance."
+        },
+        {
+            question: "Will I get clarity on my career path?",
+            answer: "Yes. Our counselors help you explore your interests, strengths, personality, and values, guiding you toward career paths that align with you."
+        },
+        {
+            question: "How do I book a session?",
+            answer: "You can book a session via our website, WhatsApp, or contact number. Once booked, you’ll receive session details."
+        },
+        {
+            question: "Can parents be involved in the counselling process?",
+            answer: "Yes. Parents can join sessions, especially for younger students, to support informed decision-making."
+        },
+        {
+            question: "Can I switch career paths after the sessions?",
+            answer: "Yes, Career counselling helps you explore your options and gain clarity, so you can confidently decide to switch or choose a career path that truly fits your interests and strengths"
+        }
+    ];
+
+    const toggleFaq = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
 
     const testimonials = [
         {
@@ -500,27 +540,30 @@ const CareerCounselling = () => {
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-10 text-gray-950 font-inter-tight text-left leading-tight">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-6 text-gray-950 font-inter-tight text-left leading-tight">
                             Frequently asked questions
                         </h2>
 
-                        <div className="space-y-4">
-                            {[
-                                "What is career counselling?",
-                                "How do I know if I need career guidance?",
-                                "What can I expect from a career assessment?",
-                                "How many sessions will I need?",
-                                "Who are the counsellors?",
-                                "Can I switch career paths after the sessions?"
-                            ].map((question, index) => (
-                                <div key={index} className="bg-[#FFFCE4] hover:bg-[#FFF9CC] py-4 px-8 rounded-[22px] flex items-center justify-between group transition-all cursor-pointer shadow-sm border border-transparent hover:border-orange-100">
-                                    <span className="text-base sm:text-lg font-bold text-gray-900 pr-6 font-inter-tight">
-                                        {index + 1}. {question}
-                                    </span>
-                                    <div className="text-gray-900 transition-colors shrink-0">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M7 10l5 5 5-5z" />
-                                        </svg>
+                        <div className="space-y-2.5">
+                            {faqs.map((faq, index) => (
+                                <div key={index} className="flex flex-col">
+                                    <div
+                                        onClick={() => toggleFaq(index)}
+                                        className={`py-3 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
+                                    >
+                                        <span className="text-base sm:text-lg font-bold pr-6 font-inter-tight transition-colors duration-300">
+                                            {index + 1}. {faq.question}
+                                        </span>
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M7 10l5 5 5-5z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className={`px-8 pb-6 rounded-b-[22px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                            {faq.answer}
+                                        </div>
                                     </div>
                                 </div>
                             ))}

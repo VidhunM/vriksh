@@ -59,7 +59,48 @@ const UpcomingEvents = () => {
         }
     ];
 
+    const faqs = [
+        {
+            question: "Do I need prior knowledge in psychology to participate?",
+            answer: "Not necessarily. Some workshops are meant for psychology students and professionals, while others are beginner-friendly and open to anyone interested in learning. We clearly mention the eligibility for each workshop so you can choose what suits you best."
+        },
+        {
+            question: "Will the workshop be online or offline?",
+            answer: "Most of our workshops are conducted online for easy access from anywhere."
+        },
+        {
+            question: "Are the sessions live or recorded?",
+            answer: "Most of our workshops are conducted live for interactive learning. Recordings are provided for registered participants for a limited period (if applicable)."
+        },
+        {
+            question: "Will I receive a certificate?",
+            answer: "Yes. Participants who attend the workshop and complete required activities (if any) will receive a certificate of participation."
+        },
+        {
+            question: "What makes Vriksh workshops different?",
+            answer: "Vriksh workshops stand out because they offer practical, case-based learning with real-life applications, interactive discussions, a strong focus on ethics and documentation, and ready-to-use tools helping you gain clarity and confidence."
+        },
+        {
+            question: "What if I miss a live session?",
+            answer: "If recording access is included, you can watch the session later within the given access period."
+        },
+        {
+            question: "Do you provide practical tools and templates?",
+            answer: "Yes. We provide short notes and, depending on the topic, many workshops include formats, templates, assessment frameworks, and intervention planning guides."
+        },
+        {
+            question: "Can institutions collaborate with Vriksh?",
+            answer: "Yes. We conduct customized webinars and training programs for schools, colleges, and organizations. You can contact us for collaboration details."
+        },
+        {
+            question: "Is there a refund policy?",
+            answer: "As seats are limited, fees are generally non-refundable. However, transfers to future batches may be considered on request."
+        }
+    ];
+
     const [testIndex, setTestIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(null);
+    const [activeCardId, setActiveCardId] = useState(null);
     const [itemsVisible, setItemsVisible] = useState(3);
 
     useEffect(() => {
@@ -85,6 +126,10 @@ const UpcomingEvents = () => {
 
     const nextSlide = () => {
         setTestIndex((prev) => (prev + 1) % totalSlides);
+    };
+
+    const toggleFaq = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
     };
 
     // Auto-slide every 5 seconds
@@ -209,7 +254,11 @@ const UpcomingEvents = () => {
                                 price: "Rs.800"
                             }
                         ].map((event) => (
-                            <div key={event.id} className="bg-[#FFFAE4] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 w-full group">
+                            <div
+                                key={event.id}
+                                onClick={() => setActiveCardId(activeCardId === event.id ? null : event.id)}
+                                className={`${activeCardId === event.id ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 w-full group cursor-pointer`}
+                            >
                                 {/* Card Image - Full Bleed with Internal Padding effect */}
                                 <div className="h-[240px] rounded-[24px] overflow-hidden mb-3">
                                     <img
@@ -221,23 +270,23 @@ const UpcomingEvents = () => {
 
                                 {/* Card Content */}
                                 <div className="px-5 pb-5 flex flex-col">
-                                    <h3 className="text-[18px] font-bold text-[#520378] leading-tight mb-2 font-geist line-clamp-2">
+                                    <h3 className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist line-clamp-2`}>
                                         {event.title}
                                     </h3>
-                                    <p className="text-[14px] text-gray-600 mb-3 line-clamp-2">
+                                    <p className={`text-[14px] ${activeCardId === event.id ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3 line-clamp-2`}>
                                         {event.description}
                                     </p>
 
-                                    <div className="h-px bg-gray-200 mb-3"></div>
+                                    <div className={`h-px ${activeCardId === event.id ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>
 
-                                    <p className="text-[12px] font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                    <p className={`text-[12px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white mb-2 flex items-center gap-2`}>
                                         Live | Online | Accessible Worldwide
                                     </p>
 
                                     {/* Date and Time */}
-                                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4 text-[12px] font-bold text-gray-700">
+                                    <div className={`flex flex-wrap gap-x-4 gap-y-1 mb-4 text-[12px] font-bold ${activeCardId === event.id ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
                                         <div className="flex items-center gap-2">
-                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
                                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                                 <line x1="16" y1="2" x2="16" y2="6"></line>
                                                 <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -246,7 +295,7 @@ const UpcomingEvents = () => {
                                             {event.date}
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
                                                 <circle cx="12" cy="12" r="10"></circle>
                                                 <polyline points="12 6 12 12 16 14"></polyline>
                                             </svg>
@@ -257,20 +306,20 @@ const UpcomingEvents = () => {
                                     {/* Bottom Info: Rating and Price Row */}
                                     <div className="flex justify-between items-center mb-3 mt-auto">
                                         <div className="flex items-center gap-1">
-                                            <span className="text-[12px] font-bold text-gray-700">({event.rating})</span>
+                                            <span className={`text-[12px] font-bold ${activeCardId === event.id ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>({event.rating})</span>
                                             <div className="flex text-orange-400 text-[18px]">
                                                 {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                             </div>
                                         </div>
-                                        <span className="text-[18px] font-bold text-gray-900">{event.price}</span>
+                                        <span className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>{event.price}</span>
                                     </div>
 
                                     {/* Action Buttons */}
                                     <div className="flex gap-2">
-                                        <button className="flex-1 bg-[#520378] text-white py-2 rounded-full font-bold text-[13px] hover:bg-[#6b049d] transition-colors whitespace-nowrap">
+                                        <button className={`flex-1 ${activeCardId === event.id ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
                                             Know more
                                         </button>
-                                        <button className="flex-1 border-2 border-[#520378] text-[#520378] py-2 rounded-full font-bold text-[13px] hover:bg-[#520378] hover:text-white transition-all whitespace-nowrap">
+                                        <button className={`flex-1 border-2 ${activeCardId === event.id ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}>
                                             Enroll Now
                                         </button>
                                     </div>
@@ -466,27 +515,30 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 leading-[1.1] tracking-tight font-inter-tight text-left">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900 leading-[1.1] tracking-tight font-inter-tight text-left">
                             Frequently asked questions
                         </h2>
 
-                        <div className="space-y-3">
-                            {[
-                                "What is this workshop about?",
-                                "Who can attend this workshop?",
-                                "Do I need prior knowledge in psychology to participate?",
-                                "Will the workshop be conducted online or offline?",
-                                "Is the session interactive?",
-                                "Will I receive a certificate of participation?"
-                            ].map((question, index) => (
-                                <div key={index} className="bg-[#FFFCE4] hover:bg-[#FFF9CC] py-3.5 px-7 rounded-[22px] flex items-center justify-between group transition-all cursor-pointer shadow-sm border border-transparent hover:border-orange-100">
-                                    <span className="text-base sm:text-lg font-bold text-gray-900 pr-6">
-                                        {index + 1}. {question}
-                                    </span>
-                                    <div className="text-gray-900 transition-colors shrink-0">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M7 10l5 5 5-5z" />
-                                        </svg>
+                        <div className="space-y-2.5">
+                            {faqs.map((faq, index) => (
+                                <div key={index} className="flex flex-col">
+                                    <div
+                                        onClick={() => toggleFaq(index)}
+                                        className={`py-3 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
+                                    >
+                                        <span className="text-base sm:text-lg font-bold pr-6 font-inter-tight transition-colors duration-300">
+                                            {index + 1}. {faq.question}
+                                        </span>
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M7 10l5 5 5-5z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className={`px-8 pb-6 rounded-b-[22px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                            {faq.answer}
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -494,7 +546,7 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Right: Side Image */}
-                    <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/3.3] rounded-[36px] overflow-hidden shadow-2xl relative">
+                    <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/4.2] rounded-[36px] overflow-hidden shadow-2xl relative">
                         <img
                             src="/images/FAQ.png"
                             alt="Student taking notes"
