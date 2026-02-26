@@ -36,7 +36,8 @@ const Header = () => {
     // { label: 'Individual Counselling', href: '#individual' },
     { label: 'Career Counselling', href: '/career-counselling' },
     { label: 'Workshops', href: '/workshop' },
-    { label: 'Training', href: '/training' }
+    { label: 'Training', href: '/training' },
+    { label: 'Certificate Courses', href: '/certificate' }
   ];
 
   return (
