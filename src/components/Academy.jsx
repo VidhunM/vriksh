@@ -23,12 +23,12 @@ const Academy = () => {
         <section id="academy" className="py-12 sm:py-16 bg-gradient-to-b from-[#FFF9E1] to-white overflow-hidden relative">
             {/* Decorative background element - Top Left */}
             <div
-                className="absolute top-[-170px] left-[-90px] w-[600px] h-[600px] pointer-events-none opacity-[0.2] rotate-12 animate-slide-up-fade"
+                className="absolute top-[-170px] left-[-90px] w-[600px] h-[600px] pointer-events-none opacity-[0.1] rotate-12 animate-slide-up-fade"
             >
                 <img
                     src="/images/abt.png"
                     alt=""
-                    className="w-full h-full object-contain mix-blend-multiply brightness-[0.2] contrast-[0.2]"
+                    className="w-full h-full object-contain mix-blend-multiply brightness-[0.1] contrast-[0.1]"
                 />
             </div>
 
