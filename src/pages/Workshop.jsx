@@ -210,7 +210,10 @@ const WorkshopTestimonials = () => {
     const visible = workshopReviews.slice(page * perPage, page * perPage + perPage);
 
     return (
-        <div className="bg-[#FEFCE8] py-14 sm:py-16 px-6 sm:px-12">
+        <div
+            className="py-14 sm:py-16 px-6 sm:px-12"
+            style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
+        >
             <div className="max-w-[1240px] mx-auto">
 
                 {/* Header Row */}
