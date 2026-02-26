@@ -48,7 +48,7 @@ const ContactFooter = () => {
 
     return (
         <footer className="footer-area">
-            <section id="contact" className="pt-6 pb-16 bg-white overflow-hidden">
+            <section id="contact" className="pt-6 pb-16  bg-gradient-to-b from-[#FFF9E1] to-white overflow-hidden relative">
                 <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
                         {/* Left Side: Content */}
@@ -101,7 +101,7 @@ const ContactFooter = () => {
                                     <div className="relative" ref={serviceRef}>
                                         <div
                                             onClick={() => setServiceOpen(!serviceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-white cursor-pointer flex justify-between items-center text-gray-950"
+                                            className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-to-b from-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950"
                                         >
                                             <span className={selectedService ? "text-gray-950" : "text-gray-950"}>
                                                 {selectedService || "Services interested in"}
@@ -134,7 +134,7 @@ const ContactFooter = () => {
                                     <div className="relative" ref={sourceRef}>
                                         <div
                                             onClick={() => setSourceOpen(!sourceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-white cursor-pointer flex justify-between items-center text-gray-950"
+                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-gradient-to-b from-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950"
                                         >
                                             <span className={selectedSource ? "text-gray-950" : "text-gray-950"}>
                                                 {selectedSource || "How did you hear about us?"}
