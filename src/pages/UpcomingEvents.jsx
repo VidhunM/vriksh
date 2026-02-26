@@ -132,11 +132,13 @@ const UpcomingEvents = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // Auto-slide every 5 seconds
+    // Auto-slide removed to prevent layout shifting
+    /*
     useEffect(() => {
         const timer = setInterval(nextSlide, 5000);
         return () => clearInterval(timer);
     }, [totalSlides]);
+    */
     return (
         <div className="pt-0">
             {/* Header Banner - Centered alignment requested */}
@@ -427,13 +429,13 @@ const UpcomingEvents = () => {
                         {testimonials.slice(testIndex * itemsVisible, testIndex * itemsVisible + itemsVisible).map((item, index) => (
                             <div
                                 key={`${item.name}-${testIndex}-${index}`}
-                                className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm border border-gray-100 h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
+                                className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm border border-gray-100 min-h-[420px] cursor-default"
                             >
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
                                     <p className="text-base text-gray-600">{item.role}</p>
                                 </div>
-                                <p className="text-base text-gray-700 leading-relaxed mb-8 italic flex-grow">
+                                <p className="text-base text-gray-700 leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
                                     &ldquo;{item.text}&rdquo;
                                 </p>
                                 <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
@@ -523,18 +525,18 @@ const UpcomingEvents = () => {
                                 <div key={index} className="flex flex-col">
                                     <div
                                         onClick={() => toggleFaq(index)}
-                                        className={`py-2 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
+                                        className={`py-2 px-8 rounded-[22px] flex items-center justify-between group cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                     >
-                                        <span className="text-base sm:text-lg font-medium pr-6 font-geist transition-colors duration-300">
+                                        <span className="text-base sm:text-lg font-medium pr-6 font-geist">
                                             {index + 1}. {faq.question}
                                         </span>
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M7 10l5 5 5-5z" />
                                             </svg>
                                         </div>
                                     </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <div className={`${openIndex === index ? 'block' : 'hidden'}`}>
                                         <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                             {faq.answer}
                                         </div>
