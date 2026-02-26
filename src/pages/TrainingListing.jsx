@@ -65,10 +65,10 @@ const TrainingListing = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-tight">
             All Training at One Place
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-[910px] mx-auto leading-relaxed mb-6 font-medium font-geist">
-            Led by experienced psychologists, our curated and highly interactive training programs encourage deep insight,
+          <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
+            Led by experienced psychologists, our curated and highly interactive training programs encourage 
             <br className="hidden sm:block" />
-            meaningful reflection, and practical real-world application.
+            deep insight,meaningful reflection, and practical real-world application.
           </p>
           <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">Live • Online • Accessible Worldwide</p>
         </div>
