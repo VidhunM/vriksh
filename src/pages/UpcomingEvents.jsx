@@ -334,7 +334,7 @@ const UpcomingEvents = () => {
             <div className="py-12 sm:py-20 relative overflow-hidden bg-white">
                 {/* Process Wallpaper Image */}
                 <img
-                    src="/images/wallpaper.png"
+                    src="/images/BG.png"
                     alt=""
                     className="absolute bottom-0 left-0 w-full h-auto min-h-[50%] object-contain object-bottom pointer-events-none"
                     style={{ zIndex: 0 }}

@@ -182,7 +182,7 @@ const CareerCounselling = () => {
                 {/* Background Image - Precisely aligned as per reference */}
                 <div className="absolute inset-0 w-full h-[100%] -translate-y-12 pointer-events-none">
                     <img
-                        src="/images/career guidance background.png"
+                        src="/images/BG2.png"
                         alt=""
                         className="w-full h-full object-fill object-bottom opacity-100"
                     />
