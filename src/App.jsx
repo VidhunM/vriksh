@@ -7,6 +7,7 @@ import About from './pages/About';
 import UpcomingEvents from './pages/UpcomingEvents';
 import CareerCounselling from './pages/CareerCounselling';
 import Workshop from './pages/Workshop';
+import Training from './pages/Training';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
 import './index.css';
@@ -25,6 +26,7 @@ function AppContent() {
           <Route path="/upcoming-events" element={<UpcomingEvents />} />
           <Route path="/career-counselling" element={<CareerCounselling />} />
           <Route path="/workshop" element={<Workshop />} />
+          <Route path="/training" element={<Training />} />
         </Routes>
       </main>
       {!isAboutPage && <ContactFooter />}
