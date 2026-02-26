@@ -1,5 +1,5 @@
 import React from 'react';
-import TrainingListing from '../components/TrainingListing';
+import TrainingListing from './TrainingListing';
 
 const stats = [
     { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
@@ -8,6 +8,7 @@ const stats = [
 ];
 
 const Training = () => {
+
     return (
         <section id="training" className="bg-white pt-0">
 
@@ -15,10 +16,12 @@ const Training = () => {
             <div className="relative bg-[#FEF9E7] overflow-hidden">
 
                 {/* Purple top banner */}
-                <div className="bg-[#520378] flex items-center justify-center pt-26 pb-10 sm:pt-32 sm:pb-12 relative z-10">
-                    <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
-                        TRAINING
-                    </h1>
+                <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center relative z-10">
+                    <div className="max-w-[1240px] mx-auto px-6">
+                        <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                            TRAINING
+                        </h1>
+                    </div>
                 </div>
 
                 {/* Hero content area — person image overlaps the purple banner */}
@@ -35,10 +38,10 @@ const Training = () => {
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
-                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-gray-950 leading-[1.2] mb-4 font-inter-tight tracking-tight">
+                            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-tight">
                                 Hands-on, interactive programs led by expert psychologists
                             </h2>
-                            <p className="text-[14px] sm:text-[15px] text-gray-600 leading-relaxed mb-6 max-w-[420px] font-medium">
+                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
                                 Engage in introspective activities and real-life case discussions, using practical tools to gain deeper insights into every topic and strengthen your professional skills.
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-7 py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -81,7 +84,7 @@ const Training = () => {
                 </div>
             </div>
 
-            {/* ── All Training at One Place ── */}
+            {/* ── All Training at One Place (embedded) ── */}
             <TrainingListing />
 
             {/* ── What our learners say ── */}

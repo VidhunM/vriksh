@@ -8,6 +8,7 @@ import UpcomingEvents from './pages/UpcomingEvents';
 import CareerCounselling from './pages/CareerCounselling';
 import Workshop from './pages/Workshop';
 import Training from './pages/Training';
+import TrainingListing from './pages/TrainingListing';
 import Certificate from './pages/Certificate';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ function AppContent() {
           <Route path="/career-counselling" element={<CareerCounselling />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/training" element={<Training />} />
+          <Route path="/training-listing" element={<TrainingListing />} />
           <Route path="/certificate" element={<Certificate />} />
         </Routes>
       </main>

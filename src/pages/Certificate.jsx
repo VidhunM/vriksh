@@ -15,10 +15,12 @@ const Certificate = () => {
             <div className="relative bg-[#FEF9E7] overflow-hidden">
 
                 {/* Purple top banner */}
-                <div className="bg-[#520378] flex items-center justify-center pt-26 pb-10 sm:pt-32 sm:pb-12 relative z-10">
-                    <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
-                        CERTIFICATE COURSES
-                    </h1>
+                <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center relative z-10">
+                    <div className="max-w-[1240px] mx-auto px-6">
+                        <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                            CERTIFICATE COURSES
+                        </h1>
+                    </div>
                 </div>
 
                 {/* Hero content area — person image overlaps the purple banner */}
@@ -36,13 +38,13 @@ const Certificate = () => {
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
                             <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-gray-950 leading-[1.2] mb-4 font-inter-tight tracking-tight">
-                                Advance your career with expert-led certificate courses
+                                Learn new skills and explore your passions with guidance from expert psychologists.
                             </h2>
                             <p className="text-[14px] sm:text-[15px] text-gray-600 leading-relaxed mb-6 max-w-[420px] font-medium">
-                                Step into a world of specialized learning. Build clarity, competence, and confidence with comprehensive certification programs tailored to your professional goals.
+                                Flexible online courses designed to fit your schedule
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-7 py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
-                                Explore Courses
+                                Explore Training Programs
                             </button>
                         </div>
                     </div>

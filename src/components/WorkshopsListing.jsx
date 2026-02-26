@@ -114,13 +114,15 @@ const WorkshopsListing = () => {
 
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <h2 className="text-[clamp(26px,3vw,38px)] font-bold text-black font-inter-tight mb-4 tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-tight">
                         All Workshops at One Place
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] text-gray-600 max-w-[650px] mx-auto leading-relaxed mb-6 font-medium">
-                        Led by experienced psychologists, our curated and highly interactive sessions encourage deep insight, meaningful reflection, and practical real-world application.
+                    <p className="text-lg sm:text-xl text-gray-600 max-w-[900px] mx-auto leading-relaxed mb-6 font-medium font-geist">
+                        Led by experienced psychologists, our curated and highly interactive sessions encourage deep
+                        <br className="hidden sm:block" />
+                         insight,meaningful reflection, and practical real-world application.
                     </p>
-                    <p className="text-[14px] font-medium text-gray-800 tracking-wide">
+                    <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">
                         Live • Online • Accessible Worldwide
                     </p>
                 </div>
