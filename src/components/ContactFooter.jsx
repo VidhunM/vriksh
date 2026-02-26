@@ -48,7 +48,7 @@ const ContactFooter = () => {
 
     return (
         <footer className="footer-area">
-            <section id="contact" className="pt-6 pb-16 bg-white overflow-hidden">
+            <section id="contact" className="pt-6 pb-16 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
                 <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
                         {/* Left Side: Content */}

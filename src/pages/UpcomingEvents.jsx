@@ -510,12 +510,11 @@ const UpcomingEvents = () => {
                 </div>
             </div>
 
-            {/* FAQ Section */}
-            <div className="bg-white py-6 sm:py-12">
-                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+            <div className="bg-white pt-2 pb-12 sm:pt-4 sm:pb-20">
+                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-950 font-geist leading-[1.1] tracking-tight  text-left">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-4 text-gray-950 font-inter-tight text-left leading-tight">
                             Frequently asked questions
                         </h2>
 
@@ -524,9 +523,9 @@ const UpcomingEvents = () => {
                                 <div key={index} className="flex flex-col">
                                     <div
                                         onClick={() => toggleFaq(index)}
-                                        className={`py-3 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
+                                        className={`py-2 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                     >
-                                        <span className="text-base sm:text-lg font-bold pr-6 font-inter-tight transition-colors duration-300">
+                                        <span className="text-base sm:text-lg font-medium pr-6 font-geist transition-colors duration-300">
                                             {index + 1}. {faq.question}
                                         </span>
                                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
@@ -536,7 +535,7 @@ const UpcomingEvents = () => {
                                         </div>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                        <div className={`px-8 pb-6 rounded-b-[22px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                        <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                             {faq.answer}
                                         </div>
                                     </div>
@@ -546,7 +545,7 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Right: Side Image */}
-                    <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/4.2] rounded-[36px] overflow-hidden shadow-2xl relative">
+                    <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/3.8] rounded-[36px] overflow-hidden shadow-2xl relative">
                         <img
                             src="/images/FAQ.png"
                             alt="Student taking notes"
