@@ -49,9 +49,9 @@ const Workshop = () => {
             </div>
 
             {/* ── Stats Section ── */}
-            <div className="px-4 sm:px-8 pb-10 bg-white">
+            <div className="px-4 sm:px-8 pb-10 relative z-20 -mt-16 sm:-mt-20">
                 <div
-                    className="max-w-[1240px] mx-auto rounded-[24px] py-8 px-6 sm:px-10"
+                    className="max-w-[1240px] mx-auto rounded-[24px] py-8 px-6 sm:px-10 shadow-md"
                     style={{ background: 'linear-gradient(to right, #EDD9F7, #FDE8C8)' }}
                 >
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
