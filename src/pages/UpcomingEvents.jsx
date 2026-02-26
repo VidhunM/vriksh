@@ -152,31 +152,31 @@ const UpcomingEvents = () => {
 
             {/* Main Content */}
             <div
-                className="py-8 sm:py-12"
+                className="py-8 sm:py-12 overflow-hidden"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
-                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-12 xl:gap-20">
 
                     {/* Left Column: Text Content */}
                     <div className="flex-1 text-left">
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-8 font-geist tracking-normal">
-                            Bridging Education to <br /> Professional Practice
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-8 font-geist tracking-normal shrink-0">
+                            Bridging Education to <br className="hidden sm:block" /> Professional Practice
                         </h2>
 
                         <div className="space-y-3">
-                            <p className="text-lg sm:text-xl font-bold text-[#520378] italic whitespace-nowrap break-keep">
+                            <p className="text-lg sm:text-xl font-bold text-[#520378] italic xl:whitespace-nowrap break-keep">
                                 Join 5,000+ learners mastering psychology with confidence
                             </p>
 
                             <p className="text-base text-gray-700 leading-relaxed max-w-[540px]">
-                                Bridging theory and real-world practice to deliver accessible, <br />
+                                Bridging theory and real-world practice to deliver accessible, <br className="hidden xl:block" />
                                 lifelong learning through customized workshops, training programs, and certification courses
                             </p>
                         </div>
                     </div>
 
                     {/* Right Column: New Composite Hero Image */}
-                    <div className="flex-1 relative w-full lg:w-auto flex items-center justify-center lg:translate-x-10">
+                    <div className="flex-1 relative w-full lg:w-auto flex items-center justify-center xl:translate-x-10">
                         <img
                             src="/images/Vriksh upcoming events (1) 1.png"
                             alt="Upcoming Workshop Details"
@@ -516,7 +516,7 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-10 text-gray-950 font-inter-tight text-left leading-tight">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-8 text-gray-950 font-inter-tight text-left leading-tight">
                             Frequently asked questions
                         </h2>
 
