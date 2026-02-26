@@ -23,7 +23,7 @@ const Workshop = () => {
                 {/* Hero content area — person image overlaps the purple banner */}
                 <div className="relative overflow-hidden">
                     {/* Person image — cropped from center to bottom */}
-                    <div className="absolute right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[42%] sm:w-[38%] lg:w-[32%] max-w-[320px] h-[70%] overflow-hidden pointer-events-none">
+                    <div className="absolute top-10 right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[42%] sm:w-[38%] lg:w-[32%] max-w-[320px] h-[70%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/hwrkshp.png"
                             alt="Workshop learner"
@@ -49,31 +49,31 @@ const Workshop = () => {
             </div>
 
             {/* ── Stats Section ── */}
-            <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-6 sm:-mt-10">
+            <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-2 sm:-mt-4">
                 <div
-                    className="max-w-[1000px] mx-auto rounded-[20px] py-6 px-5 sm:px-8 shadow-md"
+                    className="max-w-[1240px] mx-auto rounded-[22px] py-7 px-6 sm:px-10 shadow-md"
                     style={{ background: 'linear-gradient(to right, #EDD9F7, #FDE8C8)' }}
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className="bg-white rounded-[16px] p-4 sm:p-5 flex flex-col gap-2 shadow-sm"
+                                className="bg-white rounded-[18px] p-5 sm:p-6 flex flex-col gap-3 shadow-sm"
                             >
                                 {/* Icon top-left */}
-                                <div className="w-10 h-10 bg-orange-50 rounded-[10px] flex items-center justify-center">
+                                <div className="w-11 h-11 bg-orange-50 rounded-[11px] flex items-center justify-center">
                                     <img
                                         src="/icons/workshop.png"
                                         alt="Workshop icon"
-                                        className="w-6 h-6 object-contain"
+                                        className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
                                     />
                                 </div>
                                 {/* Number */}
-                                <div className="text-[22px] sm:text-[24px] font-bold text-gray-950 font-inter-tight leading-tight">
+                                <div className="text-[24px] sm:text-[26px] font-bold text-gray-950 font-inter-tight leading-tight">
                                     {stat.value}
                                 </div>
                                 {/* Label */}
-                                <div className="text-[12px] sm:text-[13px] text-gray-500 font-medium -mt-1">
+                                <div className="text-[13px] sm:text-[14px] text-gray-500 font-medium -mt-1">
                                     {stat.label}
                                 </div>
                             </div>

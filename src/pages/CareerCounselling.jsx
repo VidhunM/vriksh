@@ -251,7 +251,7 @@ const CareerCounselling = () => {
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Clients Guided</p>
                         </div>
 
                         {/* Divider */}
@@ -278,7 +278,7 @@ const CareerCounselling = () => {
                         {/* Stat Item 4 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Clients Guided</p>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
                         </div>
                     </div>
                 </div>
