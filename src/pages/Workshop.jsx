@@ -23,7 +23,7 @@ const Workshop = () => {
                 {/* Hero content area — person image overlaps the purple banner */}
                 <div className="relative overflow-hidden">
                     {/* Person image — cropped from center to bottom */}
-                    <div className="absolute top-10 right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[42%] sm:w-[38%] lg:w-[32%] max-w-[320px] h-[70%] overflow-hidden pointer-events-none">
+                    <div className="absolute top-9 top-half right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[120%] sm:w-[45%] lg:w-[40%] max-w-[400px] h-[130%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/hwrkshp.png"
                             alt="Workshop learner"
