@@ -34,13 +34,13 @@ const Academy = () => {
 
             {/* Decorative background element - Bottom Right */}
             <div
-                className="absolute bottom-[30px] right-[-10px] w-[450px] h-[450px] pointer-events-none opacity-[0.8] animate-slide-up-fade"
+                className="absolute bottom-[30px] right-[-10px] w-[450px] h-[450px] pointer-events-none opacity-[0.7] animate-slide-up-fade"
             >
 
                 <img
                     src="/images/hml.png"
                     alt=""
-                    className="w-full h-full object-contain mix-blend-multiply brightness-[0.85] contrast-[1.0] transition-transform duration-700 hover:scale-105"
+                    className="w-full h-full object-contain mix-blend-multiply brightness-[0.7] contrast-[1.0] transition-transform duration-700 hover:scale-105"
                 />
             </div>
 
