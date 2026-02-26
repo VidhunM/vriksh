@@ -52,10 +52,9 @@ const Academy = () => {
                             <img
                                 src="/images/Academy.png"
                                 alt="Student waves at laptop"
-                                className="w-full h-full object-cover brightness-110 saturate-150"
+                                className="w-full h-full object-cover"
                             />
-                            {/* Colorful brightness overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/30 via-[#f97316]/20 to-[#ec4899]/25 mix-blend-screen pointer-events-none" />
+                            <div className="absolute inset-0 bg-black/50 rounded-2xl" />
                         </div>
                     </div>
 
