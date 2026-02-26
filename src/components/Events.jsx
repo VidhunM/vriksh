@@ -26,7 +26,7 @@ const Events = () => {
     ];
 
     return (
-        <section id="events" className="py-12 sm:py-16 bg-white">
+        <section id="events" className="pb-12 pt-6 sm:pb-16 sm:pt-8 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
                     <div className="max-w-[950px] text-center md:text-left">

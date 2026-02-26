@@ -116,9 +116,9 @@ const About = () => {
                             <img
                                 src="/images/banu 1.png"
                                 alt="Banu Priya - Founder & CEO"
-                                className="relative z-10 w-full h-full object-contain object-top scale-[2.05] origin-top -translate-x-10 -translate-y-40"
+                                className="relative z-10 w-full h-full object-contain object-top scale-[2.25] origin-top -translate-x-15 -translate-y-55"
                                 onError={(e) => {
-                                    e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                                    e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib2=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                                 }}
                             />
                         </div>
