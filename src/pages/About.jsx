@@ -14,12 +14,12 @@ const About = () => {
             <div className="relative max-w-[1440px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
                 <div
-                    className="absolute top-[-145px] left-[15%] sm:left-[22%] w-full sm:w-[70%] h-full pointer-events-none opacity-[0.8] z-20 animate-fadeIn"
+                    className="absolute top-[-145px] left-[15%] sm:left-[22%] w-full sm:w-[70%] h-full pointer-events-none opacity-[0.5] z-20 "
                 >
                     <img
                         src="/images/abt.png"
                         alt=""
-                        className="w-full h-full object-contain object-left scale-[7.5] sm:scale-170 mix-blend-multiply brightness-[0.75] contrast-[0.95] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
+                        className="w-full h-full object-contain object-left scale-[7.5] sm:scale-170 mix-blend-multiply brightness-[0.5] contrast-[0.5] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
                     />
                 </div>
 
