@@ -99,68 +99,64 @@ const Workshop = () => {
 };
 
 const faqItems = [
-    { q: 'What is this workshop about?' },
-    { q: 'Who can attend this workshop?' },
-    { q: 'Do I need prior knowledge in psychology to participate?' },
-    { q: 'Will the workshop be conducted online or offline?' },
-    { q: 'Is the session interactive?' },
-    { q: 'Will I receive a certificate of participation?' },
+    { q: 'What is this workshop about?', a: 'Our workshops are designed to provide practical, hands-on training on specific psychology topics, bridging the gap between theory and professional practice.' },
+    { q: 'Who can attend this workshop?', a: 'Workshops are open to psychology students, professionals, and anyone interested in deepening their understanding of mental health and wellbeing.' },
+    { q: 'Do I need prior knowledge in psychology to participate?', a: 'While some advanced workshops may require a background in psychology, many are beginner-friendly and designed to be accessible to all learners.' },
+    { q: 'Will the workshop be conducted online or offline?', a: 'To ensure accessibility for participants worldwide, most of our workshops are conducted live via online platforms.' },
+    { q: 'Is the session interactive?', a: 'Yes! Interaction is a core part of Vriksh workshops. Sessions include discussions, case studies, and practical tools to ensure engaging learning.' },
+    { q: 'Will I receive a certificate of participation?', a: 'Yes, all registered participants who attend the session will receive a certificate of participation from Vriksh E-Academy.' },
 ];
 
 const WorkshopFAQ = () => {
-    const [open, setOpen] = React.useState(0);
+    const [openIndex, setOpenIndex] = React.useState(null);
+
+    const toggleFaq = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
 
     return (
         <div className="bg-white py-14 sm:py-20 px-6 sm:px-12">
-            <div className="max-w-[1240px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+            <div className="max-w-[1320px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
                 {/* Left: FAQ */}
-                <div className="lg:w-[55%] w-full">
-                    <h2 className="text-[clamp(26px,3vw,40px)] font-bold text-gray-950 leading-[1.2] mb-6 font-inter-tight">
-                        Frequently asked<br />questions
+                <div className="flex-1 w-full text-left">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-10 text-gray-950 font-inter-tight leading-tight">
+                        Frequently asked questions
                     </h2>
 
-                    {/* Blue T icon */}
-                    <div className="w-9 h-9 bg-blue-500 rounded-lg flex items-center justify-center mb-5">
-                        <span className="text-white font-bold text-[16px]">T</span>
-                    </div>
-
-                    {/* Accordion */}
-                    <div className="flex flex-col divide-y divide-gray-100 border border-gray-100 rounded-[16px] overflow-hidden">
-                        {faqItems.map((item, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setOpen(open === i ? -1 : i)}
-                                className={`flex items-center justify-between w-full text-left px-5 py-4 transition-colors ${open === i ? 'bg-[#FEF9C3]' : 'bg-white hover:bg-gray-50'
-                                    }`}
-                            >
-                                <span className={`text-[14px] sm:text-[15px] ${open === i ? 'font-semibold text-gray-950' : 'text-gray-700'}`}>
-                                    {i + 1}. {item.q}
-                                </span>
-                                {/* Purple arrow button */}
-                                <span className="w-7 h-7 flex-shrink-0 ml-4 rounded-full bg-[#520378] flex items-center justify-center">
-                                    <svg
-                                        width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                        stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-                                        className={`transition-transform duration-200 ${open === i ? 'rotate-0' : 'rotate-180'}`}
-                                    >
-                                        <polyline points="18 15 12 9 6 15" />
-                                    </svg>
-                                </span>
-                            </button>
+                    <div className="space-y-3">
+                        {faqItems.map((item, index) => (
+                            <div key={index} className="flex flex-col">
+                                <div
+                                    onClick={() => toggleFaq(index)}
+                                    className={`py-2 px-8 rounded-[22px] flex items-center justify-between group cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
+                                >
+                                    <span className="text-base sm:text-lg font-medium pr-6 font-geist">
+                                        {index + 1}. {item.q}
+                                    </span>
+                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M7 10l5 5 5-5z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className={`${openIndex === index ? 'block' : 'hidden'}`}>
+                                    <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                        {item.a}
+                                    </div>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Right: Image */}
-                <div className="lg:w-[45%] w-full">
-                    <div className="rounded-[24px] overflow-hidden h-[380px] sm:h-[460px] lg:h-full min-h-[380px]">
-                        <img
-                            src="/images/career hero.png"
-                            alt="Workshop student"
-                            className="w-full h-full object-cover object-center"
-                        />
-                    </div>
+                {/* Right: Side Image */}
+                <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/3.4] rounded-[36px] overflow-hidden shadow-2xl relative">
+                    <img
+                        src="/images/FAQ.png"
+                        alt="Workshop learners"
+                        className="w-full h-full object-cover"
+                    />
                 </div>
 
             </div>
@@ -249,7 +245,7 @@ const WorkshopTestimonials = () => {
                     {visible.map((review, index) => (
                         <div
                             key={`${page}-${index}`}
-                            className="bg-white rounded-[20px] p-6 flex flex-col border border-gray-100 shadow-sm animate-fadeIn"
+                            className="bg-white rounded-[20px] p-6 flex flex-col border border-gray-100 shadow-sm"
                         >
                             {/* Name + Role */}
                             <div className="mb-4">
