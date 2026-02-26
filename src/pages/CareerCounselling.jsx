@@ -250,8 +250,8 @@ const CareerCounselling = () => {
                     <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">20,000+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Lives Impacted</p>
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
                         </div>
 
                         {/* Divider */}
@@ -268,8 +268,8 @@ const CareerCounselling = () => {
 
                         {/* Stat Item 3 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">5,000+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">100+</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Awareness Sessions</p>
                         </div>
 
                         {/* Divider */}
@@ -277,8 +277,8 @@ const CareerCounselling = () => {
 
                         {/* Stat Item 4 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">300+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Sessions conducted</p>
+                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
+                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Clients Guided</p>
                         </div>
                     </div>
                 </div>
@@ -381,7 +381,7 @@ const CareerCounselling = () => {
 
                     <div className="flex justify-center">
                         <button className="bg-[#520378] text-white px-10 py-3 rounded-full font-bold text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-lg active:scale-95">
-                            Discover your path
+                            Book your session today
                         </button>
                     </div>
                 </div>
