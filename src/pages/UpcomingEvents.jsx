@@ -143,7 +143,7 @@ const UpcomingEvents = () => {
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1320px] mx-auto px-6">
                     <h1 className="text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
-                        UPCOMING WORKSHOP
+                        UPCOMING EVENTS
                     </h1>
                 </div>
             </div>
