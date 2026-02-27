@@ -1,6 +1,6 @@
 import React from 'react';
 
-const categories = ['Counsellors', 'Special Educator'];
+const categories = ['Counsellors', 'Special Educator', 'Corporate', 'Parents', 'Teachers'];
 
 const trainingCards = [
   { title: 'CBT for Children & Adolescents', rating: '4.8', duration: '6 Hours', image: '/images/training/CBT for Children & Adolescents.jpg', categories: ['Counsellors', 'Special Educator'] },
@@ -39,7 +39,7 @@ const TrainingListing = () => {
   const handleLoadMore = () => setVisibleCount((prev) => prev + 3);
   const hasMore = visibleCount < filteredCards.length;
   const cardsToShow = filteredCards.slice(0, visibleCount);
-  const centerImageTitles = new Set([
+  const centerImageTitles = new Set([ 
     'Navigating Grief: Supporting Adults',
     'Informal Assessment of Learning Disabilities',
     'Navigating Grief: Supporting Children & Adolescents',
@@ -120,7 +120,7 @@ const TrainingListing = () => {
                 </div>
 
                 <button className="mt-auto w-[110px] py-2 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white">
-                  Know more
+                  Enquire Now
                 </button>
               </div>
             </div>

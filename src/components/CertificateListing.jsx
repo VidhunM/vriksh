@@ -1,6 +1,6 @@
 import React from 'react';
 
-const categories = ['Counsellors', 'Special Educator'];
+const categories = ['Counsellors', 'Special Educator', 'Teachers', 'Corporate'];
 
 const certificateCards = [
     {
@@ -8,7 +8,7 @@ const certificateCards = [
         subtitle: 'Hands-on training to excel as a professional school counsellor (Teachers can also join)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/School Counselling Learn to Support Students.png',
         categories: ['Counsellors', 'Special Educator', 'Teachers']
     },
     {
@@ -16,7 +16,7 @@ const certificateCards = [
         subtitle: 'Learn tools and techniques to support every individual’s career journey (Anyone can join - 18+)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/Career Counselling From Assessment to Guidance.png',
         categories: ['Counsellors', 'Special Educator']
     },
     {
@@ -24,7 +24,7 @@ const certificateCards = [
         subtitle: 'Remedial Teaching Strategies for Learning Difficulties (Teachers can also join)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/Assessment and management strategiues.jpg',
         categories: ['Special Educator', 'Teachers', 'Counsellors']
     },
     {
@@ -32,7 +32,7 @@ const certificateCards = [
         subtitle: 'Learn to design engaging, structured modules that empower learners with essential skills (Anyone can join - 18+)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/SEL & Life Skills Development.jpg',
         categories: ['Counsellors', 'Special Educator']
     },
     {
@@ -40,7 +40,7 @@ const certificateCards = [
         subtitle: 'Learn to apply psychological principles to optimize people and performance at work (Anyone can join - 18+)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/Applied Industrial–Organizational Psychology - Copy.jpg',
         categories: ['Counsellors', 'Special Educator', 'Corporate']
     },
     {
@@ -48,7 +48,7 @@ const certificateCards = [
         subtitle: 'Explore how human behavior shapes workplace dynamics and performance (Anyone can join - 18+)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/Workplace Psychology & Human Behavior.jpg',
         categories: ['Counsellors', 'Special Educator', 'Corporate']
     },
     {
@@ -56,7 +56,7 @@ const certificateCards = [
         subtitle: 'Gain insights into children’s minds to foster wellbeing and positive development (Anyone can join - 18+)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/Foundations of Child Psychology.jpg',
         categories: ['Counsellors', 'Special Educator']
     },
     {
@@ -64,7 +64,7 @@ const certificateCards = [
         subtitle: 'Equip yourself with essential skills to offer timely psychological support in emergencies (Anyone can join - 18+)',
         rating: '4.8',
         duration: '10 Hours',
-        image: '/images/events.png',
+        image: '/images/certificate/Psychological First Aid (PFA).jpg',
         categories: ['Counsellors', 'Special Educator']
     }
 ];
@@ -89,6 +89,10 @@ const CertificateListing = () => {
 
     const hasMore = visibleCount < filteredCards.length;
     const cardsToShow = filteredCards.slice(0, visibleCount);
+    const centerImageTitles = new Set([
+        'Workplace Psychology & Human Behavior',
+        'School Counselling: Learn to Support Students',
+    ]);
 
     return (
         <div className="bg-white py-14 sm:py-20 px-6 sm:px-12">
@@ -135,7 +139,7 @@ const CertificateListing = () => {
                                 <img
                                     src={card.image}
                                     alt="Certificate Course"
-                                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                                    className={`w-full h-full object-cover ${centerImageTitles.has(card.title) ? 'object-center' : 'object-top'} group-hover:scale-105 transition-transform duration-500`}
                                 />
                             </div>
 
@@ -166,7 +170,7 @@ const CertificateListing = () => {
                                     </div>
 
                                     <button className="px-5 py-2 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white hover:bg-[#400260]">
-                                        Know more
+                                        Enquire Now
                                     </button>
                                 </div>
                             </div>
