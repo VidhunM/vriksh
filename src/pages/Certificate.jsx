@@ -2,9 +2,9 @@ import React from 'react';
 import CertificateListing from '../components/CertificateListing';
 
 const stats = [
-    { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
-    { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group2.png' },
-    { value: '150+', label: 'Courses Completed', icon: '/icons/Mask group3.png' },
+    { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group2.png' },
+    { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group.png' },
+    { value: '150+', label: 'Trainings Conducted', icon: '/icons/Mask 1.png' },
 ];
 
 const Certificate = () => {

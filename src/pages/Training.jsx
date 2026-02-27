@@ -2,8 +2,8 @@ import React from 'react';
 import TrainingListing from './TrainingListing';
 
 const stats = [
-    { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
-    { value: '4.8', label: 'Google Rating', icon: '/icons/Mask group2.png' },
+    { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group2.png' },
+    { value: '4.8', label: 'Google Rating', icon: '/icons/Mask group.png' },
     { value: '150+', label: 'Training Conducted', icon: '/icons/Mask group3.png' },
 ];
 
