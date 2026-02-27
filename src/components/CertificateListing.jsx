@@ -1,39 +1,71 @@
 import React from 'react';
 
-const categories = ['Counsellors', 'Special Educator', 'Parents', 'Teachers', 'Students', 'Corporate'];
+const categories = ['Counsellors', 'Special Educator'];
 
 const certificateCards = [
     {
-        title: 'Certificate Course in Child Counselling',
-        subtitle: 'Comprehensive program for child and adolescent counselling',
-        rating: '4.9',
-        duration: '20 Hours',
+        title: 'School Counselling: Learn to Support Students',
+        subtitle: 'Hands-on training to excel as a professional school counsellor (Teachers can also join)',
+        rating: '4.8',
+        duration: '10 Hours',
         image: '/images/events.png',
-        categories: ['Counsellors', 'Teachers', 'Special Educator']
+        categories: ['Counsellors', 'Special Educator', 'Teachers']
     },
     {
-        title: 'Certificate Course in CBT',
-        subtitle: 'Advanced techniques in Cognitive Behavioral Therapy',
-        rating: '4.9',
-        duration: '20 Hours',
+        title: 'Career Counselling : From Assessment to Guidance',
+        subtitle: 'Learn tools and techniques to support every individual’s career journey (Anyone can join - 18+)',
+        rating: '4.8',
+        duration: '10 Hours',
         image: '/images/events.png',
-        categories: ['Counsellors', 'Corporate']
+        categories: ['Counsellors', 'Special Educator']
     },
     {
-        title: 'Certificate Course in School Counselling',
-        subtitle: 'Practical skills for effective school counselling interventions',
-        rating: '4.9',
-        duration: '20 Hours',
+        title: 'Assessment and Management of LD in School Settings',
+        subtitle: 'Remedial Teaching Strategies for Learning Difficulties (Teachers can also join)',
+        rating: '4.8',
+        duration: '10 Hours',
         image: '/images/events.png',
-        categories: ['Counsellors', 'Teachers', 'Special Educator']
+        categories: ['Special Educator', 'Teachers', 'Counsellors']
     },
     {
-        title: 'Certificate in Family Therapy',
-        subtitle: 'Equip yourself to support families through critical moments',
-        rating: '4.9',
-        duration: '20 Hours',
+        title: 'SEL & Life Skills Development',
+        subtitle: 'Learn to design engaging, structured modules that empower learners with essential skills (Anyone can join - 18+)',
+        rating: '4.8',
+        duration: '10 Hours',
         image: '/images/events.png',
-        categories: ['Counsellors', 'Parents']
+        categories: ['Counsellors', 'Special Educator']
+    },
+    {
+        title: 'Applied Industrial–Organizational Psychology',
+        subtitle: 'Learn to apply psychological principles to optimize people and performance at work (Anyone can join - 18+)',
+        rating: '4.8',
+        duration: '10 Hours',
+        image: '/images/events.png',
+        categories: ['Counsellors', 'Special Educator', 'Corporate']
+    },
+    {
+        title: 'Workplace Psychology & Human Behavior',
+        subtitle: 'Explore how human behavior shapes workplace dynamics and performance (Anyone can join - 18+)',
+        rating: '4.8',
+        duration: '10 Hours',
+        image: '/images/events.png',
+        categories: ['Counsellors', 'Special Educator', 'Corporate']
+    },
+    {
+        title: 'Foundations of Child Psychology',
+        subtitle: 'Gain insights into children’s minds to foster wellbeing and positive development (Anyone can join - 18+)',
+        rating: '4.8',
+        duration: '10 Hours',
+        image: '/images/events.png',
+        categories: ['Counsellors', 'Special Educator']
+    },
+    {
+        title: 'Psychological First Aid (PFA)',
+        subtitle: 'Equip yourself with essential skills to offer timely psychological support in emergencies (Anyone can join - 18+)',
+        rating: '4.8',
+        duration: '10 Hours',
+        image: '/images/events.png',
+        categories: ['Counsellors', 'Special Educator']
     }
 ];
 
@@ -64,13 +96,13 @@ const CertificateListing = () => {
 
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <h2 className="text-[clamp(26px,3vw,38px)] font-bold text-black font-inter-tight mb-4 tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-tight">
                         All Certificate Courses at One Place
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] text-gray-600 max-w-[680px] mx-auto leading-relaxed mb-6 font-medium">
+                    <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
                         Led by experienced psychologists, our curated certificate courses encourage deep insight, meaningful reflection, and practical real-world application.
                     </p>
-                    <p className="text-[14px] font-medium text-gray-800 tracking-wide">
+                    <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">
                         Live • Online • Accessible Worldwide
                     </p>
                 </div>
@@ -82,7 +114,7 @@ const CertificateListing = () => {
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={`px-6 py-2 rounded-full text-[14px] font-medium border transition-all ${activeCategory === cat
-                                ? 'bg-black text-white border-black'
+                                ? 'bg-[#520378] text-white border-[#520378]'
                                 : 'bg-white text-gray-700 border-gray-400 hover:border-gray-600'
                                 }`}
                         >
@@ -109,10 +141,10 @@ const CertificateListing = () => {
 
                             {/* Card Info */}
                             <div className="flex flex-col flex-grow p-5 sm:p-6">
-                                <h3 className="font-bold text-[16px] leading-[1.3] mb-3 font-inter-tight text-gray-950">
+                                <h3 className="font-bold text-[18px] leading-[1.3] mb-3 font-inter-tight text-gray-950 clamp-2 text-balance">
                                     {card.title}
                                 </h3>
-                                <p className="text-[13px] text-gray-600 mb-6 leading-relaxed">
+                                <p className="text-[14px] sm:text-[15px] text-gray-600 mb-6 leading-relaxed font-medium">
                                     {card.subtitle}
                                 </p>
 
