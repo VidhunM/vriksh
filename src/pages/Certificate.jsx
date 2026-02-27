@@ -2,7 +2,7 @@ import React from 'react';
 import CertificateListing from '../components/CertificateListing';
 
 const stats = [
-    { value: '2000+', label: 'Certified Professionals', icon: '/icons/Mask group.png' },
+    { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
     { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group2.png' },
     { value: '150+', label: 'Courses Completed', icon: '/icons/Mask group3.png' },
 ];
@@ -36,8 +36,8 @@ const Certificate = () => {
 
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
-                        <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[45%] relative z-10">
-                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-[#062623] leading-[1.2] mb-4 font-inter-tight tracking-tight">
+                        <div className="max-w-[100%] sm:max-w-[55%] lg:max-w-[55%] relative z-10">
+                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-[#062623] leading-[1.2] mb-4 font-inter-tight tracking-wide">
                                 Learn new skills and explore your passions with guidance from expert psychologists.
                             </h2>
                             <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
@@ -101,10 +101,10 @@ const Certificate = () => {
 
 const faqItems = [
     { q: 'What is this certificate course about?', a: 'Our certificate courses are designed to provide practical, hands-on training on specific psychology topics, bringing your professional practice to the next level.' },
-    { q: 'Who can attend these courses?', a: 'They are open to psychology students, professionals, and anyone interested in earning a valid certification to deepen their knowledge.' },
-    { q: 'Do I need prior knowledge?', a: 'While some advanced courses may require a background, many are beginner-friendly and clearly state any prerequisites.' },
+    { q: 'Who can attend these courses?', a: 'These courses are open to psychology students, professionals, and anyone interested in earning a certification to deepen their knowledge.' },
+    { q: 'Do I need any prior knowledge?', a: 'While some advanced courses may require a psychology background, many are beginner-friendly and clearly mention any prerequisites in the course details.' },
     { q: 'Will the course be online or offline?', a: 'To ensure accessibility, most of our certificate programs are conducted live via online platforms.' },
-    { q: 'Are these courses certified?', a: 'Yes! All registered participants who attend and complete any required assessments will receive a validated certificate of completion from Vriksh E-Academy.' },
+    { q: 'Will I receive a certificate of completion?', a: 'All registered participants who successfully attend the session will be awarded a Certificate of Completion from Vriksh E-Academy.' },
 ];
 
 const CertificateFAQ = () => {
