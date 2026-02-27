@@ -25,8 +25,8 @@ const Certificate = () => {
 
                 {/* Hero content area — person image overlaps the purple banner */}
                 <div className="relative overflow-hidden">
-                    {/* Person image — cropped from center to bottom */}
-                    <div className="absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[120%] sm:w-[45%] lg:w-[40%] max-w-[400px] h-[130%] overflow-hidden pointer-events-none">
+                    {/* Person image — cropped from center to bottom (Desktop/Tablet) */}
+                    <div className="hidden sm:block absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 sm:w-[50%] lg:w-[45%] max-w-[450px] h-[130%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/hwrkshp.png"
                             alt="Certificate Course Student"
@@ -35,18 +35,27 @@ const Certificate = () => {
                     </div>
 
                     {/* Text content */}
-                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
+                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
                         <div className="max-w-[100%] sm:max-w-[55%] lg:max-w-[55%] relative z-10">
-                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-[#062623] leading-[1.2] mb-4 font-inter-tight tracking-wide">
+                            <h2 className="text-[clamp(28px,4vw,42px)] font-bold text-[#062623] leading-[1.2] mb-5 font-inter-tight tracking-wide">
                                 Learn new skills and explore your passions with guidance from expert psychologists.
                             </h2>
-                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-8 max-w-[750px] font-medium font-geist">
                                 Flexible online courses designed to fit your schedule
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-7 py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
-                                Explore Training Programs
+                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                                Explore Certificate Courses
                             </button>
                         </div>
+                    </div>
+
+                    {/* Mobile Image - touching the stats card below */}
+                    <div className="block sm:hidden w-full h-[360px] mt-8 overflow-hidden relative z-10 flex justify-end">
+                        <img
+                            src="/images/hwrkshp.png"
+                            alt="Certificate Course Student Mobile"
+                            className="w-[115%] max-w-[115%] h-full object-cover object-top relative right-[-5%]"
+                        />
                     </div>
                 </div>
             </div>

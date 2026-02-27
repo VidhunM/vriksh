@@ -25,8 +25,8 @@ const Workshop = () => {
 
                 {/* Hero content area — person image overlaps the purple banner */}
                 <div className="relative overflow-hidden">
-                    {/* Person image — cropped from center to bottom */}
-                    <div className="absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 w-[120%] sm:w-[45%] lg:w-[40%] max-w-[400px] h-[130%] overflow-hidden pointer-events-none">
+                    {/* Person image — cropped from center to bottom (Desktop/Tablet) */}
+                    <div className="hidden sm:block absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 sm:w-[50%] lg:w-[45%] max-w-[450px] h-[130%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/hwrkshp.png"
                             alt="Workshop learner"
@@ -35,7 +35,7 @@ const Workshop = () => {
                     </div>
 
                     {/* Text content */}
-                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
+                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
                             <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
                                 Join 5,000+ learners mastering psychology with confidence
@@ -47,6 +47,15 @@ const Workshop = () => {
                                 Explore workshop
                             </button>
                         </div>
+                    </div>
+
+                    {/* Mobile Image - touching the stats card below */}
+                    <div className="block sm:hidden w-full h-[360px] mt-8 overflow-hidden relative z-10 flex justify-end">
+                        <img
+                            src="/images/hwrkshp.png"
+                            alt="Workshop learner Mobile"
+                            className="w-[115%] max-w-[115%] h-full object-cover object-top relative right-[-5%]"
+                        />
                     </div>
                 </div>
             </div>
