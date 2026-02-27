@@ -182,8 +182,8 @@ const WorkshopsListing = () => {
                                     </div>
                                 </div>
 
-                                <button className="mt-auto w-[110px] py-1.5 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]">
-                                    Know more
+                                <button className="w-[110px] pb-1.5 pt-1.5 mb-1 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]">
+                                    Enquire Now
                                 </button>
                             </div>
                         </div>
