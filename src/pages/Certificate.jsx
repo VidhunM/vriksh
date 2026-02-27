@@ -2,7 +2,7 @@ import React from 'react';
 import CertificateListing from '../components/CertificateListing';
 
 const stats = [
-    { value: '2000+', label: 'Certified Professionals', icon: '/icons/Mask group.png' },
+    { value: '3000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
     { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group2.png' },
     { value: '150+', label: 'Courses Completed', icon: '/icons/Mask group3.png' },
 ];
