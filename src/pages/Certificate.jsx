@@ -40,7 +40,7 @@ const Certificate = () => {
                             <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-[#062623] leading-[1.2] mb-4 font-inter-tight tracking-wide">
                                 Learn new skills and explore your passions with guidance from expert psychologists.
                             </h2>
-                            <p className="text-[14px] sm:text-[15px] text-gray-600 leading-relaxed mb-6 max-w-[420px] font-medium font-geist">
+                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
                                 Flexible online courses designed to fit your schedule
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-7 py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
