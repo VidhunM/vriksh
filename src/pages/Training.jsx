@@ -38,7 +38,7 @@ const Training = () => {
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
-                            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-tight">
+                            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
                                 Hands-on, interactive programs led by expert psychologists
                             </h2>
                             <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">

@@ -37,7 +37,7 @@ const Certificate = () => {
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 py-12 sm:py-16">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[45%] relative z-10">
-                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-[#062623] leading-[1.2] mb-4 font-inter-tight tracking-tight">
+                            <h2 className="text-[clamp(24px,3vw,38px)] font-bold text-[#062623] leading-[1.2] mb-4 font-inter-tight tracking-wide">
                                 Learn new skills and explore your passions with guidance from expert psychologists.
                             </h2>
                             <p className="text-[14px] sm:text-[15px] text-gray-600 leading-relaxed mb-6 max-w-[420px] font-medium font-geist">
