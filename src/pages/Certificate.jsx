@@ -4,7 +4,7 @@ import CertificateListing from '../components/CertificateListing';
 const stats = [
     { value: '2000+', label: 'Certified Professionals', icon: '/icons/Mask group.png' },
     { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group2.png' },
-    { value: '50+', label: 'Courses Completed', icon: '/icons/Mask group3.png' },
+    { value: '150+', label: 'Courses Completed', icon: '/icons/Mask group3.png' },
 ];
 
 const Certificate = () => {
@@ -12,7 +12,7 @@ const Certificate = () => {
         <section id="certificate" className="bg-white pt-0">
 
             {/* ── Purple Header Banner + Hero combined ── */}
-            <div className="relative bg-[#FEF9E7] overflow-hidden">
+            <div className="relative  bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden relative">
 
                 {/* Purple top banner */}
                 <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center relative z-10">
@@ -69,11 +69,11 @@ const Certificate = () => {
                                     />
                                 </div>
                                 {/* Content Card */}
-                                <div className="bg-[#F8EAFD] shadow-sm rounded-[12px] pt-[44px] pb-6 px-7 h-full w-full">
-                                    <div className="text-[26px] sm:text-[28px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[40px] pb-6 px-7 h-full w-full">
+                                    <div className="text-[36px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         {stat.value}
                                     </div>
-                                    <div className="text-[13px] sm:text-[14px] text-gray-700 font-medium">
+                                    <div className="text-[26px] sm:text-[28px] text-gray-700 font-medium">
                                         {stat.label}
                                     </div>
                                 </div>
