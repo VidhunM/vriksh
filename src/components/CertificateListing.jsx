@@ -37,7 +37,7 @@ const certificateCards = [
     },
     {
         title: 'Applied Industrial–Organizational Psychology',
-        subtitle: 'Learn to apply psychological principles to optimize people and performance at work (Anyone can join - 18+)',
+        subtitle: 'Learn to apply psychological principles to optimize people and performance at work',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Applied Industrial–Organizational Psychology - Copy.jpg',
@@ -45,7 +45,7 @@ const certificateCards = [
     },
     {
         title: 'Workplace Psychology & Human Behavior',
-        subtitle: 'Explore how human behavior shapes workplace dynamics and performance (Anyone can join - 18+)',
+        subtitle: 'Explore how human behavior shapes workplace dynamics and performance',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Workplace Psychology & Human Behavior.jpg',
@@ -53,7 +53,7 @@ const certificateCards = [
     },
     {
         title: 'Foundations of Child Psychology',
-        subtitle: 'Gain insights into children’s minds to foster wellbeing and positive development (Anyone can join - 18+)',
+        subtitle: 'Gain insights into children’s minds to foster wellbeing and positive development',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Foundations of Child Psychology.jpg',
@@ -61,7 +61,7 @@ const certificateCards = [
     },
     {
         title: 'Psychological First Aid (PFA)',
-        subtitle: 'Equip yourself with essential skills to offer timely psychological support in emergencies (Anyone can join - 18+)',
+        subtitle: 'Equip yourself with essential skills to offer timely psychological support in emergencies',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Psychological First Aid (PFA).jpg',
