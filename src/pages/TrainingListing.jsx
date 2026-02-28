@@ -4,29 +4,29 @@ const categories = ['Counsellors', 'Special Educator', 'Corporate', 'Parents', '
 
 const trainingCards = [
   { title: 'CBT for Children & Adolescents', rating: '4.8', duration: '6 Hours', image: '/images/training/CBT for Children & Adolescents.jpg', categories: ['Counsellors', 'Special Educator'] },
-  { title: 'Assessment Toolkit & Skills for Learning Difficulties (School Setting)', rating: '4.8', duration: '6 Hours', image: '/images/training/Assessment Toolkit & Skills for Learning Difficulties (School Setting).png', categories: ['Special Educator', 'Counsellors', 'Teachers'] },
+  { title: 'Assessment Toolkit & Skills for Learning Difficulties (School Setting)', rating: '4.8', duration: '6 Hours', image: '/images/training/Assessment Toolkit & Skills for Learning Difficulties (School Setting).png', categories: ['Special Educator', 'Counsellors'] },
   { title: 'Psychological Assessment: Master 10 Essential Tools', rating: '4.8', duration: '4 Hours', image: '/images/training/Psychological Assessment Master 10 Essential Tools.png', categories: ['Counsellors', 'Special Educator'] },
-  { title: 'Assessments for Children with Special Needs', rating: '4.8', duration: '4 Hours', image: '/images/training/Assessments for Children with Special Needs.jpg', categories: ['Special Educator', 'Counsellors', 'Teachers'] },
-  { title: 'Informal Assessment of Learning Disabilities', rating: '4.8', duration: '4 Hours', image: '/images/training/Informal Assessment of Learning Disabilities.jpg', categories: ['Special Educator', 'Teachers', 'Counsellors'] },
+  { title: 'Assessments for Children with Special Needs', rating: '4.8', duration: '4 Hours', image: '/images/training/Assessments for Children with Special Needs.jpg', categories: ['Special Educator', 'Counsellors'] },
+  { title: 'Informal Assessment of Learning Disabilities', rating: '4.8', duration: '4 Hours', image: '/images/training/Informal Assessment of Learning Disabilities.jpg', categories: ['Special Educator', 'Counsellors'] },
   { title: 'Alcohol Dependence and management', rating: '4.8', duration: '6 Hours', image: '/images/training/Alcohol Dependence and management.jpg', categories: ['Counsellors'] },
-  { title: 'Navigating Grief: Supporting Children & Adolescents', rating: '4.8', duration: '6 Hours', image: '/images/training/Navigating Grief Supporting Children & Adolescents.jpg', categories: ['Counsellors', 'Teachers', 'Parents'] },
+  { title: 'Navigating Grief: Supporting Children & Adolescents', rating: '4.8', duration: '6 Hours', image: '/images/training/Navigating Grief Supporting Children & Adolescents.jpg', categories: ['Counsellors'] },
   { title: 'Navigating Grief: Supporting Adults', rating: '4.8', duration: '6 Hours', image: '/images/training/Navigating Grief Supporting Adults.jpg', categories: ['Counsellors'] },
-  { title: 'Assessment and Management Strategies (LD and ADHD)', rating: '4.8', duration: '6 Hours', image: '/images/training/Assessment and Management Strategies (LD and ADHD).jpg', categories: ['Special Educator', 'Teachers', 'Counsellors'] },
-  { title: 'Foundations of Child & Adolescent Mental Health (Anyone can join - 18+) (Teachers, Parents can also join)', rating: '4.8', duration: '6 Hours', image: '/images/events.png', categories: ['Counsellors', 'Teachers', 'Parents'] },
-  { title: 'Understanding Neurodiversity (ADHD, ASD, LD, ID) (Anyone can join - 18+)', rating: '4.8', duration: '6 Hours', image: '/images/training/Neurodiversity.jpg', categories: ['Counsellors', 'Special Educator', 'Teachers', 'Parents'] },
-  { title: 'Early Identification & Red Flags in School Settings (Teachers can also join)', rating: '4.8', duration: '4 Hours', image: '/images/training/Early Identification & Red Flags in School Settings.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
-  { title: 'Basic Counselling Skills & Ethical Practices (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Basic Counselling Skills & Ethical Practices.jpg', categories: ['Counsellors'] },
-  { title: 'Behaviour Management & Positive Behaviour Support (Teachers can also join)', rating: '4.8', duration: '4 Hours', image: '/images/training/Behaviour Management & Positive Behaviour Support.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
-  { title: 'Academic & Socio-Emotional Profiling (Teachers can also join)', rating: '4.8', duration: '4 Hours', image: '/images/training/Academic & Socio-Emotional Profiling.jpg', categories: ['Teachers', 'Special Educator'] },
-  { title: 'Functional Behaviour Assessment (FBA)', rating: '4.8', duration: '4 Hours', image: '/images/training/Functional Behaviour Assessment (FBA).jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
-  { title: 'Inclusive Classroom Models & Universal Design for Learning (Teachers can also join)', rating: '4.8', duration: '4 Hours', image: '/images/events.png', categories: ['Teachers', 'Special Educator'] },
-  { title: 'Organizational Psychology for High-Performance Teams (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Organizational Psychology for High-Performance Teams.jpg', categories: ['Corporate'] },
-  { title: 'Psychology-Driven HR Practices (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Psychology-Driven HR Practices.jpg', categories: ['Corporate'] },
-  { title: 'Workplace Mental Health & Psychological Safety (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Workplace Mental Health & Psychological Safety.jpg', categories: ['Corporate'] },
-  { title: 'Mastering Emotional Intelligence: Lead with Awareness (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Mastering Emotional Intelligence Lead with Awareness.jpg', categories: ['Corporate', 'Counsellors'] },
-  { title: 'Next-Gen Leadership: Skills for Today’s Workplace (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Next-Gen Leadership Skills for Today’s Workplace.jpg', categories: ['Corporate'] },
-  { title: 'Mindfulness  (Anyone can join - 18+)', rating: '4.8', duration: '4 Hours', image: '/images/training/Mindfulness.jpg', categories: ['Counsellors', 'Corporate'] },
-  { title: 'Phonics', rating: '4.8', duration: '6 Hours', image: '/images/training/Phonics.jpg', categories: ['Teachers', 'Special Educator'] },
+  { title: 'Assessment and Management Strategies (LD and ADHD)', rating: '4.8', duration: '6 Hours', image: '/images/training/Assessment and Management Strategies (LD and ADHD).jpg', categories: ['Special Educator', 'Counsellors'] },
+  { title: 'Foundations of Child & Adolescent Mental Health', rating: '4.8', duration: '6 Hours', image: '/images/events.png', categories: ['Counsellors', 'Teachers', 'Parents'] },
+  { title: 'Understanding Neurodiversity (ADHD, ASD, LD, ID)', rating: '4.8', duration: '6 Hours', image: '/images/training/Neurodiversity.jpg', categories: ['Counsellors', 'Special Educator', 'Teachers', 'Parents'] },
+  { title: 'Early Identification & Red Flags in School Settings', rating: '4.8', duration: '4 Hours', image: '/images/training/Early Identification & Red Flags in School Settings.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
+  { title: 'Basic Counselling Skills & Ethical Practices', rating: '4.8', duration: '4 Hours', image: '/images/training/Basic Counselling Skills & Ethical Practices.jpg', categories: ['Counsellors', 'Teachers'] },
+  { title: 'Behaviour Management & Positive Behaviour Support', rating: '4.8', duration: '4 Hours', image: '/images/training/Behaviour Management & Positive Behaviour Support.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
+  { title: 'Academic & Socio-Emotional Profiling', rating: '4.8', duration: '4 Hours', image: '/images/training/Academic & Socio-Emotional Profiling.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
+  { title: 'Functional Behaviour Assessment (FBA)', rating: '4.8', duration: '4 Hours', image: '/images/training/Functional Behaviour Assessment (FBA).jpg', categories: ['Special Educator', 'Counsellors'] },
+  { title: 'Inclusive Classroom Models & Universal Design for Learning', rating: '4.8', duration: '4 Hours', image: '/images/events.png', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
+  { title: 'Organizational Psychology for High-Performance Teams', rating: '4.8', duration: '4 Hours', image: '/images/training/Organizational Psychology for High-Performance Teams.jpg', categories: ['Corporate'] },
+  { title: 'Psychology-Driven HR Practices', rating: '4.8', duration: '4 Hours', image: '/images/training/Psychology-Driven HR Practices.jpg', categories: ['Corporate', 'Counsellors'] },
+  { title: 'Workplace Mental Health & Psychological Safety', rating: '4.8', duration: '4 Hours', image: '/images/training/Workplace Mental Health & Psychological Safety.jpg', categories: ['Corporate', 'Counsellors'] },
+  { title: 'Mastering Emotional Intelligence: Lead with Awareness', rating: '4.8', duration: '4 Hours', image: '/images/training/Mastering Emotional Intelligence Lead with Awareness.jpg', categories: ['Corporate', 'Parents', 'Counsellors', 'Teachers', 'Special Educator'] },
+  { title: 'Next-Gen Leadership: Skills for Today’s Workplace', rating: '4.8', duration: '4 Hours', image: '/images/training/Next-Gen Leadership Skills for Today’s Workplace.jpg', categories: ['Corporate', 'Counsellors'] },
+  { title: 'Mindfulness', rating: '4.8', duration: '4 Hours', image: '/images/training/Mindfulness.jpg', categories: ['Counsellors', 'Corporate', 'Parents', 'Teachers', 'Special Educator'] },
+  { title: 'Phonics', rating: '4.8', duration: '6 Hours', image: '/images/training/Phonics.jpg', categories: ['Teachers', 'Special Educator', 'Parents'] },
 ];
 
 const TrainingListing = () => {
@@ -39,7 +39,7 @@ const TrainingListing = () => {
   const handleLoadMore = () => setVisibleCount((prev) => prev + 3);
   const hasMore = visibleCount < filteredCards.length;
   const cardsToShow = filteredCards.slice(0, visibleCount);
-  const centerImageTitles = new Set([ 
+  const centerImageTitles = new Set([
     'Navigating Grief: Supporting Adults',
     'Informal Assessment of Learning Disabilities',
     'Navigating Grief: Supporting Children & Adolescents',
@@ -57,9 +57,7 @@ const TrainingListing = () => {
             All Training at One Place
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
-            Led by experienced psychologists, our curated and highly interactive training programs encourage
-            <br className="hidden sm:block" />
-            deep insight,meaningful reflection, and practical real-world application.
+            Facilitated by experienced psychologists, these dynamic sessions bridge theory and practice, building clarity and confident application.
           </p>
           <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">Live • Online • Accessible Worldwide</p>
         </div>
@@ -94,7 +92,7 @@ const TrainingListing = () => {
               </div>
 
               <div className="flex flex-col flex-grow p-5">
-                <h3 className="font-bold text-[18px] leading-[1.3] mb-4 font-inter-tight text-gray-950 clamp-2 text-balance max-w-[260px]">
+                <h3 className="font-bold text-[18px] leading-[1.3] mb-4 font-inter-tight text-gray-950 clamp-2 text-balance max-w-[330px]">
                   {card.title === 'CBT for Children & Adolescents' ? (
                     <>
                       <span>CBT for Children &</span><br /><span>Adolescents</span>
