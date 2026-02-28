@@ -5,7 +5,7 @@ const categories = ['Counsellors', 'Special Educator', 'Teachers', 'Corporate'];
 const certificateCards = [
     {
         title: 'School Counselling: Learn to Support Students',
-        subtitle: 'Hands-on training to excel as a  school counsellor (Teachers can also join)',
+        subtitle: 'Hands-on training to excel as a  school counsellor ',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/School Counselling Learn to Support Students.png',
@@ -13,7 +13,7 @@ const certificateCards = [
     },
     {
         title: 'Career Counselling : From Assessment to Guidance',
-        subtitle: 'Learn tools and techniques to support every individual’s career journey (Anyone can join - 18+)',
+        subtitle: 'Learn tools and techniques to support every individual’s career journey ',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Career Counselling From Assessment to Guidance.png',
@@ -21,7 +21,7 @@ const certificateCards = [
     },
     {
         title: 'Assessment and Management of LD in School Settings',
-        subtitle: 'Remedial Teaching Strategies for Learning Difficulties (Teachers can also join)',
+        subtitle: 'Remedial Teaching Strategies for Learning Difficulties',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Assessment and management strategiues.jpg',
@@ -180,8 +180,10 @@ const CertificateListing = () => {
                                             Duration: {card.duration}
                                         </div>
                                     </div>
-
-                                    
+<button className="mt-auto w-[110px] py-2 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white">
+                  Enquire Now
+                </button>
+                        
                                 </div>
                             </div>
                         </div>
