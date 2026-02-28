@@ -141,7 +141,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 w-full ${isHomePage ? 'bg-brand-purple' : 'bg-white'} border-t ${isHomePage ? 'border-white/10' : 'border-gray-100'} overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
+      <div className={`lg:hidden absolute top-full left-0 w-full ${isHomePage ? 'bg-brand-purple' : 'bg-white'} border-t ${isHomePage ? 'border-white/10' : 'border-gray-100'} overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[700px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
         <ul className="flex flex-col gap-5 px-6">
           {[
             { label: 'Home', href: '/' },
