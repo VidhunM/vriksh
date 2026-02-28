@@ -498,8 +498,8 @@ const UpcomingEvents = () => {
                 style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1320px] mx-auto px-6">
-                    {/* Header with Title and Nav Arrows */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                    {/* Header with Title and Nav Arrows - Desktop */}
+                    <div className="hidden md:flex justify-between items-center mb-10 gap-6">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-950 font-geist">
                             What our learners say
                         </h2>
@@ -521,6 +521,27 @@ const UpcomingEvents = () => {
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Header with Title and Nav Arrows - Mobile */}
+                    <div className="flex md:hidden flex-col justify-between items-center mb-10 gap-6">
+                        <h2 className="text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-geist">
+                            What our learners say
+                        </h2>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={prevSlide}
+                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                            >
+                                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                            >
+                                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
                     </div>

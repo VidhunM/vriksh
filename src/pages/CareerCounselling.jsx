@@ -7,18 +7,34 @@ const servicesData = [
     { title: <><span>Career</span><br />Updates</>, text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions", iconSrc: "/icons/career updates.png" },
 ];
 
+const assurancesData = [
+    { title: "Personalized Guidance", text: "Tailored Support for You", icon: "/icons/Guidance.png" },
+    { title: "Confidentiality", text: "Secure and Private Sessions", icon: "/icons/confidential.png" },
+    { title: "Convenience", text: "Online sessions from the comfort of the your home", icon: "/icons/convenices.png" },
+    { title: "Expert Support", text: "Guided by qualified professionals", icon: "/icons/export support.png" },
+    { title: "Clear Direction", text: "Make confident career choices.", icon: "/icons/clear direction.png" }
+];
+
 const CareerCounselling = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
     const [openIndex, setOpenIndex] = useState(null);
     const [serviceCard, setServiceCard] = useState(0);
     const serviceTimerRef = useRef(null);
+    const [assureCard, setAssureCard] = useState(0);
+    const assureTimerRef = useRef(null);
 
     useEffect(() => {
         serviceTimerRef.current = setInterval(() => {
             setServiceCard((prev) => (prev + 1) % servicesData.length);
         }, 3000);
-        return () => clearInterval(serviceTimerRef.current);
+        assureTimerRef.current = setInterval(() => {
+            setAssureCard((prev) => (prev + 1) % assurancesData.length);
+        }, 3000);
+        return () => {
+            clearInterval(serviceTimerRef.current);
+            clearInterval(assureTimerRef.current);
+        };
     }, []);
 
     const faqs = [
@@ -217,19 +233,19 @@ const CareerCounselling = () => {
                             },
                             {
                                 text: "You're Exploring Your Strengths, Interests, And Career Preferences",
-                                color: "bg-[#FCA65B]"
+                                color: "bg-[#FEF8E4] lg:bg-[#FCA65B]"
                             },
                             {
                                 text: "You Have Multiple Interests And Can't Decide Between Them",
-                                color: "bg-[#FEF8E4]"
+                                color: "bg-[#FCA65B] lg:bg-[#FEF8E4]"
                             },
                             {
                                 text: "You're Unsure Which Career Path Suits You Best",
-                                color: "bg-[#FEF8E4]"
+                                color: "bg-[#FCA65B] lg:bg-[#FEF8E4]"
                             },
                             {
                                 text: "You're Confused About Educational Or Professional Options",
-                                color: "bg-[#FCA65B]"
+                                color: "bg-[#FEF8E4] lg:bg-[#FCA65B]"
                             },
                             {
                                 text: "You Want Guidance On Skill Development And Long-Term Career Growth",
@@ -414,34 +430,53 @@ const CareerCounselling = () => {
                         What do we assure?
                     </h2>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-4 lg:gap-6">
-                        {[
-                            {
-                                title: "Personalized Guidance",
-                                text: "Tailored Support for You",
-                                icon: "/icons/Guidance.png"
-                            },
-                            {
-                                title: "Confidentiality",
-                                text: "Secure and Private Sessions",
-                                icon: "/icons/confidential.png"
-                            },
-                            {
-                                title: "Convenience",
-                                text: "Online sessions from the comfort of the your home",
-                                icon: "/icons/convenices.png"
-                            },
-                            {
-                                title: "Expert Support",
-                                text: "Guided by qualified professionals",
-                                icon: "/icons/export support.png"
-                            },
-                            {
-                                title: "Clear Direction",
-                                text: "Make confident career choices.",
-                                icon: "/icons/clear direction.png"
-                            }
-                        ].map((item, index) => (
+                    {/* Mobile: Auto-Slide Carousel */}
+                    <div className="sm:hidden relative">
+                        <div className="overflow-hidden rounded-[20px]">
+                            <div
+                                className="flex transition-transform duration-700 ease-in-out"
+                                style={{ transform: `translateX(-${assureCard * 100}%)` }}
+                            >
+                                {assurancesData.map((item, index) => (
+                                    <div key={index} className="w-full flex-none px-2">
+                                        <div className="flex flex-col items-center">
+                                            {/* Icon Container */}
+                                            <div className="w-32 h-32 mb-3 flex items-center justify-center">
+                                                <img
+                                                    src={item.icon}
+                                                    alt={item.title}
+                                                    className="max-w-full max-h-full object-contain"
+                                                />
+                                            </div>
+                                            {/* Purple Card */}
+                                            <div className="bg-[#520378] rounded-[12px] p-5 w-full text-center flex flex-col items-center min-h-[120px] justify-center shadow-lg">
+                                                <h3 className="text-white text-[17px] font-bold mb-2 font-inter-tight leading-tight px-2">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-white/80 text-base leading-[1.6] font-medium">
+                                                    {item.text}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Dot Indicators */}
+                        <div className="flex justify-center gap-2 mt-6">
+                            {assurancesData.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => { setAssureCard(i); clearInterval(assureTimerRef.current); assureTimerRef.current = setInterval(() => setAssureCard(p => (p + 1) % assurancesData.length), 3000); }}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${assureCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-400'}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Desktop: Original grid (hidden on mobile) */}
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
+                        {assurancesData.map((item, index) => (
                             <div key={index} className="flex flex-col items-center">
                                 {/* Icon Container */}
                                 <div className="w-32 h-32 mb-3 flex items-center justify-center">
@@ -471,8 +506,8 @@ const CareerCounselling = () => {
                 style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1240px] mx-auto px-6">
-                    {/* Header with Navigation */}
-                    <div className="flex justify-between items-end mb-12">
+                    {/* Header with Navigation - Desktop */}
+                    <div className="hidden sm:flex justify-between items-end mb-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
                             What our Clients say
                         </h2>
@@ -493,6 +528,27 @@ const CareerCounselling = () => {
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <polyline points="9 18 15 12 9 6"></polyline>
                                 </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Header with Navigation - Mobile */}
+                    <div className="flex sm:hidden flex-col justify-between items-center mb-10 gap-6">
+                        <h2 className="text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-inter-tight">
+                            What our Clients say
+                        </h2>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={prevSlide}
+                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                            >
+                                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                            >
+                                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
                     </div>
