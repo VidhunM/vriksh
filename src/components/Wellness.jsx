@@ -23,7 +23,7 @@ const Wellness = () => {
                                 Vriksh Institution Wellness Program
                             </h2>
 
-                            <p className="text-[15px] text-gray-800 leading-relaxed font-normal mb-8">
+                            <p className="text-[19px] lg:text-[15px] text-gray-800 leading-relaxed font-normal mb-8">
                                 Want to build a supportive ecosystem that empowers your students to thrive emotionally and academically?
                                 We partner with schools and colleges to strengthen student communities through counselling, career guidance, life skills training, personality development, and more - nurturing confident, resilient young individuals.                             </p>
 

@@ -144,7 +144,7 @@ const Counselling = () => {
                                 {activeContent.title}
                             </h3>
 
-                            <p className="text-[15px] mb-2 opacity-90 leading-relaxed min-h-[70px]">
+                            <p className="text-[19px] lg:text-[15px] mb-2 opacity-90 leading-relaxed min-h-[70px]">
                                 {activeContent.desc}
                             </p>
 

@@ -149,7 +149,7 @@ const CareerCounselling = () => {
                             Not sure what career is <br /> right for you?
                         </h2>
 
-                        <p className="text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium">
+                        <p className="text-[19px] lg:text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium">
                             Let's explore your strengths, interests, and natural abilities to <br className="hidden lg:block" />
                             uncover a career path that truly fits you. Through guided <br className="hidden lg:block" />
                             assessments and personalised counselling, we help you gain <br className="hidden lg:block" />

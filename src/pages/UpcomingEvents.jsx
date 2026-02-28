@@ -168,7 +168,7 @@ const UpcomingEvents = () => {
                                 Join 5,000+ learners mastering psychology with confidence
                             </p>
 
-                            <p className="text-base text-gray-700 leading-relaxed max-w-[540px]">
+                            <p className="text-[19px] lg:text-base text-gray-700 leading-relaxed max-w-[540px]">
                                 Bridging theory and real-world practice to deliver accessible, <br className="hidden xl:block" />
                                 lifelong learning through customized workshops, training programs, and certification courses
                             </p>
@@ -347,7 +347,7 @@ const UpcomingEvents = () => {
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-950 font-geist">
                             Choose the Right Program for Your Learning Journey
                         </h2>
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
+                        <p className="text-[19px] md:text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
                             Growth isn't always linear. Whether you're just beginning or looking to deepen your
                             expertise, Vriksh E - Academy offers thoughtfully designed programs tailored to your goals
                             and aspirations - bridging theory with real-world practice every step of the way

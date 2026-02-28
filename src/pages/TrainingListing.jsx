@@ -39,7 +39,7 @@ const TrainingListing = () => {
   const handleLoadMore = () => setVisibleCount((prev) => prev + 3);
   const hasMore = visibleCount < filteredCards.length;
   const cardsToShow = filteredCards.slice(0, visibleCount);
-  const centerImageTitles = new Set([ 
+  const centerImageTitles = new Set([
     'Navigating Grief: Supporting Adults',
     'Informal Assessment of Learning Disabilities',
     'Navigating Grief: Supporting Children & Adolescents',
@@ -56,6 +56,9 @@ const TrainingListing = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-tight">
             All Training at One Place
           </h2>
+          <p className="text-[19px] lg:text-[clamp(15px,1vw,17px)] text-gray-700 leading-relaxed font-normal mb-8 mx-auto lg:mx-0">
+            Bridging theory and real-world practice to deliver accessible, lifelong learning through customized workshops, training programs, and certification courses
+          </p>
           <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
             Led by experienced psychologists, our curated and highly interactive training programs encourage
             <br className="hidden sm:block" />

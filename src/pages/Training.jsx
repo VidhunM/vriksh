@@ -41,8 +41,8 @@ const Training = () => {
                             <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
                                 Hands-on, interactive programs led by expert psychologists
                             </h2>
-                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
-                                Engage in introspective activities and real-life case discussions, using practical tools to gain deeper insights into every topic and strengthen your professional skills.
+                            <p className="text-[19px] md:text-base sm:text-[18px] text-gray-700 leading-[1.7] mb-6 max-w-[550px] font-medium font-geist">
+                                Hands-on, interactive programs led by trained psychologists, designed to build practical skills through reflective & insight-oriented learning
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-7 py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                 Explore Training Programs

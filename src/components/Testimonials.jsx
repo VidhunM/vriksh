@@ -106,7 +106,7 @@ const Testimonials = () => {
                         <h2 className="text-[24px] md:text-[34px] font-bold text-gray-900 leading-[1.1] text-center sm:text-left font-inter-tight mb-3">
                             Trusted by Individuals, Institutions & Professionals
                         </h2>
-                        <p className="text-[#4b5563] text-base md:text-lg text-center sm:text-left">
+                        <p className="text-[#4b5563] text-[19px] md:text-lg text-center sm:text-left">
                             Real stories from those whose lives have been transformed through Vriksh.
                         </p>
                     </div>
