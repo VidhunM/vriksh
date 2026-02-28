@@ -80,11 +80,11 @@ const allWorkshopCards = [
     { title: 'Leadership Development', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Leadership development.jpg', categories: ['Corporate', 'Counselling'] },
     { title: 'Stress Management & Burnout Prevention', duration: '2 Hours', rating: '4.9', image: '/images/workshop/stress management and burnout.jpg', categories: ['Corporate', 'Counselling'] },
     { title: 'Work - Life Balance', duration: '2 Hours', rating: '4.9', image: '/images/workshop/work life balance.jpg', categories: ['Corporate', 'Counselling'] },
-    { title: 'Time Management & Productivity Skills', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Goal setting and time management.jpg', categories: ['Corporate', 'Counselling'] },
+    { title: 'Time Management & Productivity Skills', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Time Management & Productivity Skills.jpeg', categories: ['Corporate', 'Counselling'] },
     { title: 'Conflict Resolution & Negotiation Skills', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Conflict Resolution & Negotiation Skills.jpg', categories: ['Corporate', 'Counselling'] },
     { title: 'Team Building & Cohesion', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Team building.jpg', categories: ['Corporate', 'Counselling'] },
-    { title: 'Cultivating Awareness: Mindfulness Techniques for Daily Life', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Emotional awareness.jpg', categories: ['Corporate', 'Counselling'] },
-    { title: 'Personality Enrichment', duration: '1.5 Hours', rating: '4.9', image: '/images/workshop/Building confidence and self esteem.jpg', categories: ['Corporate', 'Counselling'] }
+    { title: 'Cultivating Awareness: Mindfulness Techniques for Daily Life', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Cultivating Awareness Mindfulness Techniques for Daily Life.jpeg', categories: ['Corporate', 'Counselling'] },
+    { title: 'Personality Enrichment', duration: '1.5 Hours', rating: '4.9', image: '/images/workshop/Personality Enrichment.jpeg', categories: ['Corporate', 'Counselling'] }
 ];
 
 const WorkshopsListing = () => {
