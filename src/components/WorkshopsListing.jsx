@@ -117,7 +117,7 @@ const WorkshopsListing = () => {
                     <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-wide">
                         All Workshops at One Place
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-600 max-w-[900px] mx-auto leading-relaxed mb-6 font-medium font-geist">
+                    <p className="text-base sm:text-xl text-gray-600 max-w-[900px] mx-auto leading-relaxed mb-6 font-medium font-geist">
                         Led by experienced psychologists, our curated and highly interactive sessions encourage deep
                         <br className="hidden sm:block" />
                         insight, meaningful reflection, and practical real-world application.

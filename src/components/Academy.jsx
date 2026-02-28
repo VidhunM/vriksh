@@ -62,7 +62,7 @@ const Academy = () => {
                     <div className="lg:w-[60%]">
                         <div className="mb-10 text-center lg:text-left">
                             <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
-                            <p className="text-[19px] text-gray-800 max-w-[660px] leading-[1.8] font-normal mx-auto lg:mx-0">
+                            <p className="text-base sm:text-[19px] text-gray-800 max-w-[660px] leading-[1.8] font-normal mx-auto lg:mx-0">
                                 We empower aspiring professionals and communities with live, interactive, skill based mental health training, bridging theory and real-world practice.
                             </p>
                         </div>

@@ -40,7 +40,7 @@ const Workshop = () => {
                             <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
                                 Join 5,000+ learners mastering psychology with confidence
                             </h2>
-                            <p className="text-[19px] sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
                                 Step into a world of learning – practical, engaging, and skill boosting workshops under one roof. Build clarity, competence, and confidence with every session you attend.
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -322,7 +322,7 @@ const WorkshopTestimonials = () => {
                                 <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
                                 <p className="text-base text-gray-600">{item.role}</p>
                             </div>
-                            <p className="text-gray-700 text-[19px] sm:text-base leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
+                            <p className="text-gray-700 text-base sm:text-base leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
                                 &ldquo;{item.text}&rdquo;
                             </p>
                             <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">

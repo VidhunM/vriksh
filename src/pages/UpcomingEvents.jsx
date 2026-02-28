@@ -213,11 +213,11 @@ const UpcomingEvents = () => {
                         </h2>
 
                         <div className="space-y-3">
-                            <p className="text-lg sm:text-xl font-bold text-[#520378] italic xl:whitespace-nowrap break-keep">
+                            <p className="text-base sm:text-xl font-bold text-[#520378] italic xl:whitespace-nowrap break-keep">
                                 Join 5,000+ learners mastering psychology with confidence
                             </p>
 
-                            <p className="text-[19px] lg:text-base text-gray-700 leading-relaxed max-w-[540px]">
+                            <p className="text-base sm:text-[19px] lg:text-base text-gray-700 leading-relaxed max-w-[540px]">
                                 Bridging theory and real-world practice to deliver accessible, <br className="hidden xl:block" />
                                 lifelong learning through customized workshops, training programs, and certification courses
                             </p>
@@ -244,7 +244,7 @@ const UpcomingEvents = () => {
                             <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 font-geist">
                                 Explore Upcoming Events
                             </h2>
-                            <p className="text-lg text-gray-700 leading-relaxed">
+                            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                                 At Vriksh E-Academy, dive into focused, expert-led sessions designed to keep
                                 you updated, inspired, and continuously growing.
                             </p>
@@ -405,7 +405,7 @@ const UpcomingEvents = () => {
                         <h2 className="text-[26px] leading-[1.2] sm:text-4xl font-bold mb-4 text-gray-950 font-geist sm:tracking-normal">
                             Choose the Right Program <br className="block sm:hidden" /> for Your Learning Journey
                         </h2>
-                        <p className="text-[19px] md:text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
+                        <p className="text-base md:text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
                             Growth isn't always linear. Whether you're just beginning or looking to deepen your
                             expertise, Vriksh E - Academy offers thoughtfully designed programs tailored to your goals
                             and aspirations - bridging theory with real-world practice every step of the way

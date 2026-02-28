@@ -31,7 +31,7 @@ const Events = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
                     <div className="max-w-[950px] text-center md:text-left">
                         <h2 className="text-[28px] sm:text-[34px] font-bold mb-5 text-gray-900 font-inter-tight">Upcoming Event</h2>
-                        <p className="text-[19px] text-gray-700 leading-relaxed font-normal">
+                        <p className="text-base sm:text-[19px] text-gray-700 leading-relaxed font-normal">
                             We empower aspiring professionals and communities with live, interactive, skill-based mental health learning through trainings, experiential workshops, and certificate courses designed for real-world practice.
                         </p>
                     </div>

@@ -57,10 +57,10 @@ const TrainingListing = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-wide">
             All Training at One Place
           </h2>
-          {/* <p className="text-[19px] lg:text-[clamp(15px,1vw,17px)] text-gray-700 leading-relaxed font-normal mb-8 mx-auto lg:mx-0">
+          {/* <p className="text-base sm:text-[19px] lg:text-[clamp(15px,1vw,17px)] text-gray-700 leading-relaxed font-normal mb-8 mx-auto lg:mx-0">
             Bridging theory and real-world practice to deliver accessible, lifelong learning through customized workshops, training programs, and certification courses
           </p> */}
-          <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
+          <p className="text-base sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
             Facilitated by experienced psychologists, these dynamic sessions bridge theory and practice, building clarity and confident application.
           </p>
           <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">Live • Online • Accessible Worldwide</p>

@@ -121,7 +121,7 @@ const Hero = () => {
                                 {banner.description && (
                                     <p
                                         key={`desc-${currentSlide}`}
-                                        className={`text-[19px] md:text-[clamp(15px,2vw,18px)] mb-8 sm:mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
+                                        className={`text-base md:text-[clamp(15px,2vw,18px)] mb-8 sm:mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
                                             }`}
                                     >
                                         {banner.description}

@@ -319,7 +319,7 @@ const TrainingTestimonials = () => {
                                         <h4 className="text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
                                         <p className="text-sm text-gray-500 font-medium italic">{review.role}</p>
                                     </div>
-                                    <p className="text-gray-800 text-[19px] sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                    <p className="text-gray-800 text-base sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
                                         {review.text}
                                     </p>
                                     {/* Footer with Google & Stars */}

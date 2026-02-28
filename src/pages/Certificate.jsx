@@ -38,9 +38,9 @@ const Certificate = () => {
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
                         <div className="max-w-[100%] sm:max-w-[55%] lg:max-w-[55%] relative z-10">
                             <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.2] mb-5 font-inter-tight tracking-wide">
-                               Learn new skills and explore your passions with expert guidance.
+                                Learn new skills and explore your passions with expert guidance.
                             </h2>
-                            <p className="text-[19px] sm:text-[18px] text-gray-700 leading-[1.7] mb-6 max-w-[550px] font-medium font-geist">
+                            <p className="text-base sm:text-[18px] text-gray-700 leading-[1.7] mb-6 max-w-[550px] font-medium font-geist">
                                 Expert-led online courses designed to help you build new skills, strengthen your expertise, and advance confidently in your career.
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -305,7 +305,7 @@ const CertificateTestimonials = () => {
                                         <h4 className="text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
                                         <p className="text-sm text-gray-500 font-medium italic">{review.role}</p>
                                     </div>
-                                    <p className="text-gray-800 text-[19px] sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                    <p className="text-gray-800 text-base sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
                                         {review.text}
                                     </p>
                                     {/* Footer with Google & Stars */}

@@ -111,7 +111,7 @@ const CertificateListing = () => {
                     <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-wide">
                         All Certificate Courses at One Place
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
+                    <p className="text-base sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
                         Led by experienced psychologists, our curated certificate courses encourage deep insight, meaningful reflection, and practical real-world application.
                     </p>
                     <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">
@@ -180,10 +180,10 @@ const CertificateListing = () => {
                                             Duration: {card.duration}
                                         </div>
                                     </div>
-<button className="mt-auto w-[110px] py-2 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white">
-                  Enquire Now
-                </button>
-                        
+                                    <button className="mt-auto w-[110px] py-2 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white">
+                                        Enquire Now
+                                    </button>
+
                                 </div>
                             </div>
                         </div>

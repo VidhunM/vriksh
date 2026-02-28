@@ -37,7 +37,7 @@ const Corporate = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div className="text-center lg:text-left">
                         <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 leading-tight font-inter-tight">Corporate Institutions</h2>
-                        <p className="text-[19px] md:text-[17px] opacity-90 mb-8 leading-relaxed max-w-[500px] mx-auto lg:mx-0">
+                        <p className="text-base md:text-[17px] opacity-90 mb-8 leading-relaxed max-w-[500px] mx-auto lg:mx-0">
                             A resilient workforce is the foundation of a high-performing organisation.
                             At Vriksh, we help organisations build emotionally strong, focused, and future-ready teams. Our structured workplace wellbeing solutions enhance productivity, engagement, and overall performance. We design personalised programs that align with your organisational goals -  because when your people thrive, your business grows.
                         </p>
