@@ -172,47 +172,65 @@ const WorkshopFAQ = () => {
     );
 };
 
-const workshopReviews = [
+const testimonials = [
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: "Madhavi",
+        role: "Counsellor",
+        text: "Vriksh training webinars are crisp and clearly explained. I thoroughly enjoyed all the sessions. The trainers are highly knowledgeable and experienced. Thank you for such insightful learning experiences.",
+        date: "February 2025"
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: "Dr. Ashwini Kamath",
+        role: "Special Educator",
+        text: "Very informative and useful seminar on DTLD conducted by Vriksh. I would highly recommend all special educators and counselors to attend their sessions.",
+        date: "October 2025"
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: "Suriyasre",
+        role: "Counsellor",
+        text: "The workshop on Crisis Intervention was highly informative and interactive — truly worth our time. I sincerely appreciate the effort invested in preparing detailed study material, along with the necessary diagnostic tools relevant to the topic. Thank you for the valuable learning experience.",
+        date: "November 2024"
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: "Pooja",
+        role: "Counsellor",
+        text: "I have attended a few workshops with Vriksh, and each time I was satisfied with the content and the way the sessions were delivered. The experts are highly interactive and engaging. I look forward to learning more with Vriksh.",
+        date: "May 2025"
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: "Dambar Sensei",
+        role: "Counsellor",
+        text: "I have attended two workshops conducted by your organization. The material was very crisp, and the delivery was effective with excellent engagement. The sessions were highly interactive as well. Thank you for the enriching experience.",
+        date: "January 2025"
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: "Veena Padmanabha",
+        role: "Counsellor",
+        text: "An excellent initiative with a professional and well-structured approach. One can truly rely on the information provided. Superb coordination among the team. Highly commendable!",
+        date: "July 2025"
     },
+    {
+        name: "Ananya R.",
+        role: "Individual Counselling Client",
+        text: "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.",
+        date: "June 2025"
+    },
+    {
+        name: "Disha Arunagiri",
+        role: "Counsellor",
+        text: "Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.",
+        date: "January 2025"
+    },
+    {
+        name: "Ayesha Barvin",
+        role: "Special Educator",
+        text: "I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently.",
+        date: "March 2025"
+    }
 ];
 
 const WorkshopTestimonials = () => {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [testIndex, setTestIndex] = React.useState(0);
     const [itemsVisible, setItemsVisible] = React.useState(3);
 
     React.useEffect(() => {
@@ -231,106 +249,98 @@ const WorkshopTestimonials = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const nextSlide = () => {
-        setCurrentIndex((prev) => {
-            const nextIndex = prev + 1;
-            if (nextIndex > workshopReviews.length - itemsVisible) {
-                return 0;
-            }
-            return nextIndex;
-        });
-    };
+    const totalSlides = Math.ceil(testimonials.length / itemsVisible);
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => {
-            const prevIndex = prev - 1;
-            if (prevIndex < 0) {
-                return workshopReviews.length - itemsVisible;
-            }
-            return prevIndex;
-        });
+        setTestIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
     };
 
-    React.useEffect(() => {
-        const timer = setInterval(() => {
-            nextSlide();
-        }, 5000);
-        return () => clearInterval(timer);
-    }, [itemsVisible]);
+    const nextSlide = () => {
+        setTestIndex((prev) => (prev + 1) % totalSlides);
+    };
 
     return (
         <div
-            className="py-16 sm:py-20 border-t border-black/5"
+            className="py-8 sm:py-16 border-t border-black/5"
             style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
         >
-            <div className="max-w-[1240px] mx-auto px-6">
-                {/* Header with Navigation */}
-                <div className="flex justify-between items-end mb-12">
-                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
+            <div className="max-w-[1320px] mx-auto px-6">
+                {/* Header with Title and Nav Arrows */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-950 font-geist">
                         What our learners say
                     </h2>
-                    {/* Carousel Controls */}
-                    <div className="flex gap-3 mb-2">
+                    <div className="flex gap-4">
                         <button
                             onClick={prevSlide}
-                            className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white text-gray-400 hover:border-[#520378] hover:text-[#520378] transition-all shadow-sm active:scale-95"
+                            className="w-12 h-12 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all"
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <polyline points="15 18 9 12 15 6"></polyline>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
                             </svg>
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#520378] hover:text-white transition-all shadow-sm active:scale-95"
+                            className="w-12 h-12 rounded-full bg-[#520378] text-white flex items-center justify-center hover:bg-black transition-all"
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
                         </button>
                     </div>
                 </div>
 
-                {/* Testimonial Slider Container */}
-                <div className="overflow-hidden">
-                    <div
-                        className="flex transition-transform duration-700 ease-in-out"
-                        style={{ transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)` }}
-                    >
-                        {workshopReviews.map((review, index) => (
-                            <div key={index} className="w-full md:w-1/2 lg:w-1/3 flex-none px-4">
-                                <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
-                                    <div className="mb-6">
-                                        <h4 className="text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
-                                        <p className="text-sm text-gray-500 font-medium italic">{review.role}</p>
-                                    </div>
-                                    <p className="text-gray-800 text-[15px] leading-relaxed mb-10 flex-grow font-medium">
-                                        {review.text}
-                                    </p>
-                                    {/* Footer with Google & Stars */}
-                                    <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-auto">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 flex items-center justify-center">
-                                                <svg viewBox="0 0 24 24" className="w-6 h-6">
-                                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                                    <path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.84z" />
-                                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
-                                                </svg>
-                                            </div>
-                                            <div className="flex">
-                                                {[1, 2, 3, 4, 5].map((star) => (
-                                                    <svg key={star} className="w-4 h-4 text-[#FCA65B]" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                                    </svg>
-                                                ))}
-                                            </div>
+                {/* Testimonials Grid (Homepage Style - Swapping with Fade) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {testimonials.slice(testIndex * itemsVisible, testIndex * itemsVisible + itemsVisible).map((item, index) => (
+                        <div
+                            key={`${item.name}-${testIndex}-${index}`}
+                            className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm border border-gray-100 min-h-[420px] cursor-default"
+                        >
+                            <div className="mb-6">
+                                <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
+                                <p className="text-base text-gray-600">{item.role}</p>
+                            </div>
+                            <p className="text-base text-gray-700 leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
+                                &ldquo;{item.text}&rdquo;
+                            </p>
+                            <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2.5">
+                                        <div className="w-5 h-5 flex items-center justify-center">
+                                            <svg viewBox="0 0 24 24" className="w-full h-full">
+                                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-1 .67-2.28 1.07-3.71 1.07-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                <path fill="#FBBC05" d="M5.84 14.11c-.22-.67-.35-1.39-.35-2.11s.13-1.44.35-2.11V7.05H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.95l3.66-2.84z" />
+                                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.05l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                            </svg>
                                         </div>
-                                        <span className="text-sm font-bold text-gray-800">{review.date}</span>
+                                        <div className="flex text-orange-400 text-[18px]">
+                                            {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                        </div>
                                     </div>
                                 </div>
+                                <span className="text-base font-bold text-gray-800">{item.date}</span>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Dot Indicators */}
+                <div className="flex justify-center gap-1.5 mt-10">
+                    {Array.from({ length: totalSlides }).map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setTestIndex(i)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${testIndex === i
+                                ? 'w-6 bg-[#520378]'
+                                : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                                }`}
+                            aria-label={`Go to page ${i + 1}`}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
