@@ -14,7 +14,7 @@ const trainingCards = [
   { title: 'Assessment and Management Strategies (LD and ADHD)', rating: '4.8', duration: '6 Hours', image: '/images/training/Assessment and Management Strategies (LD and ADHD).jpg', categories: ['Special Educator', 'Counsellors'] },
   { title: 'Foundations of Child & Adolescent Mental Health', rating: '4.8', duration: '6 Hours', image: '/images/events.png', categories: ['Counsellors', 'Teachers', 'Parents'] },
   { title: 'Understanding Neurodiversity (ADHD, ASD, LD, ID)', rating: '4.8', duration: '6 Hours', image: '/images/training/Neurodiversity.jpg', categories: ['Counsellors', 'Special Educator', 'Teachers', 'Parents'] },
-  { title: 'Early Identification & Red Flags in School Settings', rating: '4.8', duration: '4 Hours', image: '/images/training/Early Identification & Red Flags in School Settings.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
+  { title: 'Early Identification & Red Flags in School Settings', rating: '4.8', duration: '4 Hours', image: '/images/training/Early Identification & Red Flags in School Settings.jpeg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
   { title: 'Basic Counselling Skills & Ethical Practices', rating: '4.8', duration: '4 Hours', image: '/images/training/Basic Counselling Skills & Ethical Practices.jpg', categories: ['Counsellors', 'Teachers'] },
   { title: 'Behaviour Management & Positive Behaviour Support', rating: '4.8', duration: '4 Hours', image: '/images/training/Behaviour Management & Positive Behaviour Support.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
   { title: 'Academic & Socio-Emotional Profiling', rating: '4.8', duration: '4 Hours', image: '/images/training/Academic & Socio-Emotional Profiling.jpg', categories: ['Teachers', 'Special Educator', 'Counsellors'] },
@@ -45,20 +45,21 @@ const TrainingListing = () => {
     'Navigating Grief: Supporting Children & Adolescents',
     'Behaviour Management & Positive Behaviour Support',
     'Functional Behaviour Assessment (FBA)',
-    'Mastering Emotional Intelligence: Lead with Awareness (Anyone can join - 18+)',
+    'Mastering Emotional Intelligence: Lead with Awareness ',
     'Alcohol Dependence and management',
+    'Early Identification & Red Flags in School Settings',
   ]);
 
   return (
     <section className="bg-white py-14 sm:py-20 px-6 sm:px-12">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-wide">
             All Training at One Place
           </h2>
-          <p className="text-[19px] lg:text-[clamp(15px,1vw,17px)] text-gray-700 leading-relaxed font-normal mb-8 mx-auto lg:mx-0">
+          {/* <p className="text-[19px] lg:text-[clamp(15px,1vw,17px)] text-gray-700 leading-relaxed font-normal mb-8 mx-auto lg:mx-0">
             Bridging theory and real-world practice to deliver accessible, lifelong learning through customized workshops, training programs, and certification courses
-          </p>
+          </p> */}
           <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
             Facilitated by experienced psychologists, these dynamic sessions bridge theory and practice, building clarity and confident application.
           </p>

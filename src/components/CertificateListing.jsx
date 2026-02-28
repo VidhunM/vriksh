@@ -108,7 +108,7 @@ const CertificateListing = () => {
 
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-wide">
                         All Certificate Courses at One Place
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-600 max-w-[930px] mx-auto leading-relaxed mb-6 font-medium font-geist">
