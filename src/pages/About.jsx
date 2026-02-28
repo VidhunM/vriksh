@@ -11,7 +11,7 @@ const About = () => {
             </div>
 
             {/* Content Section */}
-            <div className="relative max-w-[1440px] mx-auto px-6 py-10 sm:py-14 overflow-hidden">
+            <div className="relative max-w-[1440px] mx-auto px-6 py-6 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
                 <div
                     className="absolute top-[-145px] left-[15%] sm:left-[22%] w-full sm:w-[70%] h-full pointer-events-none opacity-[0.4] z-20 "
@@ -24,18 +24,18 @@ const About = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[1435px] mx-auto text-center">
-                    <h2 className="text-[28px] sm:text-[34px] font-bold text-[#520378] mb-10 tracking-tight font-inter-tight">
+                    <h2 className="text-[24px] sm:text-[34px] font-bold text-[#520378] mb-6 sm:mb-10 tracking-tight font-inter-tight">
                         Who We Are ?
                     </h2>
 
-                    <div className="space-y-8 text-gray-800 max-w-[1100px] mx-auto text-[clamp(19px,1.4vw,22px)] leading-[1.8] font-normal text-justify sm:text-center">
+                    <div className="space-y-5 sm:space-y-8 text-gray-800 max-w-[1100px] mx-auto text-[17px] sm:text-[clamp(19px,1.4vw,22px)] leading-[1.6] sm:leading-[1.8] font-normal text-justify sm:text-center">
                         <p className="">
                             Vriksh Psychological Support Services was established to strengthen emotional wellbeing across individuals, institutions, and organisations. We are committed to delivering compassionate, ethical, and evidence-based care, ensuring that the wellbeing and privacy of our clients remain our highest priority.
                         </p>
                         <p className="">
                             Through clinical counseling, institutional mental health programs, and high-impact training, we provide accessible and inclusive mental health support. Our goal is to create a nurturing environment where everyone feels heard, valued, and empowered to navigate life's challenges with resilience.
                         </p>
-                        <p className="font-semibold text-gray-950 text-[clamp(19px,1.4vw,22px)] px-4">
+                        <p className="font-semibold text-gray-950 text-[17px] sm:text-[clamp(19px,1.4vw,22px)] px-4">
                             At Vriksh, our focus extends beyond addressing concerns — we are dedicated to building resilient individuals and thriving communities.
                         </p>
                     </div>

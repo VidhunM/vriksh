@@ -139,6 +139,55 @@ const UpcomingEvents = () => {
         return () => clearInterval(timer);
     }, [totalSlides]);
     */
+    // --- Event Slider Logic ---
+    const eventsScrollRef = React.useRef(null);
+
+    const scrollEventsLeft = () => {
+        if (eventsScrollRef.current) {
+            eventsScrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    };
+
+    const scrollEventsRight = () => {
+        if (eventsScrollRef.current) {
+            eventsScrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    };
+
+    // Auto-scroll logic for events slider (mobile only)
+    useEffect(() => {
+        const slider = eventsScrollRef.current;
+        if (!slider) return;
+
+        let interval;
+        const startAutoScroll = () => {
+            interval = setInterval(() => {
+                if (window.innerWidth >= 768) return; // Only auto-scroll on mobile
+
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                    // Reached the end, scroll back to start
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }, 3000); // 3 seconds per slide
+        };
+
+        startAutoScroll();
+
+        // Pause on touch/interaction
+        slider.addEventListener('touchstart', () => clearInterval(interval));
+        slider.addEventListener('touchend', startAutoScroll);
+
+        return () => {
+            clearInterval(interval);
+            if (slider) {
+                slider.removeEventListener('touchstart', () => clearInterval(interval));
+                slider.removeEventListener('touchend', startAutoScroll);
+            }
+        };
+    }, []);
+
     return (
         <div className="pt-0">
             {/* Header Banner - Centered alignment requested */}
@@ -201,13 +250,19 @@ const UpcomingEvents = () => {
                             </p>
                         </div>
                         <div className="flex gap-4">
-                            <button className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all">
+                            <button
+                                onClick={scrollEventsLeft}
+                                className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all md:hidden"
+                            >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="19" y1="12" x2="5" y2="12"></line>
                                     <polyline points="12 19 5 12 12 5"></polyline>
                                 </svg>
                             </button>
-                            <button className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-black transition-all">
+                            <button
+                                onClick={scrollEventsRight}
+                                className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-black transition-all md:hidden"
+                            >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -216,8 +271,11 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Events Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {/* Events Grid / Mobile Slider */}
+                    <div
+                        ref={eventsScrollRef}
+                        className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
+                    >
                         {[
                             {
                                 id: 1,
@@ -259,10 +317,10 @@ const UpcomingEvents = () => {
                             <div
                                 key={event.id}
                                 onClick={() => setActiveCardId(activeCardId === event.id ? null : event.id)}
-                                className={`${activeCardId === event.id ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 w-full group cursor-pointer`}
+                                className={`shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-center ${activeCardId === event.id ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
                             >
                                 {/* Card Image - Full Bleed with Internal Padding effect */}
-                                <div className="h-[240px] rounded-[24px] overflow-hidden mb-3">
+                                <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
                                     <img
                                         src="/images/events.png"
                                         alt={event.title}
@@ -271,7 +329,7 @@ const UpcomingEvents = () => {
                                 </div>
 
                                 {/* Card Content */}
-                                <div className="px-5 pb-5 flex flex-col">
+                                <div className="px-5 pb-5 flex flex-col flex-grow">
                                     <h3 className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist line-clamp-2`}>
                                         {event.title}
                                     </h3>
@@ -344,8 +402,8 @@ const UpcomingEvents = () => {
 
                 <div className="max-w-[1320px] mx-auto px-6 relative z-10">
                     <div className="text-center max-w-[1100px] mx-auto mb-12">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-950 font-geist">
-                            Choose the Right Program for Your Learning Journey
+                        <h2 className="text-[26px] leading-[1.2] sm:text-4xl font-bold mb-4 text-gray-950 font-geist sm:tracking-normal">
+                            Choose the Right Program <br className="block sm:hidden" /> for Your Learning Journey
                         </h2>
                         <p className="text-[19px] md:text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
                             Growth isn't always linear. Whether you're just beginning or looking to deepen your

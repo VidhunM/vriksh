@@ -262,6 +262,22 @@ const WorkshopTestimonials = () => {
         setTestIndex((prev) => (prev + 1) % totalSlides);
     };
 
+    React.useEffect(() => {
+        let interval;
+        const startAutoScroll = () => {
+            interval = setInterval(() => {
+                if (window.innerWidth >= 768) return; // Only auto-scroll on mobile
+                nextSlide();
+            }, 3000);
+        };
+
+        startAutoScroll();
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [totalSlides]);
+
     return (
         <div
             className="py-8 sm:py-16 border-t border-black/5"
@@ -306,7 +322,7 @@ const WorkshopTestimonials = () => {
                                 <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
                                 <p className="text-base text-gray-600">{item.role}</p>
                             </div>
-                            <p className="text-base text-gray-700 leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
+                            <p className="text-gray-700 text-[19px] sm:text-base leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
                                 &ldquo;{item.text}&rdquo;
                             </p>
                             <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">

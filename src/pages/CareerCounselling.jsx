@@ -229,7 +229,7 @@ const CareerCounselling = () => {
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-base sm:text-[18px] font-bold text-gray-950 leading-[1.1] font-inter-tight max-w-[280px]">
+                                <p className="text-[19px] sm:text-[18px] font-bold text-gray-950 leading-[1.1] font-inter-tight max-w-[280px]">
                                     {item.text}
                                 </p>
                             </div>
@@ -365,7 +365,7 @@ const CareerCounselling = () => {
                                 <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">
                                     {service.title}
                                 </h3>
-                                <p className="text-gray-900 text-[clamp(15px,1.1vw,17px)] leading-[1.7] mb-4 font-medium text-left tracking-tight">
+                                <p className="text-gray-900 text-[19px] sm:text-[clamp(15px,1.1vw,17px)] leading-[1.7] mb-4 font-medium text-left tracking-tight">
                                     {service.text}
                                 </p>
                                 <div className="absolute bottom-2 right-2 w-28 h-28 transform group-hover:scale-110 transition-transform duration-500">
@@ -436,7 +436,7 @@ const CareerCounselling = () => {
                                     <h3 className="text-white text-[15px] sm:text-[17px] font-bold mb-2 font-inter-tight leading-tight px-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-white/80 text-[clamp(13px,0.9vw,15px)] leading-[1.6] font-medium">
+                                    <p className="text-white/80 text-[19px] sm:text-[clamp(13px,0.9vw,15px)] leading-[1.6] font-medium">
                                         {item.text}
                                     </p>
                                 </div>
@@ -491,7 +491,7 @@ const CareerCounselling = () => {
                                             <h4 className="text-lg font-bold text-gray-950 mb-0.5">{testimonial.name}</h4>
                                             <p className="text-sm text-gray-500 font-medium italic">{testimonial.role}</p>
                                         </div>
-                                        <p className="text-gray-800 text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                        <p className="text-gray-800 text-[19px] sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
                                             "{testimonial.content}"
                                         </p>
                                         {/* Footer with Google & Stars */}

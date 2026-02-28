@@ -282,7 +282,7 @@ const TrainingTestimonials = () => {
             <div className="max-w-[1240px] mx-auto px-6">
                 {/* Header with Navigation */}
                 <div className="flex justify-between items-end mb-12">
-                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
+                    <h2 className="text-[clamp(18px,6vw,26px)] whitespace-nowrap sm:whitespace-normal sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-tighter sm:tracking-normal">
                         What our learners say
                     </h2>
                     {/* Carousel Controls */}
@@ -319,7 +319,7 @@ const TrainingTestimonials = () => {
                                         <h4 className="text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
                                         <p className="text-sm text-gray-500 font-medium italic">{review.role}</p>
                                     </div>
-                                    <p className="text-gray-800 text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                    <p className="text-gray-800 text-[19px] sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
                                         {review.text}
                                     </p>
                                     {/* Footer with Google & Stars */}
