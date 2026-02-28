@@ -181,9 +181,7 @@ const CertificateListing = () => {
                                         </div>
                                     </div>
 
-                                    <button className="px-5 py-2 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white hover:bg-[#400260]">
-                                        Enquire Now
-                                    </button>
+                                    
                                 </div>
                             </div>
                         </div>
