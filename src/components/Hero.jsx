@@ -98,7 +98,7 @@ const Hero = () => {
                 </button>
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-4 sm:px-16 flex flex-col items-center justify-center text-center text-white pt-12 pb-2 sm:py-12">
+            <div className="relative z-10 max-w-[1240px] w-full px-4 sm:px-16 flex flex-col items-center justify-center text-center text-white pt-12 pb-0 sm:py-12">
                 <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
                     {/* Animated Text Content */}
                     <div className="relative w-full flex flex-col items-center justify-center min-h-[220px]">

@@ -42,24 +42,22 @@ const Wellness = () => {
 
                             {/* Logo Card with Native Scroll on Mobile / Marquee on Desktop */}
                             <div className="border border-gray-200 rounded-[20px] py-2 sm:py-2.5 bg-white shadow-sm w-full max-w-[1000px] mx-auto lg:mx-0 overflow-hidden">
-                                <div className="flex overflow-x-auto lg:overflow-visible lg:animate-marquee items-center snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                                <div className="flex animate-marquee items-center">
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                                        <div key={num} className="flex flex-col items-center justify-center shrink-0 px-5 sm:px-8 snap-center">
+                                        <div key={num} className="flex flex-col items-center justify-center shrink-0 px-5 sm:px-8">
                                             <div className={`${num === 2 ? 'h-[70px] sm:h-[105px]' : 'h-[45px] sm:h-[75px]'} w-auto transition-all duration-300 hover:scale-110`}>
                                                 <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
                                         </div>
                                     ))}
-                                    {/* Duplicate for seamless loop only visibly useful on desktop */}
-                                    <div className="contents lg:flex">
-                                        {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                                            <div key={`dup-${num}`} className="hidden lg:flex flex-col items-center justify-center shrink-0 px-8">
-                                                <div className={`${num === 2 ? 'h-[95px]' : 'h-[75px]'} w-auto transition-all duration-300 hover:scale-110`}>
-                                                    <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
-                                                </div>
+                                    {/* Duplicate for seamless loop */}
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                                        <div key={`dup-${num}`} className="flex flex-col items-center justify-center shrink-0 px-5 sm:px-8">
+                                            <div className={`${num === 2 ? 'h-[70px] sm:h-[105px]' : 'h-[45px] sm:h-[75px]'} w-auto transition-all duration-300 hover:scale-110`}>
+                                                <img src={`/images/school ${num}.png`} alt={`School Logo ${num}`} className="h-full w-auto object-contain" />
                                             </div>
-                                        ))}
-                                    </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

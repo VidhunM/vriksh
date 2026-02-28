@@ -1,6 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const missionCards = [
+    {
+        icon: '/icons/v1.png',
+        iconAlt: 'Vision Icon',
+        title: 'Vision',
+        text: 'To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities',
+        highlighted: false,
+    },
+    {
+        icon: '/icons/v2.png',
+        iconAlt: 'Mission Icon',
+        title: 'Mission',
+        text: 'To deliver accessible, ethical, and evidence-based mental health services that create meaningful impact across individuals and institutions. Through structured interventions, professional excellence, and collaborative outreach, we strengthen emotional resilience and contribute to a responsive mental health ecosystem.',
+        highlighted: true,
+    },
+    {
+        icon: '/icons/v3.png',
+        iconAlt: 'Values Icon',
+        title: 'Our values',
+        text: 'To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities',
+        highlighted: false,
+    },
+];
 
 const About = () => {
+    const [activeCard, setActiveCard] = useState(0);
+    const timerRef = useRef(null);
+
+    useEffect(() => {
+        timerRef.current = setInterval(() => {
+            setActiveCard((prev) => (prev + 1) % missionCards.length);
+        }, 3000);
+        return () => clearInterval(timerRef.current);
+    }, []);
+
     return (
         <section id="about" className="bg-white">
             {/* Header Banner */}
@@ -49,7 +83,41 @@ const About = () => {
                         Mission & vision
                     </h2>
 
-                    <div className="grid md:grid-cols-3 gap-8 items-stretch relative px-4">
+
+                    {/* ── Mobile: Auto-Slide Carousel (hidden on md+) ── */}
+                    <div className="md:hidden relative px-4">
+                        <div className="overflow-hidden rounded-[24px]">
+                            <div
+                                className="flex transition-transform duration-700 ease-in-out"
+                                style={{ transform: `translateX(-${activeCard * 100}%)` }}
+                            >
+                                {missionCards.map((card, i) => (
+                                    <div key={i} className="w-full flex-none">
+                                        <div className="bg-white rounded-[24px] p-8 flex flex-col items-center text-center border border-gray-100 shadow-sm">
+                                            <div className="w-16 h-16 mb-6">
+                                                <img src={card.icon} alt={card.iconAlt} className="w-full h-full object-contain" />
+                                            </div>
+                                            <h3 className="text-2xl font-bold mb-4 text-gray-900 font-inter-tight">{card.title}</h3>
+                                            <p className="text-[15px] leading-relaxed text-gray-700">{card.text}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Dot Indicators */}
+                        <div className="flex justify-center gap-2 mt-5">
+                            {missionCards.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => { setActiveCard(i); clearInterval(timerRef.current); timerRef.current = setInterval(() => setActiveCard(p => (p + 1) % missionCards.length), 3000); }}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${activeCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-300'}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* ── Desktop: Original 3-column grid (hidden on mobile) ── */}
+                    <div className="hidden md:grid md:grid-cols-3 gap-8 items-stretch relative px-4">
                         {/* Vision Card */}
                         <div className="group bg-white hover:bg-[#520378] rounded-[24px] p-8 sm:p-10 border border-white/50 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]">
                             <div className="w-16 h-16 mb-8 transition-transform duration-300 group-hover:scale-110">

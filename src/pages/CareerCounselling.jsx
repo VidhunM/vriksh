@@ -1,9 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const servicesData = [
+    { title: <><span>Career</span><br />Assessments</>, text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best", iconSrc: "/icons/career assement.png" },
+    { title: <><span>Career</span><br />Counselling</>, text: "Get expert guidance and insights to understand your options and make informed decisions for a successful career journey", iconSrc: "/icons/career counselling.png" },
+    { title: <><span>Career</span><br />Recommendations</>, text: "Receive personalised recommendations based on your strengths, interests, and potential to help you take the next steps toward a successful career", iconSrc: "/icons/career recommentations.png" },
+    { title: <><span>Career</span><br />Updates</>, text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions", iconSrc: "/icons/career updates.png" },
+];
 
 const CareerCounselling = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
     const [openIndex, setOpenIndex] = useState(null);
+    const [serviceCard, setServiceCard] = useState(0);
+    const serviceTimerRef = useRef(null);
+
+    useEffect(() => {
+        serviceTimerRef.current = setInterval(() => {
+            setServiceCard((prev) => (prev + 1) % servicesData.length);
+        }, 3000);
+        return () => clearInterval(serviceTimerRef.current);
+    }, []);
 
     const faqs = [
         {
@@ -193,7 +209,7 @@ const CareerCounselling = () => {
                         Signs You Might Need Career Guidance
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-[1100px] mx-auto">
+                    <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-12 max-w-[1100px] mx-auto">
                         {[
                             {
                                 text: "You've Completed High School Or Are Unsure About Your Next Step",
@@ -222,14 +238,14 @@ const CareerCounselling = () => {
                         ].map((item, index) => (
                             <div
                                 key={index}
-                                className={`${item.color} p-8 sm:p-10 rounded-[12px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[160px] lg:min-h-[200px]`}
+                                className={`${item.color} p-4 sm:p-8 md:p-10 rounded-[12px] shadow-sm hover:shadow-md transition-shadow flex flex-col h-full items-start min-h-[120px] sm:min-h-[160px] lg:min-h-[200px]`}
                             >
-                                <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center mb-7 shrink-0 shadow-sm">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="mb-[1px] mr-[0.5px]">
+                                <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-black flex items-center justify-center mb-3 sm:mb-7 shrink-0 shadow-sm">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="mb-[1px] mr-[0.5px]">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-base sm:text-[18px] font-bold text-gray-950 leading-[1.1] font-inter-tight max-w-[280px]">
+                                <p className="text-[11px] sm:text-base md:text-[18px] font-bold text-gray-950 leading-[1.2] font-inter-tight">
                                     {item.text}
                                 </p>
                             </div>
@@ -247,7 +263,7 @@ const CareerCounselling = () => {
             {/* Stats Section - Standardized width for "straight even" layout */}
             <div className="bg-white py-10 border-t border-gray-100">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
+                    <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-center gap-6 md:gap-0">
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
@@ -335,45 +351,49 @@ const CareerCounselling = () => {
                         Our career guidance services includes
                     </h2>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        {[
-                            {
-                                title: <>Career<br />Assessments</>,
-                                text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best",
-                                iconSrc: "/icons/career assement.png"
-                            },
-                            {
-                                title: <>Career<br />Counselling</>,
-                                text: "Get expert guidance and insights to understand your options and make informed decisions for a successful career journey",
-                                iconSrc: "/icons/career counselling.png"
-                            },
-                            {
-                                title: <>Career<br />Recommendations</>,
-                                text: "Receive personalised recommendations based on your strengths, interests, and potential to help you take the next steps toward a successful career",
-                                iconSrc: "/icons/career recommentations.png"
-                            },
-                            {
-                                title: <>Career<br />Updates</>,
-                                text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions",
-                                iconSrc: "/icons/career updates.png"
-                            }
-                        ].map((service, index) => (
+                    {/* ── Mobile: Auto-Slide Carousel ── */}
+                    <div className="sm:hidden relative mb-12">
+                        <div className="overflow-hidden rounded-[20px]">
+                            <div
+                                className="flex transition-transform duration-700 ease-in-out"
+                                style={{ transform: `translateX(-${serviceCard * 100}%)` }}
+                            >
+                                {servicesData.map((service, index) => (
+                                    <div key={index} className="w-full flex-none">
+                                        <div className="bg-[#FCA65B] px-5 py-8 rounded-[20px] flex flex-col min-h-[280px] relative overflow-hidden">
+                                            <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">{service.title}</h3>
+                                            <p className="text-gray-900 text-base leading-[1.7] mb-4 font-medium text-left tracking-tight">{service.text}</p>
+                                            <div className="absolute bottom-2 right-2 w-24 h-24">
+                                                <img src={service.iconSrc} alt="" className="w-full h-full object-contain opacity-90" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Dot Indicators */}
+                        <div className="flex justify-center gap-2 mt-4">
+                            {servicesData.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => { setServiceCard(i); clearInterval(serviceTimerRef.current); serviceTimerRef.current = setInterval(() => setServiceCard(p => (p + 1) % servicesData.length), 3000); }}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${serviceCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-400'}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* ── Desktop: Original grid (hidden on mobile) ── */}
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        {servicesData.map((service, index) => (
                             <div
                                 key={index}
                                 className="bg-[#FCA65B] px-5 py-8 rounded-[20px] flex flex-col min-h-[340px] shadow-sm hover:shadow-md transition-all group relative overflow-hidden"
                             >
-                                <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">
-                                    {service.title}
-                                </h3>
-                                <p className="text-gray-900 text-base sm:text-[clamp(15px,1.1vw,17px)] leading-[1.7] mb-4 font-medium text-left tracking-tight">
-                                    {service.text}
-                                </p>
+                                <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">{service.title}</h3>
+                                <p className="text-gray-900 text-base sm:text-[clamp(15px,1.1vw,17px)] leading-[1.7] mb-4 font-medium text-left tracking-tight">{service.text}</p>
                                 <div className="absolute bottom-2 right-2 w-28 h-28 transform group-hover:scale-110 transition-transform duration-500">
-                                    <img
-                                        src={service.iconSrc}
-                                        alt={service.title}
-                                        className="w-full h-full object-contain opacity-90"
-                                    />
+                                    <img src={service.iconSrc} alt="" className="w-full h-full object-contain opacity-90" />
                                 </div>
                             </div>
                         ))}

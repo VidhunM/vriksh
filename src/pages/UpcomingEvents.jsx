@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const UpcomingEvents = () => {
@@ -102,6 +102,33 @@ const UpcomingEvents = () => {
     const [openIndex, setOpenIndex] = useState(null);
     const [activeCardId, setActiveCardId] = useState(null);
     const [itemsVisible, setItemsVisible] = useState(3);
+    const [programCard, setProgramCard] = useState(0);
+    const programTimerRef = useRef(null);
+
+    const programCards = [
+        {
+            title: "Workshops",
+            description: <>Knowledge enrichment sessions with <span className="whitespace-nowrap">well-curated</span> experiential components on focused topics that support skill advancement</>,
+            icon: <img src="/icons/workshop.png" alt="Workshops icon" className="w-8 h-8 object-contain" />
+        },
+        {
+            title: "Training Programs",
+            description: "Hands-on, interactive programs led by trained psychologists, designed to build practical skills through reflective & insight-oriented learning",
+            icon: <img src="/icons/training program.png" alt="Training Programs icon" className="w-8 h-8 object-contain" />
+        },
+        {
+            title: "Certificate Courses",
+            description: "Expert-led online courses designed to help you build new skills, strengthen your expertise, and advance confidently in your career",
+            icon: <img src="/icons/certificate course.png" alt="Certificate Courses icon" className="w-8 h-8 object-contain" />
+        }
+    ];
+
+    useEffect(() => {
+        programTimerRef.current = setInterval(() => {
+            setProgramCard((prev) => (prev + 1) % 3);
+        }, 3000);
+        return () => clearInterval(programTimerRef.current);
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -412,34 +439,50 @@ const UpcomingEvents = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                title: "Workshops",
-                                description: <>Knowledge enrichment sessions with <span className="whitespace-nowrap">well-curated</span> experiential components on focused topics that support skill advancement</>,
-                                icon: <img src="/icons/workshop.png" alt="Workshops icon" className="w-8 h-8 object-contain" />
-                            },
-                            {
-                                title: "Training Programs",
-                                description: "Hands-on, interactive programs led by trained psychologists, designed to build practical skills through reflective & insight-oriented learning",
-                                icon: <img src="/icons/training program.png" alt="Training Programs icon" className="w-8 h-8 object-contain" />
-                            },
-                            {
-                                title: "Certificate Courses",
-                                description: "Expert-led online courses designed to help you build new skills, strengthen your expertise, and advance confidently in your career",
-                                icon: <img src="/icons/certificate course.png" alt="Certificate Courses icon" className="w-8 h-8 object-contain" />
-                            }
-                        ].map((program, index) => (
+                    {/* ── Mobile: Auto-Slide Carousel ── */}
+                    <div className="md:hidden relative">
+                        <div className="overflow-hidden rounded-[32px]">
+                            <div
+                                className="flex transition-transform duration-700 ease-in-out"
+                                style={{ transform: `translateX(-${programCard * 100}%)` }}
+                            >
+                                {programCards.map((program, index) => (
+                                    <div key={index} className="w-full flex-none">
+                                        <div className="bg-[#FFB169] rounded-[32px] p-6 flex flex-col items-start shadow-lg">
+                                            <div className="bg-white p-3.5 rounded-2xl text-[#FFB169] mb-6 shadow-sm">
+                                                {program.icon}
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-950 mb-4 font-geist">{program.title}</h3>
+                                            <p className="text-base text-gray-900 leading-relaxed mb-6">{program.description}</p>
+                                            <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors">
+                                                Know more
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Dot Indicators */}
+                        <div className="flex justify-center gap-2 mt-5">
+                            {programCards.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => { setProgramCard(i); clearInterval(programTimerRef.current); programTimerRef.current = setInterval(() => setProgramCard(p => (p + 1) % 3), 3000); }}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${programCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-400'}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* ── Desktop: Original 3-column grid (hidden on mobile) ── */}
+                    <div className="hidden md:grid md:grid-cols-3 gap-8">
+                        {programCards.map((program, index) => (
                             <div key={index} className="bg-[#FFB169] rounded-[32px] p-6 sm:p-7 flex flex-col items-start shadow-lg hover:-translate-y-2 transition-all duration-300">
                                 <div className="bg-white p-3.5 rounded-2xl text-[#FFB169] mb-6 shadow-sm">
                                     {program.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-950 mb-4 font-geist">
-                                    {program.title}
-                                </h3>
-                                <p className="text-base text-gray-900 leading-relaxed mb-auto pb-6">
-                                    {program.description}
-                                </p>
+                                <h3 className="text-xl font-bold text-gray-950 mb-4 font-geist">{program.title}</h3>
+                                <p className="text-base text-gray-900 leading-relaxed mb-auto pb-6">{program.description}</p>
                                 <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors">
                                     Know more
                                 </button>
