@@ -56,7 +56,7 @@ const Hero = () => {
     }, [currentSlide]);
 
     return (
-        <section className="relative min-h-[480px] sm:min-h-[500px] lg:h-[600px] flex items-center sm:items-end justify-center overflow-hidden pb-0 sm:pb-10">
+        <section className="relative min-h-[340px] sm:min-h-[500px] lg:h-[600px] flex items-center sm:items-end justify-center overflow-hidden pb-0 sm:pb-10">
             {/* Multi-Banner Slider */}
             <div className="absolute inset-0 z-0">
                 {banners.map((banner, index) => (
@@ -77,7 +77,7 @@ const Hero = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="absolute inset-0 z-20 flex items-center justify-between px-2 sm:px-8 lg:px-12 pointer-events-none sm:translate-y-8">
+            <div className="hidden sm:flex absolute inset-0 z-20 items-center justify-between px-2 sm:px-8 lg:px-12 pointer-events-none sm:translate-y-8">
                 <button
                     onClick={prevSlide}
                     className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white transition-all pointer-events-auto group cursor-pointer"
@@ -98,7 +98,7 @@ const Hero = () => {
                 </button>
             </div>
 
-            <div className="relative z-10 max-w-[1240px] w-full px-4 sm:px-16 flex flex-col items-center justify-center text-center text-white py-8 sm:py-12">
+            <div className="relative z-10 max-w-[1240px] w-full px-4 sm:px-16 flex flex-col items-center justify-center text-center text-white pt-12 pb-2 sm:py-12">
                 <div className="max-w-[900px] animate-fade-in-up flex flex-col items-center">
                     {/* Animated Text Content */}
                     <div className="relative w-full flex flex-col items-center justify-center min-h-[220px]">

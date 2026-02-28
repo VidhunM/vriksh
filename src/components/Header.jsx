@@ -42,7 +42,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ${headerClasses}`}>
-      <div className="max-w-[1240px] mx-auto px-16 flex justify-between items-center h-18 sm:h-22">
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-16 flex justify-between items-center h-18 sm:h-22">
         <Link to="/" className="flex items-center">
           <img
             src="/images/logo2.png"
