@@ -116,6 +116,9 @@ const faqItems = [
     { q: 'Will the training be conducted online or offline?', a: 'To ensure accessibility for participants worldwide, most of our training programs are conducted live via online platforms.' },
     { q: 'Is the session interactive?', a: 'Yes! Interaction is a core part of Vriksh training. Sessions include discussions, case studies, and practical tools to ensure engaging learning.' },
     { q: 'Will I receive a certificate of participation?', a: 'Yes, all registered participants who attend the session will receive a certificate of participation from Vriksh E-Academy.' },
+    { q: 'What if I miss a live session?', a: 'If recording access is included, you can watch the session later within the given access period.' },
+    { q: 'Can institutions collaborate with Vriksh?', a: 'Yes. We conduct customized workshops, training programs and certificate courses for schools, colleges, and organizations. You can contact us for collaboration details.' },
+    { q: 'Is there a refund policy?', a: 'As seats are limited, fees are generally non-refundable. However, transfers to future batches may be considered on request.' }
 ];
 
 const TrainingFAQ = () => {
@@ -175,40 +178,52 @@ const TrainingFAQ = () => {
 
 const trainingReviews = [
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: 'Arumugam',
+        role: 'Counselling Psychologist',
+        text: '"I attended the Career Counselling Training Program conducted by Ms. Shivani and Ms. Banu Priya. It was a truly enriching learning experience, and the effort put into designing the program was commendable. All topics were covered comprehensively, and the sessions were highly informative and purposeful. Thank you for making the sessions simple, clear, and easy to understand. I look forward to joining more programs in the future."',
+        date: 'July 2025',
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: 'Vijayalakshmi',
+        role: 'Special Educator',
+        text: '"The CBT for Children and Adolescents Course was excellent. I truly enjoyed the interactive sessions, especially the practical strategies and tips that can be directly implemented in real settings. The trainers were extremely patient and took the time to clarify all our queries in detail. Thank you for such a valuable learning experience."',
+        date: 'February 2025',
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: 'Dr. Gayatri',
+        role: 'Special Educator',
+        text: '"Amazing training delivered by true professionals. The explanations were crystal clear, and every doubt was clarified with great patience. The training programs are conducted in a highly professional manner, covering end-to-end information comprehensively. Many thanks to Bhanupriya Madam and Shivani Madam for your valuable inputs. I look forward to learning more on this platform. Thank you!"',
+        date: 'May 2024',
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: 'Jerol',
+        role: 'Special Educator',
+        text: '"It was a very informative and enriching session that helped me gain deeper knowledge about counselling and assessment related to learning disabilities, including SLD, ASD, and ADHD. The guidance on how to effectively support and move forward with these children in a general school setting was especially valuable for me as a special educator. Thank you for such a meaningful learning experience."',
+        date: 'November 2025',
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: 'Akshaya',
+        role: 'Counsellor',
+        text: '"It was a wonderful experience learning about the various counselling and assessment tools. The training conducted by Banupriya Ma’am and Shivani Ma’am was truly excellent. The sessions were highly interactive, engaging, and informative. I look forward to building my expertise and deepening my knowledge in the field under your guidance. Thank you for such a valuable learning experience!"',
+        date: 'March 2025',
     },
     {
-        name: 'Ananya R.',
-        role: 'Individual Counselling Client',
-        text: '"Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey."',
-        date: 'June 2025',
+        name: 'Madhavi',
+        role: 'Psychologist',
+        text: '"The Vriksh training webinars are crisp and clearly explained. I thoroughly enjoyed all the sessions. The trainers are highly knowledgeable and experienced, which reflects in the quality of the training. Thank you, Ms. Banupriya and Ms. Shivani. You both are wonderful trainers!"',
+        date: 'January 2026',
+    },
+    {
+        name: 'Manisha',
+        role: 'Counselling Psychologist',
+        text: '"A truly wonderful and informative course by Vriksh! You can trust them to deliver wholesome, value-based content that meets expectations. The Essentials of CBT course was excellent. The nuances and practical applications were explained clearly with relevant and relatable examples. Keep up the great work, team!"',
+        date: 'December 2025',
+    },
+    {
+        name: 'Ekta',
+        role: 'Counsellor',
+        text: '"Thank you so much, Ms. Banupriya Ma’am and Ms. Shivani Ma’am, for the very valuable training. I truly enjoyed the sessions and appreciate the way you made even complex topics easy to understand. I now feel much better prepared to handle challenging and uncomfortable issues with confidence. Thank you for sharing your wisdom, experience, and warm, personable approach. It was a wonderful learning experience!"',
+        date: 'November 2025',
     },
 ];
 
