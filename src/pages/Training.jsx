@@ -116,6 +116,9 @@ const faqItems = [
     { q: 'Will the training be conducted online or offline?', a: 'To ensure accessibility for participants worldwide, most of our training programs are conducted live via online platforms.' },
     { q: 'Is the session interactive?', a: 'Yes! Interaction is a core part of Vriksh training. Sessions include discussions, case studies, and practical tools to ensure engaging learning.' },
     { q: 'Will I receive a certificate of participation?', a: 'Yes, all registered participants who attend the session will receive a certificate of participation from Vriksh E-Academy.' },
+    { q: 'What if I miss a live session?', a: 'If recording access is included, you can watch the session later within the given access period.' },
+    { q: 'Can institutions collaborate with Vriksh?', a: 'Yes. We conduct customized workshops, training programs and certificate courses for schools, colleges, and organizations. You can contact us for collaboration details.' },
+    { q: 'Is there a refund policy?', a: 'As seats are limited, fees are generally non-refundable. However, transfers to future batches may be considered on request.' }
 ];
 
 const TrainingFAQ = () => {

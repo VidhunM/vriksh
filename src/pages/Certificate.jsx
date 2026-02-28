@@ -114,6 +114,9 @@ const faqItems = [
     { q: 'Do I need any prior knowledge?', a: 'While some advanced courses may require a psychology background, many are beginner-friendly and clearly mention any prerequisites in the course details.' },
     { q: 'Will the course be online or offline?', a: 'To ensure accessibility, most of our certificate programs are conducted live via online platforms.' },
     { q: 'Will I receive a certificate of completion?', a: 'All registered participants who successfully attend the session will be awarded a Certificate of Completion from Vriksh E-Academy.' },
+    { q: 'What if I miss a live session?', a: 'If recording access is included, you can watch the session later within the given access period.' },
+    { q: 'Can institutions collaborate with Vriksh?', a: 'Yes. We conduct customized workshops, training programs and certificate courses for schools, colleges, and organizations. You can contact us for collaboration details.' },
+    { q: 'Is there a refund policy?', a: 'As seats are limited, fees are generally non-refundable. However, transfers to future batches may be considered on request.' }
 ];
 
 const CertificateFAQ = () => {
