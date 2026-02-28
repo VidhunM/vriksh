@@ -5,7 +5,7 @@ const categories = ['Counsellors', 'Special Educator', 'Teachers', 'Corporate'];
 const certificateCards = [
     {
         title: 'School Counselling: Learn to Support Students',
-        subtitle: 'Hands-on training to excel as a professional school counsellor (Teachers can also join)',
+        subtitle: 'Hands-on training to excel as a  school counsellor (Teachers can also join)',
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/School Counselling Learn to Support Students.png',
@@ -41,7 +41,7 @@ const certificateCards = [
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Applied Industrial–Organizational Psychology - Copy.jpg',
-        categories: ['Counsellors', 'Special Educator', 'Corporate']
+        categories: ['Counsellors', 'Corporate']
     },
     {
         title: 'Workplace Psychology & Human Behavior',
@@ -49,7 +49,7 @@ const certificateCards = [
         rating: '4.8',
         duration: '10 Hours',
         image: '/images/certificate/Workplace Psychology & Human Behavior.jpg',
-        categories: ['Counsellors', 'Special Educator', 'Corporate']
+        categories: ['Counsellors', 'Corporate']
     },
     {
         title: 'Foundations of Child Psychology',
@@ -66,6 +66,14 @@ const certificateCards = [
         duration: '10 Hours',
         image: '/images/certificate/Psychological First Aid (PFA).jpg',
         categories: ['Counsellors', 'Special Educator']
+    },
+    {
+        title: 'Emotional Intelligence Practitioner',
+        subtitle: 'Learn practical tools to understand and manage emotions effectively.',
+        rating: '4.8',
+        duration: '10 Hours',
+        image: '/images/certificate/Emotional Intelligence Practitioner.jpeg',
+        categories: ['Counsellors', 'Special Educator', 'Teachers', 'Corporate']
     }
 ];
 
@@ -146,7 +154,11 @@ const CertificateListing = () => {
                             {/* Card Info */}
                             <div className="flex flex-col flex-grow p-5 sm:p-6">
                                 <h3 className="font-bold text-[18px] leading-[1.3] mb-3 font-inter-tight text-gray-950 clamp-2 text-balance">
-                                    {card.title}
+                                    {card.title === 'Applied Industrial–Organizational Psychology' ? (
+                                        <>Applied <span className="whitespace-nowrap">Industrial–Organizational</span> Psychology</>
+                                    ) : (
+                                        card.title
+                                    )}
                                 </h3>
                                 <p className="text-[14px] sm:text-[15px] text-gray-600 mb-6 leading-relaxed font-medium">
                                     {card.subtitle}
