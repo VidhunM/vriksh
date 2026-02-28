@@ -176,40 +176,40 @@ const CertificateFAQ = () => {
 
 const certificateReviews = [
     {
-        name: 'Rohan M.',
-        role: 'Certified Professional',
-        text: '"Vriksh provided me with excellent resources to complete my certification. The sessions were incredibly informative and the certificate added massive value to my resume."',
+        name: 'Disha',
+        role: 'Counsellor',
+        text: '"Vriksh is coming up with a lot of great practical content, and each course is truly worth the money. The sessions are highly interactive rather than purely theoretical, which helps me stay focused and engaged throughout. I found myself listening carefully to every word of the speaker. I would love to continue learning more from Vriksh. I highly recommend it to anyone looking to improve their practice. Thank you, Vriksh!"',
+        date: '',
+    },
+    {
+        name: 'Priyanka',
+        role: 'Psychologist',
+        text: '"I attended the School Counselling Course, and it was truly insightful. The case studies, worksheets, and practical components were extremely helpful and easy to apply in real-life settings. A heartfelt thank you to Banupriya Venkatesan and Shivani Wadhawa for conducting such a wonderful and enriching session."',
+        date: '',
+    },
+    {
+        name: 'Aditi',
+        role: 'Special Educator',
+        text: '"Banupriya and Shivani conduct their courses in a very structured and organized manner. The sessions are highly engaging and thoughtfully delivered, making it a truly enriching learning experience. It was a wonderful opportunity to learn from both of you. Wishing you continued success!"',
+        date: 'May 2023',
+    },
+    {
+        name: 'Nidhi',
+        role: 'Counselling Psychologist',
+        text: '"One of the best psychological support services! It was a great experience—very informative and engaging sessions throughout. The course content was explained in detail, making it easy to understand and practically implement in counselling sessions. I would love to enroll in more courses with you in the future. Thank you for such a valuable learning experience!"',
+        date: 'September 2025',
+    },
+    {
+        name: 'Veena Padmanabha',
+        role: 'Counsellor',
+        text: '"An excellent initiative with a professional and well-structured approach. One can truly rely on the information provided. Superb coordination among the team. Highly commendable!"',
         date: 'July 2025',
     },
     {
-        name: 'Rohan M.',
-        role: 'Certified Professional',
-        text: '"Vriksh provided me with excellent resources to complete my certification. The sessions were incredibly informative and the certificate added massive value to my resume."',
-        date: 'July 2025',
-    },
-    {
-        name: 'Rohan M.',
-        role: 'Certified Professional',
-        text: '"Vriksh provided me with excellent resources to complete my certification. The sessions were incredibly informative and the certificate added massive value to my resume."',
-        date: 'July 2025',
-    },
-    {
-        name: 'Rohan M.',
-        role: 'Certified Professional',
-        text: '"Vriksh provided me with excellent resources to complete my certification. The sessions were incredibly informative and the certificate added massive value to my resume."',
-        date: 'July 2025',
-    },
-    {
-        name: 'Rohan M.',
-        role: 'Certified Professional',
-        text: '"Vriksh provided me with excellent resources to complete my certification. The sessions were incredibly informative and the certificate added massive value to my resume."',
-        date: 'July 2025',
-    },
-    {
-        name: 'Rohan M.',
-        role: 'Certified Professional',
-        text: '"Vriksh provided me with excellent resources to complete my certification. The sessions were incredibly informative and the certificate added massive value to my resume."',
-        date: 'July 2025',
+        name: 'Ayesha Barvin',
+        role: 'Special Educator',
+        text: '"I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently."',
+        date: 'March 2025',
     },
 ];
 
