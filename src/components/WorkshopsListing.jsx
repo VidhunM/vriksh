@@ -84,7 +84,7 @@ const allWorkshopCards = [
     { title: 'Conflict Resolution & Negotiation Skills', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Conflict Resolution & Negotiation Skills.jpg', categories: ['Corporate', 'Counselling'] },
     { title: 'Team Building & Cohesion', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Team building.jpg', categories: ['Corporate', 'Counselling'] },
     { title: 'Cultivating Awareness: Mindfulness Techniques for Daily Life', duration: '2 Hours', rating: '4.9', image: '/images/workshop/Cultivating Awareness Mindfulness Techniques for Daily Life.jpeg', categories: ['Corporate', 'Counselling'] },
-    { title: 'Personality Enrichment', duration: '1.5 Hours', rating: '4.9', image: '/images/workshop/Personality Enrichment.jpeg', categories: ['Corporate', 'Counselling'] }
+    { title: 'Personality Enrichment', duration: '1.5 Hours', rating: '4.9', image: '/images/workshop/Personality Enrichment.jpeg', categories: ['Corporate', 'Counselling', 'Parents', 'Teachers', 'Special Education'] }
 ];
 
 const WorkshopsListing = () => {
