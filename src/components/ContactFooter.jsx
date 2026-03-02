@@ -68,7 +68,7 @@ const ContactFooter = () => {
 
                         {/* Right Side: Form */}
                         <div className="w-full lg:w-[50%]">
-                            <h3 className="text-[20px] font-bold text-[#520378] mb-8 leading-snug">
+                            <h3 className="text-[22px] font-bold text-[#520378] mb-8 leading-snug">
                                 Start your journey with us - Enriching Minds.
                             </h3>
                             <form className="space-y-5">

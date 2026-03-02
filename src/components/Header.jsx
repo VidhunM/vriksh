@@ -33,11 +33,24 @@ const Header = () => {
     : 'text-gray-950 hover:text-brand-purple';
 
   const services = [
-    // { label: 'Individual Counselling', href: '#individual' },
-    { label: 'Career Counselling', href: '/career-counselling' },
-    { label: 'Workshops', href: '/workshop' },
-    { label: 'Training', href: '/training' },
-    { label: 'Certificate Courses', href: '/certificate' }
+    {
+      label: 'Vriksh E - Academy',
+      subItems: [
+        { label: 'Workshops', href: '/workshop' },
+        { label: 'Training Program', href: '/training' },
+        { label: 'Certificate Courses', href: '/certificate' }
+      ]
+    },
+    { label: 'Counselling', href: '#' },
+    {
+      label: 'Institutional Wellness Program',
+      subItems: [
+        { label: 'For Schools', href: '#' },
+        { label: 'For Colleges', href: '#' }
+      ]
+    },
+    { label: 'Corporate - EAP', href: '#' },
+    { label: 'Career Guidance', href: '/career-counselling' }
   ];
 
   return (
@@ -86,27 +99,63 @@ const Header = () => {
 
                     {/* Services Dropdown */}
                     {item.hasDropdown && isServicesOpen && (
-                      <div className="absolute top-full left-0 w-64 bg-white shadow-xl rounded-2xl py-4 flex flex-col border border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute top-full left-0 w-72 bg-white shadow-xl rounded-2xl py-3 flex flex-col border border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
                         {services.map((service) => (
-                          service.href.startsWith('/') ? (
-                            <Link
-                              key={service.label}
-                              to={service.href}
-                              className="px-6 py-2.5 text-sm text-gray-700 hover:bg-brand-purple/10 hover:text-brand-purple transition-colors font-medium"
-                              onClick={() => setIsServicesOpen(false)}
-                            >
-                              {service.label}
-                            </Link>
-                          ) : (
-                            <a
-                              key={service.label}
-                              href={service.href}
-                              className="px-6 py-2.5 text-sm text-gray-700 hover:bg-brand-purple/10 hover:text-brand-purple transition-colors font-medium"
-                              onClick={() => setIsServicesOpen(false)}
-                            >
-                              {service.label}
-                            </a>
-                          )
+                          <div key={service.label} className="relative group/sub">
+                            {service.subItems ? (
+                              <div className="px-6 py-3 text-[15px] text-gray-700 hover:bg-brand-purple/5 hover:text-brand-purple transition-colors font-medium flex justify-between items-center cursor-default">
+                                <span>{service.label}</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-90 opacity-50">
+                                  <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                              </div>
+                            ) : (
+                              service.href.startsWith('/') ? (
+                                <Link
+                                  to={service.href}
+                                  className="block px-6 py-3 text-[15px] text-gray-700 hover:bg-brand-purple/5 hover:text-brand-purple transition-colors font-medium"
+                                  onClick={() => setIsServicesOpen(false)}
+                                >
+                                  {service.label}
+                                </Link>
+                              ) : (
+                                <a
+                                  href={service.href}
+                                  className="block px-6 py-3 text-[15px] text-gray-700 hover:bg-brand-purple/5 hover:text-brand-purple transition-colors font-medium"
+                                  onClick={() => setIsServicesOpen(false)}
+                                >
+                                  {service.label}
+                                </a>
+                              )
+                            )}
+
+                            {/* Sub-dropdown */}
+                            {service.subItems && (
+                              <div className="absolute top-0 left-[98%] w-64 bg-white shadow-xl rounded-2xl py-2 flex flex-col border border-gray-100 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 -translate-x-2 group-hover/sub:translate-x-0 before:content-[''] before:absolute before:inset-y-0 before:-left-4 before:w-4">
+                                {service.subItems.map((subItem) => (
+                                  subItem.href.startsWith('/') ? (
+                                    <Link
+                                      key={subItem.label}
+                                      to={subItem.href}
+                                      className="block px-6 py-2.5 text-[14.5px] text-gray-700 hover:bg-brand-purple/5 hover:text-brand-purple transition-colors font-medium"
+                                      onClick={() => setIsServicesOpen(false)}
+                                    >
+                                      {subItem.label}
+                                    </Link>
+                                  ) : (
+                                    <a
+                                      key={subItem.label}
+                                      href={subItem.href}
+                                      className="block px-6 py-2.5 text-[14.5px] text-gray-700 hover:bg-brand-purple/5 hover:text-brand-purple transition-colors font-medium"
+                                      onClick={() => setIsServicesOpen(false)}
+                                    >
+                                      {subItem.label}
+                                    </a>
+                                  )
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -176,31 +225,68 @@ const Header = () => {
                   {item.hasDropdown && isServicesOpen && (
                     <div className="flex flex-col gap-4 pl-4 pb-2 border-l-2 border-white/20 ml-2 animate-in fade-in slide-in-from-top-1">
                       {services.map((service) => (
-                        service.href.startsWith('/') ? (
-                          <Link
-                            key={service.label}
-                            to={service.href}
-                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-lg font-medium`}
-                            onClick={() => {
-                              setIsMenuOpen(false);
-                              setIsServicesOpen(false);
-                            }}
-                          >
-                            {service.label}
-                          </Link>
-                        ) : (
-                          <a
-                            key={service.label}
-                            href={service.href}
-                            className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-lg font-medium`}
-                            onClick={() => {
-                              setIsMenuOpen(false);
-                              setIsServicesOpen(false);
-                            }}
-                          >
-                            {service.label}
-                          </a>
-                        )
+                        <div key={service.label} className="flex flex-col gap-2">
+                          {service.subItems ? (
+                            <>
+                              <div className={`${isHomePage ? 'text-white/90' : 'text-gray-800'} text-[18px] font-bold py-1`}>
+                                {service.label}
+                              </div>
+                              <div className={`flex flex-col gap-2 pl-4 border-l-2 ${isHomePage ? 'border-white/10' : 'border-gray-200'} ml-1`}>
+                                {service.subItems.map((subItem) => (
+                                  subItem.href.startsWith('/') ? (
+                                    <Link
+                                      key={subItem.label}
+                                      to={subItem.href}
+                                      className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-[16px] font-medium py-1`}
+                                      onClick={() => {
+                                        setIsMenuOpen(false);
+                                        setIsServicesOpen(false);
+                                      }}
+                                    >
+                                      {subItem.label}
+                                    </Link>
+                                  ) : (
+                                    <a
+                                      key={subItem.label}
+                                      href={subItem.href}
+                                      className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-[16px] font-medium py-1`}
+                                      onClick={() => {
+                                        setIsMenuOpen(false);
+                                        setIsServicesOpen(false);
+                                      }}
+                                    >
+                                      {subItem.label}
+                                    </a>
+                                  )
+                                ))}
+                              </div>
+                            </>
+                          ) : (
+                            service.href.startsWith('/') ? (
+                              <Link
+                                to={service.href}
+                                className={`${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-purple'} text-[18px] font-bold py-1`}
+                                onClick={() => {
+                                  setIsMenuOpen(false);
+                                  setIsServicesOpen(false);
+                                }}
+                              >
+                                {service.label}
+                              </Link>
+                            ) : (
+                              <a
+                                href={service.href}
+                                className={`${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-purple'} text-[18px] font-bold py-1`}
+                                onClick={() => {
+                                  setIsMenuOpen(false);
+                                  setIsServicesOpen(false);
+                                }}
+                              >
+                                {service.label}
+                              </a>
+                            )
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}

@@ -5,7 +5,7 @@ const missionCards = [
         icon: '/icons/v1.png',
         iconAlt: 'Vision Icon',
         title: 'Vision',
-        text: 'To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities',
+        text: 'To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities.',
         highlighted: false,
     },
     {
@@ -19,7 +19,7 @@ const missionCards = [
         icon: '/icons/v3.png',
         iconAlt: 'Values Icon',
         title: 'Our values',
-        text: 'To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities',
+        text: 'We uphold ethical, evidence-based care with integrity, empowering resilience and meaningful impact. Through collaboration, compassion, and innovation, we strengthen individuals and communities.',
         highlighted: false,
     },
 ];
@@ -146,8 +146,9 @@ const About = () => {
                                 <img src="/icons/v3.png" alt="Values Icon" className="w-full h-full object-contain" />
                             </div>
                             <h3 className="text-2xl font-bold mb-6 text-gray-900 group-hover:text-white transition-colors duration-300 font-inter-tight">Our values</h3>
-                            <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 transition-colors duration-300">
-                                Our values guide everything we do: we prioritize accessibility, ensuring mental health support reaches everyone; uphold ethical practice with integrity and trust; deliver evidence-based care for meaningful impact; foster empowerment and emotional resilience in individuals; embrace collaboration to strengthen communities; and cultivate compassion and innovation in every service we provide.
+                            <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 w-full transition-colors duration-300">
+                                We uphold ethical, evidence-based care with integrity, empowering resilience and meaningful impact.
+                                Through collaboration, compassion, and innovation, we strengthen individuals and communities.
                             </p>
                         </div>
                     </div>
