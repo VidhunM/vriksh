@@ -63,7 +63,7 @@ const Academy = () => {
                         <div className="mb-10 text-center lg:text-left">
                             <h2 className="text-[28px] sm:text-[34px] font-bold mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
                             <p className="text-base sm:text-[19px] text-gray-800 max-w-[660px] leading-[1.8] font-normal mx-auto lg:mx-0">
-                                We empower aspiring professionals and communities with live, interactive, skill based mental health training, bridging theory and real-world practice.
+                                We empower aspiring professionals and communities with live, interactive, skill based mental health programs, bridging theory and real-world practice.
                             </p>
                         </div>
 
@@ -71,7 +71,7 @@ const Academy = () => {
                             {categories.map((cat, index) => (
                                 <div key={index} className={`bg-[#FCA65B] p-5 ${index === 0 ? 'pt-9' : ''} rounded-2xl flex flex-col items-center text-center shadow-lg border border-black/5 hover:scale-[1.02] transition-transform h-full`}>
                                     <h3 className="text-[16px] font-bold mb-3 text-gray-950 uppercase tracking-[0.05em] [word-spacing:0.15em] w-full font-inter-tight leading-tight">{cat.title}</h3>
-                                    <p className="text-[12.5px] text-gray-950/90 mb-4 leading-[1.6] font-medium w-full text-center flex-grow flex items-center justify-center">
+                                    <p className="text-[13.5px] text-gray-950/90 mb-4 leading-[1.6] font-medium w-full text-center flex-grow flex items-center justify-center">
                                         {cat.desc}
                                     </p>
                                     <button className="w-full bg-[#520378] text-white py-2.5 rounded-full font-bold text-[11px] hover:bg-[#520378]/90 transition-all shadow-md uppercase tracking-wider mt-auto">

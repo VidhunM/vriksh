@@ -22,7 +22,7 @@ const Hero = () => {
         },
         {
             image: '/images/banner 4.png',
-            title: "Empowering Campuses Transforming Young Minds",
+            title: "Empowering Campuses, Transforming Young Minds",
             description: "",
             buttonText: "Get in Touch"
         },
@@ -68,7 +68,7 @@ const Hero = () => {
                         <img
                             src={banner.image}
                             alt={`Banner ${index + 1}`}
-                            className={`w-full h-full object-cover object-center sm:object-top ${index === currentSlide ? (index % 2 === 0 ? 'animate-zoom-left' : 'animate-zoom-right') : ''}`}
+                            className={`w-full h-full object-cover ${index === 1 ? 'object-center sm:object-[center_50%]' : 'object-center sm:object-top'} ${index === currentSlide ? (index % 2 === 0 ? 'animate-zoom-left' : 'animate-zoom-right') : ''}`}
                         />
                         {/* Overlays */}
                         <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div>
