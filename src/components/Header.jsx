@@ -58,7 +58,7 @@ const Header = () => {
               { label: 'About us', href: '/about' },
               { label: 'Services', href: '#services', hasDropdown: true },
               { label: 'Blogs', href: '#blogs' },
-              { label: 'Contact us', href: '#contact' }
+              { label: 'Contact us', href: '/contact' }
             ].map((item) => (
               <li
                 key={item.label}
@@ -148,7 +148,7 @@ const Header = () => {
             { label: 'About us', href: '/about' },
             { label: 'Services', href: '#services', hasDropdown: true },
             { label: 'Blogs', href: '#blogs' },
-            { label: 'Contact us', href: '#contact' }
+            { label: 'Contact us', href: '/contact' }
           ].map((item) => (
             <li key={item.label}>
               {item.href.startsWith('/') ? (

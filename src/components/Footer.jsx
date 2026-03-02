@@ -44,7 +44,7 @@ const Footer = () => {
                             <div className="grid grid-cols-2 gap-x-4 opacity-90 text-[14px] font-light">
                                 <ul className="space-y-2">
                                     <li><a href="#" className="hover:opacity-100 transition-opacity">Blog</a></li>
-                                    <li><a href="#" className="hover:opacity-100 transition-opacity">Contact Us</a></li>
+                                    <li><a href="/contact" className="hover:opacity-100 transition-opacity">Contact Us</a></li>
                                 </ul>
                                 <ul className="space-y-2">
                                     <li><a href="#" className="hover:opacity-100 transition-opacity">Ethics</a></li>
