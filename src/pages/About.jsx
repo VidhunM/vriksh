@@ -48,12 +48,12 @@ const About = () => {
             <div className="relative max-w-[1440px] mx-auto px-6 py-6 sm:py-14 overflow-hidden">
                 {/* Decorative background element - Positioned significantly higher with slide-up animation */}
                 <div
-                    className="absolute top-[-145px] left-[15%] sm:left-[22%] w-full sm:w-[70%] h-full pointer-events-none opacity-[0.4] z-20 "
+                    className="absolute top-[-150px] sm:top-[-145px] -left-[10%] sm:left-[22%] w-[120%] sm:w-[70%] h-full pointer-events-none opacity-[0.4] z-20 "
                 >
                     <img
                         src="/images/abt.png"
                         alt=""
-                        className="w-full h-full object-contain object-left scale-[7.5] sm:scale-170 mix-blend-multiply brightness-[0.4] contrast-[0.4] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
+                        className="w-full h-full object-contain sm:object-left scale-[1] sm:scale-170 mix-blend-multiply brightness-[0.4] contrast-[0.4] drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)]"
                     />
                 </div>
 
@@ -185,7 +185,7 @@ const About = () => {
                             <img
                                 src="/images/banu 1.png"
                                 alt="Banu Priya - Founder & CEO"
-                                className="relative z-10 w-full h-full object-contain object-top scale-[2.25] origin-top -translate-x-15 -translate-y-55 brightness-110 saturate-150"
+                                className="relative z-10 w-full h-full object-contain object-top scale-[2.25] origin-top -translate-x-15 -translate-y-45 lg:-translate-y-55 brightness-110 saturate-150"
                                 onError={(e) => {
                                     e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib2=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                                 }}

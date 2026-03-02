@@ -9,7 +9,7 @@ const Academy = () => {
         },
         {
             title: 'Training Programs',
-            desc: <span>Interactive, activity-based programs designed by our<br />in-house experts to equip you with practical skills for<br />real-world application.</span>,
+            desc: <span>Interactive, activity-based programs designed by our in-house experts to equip you with practical skills for real-world application.</span>,
             btnText: 'Explore Programs'
         },
         {
