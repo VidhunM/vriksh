@@ -110,7 +110,7 @@ const About = () => {
                         <p className="">
                             Through clinical counseling, institutional mental health programs, and high-impact training, we provide accessible and inclusive mental health support. Our goal is to create a nurturing environment where everyone feels heard, valued, and empowered to navigate life's challenges with resilience.
                         </p>
-                        <p className="font-semibold text-gray-950 text-[15px] sm:text-[clamp(19px,1.4vw,22px)] px-4">
+                        <p className="font-semibold text-gray-950 text-[15px] sm:text-[clamp(19px,1.4vw,22px)] sm:px-4">
                             At Vriksh, our focus extends beyond addressing concerns — we are dedicated to building resilient individuals and thriving communities.
                         </p>
                     </div>
