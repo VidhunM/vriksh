@@ -125,7 +125,7 @@ const About = () => {
                             </div>
                             <h3 className="text-2xl font-bold mb-6 text-gray-900 group-hover:text-white transition-colors duration-300 font-inter-tight">Vision</h3>
                             <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 transition-colors duration-300">
-                                To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities
+                                To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities.
                             </p>
                         </div>
 
@@ -147,7 +147,7 @@ const About = () => {
                             </div>
                             <h3 className="text-2xl font-bold mb-6 text-gray-900 group-hover:text-white transition-colors duration-300 font-inter-tight">Our values</h3>
                             <p className="text-[15px] leading-relaxed text-gray-700 group-hover:text-white/90 transition-colors duration-300">
-                                To create a future where accessible, ethical, and evidence-based mental healthcare becomes an integral part of everyday life, empowering emotionally resilient individuals and building thriving communities
+                                Our values guide everything we do: we prioritize accessibility, ensuring mental health support reaches everyone; uphold ethical practice with integrity and trust; deliver evidence-based care for meaningful impact; foster empowerment and emotional resilience in individuals; embrace collaboration to strengthen communities; and cultivate compassion and innovation in every service we provide.
                             </p>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ const About = () => {
 
                             <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-gray-800">
                                 <p className="font-bold">
-                                    Hi, I'm Banupriya, founder of Vriksh Psychological Support Services. I'm a Psychologist, Certified Emotional Intelligence Coach Practitioner, and Career Coach.
+                                    Hi, I'm Banupriya, Founder of Vriksh Psychological Support Services. I'm a Psychologist, Certified Emotional Intelligence Coach Practitioner, and Career Coach.
                                 </p>
                                 <p>
                                     I've always believed that behind the smile of every person facing mental health challenges, there is hope - and behind that hope, there is life. This belief inspired me to start Vriksh in 2020, with the goal of reaching as many people as possible and making a positive difference in their lives.

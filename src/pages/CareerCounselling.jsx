@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const servicesData = [
-    { title: <><span>Career</span><br />Assessments</>, text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best", iconSrc: "/icons/career assement.png" },
-    { title: <><span>Career</span><br />Counselling</>, text: "Get expert guidance and insights to understand your options and make informed decisions for a successful career journey", iconSrc: "/icons/career counselling.png" },
-    { title: <><span>Career</span><br />Recommendations</>, text: "Receive personalised recommendations based on your strengths, interests, and potential to help you take the next steps toward a successful career", iconSrc: "/icons/career recommentations.png" },
-    { title: <><span>Career</span><br />Updates</>, text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions", iconSrc: "/icons/career updates.png" },
+    { title: <><span>Career</span><br />Assessments</>, text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best.", iconSrc: "/icons/career assement.png" },
+    { title: <><span>Career</span><br />Counselling</>, text: "Get expert guidance and insights to understand your options and make informed decisions for a successful career journey.", iconSrc: "/icons/career counselling.png" },
+    { title: <><span>Career</span><br />Recommendations</>, text: "Receive personalised recommendations based on your strengths, interests, and potential to help you take the next steps toward a successful career.", iconSrc: "/icons/career recommentations.png" },
+    { title: <><span>Career</span><br />Updates</>, text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions.", iconSrc: "/icons/career updates.png" },
 ];
 
 const assurancesData = [
     { title: "Personalized Guidance", text: "Tailored Support for You", icon: "/icons/Guidance.png" },
     { title: "Confidentiality", text: "Secure and Private Sessions", icon: "/icons/confidential.png" },
-    { title: "Convenience", text: "Online sessions from the comfort of the your home", icon: "/icons/convenices.png" },
+    { title: "Convenience", text: "Online sessions from the comfort of your home", icon: "/icons/convenices.png" },
     { title: "Expert Support", text: "Guided by qualified professionals", icon: "/icons/export support.png" },
     { title: "Clear Direction", text: "Make confident career choices.", icon: "/icons/clear direction.png" }
 ];
