@@ -190,8 +190,8 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 w-full ${isHomePage ? 'bg-brand-purple' : 'bg-white'} border-t ${isHomePage ? 'border-white/10' : 'border-gray-100'} overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[700px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
-        <ul className="flex flex-col gap-5 px-6">
+      <div className={`lg:hidden absolute top-full left-0 w-full ${isHomePage ? 'bg-brand-purple' : 'bg-white'} border-t ${isHomePage ? 'border-white/10' : 'border-gray-100'} overflow-hidden transition-all duration-300 shadow-xl ${isMenuOpen ? 'max-h-[700px] opacity-100 py-4 sm:py-6' : 'max-h-0 opacity-0 py-0'}`}>
+        <ul className="flex flex-col gap-3 sm:gap-5 px-6">
           {[
             { label: 'Home', href: '/' },
             { label: 'About us', href: '/about' },
@@ -203,41 +203,41 @@ const Header = () => {
               {item.href.startsWith('/') ? (
                 <Link
                   to={item.href}
-                  className={`block text-[22px] font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
+                  className={`block text-[18px] sm:text-[22px] font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               ) : (
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2 sm:gap-3">
                   <button
-                    className={`flex items-center justify-between w-full text-[22px] font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
+                    className={`flex items-center justify-between w-full text-[18px] sm:text-[22px] font-medium ${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-900 hover:text-brand-purple'}`}
                     onClick={() => item.hasDropdown && setIsServicesOpen(!isServicesOpen)}
                   >
                     {item.label}
                     {item.hasDropdown && (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 sm:w-5 sm:h-5 ${isServicesOpen ? 'rotate-180' : ''}`}>
                         <polyline points="6 9 12 15 18 9"></polyline>
                       </svg>
                     )}
                   </button>
 
                   {item.hasDropdown && isServicesOpen && (
-                    <div className="flex flex-col gap-4 pl-4 pb-2 border-l-2 border-white/20 ml-2 animate-in fade-in slide-in-from-top-1">
+                    <div className="flex flex-col gap-3 sm:gap-4 pl-3 sm:pl-4 pb-2 border-l-2 border-white/20 ml-2 animate-in fade-in slide-in-from-top-1">
                       {services.map((service) => (
-                        <div key={service.label} className="flex flex-col gap-2">
+                        <div key={service.label} className="flex flex-col gap-1.5 sm:gap-2">
                           {service.subItems ? (
                             <>
-                              <div className={`${isHomePage ? 'text-white/90' : 'text-gray-800'} text-[18px] font-bold py-1`}>
+                              <div className={`${isHomePage ? 'text-white/90' : 'text-gray-800'} text-[15px] sm:text-[18px] font-bold py-1`}>
                                 {service.label}
                               </div>
-                              <div className={`flex flex-col gap-2 pl-4 border-l-2 ${isHomePage ? 'border-white/10' : 'border-gray-200'} ml-1`}>
+                              <div className={`flex flex-col gap-1 sm:gap-2 pl-3 sm:pl-4 border-l-2 ${isHomePage ? 'border-white/10' : 'border-gray-200'} ml-1`}>
                                 {service.subItems.map((subItem) => (
                                   subItem.href.startsWith('/') ? (
                                     <Link
                                       key={subItem.label}
                                       to={subItem.href}
-                                      className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-[16px] font-medium py-1`}
+                                      className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-[14px] sm:text-[16px] font-medium py-1`}
                                       onClick={() => {
                                         setIsMenuOpen(false);
                                         setIsServicesOpen(false);
@@ -249,7 +249,7 @@ const Header = () => {
                                     <a
                                       key={subItem.label}
                                       href={subItem.href}
-                                      className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-[16px] font-medium py-1`}
+                                      className={`${isHomePage ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-brand-purple'} text-[14px] sm:text-[16px] font-medium py-1`}
                                       onClick={() => {
                                         setIsMenuOpen(false);
                                         setIsServicesOpen(false);
@@ -265,7 +265,7 @@ const Header = () => {
                             service.href.startsWith('/') ? (
                               <Link
                                 to={service.href}
-                                className={`${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-purple'} text-[18px] font-bold py-1`}
+                                className={`${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-purple'} text-[15px] sm:text-[18px] font-bold py-1`}
                                 onClick={() => {
                                   setIsMenuOpen(false);
                                   setIsServicesOpen(false);
@@ -276,7 +276,7 @@ const Header = () => {
                             ) : (
                               <a
                                 href={service.href}
-                                className={`${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-purple'} text-[18px] font-bold py-1`}
+                                className={`${isHomePage ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-purple'} text-[15px] sm:text-[18px] font-bold py-1`}
                                 onClick={() => {
                                   setIsMenuOpen(false);
                                   setIsServicesOpen(false);
@@ -297,7 +297,7 @@ const Header = () => {
           <li className="pt-2">
             <Link
               to="/upcoming-events"
-              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-[#520378] text-white'} py-3 rounded-full font-bold text-center text-lg`}
+              className={`block w-full ${isHomePage ? 'bg-white text-brand-purple' : 'bg-[#520378] text-white'} py-2.5 sm:py-3 rounded-full font-bold text-center text-sm sm:text-lg`}
               onClick={() => setIsMenuOpen(false)}
             >
               Upcoming events
