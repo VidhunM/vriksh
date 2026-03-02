@@ -254,9 +254,10 @@ const CertificateTestimonials = () => {
     };
 
     React.useEffect(() => {
+        const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
             nextSlide();
-        }, 5000);
+        }, interval);
         return () => clearInterval(timer);
     }, [itemsVisible]);
 
@@ -295,7 +296,7 @@ const CertificateTestimonials = () => {
                 {/* Testimonial Slider Container */}
                 <div className="overflow-hidden">
                     <div
-                        className="flex transition-transform duration-700 ease-in-out"
+                        className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
                         style={{ transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)` }}
                     >
                         {certificateReviews.map((review, index) => (

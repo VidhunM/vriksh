@@ -82,9 +82,10 @@ const Testimonials = () => {
     useEffect(() => {
         if (isPaused) return;
 
+        const intervalTime = window.innerWidth < 768 ? 12000 : 5000;
         const interval = setInterval(() => {
             nextSlide();
-        }, 5000); // 5 seconds
+        }, intervalTime);
 
         return () => clearInterval(interval);
     }, [isPaused, nextSlide]);

@@ -25,12 +25,13 @@ const CareerCounselling = () => {
     const assureTimerRef = useRef(null);
 
     useEffect(() => {
+        const interval = window.innerWidth < 768 ? 8000 : 3000;
         serviceTimerRef.current = setInterval(() => {
             setServiceCard((prev) => (prev + 1) % servicesData.length);
-        }, 3000);
+        }, interval);
         assureTimerRef.current = setInterval(() => {
             setAssureCard((prev) => (prev + 1) % assurancesData.length);
-        }, 3000);
+        }, interval);
         return () => {
             clearInterval(serviceTimerRef.current);
             clearInterval(assureTimerRef.current);
@@ -152,11 +153,12 @@ const CareerCounselling = () => {
     };
 
     useEffect(() => {
+        const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
             nextSlide();
-        }, 5000);
+        }, interval);
         return () => clearInterval(timer);
-    }, [itemsVisible]); // Re-run when itemsVisible changes to ensure correct nextSlide closure
+    }, [itemsVisible]);
 
     return (
         <div className="pt-0 bg-white">
@@ -371,7 +373,7 @@ const CareerCounselling = () => {
                     <div className="sm:hidden relative mb-12">
                         <div className="overflow-hidden rounded-[20px]">
                             <div
-                                className="flex transition-transform duration-700 ease-in-out"
+                                className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
                                 style={{ transform: `translateX(-${serviceCard * 100}%)` }}
                             >
                                 {servicesData.map((service, index) => (
@@ -392,7 +394,12 @@ const CareerCounselling = () => {
                             {servicesData.map((_, i) => (
                                 <button
                                     key={i}
-                                    onClick={() => { setServiceCard(i); clearInterval(serviceTimerRef.current); serviceTimerRef.current = setInterval(() => setServiceCard(p => (p + 1) % servicesData.length), 3000); }}
+                                    onClick={() => {
+                                        setServiceCard(i);
+                                        clearInterval(serviceTimerRef.current);
+                                        const interval = window.innerWidth < 768 ? 8000 : 3000;
+                                        serviceTimerRef.current = setInterval(() => setServiceCard(p => (p + 1) % servicesData.length), interval);
+                                    }}
                                     className={`h-1.5 rounded-full transition-all duration-300 ${serviceCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-400'}`}
                                 />
                             ))}
@@ -434,7 +441,7 @@ const CareerCounselling = () => {
                     <div className="sm:hidden relative">
                         <div className="overflow-hidden rounded-[20px]">
                             <div
-                                className="flex transition-transform duration-700 ease-in-out"
+                                className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
                                 style={{ transform: `translateX(-${assureCard * 100}%)` }}
                             >
                                 {assurancesData.map((item, index) => (
@@ -467,7 +474,12 @@ const CareerCounselling = () => {
                             {assurancesData.map((_, i) => (
                                 <button
                                     key={i}
-                                    onClick={() => { setAssureCard(i); clearInterval(assureTimerRef.current); assureTimerRef.current = setInterval(() => setAssureCard(p => (p + 1) % assurancesData.length), 3000); }}
+                                    onClick={() => {
+                                        setAssureCard(i);
+                                        clearInterval(assureTimerRef.current);
+                                        const interval = window.innerWidth < 768 ? 8000 : 3000;
+                                        assureTimerRef.current = setInterval(() => setAssureCard(p => (p + 1) % assurancesData.length), interval);
+                                    }}
                                     className={`h-1.5 rounded-full transition-all duration-300 ${assureCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-400'}`}
                                 />
                             ))}
@@ -556,7 +568,7 @@ const CareerCounselling = () => {
                     {/* Testimonial Slider Container */}
                     <div className="overflow-hidden">
                         <div
-                            className="flex transition-transform duration-700 ease-in-out"
+                            className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
                             style={{ transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)` }}
                         >
                             {/* Each Group of 3 (or the whole line in flex) */}
