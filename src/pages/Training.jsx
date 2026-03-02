@@ -270,6 +270,7 @@ const TrainingTestimonials = () => {
     React.useEffect(() => {
         const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
+            if (window.innerWidth < 768) return;
             nextSlide();
         }, interval);
         return () => clearInterval(timer);
@@ -310,7 +311,7 @@ const TrainingTestimonials = () => {
                 {/* Testimonial Slider Container */}
                 <div className="overflow-hidden">
                     <div
-                        className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
+                        className="flex sm:transition-transform sm:duration-700 ease-in-out"
                         style={{ transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)` }}
                     >
                         {trainingReviews.map((review, index) => (

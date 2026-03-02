@@ -84,6 +84,7 @@ const Testimonials = () => {
 
         const intervalTime = window.innerWidth < 768 ? 12000 : 5000;
         const interval = setInterval(() => {
+            if (window.innerWidth < 768) return;
             nextSlide();
         }, intervalTime);
 
@@ -111,7 +112,7 @@ const Testimonials = () => {
                             Real stories from those whose lives have been transformed through Vriksh.
                         </p>
                     </div>
-                    <div className="flex gap-3 mb-1">
+                    <div className="flex gap-3 mb-1 self-end sm:self-auto">
                         <button
                             onClick={prevSlide}
                             className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"

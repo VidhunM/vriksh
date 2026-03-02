@@ -155,6 +155,7 @@ const CareerCounselling = () => {
     useEffect(() => {
         const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
+            if (window.innerWidth < 768) return;
             nextSlide();
         }, interval);
         return () => clearInterval(timer);
@@ -549,7 +550,7 @@ const CareerCounselling = () => {
                         <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-inter-tight">
                             What our Clients say
                         </h2>
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 self-end">
                             <button
                                 onClick={prevSlide}
                                 className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
@@ -568,7 +569,7 @@ const CareerCounselling = () => {
                     {/* Testimonial Slider Container */}
                     <div className="overflow-hidden">
                         <div
-                            className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
+                            className="flex sm:transition-transform sm:duration-700 ease-in-out"
                             style={{ transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)` }}
                         >
                             {/* Each Group of 3 (or the whole line in flex) */}

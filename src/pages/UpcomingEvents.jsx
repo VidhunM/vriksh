@@ -163,8 +163,7 @@ const UpcomingEvents = () => {
     useEffect(() => {
         const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
-            if (window.innerWidth >= 768) return;
-            nextSlide();
+            return; // disabled on mobile and desktop
         }, interval);
         return () => clearInterval(timer);
     }, [totalSlides]);
@@ -527,12 +526,12 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Header with Title and Nav Arrows - Mobile */}
-                    <div className="flex md:hidden flex-col justify-between items-center mb-8 gap-4 sm:gap-6">
+                    {/* Header with Navigation - Mobile */}
+                    <div className="flex sm:hidden flex-col justify-between items-center mb-10 gap-6">
                         <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-geist">
                             What our learners say
                         </h2>
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 self-end">
                             <button
                                 onClick={prevSlide}
                                 className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
@@ -551,7 +550,7 @@ const UpcomingEvents = () => {
                     {/* Testimonial Slider Container */}
                     <div className="overflow-hidden">
                         <div
-                            className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
+                            className="flex sm:transition-transform sm:duration-700 ease-in-out"
                             style={{ transform: `translateX(-${testIndex * (100 / itemsVisible)}%)` }}
                         >
                             {testimonials.map((item, index) => (

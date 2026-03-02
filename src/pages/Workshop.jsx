@@ -265,8 +265,7 @@ const WorkshopTestimonials = () => {
     React.useEffect(() => {
         const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
-            if (window.innerWidth >= 768) return;
-            nextSlide();
+            return; // disabled on mobile and desktop
         }, interval);
         return () => clearInterval(timer);
     }, [totalSlides]);
@@ -282,7 +281,7 @@ const WorkshopTestimonials = () => {
                     <h2 className="text-xl sm:text-4xl font-bold text-gray-950 font-geist">
                         What our learners say
                     </h2>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 self-end md:self-auto">
                         <button
                             onClick={prevSlide}
                             className="w-12 h-12 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all"
@@ -307,7 +306,7 @@ const WorkshopTestimonials = () => {
                 {/* Testimonial Slider Container */}
                 <div className="overflow-hidden">
                     <div
-                        className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
+                        className="flex sm:transition-transform sm:duration-700 ease-in-out"
                         style={{ transform: `translateX(-${testIndex * (100 / itemsVisible)}%)` }}
                     >
                         {testimonials.map((item, index) => (
