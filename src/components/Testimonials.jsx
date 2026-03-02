@@ -15,7 +15,7 @@ const Testimonials = () => {
         {
             name: 'Geetha',
             role: 'School Coordinator',
-            text: 'Vriksh’s school-based mental health program has made a meaningful difference in our school. With dedicated counselors and special educators assigned specifically to us, students feel comfortable opening up and learning important life skills. The program has helped build resilience and increased mental health awareness among students.',
+            text: "Vriksh’s school-based mental health program has made a meaningful difference in our school. With dedicated counselors and special educators assigned specifically to us, students feel comfortable opening up and learning important life skills. The program has helped build resilience and increased mental health awareness among students.",
             rating: 5,
             date: 'October 2025'
         },
@@ -134,12 +134,12 @@ const Testimonials = () => {
                     {getVisibleReviews().map((rev, index) => (
                         <div
                             key={`${rev.name}-${currentIndex}-${index}`}
-                            className="bg-white p-7 md:p-8 rounded-[32px] shadow-sm border border-gray-100 flex flex-col h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
+                            className="bg-white p-8 md:p-10 rounded-[32px] shadow-sm border border-gray-100 flex flex-col h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
                         >
                             <div className="mb-5">
                                 <h4 className="text-[18px] font-bold text-black mb-0.5 font-inter-tight">{rev.name}</h4>
                                 <span className="text-[13px] font-semibold text-[#272727CC] inline-block mb-4">{rev.role}</span>
-                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic overflow-hidden line-clamp-[6]">
+                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic">
                                     "{rev.text}"
                                 </p>
                             </div>

@@ -4,7 +4,7 @@ const Academy = () => {
     const categories = [
         {
             title: 'Webinars',
-            desc: 'Our experts conduct curated webinars to provide the most engaging and effective learning experience',
+            desc: 'Our experts conduct curated webinars to provide the most engaging and effective learning experience.',
             btnText: 'browse topics'
         },
         {
@@ -14,7 +14,7 @@ const Academy = () => {
         },
         {
             title: 'Certificate Courses',
-            desc: 'Learn from our experienced psychologists to develop new skills and advance your career in mental health related',
+            desc: 'Learn from our experienced psychologists to develop new skills and advance your career in mental health & related fields.',
             btnText: 'Discover Courses'
         }
     ];
