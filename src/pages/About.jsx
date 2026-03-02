@@ -38,8 +38,8 @@ const About = () => {
     return (
         <section id="about" className="bg-white">
             {/* Header Banner */}
-            <div className="bg-[#520378] pt-24 pb-8 sm:pt-32 sm:pb-10 flex items-center justify-center">
-                <h1 className="text-white text-[clamp(28px,4vw,44px)] font-bold tracking-[0.05em] uppercase font-inter-tight">
+            <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 flex items-center justify-center">
+                <h1 className="text-white text-[clamp(24px,4vw,44px)] font-bold tracking-[0.05em] uppercase font-inter-tight">
                     ABOUT US
                 </h1>
             </div>
@@ -58,18 +58,18 @@ const About = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[1435px] mx-auto text-center">
-                    <h2 className="text-[24px] sm:text-[34px] font-bold text-[#520378] mb-6 sm:mb-10 tracking-tight font-inter-tight">
+                    <h2 className="text-xl sm:text-[34px] font-bold text-[#520378] mb-6 sm:mb-10 tracking-tight font-inter-tight">
                         Who We Are ?
                     </h2>
 
-                    <div className="space-y-5 sm:space-y-8 text-gray-800 max-w-[1100px] mx-auto text-[17px] sm:text-[clamp(19px,1.4vw,22px)] leading-[1.6] sm:leading-[1.8] font-normal text-justify sm:text-center">
+                    <div className="space-y-4 sm:space-y-8 text-gray-800 max-w-[1100px] mx-auto text-[15px] sm:text-[clamp(19px,1.4vw,22px)] leading-[1.6] sm:leading-[1.8] font-normal text-justify sm:text-center">
                         <p className="">
                             Vriksh Psychological Support Services was established to strengthen emotional wellbeing across individuals, institutions, and organisations. We are committed to delivering compassionate, ethical, and evidence-based care, ensuring that the wellbeing and privacy of our clients remain our highest priority.
                         </p>
                         <p className="">
                             Through clinical counseling, institutional mental health programs, and high-impact training, we provide accessible and inclusive mental health support. Our goal is to create a nurturing environment where everyone feels heard, valued, and empowered to navigate life's challenges with resilience.
                         </p>
-                        <p className="font-semibold text-gray-950 text-[17px] sm:text-[clamp(19px,1.4vw,22px)] px-4">
+                        <p className="font-semibold text-gray-950 text-[15px] sm:text-[clamp(19px,1.4vw,22px)] px-4">
                             At Vriksh, our focus extends beyond addressing concerns — we are dedicated to building resilient individuals and thriving communities.
                         </p>
                     </div>
@@ -79,7 +79,7 @@ const About = () => {
             {/* Mission & Vision Section */}
             <div className="bg-gradient-to-b from-white via-[#FEFCE8] to-[#FEFCE8] py-12 sm:py-16 relative overflow-hidden">
                 <div className="max-w-[1240px] mx-auto px-6 relative z-10">
-                    <h2 className="text-[28px] sm:text-[34px] font-bold text-gray-950 text-center mb-10 tracking-tight font-inter-tight">
+                    <h2 className="text-xl sm:text-[34px] font-bold text-gray-950 text-center mb-8 sm:mb-10 tracking-tight font-inter-tight">
                         Mission & vision
                     </h2>
 
@@ -94,11 +94,11 @@ const About = () => {
                                 {missionCards.map((card, i) => (
                                     <div key={i} className="w-full flex-none">
                                         <div className="bg-white rounded-[24px] p-8 flex flex-col items-center text-center border border-gray-100 shadow-sm">
-                                            <div className="w-16 h-16 mb-6">
+                                            <div className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6">
                                                 <img src={card.icon} alt={card.iconAlt} className="w-full h-full object-contain" />
                                             </div>
-                                            <h3 className="text-2xl font-bold mb-4 text-gray-900 font-inter-tight">{card.title}</h3>
-                                            <p className="text-[15px] leading-relaxed text-gray-700">{card.text}</p>
+                                            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 font-inter-tight">{card.title}</h3>
+                                            <p className="text-[14px] sm:text-[15px] leading-relaxed text-gray-700">{card.text}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -199,11 +199,11 @@ const About = () => {
                     <div className="lg:w-1/2 text-center lg:text-left">
                         <div className="space-y-4">
                             <div>
-                                <h2 className="text-[32px] sm:text-[36px] font-bold text-gray-950 mb-1 leading-tight font-inter-tight">Banu priya</h2>
-                                <p className="text-[17px] text-[#520378] font-semibold">Founder and CEO</p>
+                                <h2 className="text-[24px] sm:text-[36px] font-bold text-gray-950 mb-1 leading-tight font-inter-tight">Banu priya</h2>
+                                <p className="text-[15px] sm:text-[17px] text-[#520378] font-semibold">Founder and CEO</p>
                             </div>
 
-                            <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-gray-800">
+                            <div className="space-y-4 text-[14px] sm:text-[16px] leading-relaxed text-gray-800">
                                 <p className="font-bold">
                                     Hi, I'm Banupriya, Founder of Vriksh Psychological Support Services. I'm a Psychologist, Certified Emotional Intelligence Coach Practitioner, and Career Coach.
                                 </p>
@@ -227,7 +227,7 @@ const About = () => {
                         <h2 className="text-[clamp(36px,5vw,48px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
                             Enriching <br className="hidden lg:block" /> Minds
                         </h2>
-                        <p className="text-[18px] sm:text-[20px] text-gray-700 leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
+                        <p className="text-[15px] sm:text-[20px] text-gray-700 leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
                             Where people feel heard, supported and empowered
                         </p>
                     </div>
@@ -236,19 +236,19 @@ const About = () => {
                     <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12">
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">50,000+</div>
-                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Lives Impacted</div>
+                            <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Lives Impacted</div>
                         </div>
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">4.8/5</div>
-                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Client Ratings</div>
+                            <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Client Ratings</div>
                         </div>
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">5,000+</div>
-                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Active Learners</div>
+                            <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Active Learners</div>
                         </div>
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">300+</div>
-                            <div className="text-[12px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Sessions conducted</div>
+                            <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Sessions conducted</div>
                         </div>
                     </div>
                 </div>
@@ -262,10 +262,10 @@ const About = () => {
                     />
                     {/* Overlay with Text and Button */}
                     <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-6">
-                        <h3 className="text-white text-[clamp(24px,5vw,34px)] font-bold mb-4 max-w-[600px] leading-tight font-inter-tight">
+                        <h3 className="text-white text-[clamp(20px,5vw,34px)] font-bold mb-3 sm:mb-4 max-w-[600px] leading-tight font-inter-tight">
                             Rooted in care, <br className="hidden sm:block" />  Growing with you
                         </h3>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3 rounded-full font-bold text-[20px] transition-all transform hover:scale-115">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-6 sm:py-3 rounded-full font-bold text-[14px] sm:text-[20px] transition-all transform hover:scale-115">
                             Get Started
                         </button>
                     </div>

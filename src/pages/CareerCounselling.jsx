@@ -161,9 +161,9 @@ const CareerCounselling = () => {
     return (
         <div className="pt-0 bg-white">
             {/* Hero Header Banner - Precisely matching Upcoming Workshops page banner size and text */}
-            <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
+            <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h1 className="text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
+                    <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         CAREER GUIDANCE
                     </h1>
                 </div>
@@ -177,11 +177,11 @@ const CareerCounselling = () => {
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                     {/* Left Column: Text Content */}
                     <div className="flex-1 order-2 lg:order-1 slide-in-from-left-4 duration-700">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-tight">
+                        <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-tight">
                             Not sure what career is <br /> right for you?
                         </h2>
 
-                        <p className="text-base lg:text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium">
+                        <p className="text-sm lg:text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium">
                             Let's explore your strengths, interests, and natural abilities to <br className="hidden lg:block" />
                             uncover a career path that truly fits you. Through guided <br className="hidden lg:block" />
                             assessments and personalised counselling, we help you gain <br className="hidden lg:block" />
@@ -190,7 +190,7 @@ const CareerCounselling = () => {
                             change, we're here to support you at every step.
                         </p>
 
-                        <button className="bg-[#520378] text-white px-10 py-4 rounded-full font-bold text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
+                        <button className="bg-[#520378] text-white px-6 py-2.5 sm:px-10 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                             Discover your path
                         </button>
                     </div>
@@ -221,7 +221,7 @@ const CareerCounselling = () => {
                 </div>
 
                 <div className="relative z-10 max-w-[1240px] mx-auto px-6">
-                    <h2 className="text-2xl sm:text-[34px] font-bold text-[#062623] text-center mb-12 px-4 font-inter-tight">
+                    <h2 className="text-xl sm:text-[34px] font-bold text-[#062623] text-center mb-10 sm:mb-12 px-4 font-inter-tight">
                         Signs You Might Need Career Guidance
                     </h2>
 
@@ -261,7 +261,7 @@ const CareerCounselling = () => {
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-[11px] sm:text-base md:text-[18px] font-bold text-gray-950 leading-[1.2] font-inter-tight">
+                                <p className="text-[10px] sm:text-base md:text-[18px] font-bold text-gray-950 leading-[1.2] font-inter-tight">
                                     {item.text}
                                 </p>
                             </div>
@@ -269,7 +269,7 @@ const CareerCounselling = () => {
                     </div>
 
                     <div className="flex justify-center relative z-20">
-                        <button className="bg-[#520378] text-white px-12 py-3.5 rounded-full font-bold text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-xl active:scale-95">
+                        <button className="bg-[#520378] text-white px-8 py-2.5 sm:px-12 sm:py-3.5 rounded-full font-bold text-sm sm:text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-xl active:scale-95">
                             Talk to an Expert
                         </button>
                     </div>
@@ -282,8 +282,8 @@ const CareerCounselling = () => {
                     <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-center gap-6 md:gap-0">
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Clients Guided</p>
+                            <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
+                            <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Clients Guided</p>
                         </div>
 
                         {/* Divider */}
@@ -291,8 +291,8 @@ const CareerCounselling = () => {
 
                         {/* Stat Item 2 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">4.8/5</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Client Ratings</p>
+                            <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">4.8/5</h3>
+                            <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Client Ratings</p>
                         </div>
 
                         {/* Divider */}
@@ -300,8 +300,8 @@ const CareerCounselling = () => {
 
                         {/* Stat Item 3 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">100+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Awareness Sessions</p>
+                            <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">100+</h3>
+                            <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Awareness Sessions</p>
                         </div>
 
                         {/* Divider */}
@@ -309,8 +309,8 @@ const CareerCounselling = () => {
 
                         {/* Stat Item 4 */}
                         <div className="flex-1 flex flex-col items-center text-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
-                            <p className="text-[14px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
+                            <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">1000+</h3>
+                            <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
                         </div>
                     </div>
                 </div>
@@ -339,12 +339,12 @@ const CareerCounselling = () => {
                 <div className="relative z-10 max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
                     {/* Left Side: Text Content */}
                     <div className="flex-1 space-y-2 lg:translate-x-16">
-                        <h2 className="text-[32px] sm:text-[42px] font-bold leading-[1.05] tracking-tight font-inter-tight">
+                        <h2 className="text-2xl sm:text-[42px] font-bold leading-[1.05] tracking-tight font-inter-tight">
                             <span className="bg-white text-[#000000] px-4 py-1.5 sm:px-5 sm:py-2 inline-block mb-1 rounded-none shadow-sm">Make Better</span>
                             <br />
                             <span className="bg-white text-[#000000] px-4 py-1.5 sm:px-5 sm:py-2 inline-block rounded-none shadow-sm">Decisions</span>
                         </h2>
-                        <p className="text-white text-[18px] sm:text-[20px] leading-relaxed max-w-[480px] font-medium pt-1">
+                        <p className="text-white text-sm sm:text-[20px] leading-relaxed max-w-[480px] font-medium pt-1">
                             Discover Yourself To Understand What Truly Drives You, And Choose A Career Path That Fits Your Strengths, Interests, And Aspirations.
                         </p>
                     </div>
@@ -363,7 +363,7 @@ const CareerCounselling = () => {
             {/* Our Career Guidance Services Includes Section - Precisely matching reference image */}
             <div className="bg-[#FEF8E4] py-12 sm:py-16">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-black text-center mb-12 font-inter-tight">
+                    <h2 className="text-xl sm:text-4xl font-bold text-black text-center mb-8 sm:mb-12 font-inter-tight">
                         Our career guidance services includes
                     </h2>
 
@@ -377,9 +377,9 @@ const CareerCounselling = () => {
                                 {servicesData.map((service, index) => (
                                     <div key={index} className="w-full flex-none">
                                         <div className="bg-[#FCA65B] px-5 py-8 rounded-[20px] flex flex-col min-h-[280px] relative overflow-hidden">
-                                            <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">{service.title}</h3>
-                                            <p className="text-gray-900 text-base leading-[1.7] mb-4 font-medium text-left tracking-tight">{service.text}</p>
-                                            <div className="absolute bottom-2 right-2 w-24 h-24">
+                                            <h3 className="text-[#520378] text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-inter-tight leading-tight">{service.title}</h3>
+                                            <p className="text-gray-900 text-sm sm:text-base leading-[1.6] sm:leading-[1.7] mb-3 sm:mb-4 font-medium text-left tracking-tight">{service.text}</p>
+                                            <div className="absolute bottom-2 right-2 w-16 h-16 sm:w-24 sm:h-24">
                                                 <img src={service.iconSrc} alt="" className="w-full h-full object-contain opacity-90" />
                                             </div>
                                         </div>
@@ -416,7 +416,7 @@ const CareerCounselling = () => {
                     </div>
 
                     <div className="flex justify-center">
-                        <button className="bg-[#520378] text-white px-10 py-3 rounded-full font-bold text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-lg active:scale-95">
+                        <button className="bg-[#520378] text-white px-6 py-2 sm:px-10 sm:py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-lg active:scale-95">
                             Book your session today
                         </button>
                     </div>
@@ -426,7 +426,7 @@ const CareerCounselling = () => {
             {/* What do we assure? Section - Precisely matching reference image */}
             <div className="bg-white py-12 sm:py-16">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] text-center mb-16 font-inter-tight">
+                    <h2 className="text-xl sm:text-4xl font-bold text-[#520378] text-center mb-10 sm:mb-16 font-inter-tight">
                         What do we assure?
                     </h2>
 
@@ -441,7 +441,7 @@ const CareerCounselling = () => {
                                     <div key={index} className="w-full flex-none px-2">
                                         <div className="flex flex-col items-center">
                                             {/* Icon Container */}
-                                            <div className="w-32 h-32 mb-3 flex items-center justify-center">
+                                            <div className="w-20 h-20 sm:w-32 sm:h-32 mb-3 flex items-center justify-center">
                                                 <img
                                                     src={item.icon}
                                                     alt={item.title}
@@ -450,10 +450,10 @@ const CareerCounselling = () => {
                                             </div>
                                             {/* Purple Card */}
                                             <div className="bg-[#520378] rounded-[12px] p-5 w-full text-center flex flex-col items-center min-h-[120px] justify-center shadow-lg">
-                                                <h3 className="text-white text-[17px] font-bold mb-2 font-inter-tight leading-tight px-2">
+                                                <h3 className="text-white text-sm sm:text-[17px] font-bold mb-1.5 sm:mb-2 font-inter-tight leading-tight px-2">
                                                     {item.title}
                                                 </h3>
-                                                <p className="text-white/80 text-base leading-[1.6] font-medium">
+                                                <p className="text-white/80 text-xs sm:text-base leading-[1.5] font-medium">
                                                     {item.text}
                                                 </p>
                                             </div>
@@ -508,7 +508,7 @@ const CareerCounselling = () => {
                 <div className="max-w-[1240px] mx-auto px-6">
                     {/* Header with Navigation - Desktop */}
                     <div className="hidden sm:flex justify-between items-end mb-12">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
+                        <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
                             What our Clients say
                         </h2>
                         {/* Carousel Controls */}
@@ -534,21 +534,21 @@ const CareerCounselling = () => {
 
                     {/* Header with Navigation - Mobile */}
                     <div className="flex sm:hidden flex-col justify-between items-center mb-10 gap-6">
-                        <h2 className="text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-inter-tight">
+                        <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-inter-tight">
                             What our Clients say
                         </h2>
                         <div className="flex gap-3">
                             <button
                                 onClick={prevSlide}
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
                             >
-                                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                             </button>
                             <button
                                 onClick={nextSlide}
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
                             >
-                                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
                     </div>
@@ -564,10 +564,10 @@ const CareerCounselling = () => {
                                 <div key={index} className="w-full md:w-1/2 lg:w-1/3 flex-none px-4">
                                     <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
                                         <div className="mb-6">
-                                            <h4 className="text-lg font-bold text-gray-950 mb-0.5">{testimonial.name}</h4>
-                                            <p className="text-sm text-gray-500 font-medium italic">{testimonial.role}</p>
+                                            <h4 className="text-base sm:text-lg font-bold text-gray-950 mb-0.5">{testimonial.name}</h4>
+                                            <p className="text-xs sm:text-sm text-gray-500 font-medium italic">{testimonial.role}</p>
                                         </div>
-                                        <p className="text-gray-800 text-base sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                        <p className="text-gray-800 text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-10 flex-grow font-medium">
                                             "{testimonial.content}"
                                         </p>
                                         {/* Footer with Google & Stars */}
@@ -601,7 +601,7 @@ const CareerCounselling = () => {
                                                     ))}
                                                 </div>
                                             </div>
-                                            <span className="text-sm font-bold text-gray-800">{testimonial.date}</span>
+                                            <span className="text-xs sm:text-sm font-bold text-gray-800">{testimonial.date}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -616,7 +616,7 @@ const CareerCounselling = () => {
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-10 text-gray-950 font-inter-tight text-left leading-tight">
+                        <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold mb-8 sm:mb-10 text-gray-950 font-inter-tight text-left leading-tight">
                             Frequently asked questions
                         </h2>
 
@@ -627,17 +627,17 @@ const CareerCounselling = () => {
                                         onClick={() => toggleFaq(index)}
                                         className={`py-2 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                     >
-                                        <span className="text-base sm:text-lg font-medium pr-6 font-geist transition-colors duration-300">
+                                        <span className="text-sm sm:text-lg font-medium pr-4 sm:pr-6 font-geist transition-colors duration-300">
                                             {index + 1}. {faq.question}
                                         </span>
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                        <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M7 10l5 5 5-5z" />
                                             </svg>
                                         </div>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                        <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                        <div className={`px-5 sm:px-8 pb-4 sm:pb-6 rounded-b-[20px] text-sm sm:text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                             {faq.answer}
                                         </div>
                                     </div>

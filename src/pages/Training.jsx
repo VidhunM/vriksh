@@ -16,9 +16,9 @@ const Training = () => {
             <div className="relative  bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden relative">
 
                 {/* Purple top banner */}
-                <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center relative z-10">
+                <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10">
                     <div className="max-w-[1240px] mx-auto px-6">
-                        <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                        <h1 className="text-white text-xl sm:text-[clamp(26px,4vw,40px)] font-bold tracking-wide sm:tracking-[0.08em] uppercase font-inter-tight">
                             TRAINING
                         </h1>
                     </div>
@@ -38,13 +38,13 @@ const Training = () => {
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
-                            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
+                            <h2 className="text-xl sm:text-3xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-3 sm:mb-5 font-inter-tight tracking-wide">
                                 Join 3,000+ learners mastering psychology with confidence.
                             </h2>
-                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                            <p className="text-sm sm:text-base md:text-[18px] text-gray-600 leading-[1.7] mb-4 sm:mb-6 max-w-[750px] font-medium font-geist">
                                 Experience training that goes beyond theory - interactive, practical, and application-driven, helping you gain deeper insights into every topic and strengthen your professional skills.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-xs sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                 Explore Training Programs
                             </button>
                         </div>
@@ -71,19 +71,19 @@ const Training = () => {
                         {stats.map((stat, index) => (
                             <div key={index} className="relative mt-6 sm:mt-4">
                                 {/* Icon top-left - absolutely positioned to overlap */}
-                                <div className="absolute -top-[26px] left-[-6%] w-[54px] h-[54px] bg-white rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                                <div className="absolute -top-[20px] sm:-top-[26px] left-[-3%] sm:left-[-6%] w-[46px] h-[46px] sm:w-[54px] sm:h-[54px] bg-white rounded-[10px] sm:rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
                                         src={stat.icon}
                                         alt={stat.label}
-                                        className="w-10 h-10 object-contain"
+                                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                                     />
                                 </div>
                                 {/* Content Card */}
-                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[40px] pb-6 px-7 h-full w-full">
-                                    <div className="text-[36px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[30px] sm:pt-[40px] pb-5 sm:pb-6 px-5 sm:px-7 h-full w-full">
+                                    <div className="text-[28px] sm:text-[36px] md:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         {stat.value}
                                     </div>
-                                    <div className="text-[26px] sm:text-[28px] text-gray-700 font-medium">
+                                    <div className="text-[18px] sm:text-[26px] md:text-[28px] text-gray-700 font-medium">
                                         {stat.label}
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@ const TrainingFAQ = () => {
             <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                 {/* Left: Questions List */}
                 <div className="flex-1 w-full">
-                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-8 text-gray-950 font-inter-tight text-left leading-tight">
+                    <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold mb-6 sm:mb-8 text-gray-950 font-inter-tight text-left leading-tight">
                         Frequently asked questions
                     </h2>
 
@@ -144,17 +144,17 @@ const TrainingFAQ = () => {
                                     onClick={() => toggleFaq(index)}
                                     className={`py-2 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                 >
-                                    <span className="text-base sm:text-lg font-medium pr-6 font-geist transition-colors duration-300">
+                                    <span className="text-sm sm:text-lg font-medium pr-4 sm:pr-6 font-geist transition-colors duration-300">
                                         {index + 1}. {item.q}
                                     </span>
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                    <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M7 10l5 5 5-5z" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                    <div className={`px-5 sm:px-8 pb-4 sm:pb-6 rounded-b-[20px] text-sm sm:text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                         {item.a}
                                     </div>
                                 </div>
@@ -281,8 +281,8 @@ const TrainingTestimonials = () => {
         >
             <div className="max-w-[1240px] mx-auto px-6">
                 {/* Header with Navigation */}
-                <div className="flex justify-between items-end mb-12">
-                    <h2 className="text-[clamp(18px,6vw,26px)] whitespace-nowrap sm:whitespace-normal sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-tighter sm:tracking-normal">
+                <div className="flex justify-between items-end mb-8 sm:mb-12">
+                    <h2 className="text-xl whitespace-nowrap sm:whitespace-normal sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-tighter sm:tracking-normal">
                         What our learners say
                     </h2>
                     {/* Carousel Controls */}
@@ -314,12 +314,12 @@ const TrainingTestimonials = () => {
                     >
                         {trainingReviews.map((review, index) => (
                             <div key={index} className="w-full md:w-1/2 lg:w-1/3 flex-none px-4">
-                                <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
-                                    <div className="mb-6">
-                                        <h4 className="text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
-                                        <p className="text-sm text-gray-500 font-medium italic">{review.role}</p>
+                                <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
+                                    <div className="mb-4 sm:mb-6">
+                                        <h4 className="text-base sm:text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
+                                        <p className="text-xs sm:text-sm text-gray-500 font-medium italic">{review.role}</p>
                                     </div>
-                                    <p className="text-gray-800 text-base sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                    <p className="text-gray-800 text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-10 flex-grow font-medium">
                                         {review.text}
                                     </p>
                                     {/* Footer with Google & Stars */}
@@ -367,7 +367,7 @@ const schoolLogos = [
 const TrustedByBest = () => (
     <div className="bg-white py-8 sm:py-12">
         <div className="max-w-[1240px] mx-auto px-6 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
+            <h2 className="text-xl sm:text-4xl font-bold text-[#520378] mb-6 sm:mb-8 uppercase tracking-wide font-geist">
                 Trusted by the Best
             </h2>
 

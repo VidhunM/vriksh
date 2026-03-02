@@ -218,9 +218,9 @@ const UpcomingEvents = () => {
     return (
         <div className="pt-0">
             {/* Header Banner - Centered alignment requested */}
-            <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center">
+            <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1320px] mx-auto px-6">
-                    <h1 className="text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
+                    <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         UPCOMING EVENTS
                     </h1>
                 </div>
@@ -235,16 +235,16 @@ const UpcomingEvents = () => {
 
                     {/* Left Column: Text Content */}
                     <div className="flex-1 text-left">
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-8 font-geist tracking-normal shrink-0">
+                        <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-6 sm:mb-8 font-geist tracking-normal shrink-0">
                             Bridging Education to <br className="hidden sm:block" /> Professional Practice
                         </h2>
 
-                        <div className="space-y-3">
-                            <p className="text-base sm:text-xl font-bold text-[#520378] italic xl:whitespace-nowrap break-keep">
+                        <div className="space-y-2 sm:space-y-3">
+                            <p className="text-sm sm:text-xl font-bold text-[#520378] italic xl:whitespace-nowrap break-keep">
                                 Join 5,000+ learners mastering psychology with confidence
                             </p>
 
-                            <p className="text-base sm:text-[19px] lg:text-base text-gray-700 leading-relaxed max-w-[540px]">
+                            <p className="text-sm sm:text-[19px] lg:text-base text-gray-700 leading-relaxed max-w-[540px]">
                                 Bridging theory and real-world practice to deliver accessible, <br className="hidden xl:block" />
                                 lifelong learning through customized workshops, training programs, and certification courses
                             </p>
@@ -268,10 +268,10 @@ const UpcomingEvents = () => {
                     {/* Header with Title and Nav Arrows */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6">
                         <div className="max-w-[800px]">
-                            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 font-geist">
+                            <h2 className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2 text-gray-900 font-geist">
                                 Explore Upcoming Events
                             </h2>
-                            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                            <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
                                 At Vriksh E-Academy, dive into focused, expert-led sessions designed to keep
                                 you updated, inspired, and continuously growing.
                             </p>
@@ -428,11 +428,11 @@ const UpcomingEvents = () => {
                 />
 
                 <div className="max-w-[1320px] mx-auto px-6 relative z-10">
-                    <div className="text-center max-w-[1100px] mx-auto mb-12">
-                        <h2 className="text-[26px] leading-[1.2] sm:text-4xl font-bold mb-4 text-gray-950 font-geist sm:tracking-normal">
+                    <div className="text-center max-w-[1100px] mx-auto mb-8 sm:mb-12">
+                        <h2 className="text-xl sm:text-4xl font-bold mb-2 sm:mb-4 text-gray-950 font-geist sm:tracking-normal">
                             Choose the Right Program <br className="block sm:hidden" /> for Your Learning Journey
                         </h2>
-                        <p className="text-base md:text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
+                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed max-w-[1000px] mx-auto">
                             Growth isn't always linear. Whether you're just beginning or looking to deepen your
                             expertise, Vriksh E - Academy offers thoughtfully designed programs tailored to your goals
                             and aspirations - bridging theory with real-world practice every step of the way
@@ -448,13 +448,13 @@ const UpcomingEvents = () => {
                             >
                                 {programCards.map((program, index) => (
                                     <div key={index} className="w-full flex-none">
-                                        <div className="bg-[#FFB169] rounded-[32px] p-6 flex flex-col items-start shadow-lg">
-                                            <div className="bg-white p-3.5 rounded-2xl text-[#FFB169] mb-6 shadow-sm">
+                                        <div className="bg-[#FFB169] rounded-[32px] p-5 sm:p-6 flex flex-col items-start shadow-lg">
+                                            <div className="bg-white p-2.5 sm:p-3.5 rounded-2xl text-[#FFB169] mb-4 sm:mb-6 shadow-sm">
                                                 {program.icon}
                                             </div>
-                                            <h3 className="text-xl font-bold text-gray-950 mb-4 font-geist">{program.title}</h3>
-                                            <p className="text-base text-gray-900 leading-relaxed mb-6">{program.description}</p>
-                                            <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors">
+                                            <h3 className="text-lg sm:text-xl font-bold text-gray-950 mb-2 sm:mb-4 font-geist">{program.title}</h3>
+                                            <p className="text-sm sm:text-base text-gray-900 leading-relaxed mb-4 sm:mb-6">{program.description}</p>
+                                            <button className="bg-[#520378] text-white px-5 py-2 sm:px-7 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#6b049d] transition-colors">
                                                 Know more
                                             </button>
                                         </div>
@@ -526,8 +526,8 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Header with Title and Nav Arrows - Mobile */}
-                    <div className="flex md:hidden flex-col justify-between items-center mb-10 gap-6">
-                        <h2 className="text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-geist">
+                    <div className="flex md:hidden flex-col justify-between items-center mb-8 gap-4 sm:gap-6">
+                        <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-geist">
                             What our learners say
                         </h2>
                         <div className="flex gap-3">
@@ -553,11 +553,11 @@ const UpcomingEvents = () => {
                                 key={`${item.name}-${testIndex}-${index}`}
                                 className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm border border-gray-100 min-h-[420px] cursor-default"
                             >
-                                <div className="mb-6">
-                                    <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
-                                    <p className="text-base text-gray-600">{item.role}</p>
+                                <div className="mb-4 sm:mb-6">
+                                    <h3 className="text-lg sm:text-xl font-bold text-gray-950 mb-0.5 sm:mb-1 font-geist">{item.name}</h3>
+                                    <p className="text-xs sm:text-base text-gray-600">{item.role}</p>
                                 </div>
-                                <p className="text-base text-gray-700 leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
+                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 sm:mb-8 italic flex-grow overflow-y-auto scrollbar-none">
                                     &ldquo;{item.text}&rdquo;
                                 </p>
                                 <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
@@ -571,12 +571,12 @@ const UpcomingEvents = () => {
                                                     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.05l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                                                 </svg>
                                             </div>
-                                            <div className="flex text-orange-400 text-[18px]">
+                                            <div className="flex text-orange-400 text-[14px] sm:text-[18px]">
                                                 {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                             </div>
                                         </div>
                                     </div>
-                                    <span className="text-base font-bold text-gray-800">{item.date}</span>
+                                    <span className="text-xs sm:text-base font-bold text-gray-800">{item.date}</span>
                                 </div>
                             </div>
                         ))}
@@ -602,7 +602,7 @@ const UpcomingEvents = () => {
             {/* Our Trusted Partners Section */}
             <div className="bg-white py-8 sm:py-12">
                 <div className="max-w-[1240px] mx-auto px-6 text-center">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
+                    <h2 className="text-xl sm:text-4xl font-bold text-[#520378] mb-6 sm:mb-8 uppercase tracking-wide font-geist">
                         Trusted by the Best
                     </h2>
 
@@ -638,7 +638,7 @@ const UpcomingEvents = () => {
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-8 text-gray-950 font-inter-tight text-left leading-tight">
+                        <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold mb-6 sm:mb-8 text-gray-950 font-inter-tight text-left leading-tight">
                             Frequently asked questions
                         </h2>
 
@@ -649,17 +649,17 @@ const UpcomingEvents = () => {
                                         onClick={() => toggleFaq(index)}
                                         className={`py-2 px-8 rounded-[22px] flex items-center justify-between group cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                     >
-                                        <span className="text-base sm:text-lg font-medium pr-6 font-geist">
+                                        <span className="text-sm sm:text-lg font-medium pr-4 sm:pr-6 font-geist">
                                             {index + 1}. {faq.question}
                                         </span>
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                        <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M7 10l5 5 5-5z" />
                                             </svg>
                                         </div>
                                     </div>
                                     <div className={`${openIndex === index ? 'block' : 'hidden'}`}>
-                                        <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                        <div className={`px-5 sm:px-8 pb-4 sm:pb-6 rounded-b-[20px] text-sm sm:text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                             {faq.answer}
                                         </div>
                                     </div>

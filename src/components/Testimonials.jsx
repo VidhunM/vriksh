@@ -103,10 +103,10 @@ const Testimonials = () => {
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-10 gap-6 sm:gap-0">
                     <div className="max-w-[550px]">
-                        <h2 className="text-[24px] md:text-[34px] font-bold text-gray-900 leading-[1.1] text-center sm:text-left font-inter-tight mb-3">
+                        <h2 className="text-xl md:text-[34px] font-bold text-gray-900 leading-[1.1] text-center sm:text-left font-inter-tight mb-2 sm:mb-3">
                             Trusted by Individuals, Institutions & Professionals
                         </h2>
-                        <p className="text-[#4b5563] text-base md:text-lg text-center sm:text-left">
+                        <p className="text-[#4b5563] text-sm md:text-lg text-center sm:text-left">
                             Real stories from those whose lives have been transformed through Vriksh.
                         </p>
                     </div>
@@ -134,12 +134,12 @@ const Testimonials = () => {
                     {getVisibleReviews().map((rev, index) => (
                         <div
                             key={`${rev.name}-${currentIndex}-${index}`}
-                            className="bg-white p-8 md:p-10 rounded-[32px] shadow-sm border border-gray-100 flex flex-col h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
+                            className="bg-white p-6 md:p-10 rounded-[24px] md:rounded-[32px] shadow-sm border border-gray-100 flex flex-col h-full animate-fadeIn transition-transform hover:scale-[1.01] cursor-default"
                         >
-                            <div className="mb-5">
-                                <h4 className="text-[18px] font-bold text-black mb-0.5 font-inter-tight">{rev.name}</h4>
-                                <span className="text-[13px] font-semibold text-[#272727CC] inline-block mb-4">{rev.role}</span>
-                                <p className="text-[#4b5563] text-[15px] leading-[1.6] mb-2 flex-grow italic">
+                            <div className="mb-4 sm:mb-5">
+                                <h4 className="text-base sm:text-[18px] font-bold text-black mb-0.5 font-inter-tight">{rev.name}</h4>
+                                <span className="text-xs sm:text-[13px] font-semibold text-[#272727CC] inline-block mb-3 sm:mb-4">{rev.role}</span>
+                                <p className="text-[#4b5563] text-[13px] sm:text-[15px] leading-[1.6] mb-2 flex-grow italic">
                                     "{rev.text}"
                                 </p>
                             </div>
@@ -156,13 +156,13 @@ const Testimonials = () => {
                                     </div>
                                     <div className="flex gap-0.5">
                                         {[...Array(rev.rating)].map((_, i) => (
-                                            <svg key={i} className="w-3.5 h-3.5 text-[#fbbf24] fill-current" viewBox="0 0 20 20">
+                                            <svg key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fbbf24] fill-current" viewBox="0 0 20 20">
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                             </svg>
                                         ))}
                                     </div>
                                 </div>
-                                <span className="text-[13px] font-medium text-gray-500">{rev.date}</span>
+                                <span className="text-xs sm:text-[13px] font-medium text-gray-500">{rev.date}</span>
                             </div>
                         </div>
                     ))}

@@ -19,22 +19,22 @@ const Wellness = () => {
                     {/* Right Column: Content (Top on mobile) */}
                     <div className="lg:w-1/2 w-full text-center lg:text-left">
                         <div className="max-w-[550px] mx-auto lg:mx-0">
-                            <h2 className="text-[28px] sm:text-[34px] font-bold mb-4 sm:mb-6 text-gray-950 leading-tight font-inter-tight">
+                            <h2 className="text-xl sm:text-[34px] font-bold mb-3 sm:mb-6 text-gray-950 leading-tight font-inter-tight">
                                 Vriksh Institution Wellness Program
                             </h2>
 
-                            <p className="text-base sm:text-[19px] lg:text-[15px] text-gray-800 leading-relaxed font-normal mb-8">
+                            <p className="text-sm sm:text-[19px] lg:text-[15px] text-gray-800 leading-relaxed font-normal mb-6 sm:mb-8">
                                 Want to build a supportive ecosystem that empowers your students to thrive emotionally and academically?
                                 We partner with schools and colleges to strengthen student communities through counselling, career guidance, life skills training, personality development, and more - nurturing confident, resilient young individuals.
                             </p>
 
-                            <div className="mb-8 lg:mb-10">
-                                <h4 className="text-[17px] font-bold text-gray-900 mb-4 sm:mb-5">Choose Your Institution</h4>
+                            <div className="mb-6 lg:mb-10">
+                                <h4 className="text-sm sm:text-[17px] font-bold text-gray-900 mb-3 sm:mb-5">Choose Your Institution</h4>
                                 <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
-                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
+                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-5 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
                                         School
                                     </button>
-                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-7 sm:px-9 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
+                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-5 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
                                         College
                                     </button>
                                 </div>

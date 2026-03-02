@@ -30,8 +30,8 @@ const Events = () => {
             <div className="max-w-[1240px] mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
                     <div className="max-w-[950px] text-center md:text-left">
-                        <h2 className="text-[28px] sm:text-[34px] font-bold mb-5 text-gray-900 font-inter-tight">Upcoming Event</h2>
-                        <p className="text-base sm:text-[19px] text-gray-700 leading-relaxed font-normal">
+                        <h2 className="text-2xl sm:text-[34px] font-bold mb-3 sm:mb-5 text-gray-900 font-inter-tight">Upcoming Event</h2>
+                        <p className="text-sm sm:text-[19px] text-gray-700 leading-relaxed font-normal">
                             We empower aspiring professionals and communities with live, interactive, skill-based mental health learning through trainings, experiential workshops, and certificate courses designed for real-world practice.
                         </p>
                     </div>
@@ -60,7 +60,7 @@ const Events = () => {
                                     <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="px-1">
-                                    <h3 className="text-[17px] font-bold mb-3 text-gray-950 leading-snug h-[45px] overflow-hidden">
+                                    <h3 className="text-[15px] sm:text-[17px] font-bold mb-2 sm:mb-3 text-gray-950 leading-snug h-[40px] sm:h-[45px] overflow-hidden">
                                         {event.title}
                                     </h3>
                                     <div className="flex items-center gap-1.5 mb-6">
@@ -71,10 +71,10 @@ const Events = () => {
                                     </div>
                                     <div className="flex justify-between items-center gap-2">
                                         <div className="flex items-center gap-2">
-                                            <span className="text-gray-400 line-through text-[14px]">{event.originalPrice}</span>
-                                            <span className="text-gray-950 font-bold text-[17px]">{event.currentPrice}</span>
+                                            <span className="text-gray-400 line-through text-xs sm:text-[14px]">{event.originalPrice}</span>
+                                            <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.currentPrice}</span>
                                         </div>
-                                        <button className="bg-[#520378] text-white px-3 py-2 rounded-full font-bold text-[12px] whitespace-nowrap">
+                                        <button className="bg-[#520378] text-white px-3 py-1.5 sm:py-2 rounded-full font-bold text-[11px] sm:text-[12px] whitespace-nowrap">
                                             Know more
                                         </button>
                                     </div>

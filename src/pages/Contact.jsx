@@ -54,26 +54,26 @@ const Contact = () => {
             {/* Contact Content Section */}
             <section className="pb-12 sm:pb-16 pt-0 sm:pt-0">
                 <div className="max-w-[1240px] mx-auto px-6 lg:px-16">
-                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+                    <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20">
 
                         {/* Left Side: Contact Info Grouped Card */}
-                        <div className="lg:col-span-5 space-y-12">
-                            <h2 className="text-[32px] font-bold text-gray-950 font-inter-tight tracking-wide">Get in Touch with <span className="text-[#520378]">Vriksh</span></h2>
+                        <div className="lg:col-span-5 space-y-8 sm:space-y-12">
+                            <h2 className="text-2xl sm:text-[32px] font-bold text-gray-950 font-inter-tight tracking-wide">Get in Touch with <span className="text-[#520378]">Vriksh</span></h2>
 
                             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
                                 {contactInfo.map((info, idx) => (
                                     <div
                                         key={idx}
-                                        className="p-8 flex items-start gap-6 border-b border-gray-50 last:border-b-0 hover:bg-gray-50/50 transition-colors"
+                                        className="p-5 sm:p-8 flex items-start gap-4 sm:gap-6 border-b border-gray-50 last:border-b-0 hover:bg-gray-50/50 transition-colors"
                                     >
-                                        <div className="w-12 h-12 bg-[#520378] text-white rounded-full flex items-center justify-center shrink-0 shadow-md">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#520378] text-white rounded-full flex items-center justify-center shrink-0 shadow-md">
                                             {info.icon}
                                         </div>
-                                        <div className="space-y-1">
-                                            <p className="text-[17px] font-bold text-gray-950 font-inter-tight">{info.title}</p>
+                                        <div className="space-y-1 pt-1 sm:pt-0">
+                                            <p className="text-base sm:text-[17px] font-bold text-gray-950 font-inter-tight">{info.title}</p>
                                             <a
                                                 href={info.link}
-                                                className="text-[15px] font-medium text-gray-700 hover:text-[#520378] transition-colors block font-geist"
+                                                className="text-sm sm:text-[15px] font-medium text-gray-700 hover:text-[#520378] transition-colors block font-geist"
                                             >
                                                 {info.value}
                                             </a>
@@ -85,19 +85,19 @@ const Contact = () => {
 
                         {/* Right Side: Contact Form */}
                         <div className="lg:col-span-7">
-                            <h3 className="text-[32px] font-bold text-gray-950 mb-10 font-inter-tight">Get in Touch</h3>
+                            <h3 className="text-2xl sm:text-[32px] font-bold text-gray-950 mb-6 sm:mb-10 font-inter-tight">Get in Touch</h3>
 
                             <form className="space-y-6">
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full px-5 py-3.5 rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="w-full px-5 py-3.5 rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
                                     />
                                 </div>
 
@@ -105,19 +105,19 @@ const Contact = () => {
                                     <input
                                         type="tel"
                                         placeholder="Phone Number (10 digits)"
-                                        className="w-full px-5 py-3.5 rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Location"
-                                        className="w-full px-5 py-3.5 rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
                                     />
                                 </div>
 
                                 <div className="relative" ref={sourceRef}>
                                     <div
                                         onClick={() => setSourceOpen(!sourceOpen)}
-                                        className="w-full px-5 py-3.5 rounded-lg border border-gray-400 cursor-pointer flex justify-between items-center bg-white hover:border-gray-500 transition-all text-gray-400 font-geist"
+                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 cursor-pointer flex justify-between items-center bg-white hover:border-gray-500 transition-all text-gray-400 font-geist"
                                     >
                                         <span className={selectedSource ? "text-gray-900" : ""}>
                                             {selectedSource || "How did you hear about us?"}
@@ -137,7 +137,7 @@ const Contact = () => {
                                                             setSelectedSource(source);
                                                             setSourceOpen(false);
                                                         }}
-                                                        className="px-5 py-3 hover:bg-[#520378]/5 hover:text-[#520378] cursor-pointer transition-colors text-[15px] font-medium text-gray-700 font-geist"
+                                                        className="px-4 sm:px-5 py-2.5 sm:py-3 hover:bg-[#520378]/5 hover:text-[#520378] cursor-pointer transition-colors text-sm sm:text-[15px] font-medium text-gray-700 font-geist"
                                                     >
                                                         {source}
                                                     </div>
@@ -150,7 +150,7 @@ const Contact = () => {
                                 <textarea
                                     placeholder="Your Message"
                                     rows="5"
-                                    className="w-full px-5 py-3.5 rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none font-geist"
+                                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none font-geist"
                                 ></textarea>
 
                                 <div className="flex items-start gap-3 py-2">
@@ -161,14 +161,14 @@ const Contact = () => {
                                             className="w-5 h-5 rounded border-gray-300 text-[#520378] focus:ring-0 cursor-pointer"
                                         />
                                     </div>
-                                    <label htmlFor="authorize" className="text-[14px] text-gray-600 cursor-pointer leading-relaxed font-geist">
+                                    <label htmlFor="authorize" className="text-xs sm:text-[14px] text-gray-600 cursor-pointer leading-relaxed font-geist">
                                         I authorize Vriksh Psychological Support Services to contact me with updates and notifications
                                     </label>
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="px-14 py-4 bg-[#520378] text-white rounded-full font-bold text-lg hover:bg-[#0f063d] transition-all shadow-md active:scale-95 font-geist"
+                                    className="px-10 py-3 sm:px-14 sm:py-4 bg-[#520378] text-white rounded-full font-bold text-base sm:text-lg hover:bg-[#0f063d] transition-all shadow-md active:scale-95 font-geist"
                                 >
                                     Submit
                                 </button>

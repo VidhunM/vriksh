@@ -112,7 +112,7 @@ const Hero = () => {
                             >
                                 <h1
                                     key={`title-${index}`}
-                                    className={`text-[clamp(20px,5vw,54px)] sm:text-[clamp(32px,7vw,54px)] font-bold leading-[1.2] sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 drop-shadow-xl text-center max-w-[1240px] px-2 sm:px-0 ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
+                                    className={`text-[clamp(18px,4vw,54px)] sm:text-[clamp(32px,7vw,54px)] font-bold leading-[1.2] sm:leading-[1.1] tracking-tight mb-3 sm:mb-6 drop-shadow-xl text-center max-w-[1240px] px-2 sm:px-0 ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
                                         }`}
                                 >
                                     {banner.title}
@@ -121,7 +121,7 @@ const Hero = () => {
                                 {banner.description && (
                                     <p
                                         key={`desc-${currentSlide}`}
-                                        className={`text-sm md:text-[clamp(15px,2vw,18px)] mb-8 sm:mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
+                                        className={`text-[13px] md:text-[clamp(15px,2vw,18px)] mb-6 sm:mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
                                             }`}
                                     >
                                         {banner.description}
@@ -133,7 +133,7 @@ const Hero = () => {
                                     className={`flex justify-center ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-400' : ''
                                         }`}
                                 >
-                                    <button className="bg-white text-[#520378] px-8 sm:px-10 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl mt-2 sm:mt-0">
+                                    <button className="bg-white text-[#520378] px-6 sm:px-10 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl mt-1.5 sm:mt-0">
                                         {banner.buttonText}
                                     </button>
                                 </div>

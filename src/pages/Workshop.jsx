@@ -15,9 +15,9 @@ const Workshop = () => {
             <div className="relative  bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden relative">
 
                 {/* Purple top banner */}
-                <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center relative z-10">
+                <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10">
                     <div className="max-w-[1240px] mx-auto px-6">
-                        <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                        <h1 className="text-white text-[clamp(24px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
                             WORKSHOP
                         </h1>
                     </div>
@@ -37,13 +37,13 @@ const Workshop = () => {
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
-                            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
+                            <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
                                 Join 5,000+ learners mastering psychology with confidence
                             </h2>
-                            <p className="text-base sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                            <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
                                 Step into a world of learning – practical, engaging, and skill boosting workshops under one roof. Build clarity, competence, and confidence with every session you attend.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                 Explore workshop
                             </button>
                         </div>
@@ -78,11 +78,11 @@ const Workshop = () => {
                                     />
                                 </div>
                                 {/* Content Card */}
-                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[40px] pb-6 px-7 h-full w-full">
-                                    <div className="text-[36px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[30px] sm:pt-[40px] pb-6 px-5 sm:px-7 h-full w-full">
+                                    <div className="text-[28px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         {stat.value}
                                     </div>
-                                    <div className="text-[26px] sm:text-[28px] text-gray-700 font-medium">
+                                    <div className="text-[18px] sm:text-[28px] text-gray-700 font-medium">
                                         {stat.label}
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@ const WorkshopFAQ = () => {
             <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                 {/* Left: Questions List */}
                 <div className="flex-1 w-full">
-                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-8 text-gray-950 font-inter-tight text-left leading-tight">
+                    <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold mb-8 text-gray-950 font-inter-tight text-left leading-tight">
                         Frequently asked questions
                     </h2>
 
@@ -143,17 +143,17 @@ const WorkshopFAQ = () => {
                                     onClick={() => toggleFaq(index)}
                                     className={`py-2 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                 >
-                                    <span className="text-base sm:text-lg font-medium pr-6 font-geist transition-colors duration-300">
+                                    <span className="text-sm sm:text-lg font-medium pr-4 sm:pr-6 font-geist transition-colors duration-300">
                                         {index + 1}. {item.q}
                                     </span>
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                    <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M7 10l5 5 5-5z" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                    <div className={`px-5 sm:px-8 pb-4 sm:pb-6 rounded-b-[20px] text-sm sm:text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                         {item.a}
                                     </div>
                                 </div>
@@ -286,7 +286,7 @@ const WorkshopTestimonials = () => {
             <div className="max-w-[1320px] mx-auto px-6">
                 {/* Header with Title and Nav Arrows */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-950 font-geist">
+                    <h2 className="text-xl sm:text-4xl font-bold text-gray-950 font-geist">
                         What our learners say
                     </h2>
                     <div className="flex gap-4">
@@ -319,10 +319,10 @@ const WorkshopTestimonials = () => {
                             className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm border border-gray-100 min-h-[420px] cursor-default"
                         >
                             <div className="mb-6">
-                                <h3 className="text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
-                                <p className="text-base text-gray-600">{item.role}</p>
+                                <h3 className="text-lg sm:text-xl font-bold text-gray-950 mb-1 font-geist">{item.name}</h3>
+                                <p className="text-sm sm:text-base text-gray-600">{item.role}</p>
                             </div>
-                            <p className="text-gray-700 text-base sm:text-base leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
+                            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 italic flex-grow overflow-y-auto scrollbar-none">
                                 &ldquo;{item.text}&rdquo;
                             </p>
                             <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
@@ -336,12 +336,12 @@ const WorkshopTestimonials = () => {
                                                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.05l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                                             </svg>
                                         </div>
-                                        <div className="flex text-orange-400 text-[18px]">
+                                        <div className="flex text-orange-400 text-[14px] sm:text-[18px]">
                                             {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                         </div>
                                     </div>
                                 </div>
-                                <span className="text-base font-bold text-gray-800">{item.date}</span>
+                                <span className="text-sm sm:text-base font-bold text-gray-800">{item.date}</span>
                             </div>
                         </div>
                     ))}
@@ -380,7 +380,7 @@ const schoolLogos = [
 const TrustedByBest = () => (
     <div className="bg-white py-8 sm:py-12">
         <div className="max-w-[1240px] mx-auto px-6 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
+            <h2 className="text-xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
                 Trusted by the Best
             </h2>
 

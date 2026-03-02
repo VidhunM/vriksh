@@ -55,7 +55,7 @@ const WhyVriksh = () => {
     return (
         <section className="py-10 sm:py-14 bg-white overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-                <h2 className="text-[24px] md:text-[32px] font-bold text-center text-[#520378] mb-12 font-inter-tight">
+                <h2 className="text-xl md:text-[32px] font-bold text-center text-[#520378] mb-8 sm:mb-12 font-inter-tight">
                     Why Vriksh?
                 </h2>
 
@@ -65,14 +65,14 @@ const WhyVriksh = () => {
                         {[...features, ...features].map((item, index) => (
                             <div
                                 key={index}
-                                className={`${item.bg} ${item.text} p-4 md:p-6 rounded-[12px] md:rounded-[15px] flex items-center gap-4 transition-transform hover:-translate-y-1 shadow-sm w-[280px] md:w-[320px] shrink-0`}
+                                className={`${item.bg} ${item.text} p-3 sm:p-4 md:p-6 rounded-[12px] md:rounded-[15px] flex items-center gap-3 sm:gap-4 transition-transform hover:-translate-y-1 shadow-sm w-[200px] sm:w-[280px] md:w-[320px] shrink-0`}
                             >
                                 <img
                                     src={item.icon}
                                     alt={item.title}
-                                    className="w-10 h-10 md:w-12 md:h-12 object-contain shrink-0"
+                                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain shrink-0"
                                 />
-                                <h3 className="font-bold text-[14px] md:text-[17px] leading-snug">
+                                <h3 className="font-bold text-xs sm:text-[14px] md:text-[17px] leading-snug">
                                     {item.title}
                                 </h3>
                             </div>

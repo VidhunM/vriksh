@@ -85,7 +85,7 @@ const Counselling = () => {
             <div className="relative z-30 max-w-[1240px] mx-auto px-6">
 
                 {/* Title */}
-                <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center font-inter-tight">
+                <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center font-inter-tight">
                     Counselling
                 </h2>
 
@@ -96,7 +96,7 @@ const Counselling = () => {
                             <button
                                 key={index}
                                 onClick={() => setActiveCategory(cat)}
-                                className={`whitespace-nowrap px-6 py-2 rounded-full text-[13px] font-medium transition-all flex-shrink-0 ${activeCategory === cat
+                                className={`whitespace-nowrap px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-[12px] sm:text-[13px] font-medium transition-all flex-shrink-0 ${activeCategory === cat
                                     ? 'bg-white text-[#520378] shadow-md'
                                     : 'bg-transparent text-white border border-white/40 hover:bg-white/10'
                                     }`}
@@ -140,22 +140,22 @@ const Counselling = () => {
                     {/* Text Column */}
                     <div className="lg:w-[60%] text-center lg:text-left">
                         <div className="max-w-[550px] lg:ml-4 mx-auto lg:mx-0">
-                            <h3 className="text-[22px] sm:text-[26px] font-bold mb-1 leading-tight transition-all duration-300 font-inter-tight lg:whitespace-nowrap">
+                            <h3 className="text-xl sm:text-[26px] font-bold mb-1 sm:mb-2 leading-tight transition-all duration-300 font-inter-tight lg:whitespace-nowrap">
                                 {activeContent.title}
                             </h3>
 
-                            <p className="text-base sm:text-[19px] lg:text-[15px] mb-2 opacity-90 leading-relaxed min-h-[70px]">
+                            <p className="text-sm sm:text-[19px] lg:text-[15px] mb-4 sm:mb-2 opacity-90 leading-relaxed min-h-[60px] sm:min-h-[70px]">
                                 {activeContent.desc}
                             </p>
 
-                            <div className="bg-white/10 border border-white/20 rounded-xl p-4 mb-8 inline-block">
-                                <p className="text-[14px] sm:text-[16px] font-bold text-brand-cream italic">
+                            <div className="bg-white/10 border border-white/20 rounded-xl p-3 sm:p-4 mb-6 sm:mb-8 inline-block">
+                                <p className="text-[13px] sm:text-[16px] font-bold text-brand-cream italic">
                                     "{activeContent.stat}"
                                 </p>
                             </div>
 
                             <div>
-                                <button className="bg-white text-[#520378] px-8 py-2.5 rounded-full font-semibold text-[14px] hover:bg-brand-cream transition-all shadow-lg active:scale-95">
+                                <button className="bg-white text-[#520378] px-6 py-2 sm:px-8 sm:py-2.5 rounded-full font-semibold text-xs sm:text-[14px] hover:bg-brand-cream transition-all shadow-lg active:scale-95">
                                     {activeContent.cta}
                                 </button>
                             </div>
