@@ -50,7 +50,7 @@ const Workshop = () => {
                     </div>
 
                     {/* Mobile Image - touching the stats card below */}
-                    <div className="block sm:hidden w-full h-[360px] mt-8 overflow-hidden relative z-10 flex justify-end">
+                    <div className="block sm:hidden w-full h-[360px] mt-0 overflow-hidden relative z-10 flex justify-end">
                         <img
                             src="/images/hwrkshp.png"
                             alt="Workshop learner Mobile"
