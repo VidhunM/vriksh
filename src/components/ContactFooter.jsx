@@ -184,7 +184,7 @@ const ContactFooter = () => {
 
                                 <button
                                     type="submit"
-                                    className="bg-[#520378] text-white px-12 py-3 rounded-full font-bold text-[16px] hover:bg-brand-purple-dark transition-all shadow-md mt-2 mx-auto lg:mx-0 block"
+                                    className="bg-[#520378] text-white px-12 py-3 rounded-full font-bold text-[16px] hover:bg-brand-purple-dark transition-all shadow-md mt-2"
                                 >
                                     Submit
                                 </button>
