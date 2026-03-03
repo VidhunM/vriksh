@@ -52,12 +52,12 @@ const ContactFooter = () => {
                 <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
                         {/* Left Side: Content */}
-                        <div className="w-full lg:w-[45%] space-y-8">
-                            <h2 className="text-[28px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                        <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
+                            <h2 className="text-[28px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-wide">
                                 Get in Touch with <br /> Vriksh
                             </h2>
                             <div className="space-y-6">
-                                <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                <p className="text-gray-950 text-base -mt-2 md:text-[18px] leading-relaxed max-w-[500px]">
                                     Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
                                 </p>
                                 <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
@@ -67,33 +67,33 @@ const ContactFooter = () => {
                         </div>
 
                         {/* Right Side: Form */}
-                        <div className="w-full lg:w-[50%]">
-                            <h3 className="text-[22px] font-bold text-[#520378] mb-8 leading-snug">
+                        <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start">
+                            <h3 className="text-[22px] font-bold text-[#520378] mb-8 leading-snug text-center lg:text-left">
                                 Start your journey with us - Enriching Minds.
                             </h3>
-                            <form className="space-y-5">
+                            <form className="space-y-5 w-full">
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                 </div>
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"
                                         placeholder="Phone Number"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Location"
-                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950"
+                                        className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                 </div>
                                 <div className="grid sm:grid-cols-2 gap-5 relative z-20">
@@ -101,7 +101,7 @@ const ContactFooter = () => {
                                     <div className="relative" ref={serviceRef}>
                                         <div
                                             onClick={() => setServiceOpen(!serviceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950"
+                                            className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                         >
                                             <span className={selectedService ? "text-gray-950" : "text-gray-950"}>
                                                 {selectedService || "Services interested in"}
@@ -134,7 +134,7 @@ const ContactFooter = () => {
                                     <div className="relative" ref={sourceRef}>
                                         <div
                                             onClick={() => setSourceOpen(!sourceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-gradient-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950"
+                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-gradient-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                         >
                                             <span className={selectedSource ? "text-gray-950" : "text-gray-950"}>
                                                 {selectedSource || "How did you hear about us?"}
@@ -166,7 +166,7 @@ const ContactFooter = () => {
                                 <textarea
                                     placeholder="Your message"
                                     rows="4"
-                                    className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 resize-none font-sans"
+                                    className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base resize-none font-sans"
                                 ></textarea>
 
                                 <div className="flex items-start gap-4 py-1">
@@ -184,7 +184,7 @@ const ContactFooter = () => {
 
                                 <button
                                     type="submit"
-                                    className="bg-[#520378] text-white px-12 py-3 rounded-full font-bold text-[16px] hover:bg-brand-purple-dark transition-all shadow-md mt-2"
+                                    className="bg-[#520378] text-white px-12 py-3 rounded-full font-bold text-[16px] hover:bg-brand-purple-dark transition-all shadow-md mt-2 mx-auto lg:mx-0 block"
                                 >
                                     Submit
                                 </button>

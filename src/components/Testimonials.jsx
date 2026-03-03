@@ -120,7 +120,7 @@ const Testimonials = () => {
     return (
         <section id="testimonials" className="py-12 sm:py-16 bg-gradient-to-b from-[#FEF9E7] to-white">
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
-                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-10 gap-6 sm:gap-0">
+                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-4 sm:mb-10 gap-6 sm:gap-0">
                     <div className="max-w-[550px]">
                         <h2 className="text-xl md:text-[34px] font-bold text-gray-900 leading-[1.1] text-center sm:text-left font-inter-tight mb-2 sm:mb-3">
                             Trusted by Individuals, Institutions & Professionals
