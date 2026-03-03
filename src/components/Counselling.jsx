@@ -89,10 +89,10 @@ const Counselling = () => {
                     Counselling
                 </h2>
 
-                {/* Category Buttons - Mobile Auto Slider */}
-                <div className="lg:hidden relative overflow-hidden mb-8 py-2">
-                    <div className="animate-marquee hover:pause-animation flex gap-4">
-                        {[...categories, ...categories].map((cat, index) => (
+                {/* Category Buttons - Mobile (Manual Horizontal Scroll) */}
+                <div className="lg:hidden overflow-x-auto mb-8 py-2">
+                    <div className="flex gap-4 w-max px-1">
+                        {categories.map((cat, index) => (
                             <button
                                 key={index}
                                 onClick={() => setActiveCategory(cat)}

@@ -262,18 +262,18 @@ const CertificateTestimonials = () => {
         return () => clearInterval(timer);
     }, [itemsVisible]);
 
+    const [mobileTestNav, setMobileTestNav] = React.useState(null);
     return (
         <div
             className="py-16 sm:py-20 border-t border-black/5"
             style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
         >
             <div className="max-w-[1240px] mx-auto px-6">
-                {/* Header with Navigation */}
-                <div className="flex justify-between items-end mb-12">
-                    <h2 className="text-[clamp(18px,6vw,26px)] whitespace-nowrap sm:whitespace-normal sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-tighter sm:tracking-normal">
+                {/* Header with Navigation - Desktop */}
+                <div className="hidden sm:flex justify-between items-end mb-12">
+                    <h2 className="text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-normal">
                         What our learners say
                     </h2>
-                    {/* Carousel Controls */}
                     <div className="flex gap-3 mb-2">
                         <button
                             onClick={prevSlide}
@@ -290,6 +290,27 @@ const CertificateTestimonials = () => {
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Header with Navigation - Mobile */}
+                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
+                    <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
+                        What our learners say
+                    </h2>
+                    <div className="flex gap-3">
+                        <button
+                            onClick={() => { prevSlide(); setMobileTestNav('left'); }}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'}`}
+                        >
+                            <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button
+                            onClick={() => { nextSlide(); setMobileTestNav('right'); }}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'}`}
+                        >
+                            <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
                 </div>

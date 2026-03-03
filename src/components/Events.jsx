@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Events = () => {
     const events = [
@@ -25,6 +25,10 @@ const Events = () => {
         }
     ];
 
+    const [mobileIndex, setMobileIndex] = useState(0);
+    const nextMobile = () => setMobileIndex((i) => (i + 1) % events.length);
+    const prevMobile = () => setMobileIndex((i) => (i - 1 + events.length) % events.length);
+
     return (
         <section id="events" className="pb-12 pt-6 sm:pb-16 sm:pt-8 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
@@ -36,13 +40,21 @@ const Events = () => {
                         </p>
                     </div>
                     <div className="flex gap-3 mt-4 md:mt-0">
-                        <button className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all">
+                        <button
+                            onClick={prevMobile}
+                            className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all"
+                            aria-label="Previous event"
+                        >
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="19" y1="12" x2="5" y2="12"></line>
                                 <polyline points="12 19 5 12 12 5"></polyline>
                             </svg>
                         </button>
-                        <button className="w-11 h-11 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-gray-500 transition-all">
+                        <button
+                            onClick={nextMobile}
+                            className="w-11 h-11 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-gray-500 transition-all"
+                            aria-label="Next event"
+                        >
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -51,36 +63,43 @@ const Events = () => {
                     </div>
                 </div>
 
-                {/* Mobile Slider View */}
-                <div className="md:hidden relative overflow-hidden">
-                    <div className="animate-marquee hover:pause-animation flex gap-6 py-4">
-                        {[...events, ...events].map((event, index) => (
-                            <div key={index} className="flex flex-col w-[300px] shrink-0">
-                                <div className="h-[180px] rounded-[24px] overflow-hidden mb-5 shadow-md">
-                                    <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
-                                </div>
-                                <div className="px-1">
-                                    <h3 className="text-[15px] sm:text-[17px] font-bold mb-2 sm:mb-3 text-gray-950 leading-snug h-[40px] sm:h-[45px] overflow-hidden">
-                                        {event.title}
-                                    </h3>
-                                    <div className="flex items-center gap-1.5 mb-6">
-                                        <span className="text-[16px] text-gray-600 font-bold">({event.rating})</span>
-                                        <div className="flex text-orange-400 text-[15px]">
-                                            {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                {/* Mobile Carousel View (manual buttons, no auto scroll) */}
+                <div className="md:hidden">
+                    <div className="relative overflow-hidden">
+                        <div
+                            className="flex transition-transform duration-500 ease-in-out"
+                            style={{ transform: `translateX(-${mobileIndex * 100}%)` }}
+                        >
+                            {events.map((event, index) => (
+                                <div key={index} className="w-full flex-shrink-0 flex justify-center py-4">
+                                    <div className="flex flex-col w-[300px]">
+                                        <div className="h-[180px] rounded-[24px] overflow-hidden mb-5 shadow-md">
+                                            <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+                                        </div>
+                                        <div className="px-1">
+                                            <h3 className="text-[15px] sm:text-[17px] font-bold mb-2 sm:mb-3 text-gray-950 leading-snug h-[40px] sm:h-[45px] overflow-hidden">
+                                                {event.title}
+                                            </h3>
+                                            <div className="flex items-center gap-1.5 mb-6">
+                                                <span className="text-[16px] text-gray-600 font-bold">({event.rating})</span>
+                                                <div className="flex text-orange-400 text-[15px]">
+                                                    {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                                </div>
+                                            </div>
+                                            <div className="flex justify-between items-center gap-2">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-gray-400 line-through text-xs sm:text-[14px]">{event.originalPrice}</span>
+                                                    <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.currentPrice}</span>
+                                                </div>
+                                                <button className="bg-[#520378] text-white px-3 py-1.5 sm:py-2 rounded-full font-bold text-[11px] sm:text-[12px] whitespace-nowrap">
+                                                    Know more
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex justify-between items-center gap-2">
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-gray-400 line-through text-xs sm:text-[14px]">{event.originalPrice}</span>
-                                            <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.currentPrice}</span>
-                                        </div>
-                                        <button className="bg-[#520378] text-white px-3 py-1.5 sm:py-2 rounded-full font-bold text-[11px] sm:text-[12px] whitespace-nowrap">
-                                            Know more
-                                        </button>
-                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
 

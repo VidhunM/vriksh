@@ -60,7 +60,7 @@ const WhyVriksh = () => {
                 </h2>
 
                 <div className="relative overflow-hidden w-full">
-                    <div className="animate-marquee hover:pause-animation flex gap-4 lg:gap-6 py-4">
+                    <div className="animate-marquee hover:pause-animation flex gap-4 lg:gap-6 py-4 why-marquee">
                         {/* Duplicate the features to create a seamless loop */}
                         {[...features, ...features].map((item, index) => (
                             <div

@@ -104,6 +104,8 @@ const UpcomingEvents = () => {
     const [itemsVisible, setItemsVisible] = useState(3);
     const [programCard, setProgramCard] = useState(0);
     const programTimerRef = useRef(null);
+    const getProgramDuration = () => (window.matchMedia('(max-width: 767px)').matches ? 12000 : 3000);
+    const [mobileTestNav, setMobileTestNav] = useState(null);
 
     const programCards = [
         {
@@ -124,10 +126,19 @@ const UpcomingEvents = () => {
     ];
 
     useEffect(() => {
-        programTimerRef.current = setInterval(() => {
-            setProgramCard((prev) => (prev + 1) % 3);
-        }, 3000);
-        return () => clearInterval(programTimerRef.current);
+        const start = () => {
+            clearInterval(programTimerRef.current);
+            programTimerRef.current = setInterval(() => {
+                setProgramCard((prev) => (prev + 1) % 3);
+            }, getProgramDuration());
+        };
+        start();
+        const onResize = () => start();
+        window.addEventListener('resize', onResize);
+        return () => {
+            clearInterval(programTimerRef.current);
+            window.removeEventListener('resize', onResize);
+        };
     }, []);
 
     useEffect(() => {
@@ -182,39 +193,8 @@ const UpcomingEvents = () => {
         }
     };
 
-    // Auto-scroll logic for events slider (mobile only)
-    useEffect(() => {
-        const slider = eventsScrollRef.current;
-        if (!slider) return;
-
-        let interval;
-        const startAutoScroll = () => {
-            interval = setInterval(() => {
-                if (window.innerWidth >= 768) return; // Only auto-scroll on mobile
-
-                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-                    // Reached the end, scroll back to start
-                    slider.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    slider.scrollBy({ left: 300, behavior: 'smooth' });
-                }
-            }, 3000); // 3 seconds per slide
-        };
-
-        startAutoScroll();
-
-        // Pause on touch/interaction
-        slider.addEventListener('touchstart', () => clearInterval(interval));
-        slider.addEventListener('touchend', startAutoScroll);
-
-        return () => {
-            clearInterval(interval);
-            if (slider) {
-                slider.removeEventListener('touchstart', () => clearInterval(interval));
-                slider.removeEventListener('touchend', startAutoScroll);
-            }
-        };
-    }, []);
+    // Auto-scroll disabled: mobile uses manual buttons only
+    useEffect(() => {}, []);
 
     return (
         <div className="pt-0">
@@ -468,7 +448,7 @@ const UpcomingEvents = () => {
                             {programCards.map((_, i) => (
                                 <button
                                     key={i}
-                                    onClick={() => { setProgramCard(i); clearInterval(programTimerRef.current); programTimerRef.current = setInterval(() => setProgramCard(p => (p + 1) % 3), 3000); }}
+                                    onClick={() => { setProgramCard(i); clearInterval(programTimerRef.current); programTimerRef.current = setInterval(() => setProgramCard(p => (p + 1) % 3), getProgramDuration()); }}
                                     className={`h-1.5 rounded-full transition-all duration-300 ${programCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-400'}`}
                                 />
                             ))}
@@ -527,20 +507,24 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Header with Navigation - Mobile */}
-                    <div className="flex sm:hidden flex-col justify-between items-center mb-10 gap-6">
-                        <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-center font-geist">
+                    <div className="sm:hidden flex flex-row justify-between items-center w-full mb-10 gap-4">
+                        <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-left font-geist">
                             What our learners say
                         </h2>
-                        <div className="flex gap-3 self-end">
+                        <div className="flex gap-3">
                             <button
-                                onClick={prevSlide}
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                                onClick={() => { prevSlide(); setMobileTestNav('left'); }}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group ${
+                                    mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'
+                                }`}
                             >
                                 <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                             </button>
                             <button
-                                onClick={nextSlide}
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"
+                                onClick={() => { nextSlide(); setMobileTestNav('right'); }}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group ${
+                                    mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'
+                                }`}
                             >
                                 <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                             </button>

@@ -99,6 +99,16 @@
   animation: marquee-vertical 20s linear infinite;
 }
 
+/* Slow down specific marquees on mobile only */
+@media (max-width: 767px) {
+  .why-marquee {
+    animation-duration: 45s !important;
+  }
+  .corporate-marquee {
+    animation-duration: 35s !important;
+  }
+}
+
 /* Premium Hero Animations */
 @keyframes ken-burns {
   0% {

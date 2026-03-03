@@ -68,12 +68,22 @@ const missionCards = [
 const About = () => {
     const [activeCard, setActiveCard] = useState(0);
     const timerRef = useRef(null);
+    const getDuration = () => (window.matchMedia('(max-width: 767px)').matches ? 9000 : 3000);
 
     useEffect(() => {
-        timerRef.current = setInterval(() => {
-            setActiveCard((prev) => (prev + 1) % missionCards.length);
-        }, 3000);
-        return () => clearInterval(timerRef.current);
+        const start = () => {
+            clearInterval(timerRef.current);
+            timerRef.current = setInterval(() => {
+                setActiveCard((prev) => (prev + 1) % missionCards.length);
+            }, getDuration());
+        };
+        start();
+        const onResize = () => start();
+        window.addEventListener('resize', onResize);
+        return () => {
+            clearInterval(timerRef.current);
+            window.removeEventListener('resize', onResize);
+        };
     }, []);
 
     return (
@@ -150,7 +160,7 @@ const About = () => {
                             {missionCards.map((_, i) => (
                                 <button
                                     key={i}
-                                    onClick={() => { setActiveCard(i); clearInterval(timerRef.current); timerRef.current = setInterval(() => setActiveCard(p => (p + 1) % missionCards.length), 3000); }}
+                                    onClick={() => { setActiveCard(i); clearInterval(timerRef.current); timerRef.current = setInterval(() => setActiveCard(p => (p + 1) % missionCards.length), getDuration()); }}
                                     className={`h-1.5 rounded-full transition-all duration-300 ${activeCard === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-300'}`}
                                 />
                             ))}
