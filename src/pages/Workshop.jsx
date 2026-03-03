@@ -63,26 +63,26 @@ const Workshop = () => {
             {/* ── Stats Section ── */}
             <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-2 sm:-mt-4">
                 <div
-                    className="max-w-[1240px] mx-auto rounded-[16px] pt-12 pb-10 px-6 sm:px-12 shadow-lg"
+                    className="max-w-[1240px] mx-auto rounded-[16px] pt-10 pb-8 sm:pt-12 sm:pb-10 px-5 sm:px-12 shadow-lg"
                     style={{ background: '#520378' }}
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6 lg:gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
                         {stats.map((stat, index) => (
-                            <div key={index} className="relative mt-6 sm:mt-4">
+                            <div key={index} className="relative mt-5 sm:mt-4">
                                 {/* Icon top-left - absolutely positioned to overlap */}
-                                <div className="absolute -top-[26px] left-[-6%] w-[54px] h-[54px] bg-white rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                                <div className="absolute -top-[22px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[44px] sm:w-[54px] sm:h-[54px] bg-white rounded-[10px] sm:rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
                                         src={stat.icon}
                                         alt={stat.label}
-                                        className="w-10 h-10 object-contain"
+                                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                                     />
                                 </div>
                                 {/* Content Card */}
-                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[30px] sm:pt-[40px] pb-6 px-5 sm:px-7 h-full w-full">
-                                    <div className="text-[28px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[26px] sm:pt-[40px] pb-5 sm:pb-6 px-4 sm:px-7 h-full w-full">
+                                    <div className="text-[24px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         {stat.value}
                                     </div>
-                                    <div className="text-[18px] sm:text-[28px] text-gray-700 font-medium">
+                                    <div className="text-[15px] sm:text-[28px] text-gray-700 font-medium">
                                         {stat.label}
                                     </div>
                                 </div>

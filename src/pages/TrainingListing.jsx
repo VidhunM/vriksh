@@ -32,13 +32,31 @@ const trainingCards = [
 const TrainingListing = () => {
   const [activeCategory, setActiveCategory] = React.useState('Counsellors');
   const [visibleCount, setVisibleCount] = React.useState(3);
+  const [mobilePage, setMobilePage] = React.useState(0);
+  const itemsPerPage = 3;
+
   const filteredCards = trainingCards.filter((card) => card.categories.includes(activeCategory));
+  const totalMobilePages = Math.ceil(filteredCards.length / itemsPerPage);
+
   React.useEffect(() => {
     setVisibleCount(3);
+    setMobilePage(0);
   }, [activeCategory]);
+
   const handleLoadMore = () => setVisibleCount((prev) => prev + 3);
+
+  const nextMobile = () => {
+    if (totalMobilePages <= 1) return;
+    setMobilePage((p) => (p + 1) % totalMobilePages);
+  };
+  const prevMobile = () => {
+    if (totalMobilePages <= 1) return;
+    setMobilePage((p) => (p - 1 + totalMobilePages) % totalMobilePages);
+  };
+
   const hasMore = visibleCount < filteredCards.length;
   const cardsToShow = filteredCards.slice(0, visibleCount);
+  const mobileCardsToShow = filteredCards.slice(mobilePage * itemsPerPage, (mobilePage + 1) * itemsPerPage);
   const centerImageTitles = new Set([
     'Navigating Grief: Supporting Adults',
     'Informal Assessment of Learning Disabilities',
@@ -81,7 +99,7 @@ const TrainingListing = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {cardsToShow.map((card, index) => (
             <div
               key={index}
@@ -129,16 +147,82 @@ const TrainingListing = () => {
           ))}
         </div>
 
-        {hasMore && (
-          <div className="flex justify-center mt-12 mb-4">
+        {/* Mobile View (3 Rows) */}
+        <div className="md:hidden">
+          {totalMobilePages > 1 && (
+            <div className="flex justify-end gap-3 mb-6">
+              <button
+                onClick={prevMobile}
+                className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all shadow-sm active:scale-95"
+                aria-label="Previous training"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+              </button>
+              <button
+                onClick={nextMobile}
+                className="w-10 h-10 rounded-full bg-[#520378] text-white flex items-center justify-center hover:bg-[#520378]/90 transition-all shadow-sm active:scale-95"
+                aria-label="Next training"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          )}
+          <div className="flex flex-col gap-5 items-center">
+            {mobileCardsToShow.map((card, index) => (
+              <div
+                key={index}
+                className="w-full max-w-[280px] rounded-[14px] overflow-hidden flex flex-col border bg-white border-gray-200"
+              >
+                <div className="h-[150px] w-full shrink-0">
+                  <img
+                    src={card.image}
+                    alt="Training"
+                    className={`w-full h-full object-cover ${centerImageTitles.has(card.title) ? 'object-center' : 'object-top'}`}
+                  />
+                </div>
+                <div className="flex flex-col flex-grow p-4">
+                  <h3 className="font-bold text-[16px] leading-[1.3] mb-3 font-inter-tight text-gray-950 clamp-2 text-balance">
+                    {card.title}
+                  </h3>
+                  <div className="flex items-center text-[11px] text-gray-700 mb-5">
+                    <div className="flex items-center gap-1">
+                      <span className="text-gray-900 font-medium">{card.rating}</span>
+                      <div className="flex gap-[2px] ml-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} width="12" height="12" viewBox="0 0 20 20" className="text-[#FCA65B]" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                    <span className="mx-2 text-gray-300">|</span>
+                    <div className="text-[#520378] font-medium">Duration: {card.duration}</div>
+                  </div>
+                  <button className="mt-auto w-[100px] py-1.5 rounded-full text-[12px] font-medium bg-[#520378] text-white">
+                    Enquire Now
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden md:flex justify-center mt-12 mb-4">
+          {hasMore && (
             <button
               onClick={handleLoadMore}
               className="border border-[#520378] text-[#520378] hover:bg-[#520378] hover:text-white bg-white px-10 py-2.5 rounded-full font-semibold text-[14px] transition-all active:scale-95"
             >
               Load more
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );

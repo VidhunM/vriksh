@@ -90,23 +90,38 @@ const allWorkshopCards = [
 const WorkshopsListing = () => {
     const [activeCategory, setActiveCategory] = React.useState('Counselling');
     const [visibleCount, setVisibleCount] = React.useState(4);
+    const [mobilePage, setMobilePage] = React.useState(0);
+    const itemsPerPage = 3;
 
     // Filter cards based on active category
     const filteredCards = allWorkshopCards.filter(card =>
         card.categories.includes(activeCategory)
     );
 
-    // Reset visible count when category changes
+    const totalMobilePages = Math.ceil(filteredCards.length / itemsPerPage);
+
+    // Reset visible count and mobile page when category changes
     React.useEffect(() => {
         setVisibleCount(4);
+        setMobilePage(0);
     }, [activeCategory]);
 
     const handleLoadMore = () => {
         setVisibleCount(prev => prev + 4);
     };
 
+    const nextMobile = () => {
+        if (totalMobilePages <= 1) return;
+        setMobilePage((p) => (p + 1) % totalMobilePages);
+    };
+    const prevMobile = () => {
+        if (totalMobilePages <= 1) return;
+        setMobilePage((p) => (p - 1 + totalMobilePages) % totalMobilePages);
+    };
+
     const hasMore = visibleCount < filteredCards.length;
     const cardsToShow = filteredCards.slice(0, visibleCount);
+    const mobileCardsToShow = filteredCards.slice(mobilePage * itemsPerPage, (mobilePage + 1) * itemsPerPage);
 
     return (
         <div className="bg-white py-14 sm:py-20 px-6 sm:px-12">
@@ -143,8 +158,8 @@ const WorkshopsListing = () => {
                     ))}
                 </div>
 
-                {/* Workshop Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                {/* Desktop Workshop Cards (Grid) */}
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
                     {cardsToShow.map((card, index) => (
                         <div
                             key={index}
@@ -162,8 +177,7 @@ const WorkshopsListing = () => {
                             {/* Card Info */}
                             <div className="flex flex-col flex-grow px-1">
                                 <h3 className="font-bold text-[16px] leading-[1.3] mb-4 font-inter-tight text-[#520378] group-hover:text-white transition-colors duration-300">
-                                    {card.title} <br />
-                                    <span className="text-[14px] text-gray-900 opacity-90 group-hover:text-white transition-colors duration-300">{card.subtitle}</span>
+                                    {card.title}
                                 </h3>
 
                                 <div className="border-t border-gray-100 group-hover:border-white/20 pt-4 flex flex-col gap-2.5 mb-5 transition-colors duration-300 mt-auto">
@@ -190,17 +204,87 @@ const WorkshopsListing = () => {
                     ))}
                 </div>
 
-                {/* Load More */}
-                {hasMore && (
-                    <div className="flex justify-center mt-12 mb-4">
+                {/* Mobile Workshop Cards (3 Rows) */}
+                <div className="md:hidden">
+                    {/* Arrow Buttons (Mobile only) - Above cards, right-aligned */}
+                    {totalMobilePages > 1 && (
+                        <div className="flex justify-end gap-3 mb-6">
+                            <button
+                                onClick={prevMobile}
+                                className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all shadow-sm active:scale-95"
+                                aria-label="Previous workshop"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                </svg>
+                            </button>
+                            <button
+                                onClick={nextMobile}
+                                className="w-10 h-10 rounded-full bg-[#520378] text-white flex items-center justify-center hover:bg-[#520378]/90 transition-all shadow-sm active:scale-95"
+                                aria-label="Next workshop"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    )}
+                    <div className="flex flex-col gap-4 items-center">
+                        {mobileCardsToShow.map((card, index) => (
+                            <div key={index} className="w-[280px] group rounded-[12px] p-2.5 flex flex-col border bg-white border-gray-200 shadow-sm">
+                                {/* Card Image */}
+                                <div className="h-[150px] w-full mb-3 rounded-[8px] overflow-hidden shrink-0">
+                                    <img
+                                        src={card.image}
+                                        alt="Workshop"
+                                        className="w-full h-full object-cover object-center"
+                                    />
+                                </div>
+
+                                {/* Card Info */}
+                                <div className="flex flex-col flex-grow px-1">
+                                    <h3 className="font-bold text-[15px] leading-[1.3] mb-3 font-inter-tight text-[#520378]">
+                                        {card.title}
+                                    </h3>
+
+                                    <div className="border-t border-gray-100 pt-3 flex flex-col gap-2 mb-4 mt-auto">
+                                        <div className="text-[12px] font-medium flex items-center text-gray-800">
+                                            Duration: {card.duration}
+                                        </div>
+                                        <div className="text-[12px] font-medium flex items-center gap-1 text-gray-800">
+                                            ({card.rating})
+                                            <div className="flex gap-[2px]">
+                                                {[...Array(5)].map((_, i) => (
+                                                    <svg key={i} width="10" height="10" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                    </svg>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button className="w-[100px] pb-1.5 pt-1.5 mb-0.5 rounded-full text-[12px] font-medium transition-all active:scale-95 bg-[#520378] text-white">
+                                        Enquire Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Load More (Desktop only) */}
+                <div className="hidden md:flex justify-center mt-12 mb-4">
+                    {hasMore && (
                         <button
                             onClick={handleLoadMore}
                             className="border border-[#520378] text-[#520378] hover:bg-[#520378] hover:text-white bg-white px-10 py-2.5 rounded-full font-semibold text-[14px] transition-all active:scale-95"
                         >
                             Load more
                         </button>
-                    </div>
-                )}
+                    )}
+                </div>
 
             </div>
         </div>

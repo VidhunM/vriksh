@@ -194,7 +194,7 @@ const CareerCounselling = () => {
                             change, we're here to support you at every step.
                         </p>
 
-                        <button className="bg-[#520378] text-white px-6 py-2.5 sm:px-10 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
+                        <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                             Discover your path
                         </button>
                     </div>
@@ -265,7 +265,7 @@ const CareerCounselling = () => {
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-[10px] sm:text-base md:text-[18px] font-bold text-gray-950 leading-[1.2] font-inter-tight">
+                                <p className="text-[13px] sm:text-base md:text-[18px] font-bold text-gray-950 leading-[1.2] font-inter-tight">
                                     {item.text}
                                 </p>
                             </div>
@@ -373,17 +373,17 @@ const CareerCounselling = () => {
 
                     {/* ── Mobile: Auto-Slide Carousel ── */}
                     <div className="sm:hidden relative mb-12">
-                        <div className="overflow-hidden rounded-[20px]">
+                        <div className="overflow-hidden">
                             <div
                                 className="flex transition-transform duration-[1200ms] sm:duration-700 ease-in-out"
                                 style={{ transform: `translateX(-${serviceCard * 100}%)` }}
                             >
                                 {servicesData.map((service, index) => (
-                                    <div key={index} className="w-full flex-none">
-                                        <div className="bg-[#FCA65B] px-5 py-8 rounded-[20px] flex flex-col min-h-[280px] relative overflow-hidden">
-                                            <h3 className="text-[#520378] text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-inter-tight leading-tight">{service.title}</h3>
-                                            <p className="text-gray-900 text-sm sm:text-base leading-[1.6] sm:leading-[1.7] mb-3 sm:mb-4 font-medium text-left tracking-tight">{service.text}</p>
-                                            <div className="absolute bottom-2 right-2 w-16 h-16 sm:w-24 sm:h-24">
+                                    <div key={index} className="w-full flex-none px-2">
+                                        <div className="bg-[#FCA65B] px-6 py-10 rounded-[24px] flex flex-col min-h-[300px] relative overflow-hidden shadow-md">
+                                            <h3 className="text-[#520378] text-xl font-bold mb-4 font-inter-tight leading-tight">{service.title}</h3>
+                                            <p className="text-gray-950 text-[15px] leading-[1.6] mb-6 font-medium text-left tracking-tight">{service.text}</p>
+                                            <div className="absolute bottom-4 right-4 w-24 h-24">
                                                 <img src={service.iconSrc} alt="" className="w-full h-full object-contain opacity-90" />
                                             </div>
                                         </div>
@@ -392,7 +392,7 @@ const CareerCounselling = () => {
                             </div>
                         </div>
                         {/* Dot Indicators */}
-                        <div className="flex justify-center gap-2 mt-4">
+                        <div className="flex justify-center gap-2.5 mt-6">
                             {servicesData.map((_, i) => (
                                 <button
                                     key={i}
@@ -417,7 +417,7 @@ const CareerCounselling = () => {
                             >
                                 <h3 className="text-[#520378] text-xl font-bold mb-3 font-inter-tight leading-tight">{service.title}</h3>
                                 <p className="text-gray-900 text-base sm:text-[clamp(15px,1.1vw,17px)] leading-[1.7] mb-4 font-medium text-left tracking-tight">{service.text}</p>
-                                <div className="absolute bottom-2 right-2 w-28 h-28 transform group-hover:scale-110 transition-transform duration-500">
+                                <div className="absolute bottom-2 right-2 w-32 h-32 transform group-hover:scale-110 transition-transform duration-500">
                                     <img src={service.iconSrc} alt="" className="w-full h-full object-contain opacity-90" />
                                 </div>
                             </div>
@@ -450,7 +450,7 @@ const CareerCounselling = () => {
                                     <div key={index} className="w-full flex-none px-2">
                                         <div className="flex flex-col items-center">
                                             {/* Icon Container */}
-                                            <div className="w-20 h-20 sm:w-32 sm:h-32 mb-3 flex items-center justify-center">
+                                            <div className="w-30 h-30 sm:w-32 sm:h-32 mb-3 flex items-center justify-center">
                                                 <img
                                                     src={item.icon}
                                                     alt={item.title}
