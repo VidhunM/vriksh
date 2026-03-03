@@ -323,12 +323,12 @@ const CertificateTestimonials = () => {
                     >
                         {certificateReviews.map((review, index) => (
                             <div key={index} className="w-full md:w-1/2 lg:w-1/3 flex-none px-4">
-                                <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
-                                    <div className="mb-6">
-                                        <h4 className="text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
-                                        <p className="text-sm text-gray-500 font-medium italic">{review.role}</p>
+                                <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
+                                    <div className="mb-4 sm:mb-6">
+                                        <h4 className="text-base sm:text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
+                                        <p className="text-xs sm:text-sm text-gray-500 font-medium italic">{review.role}</p>
                                     </div>
-                                    <p className="text-gray-800 text-base sm:text-[15px] leading-relaxed mb-10 flex-grow font-medium">
+                                    <p className="text-gray-800 text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-10 flex-grow font-medium">
                                         {review.text}
                                     </p>
                                     {/* Footer with Google & Stars */}

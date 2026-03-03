@@ -257,21 +257,21 @@ const UpcomingEvents = () => {
                                 you updated, inspired, and continuously growing.
                             </p>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex justify-end w-full md:w-auto gap-4">
                             <button
                                 onClick={scrollEventsLeft}
-                                className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all md:hidden"
+                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all md:hidden"
                             >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg width="20" height="20" sm:width="24" sm:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="19" y1="12" x2="5" y2="12"></line>
                                     <polyline points="12 19 5 12 12 5"></polyline>
                                 </svg>
                             </button>
                             <button
                                 onClick={scrollEventsRight}
-                                className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-black transition-all md:hidden"
+                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-black transition-all md:hidden"
                             >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg width="20" height="20" sm:width="24" sm:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
