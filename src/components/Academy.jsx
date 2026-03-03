@@ -74,7 +74,7 @@ const Academy = () => {
                                     <p className="text-[13.5px] text-gray-950/90 mb-4 leading-[1.6] font-medium w-full text-center flex-grow flex items-center justify-center">
                                         {cat.desc}
                                     </p>
-                                    <button className="w-full bg-[#520378] text-white py-2.5 rounded-full font-bold text-[11px] hover:bg-[#520378]/90 transition-all shadow-md uppercase tracking-wider mt-auto">
+                                    <button className="w-auto sm:w-full px-4 sm:px-0 bg-[#520378] text-white py-2.5 rounded-full font-bold text-[11px] hover:bg-[#520378]/90 transition-all shadow-md uppercase tracking-wider mt-auto mx-auto">
                                         {cat.btnText}
                                     </button>
                                 </div>

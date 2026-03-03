@@ -32,30 +32,30 @@ const Events = () => {
     return (
         <section id="events" className="pb-12 pt-6 sm:pb-16 sm:pt-8 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
-                <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
+                <div className="flex flex-col md:flex-row justify-between items-start mb-6 md:mb-10 gap-6">
                     <div className="max-w-[950px] text-center md:text-left">
                         <h2 className="text-2xl sm:text-[34px] font-bold mb-3 sm:mb-5 text-gray-900 font-inter-tight">Upcoming Event</h2>
                         <p className="text-sm sm:text-[19px] text-gray-700 leading-relaxed font-normal">
                             We empower aspiring professionals and communities with live, interactive, skill-based mental health learning through trainings, experiential workshops, and certificate courses designed for real-world practice.
                         </p>
                     </div>
-                    <div className="flex gap-3 mt-4 md:mt-0">
+                    <div className="flex gap-3 mt-4 md:mt-0 self-end md:self-auto">
                         <button
                             onClick={prevMobile}
-                            className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all"
+                            className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all"
                             aria-label="Previous event"
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="19" y1="12" x2="5" y2="12"></line>
                                 <polyline points="12 19 5 12 12 5"></polyline>
                             </svg>
                         </button>
                         <button
                             onClick={nextMobile}
-                            className="w-11 h-11 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-gray-500 transition-all"
+                            className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-gray-500 transition-all"
                             aria-label="Next event"
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
@@ -71,7 +71,7 @@ const Events = () => {
                             style={{ transform: `translateX(-${mobileIndex * 100}%)` }}
                         >
                             {events.map((event, index) => (
-                                <div key={index} className="w-full flex-shrink-0 flex justify-center py-4">
+                                <div key={index} className="w-full flex-shrink-0 flex justify-center pb-4 pt-1">
                                     <div className="flex flex-col w-[300px]">
                                         <div className="h-[180px] rounded-[24px] overflow-hidden mb-5 shadow-md">
                                             <img src={event.image} alt={event.title} className="w-full h-full object-cover" />

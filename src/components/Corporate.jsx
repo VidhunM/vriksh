@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Corporate = () => {
+    const [isPaused, setIsPaused] = useState(false);
     const cards = [
         {
             number: '01',
@@ -47,7 +48,13 @@ const Corporate = () => {
                     </div>
 
                     <div className="h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden relative">
-                        <div className="animate-marquee-vertical hover:pause-animation flex flex-col gap-6 py-4 corporate-marquee">
+                        <div
+                            className="animate-marquee-vertical hover:pause-animation flex flex-col gap-6 py-4 corporate-marquee"
+                            style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+                            onTouchStart={() => setIsPaused(true)}
+                            onTouchEnd={() => setIsPaused(false)}
+                            onTouchCancel={() => setIsPaused(false)}
+                        >
                             {/* Duplicate the cards to create a seamless loop */}
                             {[...cards, ...cards].map((card, index) => (
                                 <div

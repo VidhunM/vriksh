@@ -4,9 +4,9 @@ const Wellness = () => {
     return (
         <section id="wellness" className="py-8 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
-                <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-center">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
                     {/* Left Column: Image (Bottom on mobile) */}
-                    <div className="lg:w-1/2 w-full">
+                    <div className="lg:w-1/2 w-full order-2 lg:order-1">
                         <div className="rounded-[20px] overflow-hidden shadow-sm aspect-[4/3] lg:aspect-square">
                             <img
                                 src="/images/wellness.png"
@@ -17,19 +17,19 @@ const Wellness = () => {
                     </div>
 
                     {/* Right Column: Content (Top on mobile) */}
-                    <div className="lg:w-1/2 w-full text-center lg:text-left">
-                        <div className="max-w-[550px] mx-auto lg:mx-0">
-                            <h2 className="text-xl sm:text-[34px] font-bold mb-3 sm:mb-6 text-gray-950 leading-tight font-inter-tight">
+                    <div className="lg:w-1/2 w-full text-center lg:text-left order-1 lg:order-2">
+                        <div className="max-w-[550px] mx-auto lg:mx-0 flex flex-col items-center lg:items-start">
+                            <h2 className="text-xl sm:text-[34px] font-bold mb-3 sm:mb-6 text-gray-950 leading-tight font-inter-tight text-center lg:text-left">
                                 Vriksh Institution Wellness Program
                             </h2>
 
-                            <p className="text-sm sm:text-[19px] lg:text-[15px] text-gray-800 leading-relaxed font-normal mb-6 sm:mb-8">
+                            <p className="text-sm sm:text-[19px] lg:text-[15px] text-gray-800 leading-relaxed font-normal mb-6 sm:mb-8 text-center lg:text-left">
                                 Want to build a supportive ecosystem that empowers your students to thrive emotionally and academically?
                                 We partner with schools and colleges to strengthen student communities through counselling, career guidance, life skills training, personality development, and more - nurturing confident, resilient young individuals.
                             </p>
 
-                            <div className="mb-6 lg:mb-10">
-                                <h4 className="text-sm sm:text-[17px] font-bold text-gray-900 mb-3 sm:mb-5">Choose Your Institution</h4>
+                            <div className="mb-6 lg:mb-10 w-full flex flex-col items-center lg:items-start">
+                                <h4 className="text-sm sm:text-[17px] font-bold text-gray-900 mb-3 sm:mb-5 text-center lg:text-left">Choose Your Institution</h4>
                                 <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                                     <button className="bg-white text-[#520378] border border-[#520378]/30 px-5 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
                                         School

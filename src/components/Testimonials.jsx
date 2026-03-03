@@ -3,6 +3,23 @@ import React, { useState, useEffect, useCallback } from 'react';
 const Testimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [itemsVisible, setItemsVisible] = useState(3);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setItemsVisible(1);
+            } else if (window.innerWidth < 1024) {
+                setItemsVisible(2);
+            } else {
+                setItemsVisible(3);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const reviews = [
         {
@@ -71,30 +88,30 @@ const Testimonials = () => {
     ];
 
     const nextSlide = useCallback(() => {
-        setCurrentIndex((prev) => (prev + 3) % reviews.length);
-    }, [reviews.length]);
+        setCurrentIndex((prev) => (prev + itemsVisible) % reviews.length);
+    }, [reviews.length, itemsVisible]);
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 3 + reviews.length) % reviews.length);
+        setCurrentIndex((prev) => (prev - itemsVisible + reviews.length) % reviews.length);
     };
 
     // Auto-advance logic
     useEffect(() => {
         if (isPaused) return;
 
-        const intervalTime = window.innerWidth < 768 ? 12000 : 5000;
+        const intervalTime = itemsVisible === 1 ? 12000 : 5000;
         const interval = setInterval(() => {
-            if (window.innerWidth < 768) return;
+            if (itemsVisible === 1) return;
             nextSlide();
         }, intervalTime);
 
         return () => clearInterval(interval);
-    }, [isPaused, nextSlide]);
+    }, [isPaused, nextSlide, itemsVisible]);
 
     // Helper to get visible reviews (handling loop)
     const getVisibleReviews = () => {
         const items = [];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < itemsVisible; i++) {
             items.push(reviews[(currentIndex + i) % reviews.length]);
         }
         return items;
@@ -171,11 +188,11 @@ const Testimonials = () => {
                 </div>
 
                 <div className="flex justify-center gap-1.5">
-                    {[0, 1, 2].map((index) => (
+                    {[...Array(Math.ceil(reviews.length / itemsVisible))].map((_, index) => (
                         <button
                             key={index}
-                            onClick={() => setCurrentIndex(index * 3)}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${Math.floor(currentIndex / 3) === index
+                            onClick={() => setCurrentIndex(index * itemsVisible)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${Math.floor(currentIndex / itemsVisible) === index
                                 ? 'w-6 bg-[#2563eb]'
                                 : 'w-1.5 bg-gray-300 hover:bg-gray-400'
                                 }`}
