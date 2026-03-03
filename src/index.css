@@ -202,3 +202,22 @@
 .text-balance {
   text-wrap: balance;
 }
+
+@media (max-width: 767px) {
+  #certificate h1 {
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
+  #certificate h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  #certificate h3 {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+  #certificate p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}

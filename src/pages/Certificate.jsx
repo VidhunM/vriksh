@@ -17,7 +17,7 @@ const Certificate = () => {
                 {/* Purple top banner */}
                 <div className="bg-[#520378] pt-24 pb-6 sm:pt-32 sm:pb-10 text-center relative z-10">
                     <div className="max-w-[1240px] mx-auto px-6">
-                        <h1 className="text-white text-[clamp(26px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                        <h1 className="text-white text-xl sm:text-[clamp(26px,4vw,40px)] font-bold tracking-wide sm:tracking-[0.08em] uppercase font-inter-tight">
                             CERTIFICATE COURSES
                         </h1>
                     </div>
@@ -40,7 +40,7 @@ const Certificate = () => {
                             <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.2] mb-5 font-inter-tight tracking-wide">
                                 Learn new skills and explore your passions with expert guidance.
                             </h2>
-                            <p className="text-base sm:text-[19px] text-gray-700 leading-[1.7] mb-6 max-w-[565px] font-medium font-geist">
+                            <p className="text-base sm:text-[18px] text-gray-700 leading-[1.7] mb-6 max-w-[565px] font-medium font-geist">
                                 Expert-led online courses designed to help you build new skills, strengthen your expertise, and advance confidently in your career.
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
