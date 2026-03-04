@@ -321,7 +321,7 @@ const College = () => {
             {/* ── Silent Struggles Section ── */}
             <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
                 <div
-                    className="absolute -top-50 left-20 w-[400px] sm:w-[600px] h-full bg-no-repeat bg-left-top opacity-50 pointer-events-none"
+                    className="absolute -top-40 left-10 w-[1800px] sm:w-[800px] h-full bg-no-repeat bg-left-top opacity-50 pointer-events-none"
                     style={{ backgroundImage: "url('/images/abt.png')", backgroundSize: 'contain' }}
                 ></div>
 
