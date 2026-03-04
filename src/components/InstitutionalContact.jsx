@@ -14,8 +14,6 @@ const InstitutionalContact = ({ programType }) => {
         authorized: false
     });
 
-    const dropdownArrow = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`;
-
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
@@ -25,7 +23,7 @@ const InstitutionalContact = ({ programType }) => {
     };
 
     return (
-        <section className="w-full py-16 sm:py-24" style={{ background: 'linear-gradient(180deg, rgba(255, 250, 228, 0.3) 0%, #FFFFFF 100%)' }}>
+        <section className="w-full py-16 sm:py-24" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
 
@@ -89,115 +87,60 @@ const InstitutionalContact = ({ programType }) => {
                                 />
                             </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <select
-                                    name="designation"
-                                    value={formData.designation}
-                                    onChange={handleChange}
-                                    style={{
-                                        backgroundColor: 'rgba(255, 250, 228, 0.1)',
-                                        backgroundImage: dropdownArrow,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'right 24px center',
-                                        backgroundSize: '16px'
-                                    }}
-                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
-                                >
-                                    <option value="">Designation</option>
-                                    <option value="principal">Principal</option>
-                                    <option value="director">Director</option>
-                                    <option value="dean">Dean</option>
-                                    <option value="coordinator">Coordinator</option>
-                                    <option value="teacher">Teacher</option>
-                                    <option value="management">Management</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                {programType === "School-Based" ? (
-                                    <select
-                                        name="board"
-                                        value={formData.board}
-                                        onChange={handleChange}
-                                        style={{
-                                            backgroundColor: 'rgba(255, 250, 228, 0.1)',
-                                            backgroundImage: dropdownArrow,
-                                            backgroundRepeat: 'no-repeat',
-                                            backgroundPosition: 'right 24px center',
-                                            backgroundSize: '16px'
-                                        }}
-                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
-                                    >
-                                        <option value="">Board</option>
-                                        <option value="cbse">CBSE</option>
-                                        <option value="icse">ICSE</option>
-                                        <option value="state">State Board</option>
-                                        <option value="ib">IB</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                ) : (
-                                    <select
-                                        name="location"
-                                        value={formData.location}
-                                        onChange={handleChange}
-                                        style={{
-                                            backgroundColor: 'rgba(255, 250, 228, 0.1)',
-                                            backgroundImage: dropdownArrow,
-                                            backgroundRepeat: 'no-repeat',
-                                            backgroundPosition: 'right 24px center',
-                                            backgroundSize: '16px'
-                                        }}
-                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
-                                    >
-                                        <option value="">Location</option>
-                                        <option value="bangalore">Bangalore</option>
-                                        <option value="chennai">Chennai</option>
-                                        <option value="mumbai">Mumbai</option>
-                                        <option value="delhi">Delhi</option>
-                                        <option value="hyderabad">Hyderabad</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                )}
-                            </div>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {programType === "School-Based" && (
-                                    <select
-                                        name="location"
-                                        value={formData.location}
-                                        onChange={handleChange}
-                                        style={{
-                                            backgroundColor: 'rgba(255, 250, 228, 0.1)',
-                                            backgroundImage: dropdownArrow,
-                                            backgroundRepeat: 'no-repeat',
-                                            backgroundPosition: 'right 24px center',
-                                            backgroundSize: '16px'
-                                        }}
-                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
-                                    >
-                                        <option value="">Location</option>
-                                        <option value="bangalore">Bangalore</option>
-                                        <option value="chennai">Chennai</option>
-                                        <option value="mumbai">Mumbai</option>
-                                        <option value="delhi">Delhi</option>
-                                        <option value="hyderabad">Hyderabad</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                )}
-                                <select
-                                    name="interestedIn"
-                                    value={formData.interestedIn}
-                                    onChange={handleChange}
-                                    style={{
-                                        backgroundColor: 'rgba(255, 250, 228, 0.1)',
-                                        backgroundImage: dropdownArrow,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'right 24px center',
-                                        backgroundSize: '16px'
-                                    }}
-                                    className={`w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none ${programType !== "School-Based" ? 'sm:col-span-1' : ''}`}
-                                >
-                                    <option value="">Interested In</option>
-                                    {programType === "School-Based" ? (
-                                        <>
+                            {programType === "School-Based" ? (
+                                <>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <select
+                                            name="designation"
+                                            value={formData.designation}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Designation</option>
+                                            <option value="principal">Principal</option>
+                                            <option value="director">Director</option>
+                                            <option value="dean">Dean</option>
+                                            <option value="coordinator">Coordinator</option>
+                                            <option value="teacher">Teacher</option>
+                                            <option value="management">Management</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <select
+                                            name="board"
+                                            value={formData.board}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Board</option>
+                                            <option value="cbse">CBSE</option>
+                                            <option value="icse">ICSE</option>
+                                            <option value="state">State</option>
+                                            <option value="ib">IB</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <select
+                                            name="location"
+                                            value={formData.location}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Location</option>
+                                            <option value="bangalore">Bangalore</option>
+                                            <option value="chennai">Chennai</option>
+                                            <option value="mumbai">Mumbai</option>
+                                            <option value="delhi">Delhi</option>
+                                            <option value="hyderabad">Hyderabad</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <select
+                                            name="interestedIn"
+                                            value={formData.interestedIn}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Interested In</option>
                                             <option value="counselling">Counselling</option>
                                             <option value="special-education">Special Education</option>
                                             <option value="workshop">Workshop</option>
@@ -205,40 +148,61 @@ const InstitutionalContact = ({ programType }) => {
                                             <option value="full-program">Full Program</option>
                                             <option value="invite-as-guest">Invite as guest</option>
                                             <option value="other">Other</option>
-                                        </>
-                                    ) : (
-                                        <>
+                                        </select>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <select
+                                            name="designation"
+                                            value={formData.designation}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Designation</option>
+                                            <option value="principal">Principal</option>
+                                            <option value="director">Director</option>
+                                            <option value="dean">Dean</option>
+                                            <option value="coordinator">Coordinator</option>
+                                            <option value="teacher">Teacher</option>
+                                            <option value="management">Management</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <select
+                                            name="location"
+                                            value={formData.location}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Location</option>
+                                            <option value="bangalore">Bangalore</option>
+                                            <option value="chennai">Chennai</option>
+                                            <option value="mumbai">Mumbai</option>
+                                            <option value="delhi">Delhi</option>
+                                            <option value="hyderabad">Hyderabad</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div className="grid grid-cols-1 gap-4">
+                                        <select
+                                            name="interestedIn"
+                                            value={formData.interestedIn}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Interested In</option>
                                             <option value="counselling">Counselling</option>
-                                            <option value="soft-life-skills">Soft &amp; Life Skills Classes</option>
+                                            <option value="soft-life-skills">Soft & Life Skills Classes</option>
                                             <option value="workshop">Workshop</option>
                                             <option value="career-guidance">Career guidance</option>
                                             <option value="full-program">Full Program</option>
                                             <option value="invite-as-guest">Invite as guest</option>
                                             <option value="other">Other</option>
-                                        </>
-<<<<<<< HEAD
-=======
-                                    ) : programType === "Corporate-EAP" ? (
-                                        <>
-                                            <option value="eap">Employee Assistance Programme (EAP)</option>
-                                            <option value="webinars">Webinars</option>
-                                            <option value="training-programs">Training Programs</option>
-                                            <option value="wellness-program">Workplace Wellness Program</option>
-                                            <option value="invite-as-guest">Invite as guest</option>
-                                            <option value="other">Other</option>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <option value="wellness-program">Institutional Wellness Program</option>
-                                            <option value="workshops">Workshops</option>
-                                            <option value="faculty-training">Faculty Training</option>
-                                            <option value="parenting-sessions">Parenting Sessions</option>
-                                            <option value="other">Other</option>
-                                        </>
->>>>>>> bc0b53cc198e8d62defa83deca7518331add595b
-                                    )}
-                                </select>
-                            </div>
+                                        </select>
+                                    </div>
+                                </>
+                            )}
 
                             <textarea
                                 name="message"
