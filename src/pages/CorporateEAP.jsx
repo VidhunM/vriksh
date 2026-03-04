@@ -25,7 +25,7 @@ const CorporateEAP = () => {
                 {/* Hero content area — person image overlaps the purple banner */}
                 <div className="relative overflow-hidden">
                     {/* Person image — cropped from center to bottom (Desktop/Tablet) */}
-                    <div className="hidden sm:block absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 sm:w-[50%] lg:w-[45%] max-w-[450px] h-[130%] overflow-hidden pointer-events-none">
+                    <div className="hidden sm:block absolute top-[-12%] right-2 sm:right-[4%] lg:right-[6%] bottom-0 sm:w-[50%] lg:w-[45%] max-w-[455px] h-[140%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/eap01.png"
                             alt="EAP Support"
