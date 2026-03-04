@@ -46,7 +46,7 @@ const Header = () => {
       label: 'Institutional Wellness Program',
       subItems: [
         { label: 'For Schools', href: '/school' },
-        { label: 'For Colleges', href: '#' }
+        { label: 'For Colleges', href: '/college' }
       ]
     },
     { label: 'Corporate - EAP', href: '#' },

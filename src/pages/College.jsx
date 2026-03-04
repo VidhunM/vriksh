@@ -2,37 +2,37 @@ import React, { useState } from 'react';
 
 const tabs = [
     "Campus Counselling",
-    "Special Education Support",
-    "Life Skills Program",
-    "Psychometric Assessment",
-    "Workshops",
-    "Analytics & Reporting"
+    "Mental Health Workshops",
+    "Stress & Anxiety Management",
+    "Career Guidance",
+    "Crisis Support",
+    "Faculty Training"
 ];
 
 const offerCards = [
     {
-        title: "Dedicated On-Campus Counsellor",
-        desc: "A full-time professional supporting your students and staff."
+        title: "Professional Campus Counsellors",
+        desc: "Experienced psychologists available on-campus to support student wellbeing."
     },
     {
-        title: "Preventive & Proactive Programs",
-        desc: "Regular workshops, awareness sessions, & early identification of concerns."
+        title: "Life Skills & Resilience Workshops",
+        desc: "Equipping students with emotional intelligence, stress management, and coping skills."
     },
     {
-        title: "Crisis Management Support",
-        desc: "Immediate intervention and structured care during critical situations."
+        title: "Crisis Intervention",
+        desc: "Immediate, high-quality support during psychological emergencies or critical events."
     },
     {
-        title: "Parent & Teacher Collaboration",
-        desc: "Consistent updates, guidance sessions, and coordinated support."
+        title: "Career & Future Planning",
+        desc: "Helping students navigate career anxiety and build confidence for their future."
     },
     {
-        title: "Confidential & Ethical Practice",
-        desc: "Safe, private, and professional counselling services."
+        title: "Safe & Inclusive Campus Culture",
+        desc: "Promoting mental health awareness and reducing stigma through campus-wide initiatives."
     },
     {
-        title: "Structured Documentation & Analytics",
-        desc: "Periodic case reports, well-being trend analysis & management-level"
+        title: "Faculty Wellness & Support",
+        desc: "Training educators to identify student concerns and manage their own wellbeing."
     }
 ];
 
@@ -43,7 +43,7 @@ const trustedStats = [
     { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask group3.png' },
 ];
 
-const School = () => {
+const College = () => {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
@@ -52,26 +52,24 @@ const School = () => {
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-36 sm:pb-10 text-center relative z-10 w-full">
                 <div className="max-w-[1240px] mx-auto px-6">
                     <h1 className="text-white text-[clamp(20px,3.5vw,36px)] font-bold tracking-[0.02em] uppercase font-inter-tight">
-                        SCHOOL-BASED MENTAL HEALTH PROGRAM
+                        COLLEGE-BASED MENTAL HEALTH PROGRAM
                     </h1>
                 </div>
             </div>
 
             <div className="bg-[#FEFCE8] w-full py-12 sm:py-20 flex flex-col items-center">
-                {/* ── Split Content Section ── */}
-                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
+                {/* ── Split Content Section (Hero) ── */}
+                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-center gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
                         <h2 className="text-[#103D31] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
-                            Enriching Minds, Empowering<br className="hidden sm:block" /> School Communities
+                            Championing Student Wellness,<br className="hidden sm:block" /> Cultivating Success
                         </h2>
                         <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
-                            Transform your campus into a resilient community by sowing
-                            the seeds of wellness. Empower students, teachers, and
-                            parents with practical emotional skills that last a lifetime.
-                            Build a supportive school culture where every child feels
-                            safe, heard, and understood. Your journey toward a healthier,
-                            emotionally stronger campus starts here.
+                            Prioritize the mental health of your students and foster a culture of resilience
+                            and academic excellence. Our holistic approach supports students through the
+                            challenges of higher education, ensuring they thrive both personally and
+                            professionally during their college years and beyond.
                         </p>
                         <div>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -83,8 +81,8 @@ const School = () => {
                     {/* Right side image */}
                     <div className="flex-1 w-full flex justify-center lg:justify-end">
                         <img
-                            src="/images/schl01.png"
-                            alt="School children smiling"
+                            src="/images/clg01.png"
+                            alt="College students learning"
                             className="w-full max-w-[550px] aspect-[4/3] object-cover rounded-[16px] shadow-lg"
                         />
                     </div>
@@ -93,7 +91,6 @@ const School = () => {
 
             {/* ── What do we offer? Section ── */}
             <div className="relative w-full mt-4 sm:mt-12">
-                {/* SVG Symmetrical Double-Curve at the top matching exactly the image wave */}
                 <svg viewBox="0 0 1440 160" preserveAspectRatio="none" className="w-full h-[60px] sm:h-[100px] lg:h-[140px] block" style={{ transform: 'translateY(1px)' }}>
                     <path fill="#520378" d="M 0,80 C 120,80 240,120 360,120 C 480,120 600,40 720,40 C 840,40 960,120 1080,120 C 1200,120 1320,80 1440,80 L 1440,165 L 0,165 Z"></path>
                 </svg>
@@ -107,11 +104,10 @@ const School = () => {
                             What do we offer?
                         </h2>
                         <p className="text-white/90 text-[13px] sm:text-[14.5px] text-center max-w-[700px] mb-8 sm:mb-10 font-geist leading-[1.6]">
-                            A comprehensive, school-based mental health program designed to support<br className="hidden sm:block" />
-                            students' emotional well-being, resilience, and overall development.
+                            Comprehensive mental health solutions tailored for higher education institutions<br className="hidden sm:block" />
+                            to support academic growth and personal development.
                         </p>
 
-                        {/* Tabs */}
                         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 px-2 lg:px-12 w-full max-w-[1900px]">
                             {tabs.map((tab, idx) => (
                                 <button
@@ -127,18 +123,14 @@ const School = () => {
                             ))}
                         </div>
 
-                        {/* Cards Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 w-full max-w-[1100px] mt-6 mb-8">
                             {offerCards.map((card, idx) => (
                                 <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
-                                    {/* Small top-left box for icon */}
                                     <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
                                         <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
                                             <img src="/icons/workshop.png" alt="icon" className="w-[36px] h-[36px] object-contain" />
                                         </div>
                                     </div>
-
-                                    {/* Main card body flex container */}
                                     <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
                                         <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3] z-10">
                                             {card.title}
@@ -151,7 +143,6 @@ const School = () => {
                             ))}
                         </div>
 
-                        {/* Button inside purple section */}
                         <div className="mt-8 sm:mt-12">
                             <button className="bg-white hover:bg-gray-50 text-[#520378] px-8 py-3.5 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                 Get in Touch With Us
@@ -163,7 +154,6 @@ const School = () => {
 
             {/* ── Silent Struggles Section ── */}
             <div className="relative w-full py-16 sm:py-24 bg-white overflow-hidden">
-                {/* Background Leaf Image */}
                 <div
                     className="absolute -top-50 left-20 w-[400px] sm:w-[600px] h-full bg-no-repeat bg-left-top opacity-50 pointer-events-none"
                     style={{ backgroundImage: "url('/images/abt.png')", backgroundSize: 'contain' }}
@@ -171,119 +161,96 @@ const School = () => {
 
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
                     <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
-                        Silent Struggles of Today's Students
+                        Student Well-Being at Risk
                     </h2>
                     <p className="text-[#333333] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-16 sm:mb-24 font-geist leading-[1.6]">
-                        Indian students face rising risks of digital dependency, increasing academic<br className="hidden sm:block" />
-                        anxiety, growing peer pressure, and deepening concerns about body image
+                        Indian students face rising risks of excessive screen use, risky substance<br className="hidden sm:block" />
+                        habits, and growing mental health challenges
                     </p>
 
-                    {/* Overlapping Circles Container */}
-                    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[1000px]">
-
+                    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[900px]">
                         {/* Circle 1 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-8 -mb-6 md:mb-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">60%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
+                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 -mb-6 md:mb-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">60-70%</h3>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[180px]">Students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
                         </div>
 
-                        {/* Circle 2 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-20 -mb-6 md:mb-0 md:-ml-8 md:-translate-y-8 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[46px] sm:text-[54px] font-medium mb-1 leading-none">81%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students Report<br />Anxiety Related To<br />Studies And Exams</p>
+                        {/* Circle 2 (Middle) */}
+                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-20 -mb-6 md:mb-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none">20–25%</h3>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[180px]">Students Engage In<br />Risky Alcohol,<br />Tobacco, Or Drug Use</p>
                         </div>
 
                         {/* Circle 3 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-30 -mb-6 md:mb-0 md:-ml-8 md:translate-y-10 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">33%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
+                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 md:-ml-8 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">65–70%</h3>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[180px]">students experience<br />moderate to severe<br />anxiety or depressive<br />symptoms</p>
                         </div>
-
-                        {/* Circle 4 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-40 md:-ml-8 md:-translate-y-4 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">45%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
-                        </div>
-
                     </div>
                 </div>
             </div>
+
             {/* ── Benefits Section ── */}
             <div className="w-full bg-gradient-to-b from-[#FFFDF6] to-[#FCF4DF] py-16 sm:py-24">
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
-
-                    {/* Header */}
                     <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
-                        School-Based Mental Health Program Benefits
+                        College-Based Mental Health Program Benefits
                     </h2>
                     <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-12 sm:mb-16 font-geist leading-[1.6]">
-                        Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and<br className="hidden sm:block" />
-                        fosters a positive school culture where everyone thrives.
+                        A stronger mental health ecosystem within the campus leads to better academic performance,<br className="hidden sm:block" />
+                        enhanced student retention, and a more vibrant college community.
                     </p>
 
-                    {/* Content Flex Row */}
                     <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-10 lg:gap-16">
-
-                        {/* Left Side: Image */}
                         <div className="flex-1 w-full flex justify-center lg:justify-start">
                             <img
                                 src="/images/banner 4.png"
-                                alt="Students"
+                                alt="College students"
                                 className="w-full max-w-[550px] lg:max-w-[500px] xl:max-w-[550px] object-cover rounded-[16px] shadow-md"
                             />
                         </div>
 
-                        {/* Right Side: Grid of Benefits */}
                         <div className="flex-[1.5] w-full grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-6 sm:gap-x-10 items-center content-center py-4">
-
-                            {/* Item 1 */}
                             <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
                                 <div className="flex-shrink-0 w-[120px] flex justify-center">
                                     <img src="/icons/Guidance.png" alt="Guidance" className="w-[100px] h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Safe &<br />Emotionally<br />Resilient Campus
+                                        Enhanced<br />Placement Readiness<br />& Confidence
                                     </span>
                                 </div>
                             </div>
-
-                            {/* Item 2 */}
                             <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
                                 <div className="flex-shrink-0 w-[120px] flex justify-center">
                                     <img src="/icons/confidential.png" alt="Confidential" className="w-[100px] h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Improved Focus<br />& Academic<br />Engagement
+                                        Better Student<br />Retention &<br />Academic Success
                                     </span>
                                 </div>
                             </div>
-
-                            {/* Item 3 */}
                             <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
                                 <div className="flex-shrink-0 w-[120px] flex justify-center">
                                     <img src="/icons/convenices.png" alt="Confidential" className="w-[100px] h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Early Identification<br />& Preventive<br />Support
+                                        Reduced Stress<br />Among Students<br />& Staff
                                     </span>
                                 </div>
                             </div>
-
-                            {/* Item 4 */}
                             <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
                                 <div className="flex-shrink-0 w-[120px] flex justify-center">
                                     <img src="/icons/export support.png" alt="Support" className="w-[100px] h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Empowered<br />Teachers &<br />Confident Parents
+                                        Positive Campus<br />Reputation &<br />Student Wellness
                                     </span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -301,7 +268,6 @@ const School = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 sm:gap-y-16 lg:gap-8">
                         {trustedStats.map((stat, index) => (
                             <div key={index} className="relative mt-2 sm:mt-0">
-                                {/* Icon top-left - absolutely positioned to overlap */}
                                 <div className="absolute -top-[20px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] bg-white rounded-[10px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
                                         src={stat.icon}
@@ -309,7 +275,6 @@ const School = () => {
                                         className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
                                     />
                                 </div>
-                                {/* Content Card */}
                                 <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px]">
                                     <div className="text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-1">
                                         {stat.value}
@@ -328,4 +293,4 @@ const School = () => {
     );
 };
 
-export default School;
+export default College;
