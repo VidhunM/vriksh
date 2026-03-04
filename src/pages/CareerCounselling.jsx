@@ -516,7 +516,7 @@ const CareerCounselling = () => {
             </div>
             {/* Testimonials Section - What our Clients say */}
             <div
-                className="py-16 sm:py-20 border-t border-black/5"
+                className="py-10 sm:py-20 border-t border-black/5"
                 style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1240px] mx-auto px-6">

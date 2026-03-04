@@ -127,11 +127,11 @@ const CertificateFAQ = () => {
     };
 
     return (
-        <div className="bg-white pt-2 pb-12 sm:pt-4 sm:pb-20">
+        <div className="bg-white pt-8 pb-12 sm:pt-4 sm:pb-20">
             <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                 {/* Left: Questions List */}
                 <div className="flex-1 w-full">
-                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-8 text-gray-950 font-inter-tight text-left leading-tight">
+                    <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold mb-6 sm:mb-8 text-gray-950 font-inter-tight text-left leading-tight">
                         Frequently asked questions
                     </h2>
 
@@ -142,17 +142,17 @@ const CertificateFAQ = () => {
                                     onClick={() => toggleFaq(index)}
                                     className={`py-2 px-8 rounded-[22px] flex items-center justify-between group transition-all duration-300 cursor-pointer shadow-sm border-[1.5px] ${openIndex === index ? 'bg-[#520378] border-[#520378] text-white rounded-b-none' : 'bg-white border-[#520378] text-gray-900 hover:bg-[#520378] hover:text-white'}`}
                                 >
-                                    <span className="text-base sm:text-lg font-medium pr-6 font-geist transition-colors duration-300">
+                                    <span className="text-sm sm:text-lg font-medium pr-4 sm:pr-6 font-geist transition-colors duration-300">
                                         {index + 1}. {item.q}
                                     </span>
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
+                                    <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${openIndex === index ? 'bg-white text-[#520378] rotate-180' : 'bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]'}`}>
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M7 10l5 5 5-5z" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className={`px-8 pb-6 rounded-b-[20px] text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
+                                    <div className={`px-5 sm:px-8 pb-4 sm:pb-6 rounded-b-[20px] text-sm sm:text-base leading-relaxed font-medium ${openIndex === index ? 'bg-[#520378] text-white/90 border-x-[1.5px] border-b-[1.5px] border-[#520378]' : ''}`}>
                                         {item.a}
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@ const CertificateTestimonials = () => {
     const [mobileTestNav, setMobileTestNav] = React.useState(null);
     return (
         <div
-            className="py-16 sm:py-20 border-t border-black/5"
+            className="py-10 sm:py-20 border-t border-black/5"
             style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
         >
             <div className="max-w-[1240px] mx-auto px-6">
@@ -295,7 +295,7 @@ const CertificateTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
+               <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
                     <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
                         What our learners say
                     </h2>

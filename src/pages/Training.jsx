@@ -129,7 +129,7 @@ const TrainingFAQ = () => {
     };
 
     return (
-        <div className="bg-white pt-2 pb-12 sm:pt-4 sm:pb-20">
+        <div className="bg-white pt-8 pb-12 sm:pt-4 sm:pb-20">
             <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
                 {/* Left: Questions List */}
                 <div className="flex-1 w-full">
