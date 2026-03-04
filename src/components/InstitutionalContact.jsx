@@ -53,12 +53,16 @@ const InstitutionalContact = ({ programType }) => {
                                 <input
                                     type="text"
                                     name="fullName"
+                                    value={formData.fullName}
+                                    onChange={handleChange}
                                     placeholder="Full Name"
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
                                 <input
                                     type="email"
                                     name="workEmail"
+                                    value={formData.workEmail}
+                                    onChange={handleChange}
                                     placeholder="Work Email"
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
@@ -68,19 +72,28 @@ const InstitutionalContact = ({ programType }) => {
                                 <input
                                     type="text"
                                     name="phoneNumber"
+                                    value={formData.phoneNumber}
+                                    onChange={handleChange}
                                     placeholder="Phone Number"
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
                                 <input
                                     type="text"
                                     name="institutionName"
+                                    value={formData.institutionName}
+                                    onChange={handleChange}
                                     placeholder="Institution Name"
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <select name="designation" className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500">
+                                <select
+                                    name="designation"
+                                    value={formData.designation}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
+                                >
                                     <option value="">Designation</option>
                                     <option value="principal">Principal</option>
                                     <option value="director">Director</option>
@@ -90,7 +103,12 @@ const InstitutionalContact = ({ programType }) => {
                                     <option value="management">Management</option>
                                     <option value="other">Other</option>
                                 </select>
-                                <select name="board" className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500">
+                                <select
+                                    name="board"
+                                    value={formData.board}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
+                                >
                                     <option value="">Board</option>
                                     <option value="cbse">CBSE</option>
                                     <option value="icse">ICSE</option>
@@ -104,7 +122,12 @@ const InstitutionalContact = ({ programType }) => {
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <select name="location" className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500">
+                                <select
+                                    name="location"
+                                    value={formData.location}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
+                                >
                                     <option value="">Location</option>
                                     <option value="bangalore">Bangalore</option>
                                     <option value="chennai">Chennai</option>
@@ -113,18 +136,49 @@ const InstitutionalContact = ({ programType }) => {
                                     <option value="hyderabad">Hyderabad</option>
                                     <option value="other">Other</option>
                                 </select>
-                                <select name="interestedIn" className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500">
+                                <select
+                                    name="interestedIn"
+                                    value={formData.interestedIn}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
+                                >
                                     <option value="">Interested In</option>
-                                    <option value="wellness-program">Institutional Wellness Program</option>
-                                    <option value="workshops">Workshops</option>
-                                    <option value="faculty-training">Faculty Training</option>
-                                    <option value="parenting-sessions">Parenting Sessions</option>
-                                    <option value="other">Other</option>
+                                    {programType === "School-Based" ? (
+                                        <>
+                                            <option value="counselling">Counselling</option>
+                                            <option value="special-education">Special Education</option>
+                                            <option value="workshop">Workshop</option>
+                                            <option value="career-guidance">Career guidance</option>
+                                            <option value="full-program">Full Program</option>
+                                            <option value="invite-as-guest">Invite as guest</option>
+                                            <option value="other">Other</option>
+                                        </>
+                                    ) : programType === "College-Based" ? (
+                                        <>
+                                            <option value="counselling">Counselling</option>
+                                            <option value="soft-life-skills">Soft &amp; Life Skills Classes</option>
+                                            <option value="workshop">Workshop</option>
+                                            <option value="career-guidance">Career guidance</option>
+                                            <option value="full-program">Full Program</option>
+                                            <option value="invite-as-guest">Invite as guest</option>
+                                            <option value="other">Other</option>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value="wellness-program">Institutional Wellness Program</option>
+                                            <option value="workshops">Workshops</option>
+                                            <option value="faculty-training">Faculty Training</option>
+                                            <option value="parenting-sessions">Parenting Sessions</option>
+                                            <option value="other">Other</option>
+                                        </>
+                                    )}
                                 </select>
                             </div>
 
                             <textarea
                                 name="message"
+                                value={formData.message}
+                                onChange={handleChange}
                                 placeholder="Message"
                                 rows="4"
                                 className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] resize-none"
@@ -134,6 +188,9 @@ const InstitutionalContact = ({ programType }) => {
                                 <input
                                     type="checkbox"
                                     id="authorize_inst"
+                                    name="authorized"
+                                    checked={formData.authorized}
+                                    onChange={handleChange}
                                     className="mt-1 w-5 h-5 rounded border-gray-300 text-[#520378] focus:ring-0 focus:ring-offset-0 cursor-pointer"
                                 />
                                 <label htmlFor="authorize_inst" className="text-[13px] sm:text-[14px] text-gray-600 leading-tight cursor-pointer">

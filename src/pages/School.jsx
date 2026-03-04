@@ -37,11 +37,146 @@ const offerCards = [
     }
 ];
 
+const specialEducationCards = [
+    {
+        title: "Dedicated Special Educator On-Campus",
+        desc: "A qualified professional supporting students with diverse learning needs."
+    },
+    {
+        title: "Individualized Education Plans (IEPs)",
+        desc: "Personalized goals, accommodations, and structured learning strategies."
+    },
+    {
+        title: "Early Identification & Intervention",
+        desc: "Screening, assessments, and timely support for learning difficulties."
+    },
+    {
+        title: "Parent & Teacher Collaboration",
+        desc: "Regular meetings, guidance, and coordinated academic planning."
+    },
+    {
+        title: "Inclusive Classroom Support",
+        desc: "Strategies and modifications to help every child thrive."
+    },
+    {
+        title: "Structured Documentation & Analytics",
+        desc: "IEP reports, progress tracking, intervention summaries, and management-level documentation."
+    }
+];
+
+const lifeSkillsCards = [
+    {
+        title: "Structured Skill-Based Curriculum",
+        desc: "Age-appropriate modules designed for holistic student growth."
+    },
+    {
+        title: "Communication & Social Skills",
+        desc: "Building confidence, empathy, and healthy relationships."
+    },
+    {
+        title: "Critical Thinking & Decision-Making",
+        desc: "Encouraging responsible choices and problem-solving abilities."
+    },
+    {
+        title: "Resilience & Emotional Strength",
+        desc: "Helping students manage stress and bounce back from challenges."
+    },
+    {
+        title: "Leadership & Goal Setting",
+        desc: "Fostering self-belief, responsibility, and future readiness."
+    },
+    {
+        title: "Structured Documentation & Impact Tracking",
+        desc: "Session reports, progress insights, and measurable impact summaries for school leadership."
+    }
+];
+
+const psychometricCards = [
+    {
+        title: "Scientifically Validated Tools",
+        desc: "Standardized assessments for reliable and accurate insights."
+    },
+    {
+        title: "Holistic Student Profiling",
+        desc: "Understanding cognitive abilities, personality, behaviour, and emotional patterns."
+    },
+    {
+        title: "Early Identification of Concerns",
+        desc: "Screening for learning, attention, and emotional challenges."
+    },
+    {
+        title: "Individual Feedback & Guidance",
+        desc: "Clear interpretation sessions with students and parents."
+    },
+    {
+        title: "Data-Driven Interventions",
+        desc: "Personalized recommendations for academic and behavioural support."
+    },
+    {
+        title: "Structured Documentation & Analytics",
+        desc: "Detailed reports, progress tracking, and management-level summaries."
+    }
+];
+
+const workshopCards = [
+    {
+        title: "Expert-Led & Interactive",
+        desc: "Sessions conducted by experienced professionals."
+    },
+    {
+        title: "Customizable Topics",
+        desc: "Workshops tailored to your school’s needs and priorities."
+    },
+    {
+        title: "Age-Appropriate Content",
+        desc: "Designed specifically for students, teachers, or parents."
+    },
+    {
+        title: "Practical & Skill-Focused",
+        desc: "Actionable strategies that can be applied immediately."
+    },
+    {
+        title: "Preventive & Development-Oriented",
+        desc: "Promoting overall well-being and a positive school culture."
+    },
+    {
+        title: "Structured Documentation & Reports",
+        desc: "Session summaries, feedback insights, and management-level documentation."
+    }
+];
+
+const analyticsCards = [
+    {
+        title: "Well-Being Trend Analysis",
+        desc: "Identify patterns in student emotional and behavioural concerns."
+    },
+    {
+        title: "Risk Indicator Mapping",
+        desc: "Early identification of high-risk areas across grades or groups."
+    },
+    {
+        title: "Intervention Impact Measurement",
+        desc: "Track the effectiveness of counselling and support programs."
+    },
+    {
+        title: "Grade-Wise & Demographic Insights",
+        desc: "Data segmented for clearer understanding and targeted action."
+    },
+    {
+        title: "Periodic Management Reports",
+        desc: "Structured summaries for leadership review and planning."
+    },
+    {
+        title: "Data-Driven Recommendations",
+        desc: "Strategic action plans based on evidence and measurable outcomes."
+    }
+];
+
 const trustedStats = [
-    { value: '5,000+', label: 'Professional Network', icon: '/icons/Mask group.png' },
-    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group2.png' },
-    { value: '40,000+', label: 'Students Benefited', icon: '/icons/Mask group3.png' },
-    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask group3.png' },
+    { value: '5,000+', label: 'Strong Professional Network (PAN India)', icon: '/icons/Mask group2.png' },
+    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
+    { value: '40,000+', label: 'Students Benefited', icon: '/icons/Mask 1.png' },
+    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
 ];
 
 const School = () => {
@@ -58,7 +193,10 @@ const School = () => {
                 </div>
             </div>
 
-            <div className="bg-[#FEFCE8] w-full py-12 sm:py-20 flex flex-col items-center">
+            <div
+                className="w-full py-12 sm:py-20 flex flex-col items-center"
+                style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
+            >
                 {/* ── Split Content Section ── */}
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
@@ -88,6 +226,20 @@ const School = () => {
                             alt="School children smiling"
                             className="w-full max-w-[550px] aspect-[4/3] object-cover rounded-[16px] shadow-lg"
                         />
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full flex flex-col items-center mt-[-4rem]">
+                <div className="max-w-[1240px] mx-auto px-6 flex flex-col items-center text-center">
+                    <h2 className="text-black text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
+                        We stand with you to build your <br />
+                        <span className="text-[#F37321]">"Happy Campus"</span>
+                    </h2>
+                    <div>
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            Get in Touch With Us
+                        </button>
                     </div>
                 </div>
             </div>
@@ -130,7 +282,18 @@ const School = () => {
 
                         {/* Cards Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 w-full max-w-[1100px] mt-6 mb-8">
-                            {offerCards.map((card, idx) => (
+                            {(activeTab === 1
+                                ? specialEducationCards
+                                : activeTab === 2
+                                    ? lifeSkillsCards
+                                    : activeTab === 3
+                                        ? psychometricCards
+                                        : activeTab === 4
+                                            ? workshopCards
+                                            : activeTab === 5
+                                                ? analyticsCards
+                                                : offerCards
+                            ).map((card, idx) => (
                                 <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
                                     {/* Small top-left box for icon */}
                                     <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
@@ -163,7 +326,7 @@ const School = () => {
             </div>
 
             {/* ── Silent Struggles Section ── */}
-            <div className="relative w-full py-16 sm:py-24 bg-white overflow-hidden">
+            <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
                 {/* Background Leaf Image */}
                 <div
                     className="absolute -top-50 left-20 w-[400px] sm:w-[600px] h-full bg-no-repeat bg-left-top opacity-50 pointer-events-none"
@@ -174,7 +337,7 @@ const School = () => {
                     <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Silent Struggles of Today's Students
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-16 sm:mb-24 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
                         Indian students face rising risks of digital dependency, increasing academic<br className="hidden sm:block" />
                         anxiety, growing peer pressure, and deepening concerns about body image
                     </p>
@@ -210,14 +373,17 @@ const School = () => {
                 </div>
             </div>
             {/* ── Benefits Section ── */}
-            <div className="w-full bg-gradient-to-b from-[#FFFDF6] to-[#FCF4DF] py-16 sm:py-24">
+            <div 
+                className="w-full py-10 sm:py-14"
+                style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
+            >
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
 
                     {/* Header */}
                     <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
                         School-Based Mental Health Program Benefits
                     </h2>
-                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
                         Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and<br className="hidden sm:block" />
                         fosters a positive school culture where everyone thrives.
                     </p>
@@ -286,7 +452,16 @@ const School = () => {
                             </div>
 
                         </div>
+
                     </div>
+
+                    {/* CTA Button at the bottom of the section */}
+                    <div className="mt-8 sm:mt-10 flex justify-center">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
+                            Get Started Today
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
