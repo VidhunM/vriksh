@@ -14,6 +14,8 @@ const InstitutionalContact = ({ programType }) => {
         authorized: false
     });
 
+    const dropdownArrow = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`;
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
@@ -23,7 +25,7 @@ const InstitutionalContact = ({ programType }) => {
     };
 
     return (
-        <section className="w-full py-16 sm:py-24" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+        <section className="w-full py-16 sm:py-24" style={{ background: 'linear-gradient(180deg, rgba(255, 250, 228, 0.3) 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
 
@@ -92,7 +94,14 @@ const InstitutionalContact = ({ programType }) => {
                                     name="designation"
                                     value={formData.designation}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
+                                    style={{
+                                        backgroundColor: 'rgba(255, 250, 228, 0.1)',
+                                        backgroundImage: dropdownArrow,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'right 24px center',
+                                        backgroundSize: '16px'
+                                    }}
+                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
                                 >
                                     <option value="">Designation</option>
                                     <option value="principal">Principal</option>
@@ -103,44 +112,88 @@ const InstitutionalContact = ({ programType }) => {
                                     <option value="management">Management</option>
                                     <option value="other">Other</option>
                                 </select>
-                                <select
-                                    name="board"
-                                    value={formData.board}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
-                                >
-                                    <option value="">Board</option>
-                                    <option value="cbse">CBSE</option>
-                                    <option value="icse">ICSE</option>
-                                    <option value="igcse">IGCSE</option>
-                                    <option value="ib">IB</option>
-                                    <option value="state">State Board</option>
-                                    <option value="university">University Affiliated</option>
-                                    <option value="autonomous">Autonomous</option>
-                                    <option value="other">Other</option>
-                                </select>
+                                {programType === "School-Based" ? (
+                                    <select
+                                        name="board"
+                                        value={formData.board}
+                                        onChange={handleChange}
+                                        style={{
+                                            backgroundColor: 'rgba(255, 250, 228, 0.1)',
+                                            backgroundImage: dropdownArrow,
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'right 24px center',
+                                            backgroundSize: '16px'
+                                        }}
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
+                                    >
+                                        <option value="">Board</option>
+                                        <option value="cbse">CBSE</option>
+                                        <option value="icse">ICSE</option>
+                                        <option value="state">State Board</option>
+                                        <option value="ib">IB</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                ) : (
+                                    <select
+                                        name="location"
+                                        value={formData.location}
+                                        onChange={handleChange}
+                                        style={{
+                                            backgroundColor: 'rgba(255, 250, 228, 0.1)',
+                                            backgroundImage: dropdownArrow,
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'right 24px center',
+                                            backgroundSize: '16px'
+                                        }}
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
+                                    >
+                                        <option value="">Location</option>
+                                        <option value="bangalore">Bangalore</option>
+                                        <option value="chennai">Chennai</option>
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="delhi">Delhi</option>
+                                        <option value="hyderabad">Hyderabad</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                )}
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <select
-                                    name="location"
-                                    value={formData.location}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
-                                >
-                                    <option value="">Location</option>
-                                    <option value="bangalore">Bangalore</option>
-                                    <option value="chennai">Chennai</option>
-                                    <option value="mumbai">Mumbai</option>
-                                    <option value="delhi">Delhi</option>
-                                    <option value="hyderabad">Hyderabad</option>
-                                    <option value="other">Other</option>
-                                </select>
+                                {programType === "School-Based" && (
+                                    <select
+                                        name="location"
+                                        value={formData.location}
+                                        onChange={handleChange}
+                                        style={{
+                                            backgroundColor: 'rgba(255, 250, 228, 0.1)',
+                                            backgroundImage: dropdownArrow,
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'right 24px center',
+                                            backgroundSize: '16px'
+                                        }}
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none"
+                                    >
+                                        <option value="">Location</option>
+                                        <option value="bangalore">Bangalore</option>
+                                        <option value="chennai">Chennai</option>
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="delhi">Delhi</option>
+                                        <option value="hyderabad">Hyderabad</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                )}
                                 <select
                                     name="interestedIn"
                                     value={formData.interestedIn}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-500"
+                                    style={{
+                                        backgroundColor: 'rgba(255, 250, 228, 0.1)',
+                                        backgroundImage: dropdownArrow,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'right 24px center',
+                                        backgroundSize: '16px'
+                                    }}
+                                    className={`w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] text-gray-800 appearance-none ${programType !== "School-Based" ? 'sm:col-span-1' : ''}`}
                                 >
                                     <option value="">Interested In</option>
                                     {programType === "School-Based" ? (
@@ -153,7 +206,7 @@ const InstitutionalContact = ({ programType }) => {
                                             <option value="invite-as-guest">Invite as guest</option>
                                             <option value="other">Other</option>
                                         </>
-                                    ) : programType === "College-Based" ? (
+                                    ) : (
                                         <>
                                             <option value="counselling">Counselling</option>
                                             <option value="soft-life-skills">Soft &amp; Life Skills Classes</option>
@@ -161,14 +214,6 @@ const InstitutionalContact = ({ programType }) => {
                                             <option value="career-guidance">Career guidance</option>
                                             <option value="full-program">Full Program</option>
                                             <option value="invite-as-guest">Invite as guest</option>
-                                            <option value="other">Other</option>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <option value="wellness-program">Institutional Wellness Program</option>
-                                            <option value="workshops">Workshops</option>
-                                            <option value="faculty-training">Faculty Training</option>
-                                            <option value="parenting-sessions">Parenting Sessions</option>
                                             <option value="other">Other</option>
                                         </>
                                     )}
