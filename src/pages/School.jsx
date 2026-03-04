@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import InstitutionalContact from '../components/InstitutionalContact';
 
 const tabs = [
     "Campus Counselling",
@@ -323,6 +324,9 @@ const School = () => {
                     </div>
                 </div>
             </div>
+
+            {/* ── Institutional Contact Section ── */}
+            <InstitutionalContact programType="School-Based" />
 
         </section>
     );

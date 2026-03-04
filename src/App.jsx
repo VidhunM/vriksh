@@ -22,6 +22,8 @@ function AppContent() {
   const location = useLocation();
   const isAboutPage = location.pathname === '/about';
   const isContactPage = location.pathname === '/contact';
+  const isSchoolPage = location.pathname === '/school';
+  const isCollegePage = location.pathname === '/college';
 
   return (
     <div className="app">
@@ -41,7 +43,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isAboutPage && !isContactPage && <ContactFooter />}
+      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && <ContactFooter />}
       <Footer />
 
       {/* Floating WhatsApp Icon */}
