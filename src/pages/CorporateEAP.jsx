@@ -85,7 +85,7 @@ const CorporateEAP = () => {
                     {/* Mobile Image */}
                     <div className="block sm:hidden w-full h-[360px] mt-0 overflow-hidden relative z-10 flex justify-end">
                         <img
-                            src="/images/wellness.png"
+                            src="/images/eap01.png"
                             alt="EAP Support Mobile"
                             className="w-[115%] max-w-[115%] h-full object-cover object-top relative right-[-5%]"
                         />
