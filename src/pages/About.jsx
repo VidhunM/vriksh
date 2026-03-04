@@ -275,7 +275,7 @@ const About = () => {
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:ml-[10%]">
                     {/* Left Column: Heading */}
                     <div className="lg:pt-2">
-                        <h2 className="text-[clamp(36px,5vw,48px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
+                        <h2 className="text-[28px] sm:text-[clamp(36px,5vw,48px)] font-bold text-gray-950 leading-[1.2] mb-4 lg:mb-6 text-center lg:text-left font-inter-tight">
                             Enriching <br className="hidden lg:block" /> Minds
                         </h2>
                         <p className="text-[15px] sm:text-[20px] text-gray-700 leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">

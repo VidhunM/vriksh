@@ -118,7 +118,7 @@ const CertificateListing = () => {
     ]);
 
     return (
-        <div className="bg-white py-14 sm:py-20 px-6 sm:px-12">
+        <div className="bg-white py-6 sm:py-20 px-6 sm:px-12">
             <div className="max-w-[1240px] mx-auto">
 
                 {/* Header */}

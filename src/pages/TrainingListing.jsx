@@ -69,7 +69,7 @@ const TrainingListing = () => {
   ]);
 
   return (
-    <section className="bg-white py-14 sm:py-20 px-6 sm:px-12">
+    <section className="bg-white py-5 sm:py-20 px-6 sm:px-12">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-black font-inter-tight mb-3 tracking-wide">

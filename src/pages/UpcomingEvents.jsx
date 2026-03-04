@@ -209,10 +209,10 @@ const UpcomingEvents = () => {
 
             {/* Main Content */}
             <div
-                className="py-8 sm:py-12 overflow-hidden"
+                className="pt-4 pb-8 sm:py-12 overflow-hidden"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
-                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-12 xl:gap-20">
+                <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-6 lg:gap-12 xl:gap-20">
 
                     {/* Left Column: Text Content */}
                     <div className="flex-1 text-left">
@@ -399,7 +399,7 @@ const UpcomingEvents = () => {
             </div>
 
             {/* Choose the Right Program Section */}
-            <div className="py-12 sm:py-20 relative overflow-hidden bg-white">
+            <div className="py-4 sm:py-20 relative overflow-hidden bg-white">
                 {/* Process Wallpaper Image */}
                 <img
                     src="/images/BG.png"

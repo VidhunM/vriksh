@@ -124,7 +124,7 @@ const WorkshopsListing = () => {
     const mobileCardsToShow = filteredCards.slice(mobilePage * itemsPerPage, (mobilePage + 1) * itemsPerPage);
 
     return (
-        <div className="bg-white py-14 sm:py-20 px-6 sm:px-12">
+        <div className="bg-white py-5 sm:py-20 px-6 sm:px-12">
             <div className="max-w-[1240px] mx-auto">
 
                 {/* Header */}

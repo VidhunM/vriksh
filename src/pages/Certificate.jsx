@@ -374,7 +374,7 @@ const schoolLogos = [
 ];
 
 const TrustedByBest = () => (
-    <div className="bg-white py-8 sm:py-12">
+    <div className="bg-white py-0 sm:py-12">
         <div className="max-w-[1240px] mx-auto px-6 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
                 Trusted by the Best

@@ -435,7 +435,7 @@ const CareerCounselling = () => {
             {/* What do we assure? Section - Precisely matching reference image */}
             <div className="bg-white py-12 sm:py-16">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h2 className="text-xl sm:text-4xl font-bold text-[#520378] text-center mb-10 sm:mb-16 font-inter-tight">
+                    <h2 className="text-xl sm:text-4xl font-bold text-[#520378] text-center mb-4 sm:mb-16 font-inter-tight">
                         What do we assure?
                     </h2>
 
@@ -626,7 +626,7 @@ const CareerCounselling = () => {
             </div>
 
             {/* FAQ Section */}
-            <div className="bg-white pt-8 pb-12 sm:pt-12 sm:pb-24">
+            <div className="bg-white pt-4 pb-12 sm:pt-12 sm:pb-24">
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
                     {/* Left: Questions List */}
                     <div className="flex-1 w-full">
