@@ -10,6 +10,7 @@ const InstitutionalContact = ({ programType }) => {
         board: '',
         location: '',
         interestedIn: '',
+        numberOfEmployees: '',
         message: '',
         authorized: false
     });
@@ -22,33 +23,41 @@ const InstitutionalContact = ({ programType }) => {
         }));
     };
 
+    const isEAP = programType === "Corporate-EAP";
+    const isSchool = programType === "School-Based";
+
     return (
         <section className="w-full py-16 sm:py-24" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start -mt-10">
 
                     {/* Left Side: Content */}
-                    <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start pt-4">
+                    <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start pt-2">
                         <h2 className="text-[32px] sm:text-[42px] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
-                            Get in Touch with <br /> Vriksh
+                            {isEAP ? "We’ll help you get started." : "Get in Touch with Vriksh"}
                         </h2>
                         <div className="space-y-6">
                             <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
-                                Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
+                                {isEAP
+                                    ? "Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace."
+                                    : "Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change."}
                             </p>
-                            <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
-                                From professional counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide practical, evidence-based support that truly makes a difference.
-                            </p>
+                            {!isEAP && (
+                                <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
+                                    From professional counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide practical, evidence-based support that truly makes a difference.
+                                </p>
+                            )}
                         </div>
                     </div>
 
                     {/* Right Side: Form */}
                     <div className="w-full lg:w-[50%] flex flex-col pt-2">
                         <h3 className="text-[20px] sm:text-[24px] font-bold text-[#520378] mb-8 leading-snug">
-                            Partner With Us: {programType} Mental Health Program
+                            {isEAP ? "Partner With Us: Corporate Wellness Program" : `Partner With Us: ${programType} Mental Health Program`}
                         </h3>
 
                         <form className="space-y-5 w-full">
+                            {/* Row 1: Name & Email */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <input
                                     type="text"
@@ -68,6 +77,7 @@ const InstitutionalContact = ({ programType }) => {
                                 />
                             </div>
 
+                            {/* Row 2: Phone Number & Designation (for EAP) or Phone & Institution (for Others) */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <input
                                     type="text"
@@ -77,17 +87,69 @@ const InstitutionalContact = ({ programType }) => {
                                     placeholder="Phone Number"
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
-                                <input
-                                    type="text"
-                                    name="institutionName"
-                                    value={formData.institutionName}
-                                    onChange={handleChange}
-                                    placeholder="Institution Name"
-                                    className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
-                                />
+                                {isEAP ? (
+                                    <input
+                                        type="text"
+                                        name="designation"
+                                        value={formData.designation}
+                                        onChange={handleChange}
+                                        placeholder="Designation"
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
+                                    />
+                                ) : (
+                                    <input
+                                        type="text"
+                                        name="institutionName"
+                                        value={formData.institutionName}
+                                        onChange={handleChange}
+                                        placeholder="Institution Name"
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
+                                    />
+                                )}
                             </div>
 
-                            {programType === "School-Based" ? (
+                            {/* Row 3 and beyond: Conditional Content */}
+                            {isEAP ? (
+                                <>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <input
+                                            type="text"
+                                            name="institutionName"
+                                            value={formData.institutionName}
+                                            onChange={handleChange}
+                                            placeholder="Name of Organization"
+                                            className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
+                                        />
+                                        <input
+                                            type="text"
+                                            name="numberOfEmployees"
+                                            value={formData.numberOfEmployees}
+                                            onChange={handleChange}
+                                            placeholder="Number of employees"
+                                            className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
+                                        />
+                                    </div>
+                                    <div className="grid grid-cols-1 gap-4">
+                                        <select
+                                            name="interestedIn"
+                                            value={formData.interestedIn}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                        >
+                                            <option value="">Interested In</option>
+                                            <option value="counselling">Counselling</option>
+                                            <option value="training">Training</option>
+                                            <option value="workshop">Workshop</option>
+                                            <option value="assessments">Assessments</option>
+                                            <option value="full-program">Full Program</option>
+                                            <option value="corporate-wellness">Corporate Wellness Events</option>
+                                            <option value="awareness-campaigns">Awareness Campaigns</option>
+                                            <option value="invite-as-guest">Invite as guest</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </>
+                            ) : isSchool ? (
                                 <>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <select
@@ -154,21 +216,14 @@ const InstitutionalContact = ({ programType }) => {
                             ) : (
                                 <>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <select
+                                        <input
+                                            type="text"
                                             name="designation"
                                             value={formData.designation}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
-                                        >
-                                            <option value="">Designation</option>
-                                            <option value="principal">Principal</option>
-                                            <option value="director">Director</option>
-                                            <option value="dean">Dean</option>
-                                            <option value="coordinator">Coordinator</option>
-                                            <option value="teacher">Teacher</option>
-                                            <option value="management">Management</option>
-                                            <option value="other">Other</option>
-                                        </select>
+                                            placeholder="Designation"
+                                            className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
+                                        />
                                         <select
                                             name="location"
                                             value={formData.location}

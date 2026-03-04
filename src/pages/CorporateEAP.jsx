@@ -7,6 +7,39 @@ const stats = [
     { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
 ];
 
+const offeringCards = [
+    {
+        title: "Counselling Sessions",
+        desc: "Secure, one-on-one sessions for emotional wellbeing and personal growth",
+        icon: "/icons/workshop.png"
+    },
+    {
+        title: "Webinars & Group Sessions",
+        desc: "200+ curated topics featuring expert-led discussions, interactive workshops, and peer learning circles",
+        icon: "/icons/workshop.png"
+    },
+    {
+        title: "Psychometric Assessments",
+        desc: "Evidence-based tools that detect mental health concerns early and deliver meaningful, data-driven insights",
+        icon: "/icons/workshop.png"
+    },
+    {
+        title: "Awareness Campaigns",
+        desc: "Multilingual posters, podcasts, toolkits, and on-site activations that drive employee awareness and engagement",
+        icon: "/icons/workshop.png"
+    },
+    {
+        title: "POSH Training",
+        desc: "Structured, on-demand courses designed to meet compliance standards and strengthen workplace safety",
+        icon: "/icons/workshop.png"
+    },
+    {
+        title: "Analysis Reports",
+        desc: "Track your workforce's overall well-being with comprehensive, data-driven insights",
+        icon: "/icons/workshop.png"
+    }
+];
+
 const CorporateEAP = () => {
     return (
         <section className="bg-white pt-0">
@@ -94,7 +127,7 @@ const CorporateEAP = () => {
             <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
                 {/* Background watermark */}
                 <div
-                    className="absolute -top-10 left-10 w-[350px] sm:w-[500px] h-full bg-no-repeat bg-left-top opacity-30 pointer-events-none"
+                    className="absolute -top-40 left-10 w-[350px] sm:w-[500px] h-full bg-no-repeat bg-left-top opacity-30 pointer-events-none"
                     style={{ backgroundImage: "url('/images/abt.png')", backgroundSize: 'contain' }}
                 />
 
@@ -138,87 +171,32 @@ const CorporateEAP = () => {
 
             {/* ── Empowering Employees Section ── */}
             <div
-                className="w-full py-16 sm:py-24"
-                style={{ background: 'linear-gradient(135deg, #FDE8F3 0%, #FEEBDD 100%)' }}
+                className="w-full bg-[#520378] bg-[length:80%_auto] sm:bg-[length:120%_80%] bg-bottom bg-no-repeat py-16 sm:py-24 relative overflow-hidden mt-20"
+                style={{ backgroundImage: "url('/images/wdwo.png')" }}
             >
-                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
-                    <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center relative z-10">
+                    <h2 className="text-white text-[32px] sm:text-[42px] font-bold mb-4 font-inter-tight text-center tracking-tight leading-tight">
                         Empowering Employees. Enabling Organisations
                     </h2>
-                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                    <p className="text-white/80 text-[14px] sm:text-[16px] text-center max-w-[850px] mb-16 sm:mb-20 font-geist leading-[1.6]">
                         Every organisation's needs are varied and so are our offerings. Customise your plan
                         according to your employees' needs and watch them unravel their best versions
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1100px]">
-                        {[
-                            {
-                                title: "Online Counselling Sessions",
-                                desc: "Secure, one-on-one virtual sessions for emotional wellbeing and personal growth",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "Onsite Counselling Sessions",
-                                desc: "Confidential, face-to-face sessions designed to support employees' emotional wellbeing and personal growth",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "Psychometric Assessments",
-                                desc: "Evidence-based tools that detect mental health concerns early and deliver meaningful, data-driven insights",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "Webinars & Group Sessions",
-                                desc: "200+ curated topics featuring expert-led discussions, interactive workshops, and peer learning circles",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "Awareness Campaigns",
-                                desc: "Multilingual posters, podcasts, toolkits, and on-site activations that drive employee awareness and engagement",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "POSH Training",
-                                desc: "Structured, on-demand courses designed to meet compliance standards and strengthen workplace safety",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "Newsletters",
-                                desc: "Curated well-being content and practical tools delivered regularly to support continuous growth",
-                                icon: "/icons/workshop.png"
-                            },
-                            {
-                                title: "Analysis Reports",
-                                desc: "Track your workforce's overall well-being with comprehensive, data-driven insights",
-                                icon: "/icons/workshop.png"
-                            }
-                        ].map((card, idx) => (
-                            <div key={idx} className="relative bg-white rounded-[20px] p-6 pt-10 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-white/50 h-full flex flex-col items-start transition-transform hover:-translate-y-1">
-                                <div className="absolute -top-5 left-6 w-[60px] h-[60px] bg-white rounded-[12px] shadow-md flex items-center justify-center border border-orange-100">
-                                    <img src={card.icon} alt="icon" className="w-[32px] h-[32px] object-contain" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 w-full">
+                        {offeringCards.map((card, idx) => (
+                            <div key={idx} className="relative bg-white rounded-[20px] p-8 pt-12 shadow-md flex flex-col items-start transition-transform hover:-translate-y-1">
+                                <div className="absolute -top-6 left-8 w-[64px] h-[64px] bg-white rounded-[14px] shadow-md flex items-center justify-center border border-orange-100">
+                                    <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
                                 </div>
-                                <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3]">
+                                <h3 className="text-[#520378] text-[20px] sm:text-[22px] font-bold mb-4 font-inter-tight leading-[1.2]">
                                     {card.title}
                                 </h3>
-                                <p className="text-[#4A5568] text-[13.5px] sm:text-[14px] font-geist leading-[1.6]">
+                                <p className="text-[#4A5568] text-[14px] sm:text-[15px] font-geist leading-[1.6]">
                                     {card.desc}
                                 </p>
                             </div>
                         ))}
-
-                        {/* Image CTA Card */}
-                        <div className="relative rounded-[20px] overflow-hidden h-[200px] sm:h-auto shadow-lg group transition-transform hover:-translate-y-1">
-                            <img
-                                src="/images/banner 4.png"
-                                alt="Talk to Us"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center p-6">
-                                <button className="bg-white text-[#520378] px-8 py-3 rounded-full font-bold text-[15px] shadow-xl hover:scale-105 transition-transform active:scale-95">
-                                    Talk to Us
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -293,8 +271,7 @@ const CorporateEAP = () => {
 
             {/* ── Top ups Section ── */}
             <div
-                className="w-full py-16 sm:py-24"
-                style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #FFF9E3 100%)' }}
+                className="w-full py-16 sm:py-24 bg-white"
             >
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
                     <h2 className="text-[#1A1A1A] text-[28px] sm:text-[42px] font-extrabold mb-4 font-inter-tight text-center tracking-tight">
@@ -305,62 +282,74 @@ const CorporateEAP = () => {
                         thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
                     </p>
 
-                    <div className="flex flex-col lg:flex-row items-stretch gap-6 w-full mb-12 sm:mb-16">
-                        {/* Left side Image */}
-                        <div className="lg:w-[40%] rounded-[24px] overflow-hidden shadow-lg h-[300px] lg:h-auto min-h-[300px]">
-                            <img
-                                src="/images/banner 6.png"
-                                alt="Team collaboration"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
+                    {/* 4 Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full mb-12 sm:mb-16">
+                        {[
+                            {
+                                title: "4-Week Stress & Anxiety Program",
+                                desc: "A structured, evidence-driven approach to reduce stress and strengthen emotional resilience"
+                            },
+                            {
+                                title: "4-Week Emotional Intelligence Program",
+                                desc: "Develop the skills to understand, manage, and respond to emotions effectively"
+                            },
+                            {
+                                title: "Corporate Wellness Events",
+                                desc: "Bring energy to the workplace through interactive, play-based experiences that boost morale and team bonding"
+                            },
+                            {
+                                title: "4-Week Affirmation & Mindfulness Program",
+                                desc: "Cultivate awareness, reframe negative patterns, and build emotional balance through evidence-based practices"
+                            }
+                        ].map((card, idx) => (
+                            <div key={idx} className="bg-[#520378] rounded-[24px] p-6 pt-10 flex flex-col items-start relative shadow-md transition-transform hover:-translate-y-1 h-full min-h-[320px]">
+                                <h3 className="text-white text-[19px] sm:text-[21px] font-bold mb-4 font-inter-tight leading-[1.2]">
+                                    {card.title}
+                                </h3>
+                                <p className="text-white/80 text-[13.5px] sm:text-[14.5px] font-geist leading-[1.6] mb-auto">
+                                    {card.desc}
+                                </p>
 
-                        {/* Program Cards */}
-                        <div className="lg:w-[60%] flex flex-col sm:flex-row gap-6">
-                            {[
-                                {
-                                    title: "4-Week Stress & Anxiety Program",
-                                    desc: "A structured, evidence-driven approach to reduce stress and strengthen emotional resilience",
-                                    icon: "📄"
-                                },
-                                {
-                                    title: "4-Week Emotional Intelligence Program",
-                                    desc: "Develop the skills to understand, manage, and respond to emotions effectively",
-                                    icon: "📄"
-                                },
-                                {
-                                    title: "Corporate Wellness Program",
-                                    desc: "Bring your team together through expert-led experiences and wellness sessions",
-                                    icon: "📄"
-                                }
-                            ].map((card, idx) => (
-                                <div key={idx} className="flex-1 bg-[#FCA253] rounded-[24px] p-6 pt-8 flex flex-col items-start relative shadow-md hover:scale-[1.02] transition-transform group">
-                                    <h3 className="text-[#520378] text-[18px] sm:text-[20px] font-bold mb-4 font-inter-tight leading-[1.2]">
-                                        {card.title}
-                                    </h3>
-                                    <p className="text-[#1A1A1A] text-[13px] sm:text-[14px] font-medium font-geist leading-[1.5] mb-auto">
-                                        {card.desc}
-                                    </p>
-                                    <div className="mt-8 self-end">
-                                        <div className="w-16 h-20 bg-white/20 rounded-lg flex items-center justify-center border border-black/10">
-                                            {/* Icon Placeholder */}
-                                            <div className="w-10 h-10 bg-white rounded flex items-center justify-center shadow-sm">
-                                                <div className="w-6 h-6 border-2 border-black/80 rounded-sm relative">
-                                                    <div className="absolute top-1 left-1 w-2 h-2 rounded-full border border-black/80" />
-                                                    <div className="absolute bottom-1 left-1 right-1 h-[1px] bg-black/80" />
-                                                    <div className="absolute bottom-2 left-1 right-1 h-[1px] bg-black/80" />
-                                                </div>
-                                            </div>
+                                {/* Illustration Placeholder (matching image style) */}
+                                <div className="mt-8 self-end w-full flex justify-end">
+                                    <div className="relative w-24 h-24">
+                                        {/* Simple representation of the yellow document/character icon */}
+                                        <div className="absolute right-0 bottom-0 w-16 h-20 bg-[#FFB800] rounded-[4px] border-2 border-black flex flex-col p-2">
+                                            <div className="w-6 h-6 rounded-full border-2 border-black mb-1 mx-auto" />
+                                            <div className="w-full h-1 bg-black/20 mb-1" />
+                                            <div className="w-full h-1 bg-black/20 mb-1" />
+                                            <div className="w-2/3 h-1 bg-black/20" />
+                                        </div>
+                                        <div className="absolute right-[-4px] bottom-4 w-10 h-10">
+                                            {/* White hand icon placeholder */}
+                                            <svg viewBox="0 0 24 24" className="w-full h-full text-white fill-current stroke-black stroke-1">
+                                                <path d="M7 10c0-1.1.9-2 2-2h1V7c0-2.8 2.2-5 5-5s5 2.2 5 5v3h1c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H9c-1.1 0-2-.9-2-2v-8z" />
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
 
-                    <button className="bg-[#520378] hover:bg-[#400260] text-white px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-lg">
-                        Talk to Us
-                    </button>
+                    {/* Bottom Controls */}
+                    <div className="w-full flex flex-col sm:flex-row items-center justify-end gap-6">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-10 py-3 rounded-full font-bold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            Talk to Us
+                        </button>
+                        <div className="flex gap-3">
+                            <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors">
+                                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors">
+                                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
