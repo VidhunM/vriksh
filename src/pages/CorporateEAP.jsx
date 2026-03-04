@@ -1,47 +1,94 @@
 import React from 'react';
 import InstitutionalContact from '../components/InstitutionalContact';
 
+const stats = [
+    { value: '5,000+', label: 'Professional Network', icon: '/icons/Mask group2.png' },
+    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
+    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
+];
+
 const CorporateEAP = () => {
     return (
         <section className="bg-white pt-0">
-            {/* ── Purple Header Banner ── */}
-            <div className="bg-[#520378] pt-24 pb-6 sm:pt-36 sm:pb-10 text-center relative z-10 w-full">
-                <div className="max-w-[1240px] mx-auto px-6">
-                    <h1 className="text-white text-[clamp(20px,3.5vw,36px)] font-bold tracking-[0.02em] uppercase font-inter-tight">
-                        EMPLOYEE ASSISTANCE PROGRAMME (EAP)
-                    </h1>
+            {/* ── Purple Header Banner + Hero combined ── */}
+            <div className="relative  bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden relative">
+
+                {/* Purple top banner */}
+                <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10 w-full">
+                    <div className="max-w-[1240px] mx-auto px-6">
+                        <h1 className="text-white text-[clamp(24px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                            EMPLOYEE ASSISTANCE PROGRAMME (EAP)
+                        </h1>
+                    </div>
                 </div>
-            </div>
 
-            {/* ── Hero Section (Full Background Image) ── */}
-            <div
-                className="w-full relative flex items-center justify-start min-h-[420px] sm:min-h-[520px] lg:min-h-[580px] overflow-hidden"
-                style={{
-                    backgroundImage: "url('/images/EAP banner.png')",
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            >
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/65" />
+                {/* Hero content area — person image overlaps the purple banner */}
+                <div className="relative overflow-hidden">
+                    {/* Person image — cropped from center to bottom (Desktop/Tablet) */}
+                    <div className="hidden sm:block absolute top-[-2%] right-0 sm:right-[4%] lg:right-[8%] bottom-0 sm:w-[50%] lg:w-[45%] max-w-[450px] h-[130%] overflow-hidden pointer-events-none">
+                        <img
+                            src="/images/eap01.png"
+                            alt="EAP Support"
+                            className="w-full h-full object-cover object-top"
+                        />
+                    </div>
 
-                {/* Content */}
-                <div className="relative z-10 max-w-[1240px] mx-auto px-8 sm:px-12 lg:px-20 py-16 sm:py-24 w-full">
-                    <div className="max-w-[560px]">
-                        <h2 className="text-white text-2xl sm:text-[38px] font-bold leading-[1.2] mb-5 font-inter-tight">
-                            We help employees <br />
-                            Unlock their Full Potential.
-                        </h2>
-                        <p className="text-white/85 text-sm sm:text-[15px] font-medium leading-[1.7] mb-8 font-geist">
-                            With a trusted Employee Assistance Programme (EAP), equip your workforce with care that drives measurable impact.
-                        </p>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
-                            Talk to an expert
-                        </button>
+                    {/* Text content */}
+                    <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
+                        <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
+                            <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
+                                We help employees <br />
+                                Unlock their Full Potential.
+                            </h2>
+                            <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                                With a trusted Employee Assistance Programme (EAP), equip your workforce with care that drives measurable impact.
+                            </p>
+                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                                Talk to an expert
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Mobile Image */}
+                    <div className="block sm:hidden w-full h-[360px] mt-0 overflow-hidden relative z-10 flex justify-end">
+                        <img
+                            src="/images/wellness.png"
+                            alt="EAP Support Mobile"
+                            className="w-[115%] max-w-[115%] h-full object-cover object-top relative right-[-5%]"
+                        />
                     </div>
                 </div>
             </div>
 
+            {/* ── Stats Section ── */}
+            <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-2 sm:-mt-4">
+                <div
+                    className="max-w-[1240px] mx-auto rounded-[16px] pt-10 pb-8 sm:pt-12 sm:pb-10 px-5 sm:px-12 shadow-lg"
+                    style={{ background: '#520378' }}
+                >
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="relative mt-5 sm:mt-4">
+                                <div className="absolute -top-[22px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[44px] sm:w-[54px] sm:h-[54px] bg-white rounded-[10px] sm:rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                                    <img
+                                        src={stat.icon}
+                                        alt={stat.label}
+                                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                                    />
+                                </div>
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[26px] sm:pt-[40px] pb-5 sm:pb-6 px-4 sm:px-7 h-full w-full flex flex-col justify-center min-h-[110px]">
+                                    <div className="text-[24px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-[15px] sm:text-[28px] text-gray-700 font-medium">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
             {/* ── Workplace & Wellbeing Snapshot ── */}
             <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
@@ -314,44 +361,6 @@ const CorporateEAP = () => {
                     <button className="bg-[#520378] hover:bg-[#400260] text-white px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-lg">
                         Talk to Us
                     </button>
-                </div>
-            </div>
-
-
-            {/* ── Trusted Partner Section ── */}
-            <div className="w-full bg-white py-12 sm:py-20 px-4 sm:px-8 relative z-20">
-                <div
-                    className="max-w-[1240px] mx-auto rounded-[32px] pt-12 pb-10 sm:pt-14 sm:pb-12 px-6 sm:px-10 lg:px-12 shadow-xl"
-                    style={{ background: '#520378' }}
-                >
-                    <h2 className="text-white text-center text-[24px] sm:text-[34px] font-bold mb-12 sm:mb-16 font-inter-tight tracking-wide">
-                        What Makes Us Your Trusted Partner?
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 lg:gap-12 max-w-[1000px] mx-auto">
-                        {[
-                            { value: '5,000+', label: 'Professional Network', icon: '/icons/Mask group2.png' },
-                            { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
-                            { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
-                        ].map((stat, index) => (
-                            <div key={index} className="relative group">
-                                <div className="absolute -top-[20px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] bg-white rounded-[10px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10 transition-transform group-hover:scale-110">
-                                    <img
-                                        src={stat.icon}
-                                        alt={stat.label}
-                                        className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
-                                    />
-                                </div>
-                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[16px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px] transition-all group-hover:bg-[#F3E2F9]">
-                                    <div className="text-[20px] lg:text-[24px] font-extrabold text-[#1A1A1A] font-inter-tight leading-tight mb-1">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-[13px] sm:text-[14px] text-gray-700 font-bold font-geist">
-                                        {stat.label}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </div>
 
