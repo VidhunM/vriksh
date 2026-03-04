@@ -295,22 +295,22 @@ const CertificateTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-                <div className="sm:hidden flex flex-row justify-between items-center w-full gap-4 mb-10">
-                    <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
+                <div className="sm:hidden flex flex-row justify-start items-center w-full gap-8 mb-8 -mt-2">
+                    <h2 className="text-[18px] font-bold text-black font-inter-tight leading-tight whitespace-nowrap">
                         What our learners say
                     </h2>
-                    <div className="flex gap-3 shrink-0">
+                    <div className="flex gap-2 shrink-0">
                         <button
                             onClick={() => { prevSlide(); setMobileTestNav('left'); }}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'}`}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-200 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'left' ? 'bg-[#520378] text-white border-[#520378]' : 'bg-white'}`}
                         >
-                            <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                            <svg className={`w-5 h-5 ${mobileTestNav === 'left' ? 'text-white' : 'text-gray-600'} transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                         </button>
                         <button
                             onClick={() => { nextSlide(); setMobileTestNav('right'); }}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'}`}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-200 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'right' ? 'bg-[#520378] text-white border-[#520378]' : 'bg-white'}`}
                         >
-                            <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
+                            <svg className={`w-5 h-5 ${mobileTestNav === 'right' ? 'text-white' : 'text-gray-600'} transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
                 </div>

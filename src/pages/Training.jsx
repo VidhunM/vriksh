@@ -309,7 +309,7 @@ const TrainingTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
+                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8 -mt-10">
                     <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
                         What our learners say
                     </h2>
