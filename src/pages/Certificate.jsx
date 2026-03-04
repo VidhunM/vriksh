@@ -295,11 +295,7 @@ const CertificateTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-<<<<<<< Updated upstream
-               <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
-=======
                 <div className="sm:hidden flex flex-row justify-between items-center w-full gap-4 mb-10">
->>>>>>> Stashed changes
                     <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
                         What our learners say
                     </h2>
