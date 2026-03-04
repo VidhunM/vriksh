@@ -201,7 +201,7 @@ const School = () => {
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
-                        <h2 className="text-[#103D31] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
+                        <h2 className="text-[#062623] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
                             Enriching Minds, Empowering<br className="hidden sm:block" /> School Communities
                         </h2>
                         <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
@@ -373,7 +373,7 @@ const School = () => {
                 </div>
             </div>
             {/* ── Benefits Section ── */}
-            <div 
+            <div
                 className="w-full py-10 sm:py-14"
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
