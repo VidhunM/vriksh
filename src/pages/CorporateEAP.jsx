@@ -1,0 +1,364 @@
+import React from 'react';
+import InstitutionalContact from '../components/InstitutionalContact';
+
+const CorporateEAP = () => {
+    return (
+        <section className="bg-white pt-0">
+            {/* ── Purple Header Banner ── */}
+            <div className="bg-[#520378] pt-24 pb-6 sm:pt-36 sm:pb-10 text-center relative z-10 w-full">
+                <div className="max-w-[1240px] mx-auto px-6">
+                    <h1 className="text-white text-[clamp(20px,3.5vw,36px)] font-bold tracking-[0.02em] uppercase font-inter-tight">
+                        EMPLOYEE ASSISTANCE PROGRAMME (EAP)
+                    </h1>
+                </div>
+            </div>
+
+            {/* ── Hero Section (Full Background Image) ── */}
+            <div
+                className="w-full relative flex items-center justify-start min-h-[420px] sm:min-h-[520px] lg:min-h-[580px] overflow-hidden"
+                style={{
+                    backgroundImage: "url('/images/EAP banner.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}
+            >
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/65" />
+
+                {/* Content */}
+                <div className="relative z-10 max-w-[1240px] mx-auto px-8 sm:px-12 lg:px-20 py-16 sm:py-24 w-full">
+                    <div className="max-w-[560px]">
+                        <h2 className="text-white text-2xl sm:text-[38px] font-bold leading-[1.2] mb-5 font-inter-tight">
+                            We help employees <br />
+                            Unlock their Full Potential.
+                        </h2>
+                        <p className="text-white/85 text-sm sm:text-[15px] font-medium leading-[1.7] mb-8 font-geist">
+                            With a trusted Employee Assistance Programme (EAP), equip your workforce with care that drives measurable impact.
+                        </p>
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            Talk to an expert
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* ── Workplace & Wellbeing Snapshot ── */}
+            <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
+                {/* Background watermark */}
+                <div
+                    className="absolute -top-10 left-10 w-[350px] sm:w-[500px] h-full bg-no-repeat bg-left-top opacity-30 pointer-events-none"
+                    style={{ backgroundImage: "url('/images/abt.png')", backgroundSize: 'contain' }}
+                />
+
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+                    <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
+                        Workplace &amp; Wellbeing Snapshot
+                    </h2>
+                    <p className="text-[#333333] text-[13px] sm:text-[14.5px] text-center max-w-[600px] mb-10 sm:mb-14 font-geist leading-[1.6]">
+                        Indian students face rising risks of digital dependency, increasing academic
+                        anxiety, growing peer pressure, and deepening concerns about body image
+                    </p>
+
+                    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[900px]">
+                        {/* Circle 1 */}
+                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 -mb-6 md:mb-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">21%</h3>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[160px]">
+                                Employees worldwide<br />are engaged at work
+                            </p>
+                        </div>
+
+                        {/* Circle 2 (Middle) */}
+                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-20 -mb-6 md:mb-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none">33%</h3>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[160px]">
+                                Employees Globally<br />Say They Are Thriving<br />In Life
+                            </p>
+                        </div>
+
+                        {/* Circle 3 */}
+                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 md:-ml-8 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">40%</h3>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[160px]">
+                                Employees reported<br />experiencing stress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* ── Empowering Employees Section ── */}
+            <div
+                className="w-full py-16 sm:py-24"
+                style={{ background: 'linear-gradient(135deg, #FDE8F3 0%, #FEEBDD 100%)' }}
+            >
+                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
+                    <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                        Empowering Employees. Enabling Organisations
+                    </h2>
+                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                        Every organisation's needs are varied and so are our offerings. Customise your plan
+                        according to your employees' needs and watch them unravel their best versions
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1100px]">
+                        {[
+                            {
+                                title: "Online Counselling Sessions",
+                                desc: "Secure, one-on-one virtual sessions for emotional wellbeing and personal growth",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "Onsite Counselling Sessions",
+                                desc: "Confidential, face-to-face sessions designed to support employees' emotional wellbeing and personal growth",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "Psychometric Assessments",
+                                desc: "Evidence-based tools that detect mental health concerns early and deliver meaningful, data-driven insights",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "Webinars & Group Sessions",
+                                desc: "200+ curated topics featuring expert-led discussions, interactive workshops, and peer learning circles",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "Awareness Campaigns",
+                                desc: "Multilingual posters, podcasts, toolkits, and on-site activations that drive employee awareness and engagement",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "POSH Training",
+                                desc: "Structured, on-demand courses designed to meet compliance standards and strengthen workplace safety",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "Newsletters",
+                                desc: "Curated well-being content and practical tools delivered regularly to support continuous growth",
+                                icon: "/icons/workshop.png"
+                            },
+                            {
+                                title: "Analysis Reports",
+                                desc: "Track your workforce's overall well-being with comprehensive, data-driven insights",
+                                icon: "/icons/workshop.png"
+                            }
+                        ].map((card, idx) => (
+                            <div key={idx} className="relative bg-white rounded-[20px] p-6 pt-10 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-white/50 h-full flex flex-col items-start transition-transform hover:-translate-y-1">
+                                <div className="absolute -top-5 left-6 w-[60px] h-[60px] bg-white rounded-[12px] shadow-md flex items-center justify-center border border-orange-100">
+                                    <img src={card.icon} alt="icon" className="w-[32px] h-[32px] object-contain" />
+                                </div>
+                                <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3]">
+                                    {card.title}
+                                </h3>
+                                <p className="text-[#4A5568] text-[13.5px] sm:text-[14px] font-geist leading-[1.6]">
+                                    {card.desc}
+                                </p>
+                            </div>
+                        ))}
+
+                        {/* Image CTA Card */}
+                        <div className="relative rounded-[20px] overflow-hidden h-[200px] sm:h-auto shadow-lg group transition-transform hover:-translate-y-1">
+                            <img
+                                src="/images/banner 4.png"
+                                alt="Talk to Us"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center p-6">
+                                <button className="bg-white text-[#520378] px-8 py-3 rounded-full font-bold text-[15px] shadow-xl hover:scale-105 transition-transform active:scale-95">
+                                    Talk to Us
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* ── Boost Your Employee Morale Section ── */}
+            <div className="w-full py-16 sm:py-24 bg-white">
+                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
+                    <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                        Boost your employee morale
+                    </h2>
+                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-16 sm:mb-20 font-geist leading-[1.6]">
+                        Our Employee Assistance Program (EAP) is specially curated to nurture
+                        your workforce’s emotional wellbeing.
+                    </p>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 w-full">
+                        {[
+                            { percent: 72, label: "Increased Employee Retention" },
+                            { percent: 58, label: "Increase in New Talents" },
+                            { percent: 54, label: "Improved Employee Feedback" },
+                            { percent: 58, label: "Increased Business Performance" },
+                            { percent: 26, label: "Reduced Company Costs" }
+                        ].map((stat, idx) => {
+                            const radius = 70;
+                            const strokeWidth = 10;
+                            const normalizedRadius = radius - strokeWidth * 2;
+                            const circumference = normalizedRadius * 2 * Math.PI;
+                            const strokeDashoffset = circumference - (stat.percent / 100) * circumference;
+
+                            return (
+                                <div key={idx} className="flex flex-col items-center text-center group">
+                                    <div className="relative w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] mb-6 transition-transform duration-300 group-hover:scale-110">
+                                        <svg height="100%" width="100%" viewBox="0 0 140 140" className="transform -rotate-90">
+                                            <circle
+                                                stroke="#E2E8F0"
+                                                fill="transparent"
+                                                strokeWidth={strokeWidth}
+                                                r={normalizedRadius}
+                                                cx="70"
+                                                cy="70"
+                                            />
+                                            <circle
+                                                stroke="#FCA253"
+                                                fill="transparent"
+                                                strokeWidth={strokeWidth}
+                                                strokeDasharray={circumference + ' ' + circumference}
+                                                style={{ strokeDashoffset }}
+                                                strokeLinecap="round"
+                                                r={normalizedRadius}
+                                                cx="70"
+                                                cy="70"
+                                                className="transition-all duration-1000 ease-out"
+                                            />
+                                        </svg>
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <span className="text-[#1A1A1A] text-2xl sm:text-3xl font-bold font-inter-tight">
+                                                {stat.percent}%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p className="text-[#1A1A1A] text-[13px] sm:text-[14px] font-bold leading-[1.4] max-w-[140px] font-geist">
+                                        {stat.label}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+
+
+            {/* ── Top ups Section ── */}
+            <div
+                className="w-full py-16 sm:py-24"
+                style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #FFF9E3 100%)' }}
+            >
+                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
+                    <h2 className="text-[#1A1A1A] text-[28px] sm:text-[42px] font-extrabold mb-4 font-inter-tight text-center tracking-tight">
+                        Top ups
+                    </h2>
+                    <p className="text-[#475467] text-[13px] sm:text-[15px] text-center max-w-[850px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                        Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
+                        thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                    </p>
+
+                    <div className="flex flex-col lg:flex-row items-stretch gap-6 w-full mb-12 sm:mb-16">
+                        {/* Left side Image */}
+                        <div className="lg:w-[40%] rounded-[24px] overflow-hidden shadow-lg h-[300px] lg:h-auto min-h-[300px]">
+                            <img
+                                src="/images/banner 6.png"
+                                alt="Team collaboration"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+
+                        {/* Program Cards */}
+                        <div className="lg:w-[60%] flex flex-col sm:flex-row gap-6">
+                            {[
+                                {
+                                    title: "4-Week Stress & Anxiety Program",
+                                    desc: "A structured, evidence-driven approach to reduce stress and strengthen emotional resilience",
+                                    icon: "📄"
+                                },
+                                {
+                                    title: "4-Week Emotional Intelligence Program",
+                                    desc: "Develop the skills to understand, manage, and respond to emotions effectively",
+                                    icon: "📄"
+                                },
+                                {
+                                    title: "Corporate Wellness Program",
+                                    desc: "Bring your team together through expert-led experiences and wellness sessions",
+                                    icon: "📄"
+                                }
+                            ].map((card, idx) => (
+                                <div key={idx} className="flex-1 bg-[#FCA253] rounded-[24px] p-6 pt-8 flex flex-col items-start relative shadow-md hover:scale-[1.02] transition-transform group">
+                                    <h3 className="text-[#520378] text-[18px] sm:text-[20px] font-bold mb-4 font-inter-tight leading-[1.2]">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-[#1A1A1A] text-[13px] sm:text-[14px] font-medium font-geist leading-[1.5] mb-auto">
+                                        {card.desc}
+                                    </p>
+                                    <div className="mt-8 self-end">
+                                        <div className="w-16 h-20 bg-white/20 rounded-lg flex items-center justify-center border border-black/10">
+                                            {/* Icon Placeholder */}
+                                            <div className="w-10 h-10 bg-white rounded flex items-center justify-center shadow-sm">
+                                                <div className="w-6 h-6 border-2 border-black/80 rounded-sm relative">
+                                                    <div className="absolute top-1 left-1 w-2 h-2 rounded-full border border-black/80" />
+                                                    <div className="absolute bottom-1 left-1 right-1 h-[1px] bg-black/80" />
+                                                    <div className="absolute bottom-2 left-1 right-1 h-[1px] bg-black/80" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <button className="bg-[#520378] hover:bg-[#400260] text-white px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-lg">
+                        Talk to Us
+                    </button>
+                </div>
+            </div>
+
+
+            {/* ── Trusted Partner Section ── */}
+            <div className="w-full bg-white py-12 sm:py-20 px-4 sm:px-8 relative z-20">
+                <div
+                    className="max-w-[1240px] mx-auto rounded-[32px] pt-12 pb-10 sm:pt-14 sm:pb-12 px-6 sm:px-10 lg:px-12 shadow-xl"
+                    style={{ background: '#520378' }}
+                >
+                    <h2 className="text-white text-center text-[24px] sm:text-[34px] font-bold mb-12 sm:mb-16 font-inter-tight tracking-wide">
+                        What Makes Us Your Trusted Partner?
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 lg:gap-12 max-w-[1000px] mx-auto">
+                        {[
+                            { value: '5,000+', label: 'Professional Network', icon: '/icons/Mask group2.png' },
+                            { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
+                            { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
+                        ].map((stat, index) => (
+                            <div key={index} className="relative group">
+                                <div className="absolute -top-[20px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] bg-white rounded-[10px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10 transition-transform group-hover:scale-110">
+                                    <img
+                                        src={stat.icon}
+                                        alt={stat.label}
+                                        className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
+                                    />
+                                </div>
+                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[16px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px] transition-all group-hover:bg-[#F3E2F9]">
+                                    <div className="text-[20px] lg:text-[24px] font-extrabold text-[#1A1A1A] font-inter-tight leading-tight mb-1">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-[13px] sm:text-[14px] text-gray-700 font-bold font-geist">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* ── Get in Touch Section ── */}
+            <InstitutionalContact programType="Corporate-EAP" />
+        </section>
+    );
+};
+
+export default CorporateEAP;

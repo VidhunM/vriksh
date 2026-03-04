@@ -216,6 +216,26 @@ const InstitutionalContact = ({ programType }) => {
                                             <option value="invite-as-guest">Invite as guest</option>
                                             <option value="other">Other</option>
                                         </>
+<<<<<<< HEAD
+=======
+                                    ) : programType === "Corporate-EAP" ? (
+                                        <>
+                                            <option value="eap">Employee Assistance Programme (EAP)</option>
+                                            <option value="webinars">Webinars</option>
+                                            <option value="training-programs">Training Programs</option>
+                                            <option value="wellness-program">Workplace Wellness Program</option>
+                                            <option value="invite-as-guest">Invite as guest</option>
+                                            <option value="other">Other</option>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value="wellness-program">Institutional Wellness Program</option>
+                                            <option value="workshops">Workshops</option>
+                                            <option value="faculty-training">Faculty Training</option>
+                                            <option value="parenting-sessions">Parenting Sessions</option>
+                                            <option value="other">Other</option>
+                                        </>
+>>>>>>> bc0b53cc198e8d62defa83deca7518331add595b
                                     )}
                                 </select>
                             </div>

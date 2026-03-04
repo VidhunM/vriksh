@@ -49,7 +49,7 @@ const Header = () => {
         { label: 'For Colleges', href: '/college' }
       ]
     },
-    { label: 'Corporate - EAP', href: '#' },
+    { label: 'Corporate - EAP', href: '/corporate-eap' },
     { label: 'Career Guidance', href: '/career-counselling' }
   ];
 
