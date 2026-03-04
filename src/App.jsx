@@ -13,6 +13,7 @@ import TrainingListing from './pages/TrainingListing';
 import Certificate from './pages/Certificate';
 import School from './pages/School';
 import College from './pages/College';
+import CorporateEAP from './pages/CorporateEAP';
 import Contact from './pages/Contact';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
@@ -24,6 +25,7 @@ function AppContent() {
   const isContactPage = location.pathname === '/contact';
   const isSchoolPage = location.pathname === '/school';
   const isCollegePage = location.pathname === '/college';
+  const isCorporateEAPPage = location.pathname === '/corporate-eap';
 
   return (
     <div className="app">
@@ -40,10 +42,11 @@ function AppContent() {
           <Route path="/certificate" element={<Certificate />} />
           <Route path="/school" element={<School />} />
           <Route path="/college" element={<College />} />
+          <Route path="/corporate-eap" element={<CorporateEAP />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && <ContactFooter />}
+      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && !isCorporateEAPPage && <ContactFooter />}
       <Footer />
 
       {/* Floating WhatsApp Icon */}

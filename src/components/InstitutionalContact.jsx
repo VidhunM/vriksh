@@ -163,6 +163,15 @@ const InstitutionalContact = ({ programType }) => {
                                             <option value="invite-as-guest">Invite as guest</option>
                                             <option value="other">Other</option>
                                         </>
+                                    ) : programType === "Corporate-EAP" ? (
+                                        <>
+                                            <option value="eap">Employee Assistance Programme (EAP)</option>
+                                            <option value="webinars">Webinars</option>
+                                            <option value="training-programs">Training Programs</option>
+                                            <option value="wellness-program">Workplace Wellness Program</option>
+                                            <option value="invite-as-guest">Invite as guest</option>
+                                            <option value="other">Other</option>
+                                        </>
                                     ) : (
                                         <>
                                             <option value="wellness-program">Institutional Wellness Program</option>
