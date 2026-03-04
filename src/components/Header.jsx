@@ -45,7 +45,7 @@ const Header = () => {
     {
       label: 'Institutional Wellness Program',
       subItems: [
-        { label: 'For Schools', href: '#' },
+        { label: 'For Schools', href: '/school' },
         { label: 'For Colleges', href: '#' }
       ]
     },

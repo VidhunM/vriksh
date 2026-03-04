@@ -11,6 +11,7 @@ import Workshop from './pages/Workshop';
 import Training from './pages/Training';
 import TrainingListing from './pages/TrainingListing';
 import Certificate from './pages/Certificate';
+import School from './pages/School';
 import Contact from './pages/Contact';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
@@ -34,6 +35,7 @@ function AppContent() {
           <Route path="/training" element={<Training />} />
           <Route path="/training-listing" element={<TrainingListing />} />
           <Route path="/certificate" element={<Certificate />} />
+          <Route path="/school" element={<School />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
