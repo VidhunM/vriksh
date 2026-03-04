@@ -195,7 +195,7 @@ const College = () => {
                 </div>
             </div>
 
-            <div 
+            <div
                 className="w-full py-12 sm:py-20 flex flex-col items-center"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
@@ -203,8 +203,8 @@ const College = () => {
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-center gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
-                        <h2 className="text-[#103D31] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
-                            College-Based Mental <br/> Health Program
+                        <h2 className="text-[#062623] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
+                            College-Based Mental <br /> Health Program
                         </h2>
                         <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
                             Build a resilient campus that nurtures emotionally strong, confident, and thriving students by equipping young adults with the skills to manage stress, relationships, and future career demands with confidence. Strengthen student wellbeing, enhance academic engagement, and foster a positive campus culture where mental health becomes the foundation of success. Take the first step toward lasting change.
@@ -277,10 +277,10 @@ const College = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 w-full max-w-[1100px] mt-6 mb-8">
-                            {(activeTab === 0 
-                                ? collegeCounsellingCards 
-                                : activeTab === 1 
-                                    ? softSkillsCards 
+                            {(activeTab === 0
+                                ? collegeCounsellingCards
+                                : activeTab === 1
+                                    ? softSkillsCards
                                     : activeTab === 2
                                         ? careerGuidanceCards
                                         : activeTab === 3
@@ -357,7 +357,7 @@ const College = () => {
             </div>
 
             {/* ── Benefits Section ── */}
-            <div 
+            <div
                 className="w-full py-10 sm:py-14"
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
@@ -366,15 +366,13 @@ const College = () => {
                         College-Based Mental Health Program Benefits
                     </h2>
                     <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
-                        Partnering with us enables your college to build a safe, emotionally resilient, and high-performing campus environment. Our structured mental health framework strengthens student well-being, enhances focus and behavior, improves academic engagement, and equips faculty with tools to manage classroom and campus challenges effectively.
-<br />With preventive programs, early identification systems, and data-driven insights, we help reduce crises, foster a positive campus culture, and boost student and parent confidence-creating a college environment where students, faculty, and leadership can truly thrive.
-
+                        Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and fosters a positive school culture where everyone thrives.
                     </p>
 
                     <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-10 lg:gap-16">
                         <div className="flex-1 w-full flex justify-center lg:justify-start">
                             <img
-                                src="/images/banner 4.png"
+                                src="/images/banner 5.png"
                                 alt="College students"
                                 className="w-full max-w-[550px] lg:max-w-[500px] xl:max-w-[550px] object-cover rounded-[16px] shadow-md"
                             />
@@ -407,7 +405,7 @@ const College = () => {
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                         Early Identification &<br />Preventive Support
+                                        Early Identification &<br />Preventive Support
 
                                     </span>
                                 </div>
