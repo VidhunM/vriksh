@@ -270,11 +270,11 @@ const CertificateTestimonials = () => {
         >
             <div className="max-w-[1240px] mx-auto px-6">
                 {/* Header with Navigation - Desktop */}
-                <div className="hidden sm:flex justify-between items-end mb-12">
-                    <h2 className="text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-normal">
+                <div className="hidden sm:flex justify-between items-end gap-12 mb-12">
+                    <h2 className="text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-[1.1] tracking-normal">
                         What our learners say
                     </h2>
-                    <div className="flex gap-3 mb-2">
+                    <div className="flex gap-3 mb-2 shrink-0">
                         <button
                             onClick={prevSlide}
                             className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white text-gray-400 hover:border-[#520378] hover:text-[#520378] transition-all shadow-sm active:scale-95"
@@ -295,11 +295,15 @@ const CertificateTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
+<<<<<<< Updated upstream
                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
+=======
+                <div className="sm:hidden flex flex-row justify-between items-center w-full gap-4 mb-10">
+>>>>>>> Stashed changes
                     <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
                         What our learners say
                     </h2>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 shrink-0">
                         <button
                             onClick={() => { prevSlide(); setMobileTestNav('left'); }}
                             className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 ${mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'}`}
