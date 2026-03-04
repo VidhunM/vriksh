@@ -36,6 +36,13 @@ const offerCards = [
     }
 ];
 
+const trustedStats = [
+    { value: '5,000+', label: 'Professional Network', icon: '/icons/Mask group.png' },
+    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group2.png' },
+    { value: '40,000+', label: 'Students Benefited', icon: '/icons/Mask group3.png' },
+    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask group3.png' },
+];
+
 const School = () => {
     const [activeTab, setActiveTab] = useState(0);
 
@@ -198,6 +205,121 @@ const School = () => {
                             <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+            {/* ── Benefits Section ── */}
+            <div className="w-full bg-gradient-to-b from-[#FFFDF6] to-[#FCF4DF] py-16 sm:py-24">
+                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
+
+                    {/* Header */}
+                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                        School-Based Mental Health Program Benefits
+                    </h2>
+                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                        Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and<br className="hidden sm:block" />
+                        fosters a positive school culture where everyone thrives.
+                    </p>
+
+                    {/* Content Flex Row */}
+                    <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-10 lg:gap-16">
+
+                        {/* Left Side: Image */}
+                        <div className="flex-1 w-full flex justify-center lg:justify-start">
+                            <img
+                                src="/images/schl01.png"
+                                alt="Students"
+                                className="w-full max-w-[550px] lg:max-w-[500px] xl:max-w-[550px] object-cover rounded-[16px] shadow-md"
+                            />
+                        </div>
+
+                        {/* Right Side: Grid of Benefits */}
+                        <div className="flex-[1.2] w-full grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-6 sm:gap-x-10 items-center content-center py-4">
+
+                            {/* Item 1 */}
+                            <div className="flex items-center gap-3 md:gap-4 h-[95px] w-full">
+                                <div className="flex-shrink-0 w-[55px] flex justify-center">
+                                    <img src="/icons/Guidance.png" alt="Guidance" className="w-[45px] h-[45px] object-contain" />
+                                </div>
+                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
+                                        Safe &<br />Emotionally<br />Resilient Campus
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Item 2 */}
+                            <div className="flex items-center gap-3 md:gap-4 h-[95px] w-full">
+                                <div className="flex-shrink-0 w-[55px] flex justify-center">
+                                    <img src="/icons/confidential.png" alt="Confidential" className="w-[45px] h-[45px] object-contain" />
+                                </div>
+                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
+                                        Improved Focus<br />& Academic<br />Engagement
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Item 3 */}
+                            <div className="flex items-center gap-3 md:gap-4 h-[95px] w-full">
+                                <div className="flex-shrink-0 w-[55px] flex justify-center">
+                                    <img src="/icons/confidential.png" alt="Confidential" className="w-[45px] h-[45px] object-contain" />
+                                </div>
+                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
+                                        Early Identification<br />& Preventive<br />Support
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Item 4 */}
+                            <div className="flex items-center gap-3 md:gap-4 h-[95px] w-full">
+                                <div className="flex-shrink-0 w-[55px] flex justify-center">
+                                    <img src="/icons/export support.png" alt="Support" className="w-[45px] h-[45px] object-contain" />
+                                </div>
+                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
+                                        Empowered<br />Teachers &<br />Confident Parents
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── Trusted Partner Section ── */}
+            <div className="w-full bg-white py-16 sm:py-20 px-4 sm:px-8 relative z-20">
+                <div
+                    className="max-w-[1240px] mx-auto rounded-[20px] pt-12 pb-10 sm:pt-14 sm:pb-12 px-6 sm:px-10 lg:px-12 shadow-xl"
+                    style={{ background: '#520378' }}
+                >
+                    <h2 className="text-white text-center text-[28px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
+                        What Makes Us Your Trusted Partner?
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 sm:gap-y-16 lg:gap-8">
+                        {trustedStats.map((stat, index) => (
+                            <div key={index} className="relative mt-2 sm:mt-0">
+                                {/* Icon top-left - absolutely positioned to overlap */}
+                                <div className="absolute -top-[20px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] bg-white rounded-[10px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                                    <img
+                                        src={stat.icon}
+                                        alt={stat.label}
+                                        className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
+                                    />
+                                </div>
+                                {/* Content Card */}
+                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px]">
+                                    <div className="text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-1">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-[13px] sm:text-[14px] text-gray-600 font-medium">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
