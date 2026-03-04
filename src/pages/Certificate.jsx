@@ -295,7 +295,7 @@ const CertificateTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-                <div className="sm:hidden flex flex-row justify-start items-center w-full gap-4 mb-8 -mt-2">
+                <div className="sm:hidden flex flex-row justify-start items-center w-full gap-5 mb-8 -mt-2">
                     <h2 className="text-[18px] font-bold text-black font-inter-tight leading-tight whitespace-nowrap">
                         What our learners say
                     </h2>
