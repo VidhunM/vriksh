@@ -205,15 +205,44 @@ const College = () => {
 
                 // Small delay to ensure layout is ready
                 setTimeout(() => {
-                    const scrollLeft = activeTabElement.offsetLeft - (container.offsetWidth / 2) + (activeTabElement.offsetWidth / 2);
-                    container.scrollTo({
-                        left: scrollLeft,
-                        behavior: 'smooth'
-                    });
+                    const scrollTarget = activeTabElement.offsetLeft - (container.offsetWidth / 2) + (activeTabElement.offsetWidth / 2);
+                    const startScroll = container.scrollLeft;
+                    const distance = scrollTarget - startScroll;
+                    const duration = 1000; // Slower scroll duration (1 second)
+                    let startTime = null;
+
+                    const animateScroll = (timestamp) => {
+                        if (!startTime) startTime = timestamp;
+                        const progress = Math.min((timestamp - startTime) / duration, 1);
+
+                        // EaseInOutQuad function
+                        const easing = progress < 0.5
+                            ? 2 * progress * progress
+                            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+                        container.scrollLeft = startScroll + (distance * easing);
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animateScroll);
+                        }
+                    };
+
+                    requestAnimationFrame(animateScroll);
                 }, 50);
             }
         }
     }, [activeTab, isMobile]);
+
+    // Auto-cycle tabs on mobile
+    useEffect(() => {
+        if (!isMobile) return;
+
+        const interval = setInterval(() => {
+            setActiveTab((prev) => (prev + 1) % tabs.length);
+        }, 5000); // Cycle every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [isMobile]);
 
     const [typedText, setTypedText] = useState('');
     const fullText = '"Safe Campus"';
@@ -395,118 +424,128 @@ const College = () => {
                                             : 'bg-transparent text-white/80 border border-white/30 hover:bg-white/10'
                                             }`}
                                     >
-                                        {tab}
+                                        <div className="relative flex flex-col items-center">
+                                            {tab}
+                                            {activeTab === idx && (
+                                                <div className="absolute -bottom-[20px] w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white z-20"></div>
+                                            )}
+                                        </div>
                                     </button>
                                 ))}
                             </div>
 
-                            {/* Arrows */}
-                            <div className="flex justify-center gap-6 mb-4">
-                                <button
-                                    onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
-                                    disabled={currentSlide === 0}
-                                    className={`w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10 active:scale-95'}`}
-                                >
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
-                                        setCurrentSlide(prev => (prev + 1) * 3 < currentCards.length ? prev + 1 : prev);
-                                    }}
-                                    disabled={(() => {
-                                        const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
-                                        return (currentSlide + 1) * 3 >= currentCards.length;
-                                    })()}
-                                    className={`w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all ${(() => {
-                                        const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
-                                        return (currentSlide + 1) * 3 >= currentCards.length;
-                                    })() ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10 active:scale-95'}`}
-                                >
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </div>
                         </div>
 
-                        <div className="w-full max-w-[1100px] mt-2 sm:mt-6 mb-8 overflow-hidden py-4 sm:py-0">
-                            <div
-                                className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 transition-transform duration-500 ease-in-out"
-                                style={{
-                                    transform: isMobile ? `translateX(-${currentSlide * 100}%)` : 'none',
-                                    display: isMobile ? 'flex' : 'grid',
-                                    gap: isMobile ? '0' : undefined
-                                }}
-                            >
-                                {(() => {
-                                    const currentCards = activeTab === 0
-                                        ? collegeCounsellingCards
-                                        : activeTab === 1
-                                            ? softSkillsCards
-                                            : activeTab === 2
-                                                ? careerGuidanceCards
-                                                : activeTab === 3
-                                                    ? workshopCards
-                                                    : activeTab === 4
-                                                        ? psychometricCards
-                                                        : analyticsCards;
+                        <div className="w-full max-w-[1100px] mt-2 sm:mt-6 mb-8 overflow-visible py-4 sm:py-0 relative">
+                            {/* Mobile Navigation Arrows (Sides) */}
+                            {isMobile && (
+                                <>
+                                    <button
+                                        onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
+                                        disabled={currentSlide === 0}
+                                        className={`absolute left-[-15px] top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#520378]/20 border border-white/30 flex items-center justify-center transition-all z-20 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10 active:scale-95'}`}
+                                    >
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
+                                            setCurrentSlide(prev => (prev + 1) * 3 < currentCards.length ? prev + 1 : prev);
+                                        }}
+                                        disabled={(() => {
+                                            const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
+                                            return (currentSlide + 1) * 3 >= currentCards.length;
+                                        })()}
+                                        className={`absolute right-[-15px] top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#520378]/20 border border-white/30 flex items-center justify-center transition-all z-20 ${(() => {
+                                            const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
+                                            return (currentSlide + 1) * 3 >= currentCards.length;
+                                        })() ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10 active:scale-95'}`}
+                                    >
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </>
+                            )}
 
-                                    if (isMobile) {
-                                        const slides = [];
-                                        for (let i = 0; i < currentCards.length; i += 3) {
-                                            slides.push(currentCards.slice(i, i + 3));
-                                        }
-                                        return slides.map((slideCards, slideIdx) => (
-                                            <div key={slideIdx} className="w-full flex-shrink-0 flex flex-col gap-y-10 px-2">
-                                                {slideCards.map((card, idx) => (
-                                                    <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] pt-8">
-                                                        <div className="absolute -top-[4px] left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
-                                                            <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                                                <img src="/icons/workshop.png" alt="icon" className="w-[36px] h-[36px] object-contain" />
+                            <div className="overflow-hidden w-full">
+                                <div
+                                    className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 transition-transform duration-1000 ease-in-out"
+                                    style={{
+                                        transform: isMobile ? `translateX(-${currentSlide * 100}%)` : 'none',
+                                        display: isMobile ? 'flex' : 'grid',
+                                        gap: isMobile ? '0' : undefined
+                                    }}
+                                >
+                                    {(() => {
+                                        const currentCards = activeTab === 0
+                                            ? collegeCounsellingCards
+                                            : activeTab === 1
+                                                ? softSkillsCards
+                                                : activeTab === 2
+                                                    ? careerGuidanceCards
+                                                    : activeTab === 3
+                                                        ? workshopCards
+                                                        : activeTab === 4
+                                                            ? psychometricCards
+                                                            : analyticsCards;
+
+                                        if (isMobile) {
+                                            const slides = [];
+                                            for (let i = 0; i < currentCards.length; i += 3) {
+                                                slides.push(currentCards.slice(i, i + 3));
+                                            }
+                                            return slides.map((slideCards, slideIdx) => (
+                                                <div key={slideIdx} className="w-full flex-shrink-0 flex flex-col gap-y-10 px-2">
+                                                    {slideCards.map((card, idx) => (
+                                                        <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] pt-8">
+                                                            <div className="absolute -top-[4px] left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
+                                                                <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
+                                                                    <img src={`/icons/wdwo${((slideIdx * 3) + idx) % 6 + 1}.png`} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                                </div>
+                                                            </div>
+                                                            <div className="bg-white rounded-[16px] pt-10 pb-6 px-5 h-full min-h-[160px] flex flex-col items-start relative z-0 border border-gray-100/30">
+                                                                <h3 className="text-[#1A1A1A] text-[18px] font-bold mb-3 font-geist leading-[1.3] z-10">
+                                                                    {card.title}
+                                                                </h3>
+                                                                <p className="text-[#4A5568] text-[13.5px] font-geist leading-[1.6]">
+                                                                    {card.desc}
+                                                                </p>
                                                             </div>
                                                         </div>
-                                                        <div className="bg-white rounded-[16px] pt-10 pb-6 px-5 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
-                                                            <h3 className="text-[#1A1A1A] text-[18px] font-bold mb-3 font-geist leading-[1.3] z-10">
-                                                                {card.title}
-                                                            </h3>
-                                                            <p className="text-[#4A5568] text-[13.5px] font-geist leading-[1.6]">
-                                                                {card.desc}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        ));
-                                    }
+                                                    ))}
+                                                </div>
+                                            ));
+                                        }
 
-                                    return currentCards.map((card, idx) => (
-                                        <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
-                                            <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
-                                                <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                                    <img src="/icons/workshop.png" alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                        return currentCards.map((card, idx) => (
+                                            <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
+                                                <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
+                                                    <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
+                                                        <img src={`/icons/wdwo${(idx % 6) + 1}.png`} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                    </div>
+                                                </div>
+                                                <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
+                                                    <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3] z-10">
+                                                        {card.title}
+                                                    </h3>
+                                                    <p className="text-[#4A5568] text-[13.5px] sm:text-[14px] font-geist leading-[1.6]">
+                                                        {card.desc}
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
-                                                <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3] z-10">
-                                                    {card.title}
-                                                </h3>
-                                                <p className="text-[#4A5568] text-[13.5px] sm:text-[14px] font-geist leading-[1.6]">
-                                                    {card.desc}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ));
-                                })()}
+                                        ));
+                                    })()}
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="mt-8 sm:mt-12">
-                            <button className="bg-white hover:bg-gray-50 text-[#520378] px-8 py-3.5 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
-                                Get in Touch With Us
-                            </button>
+                            <div className="mt-8 sm:mt-12">
+                                <button className="bg-white hover:bg-gray-50 text-[#520378] px-8 py-3.5 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                                    Get in Touch With Us
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -545,8 +584,8 @@ const College = () => {
                         {/* Circle 3 (Below and Centered) */}
                         <div className="col-span-2 flex justify-center -mt-6 sm:mt-0">
                             <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-30 -translate-y-[8%] md:translate-y-12 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
-                                <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={3} suffix="X" /></h3>
-                                <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Increase in mental<br />health concerns among<br />higher education students<br />in the last decade</p>
+                                <h3 className="text-[#F37321] text-[28px] sm:text-[48px] font-medium mb-1 leading-none"><AnimatedNumber end={65} />–<AnimatedNumber end={70} suffix="%" /></h3>
+                                <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">of students experience<br />moderate to severe <br />anxiety or depressive <br />symptoms</p>
                             </div>
                         </div>
                     </div>
@@ -582,7 +621,7 @@ const College = () => {
                                     <img src="/icons/Guidance.png" alt="Guidance" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Campus-Wide<br className="sm:hidden" /> Wellbeing<br />Architecture
                                     </span>
                                 </div>
@@ -594,7 +633,7 @@ const College = () => {
                                     <img src="/icons/confidential.png" alt="Confidential" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Academic<br className="sm:hidden" /> & Behavioral<br />Support
                                     </span>
                                 </div>
@@ -606,7 +645,7 @@ const College = () => {
                                     <img src="/icons/convenices.png" alt="Identification" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Early Identification<br className="sm:hidden" /> & Preventive<br />Support
                                     </span>
                                 </div>
@@ -618,7 +657,7 @@ const College = () => {
                                     <img src="/icons/export support.png" alt="Empowerment" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Faculty <br className="sm:hidden" /> Empowerment<br />Programs
                                     </span>
                                 </div>
@@ -627,7 +666,7 @@ const College = () => {
                     </div>
 
                     <div className="mt-8 sm:mt-10 flex justify-center">
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg tracking-wide">
                             Get Started Today
                         </button>
                     </div>

@@ -50,9 +50,9 @@ const Contact = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white pt-20 sm:pt-28 pb-20">
+        <div className="min-h-screen bg-white pt-20 sm:pt-28 pb-10 sm:pb-20">
             {/* Contact Content Section */}
-            <section className="pb-12 sm:pb-16 pt-0 sm:pt-0">
+            <section className="pb-6 sm:pb-16 pt-0 sm:pt-0">
                 <div className="max-w-[1240px] mx-auto px-6 lg:px-16">
                     <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20">
 
