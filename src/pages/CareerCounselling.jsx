@@ -392,7 +392,7 @@ const CareerCounselling = () => {
                                 {servicesData.map((service, index) => (
                                     <div key={index} className="w-full flex-none px-2">
                                         <div className="bg-[#FCA65B] px-6 py-10 rounded-[24px] flex flex-col min-h-[300px] relative overflow-hidden shadow-md">
-                                            <h3 className="text-[#520378] text-xl font-bold mb-4 font-inter-tight leading-tight">{service.title}</h3>
+                                            <h3 className="text-[#520378] sm:text-4xl font-bold mb-4 font-inter-tight leading-tight">{service.title}</h3>
                                             <p className="text-gray-950 text-[15px] leading-[1.6] mb-6 font-medium text-left tracking-tight">{service.text}</p>
                                             <div className="absolute bottom-4 right-4 w-24 h-24">
                                                 <img src={service.iconSrc} alt="" className="w-full h-full object-contain opacity-90" />
