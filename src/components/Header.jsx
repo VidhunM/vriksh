@@ -70,7 +70,7 @@ const Header = () => {
               { label: 'Home', href: '/' },
               { label: 'About us', href: '/about' },
               { label: 'Services', href: '#services', hasDropdown: true },
-              { label: 'Blogs', href: '#blogs' },
+              { label: 'Blogs', href: '/blogs' },
               { label: 'Contact us', href: '/contact' }
             ].map((item) => (
               <li
@@ -196,7 +196,7 @@ const Header = () => {
             { label: 'Home', href: '/' },
             { label: 'About us', href: '/about' },
             { label: 'Services', href: '#services', hasDropdown: true },
-            { label: 'Blogs', href: '#blogs' },
+            { label: 'Blogs', href: '/blogs' },
             { label: 'Contact us', href: '/contact' }
           ].map((item) => (
             <li key={item.label}>

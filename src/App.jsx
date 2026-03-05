@@ -15,6 +15,8 @@ import School from './pages/School';
 import College from './pages/College';
 import CorporateEAP from './pages/CorporateEAP';
 import Contact from './pages/Contact';
+import Blogs from './pages/Blogs';
+import BlogDetails from './pages/BlogDetails';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
 import './index.css';
@@ -26,6 +28,8 @@ function AppContent() {
   const isSchoolPage = location.pathname === '/school';
   const isCollegePage = location.pathname === '/college';
   const isCorporateEAPPage = location.pathname === '/corporate-eap';
+  const isBlogsPage = location.pathname === '/blogs';
+  const isBlogDetailPage = location.pathname.startsWith('/blog/');
 
   return (
     <div className="app">
@@ -43,10 +47,12 @@ function AppContent() {
           <Route path="/school" element={<School />} />
           <Route path="/college" element={<College />} />
           <Route path="/corporate-eap" element={<CorporateEAP />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && !isCorporateEAPPage && <ContactFooter />}
+      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && !isCorporateEAPPage && !isBlogsPage && !isBlogDetailPage && <ContactFooter />}
       <Footer />
 
       {/* Floating WhatsApp Icon */}
