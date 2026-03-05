@@ -155,6 +155,9 @@ const InstitutionalContact = ({ programType }) => {
                                             <option value="full-program">Full Program</option>
                                             <option value="corporate-wellness">Corporate Wellness Events</option>
                                             <option value="awareness-campaigns">Awareness Campaigns</option>
+                                            <option value="maternity-support">Maternity Support Programme</option>
+                                            <option value="peer-support-champions">Peer Support Champions</option>
+                                            <option value="emotional-intelligence">4-Week Emotional Intelligence Program</option>
                                             <option value="invite-as-guest">Invite as guest</option>
                                             <option value="other">Other</option>
                                         </select>

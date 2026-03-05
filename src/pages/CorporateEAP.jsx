@@ -227,7 +227,7 @@ const CorporateEAP = () => {
                             </>
                         )}
 
-                        <div className="overflow-hidden w-full">
+                        <div className="overflow-hidden w-full pt-10">
                             <div
                                 className="flex lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8 lg:gap-y-16 transition-transform duration-1000 ease-in-out"
                                 style={{
