@@ -367,7 +367,7 @@ const CorporateEAP = () => {
             {/* ── Top ups Section ── */}
             <div className="w-full pt-6 pb-10 sm:py-16 bg-[#520378]">
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
-                    <h2 className="text-white text-[20px] sm:text-[36px] font-extrabold mb-3 font-inter-tight tracking-tight">
+                    <h2 className="text-white text-[22px] sm:text-[36px] font-extrabold mb-3 font-inter-tight tracking-tight">
                         Top ups
                     </h2>
                     <p className="text-white/80 text-[13px] sm:text-[19px] max-w-[1100px] mb-8 sm:mb-10 font-geist leading-[1.6]">
