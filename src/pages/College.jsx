@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InstitutionalContact from '../components/InstitutionalContact';
 
 const tabs = [
@@ -183,6 +183,47 @@ const trustedStats = [
 
 const College = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const [typedText, setTypedText] = useState('');
+    const fullText = '"Safe Campus"';
+    const line1Part = '"Saf';
+    const [animationPhase, setAnimationPhase] = useState('initial-blink'); // phases: 'initial-blink', 'typing-line1', 'move-down', 'typing-line2', 'complete'
+
+    useEffect(() => {
+        let timer;
+        if (animationPhase === 'initial-blink') {
+            timer = setTimeout(() => {
+                setAnimationPhase('typing-line1');
+            }, 1000);
+        } else if (animationPhase === 'typing-line1') {
+            if (typedText.length < line1Part.length) {
+                timer = setTimeout(() => {
+                    setTypedText(line1Part.slice(0, typedText.length + 1));
+                }, 150);
+            } else {
+                timer = setTimeout(() => {
+                    setAnimationPhase('move-down');
+                }, 500);
+            }
+        } else if (animationPhase === 'move-down') {
+            timer = setTimeout(() => {
+                setAnimationPhase('typing-line2');
+            }, 300);
+        } else if (animationPhase === 'typing-line2') {
+            if (typedText.length < fullText.length) {
+                timer = setTimeout(() => {
+                    setTypedText(fullText.slice(0, typedText.length + 1));
+                }, 150);
+            } else {
+                setAnimationPhase('complete');
+            }
+        } else if (animationPhase === 'complete') {
+            timer = setTimeout(() => {
+                setTypedText('');
+                setAnimationPhase('initial-blink');
+            }, 3000); // Wait 3s before looping
+        }
+        return () => clearTimeout(timer);
+    }, [animationPhase, typedText]);
 
     return (
         <section className="bg-white pt-0">
@@ -230,10 +271,31 @@ const College = () => {
 
             <div className="w-full flex flex-col items-center mt-[-4rem]">
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col items-center text-center">
-                    <h2 className="text-black text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
-                        Together we help you build  <br />
-                        <span className="text-[#F37321]">"Safe Campus"</span>
+                    <h2 className="text-black text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight min-h-[1.2em]">
+                        Together we help you build
+                        <span className="text-[#F37321]">
+                            {(animationPhase === 'initial-blink' || animationPhase === 'typing-line1') && typedText}
+                            {(animationPhase === 'initial-blink' || animationPhase === 'typing-line1') && <span className="cursor-blink">|</span>}
+                        </span>
+                        <br />
+                        <span className="text-[#F37321]">
+                            {(animationPhase === 'move-down' || animationPhase === 'typing-line2' || animationPhase === 'complete') && typedText}
+                            {(animationPhase === 'move-down' || animationPhase === 'typing-line2' || animationPhase === 'complete') && animationPhase !== 'complete' && <span className="cursor-blink">|</span>}
+                        </span>
                     </h2>
+                    <style>{`
+                        @keyframes blink {
+                            0%, 100% { opacity: 1; }
+                            50% { opacity: 0; }
+                        }
+                        .cursor-blink {
+                            display: inline-block;
+                            margin-left: 2px;
+                            animation: blink 0.8s infinite;
+                            font-weight: 300;
+                            color: #F37321;
+                        }
+                    `}</style>
                     <div>
                         <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
                             Get in Touch With Us
