@@ -38,10 +38,10 @@ const Workshop = () => {
                     {/* Text content */}
                     <div className="max-w-[1240px] mx-auto px-6 sm:px-14 pt-10 sm:py-16 pb-0">
                         <div className="max-w-[100%] sm:max-w-[50%] lg:max-w-[55%] relative z-10">
-                            <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
+                            <h2 className="text-xl sm:text-3xl lg:text-[38px] font-bold text-gray-950 leading-[1.1] mb-5 font-inter-tight tracking-wide">
                                 Join 5,000+ learners mastering psychology with confidence
                             </h2>
-                            <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                            <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-4 sm:mb-6 max-w-[750px] font-medium font-geist">
                                 Step into a world of learning – practical, engaging, and skill boosting workshops under one roof. Build clarity, competence, and confidence with every session you attend.
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -62,28 +62,28 @@ const Workshop = () => {
             </div>
 
             {/* ── Stats Section ── */}
-            <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-2 sm:-mt-4">
+            <div className="px-4 sm:px-8 pb-4 sm:pb-8 relative z-20 -mt-2 sm:-mt-4">
                 <div
-                    className="max-w-[1240px] mx-auto rounded-[16px] pt-10 pb-8 sm:pt-12 sm:pb-10 px-5 sm:px-12 shadow-lg"
+                    className="max-w-[1240px] mx-auto rounded-[16px] pt-8 pb-6 sm:pt-12 sm:pb-10 px-5 sm:px-12 shadow-lg"
                     style={{ background: '#520378' }}
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-6 lg:gap-10">
                         {stats.map((stat, index) => (
-                            <div key={index} className="relative mt-5 sm:mt-4">
+                            <div key={index} className="relative mt-4 sm:mt-4">
                                 {/* Icon top-left - absolutely positioned to overlap */}
-                                <div className="absolute -top-[22px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[44px] sm:w-[54px] sm:h-[54px] bg-white rounded-[10px] sm:rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                                <div className="absolute -top-[20px] left-[-3%] sm:-top-[26px] sm:left-[-6%] w-[42px] h-[40px] sm:w-[54px] sm:h-[54px] bg-white rounded-[10px] sm:rounded-[12px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
                                         src={stat.icon}
                                         alt={stat.label}
-                                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                                        className="w-7 h-7 sm:w-10 sm:h-10 object-contain"
                                     />
                                 </div>
                                 {/* Content Card */}
-                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[26px] sm:pt-[40px] pb-5 sm:pb-6 px-4 sm:px-7 h-full w-full">
-                                    <div className="text-[24px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
+                                <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[22px] sm:pt-[40px] pb-4 sm:pb-6 px-4 sm:px-7 h-full w-full">
+                                    <div className="text-[22px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
-                                    <div className="text-[15px] sm:text-[28px] text-gray-700 font-medium">
+                                    <div className="text-[14px] sm:text-[28px] text-gray-700 font-medium">
                                         {stat.label}
                                     </div>
                                 </div>
