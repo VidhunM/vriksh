@@ -194,7 +194,7 @@ const UpcomingEvents = () => {
     };
 
     // Auto-scroll disabled: mobile uses manual buttons only
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     return (
         <div className="pt-0">
@@ -507,24 +507,22 @@ const UpcomingEvents = () => {
                     </div>
 
                     {/* Header with Navigation - Mobile */}
-                    <div className="sm:hidden flex flex-row justify-between items-center w-full mb-10 gap-4">
-                        <h2 className="text-xl sm:text-[24px] font-bold text-gray-900 leading-[1.1] text-left font-geist">
+                    <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8 -mt-2">
+                        <h2 className="text-xl font-bold text-gray-950 font-geist">
                             What our learners say
                         </h2>
                         <div className="flex gap-3">
                             <button
                                 onClick={() => { prevSlide(); setMobileTestNav('left'); }}
-                                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group ${
-                                    mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'
-                                }`}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group ${mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'
+                                    }`}
                             >
                                 <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                             </button>
                             <button
                                 onClick={() => { nextSlide(); setMobileTestNav('right'); }}
-                                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group ${
-                                    mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'
-                                }`}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group ${mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'
+                                    }`}
                             >
                                 <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                             </button>
@@ -594,7 +592,7 @@ const UpcomingEvents = () => {
             {/* Our Trusted Partners Section */}
             <div className="bg-white py-4 sm:py-12">
                 <div className="max-w-[1240px] mx-auto px-6 text-center">
-                    <h2 className="text-xl sm:text-4xl font-bold text-[#520378] mb-6 sm:mb-8 uppercase tracking-wide font-geist">
+                    <h2 className="text-xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
                         Trusted by the Best
                     </h2>
 

@@ -248,24 +248,14 @@ const TrainingTestimonials = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const totalSlides = Math.ceil(trainingReviews.length / itemsVisible);
+
     const nextSlide = () => {
-        setCurrentIndex((prev) => {
-            const nextIndex = prev + 1;
-            if (nextIndex > trainingReviews.length - itemsVisible) {
-                return 0;
-            }
-            return nextIndex;
-        });
+        setCurrentIndex((prev) => (prev + 1) % totalSlides);
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => {
-            const prevIndex = prev - 1;
-            if (prevIndex < 0) {
-                return trainingReviews.length - itemsVisible;
-            }
-            return prevIndex;
-        });
+        setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
     };
 
     React.useEffect(() => {
@@ -280,38 +270,40 @@ const TrainingTestimonials = () => {
     const [mobileTestNav, setMobileTestNav] = React.useState(null);
     return (
         <div
-            className="py-16 sm:py-20 border-t border-black/5"
+            className="py-8 sm:py-16 border-t border-black/5"
             style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
         >
-            <div className="max-w-[1240px] mx-auto px-6">
-                {/* Header with Navigation - Desktop */}
-                <div className="hidden sm:flex justify-between items-end mb-8 sm:mb-12">
-                    <h2 className="text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight tracking-normal">
+            <div className="max-w-[1320px] mx-auto px-6">
+                {/* Header with Title and Nav Arrows - Desktop */}
+                <div className="hidden sm:flex justify-between items-center mb-10">
+                    <h2 className="text-4xl font-bold text-gray-950 font-geist">
                         What our learners say
                     </h2>
-                    <div className="flex gap-3 mb-2">
+                    <div className="flex gap-4">
                         <button
                             onClick={prevSlide}
-                            className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white text-gray-400 hover:border-[#520378] hover:text-[#520378] transition-all shadow-sm active:scale-95"
+                            className="w-12 h-12 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all"
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <polyline points="15 18 9 12 15 6"></polyline>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
                             </svg>
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#520378] hover:text-white transition-all shadow-sm active:scale-95"
+                            className="w-12 h-12 rounded-full bg-[#520378] text-white flex items-center justify-center hover:bg-black transition-all"
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
                         </button>
                     </div>
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8 -mt-10">
-                    <h2 className="text-xl font-bold text-black font-inter-tight leading-tight">
+                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8 -mt-2">
+                    <h2 className="text-xl font-bold text-gray-950 font-geist">
                         What our learners say
                     </h2>
                     <div className="flex gap-3">
@@ -338,13 +330,13 @@ const TrainingTestimonials = () => {
                     >
                         {trainingReviews.map((review, index) => (
                             <div key={index} className="w-full md:w-1/2 lg:w-1/3 flex-none px-4">
-                                <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
-                                    <div className="mb-4 sm:mb-6">
-                                        <h4 className="text-base sm:text-lg font-bold text-gray-950 mb-0.5">{review.name}</h4>
-                                        <p className="text-xs sm:text-sm text-gray-500 font-medium italic">{review.role}</p>
+                                <div className="bg-white rounded-[32px] p-8 flex flex-col shadow-sm border border-gray-100 min-h-[420px] cursor-default h-full hover:shadow-md transition-shadow">
+                                    <div className="mb-6">
+                                        <h3 className="text-lg sm:text-xl font-bold text-gray-950 mb-1 font-geist">{review.name}</h3>
+                                        <p className="text-sm sm:text-base text-gray-600 font-medium italic">{review.role}</p>
                                     </div>
-                                    <p className="text-gray-800 text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-10 flex-grow font-medium">
-                                        {review.text}
+                                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 italic flex-grow font-medium">
+                                        &ldquo;{review.text}&rdquo;
                                     </p>
                                     {/* Footer with Google & Stars */}
                                     <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-auto">
@@ -375,7 +367,7 @@ const TrainingTestimonials = () => {
 
                 {/* Dot Indicators */}
                 <div className="flex justify-center gap-1.5 mt-10">
-                    {Array.from({ length: trainingReviews.length - itemsVisible + 1 }).map((_, i) => (
+                    {Array.from({ length: totalSlides }).map((_, i) => (
                         <button
                             key={i}
                             onClick={() => setCurrentIndex(i)}
