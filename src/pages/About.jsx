@@ -1,45 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import AnimatedNumber from '../components/AnimatedNumber';
 
-const AnimatedNumber = ({ end, decimals = 0, suffix = "" }) => {
-    const [count, setCount] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const ref = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    setHasAnimated(true);
-                    let start = null;
-                    const duration = 2000;
-                    const step = (timestamp) => {
-                        if (!start) start = timestamp;
-                        const progress = Math.min((timestamp - start) / duration, 1);
-                        const easeOut = 1 - Math.pow(1 - progress, 3);
-                        setCount(easeOut * end);
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        } else {
-                            setCount(end);
-                        }
-                    };
-                    window.requestAnimationFrame(step);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (ref.current) observer.observe(ref.current);
-        return () => { if (ref.current) observer.disconnect(); };
-    }, [end, hasAnimated]);
-
-    const formattedCount = count.toLocaleString('en-US', {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
-    });
-
-    return <span ref={ref}>{formattedCount}{suffix}</span>;
-};
 
 const missionCards = [
     {
@@ -287,29 +249,25 @@ const About = () => {
                     <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12">
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={50000} suffix="+" /></span>
-                                <span className="hidden sm:block">50,000+</span>
+                                <AnimatedNumber end={50000} suffix="+" />
                             </div>
                             <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Lives Impacted</div>
                         </div>
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={4.8} decimals={1} suffix="/5" /></span>
-                                <span className="hidden sm:block">4.8/5</span>
+                                <AnimatedNumber end={4.8} decimals={1} suffix="/5" />
                             </div>
                             <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Client Ratings</div>
                         </div>
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={5000} suffix="+" /></span>
-                                <span className="hidden sm:block">5,000+</span>
+                                <AnimatedNumber end={5000} suffix="+" />
                             </div>
                             <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Active Learners</div>
                         </div>
                         <div className="text-center lg:text-left">
                             <div className="text-[24px] sm:text-[32px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={300} suffix="+" /></span>
-                                <span className="hidden sm:block">300+</span>
+                                <AnimatedNumber end={300} suffix="+" />
                             </div>
                             <div className="text-[10px] sm:text-[13px] text-gray-600 font-medium uppercase tracking-wider">Sessions conducted</div>
                         </div>

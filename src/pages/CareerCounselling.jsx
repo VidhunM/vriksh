@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import AnimatedNumber from '../components/AnimatedNumber';
 
 const servicesData = [
     { title: <><span>Career</span><br />Assessments</>, text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best.", iconSrc: "/icons/career assement.png" },
@@ -15,46 +16,7 @@ const assurancesData = [
     { title: "Clear Direction", text: "Make confident career choices.", icon: "/icons/clear direction.png" }
 ];
 
-const AnimatedNumber = ({ end, decimals = 0, suffix = "" }) => {
-    const [count, setCount] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const ref = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    setHasAnimated(true);
-                    let start = null;
-                    const duration = 2000;
-                    const step = (timestamp) => {
-                        if (!start) start = timestamp;
-                        const progress = Math.min((timestamp - start) / duration, 1);
-                        const easeOut = 1 - Math.pow(1 - progress, 3);
-                        setCount(easeOut * end);
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        } else {
-                            setCount(end);
-                        }
-                    };
-                    window.requestAnimationFrame(step);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (ref.current) observer.observe(ref.current);
-        return () => { if (ref.current) observer.disconnect(); };
-    }, [end, hasAnimated]);
-
-    const formattedCount = count.toLocaleString('en-US', {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
-    });
-
-    return <span ref={ref}>{formattedCount}{suffix}</span>;
-};
 
 const CareerCounselling = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -328,8 +290,7 @@ const CareerCounselling = () => {
                         {/* Stat Item 1 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={1000} suffix="+" /></span>
-                                <span className="hidden sm:block">1000+</span>
+                                <AnimatedNumber end={1000} suffix="+" />
                             </h3>
                             <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Clients Guided</p>
                         </div>
@@ -340,8 +301,7 @@ const CareerCounselling = () => {
                         {/* Stat Item 2 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={4.8} decimals={1} suffix="/5" /></span>
-                                <span className="hidden sm:block">4.8/5</span>
+                                <AnimatedNumber end={4.8} decimals={1} suffix="/5" />
                             </h3>
                             <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Client Ratings</p>
                         </div>
@@ -352,8 +312,7 @@ const CareerCounselling = () => {
                         {/* Stat Item 3 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={100} suffix="+" /></span>
-                                <span className="hidden sm:block">100+</span>
+                                <AnimatedNumber end={100} suffix="+" />
                             </h3>
                             <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Awareness Sessions</p>
                         </div>
@@ -364,8 +323,7 @@ const CareerCounselling = () => {
                         {/* Stat Item 4 */}
                         <div className="flex-1 flex flex-col items-center text-center">
                             <h3 className="text-2xl sm:text-[38px] font-bold text-[#520378] mb-1 font-inter-tight">
-                                <span className="sm:hidden"><AnimatedNumber end={1000} suffix="+" /></span>
-                                <span className="hidden sm:block">1000+</span>
+                                <AnimatedNumber end={1000} suffix="+" />
                             </h3>
                             <p className="text-[12px] sm:text-[16px] text-gray-600 font-medium">Active Learners</p>
                         </div>

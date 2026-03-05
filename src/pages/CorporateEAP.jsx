@@ -1,10 +1,11 @@
 import React from 'react';
+import AnimatedNumber from '../components/AnimatedNumber';
 import InstitutionalContact from '../components/InstitutionalContact';
 
 const stats = [
-    { value: '5,000+', label: 'Professional Network', icon: '/icons/Mask group2.png' },
-    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
-    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
+    { end: 5000, suffix: '+', label: 'Professional Network', icon: '/icons/Mask group2.png' },
+    { end: 4.8, decimals: 1, suffix: '/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
+    { end: 100, suffix: '%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
 ];
 
 const offeringCards = [
@@ -111,7 +112,7 @@ const CorporateEAP = () => {
                                 </div>
                                 <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[26px] sm:pt-[40px] pb-5 sm:pb-6 px-4 sm:px-7 h-full w-full flex flex-col justify-center min-h-[110px]">
                                     <div className="text-[24px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
-                                        {stat.value}
+                                        <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
                                     <div className="text-[15px] sm:text-[28px] text-gray-700 font-medium">
                                         {stat.label}

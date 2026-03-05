@@ -1,10 +1,11 @@
 import React from 'react';
 import WorkshopsListing from '../components/WorkshopsListing';
+import AnimatedNumber from '../components/AnimatedNumber';
 
 const stats = [
-    { value: '5000+', label: 'Active Learners', icon: '/icons/Mask group.png' },
-    { value: '4.9', label: 'Google Rating', icon: '/icons/Mask group2.png' },
-    { value: '300+', label: 'Workshop conducted', icon: '/icons/Mask group3.png' },
+    { end: 5000, suffix: '+', label: 'Active Learners', icon: '/icons/Mask group.png' },
+    { end: 4.9, decimals: 1, label: 'Google Rating', icon: '/icons/Mask group2.png' },
+    { end: 300, suffix: '+', label: 'Workshop conducted', icon: '/icons/Mask group3.png' },
 ];
 
 const Workshop = () => {
@@ -80,7 +81,7 @@ const Workshop = () => {
                                 {/* Content Card */}
                                 <div className="bg-[#F8EAFD] shadow-sm rounded-[10px] pt-[26px] sm:pt-[40px] pb-5 sm:pb-6 px-4 sm:px-7 h-full w-full">
                                     <div className="text-[24px] sm:text-[38px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
-                                        {stat.value}
+                                        <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
                                     <div className="text-[15px] sm:text-[28px] text-gray-700 font-medium">
                                         {stat.label}

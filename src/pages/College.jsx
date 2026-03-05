@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AnimatedNumber from '../components/AnimatedNumber';
 import InstitutionalContact from '../components/InstitutionalContact';
 
 const tabs = [
@@ -175,10 +176,10 @@ const analyticsCards = [
 const offerCards = collegeCounsellingCards;
 
 const trustedStats = [
-    { value: '5,000+', label: 'Strong Professional Network (PAN India)', icon: '/icons/Mask group2.png' },
-    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
-    { value: '20,000+', label: 'Students Benefited', icon: '/icons/Mask 1.png' },
-    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
+    { end: 5000, suffix: '+', label: 'Strong Professional Network (PAN India)', icon: '/icons/Mask group2.png' },
+    { end: 4.8, decimals: 1, suffix: '/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
+    { end: 20000, suffix: '+', label: 'Students Benefited', icon: '/icons/Mask 1.png' },
+    { end: 100, suffix: '%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
 ];
 
 const College = () => {
@@ -399,19 +400,19 @@ const College = () => {
                     <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[900px]">
                         {/* Circle 1 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 -mb-6 md:mb-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">60-70%</h3>
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none"><AnimatedNumber end={60} />-<AnimatedNumber end={70} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
                         </div>
 
                         {/* Circle 2 (Middle) */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-20 -mb-6 md:mb-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none">20–25%</h3>
+                            <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none"><AnimatedNumber end={20} />–<AnimatedNumber end={25} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students engage in<br />risky alcohol,<br />tobacco, or drug use</p>
                         </div>
 
                         {/* Circle 3 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 md:-ml-8 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">65–70%</h3>
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none"><AnimatedNumber end={65} />–<AnimatedNumber end={70} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students experience<br />moderate to severe<br />anxiety or depressive<br />symptoms</p>
                         </div>
                     </div>
@@ -516,7 +517,7 @@ const College = () => {
                                 </div>
                                 <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px]">
                                     <div className="text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-1">
-                                        {stat.value}
+                                        <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
                                     <div className="text-[13px] sm:text-[14px] text-gray-600 font-medium">
                                         {stat.label}

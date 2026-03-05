@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AnimatedNumber from '../components/AnimatedNumber';
 import InstitutionalContact from '../components/InstitutionalContact';
 
 const tabs = [
@@ -173,10 +174,10 @@ const analyticsCards = [
 ];
 
 const trustedStats = [
-    { value: '5,000+', label: 'Strong Professional Network (PAN India)', icon: '/icons/Mask group2.png' },
-    { value: '4.8/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
-    { value: '40,000+', label: 'Students Benefited', icon: '/icons/Mask 1.png' },
-    { value: '100%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
+    { end: 5000, suffix: '+', label: 'Strong Professional Network (PAN India)', icon: '/icons/Mask group2.png' },
+    { end: 4.8, decimals: 1, suffix: '/5', label: 'Client Rating', icon: '/icons/Mask group.png' },
+    { end: 40000, suffix: '+', label: 'Students Benefited', icon: '/icons/Mask 1.png' },
+    { end: 100, suffix: '%', label: 'Private & Confidential', icon: '/icons/Mask 1.png' },
 ];
 
 const School = () => {
@@ -404,25 +405,25 @@ const School = () => {
 
                         {/* Circle 1 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-8 -mb-6 md:mb-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">60%</h3>
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={60} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
                         </div>
 
                         {/* Circle 2 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-20 -mb-6 md:mb-0 md:-ml-8 md:-translate-y-8 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[46px] sm:text-[54px] font-medium mb-1 leading-none">81%</h3>
+                            <h3 className="text-[#F37321] text-[46px] sm:text-[54px] font-medium mb-1 leading-none"><AnimatedNumber end={81} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students report<br />anxiety related to<br />studies and exams</p>
                         </div>
 
                         {/* Circle 3 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-30 -mb-6 md:mb-0 md:-ml-8 md:translate-y-10 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">33%</h3>
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={33} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
                         </div>
 
                         {/* Circle 4 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-40 md:-ml-8 md:-translate-y-4 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">45%</h3>
+                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={45} suffix="%" /></h3>
                             <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
                         </div>
 
@@ -545,7 +546,7 @@ const School = () => {
                                 {/* Content Card */}
                                 <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px]">
                                     <div className="text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-1">
-                                        {stat.value}
+                                        <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
                                     <div className="text-[13px] sm:text-[14px] text-gray-600 font-medium">
                                         {stat.label}
