@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AnimatedNumber from '../components/AnimatedNumber';
 import InstitutionalContact from '../components/InstitutionalContact';
 
@@ -184,6 +184,37 @@ const trustedStats = [
 
 const College = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const tabsRef = useRef(null);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+    useEffect(() => {
+        setCurrentSlide(0);
+
+        // Scroll active tab into view on mobile
+        if (isMobile && tabsRef.current) {
+            const activeTabElement = tabsRef.current.children[activeTab];
+            if (activeTabElement) {
+                const container = tabsRef.current;
+
+                // Small delay to ensure layout is ready
+                setTimeout(() => {
+                    const scrollLeft = activeTabElement.offsetLeft - (container.offsetWidth / 2) + (activeTabElement.offsetWidth / 2);
+                    container.scrollTo({
+                        left: scrollLeft,
+                        behavior: 'smooth'
+                    });
+                }, 50);
+            }
+        }
+    }, [activeTab, isMobile]);
+
     const [typedText, setTypedText] = useState('');
     const fullText = '"Safe Campus"';
     const line1Part = '"Saf';
@@ -296,6 +327,13 @@ const College = () => {
                             font-weight: 300;
                             color: #F37321;
                         }
+                        .scrollbar-hide::-webkit-scrollbar {
+                            display: none;
+                        }
+                        .scrollbar-hide {
+                            -ms-overflow-style: none;
+                            scrollbar-width: none;
+                        }
                     `}</style>
                     <div>
                         <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -324,7 +362,8 @@ const College = () => {
 
                         </p>
 
-                        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 px-2 lg:px-12 w-full max-w-[1900px]">
+                        {/* Desktop Tabs (Hidden on Mobile) */}
+                        <div className="hidden sm:flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 px-2 lg:px-12 w-full max-w-[1900px]">
                             {tabs.map((tab, idx) => (
                                 <button
                                     key={idx}
@@ -339,37 +378,129 @@ const College = () => {
                             ))}
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 w-full max-w-[1100px] mt-6 mb-8">
-                            {(activeTab === 0
-                                ? collegeCounsellingCards
-                                : activeTab === 1
-                                    ? softSkillsCards
-                                    : activeTab === 2
-                                        ? careerGuidanceCards
-                                        : activeTab === 3
-                                            ? workshopCards
-                                            : activeTab === 4
-                                                ? psychometricCards
-                                                : activeTab === 5
-                                                    ? analyticsCards
-                                                    : []
-                            ).map((card, idx) => (
-                                <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
-                                    <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
-                                        <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                            <img src="/icons/workshop.png" alt="icon" className="w-[36px] h-[36px] object-contain" />
+                        {/* Mobile Tabs & Arrows (Above Cards) */}
+                        <div className="flex sm:hidden flex-col items-center w-full mt-4">
+                            {/* Tabs - Horizontally Scrollable with Animation */}
+                            <div
+                                ref={tabsRef}
+                                className="flex flex-nowrap overflow-x-auto scrollbar-hide gap-3 mb-6 px-6 w-full relative"
+                                style={{ WebkitOverflowScrolling: 'touch' }}
+                            >
+                                {tabs.map((tab, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setActiveTab(idx)}
+                                        className={`px-5 py-2.5 rounded-full text-[12px] transition-all duration-[600ms] font-medium whitespace-nowrap flex-shrink-0 ${activeTab === idx
+                                            ? 'bg-white text-[#520378] shadow-lg scale-105 font-bold'
+                                            : 'bg-transparent text-white/80 border border-white/30 hover:bg-white/10'
+                                            }`}
+                                    >
+                                        {tab}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Arrows */}
+                            <div className="flex justify-center gap-6 mb-4">
+                                <button
+                                    onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
+                                    disabled={currentSlide === 0}
+                                    className={`w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10 active:scale-95'}`}
+                                >
+                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
+                                        setCurrentSlide(prev => (prev + 1) * 3 < currentCards.length ? prev + 1 : prev);
+                                    }}
+                                    disabled={(() => {
+                                        const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
+                                        return (currentSlide + 1) * 3 >= currentCards.length;
+                                    })()}
+                                    className={`w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all ${(() => {
+                                        const currentCards = activeTab === 0 ? collegeCounsellingCards : activeTab === 1 ? softSkillsCards : activeTab === 2 ? careerGuidanceCards : activeTab === 3 ? workshopCards : activeTab === 4 ? psychometricCards : analyticsCards;
+                                        return (currentSlide + 1) * 3 >= currentCards.length;
+                                    })() ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10 active:scale-95'}`}
+                                >
+                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="w-full max-w-[1100px] mt-2 sm:mt-6 mb-8 overflow-hidden py-4 sm:py-0">
+                            <div
+                                className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 gap-y-10 sm:gap-y-14 lg:gap-y-16 transition-transform duration-500 ease-in-out"
+                                style={{
+                                    transform: isMobile ? `translateX(-${currentSlide * 100}%)` : 'none',
+                                    display: isMobile ? 'flex' : 'grid',
+                                    gap: isMobile ? '0' : undefined
+                                }}
+                            >
+                                {(() => {
+                                    const currentCards = activeTab === 0
+                                        ? collegeCounsellingCards
+                                        : activeTab === 1
+                                            ? softSkillsCards
+                                            : activeTab === 2
+                                                ? careerGuidanceCards
+                                                : activeTab === 3
+                                                    ? workshopCards
+                                                    : activeTab === 4
+                                                        ? psychometricCards
+                                                        : analyticsCards;
+
+                                    if (isMobile) {
+                                        const slides = [];
+                                        for (let i = 0; i < currentCards.length; i += 3) {
+                                            slides.push(currentCards.slice(i, i + 3));
+                                        }
+                                        return slides.map((slideCards, slideIdx) => (
+                                            <div key={slideIdx} className="w-full flex-shrink-0 flex flex-col gap-y-10 px-2">
+                                                {slideCards.map((card, idx) => (
+                                                    <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] pt-8">
+                                                        <div className="absolute -top-[4px] left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
+                                                            <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
+                                                                <img src="/icons/workshop.png" alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="bg-white rounded-[16px] pt-10 pb-6 px-5 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
+                                                            <h3 className="text-[#1A1A1A] text-[18px] font-bold mb-3 font-geist leading-[1.3] z-10">
+                                                                {card.title}
+                                                            </h3>
+                                                            <p className="text-[#4A5568] text-[13.5px] font-geist leading-[1.6]">
+                                                                {card.desc}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ));
+                                    }
+
+                                    return currentCards.map((card, idx) => (
+                                        <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
+                                            <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
+                                                <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
+                                                    <img src="/icons/workshop.png" alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                </div>
+                                            </div>
+                                            <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
+                                                <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3] z-10">
+                                                    {card.title}
+                                                </h3>
+                                                <p className="text-[#4A5568] text-[13.5px] sm:text-[14px] font-geist leading-[1.6]">
+                                                    {card.desc}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
-                                        <h3 className="text-[#1A1A1A] text-[18px] sm:text-[19px] font-bold mb-3 font-geist leading-[1.3] z-10">
-                                            {card.title}
-                                        </h3>
-                                        <p className="text-[#4A5568] text-[13.5px] sm:text-[14px] font-geist leading-[1.6]">
-                                            {card.desc}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
+                                    ));
+                                })()}
+                            </div>
                         </div>
 
                         <div className="mt-8 sm:mt-12">
@@ -392,28 +523,31 @@ const College = () => {
                     <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Student Well-Being at Risk
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-4 sm:mb-20 font-geist leading-[1.6]">
                         Indian students face rising risks of excessive screen use, risky substance<br className="hidden sm:block" />
                         habits, and growing mental health challenges
                     </p>
 
-                    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[900px]">
+                    {/* Overlapping Circles Container */}
+                    <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center w-full max-w-[1000px] gap-0 sm:gap-0 mt-2 mb-4 sm:mt-0 sm:mb-0">
                         {/* Circle 1 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 -mb-6 md:mb-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none"><AnimatedNumber end={60} />-<AnimatedNumber end={70} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-10 translate-x-[6%] translate-y-[5%] md:translate-x-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={60} />-<AnimatedNumber end={70} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
                         </div>
 
-                        {/* Circle 2 (Middle) */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-20 -mb-6 md:mb-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none"><AnimatedNumber end={20} />–<AnimatedNumber end={25} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students engage in<br />risky alcohol,<br />tobacco, or drug use</p>
+                        {/* Circle 2 */}
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-20 -translate-x-[6%] translate-y-[5%] md:translate-x-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[28px] sm:text-[48px] font-medium mb-1 leading-none"><AnimatedNumber end={20} />–<AnimatedNumber end={25} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">fall into high-risk<br />habits including<br />substance use</p>
                         </div>
 
-                        {/* Circle 3 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 md:-ml-8 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none"><AnimatedNumber end={65} />–<AnimatedNumber end={70} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students experience<br />moderate to severe<br />anxiety or depressive<br />symptoms</p>
+                        {/* Circle 3 (Below and Centered) */}
+                        <div className="col-span-2 flex justify-center -mt-6 sm:mt-0">
+                            <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-30 -translate-y-[8%] md:translate-y-12 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
+                                <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={3} suffix="X" /></h3>
+                                <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Increase in mental<br />health concerns among<br />higher education students<br />in the last decade</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -421,18 +555,18 @@ const College = () => {
 
             {/* ── Benefits Section ── */}
             <div
-                className="w-full py-10 sm:py-14"
+                className="w-full pt-0 pb-10 sm:py-14"
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
-                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-wide">
+                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
                         College-Based Mental Health Program Benefits
                     </h2>
                     <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
-                        Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and fosters a positive school culture where everyone thrives.
+                        Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and fosters a positive campus culture where everyone thrives.
                     </p>
 
-                    <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-10 lg:gap-16">
+                    <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-4 lg:gap-16">
                         <div className="flex-1 w-full flex justify-center lg:justify-start">
                             <img
                                 src="/images/banner 5.png"
@@ -441,58 +575,62 @@ const College = () => {
                             />
                         </div>
 
-                        <div className="flex-[1.5] w-full grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-6 sm:gap-x-10 items-center content-center py-4">
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/Guidance.png" alt="Guidance" className="w-[100px] h-[100px] object-contain" />
+                        <div className="flex-[1.5] w-full grid grid-cols-2 gap-y-8 gap-x-4 sm:gap-y-10 sm:gap-x-10 items-start content-center py-4">
+                            {/* Item 1 */}
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/Guidance.png" alt="Guidance" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Safe & Emotionally<br />Resilient Campus
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Campus-Wide<br className="sm:hidden" /> Wellbeing<br />Architecture
                                     </span>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/confidential.png" alt="Confidential" className="w-[100px] h-[100px] object-contain" />
-                                </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Academic<br />& Behavioral Suppor
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/convenices.png" alt="Confidential" className="w-[100px] h-[100px] object-contain" />
-                                </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Early Identification &<br />Preventive Support
 
+                            {/* Item 2 */}
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/confidential.png" alt="Confidential" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
+                                </div>
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Academic<br className="sm:hidden" /> & Behavioral<br />Support
                                     </span>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/export support.png" alt="Support" className="w-[100px] h-[100px] object-contain" />
+
+                            {/* Item 3 */}
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/convenices.png" alt="Identification" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Faculty <br />Empowerment
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Early Identification<br className="sm:hidden" /> & Preventive<br />Support
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Item 4 */}
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/export support.png" alt="Empowerment" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
+                                </div>
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Faculty <br className="sm:hidden" /> Empowerment<br />Programs
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* CTA Button at the bottom of the section */}
                     <div className="mt-8 sm:mt-10 flex justify-center">
                         <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
                             Get Started Today
                         </button>
                     </div>
-
                 </div>
             </div>
 
@@ -505,21 +643,23 @@ const College = () => {
                     <h2 className="text-white text-center text-[28px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
                         What Makes Us Your Trusted Partner?
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 sm:gap-y-16 lg:gap-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 gap-y-12 sm:gap-y-16 lg:gap-8">
                         {trustedStats.map((stat, index) => (
-                            <div key={index} className="relative mt-2 sm:mt-0">
-                                <div className="absolute -top-[20px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] bg-white rounded-[10px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                            <div key={index} className="relative mt-0 sm:mt-0">
+                                {/* Icon top-left - absolutely positioned to overlap */}
+                                <div className="absolute -top-[16px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[38px] h-[38px] sm:w-[56px] sm:h-[56px] bg-white rounded-[8px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
                                         src={stat.icon}
                                         alt={stat.label}
-                                        className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
+                                        className="w-[20px] h-[20px] sm:w-[32px] sm:h-[32px] object-contain"
                                     />
                                 </div>
-                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px]">
-                                    <div className="text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-1">
+                                {/* Content Card */}
+                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[20px] sm:pt-[42px] pb-4 sm:pb-7 px-2 sm:px-7 w-full aspect-square sm:aspect-auto sm:h-full shadow-sm flex flex-col items-center sm:items-start justify-center text-center sm:text-left sm:min-h-[110px] overflow-hidden">
+                                    <div className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
-                                    <div className="text-[13px] sm:text-[14px] text-gray-600 font-medium">
+                                    <div className="text-[11px] sm:text-[14px] text-gray-600 font-medium text-center sm:text-left leading-tight sm:leading-normal">
                                         {stat.label}
                                     </div>
                                 </div>
@@ -532,7 +672,7 @@ const College = () => {
             {/* ── Institutional Contact Section ── */}
             <InstitutionalContact programType="College-Based" />
 
-        </section>
+        </section >
     );
 };
 

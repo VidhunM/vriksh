@@ -517,7 +517,7 @@ const School = () => {
             </div>
 
             {/* ── Silent Struggles Section ── */}
-            <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
+            <section className="py-8 sm:py-24 bg-white overflow-hidden relative">
                 {/* Background Leaf Image */}
                 <div
                     className="absolute -top-50 left-20 w-[400px] sm:w-[600px] h-full bg-no-repeat bg-left-top opacity-50 pointer-events-none"
@@ -528,44 +528,44 @@ const School = () => {
                     <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Silent Struggles of Today's Students
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
-                        Indian students face rising risks of digital dependency, increasing academic<br className="hidden sm:block" />
-                        anxiety, growing peer pressure, and deepening concerns about body image
+                    <p className="text-[#4A5568] text-[14px] sm:text-[16px] text-center max-w-[750px] mb-4 sm:mb-20 font-geist leading-[1.6]">
+                        Indian students face rising risks of digital dependency,
+                        emotional distress, and academic pressure.
                     </p>
 
                     {/* Overlapping Circles Container */}
-                    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[1000px]">
+                    <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center w-full max-w-[1000px] gap-0 sm:gap-0 mt-2 mb-4 sm:mt-0 sm:mb-0">
 
                         {/* Circle 1 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-8 -mb-6 md:mb-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={60} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-8 translate-x-[8%] translate-y-[8%] md:translate-x-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={60} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
                         </div>
 
                         {/* Circle 2 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-20 -mb-6 md:mb-0 md:-ml-8 md:-translate-y-8 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[46px] sm:text-[54px] font-medium mb-1 leading-none"><AnimatedNumber end={81} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students report<br />anxiety related to<br />studies and exams</p>
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-20 -translate-x-[8%] translate-y-[8%] md:translate-x-0 md:-ml-8 md:-translate-y-8 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[34px] sm:text-[54px] font-medium mb-1 leading-none"><AnimatedNumber end={81} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students report<br />anxiety related to<br />studies and exams</p>
                         </div>
 
                         {/* Circle 3 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-30 -mb-6 md:mb-0 md:-ml-8 md:translate-y-10 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={33} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-30 translate-x-[8%] -translate-y-[8%] md:translate-x-0 md:-ml-8 md:translate-y-10 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={33} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
                         </div>
 
                         {/* Circle 4 */}
-                        <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-40 md:-ml-8 md:-translate-y-4 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={45} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-40 -translate-x-[8%] -translate-y-[8%] md:translate-x-0 md:-ml-8 md:-translate-y-4 hover:bg-gray-50/50 transition-all duration-300">
+                            <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={45} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
                         </div>
 
                     </div>
                 </div>
-            </div>
+            </section>
             {/* ── Benefits Section ── */}
             <div
-                className="w-full py-10 sm:py-14"
+                className="w-full pt-0 pb-10 sm:py-14"
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
@@ -580,7 +580,7 @@ const School = () => {
                     </p>
 
                     {/* Content Flex Row */}
-                    <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-10 lg:gap-16">
+                    <div className="flex flex-col lg:flex-row items-stretch justify-between w-full gap-4 lg:gap-16">
 
                         {/* Left Side: Image */}
                         <div className="flex-1 w-full flex justify-center lg:justify-start">
@@ -592,52 +592,52 @@ const School = () => {
                         </div>
 
                         {/* Right Side: Grid of Benefits */}
-                        <div className="flex-[1.5] w-full grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-6 sm:gap-x-10 items-center content-center py-4">
+                        <div className="flex-[1.5] w-full grid grid-cols-2 gap-y-8 gap-x-4 sm:gap-y-10 sm:gap-x-10 items-start content-center py-4">
 
                             {/* Item 1 */}
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/Guidance.png" alt="Guidance" className="w-[100px] h-[100px] object-contain" />
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/Guidance.png" alt="Guidance" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Safe &<br />Emotionally<br />Resilient Campus
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Safe &<br className="sm:hidden" /> Emotionally<br />Resilient Campus
                                     </span>
                                 </div>
                             </div>
 
                             {/* Item 2 */}
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/confidential.png" alt="Confidential" className="w-[100px] h-[100px] object-contain" />
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/confidential.png" alt="Confidential" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Improved Focus<br />& Academic<br />Engagement
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Improved Focus<br className="sm:hidden" /> & Academic<br />Engagement
                                     </span>
                                 </div>
                             </div>
 
                             {/* Item 3 */}
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/convenices.png" alt="Confidential" className="w-[100px] h-[100px] object-contain" />
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/convenices.png" alt="Confidential" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Early Identification<br />& Preventive<br />Support
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Early Identification<br className="sm:hidden" /> & Preventive<br />Support
                                     </span>
                                 </div>
                             </div>
 
                             {/* Item 4 */}
-                            <div className="flex items-center gap-3 md:gap-4 h-[90px] w-full">
-                                <div className="flex-shrink-0 w-[120px] flex justify-center">
-                                    <img src="/icons/export support.png" alt="Support" className="w-[100px] h-[100px] object-contain" />
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 h-auto sm:h-[90px] w-full">
+                                <div className="flex-shrink-0 w-auto sm:w-[120px] flex justify-center">
+                                    <img src="/icons/export support.png" alt="Support" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
-                                <div className="bg-[#FCA253] rounded-[8px] p-3 flex-1 h-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[13px] sm:text-[13.5px] font-bold text-center leading-[1.3] font-inter-tight tracking-tight">
-                                        Empowered<br />Teachers &<br />Confident Parents
+                                <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                        Empowered<br className="sm:hidden" /> Teachers &<br />Confident Parents
                                     </span>
                                 </div>
                             </div>
@@ -665,23 +665,23 @@ const School = () => {
                     <h2 className="text-white text-center text-[28px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
                         What Makes Us Your Trusted Partner?
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 sm:gap-y-16 lg:gap-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 gap-y-12 sm:gap-y-16 lg:gap-8">
                         {trustedStats.map((stat, index) => (
-                            <div key={index} className="relative mt-2 sm:mt-0">
+                            <div key={index} className="relative mt-0 sm:mt-0">
                                 {/* Icon top-left - absolutely positioned to overlap */}
-                                <div className="absolute -top-[20px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] bg-white rounded-[10px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
+                                <div className="absolute -top-[16px] left-[-4%] sm:-top-[26px] sm:left-[-6%] w-[38px] h-[38px] sm:w-[56px] sm:h-[56px] bg-white rounded-[8px] sm:rounded-[14px] flex items-center justify-center border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10">
                                     <img
                                         src={stat.icon}
                                         alt={stat.label}
-                                        className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
+                                        className="w-[20px] h-[20px] sm:w-[32px] sm:h-[32px] object-contain"
                                     />
                                 </div>
                                 {/* Content Card */}
-                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[32px] sm:pt-[42px] pb-5 sm:pb-7 px-5 sm:px-7 h-full w-full shadow-sm flex flex-col justify-center min-h-[110px]">
-                                    <div className="text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-1">
+                                <div className="bg-[#F8EAFD] rounded-[10px] sm:rounded-[12px] pt-[20px] sm:pt-[42px] pb-4 sm:pb-7 px-2 sm:px-7 w-full aspect-square sm:aspect-auto sm:h-full shadow-sm flex flex-col items-center sm:items-start justify-center text-center sm:text-left sm:min-h-[110px] overflow-hidden">
+                                    <div className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold text-gray-950 font-inter-tight leading-tight mb-0.5">
                                         <AnimatedNumber end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
                                     </div>
-                                    <div className="text-[13px] sm:text-[14px] text-gray-600 font-medium">
+                                    <div className="text-[11px] sm:text-[14px] text-gray-600 font-medium text-center sm:text-left leading-tight sm:leading-normal">
                                         {stat.label}
                                     </div>
                                 </div>

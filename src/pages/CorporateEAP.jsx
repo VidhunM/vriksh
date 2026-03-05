@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AnimatedNumber from '../components/AnimatedNumber';
 import InstitutionalContact from '../components/InstitutionalContact';
 
@@ -42,6 +42,16 @@ const offeringCards = [
 ];
 
 const CorporateEAP = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024); // Threshold for EAP cards
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <section className="bg-white pt-0">
             {/* ── Purple Header Banner + Hero combined ── */}
@@ -179,25 +189,84 @@ const CorporateEAP = () => {
                     <h2 className="text-white text-[32px] sm:text-[42px] font-bold mb-4 font-inter-tight text-center tracking-tight leading-tight">
                         Empowering Employees. Enabling Organisations
                     </h2>
-                    <p className="text-white/80 text-[14px] sm:text-[16px] text-center max-w-[850px] mb-16 sm:mb-20 font-geist leading-[1.6]">
+                    <p className="text-white/80 text-[14px] sm:text-[16px] text-center max-w-[850px] mb-8 sm:mb-20 font-geist leading-[1.6]">
                         Every organisation's needs are varied and so are our offerings. Customise your plan
                         according to your employees' needs and watch them unravel their best versions
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 w-full">
-                        {offeringCards.map((card, idx) => (
-                            <div key={idx} className="relative bg-white rounded-[20px] p-8 pt-12 shadow-md flex flex-col items-start transition-transform hover:-translate-y-1">
-                                <div className="absolute -top-6 left-8 w-[64px] h-[64px] bg-white rounded-[14px] shadow-md flex items-center justify-center border border-orange-100">
-                                    <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
-                                </div>
-                                <h3 className="text-[#520378] text-[20px] sm:text-[22px] font-bold mb-4 font-inter-tight leading-[1.2]">
-                                    {card.title}
-                                </h3>
-                                <p className="text-[#4A5568] text-[14px] sm:text-[15px] font-geist leading-[1.6]">
-                                    {card.desc}
-                                </p>
-                            </div>
-                        ))}
+                    {/* Mobile Navigation Arrows (Above Cards) */}
+                    <div className="flex lg:hidden justify-center gap-6 mb-8">
+                        <button
+                            onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
+                            disabled={currentSlide === 0}
+                            className={`w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10 active:scale-95'}`}
+                        >
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button
+                            onClick={() => {
+                                setCurrentSlide(prev => (prev + 1) * 3 < offeringCards.length ? prev + 1 : prev);
+                            }}
+                            disabled={(currentSlide + 1) * 3 >= offeringCards.length}
+                            className={`w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all ${(currentSlide + 1) * 3 >= offeringCards.length ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10 active:scale-95'}`}
+                        >
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div className="w-full max-w-[1240px] overflow-hidden py-4">
+                        <div
+                            className="flex lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8 lg:gap-y-16 transition-transform duration-500 ease-in-out"
+                            style={{
+                                transform: isMobile ? `translateX(-${currentSlide * 100}%)` : 'none',
+                                display: isMobile ? 'flex' : 'grid',
+                                gap: isMobile ? '0' : undefined
+                            }}
+                        >
+                            {(() => {
+                                if (isMobile) {
+                                    const slides = [];
+                                    for (let i = 0; i < offeringCards.length; i += 3) {
+                                        slides.push(offeringCards.slice(i, i + 3));
+                                    }
+                                    return slides.map((slideCards, slideIdx) => (
+                                        <div key={slideIdx} className="w-full flex-shrink-0 flex flex-col gap-y-12 px-2">
+                                            {slideCards.map((card, idx) => (
+                                                <div key={idx} className="relative bg-white rounded-[20px] p-8 pt-12 shadow-md flex flex-col items-start">
+                                                    <div className="absolute -top-6 left-8 w-[64px] h-[64px] bg-white rounded-[14px] shadow-md flex items-center justify-center border border-orange-100">
+                                                        <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                    </div>
+                                                    <h3 className="text-[#520378] text-[20px] sm:text-[22px] font-bold mb-4 font-inter-tight leading-[1.2]">
+                                                        {card.title}
+                                                    </h3>
+                                                    <p className="text-[#4A5568] text-[14px] sm:text-[15px] font-geist leading-[1.6]">
+                                                        {card.desc}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ));
+                                }
+
+                                return offeringCards.map((card, idx) => (
+                                    <div key={idx} className="relative bg-white rounded-[20px] p-8 pt-12 shadow-md flex flex-col items-start transition-transform hover:-translate-y-1">
+                                        <div className="absolute -top-6 left-8 w-[64px] h-[64px] bg-white rounded-[14px] shadow-md flex items-center justify-center border border-orange-100">
+                                            <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                        </div>
+                                        <h3 className="text-[#520378] text-[20px] sm:text-[22px] font-bold mb-4 font-inter-tight leading-[1.2]">
+                                            {card.title}
+                                        </h3>
+                                        <p className="text-[#4A5568] text-[14px] sm:text-[15px] font-geist leading-[1.6]">
+                                            {card.desc}
+                                        </p>
+                                    </div>
+                                ));
+                            })()}
+                        </div>
                     </div>
                 </div>
             </div>
