@@ -584,8 +584,8 @@ const College = () => {
                         {/* Circle 3 (Below and Centered) */}
                         <div className="col-span-2 flex justify-center -mt-6 sm:mt-0">
                             <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-30 -translate-y-[8%] md:translate-y-12 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
-                                <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={3} suffix="X" /></h3>
-                                <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Increase in mental<br />health concerns among<br />higher education students<br />in the last decade</p>
+                                <h3 className="text-[#F37321] text-[28px] sm:text-[48px] font-medium mb-1 leading-none"><AnimatedNumber end={65} />–<AnimatedNumber end={70} suffix="%" /></h3>
+                                <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">of students experience<br />moderate to severe <br />anxiety or depressive <br />symptoms</p>
                             </div>
                         </div>
                     </div>
@@ -621,7 +621,7 @@ const College = () => {
                                     <img src="/icons/Guidance.png" alt="Guidance" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Campus-Wide<br className="sm:hidden" /> Wellbeing<br />Architecture
                                     </span>
                                 </div>
@@ -633,7 +633,7 @@ const College = () => {
                                     <img src="/icons/confidential.png" alt="Confidential" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Academic<br className="sm:hidden" /> & Behavioral<br />Support
                                     </span>
                                 </div>
@@ -645,7 +645,7 @@ const College = () => {
                                     <img src="/icons/convenices.png" alt="Identification" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Early Identification<br className="sm:hidden" /> & Preventive<br />Support
                                     </span>
                                 </div>
@@ -657,7 +657,7 @@ const College = () => {
                                     <img src="/icons/export support.png" alt="Empowerment" className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] object-contain" />
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
-                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-tight">
+                                    <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
                                         Faculty <br className="sm:hidden" /> Empowerment<br />Programs
                                     </span>
                                 </div>
@@ -666,7 +666,7 @@ const College = () => {
                     </div>
 
                     <div className="mt-8 sm:mt-10 flex justify-center">
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg tracking-wide">
                             Get Started Today
                         </button>
                     </div>
