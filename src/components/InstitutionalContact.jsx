@@ -27,13 +27,13 @@ const InstitutionalContact = ({ programType }) => {
     const isSchool = programType === "School-Based";
 
     return (
-        <section className="w-full py-16 sm:py-24" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+        <section className="w-full py-16 sm:py-24" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start -mt-10">
 
                     {/* Left Side: Content */}
                     <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start pt-2">
-                        <h2 className="text-[32px] sm:text-[42px] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
+                        <h2 className="text-[20px] sm:text-[42px] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
                             {isEAP ? "We’ll help you get started." : "Get in Touch with Vriksh"}
                         </h2>
                         <div className="space-y-6">
@@ -52,9 +52,15 @@ const InstitutionalContact = ({ programType }) => {
 
                     {/* Right Side: Form */}
                     <div className="w-full lg:w-[50%] flex flex-col pt-2">
-                        <h3 className="text-[20px] sm:text-[24px] font-bold text-[#520378] mb-8 leading-snug">
-                            {isEAP ? "Partner With Us: Corporate Wellness Program" : `Partner With Us: ${programType} Mental Health Program`}
+                        <h3 className="text-[20px] sm:text-[24px] font-bold text-[#520378] mb-1 leading-snug">
+                            {isEAP ? "New Business Enquiry" : `Partner With Us: ${programType} Mental Health Program`}
                         </h3>
+                        {isEAP && (
+                            <p className="text-[#475467] text-[14px] sm:text-[16px] mb-8 font-geist">
+                                Share your details here, and partnerships team will get in touch with you
+                            </p>
+                        )}
+                        {!isEAP && <div className="mb-8" />}
 
                         <form className="space-y-5 w-full">
                             {/* Row 1: Name & Email */}
@@ -77,7 +83,7 @@ const InstitutionalContact = ({ programType }) => {
                                 />
                             </div>
 
-                            {/* Row 2: Phone Number & Designation (for EAP) or Phone & Institution (for Others) */}
+                            {/* Row 2: Phone Number & Designation */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <input
                                     type="text"
@@ -88,14 +94,19 @@ const InstitutionalContact = ({ programType }) => {
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
                                 {isEAP ? (
-                                    <input
-                                        type="text"
+                                    <select
                                         name="designation"
                                         value={formData.designation}
                                         onChange={handleChange}
-                                        placeholder="Designation"
-                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
-                                    />
+                                        className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                    >
+                                        <option value="">Designation</option>
+                                        <option value="hr-manager">HR Manager</option>
+                                        <option value="hr-director">HR Director</option>
+                                        <option value="wellness-coordinator">Wellness Coordinator</option>
+                                        <option value="cxo-founder">CXO / Founder</option>
+                                        <option value="other">Other</option>
+                                    </select>
                                 ) : (
                                     <input
                                         type="text"
@@ -134,7 +145,7 @@ const InstitutionalContact = ({ programType }) => {
                                             name="interestedIn"
                                             value={formData.interestedIn}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
                                             <option value="">Interested In</option>
                                             <option value="counselling">Counselling</option>
@@ -156,7 +167,7 @@ const InstitutionalContact = ({ programType }) => {
                                             name="designation"
                                             value={formData.designation}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
+                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%22%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
                                             <option value="">Designation</option>
                                             <option value="principal">Principal</option>
@@ -247,28 +258,32 @@ const InstitutionalContact = ({ programType }) => {
                                 </>
                             )}
 
-                            <textarea
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                placeholder="Message"
-                                rows="4"
-                                className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] resize-none"
-                            ></textarea>
+                            {!isEAP && (
+                                <>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        placeholder="Message"
+                                        rows="4"
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] resize-none"
+                                    ></textarea>
 
-                            <div className="flex items-start gap-3">
-                                <input
-                                    type="checkbox"
-                                    id="authorize_inst"
-                                    name="authorized"
-                                    checked={formData.authorized}
-                                    onChange={handleChange}
-                                    className="mt-1 w-5 h-5 rounded border-gray-300 text-[#520378] focus:ring-0 focus:ring-offset-0 cursor-pointer"
-                                />
-                                <label htmlFor="authorize_inst" className="text-[13px] sm:text-[14px] text-gray-600 leading-tight cursor-pointer">
-                                    I authorize Vriksh Psychological Support Services to contact me with updates and notifications
-                                </label>
-                            </div>
+                                    <div className="flex items-start gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="authorize_inst"
+                                            name="authorized"
+                                            checked={formData.authorized}
+                                            onChange={handleChange}
+                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-[#520378] focus:ring-0 focus:ring-offset-0 cursor-pointer"
+                                        />
+                                        <label htmlFor="authorize_inst" className="text-[13px] sm:text-[14px] text-gray-600 leading-tight cursor-pointer">
+                                            I authorize Vriksh Psychological Support Services to contact me with updates and notifications
+                                        </label>
+                                    </div>
+                                </>
+                            )}
 
                             <button
                                 type="submit"
