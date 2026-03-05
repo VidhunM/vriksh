@@ -13,54 +13,54 @@ const tabs = [
 const offerCards = [
     {
         title: "Dedicated On-Campus Counsellor",
-        desc: "A full-time professional supporting your students and staff."
+        desc: "A qualified counsellor available on campus to support your staff and students."
     },
     {
-        title: "Preventive & Proactive Programs",
-        desc: "Regular workshops, awareness sessions, & early identification of concerns."
+        title: "PROACTIVE WORKSHOPS AND TRAINING",
+        desc: "Regular workshops and awareness sessions for well-being & early identification of concerns."
     },
     {
         title: "Crisis Management Support",
-        desc: "Immediate intervention and structured care during critical situations."
+        desc: " Immediate help and professional guidance during difficult or emergency situations."
     },
     {
         title: "Parent & Teacher Collaboration",
-        desc: "Consistent updates, guidance sessions, and coordinated support."
+        desc: "Working together to share student updates and plan the right support for their well-being."
     },
     {
         title: "Confidential & Ethical Practice",
-        desc: "Safe, private, and professional counselling services."
+        desc: "Safe, private counselling services ensure trust and confidentiality in every interaction."
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "Periodic case reports, well-being trend analysis & management-level"
+        desc: "Regular case reports, well-being trend analysis, and insights to support informed decisions."
     }
 ];
 
 const specialEducationCards = [
     {
         title: "Dedicated Special Educator On-Campus",
-        desc: "A qualified professional supporting students with diverse learning needs."
+        desc: "A qualified special educator supporting students with diverse learning needs."
     },
     {
         title: "Individualized Education Plans (IEPs)",
-        desc: "Personalized goals, accommodations, and structured learning strategies."
+        desc: "Personalized goals, accommodations, and structured learning strategies for each student."
     },
     {
         title: "Early Identification & Intervention",
-        desc: "Screening, assessments, and timely support for learning difficulties."
+        desc: "Screening, assessments, and timely support to address learning difficulties early."
     },
     {
         title: "Parent & Teacher Collaboration",
-        desc: "Regular meetings, guidance, and coordinated academic planning."
+        desc: "Working together to share student updates and plan the right support for their well-being."
     },
     {
         title: "Inclusive Classroom Support",
-        desc: "Strategies and modifications to help every child thrive."
+        desc: "Classroom strategies and adjustments designed to help every child succeed."
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "IEP reports, progress tracking, intervention summaries, and management-level documentation."
+        desc: "Tracking progress, maintaining IEP reports, & providing insights for effective school management."
     }
 ];
 
@@ -75,7 +75,7 @@ const lifeSkillsCards = [
     },
     {
         title: "Critical Thinking & Decision-Making",
-        desc: "Encouraging responsible choices and problem-solving abilities."
+        desc: "Encouraging responsible choices and problem\u00A0solving abilities."
     },
     {
         title: "Resilience & Emotional Strength",
@@ -87,7 +87,7 @@ const lifeSkillsCards = [
     },
     {
         title: "Structured Documentation & Impact Tracking",
-        desc: "Session reports, progress insights, and measurable impact summaries for school leadership."
+        desc: "Session reports, progress insights and impact summaries for life skills classes."
     }
 ];
 
@@ -136,7 +136,7 @@ const workshopCards = [
         desc: "Actionable strategies that can be applied immediately."
     },
     {
-        title: "Preventive & Development-Oriented",
+        title: "Preventive & Development Oriented",
         desc: "Promoting overall well-being and a positive school culture."
     },
     {
@@ -205,12 +205,7 @@ const School = () => {
                             Enriching Minds, Empowering<br className="hidden sm:block" /> School Communities
                         </h2>
                         <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
-                            Transform your campus into a resilient community by sowing
-                            the seeds of wellness. Empower students, teachers, and
-                            parents with practical emotional skills that last a lifetime.
-                            Build a supportive school culture where every child feels
-                            safe, heard, and understood. Your journey toward a healthier,
-                            emotionally stronger campus starts here.
+                            Transform your campus into a resilient and emotionally healthy community with our School-Based Mental Health Program. Designed to support students, teachers, and parents, the program focuses on nurturing emotional well-being and building practical life skills. With a focus on early identification and timely guidance, we help address concerns before they grow. Together, we foster a compassionate school culture where every child feels safe, heard, and valued.
                         </p>
                         <div>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
@@ -259,7 +254,7 @@ const School = () => {
                         <h2 className="text-white text-[28px] sm:text-[34px] font-bold mb-3 font-inter-tight text-center">
                             What do we offer?
                         </h2>
-                        <p className="text-white/90 text-[13px] sm:text-[14.5px] text-center max-w-[700px] mb-8 sm:mb-10 font-geist leading-[1.6]">
+                        <p className="text-white/90 text-[13px] sm:text-[19px] text-center max-w-[700px] mb-8 sm:mb-10 font-geist leading-[1.6]">
                             A comprehensive, school-based mental health program designed to support<br className="hidden sm:block" />
                             students' emotional well-being, resilience, and overall development.
                         </p>
@@ -337,7 +332,7 @@ const School = () => {
                     <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Silent Struggles of Today's Students
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
                         Indian students face rising risks of digital dependency, increasing academic<br className="hidden sm:block" />
                         anxiety, growing peer pressure, and deepening concerns about body image
                     </p>
@@ -348,25 +343,25 @@ const School = () => {
                         {/* Circle 1 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-8 -mb-6 md:mb-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">60%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
+                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
                         </div>
 
                         {/* Circle 2 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-20 -mb-6 md:mb-0 md:-ml-8 md:-translate-y-8 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[46px] sm:text-[54px] font-medium mb-1 leading-none">81%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students Report<br />Anxiety Related To<br />Studies And Exams</p>
+                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students report<br />anxiety related to<br />studies and exams</p>
                         </div>
 
                         {/* Circle 3 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-30 -mb-6 md:mb-0 md:-ml-8 md:translate-y-10 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">33%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
+                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
                         </div>
 
                         {/* Circle 4 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-4 z-40 md:-ml-8 md:-translate-y-4 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-1 leading-none">45%</h3>
-                            <p className="text-[#1A1A1A] text-[11px] sm:text-[12px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
+                            <p className="text-[#1A1A1A] text-[11px] sm:text-[15px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
                         </div>
 
                     </div>
@@ -383,7 +378,7 @@ const School = () => {
                     <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
                         School-Based Mental Health Program Benefits
                     </h2>
-                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
+                    <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[1000px] mb-8 sm:mb-10 font-geist leading-[1.6]">
                         Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and<br className="hidden sm:block" />
                         fosters a positive school culture where everyone thrives.
                     </p>
