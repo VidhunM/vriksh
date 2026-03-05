@@ -13,15 +13,15 @@ const tabs = [
 const collegeCounsellingCards = [
     {
         title: "Dedicated On-Campus Counsellor",
-        desc: "A full-time professional providing personalized support to students and staff."
+        desc: "A qualified counsellor available on campus to support your staff and students."
     },
     {
-        title: "Preventive & Proactive Programs",
-        desc: "Workshops, awareness sessions, and early identification of stress, anxiety, or other concerns."
+        title: "Proactive Workshops and Training",
+        desc: "Regular workshops, awareness sessions for well-being & early identification of concerns."
     },
     {
         title: "Crisis Management Support",
-        desc: "Immediate intervention and structured care during critical situations."
+        desc: " Immediate help and professional guidance during difficult or emergency situations."
     },
     {
         title: "Career & Academic Guidance",
@@ -29,11 +29,11 @@ const collegeCounsellingCards = [
     },
     {
         title: "Confidential & Ethical Practice",
-        desc: "Safe, private, and professional counselling services for all students."
+        desc: "Safe, private counselling services ensure trust and confidentiality in every interaction."
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "Periodic reports, trend analysis, and insights for campus decision-making."
+        desc: "Regular case reports, well-being trend analysis, and insights to support informed decisions."
     }
 ];
 
@@ -109,8 +109,8 @@ const workshopCards = [
         desc: "Actionable strategies and techniques that can be applied immediately."
     },
     {
-        title: "Preventive & Development-Oriented",
-        desc: "Promoting overall well-being and a positive school culture."
+        title: "Preventive & Development Oriented",
+        desc: "Promoting overall well-being and positive college culture"
     },
     {
         title: "Structured Documentation & Reports",
@@ -140,7 +140,7 @@ const psychometricCards = [
         desc: "Personalized recommendations for academic, career, and personal development."
     },
     {
-        title: "Structured Documentation & Analytics",
+        title: "Documentation & Analytics",
         desc: "Detailed reports, progress tracking, and management-level summaries."
     }
 ];
@@ -245,10 +245,10 @@ const College = () => {
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
                         <h2 className="text-[#062623] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
-                            College-Based Mental <br /> Health Program
+                            Nurturing Resilience, <br />  Empowering Students
                         </h2>
                         <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
-                            Build a resilient campus that nurtures emotionally strong, confident, and thriving students by equipping young adults with the skills to manage stress, relationships, and future career demands with confidence. Strengthen student wellbeing, enhance academic engagement, and foster a positive campus culture where mental health becomes the foundation of success. Take the first step toward lasting change.
+                            Create a resilient campus where students feel supported, confident, and ready to face life’s challenges. Our program helps young adults manage stress, build healthy relationships, and prepare for future careers with practical skills that last a lifetime. By strengthening well-being and fostering a positive, inclusive campus culture, mental health becomes the foundation for both personal growth and academic success. Start building a healthier, stronger campus today.
 
                         </p>
                         <div>
@@ -259,11 +259,11 @@ const College = () => {
                     </div>
 
                     {/* Right side image */}
-                    <div className="flex-1 w-full flex justify-center lg:justify-end">
+                    <div className="flex-1 w-full flex justify-center lg:justify-end overflow-hidden rounded-[16px] shadow-lg max-w-[650px]">
                         <img
                             src="/images/clg01.png"
                             alt="College students learning"
-                            className="w-full max-w-[550px] aspect-[4/3] object-cover rounded-[16px] shadow-lg"
+                            className="w-full aspect-[4.9/3] object-cover transition-transform duration-700 hover:scale-110 scale-120"
                         />
                     </div>
                 </div>
@@ -318,7 +318,7 @@ const College = () => {
                         <h2 className="text-white text-[28px] sm:text-[34px] font-bold mb-3 font-inter-tight text-center">
                             What do we offer?
                         </h2>
-                        <p className="text-white/90 text-[13px] sm:text-[14.5px] text-center max-w-[700px] mb-8 sm:mb-10 font-geist leading-[1.6]">
+                        <p className="text-white/90 text-[13px] sm:text-[19px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
                             A comprehensive, campus-based mental health program designed to support college students’ emotional well-being, resilience, and holistic development.
 
                         </p>
@@ -391,7 +391,7 @@ const College = () => {
                     <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Student Well-Being at Risk
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-10 sm:mb-14 font-geist leading-[1.6]">
                         Indian students face rising risks of excessive screen use, risky substance<br className="hidden sm:block" />
                         habits, and growing mental health challenges
                     </p>
@@ -400,19 +400,19 @@ const College = () => {
                         {/* Circle 1 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 -mb-6 md:mb-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">60-70%</h3>
-                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[180px]">Students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
                         </div>
 
                         {/* Circle 2 (Middle) */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-20 -mb-6 md:mb-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none">20–25%</h3>
-                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[180px]">Students Engage In<br />Risky Alcohol,<br />Tobacco, Or Drug Use</p>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students engage in<br />risky alcohol,<br />tobacco, or drug use</p>
                         </div>
 
                         {/* Circle 3 */}
                         <div className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-6 z-10 md:-ml-8 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">65–70%</h3>
-                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[13px] font-normal leading-[1.4] max-w-[180px]">students experience<br />moderate to severe<br />anxiety or depressive<br />symptoms</p>
+                            <p className="text-[#1A1A1A] text-[11.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[180px]">students experience<br />moderate to severe<br />anxiety or depressive<br />symptoms</p>
                         </div>
                     </div>
                 </div>
@@ -424,10 +424,10 @@ const College = () => {
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
-                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-wide">
                         College-Based Mental Health Program Benefits
                     </h2>
-                    <p className="text-[#475467] text-[13px] sm:text-[14.5px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
+                    <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
                         Our structured mental health framework strengthens student wellbeing, equips educators, prevents crises, and fosters a positive school culture where everyone thrives.
                     </p>
 
