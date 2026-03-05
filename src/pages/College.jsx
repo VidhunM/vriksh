@@ -520,12 +520,12 @@ const College = () => {
                 ></div>
 
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-                    <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
+                    <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Student Well-Being at Risk
                     </h2>
                     <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-4 sm:mb-20 font-geist leading-[1.6]">
                         Indian students face rising risks of excessive screen use, risky substance<br className="hidden sm:block" />
-                        habits, and growing mental health challenges
+                        habits, and growing mental health challenges.
                     </p>
 
                     {/* Overlapping Circles Container */}
@@ -533,13 +533,13 @@ const College = () => {
                         {/* Circle 1 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-10 translate-x-[6%] translate-y-[5%] md:translate-x-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={60} />-<AnimatedNumber end={70} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">students report<br />excessive screen use<br />affecting sleep,<br />academics, and social life</p>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">of students experience<br />moderate to severe anxiety <br />or depressive symptoms</p>
                         </div>
 
                         {/* Circle 2 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-20 -translate-x-[6%] translate-y-[5%] md:translate-x-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[28px] sm:text-[48px] font-medium mb-1 leading-none"><AnimatedNumber end={20} />–<AnimatedNumber end={25} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">fall into high-risk<br />habits including<br />substance use</p>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">of students engage <br />in risky alcohol,<br />tobacco, or drug use</p>
                         </div>
 
                         {/* Circle 3 (Below and Centered) */}
@@ -559,7 +559,7 @@ const College = () => {
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
-                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                    <h2 className="text-[#101828] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-wide">
                         College-Based Mental Health Program Benefits
                     </h2>
                     <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-8 sm:mb-10 font-geist leading-[1.6]">
@@ -627,7 +627,7 @@ const College = () => {
                     </div>
 
                     <div className="mt-8 sm:mt-10 flex justify-center">
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
                             Get Started Today
                         </button>
                     </div>
@@ -640,7 +640,7 @@ const College = () => {
                     className="max-w-[1240px] mx-auto rounded-[20px] pt-12 pb-10 sm:pt-14 sm:pb-12 px-6 sm:px-10 lg:px-12 shadow-xl"
                     style={{ background: '#520378' }}
                 >
-                    <h2 className="text-white text-center text-[28px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
+                    <h2 className="text-white text-center text-[20px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
                         What Makes Us Your Trusted Partner?
                     </h2>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 gap-y-12 sm:gap-y-16 lg:gap-8">

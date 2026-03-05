@@ -171,7 +171,7 @@ const CareerCounselling = () => {
             <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1240px] mx-auto px-6">
                     <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
-                        CAREER GUIDANCE
+                        CAREER GUIDANCE SERVICES
                     </h1>
                 </div>
             </div>

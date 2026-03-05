@@ -277,7 +277,7 @@ const School = () => {
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
-                        <h2 className="text-[#062623] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
+                        <h2 className="text-[#062623] text-xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
                             Enriching Minds, Empowering<br className="hidden sm:block" /> School Communities
                         </h2>
                         <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
@@ -525,10 +525,10 @@ const School = () => {
                 ></div>
 
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-                    <h2 className="text-[#520378] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
+                    <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Silent Struggles of Today's Students
                     </h2>
-                    <p className="text-[#4A5568] text-[14px] sm:text-[16px] text-center max-w-[750px] mb-4 sm:mb-20 font-geist leading-[1.6]">
+                    <p className="text-[#4A5568] text-[14px] sm:text-[19px] text-center max-w-[750px] mb-4 sm:mb-20 font-geist leading-[1.6]">
                         Indian students face rising risks of digital dependency,
                         emotional distress, and academic pressure.
                     </p>
@@ -571,7 +571,7 @@ const School = () => {
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
 
                     {/* Header */}
-                    <h2 className="text-[#101828] text-[28px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
+                    <h2 className="text-[#101828] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
                         School-Based Mental Health Program Benefits
                     </h2>
                     <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[1000px] mb-8 sm:mb-10 font-geist leading-[1.6]">
@@ -648,7 +648,7 @@ const School = () => {
 
                     {/* CTA Button at the bottom of the section */}
                     <div className="mt-8 sm:mt-10 flex justify-center">
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
+                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg">
                             Get Started Today
                         </button>
                     </div>
@@ -662,7 +662,7 @@ const School = () => {
                     className="max-w-[1240px] mx-auto rounded-[20px] pt-12 pb-10 sm:pt-14 sm:pb-12 px-6 sm:px-10 lg:px-12 shadow-xl"
                     style={{ background: '#520378' }}
                 >
-                    <h2 className="text-white text-center text-[28px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
+                    <h2 className="text-white text-center text-[20px] sm:text-[34px] font-bold mb-14 sm:mb-16 font-inter-tight tracking-wide">
                         What Makes Us Your Trusted Partner?
                     </h2>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 gap-y-12 sm:gap-y-16 lg:gap-8">
