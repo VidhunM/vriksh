@@ -26,10 +26,10 @@ const counsellingServices = [
 ];
 
 const stats = [
-  { end: 1000, suffix: '+', label: 'Lives Impacted', icon: '/icons/Mask group2.png' },
-  { end: 150, suffix: '+', label: 'Well-being Experts', icon: '/icons/Mask group.png' },
-  { end: 4.8, decimals: 1, suffix: '/5', label: 'Client Ratings', icon: '/icons/Mask 1.png' },
-  { end: 2500, suffix: '+', label: 'Sessions Delivered', icon: '/icons/analysis.png' },
+  { end: 1000, suffix: '+', label: 'Lives Impacted', icon: '/icons/lives impact.png' },
+  { end: 150, suffix: '+', label: 'Well-being Experts', icon: '/icons/well being expected.png' },
+  { end: 4.8, decimals: 1, suffix: '/5', label: 'Client Ratings', icon: '/icons/client ratings.png' },
+  { end: 2500, suffix: '+', label: 'Sessions Delivered', icon: '/icons/sessions.png' },
 ];
 
 const assurances = [
@@ -147,7 +147,10 @@ const Counselling2 = () => {
   return (
     <section className="bg-white pt-0">
       {/* Banner + Hero */}
-      <div className="relative bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden">
+      <div
+        className="relative overflow-hidden"
+        style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
+      >
         {/* Purple Top Strip */}
         <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10">
           <div className="max-w-[1240px] mx-auto px-6">
@@ -160,7 +163,7 @@ const Counselling2 = () => {
         {/* Hero Content */}
         <div className="relative max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 py-10 sm:py-16 flex flex-col lg:flex-row items-center gap-10">
           {/* Left text */}
-          <div className="w-full lg:w-[52%] relative z-10">
+          <div className="w-full lg:w-[45%] relative z-10">
             <h2 className="text-[24px] sm:text-[34px] lg:text-[40px] font-bold text-gray-950 leading-[1.15] mb-4 font-inter-tight">
               Enriching Minds,<br className="hidden sm:block" /> Supporting Hearts
             </h2>
@@ -175,10 +178,10 @@ const Counselling2 = () => {
           </div>
 
           {/* Right image */}
-          <div className="w-full lg:w-[48%]">
-            <div className="rounded-[26px] overflow-hidden shadow-2xl border border-white/40">
+          <div className="w-full lg:w-[52%]">
+            <div className="rounded-[26px] overflow-hidden shadow-2xl border border-white/40 h-[260px] sm:h-[300px] lg:h-[380px]">
               <img
-                src="/images/events.png"
+                src="/images/counselling 2.png"
                 alt="Counselling support"
                 className="w-full h-full object-cover"
               />
@@ -214,7 +217,7 @@ const Counselling2 = () => {
                   <p className="text-[13px] sm:text-[15px] text-gray-700 leading-[1.6] mb-5 flex-1 font-geist">
                     {service.description}
                   </p>
-                  <button className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#400260] transition-all">
+                  <button className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#400260] transition-all self-start">
                     {service.cta}
                   </button>
                 </div>
@@ -259,7 +262,7 @@ const Counselling2 = () => {
         <div className="max-w-[1240px] mx-auto px-6">
           {/* Header: Title, Description, CTA */}
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10 sm:mb-14">
-            <div className="flex-1 max-w-[720px]">
+            <div className="flex-1 max-w-[1000px]">
               <h2 className="text-[24px] sm:text-[34px] font-bold text-white mb-4 font-inter-tight">
                 Our Experts
               </h2>
@@ -267,7 +270,7 @@ const Counselling2 = () => {
                 Our team of experienced and compassionate counsellors is dedicated to supporting emotional wellbeing across all age groups. With diverse expertise in mental health, education, and therapeutic practices, they provide empathetic guidance in a safe and confidential space, helping individuals navigate challenges and move toward healing and growth.
               </p>
             </div>
-            <button className="shrink-0 border-2 border-white bg-white/10 hover:bg-white/20 text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all">
+            <button className="shrink-0 border-2 border-white bg-white hover:bg-gray-100 text-[#520378] px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all lg:mt-12">
               Get in touch with us
             </button>
           </div>
@@ -332,9 +335,9 @@ const Counselling2 = () => {
       {/* Image + Quote Section */}
       <div className="bg-[#FFFDF5] py-12 sm:py-16">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left: Photograph */}
-            <div className="rounded-[20px] overflow-hidden shadow-lg">
+            <div className="lg:col-span-7 rounded-[20px] overflow-hidden shadow-lg">
               <img
                 src="/images/events.png"
                 alt="Two people engaged in a positive discussion at a modern office table"
@@ -343,7 +346,7 @@ const Counselling2 = () => {
             </div>
 
             {/* Right: Quote Card */}
-            <div className="bg-[#FFF9E1] rounded-[20px] p-8 sm:p-10 shadow-sm border border-[#F3E6C7] flex flex-col justify-between min-h-[320px]">
+            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-8 sm:p-10 shadow-sm border border-[#F3E6C7] flex flex-col justify-between min-h-[380px]">
               <div>
                 <span className="text-[48px] sm:text-[56px] font-serif text-gray-400 leading-none block mb-2">&ldquo;</span>
                 <p className="text-[18px] sm:text-[22px] text-gray-800 leading-[1.5] font-geist whitespace-pre-line">
@@ -381,21 +384,23 @@ const Counselling2 = () => {
             {assurances.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center text-center bg-white rounded-[16px] px-5 py-6 shadow-md hover:shadow-lg transition-all border border-gray-100"
+                className="flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 flex items-center justify-center bg-transparent">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 flex items-center justify-center">
                   <img
                     src={item.icon}
                     alt={item.title}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <h3 className="text-[14px] sm:text-[16px] font-bold text-gray-900 mb-2 font-inter-tight">
-                  {item.title}
-                </h3>
-                <p className="text-[12px] sm:text-[14px] text-gray-700 leading-[1.5] font-geist">
-                  {item.text}
-                </p>
+                <div className="bg-[#520378] rounded-[14px] px-5 py-6 shadow-md hover:shadow-lg transition-all w-full">
+                  <h3 className="text-[14px] sm:text-[16px] font-bold text-white mb-2 font-inter-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-[12px] sm:text-[14px] text-white/90 leading-[1.5] font-geist">
+                    {item.text}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -487,71 +492,110 @@ const Counselling2 = () => {
         </div>
       </div>
 
-      {/* Contact / Enquiry Section */}
-      <div className="bg-[#520378] py-12 sm:py-16">
+      {/* Contact Section */}
+      <div className="bg-white py-12 sm:py-16">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div className="text-white">
-              <p className="uppercase text-[12px] tracking-[0.18em] text-[#FFCF99] font-semibold mb-3">
-                WE&apos;RE HERE TO LISTEN
-              </p>
-              <h2 className="text-[24px] sm:text-[32px] font-bold leading-[1.1] mb-4 font-inter-tight">
-                We&apos;ll help you get started.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* Left: Heading & Description */}
+            <div>
+              <h2 className="text-[28px] sm:text-[36px] font-bold text-gray-950 leading-[1.15] mb-4 font-inter-tight">
+                We&apos;ll help you get started
               </h2>
-              <p className="text-[13px] sm:text-[16px] text-white/80 leading-[1.7] mb-6 font-geist max-w-[520px]">
-                Share a few details and our team will reach out with the next steps.
-                You can ask questions, understand the process, and choose a counsellor
-                you feel comfortable with.
+              <p className="text-[14px] sm:text-[16px] text-gray-600 leading-[1.7] font-geist max-w-[520px]">
+                Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace.
               </p>
-              <ul className="space-y-2 text-[13px] sm:text-[15px] font-geist text-white/85">
-                <li>• 100% confidential conversations</li>
-                <li>• Flexible timings and online sessions</li>
-                <li>• Guidance for individuals, couples, children and families</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-[20px] p-6 sm:p-8 shadow-xl">
-              <h3 className="text-[18px] sm:text-[20px] font-bold text-gray-900 mb-4 font-inter-tight">
+            {/* Right: Contact Form */}
+            <div>
+              <h3 className="text-[20px] sm:text-[22px] font-bold text-[#520378] mb-1 font-inter-tight">
                 Contact Us
               </h3>
+              <p className="text-[13px] sm:text-[14px] text-gray-600 mb-6 font-geist">
+                Reach out for support. We&apos;re here to listen.
+              </p>
               <form className="space-y-4">
-                <div>
-                  <label className="block text-[13px] font-medium text-gray-700 mb-1">Full Name</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-200 rounded-[10px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
-                    placeholder="Enter your name"
-                  />
-                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Email</label>
+                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Email Address</label>
                     <input
                       type="email"
-                      className="w-full border border-gray-200 rounded-[10px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
                       placeholder="you@example.com"
                     />
                   </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[13px] font-medium text-gray-700 mb-1">Phone Number</label>
                     <input
                       type="tel"
-                      className="w-full border border-gray-200 rounded-[10px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
                       placeholder="Enter phone number"
                     />
                   </div>
+                  <div>
+                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Age</label>
+                    <select
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
+                    >
+                      <option value="">Select age</option>
+                      {Array.from({ length: 83 }, (_, i) => i + 18).map((age) => (
+                        <option key={age} value={age}>{age}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Type of Support Needed</label>
+                    <select
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
+                    >
+                      <option value="">Select type</option>
+                      <option value="individual">Individual Counselling</option>
+                      <option value="children">Children & Adolescent</option>
+                      <option value="academic">Academic & Career</option>
+                      <option value="corporate">Corporate / Workplace</option>
+                      <option value="online">Online Counselling</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Preferred Time for Session</label>
+                    <select
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
+                    >
+                      <option value="">Select time</option>
+                      <option value="morning">Morning (9 AM - 12 PM)</option>
+                      <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                      <option value="evening">Evening (5 PM - 9 PM)</option>
+                      <option value="weekend">Weekend</option>
+                    </select>
+                  </div>
                 </div>
                 <div>
-                  <label className="block text-[13px] font-medium text-gray-700 mb-1">How can we help you?</label>
+                  <label className="block text-[13px] font-medium text-gray-700 mb-1">Message</label>
                   <textarea
-                    rows="3"
-                    className="w-full border border-gray-200 rounded-[10px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none"
-                    placeholder="Share briefly about what you would like support with"
+                    rows="4"
+                    className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none"
+                    placeholder="Share your message or concerns"
                   />
                 </div>
                 <button
                   type="button"
-                  className="w-full bg-[#520378] hover:bg-[#400260] text-white font-semibold text-[15px] py-2.5 rounded-full shadow-md transition-all active:scale-95"
+                  className="w-full bg-[#520378] hover:bg-[#400260] text-white font-semibold text-[15px] py-2.5 rounded-[10px] shadow-md transition-all active:scale-95"
                 >
                   Submit
                 </button>
