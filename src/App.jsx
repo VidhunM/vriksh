@@ -17,6 +17,7 @@ import CorporateEAP from './pages/CorporateEAP';
 import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 import BlogDetails from './pages/BlogDetails';
+import Counselling2 from './pages/Counselling2';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
 import './index.css';
@@ -47,6 +48,7 @@ function AppContent() {
           <Route path="/school" element={<School />} />
           <Route path="/college" element={<College />} />
           <Route path="/corporate-eap" element={<CorporateEAP />} />
+          <Route path="/counselling" element={<Counselling2 />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />

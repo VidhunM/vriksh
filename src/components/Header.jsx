@@ -41,7 +41,7 @@ const Header = () => {
         { label: 'Certificate Courses', href: '/certificate' }
       ]
     },
-    { label: 'Counselling', href: '#' },
+    { label: 'Counselling', href: '/counselling' },
     {
       label: 'Institutional Wellness Program',
       subItems: [
