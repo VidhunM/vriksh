@@ -121,7 +121,7 @@ const TopUpsSlider = () => {
             zIndex: 40
         });
 
-        // Calculate scroll distance
+        // Calculate scroll distance - Restored for smoother, more controlled scrolling
         const scrollDistance = window.innerHeight * 5;
 
         const tl = gsap.timeline({
@@ -130,7 +130,7 @@ const TopUpsSlider = () => {
                 start: "top top",
                 end: `+=${scrollDistance}`,
                 pin: true,
-                scrub: 1,
+                scrub: 1.2,
                 pinSpacing: true,
                 invalidateOnRefresh: true,
                 anticipatePin: 1,
@@ -138,8 +138,8 @@ const TopUpsSlider = () => {
             }
         });
 
-        // STEP 1: First card is already centered - add pause
-        tl.to({}, { duration: 1.5 });
+        // STEP 1: First card is already centered - add pause (Reduced for faster start)
+        tl.to({}, { duration: 0.6 });
 
         // STEP 2: Card 2 slides up to center
         tl.to(cards[1], {
@@ -186,6 +186,9 @@ const TopUpsSlider = () => {
                     <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
                         Top ups
                     </h2>
+                    <p className="text-white/80 text-[13px] sm:text-[19px] text-center max-w-[1000px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                        Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                    </p>
                 </div>
 
                 <div className="w-full max-w-[1100px] mx-auto px-4 relative">
@@ -258,6 +261,9 @@ const TopUpsSlider = () => {
                 <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
                     Top ups
                 </h2>
+                <p className="text-white/80 text-[13px] sm:text-[19px] text-center max-w-[900px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                    Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                </p>
             </div>
 
             <div className="w-full max-w-[1200px] mx-auto relative h-[500px]">
