@@ -54,9 +54,9 @@ const Blogs = () => {
     const filteredPosts = blogPosts.filter(post => post.category === activeCategory);
 
     return (
-        <section className="bg-white pt-0 min-h-screen pb-20">
+        <section className="bg-white pt-0 min-h-screen pb-8">
             {/* ── Purple Header Banner ── */}
-            <div className="bg-[#520378] pt-24 pb-6 sm:pt-30 sm:pb-8 text-center relative z-10 w-full">
+            <div className="bg-[#520378] pt-20 pb-4 sm:pt-26 sm:pb-6 text-center relative z-10 w-full">
                 <div className="max-w-[1240px] mx-auto px-6">
                     <h1 className="text-white text-[clamp(20px,3.5vw,36px)] font-bold tracking-[0.02em] uppercase font-inter-tight">
                         BLOGS
@@ -65,8 +65,8 @@ const Blogs = () => {
             </div>
 
             {/* ── Featured Insights Section ── */}
-            <div className="max-w-[1240px] mx-auto px-6 py-12 sm:py-20">
-                <h2 className="text-[#1A1A1A] text-[24px] sm:text-[32px] font-bold mb-10 font-inter-tight">
+            <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12">
+                <h2 className="text-[#1A1A1A] text-[24px] sm:text-[32px] font-bold mb-6 font-inter-tight">
                     Featured Insights
                 </h2>
 
@@ -90,7 +90,7 @@ const Blogs = () => {
                             <h3 className="text-[#1A1A1A] text-[24px] sm:text-[28px] lg:text-[32px] font-bold mb-6 font-inter-tight leading-[1.2]">
                                 Understanding Anxiety: Signs, Causes
                             </h3>
-                            <p className="text-[#4A5568] text-[15px] sm:text-[16px] font-geist leading-[1.7] mb-8">
+                            <p className="text-[#4A5568] text-[15px] sm:text-[19px] font-geist leading-[1.7] mb-8">
                                 Anxiety is one of the most common mental health challenges people experience today.
                                 In this article, our psychologists explain the common signs of anxiety, its possible causes,
                                 and practical strategies that can help individuals regain.
@@ -105,8 +105,8 @@ const Blogs = () => {
             </div>
 
             {/* ── Insights for a Healthier Mind Section ── */}
-            <div className="max-w-[1240px] mx-auto px-6 py-12 sm:py-20">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
+            <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12">
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
                     <div className="max-w-[800px]">
                         <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight leading-[1.1] mb-6">
                             Insights for a <br /> Healthier Mind
@@ -130,7 +130,7 @@ const Blogs = () => {
                     </div>
 
                     <div className="lg:max-w-[500px]">
-                        <p className="text-[#4A5568] text-[15px] sm:text-[16px] font-geist leading-[1.7]">
+                        <p className="text-[#4A5568] text-[15px] sm:text-[19px] font-geist leading-[1.7]">
                             Thoughtful articles, practical guidance, and expert perspectives from Vriksh Enriching Minds to help individuals,
                             students, and professionals build emotional resilience and mental wellbeing.
                         </p>

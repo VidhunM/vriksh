@@ -56,12 +56,12 @@ const BlogDetails = () => {
     const relatedPosts = blogPosts.filter(p => p.id !== blogId).slice(0, 3);
 
     return (
-        <section className="bg-white pt-24 sm:pt-36 pb-20">
+        <section className="bg-white pt-20 sm:pt-28 pb-12">
             <div className="max-w-[1240px] mx-auto px-6">
 
                 {/* ── Top Part (Hero): Centered Title & Header Image ── */}
-                <div className="flex flex-col items-center text-center mb-16 sm:mb-24">
-                    <h1 className="text-[#1A1A1A] text-[32px] sm:text-[42px] lg:text-[52px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-10 sm:mb-16">
+                <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
+                    <h1 className="text-[#1A1A1A] text-[32px] sm:text-[42px] lg:text-[52px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-8 sm:mb-12">
                         {post.title}
                     </h1>
 
@@ -103,7 +103,7 @@ const BlogDetails = () => {
                                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
 
-                            <h3 className="text-[#1A1A1A] text-[22px] sm:text-[26px] font-bold font-inter-tight mt-12 mb-6">
+                            <h3 className="text-[#1A1A1A] text-[22px] sm:text-[26px] font-bold font-inter-tight mt-8 mb-4">
                                 Lorem ipsum dolor sit
                             </h3>
 
@@ -115,7 +115,7 @@ const BlogDetails = () => {
                             </p>
 
                             {/* Inner Image */}
-                            <div className="my-12 rounded-[24px] overflow-hidden shadow-sm aspect-[16/9] sm:aspect-[16/7]">
+                            <div className="my-8 rounded-[24px] overflow-hidden shadow-sm aspect-[16/9] sm:aspect-[16/7]">
                                 <img
                                     src="/images/schl01.png"
                                     alt="Article content"
@@ -123,7 +123,7 @@ const BlogDetails = () => {
                                 />
                             </div>
 
-                            <h3 className="text-[#1A1A1A] text-[22px] sm:text-[26px] font-bold font-inter-tight mt-12 mb-6">
+                            <h3 className="text-[#1A1A1A] text-[22px] sm:text-[26px] font-bold font-inter-tight mt-8 mb-4">
                                 Lorem ipsum dolor sit
                             </h3>
 
@@ -175,8 +175,8 @@ const BlogDetails = () => {
                 </div>
 
                 {/* ── Related Blogs Section ── */}
-                <div className="mt-20 sm:mt-24">
-                    <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight mb-12">
+                <div className="mt-12 sm:mt-12">
+                    <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight mb-8">
                         Related Blogs
                     </h2>
 
