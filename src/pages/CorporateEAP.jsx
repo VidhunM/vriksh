@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AnimatedNumber from '../components/AnimatedNumber';
 import InstitutionalContact from '../components/InstitutionalContact';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
     { end: 5000, suffix: '+', label: 'Professional Network', icon: '/icons/Mask group2.png' },
@@ -44,6 +49,7 @@ const offeringCards = [
 const CorporateEAP = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const topUpsRef = useRef(null);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 1024); // Threshold for EAP cards
@@ -365,21 +371,23 @@ const CorporateEAP = () => {
 
 
             {/* ── Top ups Section ── */}
-            <div className="w-full pt-6 pb-10 sm:py-16 bg-[#520378]">
+            <div className="w-full pt-16 pb-20 sm:pt-24 sm:pb-32 bg-[#520378] relative z-[40]" ref={topUpsRef}>
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
-                    <h2 className="text-white text-[22px] sm:text-[36px] font-extrabold mb-3 font-inter-tight tracking-tight">
+                    <h2 className="text-white text-[28px] sm:text-[42px] font-extrabold mb-4 font-inter-tight tracking-tight">
                         Top ups
                     </h2>
-                    <p className="text-white/80 text-[13px] sm:text-[19px] max-w-[1100px] mb-8 sm:mb-10 font-geist leading-[1.6]">
+                    <p className="text-white/90 text-[14px] sm:text-[20px] max-w-[1100px] mb-12 sm:mb-20 font-geist leading-[1.6]">
                         Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
                         thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
                     </p>
 
-                    <TopUpsSlider />
+                    <TopUpsSlider sectionRef={topUpsRef} />
 
-                    <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3 rounded-full font-bold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md mt-4">
-                        Talk to Us
-                    </button>
+                    <div className="mt-16">
+                        <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
+                            Talk to Us
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -459,92 +467,113 @@ const topUpPrograms = [
     }
 ];
 
-const TopUpsSlider = () => {
-    const [activeIndex, setActiveIndex] = React.useState(0);
+const TopUpsSlider = ({ sectionRef }) => {
+    const mainContainer = useRef(null);
+    const cardsRef = useRef([]);
 
-    React.useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % topUpPrograms.length);
-        }, 8000); // Slowed down to 8 seconds
-        return () => clearInterval(interval);
-    }, []);
+    useGSAP(() => {
+        const cards = cardsRef.current;
+        if (!cards.length || !sectionRef?.current) return;
 
-    const scrollToSlide = (index) => {
-        setActiveIndex(index);
-    };
+        // Reset positions to handle re-initialization
+        gsap.set(cards, { clearProps: "all" });
+
+        // First card is the base, others start below the viewport
+        gsap.set(cards.slice(1), { yPercent: 100 });
+
+        const pinDistance = window.innerHeight * 3;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top top",
+                end: `+=${pinDistance}`,
+                pin: true,
+                scrub: 1,
+                pinSpacing: true,
+                invalidateOnRefresh: true,
+            }
+        });
+
+        // Loop through cards to create the stacking sequence
+        cards.forEach((card, index) => {
+            if (index === 0) return;
+
+            const prevCard = cards[index - 1];
+            const prevContent = prevCard.querySelector('.stack-card-inner');
+
+            // 1. Next card slides UP and OVER - Start immediately at (index - 1)
+            tl.to(card, {
+                yPercent: 0,
+                duration: 1,
+                ease: "none"
+            }, index - 1);
+
+            // 2. Simultaneously, push the previous card BACK
+            if (prevContent) {
+                tl.to(prevContent, {
+                    scale: 0.9,
+                    opacity: 0.5,
+                    filter: "blur(4px)",
+                    y: -20,
+                    duration: 1,
+                    ease: "none"
+                }, index - 1);
+            }
+        });
+    }, { scope: mainContainer, dependencies: [] });
 
     return (
-        <div className="w-full relative group">
-            {/* Slider Container */}
-            <div className="max-w-[1100px] mx-auto overflow-hidden rounded-[24px] shadow-2xl bg-white">
-                <div
-                    className="flex transition-transform duration-700 ease-in-out"
-                    style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-                >
-                    {topUpPrograms.map((program, idx) => (
-                        <div key={idx} className="w-full flex-none flex flex-col md:flex-row min-h-[450px]">
+        <div className="w-full relative py-8 z-[50]" ref={mainContainer}>
+            {/* The stack pile height needs to be fixed to contain the absolute children */}
+            <div className="max-w-[1100px] mx-auto relative h-[450px] sm:h-[580px]">
+                {topUpPrograms.map((program, idx) => (
+                    <div
+                        key={idx}
+                        ref={el => cardsRef.current[idx] = el}
+                        className="stack-card absolute inset-0 w-full h-full will-change-transform"
+                        style={{ zIndex: idx + 10 }}
+                    >
+                        <div className="stack-card-inner w-full h-full bg-white rounded-[32px] shadow-2xl overflow-hidden border border-white flex flex-col md:flex-row transition-transform duration-300">
                             {/* Image Part */}
-                            <div className="md:w-1/2 h-[300px] md:h-auto overflow-hidden relative">
-                                <img
-                                    src={program.image}
-                                    alt={program.title}
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/20 to-transparent pointer-events-none" />
+                            <div className="md:w-[45%] h-[200px] md:h-auto bg-white p-4 sm:p-8 flex items-center justify-center">
+                                <div className="w-full h-full rounded-[24px] overflow-hidden shadow-sm relative group/img">
+                                    <img
+                                        src={program.image}
+                                        alt={program.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/10 to-transparent" />
+                                </div>
                             </div>
 
                             {/* Content Part */}
-                            <div className="md:w-1/2 p-8 sm:p-12 flex flex-col justify-center items-start text-left bg-white">
-                                <h3 className="text-[#1A1A1A] text-[24px] sm:text-[32px] font-bold mb-2 font-inter-tight leading-tight">
+                            <div className="md:w-[55%] p-6 sm:p-12 flex flex-col justify-center items-start text-left bg-white">
+                                <div className="inline-block px-4 py-1.5 bg-[#F8EAFD] text-[#520378] rounded-full text-[12px] font-bold mb-4 tracking-wide uppercase">
+                                    Top Up Program {idx + 1}
+                                </div>
+                                <h3 className="text-[#1A1A1A] text-[24px] sm:text-[34px] font-bold mb-3 font-inter-tight leading-tight">
                                     {program.title}
                                 </h3>
                                 {program.tagline && (
-                                    <p className="text-[#520378] text-[15px] sm:text-[17px] font-bold mb-4 font-geist italic leading-snug">
+                                    <p className="text-[#520378] text-[14px] sm:text-[17px] font-bold mb-4 font-geist italic leading-snug">
                                         {program.tagline}
                                     </p>
                                 )}
-                                <p className="text-[#475467] text-[14px] sm:text-[16px] font-geist leading-[1.7] mb-8">
+                                <p className="text-[#475467] text-[13px] sm:text-[16px] font-geist leading-[1.7] mb-6 opacity-90 line-clamp-3 sm:line-clamp-none">
                                     {program.desc}
                                 </p>
-                                <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3 rounded-full font-bold text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                                <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3 rounded-full font-bold text-[14px] transition-all hover:scale-105 active:scale-95 shadow-lg flex items-center gap-2">
                                     Enquire Now
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
                                 </button>
                             </div>
                         </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Navigation Dots - Hidden on Desktop (lg) */}
-            <div className="flex justify-center gap-3 mt-8 lg:hidden">
-                {topUpPrograms.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => scrollToSlide(i)}
-                        className={`transition-all duration-300 rounded-full ${activeIndex === i ? 'w-10 bg-white' : 'w-2.5 bg-white/40 hover:bg-white/60'
-                            } h-2.5`}
-                        aria-label={`Go to slide ${i + 1}`}
-                    />
+                    </div>
                 ))}
             </div>
-
-            {/* Side Navigation Buttons (Desktop only, visible on hover) */}
-            <button
-                onClick={() => setActiveIndex((prev) => (prev - 1 + topUpPrograms.length) % topUpPrograms.length)}
-                className="hidden lg:flex absolute left-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full items-center justify-center text-[#520378] shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-gray-50"
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button
-                onClick={() => setActiveIndex((prev) => (prev + 1) % topUpPrograms.length)}
-                className="hidden lg:flex absolute right-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full items-center justify-center text-[#520378] shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-gray-50"
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
         </div>
     );
 };
