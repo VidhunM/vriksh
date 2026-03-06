@@ -46,13 +46,79 @@ const offeringCards = [
     }
 ];
 
+const testimonials = [
+    {
+        name: "Madhavi",
+        role: "Counsellor",
+        text: "Vriksh training webinars are crisp and clearly explained. I thoroughly enjoyed all the sessions. The trainers are highly knowledgeable and experienced. Thank you for such insightful learning experiences.",
+        date: "February 2025"
+    },
+    {
+        name: "Dr. Ashwini Kamath",
+        role: "Special Educator",
+        text: "Very informative and useful seminar on DTLD conducted by Vriksh. I would recommend all special educators and counselors to attend their sessions.",
+        date: "October 2025"
+    },
+    {
+        name: "Veena Padmanabha",
+        role: "Counsellor",
+        text: "An excellent initiative with a professional and well-structured approach. One can truly rely on the information provided. Superb coordination among the team. Highly commendable!",
+        date: "July 2025"
+    },
+    {
+        name: "Ananya R.",
+        role: "Individual Counselling Client",
+        text: "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.",
+        date: "June 2025"
+    },
+    {
+        name: "Disha Arunagiri",
+        role: "Counsellor",
+        text: "Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.",
+        date: "January 2025"
+    },
+    {
+        name: "Ayesha Barvin",
+        role: "Special Educator",
+        text: "I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently.",
+        date: "March 2025"
+    }
+];
+
+const topUpPrograms = [
+    {
+        title: "Corporate Wellness Events",
+        tagline: "Interactive, play-based activities help employees relax and recharge.",
+        desc: "Interactive, play-based activities help employees relax, recharge, and boost morale while strengthening team bonding, creating a more positive and connected workplace environment",
+        image: "/images/Corporate Wellness Events.jpg"
+    },
+    {
+        title: "Maternity Support Programme",
+        tagline: "Support new mothers through a smooth and confident transition back to work.",
+        desc: "At Vriksh, expert counselling and guided support help mothers feel emotionally prepared while navigating both pre- and post-maternity phases.",
+        image: "/images/Maternity Support Programme.jpg"
+    },
+    {
+        title: "Peer Support Champions",
+        tagline: "Trained peers provide first-line emotional support within the workplace.",
+        desc: "They listen with empathy, offer initial guidance, and help employees connect with professional counsellors when additional support is needed.",
+        image: "/images/peer support.jpg"
+    },
+    {
+        title: "4-Week Emotional Intelligence Program",
+        tagline: "Develop the skills to understand, manage, and respond to emotions effectively.",
+        desc: "Build self-awareness, strengthen relationships, and enhance communication through practical emotional intelligence skills.",
+        image: "/images/EMOTIONAL INTELLIGENCE.jpg"
+    }
+];
+
 const CorporateEAP = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
     const topUpsRef = useRef(null);
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1024); // Threshold for EAP cards
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -60,9 +126,8 @@ const CorporateEAP = () => {
 
     return (
         <section className="bg-white pt-0">
-            {/* ── Purple Header Banner + Hero combined ── */}
-            <div className="relative  bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden relative">
-
+            {/* Purple Header Banner + Hero combined */}
+            <div className="relative bg-gradient-to-b from-white to-[#FFF9E1] overflow-hidden">
                 {/* Purple top banner */}
                 <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10 w-full">
                     <div className="max-w-[1240px] mx-auto px-6">
@@ -72,9 +137,9 @@ const CorporateEAP = () => {
                     </div>
                 </div>
 
-                {/* Hero content area — person image overlaps the purple banner */}
+                {/* Hero content area */}
                 <div className="relative overflow-hidden">
-                    {/* Person image — cropped from center to bottom (Desktop/Tablet) */}
+                    {/* Person image — desktop/tablet */}
                     <div className="hidden sm:block absolute top-[-12%] right-2 sm:right-[4%] lg:right-[6%] bottom-0 sm:w-[50%] lg:w-[45%] max-w-[455px] h-[140%] overflow-hidden pointer-events-none">
                         <img
                             src="/images/eap01.png"
@@ -110,7 +175,7 @@ const CorporateEAP = () => {
                 </div>
             </div>
 
-            {/* ── Stats Section ── */}
+            {/* Stats Section */}
             <div className="px-4 sm:px-8 pb-8 relative z-20 -mt-18 sm:-mt-4">
                 <div
                     className="max-w-[1240px] mx-auto rounded-[16px] pt-10 pb-8 sm:pt-12 sm:pb-10 px-5 sm:px-12 shadow-lg"
@@ -140,7 +205,7 @@ const CorporateEAP = () => {
                 </div>
             </div>
 
-            {/* ── Workplace & Wellbeing Snapshot ── */}
+            {/* Workplace & Wellbeing Snapshot */}
             <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
                 {/* Background watermark */}
                 <div
@@ -167,7 +232,7 @@ const CorporateEAP = () => {
                             </p>
                         </div>
 
-                        {/* Circle 2 (Middle) */}
+                        {/* Circle 2 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-20 -translate-x-[8%] translate-y-[8%] md:translate-x-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none">
                                 <AnimatedNumber end={33} suffix="%" />
@@ -190,8 +255,7 @@ const CorporateEAP = () => {
                 </div>
             </div>
 
-
-            {/* ── Empowering Employees Section ── */}
+            {/* Empowering Employees Section */}
             <div
                 className="w-full bg-[#520378] bg-[length:80%_auto] sm:bg-[length:120%_80%] bg-bottom bg-no-repeat py-16 sm:py-24 relative overflow-hidden mt-20"
                 style={{ backgroundImage: "url('/images/wdwo.png')" }}
@@ -205,9 +269,8 @@ const CorporateEAP = () => {
                         according to your employees' needs and watch them unravel their best versions
                     </p>
 
-
                     <div className="w-full max-w-[1240px] overflow-visible py-4 relative">
-                        {/* Mobile Navigation Arrows (Sides) */}
+                        {/* Mobile Navigation Arrows */}
                         {isMobile && (
                             <>
                                 <button
@@ -287,8 +350,7 @@ const CorporateEAP = () => {
                 </div>
             </div>
 
-
-            {/* ── Boost Your Employee Morale Section ── */}
+            {/* Boost Your Employee Morale Section */}
             <div className="w-full pt-16 pb-0 sm:py-24 bg-white">
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
@@ -369,237 +431,341 @@ const CorporateEAP = () => {
                 </div>
             </div>
 
+            {/* Top ups Section - With Card Stacking Animation */}
+            <TopUpsSlider />
 
-            {/* ── Top ups Section ── */}
-            <div className="w-full relative z-[40]" ref={topUpsRef}>
-                <div className="w-full bg-[#520378] py-20 min-h-screen flex flex-col items-center justify-center overflow-hidden">
-                    <div className="w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
-                        <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
-                            Top ups
-                        </h2>
-                        <p className="text-white/90 text-[14px] sm:text-[18px] lg:text-[20px] max-w-[1000px] mb-12 sm:mb-16 font-geist leading-[1.6]">
-                            Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
-                            thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
-                        </p>
-
-                        <TopUpsSlider sectionRef={topUpsRef} />
-
-                        <div className="mt-12 sm:mt-16">
-                            <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
-                                Talk to Us
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* ── Testimonials Section ── */}
+            {/* Testimonials Section */}
             <EAPTestimonials />
 
-            {/* ── Get in Touch Section ── */}
+            {/* Get in Touch Section */}
             <InstitutionalContact programType="Corporate-EAP" />
         </section>
     );
 };
 
-const testimonials = [
-    {
-        name: "Madhavi",
-        role: "Counsellor",
-        text: "Vriksh training webinars are crisp and clearly explained. I thoroughly enjoyed all the sessions. The trainers are highly knowledgeable and experienced. Thank you for such insightful learning experiences.",
-        date: "February 2025"
-    },
-    {
-        name: "Dr. Ashwini Kamath",
-        role: "Special Educator",
-        text: "Very informative and useful seminar on DTLD conducted by Vriksh. I would recommend all special educators and counselors to attend their sessions.",
-        date: "October 2025"
-    },
+// Card Content Component (reusable)
+const CardContent = ({ program, index }) => (
+    <div className="w-full h-full bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden border border-white/50 flex flex-col md:flex-row backdrop-blur-sm">
+        {/* Image Part */}
+        <div className="md:w-[45%] h-[200px] md:h-auto bg-[#F9FAFB] p-4 sm:p-8 flex items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#520378]/5 to-transparent opacity-50" />
+            <div className="w-full h-full rounded-[20px] overflow-hidden shadow-2xl relative group/img z-10 border-4 border-white">
+                <img
+                    src={program.image}
+                    alt={program.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/30 via-transparent to-transparent pointer-events-none" />
+            </div>
+        </div>
 
-    {
-        name: "Veena Padmanabha",
-        role: "Counsellor",
-        text: "An excellent initiative with a professional and well-structured approach. One can truly rely on the information provided. Superb coordination among the team. Highly commendable!",
-        date: "July 2025"
-    },
-    {
-        name: "Ananya R.",
-        role: "Individual Counselling Client",
-        text: "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.",
-        date: "June 2025"
-    },
-    {
-        name: "Disha Arunagiri",
-        role: "Counsellor",
-        text: "Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.",
-        date: "January 2025"
-    },
-    {
-        name: "Ayesha Barvin",
-        role: "Special Educator",
-        text: "I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently.",
-        date: "March 2025"
-    }
-];
+        {/* Content Part */}
+        <div className="md:w-[55%] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-start text-left bg-white relative">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
+                <span className="text-8xl font-black text-[#520378] select-none">0{index + 1}</span>
+            </div>
+            <div className="inline-block px-4 py-1.5 bg-[#F8EAFD] text-[#520378] rounded-full text-[12px] font-extrabold mb-6 tracking-widest uppercase font-inter shadow-sm">
+                Program {index + 1}
+            </div>
+            <h3 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold mb-4 font-inter-tight leading-tight tracking-tight">
+                {program.title}
+            </h3>
+            {program.tagline && (
+                <div className="flex items-center gap-3 mb-5 group/tag">
+                    <div className="w-1 h-8 bg-[#FCA253] rounded-full group-hover/tag:h-10 transition-all duration-300" />
+                    <p className="text-[#520378] text-[15px] sm:text-[18px] lg:text-[20px] font-bold font-geist italic leading-snug">
+                        {program.tagline}
+                    </p>
+                </div>
+            )}
+            <p className="text-[#475467] text-[14px] sm:text-[17px] lg:text-[18px] font-geist leading-[1.7] mb-10 opacity-90 line-clamp-4 lg:line-clamp-none">
+                {program.desc}
+            </p>
+            <button className="group relative bg-[#520378] hover:bg-[#400260] text-white px-10 py-4 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(82,3,120,0.3)] flex items-center gap-3 overflow-hidden">
+                <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-[-4px]">Enquire Now</span>
+                <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </button>
+        </div>
+    </div>
+);
 
-const topUpPrograms = [
-    {
-        title: "Corporate Wellness Events",
-        tagline: "Interactive, play-based activities help employees relax and recharge.",
-        desc: "Interactive, play-based activities help employees relax, recharge, and boost morale while strengthening team bonding, creating a more positive and connected workplace environment",
-        image: "/images/Corporate Wellness Events.jpg"
-    },
-    {
-        title: "Maternity Support Programme",
-        tagline: "Support new mothers through a smooth and confident transition back to work.",
-        desc: "At Vriksh, expert counselling and guided support help mothers feel emotionally prepared while navigating both pre- and post-maternity phases.",
-        image: "/images/Maternity Support Programme.jpg"
-    },
-    {
-        title: "Peer Support Champions",
-        tagline: "Trained peers provide first-line emotional support within the workplace.",
-        desc: "They listen with empathy, offer initial guidance, and help employees connect with professional counsellors when additional support is needed.",
-        image: "/images/peer support.jpg"
-    },
-    {
-        title: "4-Week Emotional Intelligence Program",
-        tagline: "Develop the skills to understand, manage, and respond to emotions effectively.",
-        desc: "Build self-awareness, strengthen relationships, and enhance communication through practical emotional intelligence skills.",
-        image: "/images/EMOTIONAL INTELLIGENCE.jpg"
-    }
-];
-
-const TopUpsSlider = ({ sectionRef }) => {
+// TopUpsSlider Component with Card Stacking Animation
+const TopUpsSlider = () => {
     const mainContainer = useRef(null);
     const cardsRef = useRef([]);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useGSAP(() => {
         const cards = cardsRef.current;
-        if (!cards || cards.length === 0 || !sectionRef?.current) return;
+        if (!cards || cards.length === 0 || !mainContainer.current || isMobile) return;
 
-        // Force reset
-        gsap.set(cards, { clearProps: "all" });
+        // Kill any existing ScrollTriggers
+        ScrollTrigger.getAll().forEach(st => st.kill());
+        
+        // Initial setup - all cards absolutely positioned and stacked
+        gsap.set(cards, {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%'
+        });
 
-        // Initial State:
-        // Card 1 is at center (y: 0)
-        // Others (2, 3, 4) are strictly below the viewport
-        gsap.set(cards, { position: "absolute", top: 0, left: 0, width: "100%", height: "100%" });
-        gsap.set(cards.slice(1), { y: "150vh" }); // Way below to ensure they slide up
-        gsap.set(cards[0], { zIndex: 10 });
+        // Card 1 visible at center, others hidden below
+        gsap.set(cards[0], { 
+            y: 0, 
+            scale: 1,
+            opacity: 1,
+            zIndex: 10,
+            filter: 'blur(0px)'
+        });
+        
+        // Cards 2,3,4 start below viewport
+        gsap.set(cards[1], { 
+            y: '100%', 
+            scale: 0.95,
+            opacity: 0.9,
+            zIndex: 20,
+            filter: 'blur(0px)'
+        });
+        
+        gsap.set(cards[2], { 
+            y: '100%', 
+            scale: 0.95,
+            opacity: 0.9,
+            zIndex: 30,
+            filter: 'blur(0px)'
+        });
+        
+        gsap.set(cards[3], { 
+            y: '100%', 
+            scale: 0.95,
+            opacity: 0.9,
+            zIndex: 40,
+            filter: 'blur(0px)'
+        });
+
+        // Calculate scroll distance: each card needs ~80vh to transition
+        const scrollDistance = window.innerHeight * 6; // 6 viewport heights total
 
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: sectionRef.current,
+                trigger: mainContainer.current,
                 start: "top top",
-                end: `+=${window.innerHeight * (cards.length + 1)}`,
+                end: `+=${scrollDistance}`,
                 pin: true,
-                scrub: 1,
-                anticipatePin: 1,
+                scrub: 1.2,
+                pinSpacing: true,
                 invalidateOnRefresh: true,
+                anticipatePin: 1,
+                markers: false,
             }
         });
 
-        // Loop through cards to build the "slide up and overlay" effect
-        cards.forEach((card, i) => {
-            if (i === 0) return;
+        // Initial pause - first card shows fully
+        tl.to({}, { duration: 0.8 });
 
-            const prevCard = cards[i - 1];
+        // === Card 2 emerges and overlays Card 1 ===
+        tl.to(cards[1], {
+            y: '0%',
+            scale: 1,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out"
+        }, "-=0.2");
 
-            // Set z-index so current card is above previous
-            gsap.set(card, { zIndex: 10 + i });
+        // Card 1 recedes slightly as Card 2 comes in
+        tl.to(cards[0], {
+            scale: 0.85,
+            opacity: 0.3,
+            filter: 'blur(6px)',
+            duration: 1,
+            ease: "power2.inOut"
+        }, "<");
 
-            // Slide up the current card from bottom to center (y: 0)
-            tl.to(card, {
-                y: "0vh",
-                duration: 1,
-                ease: "none"
-            });
+        // Brief pause - Card 2 now fully visible
+        tl.to({}, { duration: 0.4 });
 
-            // Optional: Subtle scale down of the previous card to add depth
-            if (prevCard) {
-                const prevInner = prevCard.querySelector('.stack-card-inner');
-                if (prevInner) {
-                    tl.to(prevInner, {
-                        scale: 0.95,
-                        opacity: 0.8,
-                        duration: 1,
-                        ease: "none"
-                    }, "<"); // Start same time as current card transition
-                }
-            }
+        // === Card 3 emerges and overlays Card 2 ===
+        tl.to(cards[2], {
+            y: '0%',
+            scale: 1,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out"
+        }, "-=0.1");
 
-            // Add a small pause where the card is fully revealed before the next one starts
-            tl.to({}, { duration: 0.2 });
-        });
+        // Card 2 recedes as Card 3 comes in
+        tl.to(cards[1], {
+            scale: 0.85,
+            opacity: 0.3,
+            filter: 'blur(6px)',
+            duration: 1,
+            ease: "power2.inOut"
+        }, "<");
 
-    }, { scope: mainContainer, dependencies: [sectionRef] });
+        // Brief pause
+        tl.to({}, { duration: 0.4 });
 
+        // === Card 4 emerges and overlays Card 3 ===
+        tl.to(cards[3], {
+            y: '0%',
+            scale: 1,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out"
+        }, "-=0.1");
+
+        // Card 3 recedes as Card 4 comes in
+        tl.to(cards[2], {
+            scale: 0.85,
+            opacity: 0.3,
+            filter: 'blur(6px)',
+            duration: 1,
+            ease: "power2.inOut"
+        }, "<");
+
+        // Final pause - Card 4 fully visible
+        tl.to({}, { duration: 0.8 });
+
+        // Refresh ScrollTrigger after setup
+        setTimeout(() => ScrollTrigger.refresh(), 100);
+
+        return () => {
+            ScrollTrigger.getAll().forEach(st => st.kill());
+        };
+    }, { scope: mainContainer, dependencies: [isMobile] });
+
+    // Mobile version - simple slider
+    if (isMobile) {
+        const [currentIndex, setCurrentIndex] = useState(0);
+        
+        return (
+            <div className="w-full min-h-screen py-20 bg-[#520378] relative z-[40] flex flex-col items-center justify-center overflow-hidden">
+                <div className="w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
+                    <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
+                        Top ups
+                    </h2>
+                    <p className="text-white/90 text-[14px] sm:text-[18px] lg:text-[20px] max-w-[1000px] mb-8 sm:mb-12 font-geist leading-[1.6]">
+                        Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
+                        thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                    </p>
+                </div>
+
+                <div className="w-full max-w-[1100px] mx-auto px-4 relative">
+                    {/* Mobile Cards */}
+                    <div className="relative h-[600px] overflow-hidden">
+                        {topUpPrograms.map((program, idx) => (
+                            <div
+                                key={idx}
+                                className={`absolute w-full transition-all duration-500 ease-in-out ${
+                                    idx === currentIndex 
+                                        ? 'opacity-100 translate-x-0' 
+                                        : idx < currentIndex 
+                                            ? 'opacity-0 -translate-x-full' 
+                                            : 'opacity-0 translate-x-full'
+                                }`}
+                                style={{ zIndex: idx === currentIndex ? 10 : 0 }}
+                            >
+                                <CardContent program={program} index={idx} />
+                            </div>
+                        ))}
+                    </div>
+                    
+                    {/* Mobile Navigation */}
+                    <div className="flex justify-center gap-4 mt-6">
+                        <button
+                            onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
+                            disabled={currentIndex === 0}
+                            className="w-10 h-10 rounded-full bg-white text-[#520378] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center font-bold text-xl"
+                        >
+                            ←
+                        </button>
+                        <button
+                            onClick={() => setCurrentIndex(prev => Math.min(topUpPrograms.length - 1, prev + 1))}
+                            disabled={currentIndex === topUpPrograms.length - 1}
+                            className="w-10 h-10 rounded-full bg-white text-[#520378] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center font-bold text-xl"
+                        >
+                            →
+                        </button>
+                    </div>
+                    
+                    {/* Dot Indicators */}
+                    <div className="flex justify-center gap-2 mt-4">
+                        {topUpPrograms.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setCurrentIndex(idx)}
+                                className={`h-2 rounded-full transition-all ${
+                                    idx === currentIndex 
+                                        ? 'w-6 bg-white' 
+                                        : 'w-2 bg-white/40'
+                                }`}
+                            />
+                        ))}
+                    </div>
+
+                    <div className="mt-8 text-center">
+                        <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
+                            Talk to Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // Desktop version with GSAP stacking effect
     return (
-        <div className="w-full relative py-4 sm:py-8 z-[50]" ref={mainContainer}>
-            <div className="w-full max-w-[1100px] mx-auto relative h-[500px] sm:h-[600px] lg:h-[650px] flex items-center justify-center">
+        <div className="w-full min-h-screen bg-[#520378] relative z-[40] flex flex-col items-center justify-center overflow-hidden" ref={mainContainer}>
+            <div className="w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center pt-20">
+                <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
+                    Top ups
+                </h2>
+                <p className="text-white/90 text-[14px] sm:text-[18px] lg:text-[20px] max-w-[1000px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                    Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
+                    thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                </p>
+            </div>
+
+            <div className="w-full max-w-[1100px] mx-auto relative h-[600px] lg:h-[650px]">
                 {topUpPrograms.map((program, idx) => (
                     <div
                         key={idx}
                         ref={el => cardsRef.current[idx] = el}
-                        className="stack-card absolute w-full h-full will-change-transform flex items-center justify-center"
+                        className="absolute top-0 left-0 w-full h-full will-change-transform"
                     >
-                        <div className="stack-card-inner w-full h-full bg-white rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] overflow-hidden border border-white/50 flex flex-col md:flex-row backdrop-blur-sm">
-                            {/* Image Part */}
-                            <div className="md:w-[45%] h-[200px] md:h-auto bg-[#F9FAFB] p-4 sm:p-8 flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#520378]/5 to-transparent opacity-50" />
-                                <div className="w-full h-full rounded-[20px] overflow-hidden shadow-2xl relative group/img z-10 border-4 border-white">
-                                    <img
-                                        src={program.image}
-                                        alt={program.title}
-                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/30 via-transparent to-transparent pointer-events-none" />
-                                </div>
-                            </div>
-
-                            {/* Content Part */}
-                            <div className="md:w-[55%] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-start text-left bg-white relative">
-                                <div className="absolute top-0 right-0 p-8 opacity-5">
-                                    <span className="text-8xl font-black text-[#520378] select-none">0{idx + 1}</span>
-                                </div>
-                                <div className="inline-block px-4 py-1.5 bg-[#F8EAFD] text-[#520378] rounded-full text-[12px] font-extrabold mb-6 tracking-widest uppercase font-inter shadow-sm">
-                                    Program {idx + 1}
-                                </div>
-                                <h3 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold mb-4 font-inter-tight leading-tight tracking-tight">
-                                    {program.title}
-                                </h3>
-                                {program.tagline && (
-                                    <div className="flex items-center gap-3 mb-5 group/tag">
-                                        <div className="w-1 h-8 bg-[#FCA253] rounded-full group-hover/tag:h-10 transition-all duration-300" />
-                                        <p className="text-[#520378] text-[15px] sm:text-[18px] lg:text-[20px] font-bold font-geist italic leading-snug">
-                                            {program.tagline}
-                                        </p>
-                                    </div>
-                                )}
-                                <p className="text-[#475467] text-[14px] sm:text-[17px] lg:text-[18px] font-geist leading-[1.7] mb-10 opacity-90 line-clamp-4 lg:line-clamp-none">
-                                    {program.desc}
-                                </p>
-                                <button className="group relative bg-[#520378] hover:bg-[#400260] text-white px-10 py-4 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(82,3,120,0.3)] flex items-center gap-3 overflow-hidden">
-                                    <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-[-4px]">Enquire Now</span>
-                                    <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                    <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                                </button>
-                            </div>
-                        </div>
+                        <CardContent program={program} index={idx} />
                     </div>
                 ))}
+            </div>
+
+            <div className="mt-12 sm:mt-16 text-center">
+                <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
+                    Talk to Us
+                </button>
             </div>
         </div>
     );
 };
-const EAPTestimonials = () => {
-    const [testIndex, setTestIndex] = React.useState(0);
-    const [itemsVisible, setItemsVisible] = React.useState(3);
-    const [mobileTestNav, setMobileTestNav] = React.useState(null);
 
-    React.useEffect(() => {
+// Testimonials Component
+const EAPTestimonials = () => {
+    const [testIndex, setTestIndex] = useState(0);
+    const [itemsVisible, setItemsVisible] = useState(3);
+    const [mobileTestNav, setMobileTestNav] = useState(null);
+
+    useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 768) {
                 setItemsVisible(1);
