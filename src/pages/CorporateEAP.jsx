@@ -85,28 +85,25 @@ const testimonials = [
     }
 ];
 
+// 4 CARDS for top-up section
 const topUpPrograms = [
     {
         title: "Corporate Wellness Events",
-        tagline: "Interactive, play-based activities help employees relax and recharge.",
         desc: "Interactive, play-based activities help employees relax, recharge, and boost morale while strengthening team bonding, creating a more positive and connected workplace environment",
         image: "/images/Corporate Wellness Events.jpg"
     },
     {
         title: "Maternity Support Programme",
-        tagline: "Support new mothers through a smooth and confident transition back to work.",
         desc: "At Vriksh, expert counselling and guided support help mothers feel emotionally prepared while navigating both pre- and post-maternity phases.",
         image: "/images/Maternity Support Programme.jpg"
     },
     {
         title: "Peer Support Champions",
-        tagline: "Trained peers provide first-line emotional support within the workplace.",
         desc: "They listen with empathy, offer initial guidance, and help employees connect with professional counsellors when additional support is needed.",
         image: "/images/peer support.jpg"
     },
     {
         title: "4-Week Emotional Intelligence Program",
-        tagline: "Develop the skills to understand, manage, and respond to emotions effectively.",
         desc: "Build self-awareness, strengthen relationships, and enhance communication through practical emotional intelligence skills.",
         image: "/images/EMOTIONAL INTELLIGENCE.jpg"
     }
@@ -115,7 +112,6 @@ const topUpPrograms = [
 const CorporateEAP = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const topUpsRef = useRef(null);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -431,7 +427,7 @@ const CorporateEAP = () => {
                 </div>
             </div>
 
-            {/* Top ups Section - With Card Stacking Animation */}
+            {/* Top ups Section - With Fixed Card Stacking Animation (4 Cards) */}
             <TopUpsSlider />
 
             {/* Testimonials Section */}
@@ -443,56 +439,41 @@ const CorporateEAP = () => {
     );
 };
 
-// Card Content Component (reusable)
+// Card Content Component (reusable) - SMALLER CARD SIZE, NO PROGRAM NUMBERS, NO SUBTITLE
 const CardContent = ({ program, index }) => (
-    <div className="w-full h-full bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden border border-white/50 flex flex-col md:flex-row backdrop-blur-sm">
-        {/* Image Part */}
-        <div className="md:w-[45%] h-[200px] md:h-auto bg-[#F9FAFB] p-4 sm:p-8 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#520378]/5 to-transparent opacity-50" />
-            <div className="w-full h-full rounded-[20px] overflow-hidden shadow-2xl relative group/img z-10 border-4 border-white">
-                <img
-                    src={program.image}
-                    alt={program.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/30 via-transparent to-transparent pointer-events-none" />
-            </div>
-        </div>
-
-        {/* Content Part */}
-        <div className="md:w-[55%] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-start text-left bg-white relative">
-            <div className="absolute top-0 right-0 p-8 opacity-5">
-                <span className="text-8xl font-black text-[#520378] select-none">0{index + 1}</span>
-            </div>
-            <div className="inline-block px-4 py-1.5 bg-[#F8EAFD] text-[#520378] rounded-full text-[12px] font-extrabold mb-6 tracking-widest uppercase font-inter shadow-sm">
-                Program {index + 1}
-            </div>
-            <h3 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold mb-4 font-inter-tight leading-tight tracking-tight">
-                {program.title}
-            </h3>
-            {program.tagline && (
-                <div className="flex items-center gap-3 mb-5 group/tag">
-                    <div className="w-1 h-8 bg-[#FCA253] rounded-full group-hover/tag:h-10 transition-all duration-300" />
-                    <p className="text-[#520378] text-[15px] sm:text-[18px] lg:text-[20px] font-bold font-geist italic leading-snug">
-                        {program.tagline}
-                    </p>
+    <div className="w-full h-full flex items-center justify-center">
+        <div className="w-[90%] max-w-[900px] h-[450px] bg-white rounded-[24px] shadow-[0_15px_30px_rgba(0,0,0,0.1)] overflow-hidden border border-white/50 flex flex-col md:flex-row">
+            {/* Image Part - Smaller */}
+            <div className="md:w-[40%] h-[180px] md:h-full bg-[#F9FAFB] p-4 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full h-full rounded-[12px] overflow-hidden shadow-lg relative group/img border-2 border-white">
+                    <img
+                        src={program.image}
+                        alt={program.title}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
+                    />
                 </div>
-            )}
-            <p className="text-[#475467] text-[14px] sm:text-[17px] lg:text-[18px] font-geist leading-[1.7] mb-10 opacity-90 line-clamp-4 lg:line-clamp-none">
-                {program.desc}
-            </p>
-            <button className="group relative bg-[#520378] hover:bg-[#400260] text-white px-10 py-4 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(82,3,120,0.3)] flex items-center gap-3 overflow-hidden">
-                <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-[-4px]">Enquire Now</span>
-                <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </button>
+            </div>
+
+            {/* Content Part - Smaller, No Program Number, No Subtitle */}
+            <div className="md:w-[60%] p-6 sm:p-8 flex flex-col justify-center items-start text-left bg-white">
+                <h3 className="text-[#1A1A1A] text-[22px] sm:text-[28px] lg:text-[32px] font-bold mb-3 font-inter-tight leading-tight">
+                    {program.title}
+                </h3>
+                <p className="text-[#475467] text-[13px] sm:text-[15px] lg:text-[16px] font-geist leading-[1.6] mb-6 opacity-90">
+                    {program.desc}
+                </p>
+                <button className="group relative bg-[#520378] hover:bg-[#400260] text-white px-8 py-3 rounded-full font-bold text-[14px] transition-all hover:scale-105 active:scale-95 shadow-[0_8px_20px_rgba(82,3,120,0.2)] flex items-center gap-2 overflow-hidden">
+                    <span className="relative z-10">Enquire Now</span>
+                    <svg className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 );
 
-// TopUpsSlider Component with Card Stacking Animation
+// TopUpsSlider Component with Fixed Card Stacking Animation (4 Cards)
 const TopUpsSlider = () => {
     const mainContainer = useRef(null);
     const cardsRef = useRef([]);
@@ -521,42 +502,38 @@ const TopUpsSlider = () => {
             height: '100%'
         });
 
-        // Card 1 visible at center, others hidden below
+        // Card 1 visible at center - FULL VIEW
         gsap.set(cards[0], { 
             y: 0, 
             scale: 1,
             opacity: 1,
-            zIndex: 10,
-            filter: 'blur(0px)'
+            zIndex: 10
         });
         
         // Cards 2,3,4 start below viewport
         gsap.set(cards[1], { 
             y: '100%', 
-            scale: 0.95,
-            opacity: 0.9,
-            zIndex: 20,
-            filter: 'blur(0px)'
+            scale: 1,
+            opacity: 1,
+            zIndex: 20
         });
         
         gsap.set(cards[2], { 
             y: '100%', 
-            scale: 0.95,
-            opacity: 0.9,
-            zIndex: 30,
-            filter: 'blur(0px)'
-        });
-        
-        gsap.set(cards[3], { 
-            y: '100%', 
-            scale: 0.95,
-            opacity: 0.9,
-            zIndex: 40,
-            filter: 'blur(0px)'
+            scale: 1,
+            opacity: 1,
+            zIndex: 30
         });
 
-        // Calculate scroll distance: each card needs ~80vh to transition
-        const scrollDistance = window.innerHeight * 6; // 6 viewport heights total
+        gsap.set(cards[3], { 
+            y: '100%', 
+            scale: 1,
+            opacity: 1,
+            zIndex: 40
+        });
+
+        // Calculate scroll distance: 5 viewport heights total
+        const scrollDistance = window.innerHeight * 5;
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -564,79 +541,46 @@ const TopUpsSlider = () => {
                 start: "top top",
                 end: `+=${scrollDistance}`,
                 pin: true,
-                scrub: 1.2,
+                scrub: 1,
                 pinSpacing: true,
                 invalidateOnRefresh: true,
                 anticipatePin: 1,
-                markers: false,
+                markers: false
             }
         });
 
-        // Initial pause - first card shows fully
+        // STEP 1: FIRST CARD SHOWS FULLY AND STICKS - LONG PAUSE
+        tl.to({}, { duration: 2 }); // Extended pause to show first card fully
+
+        // STEP 2: Card 2 emerges (starts after first card is fully viewed)
+        tl.to(cards[1], {
+            y: '0%',
+            duration: 1,
+            ease: "power2.inOut"
+        });
+
+        // Hold Card 2 fully visible
         tl.to({}, { duration: 0.8 });
 
-        // === Card 2 emerges and overlays Card 1 ===
-        tl.to(cards[1], {
-            y: '0%',
-            scale: 1,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power2.out"
-        }, "-=0.2");
-
-        // Card 1 recedes slightly as Card 2 comes in
-        tl.to(cards[0], {
-            scale: 0.85,
-            opacity: 0.3,
-            filter: 'blur(6px)',
-            duration: 1,
-            ease: "power2.inOut"
-        }, "<");
-
-        // Brief pause - Card 2 now fully visible
-        tl.to({}, { duration: 0.4 });
-
-        // === Card 3 emerges and overlays Card 2 ===
+        // STEP 3: Card 3 emerges
         tl.to(cards[2], {
             y: '0%',
-            scale: 1,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power2.out"
-        }, "-=0.1");
-
-        // Card 2 recedes as Card 3 comes in
-        tl.to(cards[1], {
-            scale: 0.85,
-            opacity: 0.3,
-            filter: 'blur(6px)',
             duration: 1,
             ease: "power2.inOut"
-        }, "<");
+        });
 
-        // Brief pause
-        tl.to({}, { duration: 0.4 });
+        // Hold Card 3 fully visible
+        tl.to({}, { duration: 0.8 });
 
-        // === Card 4 emerges and overlays Card 3 ===
+        // STEP 4: Card 4 emerges
         tl.to(cards[3], {
             y: '0%',
-            scale: 1,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power2.out"
-        }, "-=0.1");
-
-        // Card 3 recedes as Card 4 comes in
-        tl.to(cards[2], {
-            scale: 0.85,
-            opacity: 0.3,
-            filter: 'blur(6px)',
             duration: 1,
             ease: "power2.inOut"
-        }, "<");
+        });
 
-        // Final pause - Card 4 fully visible
-        tl.to({}, { duration: 0.8 });
+        // Hold Card 4 fully visible at the end
+        tl.to({}, { duration: 1 });
 
         // Refresh ScrollTrigger after setup
         setTimeout(() => ScrollTrigger.refresh(), 100);
@@ -664,7 +608,7 @@ const TopUpsSlider = () => {
 
                 <div className="w-full max-w-[1100px] mx-auto px-4 relative">
                     {/* Mobile Cards */}
-                    <div className="relative h-[600px] overflow-hidden">
+                    <div className="relative h-[500px] overflow-hidden">
                         {topUpPrograms.map((program, idx) => (
                             <div
                                 key={idx}
@@ -725,20 +669,20 @@ const TopUpsSlider = () => {
         );
     }
 
-    // Desktop version with GSAP stacking effect
+    // Desktop version with fixed GSAP stacking effect (4 cards)
     return (
         <div className="w-full min-h-screen bg-[#520378] relative z-[40] flex flex-col items-center justify-center overflow-hidden" ref={mainContainer}>
-            <div className="w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center pt-20">
+            <div className="w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center pt-16 pb-8">
                 <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
                     Top ups
                 </h2>
-                <p className="text-white/90 text-[14px] sm:text-[18px] lg:text-[20px] max-w-[1000px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                <p className="text-white/90 text-[14px] sm:text-[18px] lg:text-[20px] max-w-[1000px] font-geist leading-[1.6]">
                     Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
                     thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
                 </p>
             </div>
 
-            <div className="w-full max-w-[1100px] mx-auto relative h-[600px] lg:h-[650px]">
+            <div className="w-full max-w-[1200px] mx-auto relative h-[500px]">
                 {topUpPrograms.map((program, idx) => (
                     <div
                         key={idx}
@@ -750,7 +694,7 @@ const TopUpsSlider = () => {
                 ))}
             </div>
 
-            <div className="mt-12 sm:mt-16 text-center">
+            <div className="mt-8 text-center">
                 <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
                     Talk to Us
                 </button>
