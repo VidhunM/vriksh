@@ -493,7 +493,13 @@ const TopUpsSlider = () => {
         // Kill any existing ScrollTriggers
         ScrollTrigger.getAll().forEach(st => st.kill());
         
-        // Initial setup - all cards absolutely positioned and stacked
+        // Set container to have position relative
+        gsap.set(mainContainer.current, { position: 'relative' });
+        
+        // Clear any existing transforms on all cards
+        gsap.set(cards, { clearProps: "all" });
+        
+        // Set all cards to absolute positioning
         gsap.set(cards, {
             position: 'absolute',
             top: 0,
@@ -502,37 +508,30 @@ const TopUpsSlider = () => {
             height: '100%'
         });
 
-        // Card 1 visible at center - FULL VIEW
+        // IMPORTANT: First card should be at y:0 (top of container)
+        // The CardContent component will center it with flexbox
         gsap.set(cards[0], { 
-            y: 0, 
-            scale: 1,
-            opacity: 1,
+            y: 0,
             zIndex: 10
         });
         
-        // Cards 2,3,4 start below viewport
+        // Cards 2,3,4 start below the container
         gsap.set(cards[1], { 
-            y: '100%', 
-            scale: 1,
-            opacity: 1,
+            y: '100%',
             zIndex: 20
         });
         
         gsap.set(cards[2], { 
-            y: '100%', 
-            scale: 1,
-            opacity: 1,
+            y: '100%',
             zIndex: 30
         });
 
         gsap.set(cards[3], { 
-            y: '100%', 
-            scale: 1,
-            opacity: 1,
+            y: '100%',
             zIndex: 40
         });
 
-        // Calculate scroll distance: 5 viewport heights total
+        // Calculate scroll distance
         const scrollDistance = window.innerHeight * 5;
 
         const tl = gsap.timeline({
@@ -549,40 +548,40 @@ const TopUpsSlider = () => {
             }
         });
 
-        // STEP 1: FIRST CARD SHOWS FULLY AND STICKS - LONG PAUSE
-        tl.to({}, { duration: 2 }); // Extended pause to show first card fully
+        // STEP 1: First card is already visible at the top
+        // Add a pause to let user see it
+        tl.to({}, { duration: 1.5 });
 
-        // STEP 2: Card 2 emerges (starts after first card is fully viewed)
+        // STEP 2: Card 2 slides up from bottom to top
         tl.to(cards[1], {
             y: '0%',
             duration: 1,
             ease: "power2.inOut"
         });
 
-        // Hold Card 2 fully visible
+        // Hold Card 2
         tl.to({}, { duration: 0.8 });
 
-        // STEP 3: Card 3 emerges
+        // STEP 3: Card 3 slides up
         tl.to(cards[2], {
             y: '0%',
             duration: 1,
             ease: "power2.inOut"
         });
 
-        // Hold Card 3 fully visible
+        // Hold Card 3
         tl.to({}, { duration: 0.8 });
 
-        // STEP 4: Card 4 emerges
+        // STEP 4: Card 4 slides up
         tl.to(cards[3], {
             y: '0%',
             duration: 1,
             ease: "power2.inOut"
         });
 
-        // Hold Card 4 fully visible at the end
+        // Hold Card 4
         tl.to({}, { duration: 1 });
 
-        // Refresh ScrollTrigger after setup
         setTimeout(() => ScrollTrigger.refresh(), 100);
 
         return () => {
@@ -687,7 +686,7 @@ const TopUpsSlider = () => {
                     <div
                         key={idx}
                         ref={el => cardsRef.current[idx] = el}
-                        className="absolute top-0 left-0 w-full h-full will-change-transform"
+                        className="absolute top-0 left-0 w-full h-full"
                     >
                         <CardContent program={program} index={idx} />
                     </div>
