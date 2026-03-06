@@ -371,22 +371,24 @@ const CorporateEAP = () => {
 
 
             {/* ── Top ups Section ── */}
-            <div className="w-full pt-16 pb-20 sm:pt-24 sm:pb-32 bg-[#520378] relative z-[40]" ref={topUpsRef}>
-                <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
-                    <h2 className="text-white text-[28px] sm:text-[42px] font-extrabold mb-4 font-inter-tight tracking-tight">
-                        Top ups
-                    </h2>
-                    <p className="text-white/90 text-[14px] sm:text-[20px] max-w-[1100px] mb-12 sm:mb-20 font-geist leading-[1.6]">
-                        Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
-                        thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
-                    </p>
+            <div className="w-full relative z-[40]" ref={topUpsRef}>
+                <div className="w-full bg-[#520378] py-20 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+                    <div className="w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center text-center">
+                        <h2 className="text-white text-[28px] sm:text-[42px] lg:text-[48px] font-extrabold mb-4 font-inter-tight tracking-tight">
+                            Top ups
+                        </h2>
+                        <p className="text-white/90 text-[14px] sm:text-[18px] lg:text-[20px] max-w-[1000px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                            Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are
+                            thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                        </p>
 
-                    <TopUpsSlider sectionRef={topUpsRef} />
+                        <TopUpsSlider sectionRef={topUpsRef} />
 
-                    <div className="mt-16">
-                        <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
-                            Talk to Us
-                        </button>
+                        <div className="mt-12 sm:mt-16">
+                            <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3.5 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xl">
+                                Talk to Us
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -473,101 +475,116 @@ const TopUpsSlider = ({ sectionRef }) => {
 
     useGSAP(() => {
         const cards = cardsRef.current;
-        if (!cards.length || !sectionRef?.current) return;
+        if (!cards || cards.length === 0 || !sectionRef?.current) return;
 
-        // Reset positions to handle re-initialization
+        // Force reset
         gsap.set(cards, { clearProps: "all" });
 
-        // First card is the base, others start below the viewport
-        gsap.set(cards.slice(1), { yPercent: 100 });
-
-        const pinDistance = window.innerHeight * 3;
+        // Initial State:
+        // Card 1 is at center (y: 0)
+        // Others (2, 3, 4) are strictly below the viewport
+        gsap.set(cards, { position: "absolute", top: 0, left: 0, width: "100%", height: "100%" });
+        gsap.set(cards.slice(1), { y: "150vh" }); // Way below to ensure they slide up
+        gsap.set(cards[0], { zIndex: 10 });
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: `+=${pinDistance}`,
+                end: `+=${window.innerHeight * (cards.length + 1)}`,
                 pin: true,
                 scrub: 1,
-                pinSpacing: true,
+                anticipatePin: 1,
                 invalidateOnRefresh: true,
             }
         });
 
-        // Loop through cards to create the stacking sequence
-        cards.forEach((card, index) => {
-            if (index === 0) return;
+        // Loop through cards to build the "slide up and overlay" effect
+        cards.forEach((card, i) => {
+            if (i === 0) return;
 
-            const prevCard = cards[index - 1];
-            const prevContent = prevCard.querySelector('.stack-card-inner');
+            const prevCard = cards[i - 1];
 
-            // 1. Next card slides UP and OVER - Start immediately at (index - 1)
+            // Set z-index so current card is above previous
+            gsap.set(card, { zIndex: 10 + i });
+
+            // Slide up the current card from bottom to center (y: 0)
             tl.to(card, {
-                yPercent: 0,
+                y: "0vh",
                 duration: 1,
                 ease: "none"
-            }, index - 1);
+            });
 
-            // 2. Simultaneously, push the previous card BACK
-            if (prevContent) {
-                tl.to(prevContent, {
-                    scale: 0.9,
-                    opacity: 0.5,
-                    filter: "blur(4px)",
-                    y: -20,
-                    duration: 1,
-                    ease: "none"
-                }, index - 1);
+            // Optional: Subtle scale down of the previous card to add depth
+            if (prevCard) {
+                const prevInner = prevCard.querySelector('.stack-card-inner');
+                if (prevInner) {
+                    tl.to(prevInner, {
+                        scale: 0.95,
+                        opacity: 0.8,
+                        duration: 1,
+                        ease: "none"
+                    }, "<"); // Start same time as current card transition
+                }
             }
+
+            // Add a small pause where the card is fully revealed before the next one starts
+            tl.to({}, { duration: 0.2 });
         });
-    }, { scope: mainContainer, dependencies: [] });
+
+    }, { scope: mainContainer, dependencies: [sectionRef] });
 
     return (
-        <div className="w-full relative py-8 z-[50]" ref={mainContainer}>
-            {/* The stack pile height needs to be fixed to contain the absolute children */}
-            <div className="max-w-[1100px] mx-auto relative h-[450px] sm:h-[580px]">
+        <div className="w-full relative py-4 sm:py-8 z-[50]" ref={mainContainer}>
+            <div className="w-full max-w-[1100px] mx-auto relative h-[500px] sm:h-[600px] lg:h-[650px] flex items-center justify-center">
                 {topUpPrograms.map((program, idx) => (
                     <div
                         key={idx}
                         ref={el => cardsRef.current[idx] = el}
-                        className="stack-card absolute inset-0 w-full h-full will-change-transform"
-                        style={{ zIndex: idx + 10 }}
+                        className="stack-card absolute w-full h-full will-change-transform flex items-center justify-center"
                     >
-                        <div className="stack-card-inner w-full h-full bg-white rounded-[32px] shadow-2xl overflow-hidden border border-white flex flex-col md:flex-row transition-transform duration-300">
+                        <div className="stack-card-inner w-full h-full bg-white rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] overflow-hidden border border-white/50 flex flex-col md:flex-row backdrop-blur-sm">
                             {/* Image Part */}
-                            <div className="md:w-[45%] h-[200px] md:h-auto bg-white p-4 sm:p-8 flex items-center justify-center">
-                                <div className="w-full h-full rounded-[24px] overflow-hidden shadow-sm relative group/img">
+                            <div className="md:w-[45%] h-[200px] md:h-auto bg-[#F9FAFB] p-4 sm:p-8 flex items-center justify-center relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#520378]/5 to-transparent opacity-50" />
+                                <div className="w-full h-full rounded-[20px] overflow-hidden shadow-2xl relative group/img z-10 border-4 border-white">
                                     <img
                                         src={program.image}
                                         alt={program.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/10 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#520378]/30 via-transparent to-transparent pointer-events-none" />
                                 </div>
                             </div>
 
                             {/* Content Part */}
-                            <div className="md:w-[55%] p-6 sm:p-12 flex flex-col justify-center items-start text-left bg-white">
-                                <div className="inline-block px-4 py-1.5 bg-[#F8EAFD] text-[#520378] rounded-full text-[12px] font-bold mb-4 tracking-wide uppercase">
-                                    Top Up Program {idx + 1}
+                            <div className="md:w-[55%] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-start text-left bg-white relative">
+                                <div className="absolute top-0 right-0 p-8 opacity-5">
+                                    <span className="text-8xl font-black text-[#520378] select-none">0{idx + 1}</span>
                                 </div>
-                                <h3 className="text-[#1A1A1A] text-[24px] sm:text-[34px] font-bold mb-3 font-inter-tight leading-tight">
+                                <div className="inline-block px-4 py-1.5 bg-[#F8EAFD] text-[#520378] rounded-full text-[12px] font-extrabold mb-6 tracking-widest uppercase font-inter shadow-sm">
+                                    Program {idx + 1}
+                                </div>
+                                <h3 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold mb-4 font-inter-tight leading-tight tracking-tight">
                                     {program.title}
                                 </h3>
                                 {program.tagline && (
-                                    <p className="text-[#520378] text-[14px] sm:text-[17px] font-bold mb-4 font-geist italic leading-snug">
-                                        {program.tagline}
-                                    </p>
+                                    <div className="flex items-center gap-3 mb-5 group/tag">
+                                        <div className="w-1 h-8 bg-[#FCA253] rounded-full group-hover/tag:h-10 transition-all duration-300" />
+                                        <p className="text-[#520378] text-[15px] sm:text-[18px] lg:text-[20px] font-bold font-geist italic leading-snug">
+                                            {program.tagline}
+                                        </p>
+                                    </div>
                                 )}
-                                <p className="text-[#475467] text-[13px] sm:text-[16px] font-geist leading-[1.7] mb-6 opacity-90 line-clamp-3 sm:line-clamp-none">
+                                <p className="text-[#475467] text-[14px] sm:text-[17px] lg:text-[18px] font-geist leading-[1.7] mb-10 opacity-90 line-clamp-4 lg:line-clamp-none">
                                     {program.desc}
                                 </p>
-                                <button className="bg-[#520378] hover:bg-[#400260] text-white px-8 py-3 rounded-full font-bold text-[14px] transition-all hover:scale-105 active:scale-95 shadow-lg flex items-center gap-2">
-                                    Enquire Now
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <button className="group relative bg-[#520378] hover:bg-[#400260] text-white px-10 py-4 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(82,3,120,0.3)] flex items-center gap-3 overflow-hidden">
+                                    <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-[-4px]">Enquire Now</span>
+                                    <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
+                                    <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                                 </button>
                             </div>
                         </div>
