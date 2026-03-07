@@ -225,7 +225,7 @@ const CorporateEAP = () => {
 
             {/* Empowering Employees Section */}
             <div
-                className="w-full bg-[#520378] bg-[length:80%_auto] sm:bg-[length:120%_80%] bg-bottom bg-no-repeat py-16 sm:py-24 relative overflow-hidden mt-20"
+                className="w-full bg-[#520378] bg-[length:80%_auto] sm:bg-[length:120%_80%] bg-bottom bg-no-repeat py-16 sm:py-20 relative overflow-hidden mt-14"
                 style={{ backgroundImage: "url('/images/wdwo.png')" }}
             >
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center relative z-10">
@@ -319,7 +319,7 @@ const CorporateEAP = () => {
             </div>
 
             {/* Boost Your Employee Morale Section */}
-            <div className="w-full pt-16 pb-0 sm:py-24 bg-white">
+            <div className="w-full pt-16 pb-0 sm:py-14 bg-white">
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
                         Boost your employee morale
@@ -445,7 +445,7 @@ const EAPTestimonials = () => {
 
     return (
         <div
-            className="py-12 sm:py-20"
+            className="py-12 sm:py-14"
             style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
         >
             <div className="max-w-[1320px] mx-auto px-6">

@@ -27,7 +27,7 @@ const InstitutionalContact = ({ programType }) => {
     const isSchool = programType === "School-Based";
 
     return (
-        <section className="w-full py-16 sm:py-24" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+        <section className="w-full py-16 sm:py-18" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start -mt-10">
 
