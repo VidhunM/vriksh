@@ -33,13 +33,13 @@ const topUpPrograms = [
     }
 ];
 
-// Card Component
+// Card Component - Optimized for full visibility
 const ProgramCard = ({ program, isActive }) => (
-    <div className="w-full h-full flex items-center justify-center px-4">
-        <div className="w-full max-w-[1000px] h-[500px] bg-white rounded-[32px] shadow-2xl overflow-hidden flex flex-col md:flex-row transform transition-all duration-300 hover:shadow-3xl">
-            {/* Image Section */}
-            <div className="md:w-[45%] h-[200px] md:h-full bg-gradient-to-br from-[#F9FAFB] to-gray-100 p-6 flex items-center justify-center">
-                <div className="w-full h-full rounded-[20px] overflow-hidden shadow-xl border-4 border-white">
+    <div className="w-full h-full flex items-center justify-center p-4 md:p-6">
+        <div className="w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row transform transition-all duration-300 hover:shadow-3xl">
+            {/* Image Section - Adjusted proportions */}
+            <div className="md:w-2/5 h-64 md:h-auto bg-gradient-to-br from-[#F9FAFB] to-gray-100 p-6 flex items-center justify-center">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                     <img
                         src={program.image}
                         alt={program.title}
@@ -51,8 +51,8 @@ const ProgramCard = ({ program, isActive }) => (
                 </div>
             </div>
 
-            {/* Content Section */}
-            <div className="md:w-[55%] p-8 md:p-10 flex flex-col justify-center bg-white">
+            {/* Content Section - Adjusted padding for better fit */}
+            <div className="md:w-3/5 p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white">
                 <h3 className="text-[#1A1A1A] text-2xl md:text-3xl lg:text-4xl font-bold mb-4 font-inter-tight leading-tight">
                     {program.title}
                 </h3>
@@ -79,7 +79,6 @@ const TopUpsSlider = () => {
     
     const [isMobile, setIsMobile] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [dimensions, setDimensions] = useState({ headerHeight: 0, footerHeight: 0 });
 
     // Check mobile view
     useEffect(() => {
@@ -92,16 +91,6 @@ const TopUpsSlider = () => {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    // Measure header and footer heights
-    useEffect(() => {
-        if (!isMobile && headerRef.current && footerRef.current) {
-            setDimensions({
-                headerHeight: headerRef.current.offsetHeight,
-                footerHeight: footerRef.current.offsetHeight
-            });
-        }
-    }, [isMobile]);
-
     // Desktop GSAP Animation
     useGSAP(() => {
         if (isMobile) return;
@@ -112,19 +101,24 @@ const TopUpsSlider = () => {
         // Clean up existing ScrollTriggers
         ScrollTrigger.getAll().forEach(st => st.kill());
 
-        const headerHeight = dimensions.headerHeight || 200;
-        const footerHeight = dimensions.footerHeight || 100;
         const viewportHeight = window.innerHeight;
         
-        // Total scroll distance
-        const totalScrollDistance = viewportHeight * 3.5;
-
-        // Set initial positions
+        // Calculate header and footer heights
+        const headerHeight = headerRef.current?.offsetHeight || 180;
+        const footerHeight = footerRef.current?.offsetHeight || 80;
+        
+        // Available space for cards
+        const availableHeight = viewportHeight - headerHeight - footerHeight;
+        
+        // Set container height to fill available space
         gsap.set(cardsContainerRef.current, {
-            height: viewportHeight,
-            position: 'relative'
+            height: availableHeight,
+            position: 'relative',
+            marginTop: `${headerHeight}px`,
+            marginBottom: `${footerHeight}px`
         });
 
+        // Set initial card positions - all perfectly centered in available space
         cards.forEach((card, index) => {
             gsap.set(card, {
                 position: 'absolute',
@@ -133,12 +127,18 @@ const TopUpsSlider = () => {
                 width: '100%',
                 height: '100%',
                 opacity: index === 0 ? 1 : 0,
-                scale: index === 0 ? 1 : 0.9,
+                scale: index === 0 ? 1 : 0.95,
                 zIndex: cards.length - index,
                 transformOrigin: 'center center',
-                pointerEvents: index === 0 ? 'auto' : 'none'
+                pointerEvents: index === 0 ? 'auto' : 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
             });
         });
+
+        // Total scroll distance - adjusted for smooth transitions
+        const totalScrollDistance = viewportHeight * 3;
 
         // Main timeline
         const tl = gsap.timeline({
@@ -147,7 +147,7 @@ const TopUpsSlider = () => {
                 start: "top top",
                 end: `+=${totalScrollDistance}`,
                 pin: true,
-                scrub: 1.2,
+                scrub: 1,
                 pinSpacing: true,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
@@ -157,9 +157,8 @@ const TopUpsSlider = () => {
                 ease: "power2.inOut",
                 duration: 1
             },
-            onUpdate: () => {
-                // Update active index based on progress
-                const progress = tl.progress();
+            onUpdate: function() {
+                const progress = this.progress();
                 if (progress < 0.25) setActiveIndex(0);
                 else if (progress < 0.5) setActiveIndex(1);
                 else if (progress < 0.75) setActiveIndex(2);
@@ -167,10 +166,11 @@ const TopUpsSlider = () => {
             }
         });
 
+        // Card transition sequence
         // Card 1 to Card 2
         tl.to(cards[0], {
             opacity: 0,
-            scale: 0.9,
+            scale: 0.95,
             duration: 0.8,
             pointerEvents: 'none'
         }, 0)
@@ -179,12 +179,12 @@ const TopUpsSlider = () => {
             scale: 1,
             duration: 0.8,
             pointerEvents: 'auto'
-        }, 0.3)
+        }, 0.2)
 
         // Card 2 to Card 3
         .to(cards[1], {
             opacity: 0,
-            scale: 0.9,
+            scale: 0.95,
             duration: 0.8,
             pointerEvents: 'none'
         }, 1.2)
@@ -193,12 +193,12 @@ const TopUpsSlider = () => {
             scale: 1,
             duration: 0.8,
             pointerEvents: 'auto'
-        }, 1.5)
+        }, 1.4)
 
         // Card 3 to Card 4
         .to(cards[2], {
             opacity: 0,
-            scale: 0.9,
+            scale: 0.95,
             duration: 0.8,
             pointerEvents: 'none'
         }, 2.4)
@@ -207,7 +207,7 @@ const TopUpsSlider = () => {
             scale: 1,
             duration: 0.8,
             pointerEvents: 'auto'
-        }, 2.7);
+        }, 2.6);
 
         // Refresh ScrollTrigger after setup
         setTimeout(() => ScrollTrigger.refresh(), 200);
@@ -215,29 +215,29 @@ const TopUpsSlider = () => {
         return () => {
             ScrollTrigger.getAll().forEach(st => st.kill());
         };
-    }, { scope: sectionRef, dependencies: [isMobile, dimensions] });
+    }, { scope: sectionRef, dependencies: [isMobile] });
 
     // Mobile Slider Component
     if (isMobile) {
         return (
-            <div className="w-full bg-[#520378] py-16">
+            <div className="w-full bg-[#520378] py-12 min-h-screen flex items-center">
                 <div className="container mx-auto px-4">
                     {/* Header */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-white text-4xl md:text-5xl font-bold mb-4 font-inter-tight">
+                    <div className="text-center mb-8">
+                        <h2 className="text-white text-4xl font-bold mb-4 font-inter-tight">
                             Top ups
                         </h2>
                         <p className="text-white/80 text-base max-w-2xl mx-auto font-geist">
-                            Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                            Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform.
                         </p>
                     </div>
 
-                    {/* Mobile Cards */}
-                    <div className="relative h-[600px] max-w-4xl mx-auto">
+                    {/* Mobile Cards - Full height container */}
+                    <div className="relative h-[500px] max-w-4xl mx-auto">
                         {topUpPrograms.map((program, idx) => (
                             <div
                                 key={program.id}
-                                className={`absolute w-full transition-all duration-500 ease-in-out ${
+                                className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                                     idx === activeIndex 
                                         ? 'opacity-100 translate-x-0' 
                                         : idx < activeIndex 
@@ -252,7 +252,7 @@ const TopUpsSlider = () => {
                     </div>
 
                     {/* Navigation Dots */}
-                    <div className="flex justify-center gap-3 mt-8">
+                    <div className="flex justify-center gap-2 mt-6">
                         {topUpPrograms.map((_, idx) => (
                             <button
                                 key={idx}
@@ -268,8 +268,8 @@ const TopUpsSlider = () => {
                     </div>
 
                     {/* Talk to Us Button */}
-                    <div className="text-center mt-10">
-                        <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl">
+                    <div className="text-center mt-8">
+                        <button className="bg-white text-[#520378] hover:bg-gray-100 px-8 py-3 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl">
                             Talk to Us
                         </button>
                     </div>
@@ -278,32 +278,36 @@ const TopUpsSlider = () => {
         );
     }
 
-    // Desktop Version
+    // Desktop Version - Optimized for full card visibility
     return (
-        <section ref={sectionRef} className="w-full bg-[#520378] relative">
-            {/* Header Section */}
-            <div ref={headerRef} className="w-full pt-20 pb-8">
-                <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-white text-5xl md:text-6xl font-extrabold mb-6 font-inter-tight tracking-tight">
+        <section ref={sectionRef} className="w-full bg-[#520378] relative overflow-hidden">
+            {/* Header Section - Fixed height */}
+            <div ref={headerRef} className="absolute top-0 left-0 w-full z-20">
+                <div className="container mx-auto px-6 py-12 text-center">
+                    <h2 className="text-white text-5xl md:text-6xl font-extrabold mb-4 font-inter-tight tracking-tight">
                         Top ups
                     </h2>
-                    <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto font-geist leading-relaxed">
-                        Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform. Our additional programs are thoughtfully designed to engage diverse employee interests while strengthening overall workplace wellbeing
+                    <p className="text-white/80 text-lg max-w-3xl mx-auto font-geist">
+                        Like a cherry on the cake, we are more than just an Employee Assistance Program (EAP) platform.
                     </p>
                 </div>
             </div>
 
-            {/* Cards Container */}
+            {/* Cards Container - Perfectly positioned */}
             <div 
                 ref={cardsContainerRef} 
                 className="relative w-full"
-                style={{ height: '100vh' }}
+                style={{ 
+                    height: 'calc(100vh - 260px)',
+                    marginTop: '180px',
+                    marginBottom: '80px'
+                }}
             >
                 {topUpPrograms.map((program, idx) => (
                     <div
                         key={program.id}
                         ref={el => cardsRef.current[idx] = el}
-                        className="absolute top-0 left-0 w-full h-full"
+                        className="absolute inset-0 flex items-center justify-center"
                         style={{ 
                             zIndex: topUpPrograms.length - idx,
                             opacity: idx === 0 ? 1 : 0
@@ -318,23 +322,23 @@ const TopUpsSlider = () => {
             </div>
 
             {/* Footer Button */}
-            <div ref={footerRef} className="w-full py-10">
-                <div className="container mx-auto px-6 text-center">
-                    <button className="bg-white text-[#520378] hover:bg-gray-100 px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl">
+            <div ref={footerRef} className="absolute bottom-0 left-0 w-full z-20">
+                <div className="container mx-auto px-6 py-6 text-center">
+                    <button className="bg-white text-[#520378] hover:bg-gray-100 px-10 py-3 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl">
                         Talk to Us
                     </button>
                 </div>
             </div>
 
             {/* Progress Indicators */}
-            <div className="fixed right-8 top-1/2 transform -translate-y-1/2 space-y-3 z-50 hidden lg:block">
+            <div className="fixed right-6 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
                 {topUpPrograms.map((_, idx) => (
                     <div
                         key={idx}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        className={`w-1.5 rounded-full transition-all duration-300 ${
                             idx === activeIndex 
                                 ? 'h-8 bg-white' 
-                                : 'bg-white/30 hover:bg-white/50'
+                                : 'h-1.5 bg-white/30 hover:bg-white/50'
                         }`}
                     />
                 ))}
