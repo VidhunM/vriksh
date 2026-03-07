@@ -6,21 +6,21 @@ const counsellingServices = [
     title: 'Individual Counselling',
     description:
       "Life can feel overwhelming, but you don't have to face it alone. Our counselling offers a safe, confidential space to explore your emotions and find support toward healing and balance.",
-    image: '/images/counselling 2.png',
+    image: '/images/services 1.png',
     cta: 'Reach Out for Support',
   },
   {
     title: 'Children & Adolescent Counselling',
     description:
       'Growing up can be confusing and challenging. Our counselling offers a safe, supportive space for children and adolescents to share their feelings and get guidance with stress, friendships, and school.',
-    image: '/images/schl01.png',
+    image: '/images/services 2.png',
     cta: 'Connect with a Counsellor',
   },
   {
     title: 'Academic and Career counselling',
     description:
       'Academic pressure and career decisions can feel confusing. Our counselling helps you explore your strengths and options so you can move forward with clarity, confidence, and direction.',
-    image: '/images/career hero.png',
+    image: '/images/services 3.png',
     cta: 'Reach Out for Support',
   },
 ];
@@ -36,27 +36,27 @@ const assurances = [
   {
     title: 'Confidentiality',
     text: 'Secure and Confidential Sessions',
-    icon: '/icons/confidential.png',
+    icon: '/icons/Guidance.png',      
   },
   {
     title: 'Convenience',
     text: 'Online sessions from the comfort of your home',
-    icon: '/icons/convenices.png',
+    icon: '/icons/confidential.png',      
   },
   {
     title: 'Easy Access',
     text: 'Flexible sessions based on your needs',
-    icon: '/icons/Guidance.png',
+    icon: '/icons/convenices.png',
   },
   {
     title: 'Regular Follow-ups',
     text: 'Ongoing support to ensure steady progress',
-    icon: '/icons/analysis.png',
+    icon: '/icons/export support.png',
   },
   {
     title: 'Safety',
     text: 'Strict ethical and professional standards',
-    icon: '/icons/Mask 1.png',
+    icon: '/icons/clear direction.png',
   },
 ];
 
@@ -90,26 +90,26 @@ const expertTabs = [
   {
     id: 'expertise',
     label: 'Expertise',
-    content: 'Our team specialises in stress, anxiety, grief, relationships, parenting, and student wellbeing—combining evidence-based approaches with cultural sensitivity.',
+    content: 'Our counsellors are skilled in a range of evidence-based therapeutic approaches, supporting individuals through diverse emotional and behavioural challenges with care and understanding.',
   },
   {
     id: 'well-trained',
     label: 'Well-Trained',
-    content: 'Each counsellor undergoes rigorous training and continuous professional development to deliver the highest standard of care and support.',
+    content: ' Our team undergoes continuous professional training to deepen their knowledge, sharpen their counselling skills, and provide thoughtful, effective support.',
   },
   {
     id: 'open-minded',
     label: 'Open-Minded',
-    content: 'We create a non-judgmental space where every perspective is valued, helping you explore your thoughts and feelings without fear of being misunderstood.',
-  },
+    content: 'Our counselors listen with empathy and respect, creating a safe, non-judgmental space where individuals feel heard, valued, and supported in their healing journey. ',
+  }
 ];
 
 const inspirationalQuotes = [
-  { quote: 'The mind is everything,\nwhat you think you become', author: 'Buddha' },
-  { quote: 'Healing takes time, and asking for help is a courageous step.', author: 'Unknown' },
-  { quote: 'You don\'t have to be perfect to be worthy of love and belonging.', author: 'Brené Brown' },
-  { quote: 'The greatest glory in living lies not in never falling, but in rising every time we fall.', author: 'Nelson Mandela' },
-  { quote: 'What lies behind us and what lies before us are tiny matters compared to what lies within us.', author: 'Ralph Waldo Emerson' },
+  { quote: 'The mind is everything,\nwhat you think you\nbecome', author: 'Buddha' },
+  { quote: 'Talk to yourself like you would to someone you love.', author: 'Brené Brown' },
+  { quote: 'Healing takes time, and asking for help is a courageous step', author: ' Mariska Hargitay' },
+  { quote: 'Out of your vulnerabilities will come your strength.', author: 'Sigmund Freud' },
+  { quote: 'Until you make the unconscious conscious, it will direct your life and you will call it fate.', author: 'Carl Jung' },
 ];
 
 const Counselling2 = () => {
@@ -191,7 +191,7 @@ const Counselling2 = () => {
       </div>
 
       {/* Counselling Services */}
-      <div className="py-12 sm:py-16 bg-white">
+      <div className="py-12 sm:py-8 bg-white">
         <div className="max-w-[1240px] mx-auto px-6">
           <h2 className="text-[20px] sm:text-[34px] font-bold text-gray-950 mb-8 text-center font-inter-tight">
             Counselling Services
@@ -214,7 +214,7 @@ const Counselling2 = () => {
                   <h3 className="text-[18px] sm:text-[20px] font-semibold text-gray-900 mb-3 font-inter-tight leading-tight">
                     {service.title}
                   </h3>
-                  <p className="text-[13px] sm:text-[15px] text-gray-700 leading-[1.6] mb-5 flex-1 font-geist">
+                  <p className="text-[13px] sm:text-[17px] text-gray-700 leading-[1.6] mb-5 flex-1 font-geist">
                     {service.description}
                   </p>
                   <button className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#400260] transition-all self-start">
@@ -266,11 +266,11 @@ const Counselling2 = () => {
               <h2 className="text-[24px] sm:text-[34px] font-bold text-white mb-4 font-inter-tight">
                 Our Experts
               </h2>
-              <p className="text-[14px] sm:text-[16px] text-white/90 leading-[1.7] font-geist">
+              <p className="text-[14px] sm:text-[19px] text-white/90 leading-[1.7] font-geist">
                 Our team of experienced and compassionate counsellors is dedicated to supporting emotional wellbeing across all age groups. With diverse expertise in mental health, education, and therapeutic practices, they provide empathetic guidance in a safe and confidential space, helping individuals navigate challenges and move toward healing and growth.
               </p>
             </div>
-            <button className="shrink-0 border-2 border-white bg-white hover:bg-gray-100 text-[#520378] px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all lg:mt-12">
+            <button className="shrink-0 border-2 border-white bg-white hover:bg-gray-100 text-[#520378] px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all lg:mt-18">
               Get in touch with us
             </button>
           </div>
@@ -322,7 +322,7 @@ const Counselling2 = () => {
             <div className="w-full lg:w-[45%] lg:max-w-[480px] shrink-0">
               <div className="rounded-l-[20px] rounded-b-[20px] overflow-hidden shadow-2xl">
                 <img
-                  src="/images/counselling 2.png"
+                  src="/images/OUR EXPERTS.png"
                   alt="Our counsellors"
                   className="w-full h-[280px] sm:h-[340px] object-cover"
                 />
@@ -333,22 +333,22 @@ const Counselling2 = () => {
       </div>
 
       {/* Image + Quote Section */}
-      <div className="bg-[#FFFDF5] py-12 sm:py-16">
+      <div className="bg-[#FFFDF5] pt-8 pb-12 sm:pt-10 sm:pb-16">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left: Photograph */}
             <div className="lg:col-span-7 rounded-[20px] overflow-hidden shadow-lg">
               <img
-                src="/images/events.png"
+                src="/images/Frame 2.png"
                 alt="Two people engaged in a positive discussion at a modern office table"
                 className="w-full h-[320px] sm:h-[380px] object-cover"
               />
             </div>
 
             {/* Right: Quote Card */}
-            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-8 sm:p-10 shadow-sm border border-[#F3E6C7] flex flex-col justify-between min-h-[380px]">
+            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-6 sm:p-8 shadow-sm border border-[#F3E6C7] flex flex-col justify-between min-h-[380px]">
               <div>
-                <span className="text-[48px] sm:text-[56px] font-serif text-gray-400 leading-none block mb-2">&ldquo;</span>
+                <span className="text-[40px] sm:text-[150px] font-serif text-gray-400 leading-none block -mb-4 sm:-mb-8">&ldquo;</span>
                 <p className="text-[18px] sm:text-[22px] text-gray-800 leading-[1.5] font-geist whitespace-pre-line">
                   {inspirationalQuotes[quoteIndex].quote}
                 </p>
@@ -357,7 +357,7 @@ const Counselling2 = () => {
                 </p>
               </div>
               {/* Carousel dots */}
-              <div className="flex justify-center gap-2 mt-8">
+              <div className="flex justify-left gap-2 mt-6">
                 {inspirationalQuotes.map((_, i) => (
                   <button
                     key={i}
@@ -499,53 +499,53 @@ const Counselling2 = () => {
             {/* Left: Heading & Description */}
             <div>
               <h2 className="text-[28px] sm:text-[36px] font-bold text-gray-950 leading-[1.15] mb-4 font-inter-tight">
-                We&apos;ll help you get started
+                We&apos;ll help you <br/>get started
               </h2>
-              <p className="text-[14px] sm:text-[16px] text-gray-600 leading-[1.7] font-geist max-w-[520px]">
+              <p className="text-[14px] sm:text-[19px] text-gray-600 leading-[1.7] font-geist max-w-[520px]">
                 Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace.
               </p>
             </div>
 
             {/* Right: Contact Form */}
             <div>
-              <h3 className="text-[20px] sm:text-[22px] font-bold text-[#520378] mb-1 font-inter-tight">
+              <h3 className="text-[20px] sm:text-[24px] font-bold text-[#520378] mb-1 font-inter-tight">
                 Contact Us
               </h3>
-              <p className="text-[13px] sm:text-[14px] text-gray-600 mb-6 font-geist">
+              <p className="text-[13px] sm:text-[19px] text-gray-600 mb-6 font-geist">
                 Reach out for support. We&apos;re here to listen.
               </p>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Full Name</label>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Full Name</label>
                     <input
                       type="text"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Email Address</label>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Email Address</label>
                     <input
                       type="email"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
                       placeholder="you@example.com"
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Phone Number</label>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Phone Number</label>
                     <input
                       type="tel"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
                       placeholder="Enter phone number"
                     />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Age</label>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Age</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select age</option>
@@ -557,9 +557,9 @@ const Counselling2 = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Type of Support Needed</label>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Type of Support Needed</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select type</option>
@@ -572,9 +572,9 @@ const Counselling2 = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[13px] font-medium text-gray-700 mb-1">Preferred Time for Session</label>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Preferred Time for Session</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select time</option>
@@ -586,10 +586,10 @@ const Counselling2 = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[13px] font-medium text-gray-700 mb-1">Message</label>
+                  <label className="block text-[15px] font-medium text-gray-700 mb-1">Message</label>
                   <textarea
                     rows="4"
-                    className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[14px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none"
+                    className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none"
                     placeholder="Share your message or concerns"
                   />
                 </div>
