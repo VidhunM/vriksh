@@ -181,7 +181,7 @@ const CorporateEAP = () => {
                     style={{ backgroundImage: "url('/images/abt.png')", backgroundSize: 'contain' }}
                 />
 
-                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center -mt-10">
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Workplace &amp; Wellbeing Snapshot
                     </h2>

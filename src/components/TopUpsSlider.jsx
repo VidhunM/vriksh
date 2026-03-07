@@ -31,7 +31,7 @@ const topUpPrograms = [
 const CardContent = ({ program }) => (
     <div className="w-full h-full flex items-center justify-center">
         <div className="w-[90%] max-w-[950px] h-[450px] bg-white rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col md:flex-row border border-gray-100">
-            <div className="md:w-[45%] h-[200px] md:h-full bg-gray-50 p-4">
+            <div className="md:w-[45%] h-[200px] md:h-full bg-white p-4">
                 <div className="w-full h-full rounded-xl overflow-hidden shadow-inner">
                     <img src={program.image} alt={program.title} className="w-full h-full object-cover" />
                 </div>
@@ -76,8 +76,8 @@ const TopUpsSlider = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",        // Pin when top of container hits top of viewport
-                end: "+=1500",           // Reduced from 3000 for faster scroll
-                scrub: 0.4,              // Slightly more responsive smoothing
+                end: "+=3000",           // Reduced from 3000 for faster scroll
+                scrub: 1,              // Slightly more responsive smoothing
                 pin: true,               // Pin the entire container
                 pinSpacing: true,
                 anticipatePin: 1,
@@ -87,17 +87,17 @@ const TopUpsSlider = () => {
         // Animate cards stacking
         cards.forEach((card, i) => {
             if (i === 0) {
-                tl.to({}, { duration: 0.2 }); // Reduced pause for first card
+                tl.to({}, { duration: 0.5 }); // Reduced pause for first card
                 return;
             }
             
             tl.to(card, {
                 yPercent: 0,
                 ease: "power2.inOut",    // Added easing for smoother movement
-                duration: 1.5            // Increased duration for more gradual movement
+                duration: 1            // Increased duration for more gradual movement
             });
             
-            tl.to({}, { duration: 0.2 }); // Reduced pause for subsequent cards
+            tl.to({}, { duration: 0.5 }); // Reduced pause for subsequent cards
         });
 
         return () => {
