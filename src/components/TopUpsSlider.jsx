@@ -22,7 +22,7 @@ const topUpPrograms = [
         image: "/images/peer support.jpg"
     },
     {
-        title: "4-Week Emotional Intelligence Program",
+        title: "Week Emotional Intelligence Program",
         desc: "Build self-awareness, strengthen relationships, and enhance communication through practical emotional intelligence skills.",
         image: "/images/EMOTIONAL INTELLIGENCE.jpg"
     }
@@ -76,8 +76,8 @@ const TopUpsSlider = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",        // Pin when top of container hits top of viewport
-                end: "+=3000",           // Animation duration
-                scrub: 1,
+                end: "+=1500",           // Reduced from 3000 for faster scroll
+                scrub: 0.4,              // Slightly more responsive smoothing
                 pin: true,               // Pin the entire container
                 pinSpacing: true,
                 anticipatePin: 1,
@@ -87,17 +87,17 @@ const TopUpsSlider = () => {
         // Animate cards stacking
         cards.forEach((card, i) => {
             if (i === 0) {
-                tl.to({}, { duration: 0.5 }); // Pause to show first card
+                tl.to({}, { duration: 0.2 }); // Reduced pause for first card
                 return;
             }
             
             tl.to(card, {
                 yPercent: 0,
-                ease: "none",
-                duration: 1
+                ease: "power2.inOut",    // Added easing for smoother movement
+                duration: 1.5            // Increased duration for more gradual movement
             });
             
-            tl.to({}, { duration: 0.5 }); // Pause to show each card
+            tl.to({}, { duration: 0.2 }); // Reduced pause for subsequent cards
         });
 
         return () => {
