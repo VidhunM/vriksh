@@ -36,17 +36,18 @@ const Contact = () => {
             link: "tel:+919880274824",
         },
         {
-            icon: <FaWhatsapp size={22} />,
-            title: "WhatsApp",
-            value: "+91 9880274824",
-            link: "https://wa.me/919880274824",
-        },
-        {
             icon: <FaEnvelope size={20} />,
             title: "Email",
             value: "vriksh.em@gmail.com",
             link: "mailto:vriksh.em@gmail.com",
+        },
+        {
+            icon: <FaWhatsapp size={22} />,
+            title: "WhatsApp",
+            value: "+91 9880274824",
+            link: "https://wa.me/919880274824",
         }
+        
     ];
 
     return (
@@ -85,7 +86,7 @@ const Contact = () => {
 
                         {/* Right Side: Contact Form */}
                         <div className="lg:col-span-7">
-                            <h3 className="text-2xl sm:text-[32px] font-bold text-gray-950 mb-6 sm:mb-10 font-inter-tight">Get in Touch</h3>
+                            <h3 className="text-2xl sm:text-[32px] font-bold text-gray-950 mb-6 sm:mb-10 font-inter-tight">Let’s Connect</h3>
 
                             <form className="space-y-6">
                                 <div className="grid sm:grid-cols-2 gap-6">

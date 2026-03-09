@@ -124,7 +124,7 @@ const CorporateEAP = () => {
                                 Unlock their Full Potential.
                             </h2>
                             <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
-                                With a trusted Employee Assistance Programme (EAP), you equip your workforce with confidential care that drives measurable impact. Professional mental health support helps employees manage stress, build resilience, and improve overall well-being. This proactive approach strengthens performance, productivity, and workplace engagement.
+                                Our Employee Assistance Programme (EAP) provides confidential mental health support that enables employees to manage stress, strengthen resilience, and enhance well-being - empowering organizations to build a healthier, more productive, and engaged workforce.
                             </p>
                             <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                 Talk to an expert
@@ -185,7 +185,7 @@ const CorporateEAP = () => {
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Workplace &amp; Wellbeing Snapshot
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-10 sm:mb-14 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-10 sm:mb-14 lg:mb-6 font-geist leading-[1.6]">
                         Employees worldwide face low engagement, limited wellbeing, and rising workplace stress, highlighting the need for stronger mental health and wellbeing support.
                     </p>
 
@@ -193,20 +193,20 @@ const CorporateEAP = () => {
                         {/* Circle 1 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-10 translate-x-[8%] translate-y-[8%] md:translate-x-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">
-                                <AnimatedNumber end={21} suffix="%" />
+                                <AnimatedNumber end={40} suffix="%" />
                             </h3>
                             <p className="text-[#1A1A1A] text-[9.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[160px]">
-                                Employees worldwide<br />are engaged at work
+                                Employees report<br />anxiety or depression<br />linked to work stress
                             </p>
                         </div>
 
                         {/* Circle 2 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-20 -translate-x-[8%] translate-y-[8%] md:translate-x-0 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[42px] sm:text-[48px] font-medium mb-2 leading-none">
-                                <AnimatedNumber end={33} suffix="%" />
+                                <AnimatedNumber end={14} suffix="%" />
                             </h3>
                             <p className="text-[#1A1A1A] text-[9.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[160px]">
-                                Employees Globally<br />Say They Are Thriving<br />In Life
+                                Indian employees<br />report truly thriving<br />In Life
                             </p>
                         </div>
 
@@ -232,7 +232,7 @@ const CorporateEAP = () => {
                     <h2 className="text-white text-[20px] sm:text-[42px] font-bold mb-4 font-inter-tight text-center tracking-tight leading-tight">
                         Empowering Employees. Enabling Organisations
                     </h2>
-                    <p className="text-white/80 text-[14px] sm:text-[19px] text-center max-w-[850px] mb-8 sm:mb-20 font-geist leading-[1.6]">
+                    <p className="text-white/80 text-[14px] sm:text-[19px] text-center max-w-[850px] mb-8 sm:mb-20 lg:mb-10 font-geist leading-[1.6]">
                         Every organisation's needs are varied and so are our offerings. Customise your plan
                         according to your employees' needs and watch them unravel their best versions
                     </p>
@@ -325,7 +325,7 @@ const CorporateEAP = () => {
                         Boost your employee morale
                     </h2>
                     <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-12 sm:mb-16 font-geist leading-[1.6]">
-                        Employees worldwide are engaged at work Employees globally say they are thriving in life Employees reported experiencing stress
+                        Supporting employee well-being creates measurable impact - from higher retention and talent attraction to improved performance and reduced costs.
                     </p>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 sm:gap-10 w-full mb-12 items-center justify-center">

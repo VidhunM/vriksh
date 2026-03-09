@@ -3,8 +3,8 @@ import AnimatedNumber from '../components/AnimatedNumber';
 
 const servicesData = [
     { title: <><span>Career</span><br />Assessments</>, text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best.", iconSrc: "/icons/career assement.png" },
-    { title: <><span>Career</span><br />Counselling</>, text: "Get expert guidance and insights to understand your options and make informed decisions for a successful career journey.", iconSrc: "/icons/career counselling.png" },
-    { title: <><span>Career</span><br />Recommendations</>, text: "Receive personalised recommendations based on your strengths, interests, and potential to help you take the next steps toward a successful career.", iconSrc: "/icons/career recommentations.png" },
+    { title: <><span>Career</span><br />Counselling</>, text: "Get expert guidance to discover suitable career paths and make informed decisions for a successful career journey.", iconSrc: "/icons/career counselling.png" },
+    { title: <><span>Career</span><br />Recommendations</>, text: "Receive personalised recommendations based on your strengths, interests, and abilities to help you take the next steps toward a successful career.", iconSrc: "/icons/career recommentations.png" },
     { title: <><span>Career</span><br />Updates</>, text: "Stay informed with the latest career-related news, opportunities, and trends to make timely and informed decisions.", iconSrc: "/icons/career updates.png" },
 ];
 
@@ -171,7 +171,7 @@ const CareerCounselling = () => {
             <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1240px] mx-auto px-6">
                     <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
-                        CAREER GUIDANCE SERVICES
+                        CAREER GUIDANCE 
                     </h1>
                 </div>
             </div>
@@ -235,27 +235,27 @@ const CareerCounselling = () => {
                     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-12 max-w-[1100px] mx-auto">
                         {[
                             {
-                                text: "You've Completed High School Or Are Unsure About Your Next Step",
+                                text: "You’ve completed high school or are unsure about your next step",
                                 color: "bg-[#FEF8E4]"
                             },
                             {
-                                text: "You're Exploring Your Strengths, Interests, And Career Preferences",
+                                text: "You’re exploring your strengths, interests, and career preferences",
                                 color: "bg-[#FEF8E4] lg:bg-[#FCA65B]"
                             },
                             {
-                                text: "You Have Multiple Interests And Can't Decide Between Them",
+                                text: "You have multiple interests and can’t decide between them",
                                 color: "bg-[#FCA65B] lg:bg-[#FEF8E4]"
                             },
                             {
-                                text: "You're Unsure Which Career Path Suits You Best",
+                                text: "You're unsure which career path suits you best",
                                 color: "bg-[#FCA65B] lg:bg-[#FEF8E4]"
                             },
                             {
-                                text: "You're Confused About Educational Or Professional Options",
+                                text: "You’re confused about educational or professional options",
                                 color: "bg-[#FEF8E4] lg:bg-[#FCA65B]"
                             },
                             {
-                                text: "You Want Guidance On Skill Development And Long-Term Career Growth",
+                                text: "You want guidance on skill development and long-term career growth",
                                 color: "bg-[#FEF8E4]"
                             }
                         ].map((item, index) => (
@@ -360,7 +360,7 @@ const CareerCounselling = () => {
                             <span className="bg-white text-[#000000] px-4 py-1.5 sm:px-5 sm:py-2 inline-block rounded-none shadow-sm">Decisions</span>
                         </h2>
                         <p className="text-white text-sm sm:text-[20px] leading-relaxed max-w-[480px] font-medium pt-1">
-                            Discover Yourself To Understand What Truly Drives You, And Choose A Career Path That Fits Your Strengths, Interests, And Aspirations.
+                            Discover yourself to understand what truly drives you and choose a career path that fits your strengths, interests, and aspirations.
                         </p>
                     </div>
 

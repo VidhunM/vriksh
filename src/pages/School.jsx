@@ -14,162 +14,198 @@ const tabs = [
 const offerCards = [
     {
         title: "Dedicated On-Campus Counsellor",
-        desc: "A qualified counsellor available on campus to support your staff and students."
+        desc: "A qualified counsellor available on campus to support your staff and students.",
+        icon: "/icons/wdwo1.png"
     },
     {
         title: "PROACTIVE WORKSHOPS AND TRAINING",
-        desc: "Regular workshops and awareness sessions for well-being & early identification of concerns."
+        desc: "Regular workshops and awareness sessions for well-being & early identification of concerns.",
+        icon: "/icons/wdwo2.png"
     },
     {
         title: "Crisis Management Support",
-        desc: " Immediate help and professional guidance during difficult or emergency situations."
+        desc: " Immediate help and professional guidance during difficult or emergency situations.",
+        icon: "/icons/wdwo3.png"
     },
     {
         title: "Parent & Teacher Collaboration",
-        desc: "Working together to share student updates and plan the right support for their well-being."
+        desc: "Working together to share student updates and plan the right support for their well-being.",
+        icon: "/icons/wdwo4.png"
     },
     {
         title: "Confidential & Ethical Practice",
-        desc: "Safe, private counselling services ensure trust and confidentiality in every interaction."
+        desc: "Safe, private counselling services ensure trust and confidentiality in every interaction.",
+        icon: "/icons/wdwo5.png"
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "Regular case reports, well-being trend analysis, and insights to support informed decisions."
+        desc: "Regular case reports, well-being trend analysis, and insights to support informed decisions.",
+        icon: "/icons/wdwo6.png"
     }
 ];
 
 const specialEducationCards = [
     {
         title: "Dedicated Special Educator On-Campus",
-        desc: "A qualified special educator supporting students with diverse learning needs."
+        desc: "A qualified special educator supporting students with diverse learning needs.",
+        icon: "/icons/special educator campus.png"
     },
     {
         title: "Individualized Education Plans (IEPs)",
-        desc: "Personalized goals, accommodations, and structured learning strategies for each student."
+        desc: "Personalized goals, accommodations, and structured learning strategies for each student.",
+        icon: "/icons/IEPS.png"
     },
     {
         title: "Early Identification & Intervention",
-        desc: "Screening, assessments, and timely support to address learning difficulties early."
+        desc: "Screening, assessments, and timely support to address learning difficulties early.",
+        icon: "/icons/early identification.png"
     },
     {
         title: "Parent & Teacher Collaboration",
-        desc: "Working together to share student updates and plan the right support for their well-being."
+        desc: "Working together to share student updates and plan the right support for their well-being.",
+        icon: "/icons/parent & teacher.png"
     },
     {
         title: "Inclusive Classroom Support",
-        desc: "Classroom strategies and adjustments designed to help every child succeed."
+        desc: "Classroom strategies and adjustments designed to help every child succeed.",
+        icon: "/icons/Inclusive classroom.png"
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "Tracking progress, maintaining IEP reports, & providing insights for effective school management."
+        desc: "Tracking progress, maintaining IEP reports, & providing insights for effective school management.",
+        icon: "/icons/Structured Documentation.png"
     }
 ];
 
 const lifeSkillsCards = [
     {
         title: "Structured Skill-Based Curriculum",
-        desc: "Age-appropriate modules designed for holistic student growth."
+        desc: "Age-appropriate modules designed for holistic student growth.",
+        icon: "/icons/skills1.png"
     },
     {
         title: "Communication & Social Skills",
-        desc: "Building confidence, empathy, and healthy relationships."
+        desc: "Building confidence, empathy, and healthy relationships.",
+        icon: "/icons/skills2.png"
     },
     {
-        title: "Critical Thinking & Decision-Making",
-        desc: "Encouraging responsible choices and problem\u00A0solving abilities."
+        title: "Critical Thinking & \u00A0 Decision Making",
+        desc: "Encouraging responsible choices and problem\u00A0solving abilities.",
+        icon: "/icons/skills3.png"
     },
     {
         title: "Resilience & Emotional Strength",
-        desc: "Helping students manage stress and bounce back from challenges."
+        desc: "Helping students manage stress and bounce back from challenges.",
+        icon: "/icons/skills4.png"
     },
     {
         title: "Leadership & Goal Setting",
-        desc: "Fostering self-belief, responsibility, and future readiness."
+        desc: "Fostering self-belief, responsibility, and future readiness.",
+        icon: "/icons/skills5.png"
     },
     {
         title: "Structured Documentation & Impact Tracking",
-        desc: "Session reports, progress insights and impact summaries for life skills classes."
+        desc: "Session reports, progress insights and impact summaries for life skills classes.",
+        icon: "/icons/skills6.png"
     }
 ];
 
 const psychometricCards = [
     {
         title: "Scientifically Validated Tools",
-        desc: "Standardized assessments for reliable and accurate insights."
+        desc: "Standardized assessments for reliable and accurate insights.",
+        icon: "/icons/assessment1.png"
     },
     {
         title: "Holistic Student Profiling",
-        desc: "Understanding cognitive abilities, personality, behaviour, and emotional patterns."
+        desc: "Understanding cognitive abilities, personality, behaviour, and emotional patterns.",
+        icon: "/icons/assessment2.png"
     },
     {
         title: "Early Identification of Concerns",
-        desc: "Screening for learning, attention, and emotional challenges."
+        desc: "Screening for learning, attention, and emotional challenges.",
+        icon: "/icons/assessment3.png"
     },
     {
         title: "Individual Feedback & Guidance",
-        desc: "Clear interpretation sessions with students and parents."
+        desc: "Clear interpretation sessions with students and parents.",
+        icon: "/icons/assessment4.png"
     },
     {
         title: "Data-Driven Interventions",
-        desc: "Personalized recommendations for academic and behavioural support."
+        desc: "Personalized recommendations for academic and behavioural support.",
+        icon: "/icons/assessment5.png"
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "Detailed reports, progress tracking, and management-level summaries."
+        desc: "Detailed reports, progress tracking, and management-level summaries.",
+        icon: "/icons/assessment6.png"
     }
 ];
 
 const workshopCards = [
     {
         title: "Expert-Led & Interactive",
-        desc: "Sessions conducted by experienced professionals."
+        desc: "Sessions conducted by experienced professionals.",
+        icon: "/icons/workshop s1.png"
     },
     {
         title: "Customizable Topics",
-        desc: "Workshops tailored to your school’s needs and priorities."
+        desc: "Workshops tailored to your school’s needs and priorities.",
+        icon: "/icons/workshop s2.png"
     },
     {
         title: "Age-Appropriate Content",
-        desc: "Designed specifically for students, teachers, or parents."
+        desc: "Designed specifically for students, teachers, or parents.",
+        icon: "/icons/workshop s3.png"
     },
     {
         title: "Practical & Skill-Focused",
-        desc: "Actionable strategies that can be applied immediately."
+        desc: "Actionable strategies that can be applied immediately.",
+        icon: "/icons/workshop s4.png"
     },
     {
         title: "Preventive & Development Oriented",
-        desc: "Promoting overall well-being and a positive school culture."
+        desc: "Promoting overall well-being and a positive school culture.",
+        icon: "/icons/workshop s5.png"
     },
     {
         title: "Structured Documentation & Reports",
-        desc: "Session summaries, feedback insights, and management-level documentation."
+        desc: "Session summaries, feedback insights, and management-level documentation.",
+        icon: "/icons/workshop s6.png"
     }
 ];
 
 const analyticsCards = [
     {
         title: "Well-Being Trend Analysis",
-        desc: "Identify patterns in student emotional and behavioural concerns."
+        desc: "Identify patterns in student emotional and behavioural concerns.",
+        icon: "/icons/reporting1.png"
     },
     {
         title: "Risk Indicator Mapping",
-        desc: "Early identification of high-risk areas across grades or groups."
+        desc: "Early identification of high-risk areas across grades or groups.",
+        icon: "/icons/reporting2.png"
     },
     {
         title: "Intervention Impact Measurement",
-        desc: "Track the effectiveness of counselling and support programs."
+        desc: "Track the effectiveness of counselling and support programs.",
+        icon: "/icons/reporting3.png"
     },
     {
         title: "Grade-Wise & Demographic Insights",
-        desc: "Data segmented for clearer understanding and targeted action."
+        desc: "Data segmented for clearer understanding and targeted action.",
+        icon: "/icons/reporting4.png"
     },
     {
         title: "Periodic Management Reports",
-        desc: "Structured summaries for leadership review and planning."
+        desc: "Structured summaries for leadership review and planning.",
+        icon: "/icons/reporting5.png"
     },
     {
         title: "Data-Driven Recommendations",
-        desc: "Strategic action plans based on evidence and measurable outcomes."
+        desc: "Strategic action plans based on evidence and measurable outcomes.",
+        icon: "/icons/reporting6.png"
     }
 ];
 
@@ -292,7 +328,7 @@ const School = () => {
             {/* ── Purple Header Banner ── */}
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-36 sm:pb-10 text-center relative z-10 w-full">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h1 className="text-white text-[clamp(20px,3.5vw,36px)] font-bold tracking-[0.02em] uppercase font-inter-tight">
+                    <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         SCHOOL-BASED MENTAL HEALTH PROGRAM
                     </h1>
                 </div>
@@ -306,14 +342,14 @@ const School = () => {
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
-                        <h2 className="text-[#062623] text-xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
+                        <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-tight">
                             Enriching Minds, Empowering<br className="hidden sm:block" /> School Communities
                         </h2>
-                        <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
+                        <p className="text-sm lg:text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
                             Transform your campus into a resilient and emotionally healthy community with our School-Based Mental Health Program. Designed to support students, teachers, and parents, the program focuses on nurturing emotional well-being and building practical life skills. With a focus on early identification and timely guidance, we help address concerns before they grow. Together, we foster a compassionate school culture where every child feels safe, heard, and valued.
                         </p>
                         <div>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                                 Partner With Us
                             </button>
                         </div>
@@ -332,7 +368,7 @@ const School = () => {
 
             <div className="w-full flex flex-col items-center mt-[-4rem]">
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col items-center text-center">
-                    <h2 className="text-black text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight min-h-[1.2em]">
+                    <h2 className="text-black text-2xl sm:text-4xl lg:text-[38px] font-bold leading-[1.1] mb-5 font-inter-tight min-h-[1.2em]">
                         We stand with you to build your
                         <span className="text-[#F37321]">
                             {(animationPhase === 'initial-blink' || animationPhase === 'typing-line1') && typedText}
@@ -365,7 +401,7 @@ const School = () => {
                         }
                     `}</style>
                     <div>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                        <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                             Get in Touch With Us
                         </button>
                     </div>
@@ -504,7 +540,7 @@ const School = () => {
                                                         <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] pt-8">
                                                             <div className="absolute -top-[4px] left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
                                                                 <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                                                    <img src={`/icons/wdwo${((slideIdx * 3) + idx) % 6 + 1}.png`} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                                    <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
                                                                 </div>
                                                             </div>
                                                             <div className="bg-white rounded-[16px] pt-10 pb-6 px-5 h-full min-h-[160px] flex flex-col items-start relative z-0 border border-gray-100/30">
@@ -525,7 +561,7 @@ const School = () => {
                                             <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
                                                 <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
                                                     <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                                        <img src={`/icons/wdwo${(idx % 6) + 1}.png`} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                        <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
                                                     </div>
                                                 </div>
                                                 <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
@@ -566,7 +602,7 @@ const School = () => {
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight tracking-wide text-center">
                         Silent Struggles of Today's Students
                     </h2>
-                    <p className="text-[#4A5568] text-[14px] sm:text-[19px] text-center max-w-[750px] mb-4 sm:mb-20 font-geist leading-[1.6]">
+                    <p className="text-[#4A5568] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-4 sm:mb-20 lg:mb-6 font-geist leading-[1.6]">
                         Indian students face rising risks of digital dependency,
                         emotional distress, and academic pressure.
                     </p>
@@ -577,25 +613,25 @@ const School = () => {
                         {/* Circle 1 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-8 translate-x-[8%] translate-y-[8%] md:translate-x-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={60} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Students aged 5-16<br />are at risk of digital or<br />screen addiction</p>
                         </div>
 
                         {/* Circle 2 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-20 -translate-x-[8%] translate-y-[8%] md:translate-x-0 md:-ml-8 md:-translate-y-8 hover:bg-gray-50/50 transition-all duration-300">
-                            <h3 className="text-[#F37321] text-[34px] sm:text-[54px] font-medium mb-1 leading-none"><AnimatedNumber end={81} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students report<br />anxiety related to<br />studies and exams</p>
+                            <h3 className="text-[#F37321] text-[28px] sm:text-[48px] font-medium mb-1 leading-none"><AnimatedNumber end={81} suffix="%" /></h3>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Students report<br />anxiety related to<br />studies and exams</p>
                         </div>
 
                         {/* Circle 3 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-30 translate-x-[8%] -translate-y-[8%] md:translate-x-0 md:-ml-8 md:translate-y-10 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={33} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students struggle with<br />peer pressure</p>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Students struggle with<br />peer pressure</p>
                         </div>
 
                         {/* Circle 4 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-40 -translate-x-[8%] -translate-y-[8%] md:translate-x-0 md:-ml-8 md:-translate-y-4 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[28px] sm:text-[44px] font-medium mb-1 leading-none"><AnimatedNumber end={45} suffix="%" /></h3>
-                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4]">Students are<br />dissatisfied with their<br />body image</p>
+                            <p className="text-[#1A1A1A] text-[9px] sm:text-[15px] font-normal leading-[1.4] max-w-[150px]">Students are<br />dissatisfied with their<br />body image</p>
                         </div>
 
                     </div>
@@ -663,7 +699,7 @@ const School = () => {
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
-                                        Early Identification<br className="sm:hidden" /> & Preventive<br />Support
+                                        Early Identification<br className="sm:hidden" /> & Preventive Support
                                     </span>
                                 </div>
                             </div>

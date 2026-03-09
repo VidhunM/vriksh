@@ -14,162 +14,198 @@ const tabs = [
 const collegeCounsellingCards = [
     {
         title: "Dedicated On-Campus Counsellor",
-        desc: "A qualified counsellor available on campus to support your staff and students."
+        desc: "A qualified counsellor available on campus to support your staff and students.",
+        icon: "/icons/wdwo1.png"
     },
     {
         title: "Proactive Workshops and Training",
-        desc: "Regular workshops, awareness sessions for well-being & early identification of concerns."
+        desc: "Regular workshops, awareness sessions for well-being & early identification of concerns.",
+        icon: "/icons/wdwo2.png"
     },
     {
         title: "Crisis Management Support",
-        desc: " Immediate help and professional guidance during difficult or emergency situations."
+        desc: " Immediate help and professional guidance during difficult or emergency situations.",
+        icon: "/icons/wdwo3.png"
     },
     {
         title: "Career & Academic Guidance",
-        desc: "Assistance with course selection, career planning, internships, and goal-setting."
+        desc: "Assistance with course selection, career planning, internships, and goal-setting.",
+        icon: "/icons/wdwo4.png"
     },
     {
         title: "Confidential & Ethical Practice",
-        desc: "Safe, private counselling services ensure trust and confidentiality in every interaction."
+        desc: "Safe, private counselling services ensure trust and confidentiality in every interaction.",
+        icon: "/icons/wdwo5.png"
     },
     {
         title: "Structured Documentation & Analytics",
-        desc: "Regular case reports, well-being trend analysis, and insights to support informed decisions."
+        desc: "Regular case reports, well-being trend analysis, and insights to support informed decisions.",
+        icon: "/icons/wdwo6.png"
     }
 ];
 
 const softSkillsCards = [
     {
         title: "Effective Communication",
-        desc: "Enhance verbal, written, and presentation skills for academic and professional success."
+        desc: "Enhance verbal, written, and presentation skills for academic and professional success.",
+        icon: "/icons/soft1.png"
     },
     {
-        title: "Time Management & Organization",
-        desc: "Learn to prioritize, plan, and balance studies, projects, and personal life."
-    },
-    {
-        title: "Emotional Intelligence & Resilience",
-        desc: "Develop self-awareness, manage stress, and adapt to challenges."
+        title: "Time Management",
+        desc: "Learn to prioritize, plan, and balance studies, projects, and personal life.",
+        icon: "/icons/soft2.png"
     },
     {
         title: "Teamwork & Leadership",
-        desc: "Collaborate effectively, lead projects, and take initiative confidently."
+        desc: "Collaborate effectively, lead projects, and take initiative confidently.",
+        icon: "/icons/soft3.png"
+    },
+    {
+        title: "Emotional Intelligence & Resilience",
+        desc: "Develop self-awareness, manage stress, and adapt to challenges.",
+        icon: "/icons/soft4.png"
     },
     {
         title: "Interview & Professional Etiquette",
-        desc: "Prepare for interviews, build resumes, and practice workplace manners."
+        desc: "Prepare for interviews, build resumes, and practice workplace manners.",
+        icon: "/icons/soft5.png"
     },
     {
         title: "Critical Thinking & Problem Solving",
-        desc: "Improve decision-making, analytical thinking, and practical problem-solving skills."
+        desc: "Improve decision-making, analytical thinking, and practical problem-solving skills.",
+        icon: "/icons/soft6.png"
     }
 ];
 
 const careerGuidanceCards = [
     {
-        title: "Personalized Career Assessment",
-        desc: "Identify strengths, skills, interests, and suitable career paths."
-    },
-    {
-        title: "Goal Setting & Action Planning",
-        desc: "Set short-term and long-term academic and career goals."
-    },
-    {
-        title: "Job Readiness",
-        desc: "Prepare resumes, cover letters, and develop interview skills."
+        title: "Career Assessment",
+        desc: "Identify strengths, skills, interests, and suitable career paths.",
+        icon: "/icons/career1.png"
     },
     {
         title: "Career Counselling Sessions",
-        desc: "One-on-one guidance to clarify options and make informed decisions."
+        desc: "One-on-one guidance to clarify options and make informed decisions.",
+        icon: "/icons/career2.png"
     },
     {
-        title: "Skill Development & Workshops",
-        desc: "Learn essential skills like communication, leadership, and professional etiquette."
+        title: "Goal Setting & Action Planning",
+        desc: "Set short-term and long-term academic and career goals.",
+        icon: "/icons/career3.png"
+    },
+    {
+        title: "Job Readiness",
+        desc: "Prepare resumes, cover letters, and develop interview skills.",
+        icon: "/icons/career4.png"
     },
     {
         title: "Ongoing Mentorship & Support",
-        desc: "Continuous guidance to navigate academic, personal, and career challenges."
+        desc: "Continuous guidance to navigate academic, personal, and career challenges.",
+        icon: "/icons/career5.png"
+    },
+    {
+        title: "Skill Development & Workshops",
+        desc: "Learn essential skills like communication, leadership, and professional etiquette.",
+        icon: "/icons/career6.png"
     }
 ];
 
 const workshopCards = [
     {
         title: "Expert-Led & Interactive",
-        desc: "Sessions conducted by experienced professionals."
+        desc: "Sessions conducted by experienced professionals.",
+        icon: "/icons/work c1.png"
     },
     {
         title: "Customizable Topics",
-        desc: "Workshops tailored to your college’s needs and priorities."
+        desc: "Workshops tailored to your college’s needs and priorities.",
+        icon: "/icons/work c2.png"
     },
     {
         title: "Role-Appropriate Content",
-        desc: "Designed specifically for students or staff."
+        desc: "Designed specifically for students or staff.",
+        icon: "/icons/work c3.png"
     },
     {
         title: "Practical & Skill-Focused",
-        desc: "Actionable strategies and techniques that can be applied immediately."
+        desc: "Actionable strategies and techniques that can be applied immediately.",
+        icon: "/icons/work c4.png"
     },
     {
         title: "Preventive & Development Oriented",
-        desc: "Promoting overall well-being and positive college culture"
+        desc: "Promoting overall well-being and positive college culture",
+        icon: "/icons/work c5.png"
     },
     {
         title: "Structured Documentation & Reports",
-        desc: "Session summaries, feedback insights, and management-level documentation."
+        desc: "Session summaries, feedback insights, and management-level documentation.",
+        icon: "/icons/work c6.png"
     }
 ];
 
 const psychometricCards = [
     {
         title: "Scientifically Validated Tools",
-        desc: "Standardized assessments for reliable and accurate insights."
+        desc: "Standardized assessments for reliable and accurate insights.",
+        icon: "/icons/Psycho 1.png"
     },
     {
         title: "Holistic Student Profiling",
-        desc: "Understand cognitive abilities, personality, behavior, and emotional patterns."
+        desc: "Understand cognitive abilities, personality, behavior, and emotional patterns.",
+        icon: "/icons/Psycho 2.png"
     },
     {
         title: "Early Identification of Concerns",
-        desc: "Screening for learning, attention, and emotional challenges."
+        desc: "Screening for learning, attention, and emotional challenges.",
+        icon: "/icons/Psycho 3.png"
     },
     {
         title: "Individual Feedback & Guidance",
-        desc: "Clear interpretation sessions with students and, where needed, parents or staff."
+        desc: "Clear interpretation sessions with students and, where needed, parents or staff.",
+        icon: "/icons/Psycho 4.png"
     },
     {
         title: "Data-Driven Interventions",
-        desc: "Personalized recommendations for academic, career, and personal development."
+        desc: "Personalized recommendations for academic, career, and personal development.",
+        icon: "/icons/Psycho 5.png"
     },
     {
         title: "Documentation & Analytics",
-        desc: "Detailed reports, progress tracking, and management-level summaries."
+        desc: "Detailed reports, progress tracking, and management-level summaries.",
+        icon: "/icons/Psycho 6.png"
     }
 ];
 
 const analyticsCards = [
     {
         title: "Well-Being Trend Analysis",
-        desc: "Track patterns in student emotional, behavioral, and academic well-being."
+        desc: "Track patterns in student emotional, behavioral, and academic well-being.",
+        icon: "/icons/In depth1.png"
     },
     {
         title: "Risk Indicator Mapping",
-        desc: "Early detection of high-risk areas among student groups or departments."
+        desc: "Early detection of high-risk areas among student groups or departments.",
+        icon: "/icons/In depth2.png"
     },
     {
         title: "Intervention Impact Measurement",
-        desc: "Measure the effectiveness of counselling, workshops, and support initiatives."
+        desc: "Measure the effectiveness of counselling, workshops, and support initiatives.",
+        icon: "/icons/In depth3.png"
     },
     {
         title: "Course & Demographic Insights",
-        desc: "Data segmented by program, year, or student demographics for targeted action."
+        desc: "Data segmented by program, year, or student demographics for targeted action.",
+        icon: "/icons/In depth4.png"
     },
     {
         title: "Periodic Leadership Reports",
-        desc: "Structured summaries for management and college leadership review."
+        desc: "Structured summaries for management and college leadership review.",
+        icon: "/icons/In depth5.png"
     },
     {
         title: "Evidence-Based Recommendations",
-        desc: "Strategic, data-driven action plans for student growth and campus well-being."
+        desc: "Strategic, data-driven action plans for student growth and campus well-being.",
+        icon: "/icons/In depth6.png"
     }
 ];
 
@@ -291,7 +327,7 @@ const College = () => {
             {/* ── Purple Header Banner ── */}
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-36 sm:pb-10 text-center relative z-10 w-full">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h1 className="text-white text-[clamp(20px,3.5vw,36px)] font-bold tracking-[0.02em] uppercase font-inter-tight">
+                    <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         COLLEGE-BASED MENTAL HEALTH PROGRAM
                     </h1>
                 </div>
@@ -305,15 +341,14 @@ const College = () => {
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-center gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
-                        <h2 className="text-[#062623] text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight">
+                        <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-tight">
                             Nurturing Resilience, <br />  Empowering Students
                         </h2>
-                        <p className="text-sm sm:text-[15px] font-medium text-gray-800 leading-[1.7] mb-8 font-geist">
-                            Create a resilient campus where students feel supported, confident, and ready to face life’s challenges. Our program helps young adults manage stress, build healthy relationships, and prepare for future careers with practical skills that last a lifetime. By strengthening well-being and fostering a positive, inclusive campus culture, mental health becomes the foundation for both personal growth and academic success. Start building a healthier, stronger campus today.
-
+                        <p className="text-sm lg:text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
+                            Create a resilient campus where students feel supported, confident, and ready to face life’s challenges. Our programs help young adults manage stress, build healthy relationships, and develop emotional skills essential for personal and academic growth. Through counselling, wellbeing initiatives, and mental health awareness, we support students in navigating challenges and preparing for the future. By fostering a positive and inclusive campus culture, we help build a healthier, stronger learning environment.
                         </p>
                         <div>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                                 Partner With Us
                             </button>
                         </div>
@@ -332,7 +367,7 @@ const College = () => {
 
             <div className="w-full flex flex-col items-center mt-[-4rem]">
                 <div className="max-w-[1240px] mx-auto px-6 flex flex-col items-center text-center">
-                    <h2 className="text-black text-2xl sm:text-[36px] font-bold leading-[1.2] mb-6 font-inter-tight min-h-[1.2em]">
+                    <h2 className="text-black text-2xl sm:text-4xl lg:text-[38px] font-bold leading-[1.1] mb-5 font-inter-tight min-h-[1.2em]">
                         Together we help you build
                         <span className="text-[#F37321]">
                             {(animationPhase === 'initial-blink' || animationPhase === 'typing-line1') && typedText}
@@ -364,8 +399,8 @@ const College = () => {
                             scrollbar-width: none;
                         }
                     `}</style>
-                    <div>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[13px] sm:text-[14px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                    <div className="flex justify-center">
+                        <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
                             Get in Touch With Us
                         </button>
                     </div>
@@ -503,7 +538,7 @@ const College = () => {
                                                         <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] pt-8">
                                                             <div className="absolute -top-[4px] left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
                                                                 <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                                                    <img src={`/icons/wdwo${((slideIdx * 3) + idx) % 6 + 1}.png`} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                                    <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
                                                                 </div>
                                                             </div>
                                                             <div className="bg-white rounded-[16px] pt-10 pb-6 px-5 h-full min-h-[160px] flex flex-col items-start relative z-0 border border-gray-100/30">
@@ -524,7 +559,7 @@ const College = () => {
                                             <div key={idx} className="relative w-full flex flex-col drop-shadow-[0_4px_16px_rgba(0,0,0,0.06)] h-full pt-8 sm:pt-10">
                                                 <div className="absolute -top-[4px] left-6 sm:left-6 w-[72px] h-[72px] bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center z-10 border border-gray-100">
                                                     <div className="w-[54px] h-[54px] bg-white rounded-[8px] flex items-center justify-center">
-                                                        <img src={`/icons/wdwo${(idx % 6) + 1}.png`} alt="icon" className="w-[36px] h-[36px] object-contain" />
+                                                        <img src={card.icon} alt="icon" className="w-[36px] h-[36px] object-contain" />
                                                     </div>
                                                 </div>
                                                 <div className="bg-white rounded-[16px] pt-10 sm:pt-12 pb-6 px-5 sm:px-6 h-full flex flex-col items-start relative z-0 border border-gray-100/30">
@@ -541,7 +576,7 @@ const College = () => {
                                 </div>
                             </div>
 
-                            <div className="mt-8 sm:mt-12">
+                            <div className="mt-8 sm:mt-12 flex justify-center">
                                 <button className="bg-white hover:bg-gray-50 text-[#520378] px-8 py-3.5 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
                                     Get in Touch With Us
                                 </button>
@@ -562,7 +597,7 @@ const College = () => {
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Student Well-Being at Risk
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-4 sm:mb-20 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-4 sm:mb-20 lg:mb-6 font-geist leading-[1.6]">
                         Indian students face rising risks of excessive screen use, risky substance<br className="hidden sm:block" />
                         habits, and growing mental health challenges.
                     </p>
@@ -646,7 +681,7 @@ const College = () => {
                                 </div>
                                 <div className="bg-[#FCA253] rounded-[8px] p-2 sm:p-3 flex-1 w-full h-full min-h-[60px] sm:min-h-0 flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
                                     <span className="text-[#1A1A1A] text-[11px] sm:text-[13.5px] font-bold text-center leading-[1.2] sm:leading-[1.3] font-inter-tight tracking-wide">
-                                        Early Identification<br className="sm:hidden" /> & Preventive<br />Support
+                                        Early Identification<br className="sm:hidden" /> & Preventive Support
                                     </span>
                                 </div>
                             </div>

@@ -5,7 +5,7 @@ const Hero = () => {
         {
             image: '/images/hero.png',
             title: <span>Enriching Minds.<br />Strengthening Future</span>,
-            description: 'Confidential, evidence-based mental health and wellbeing solutions for individuals, institutions, and organisations',
+            description: 'Confidential, evidence-based mental health and well-being solutions for individuals, institutions, and organisations',
             buttonText: "Let's Talk"
         },
         {
@@ -121,7 +121,7 @@ const Hero = () => {
                                 {banner.description && (
                                     <p
                                         key={`desc-${currentSlide}`}
-                                        className={`text-[13px] md:text-[clamp(15px,2vw,18px)] mb-6 sm:mb-10 max-w-[650px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
+                                        className={`text-[13px] md:text-[clamp(15px,2vw,18px)] lg:text-[21px] mb-6 sm:mb-10 max-w-[650px] lg:max-w-[850px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
                                             }`}
                                     >
                                         {banner.description}

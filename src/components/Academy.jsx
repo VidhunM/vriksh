@@ -14,7 +14,7 @@ const Academy = () => {
         },
         {
             title: 'Certificate Courses',
-            desc: 'Learn from our experienced psychologists to develop new skills and advance your career in mental health & related fields.',
+            desc: 'Learn from experienced experts and gain the practical skills needed to advance your career.',
             btnText: 'Discover Courses'
         }
     ];

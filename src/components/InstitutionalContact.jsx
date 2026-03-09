@@ -25,6 +25,7 @@ const InstitutionalContact = ({ programType }) => {
 
     const isEAP = programType === "Corporate-EAP";
     const isSchool = programType === "School-Based";
+    const isCollege = programType === "College-Based";
 
     return (
         <section className="w-full py-16 sm:py-18" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
@@ -40,13 +41,20 @@ const InstitutionalContact = ({ programType }) => {
                             <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
                                 {isEAP
                                     ? "Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace."
-                                    : "Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change."}
+                                    : isCollege
+                                        ? "Looking for trusted college-based mental health support? Vriksh partners with colleges to promote students’ emotional well-being through counselling services, wellbeing programs, and mental health awareness initiatives."
+                                        : "Looking for trusted school-based mental health support? Vriksh partners with schools to nurture students’ emotional well-being and resilience through counselling services, special education support, student wellbeing programs, and mental health awareness initiatives - helping create healthier and more supportive learning environments."}
                             </p>
-                            {!isEAP && (
+                            {isCollege && (
                                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
-                                    From professional counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide practical, evidence-based support that truly makes a difference.
+                                    Through student counselling, resilience-building workshops, and campus wellbeing programs, we support young adults in managing stress, building healthy relationships, and thriving academically and personally.
                                 </p>
                             )}
+                            {/* {!isEAP && (
+                                // <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
+                                //     From professional counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide practical, evidence-based support that truly makes a difference.
+                                // </p>
+                            )} */}
                         </div>
                     </div>
 
@@ -94,19 +102,14 @@ const InstitutionalContact = ({ programType }) => {
                                     className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
                                 />
                                 {isEAP ? (
-                                    <select
+                                    <input
+                                        type="text"
                                         name="designation"
                                         value={formData.designation}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
-                                    >
-                                        <option value="">Designation</option>
-                                        <option value="hr-manager">HR Manager</option>
-                                        <option value="hr-director">HR Director</option>
-                                        <option value="wellness-coordinator">Wellness Coordinator</option>
-                                        <option value="cxo-founder">CXO / Founder</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                        placeholder="Designation"
+                                        className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px]"
+                                    />
                                 ) : (
                                     <input
                                         type="text"
@@ -147,12 +150,12 @@ const InstitutionalContact = ({ programType }) => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
-                                            <option value="">Interested In</option>
+
+                                            <option value="full-program">Full Program</option>
                                             <option value="counselling">Counselling</option>
                                             <option value="training">Training</option>
                                             <option value="workshop">Workshop</option>
                                             <option value="assessments">Assessments</option>
-                                            <option value="full-program">Full Program</option>
                                             <option value="corporate-wellness">Corporate Wellness Events</option>
                                             <option value="awareness-campaigns">Awareness Campaigns</option>
                                             <option value="maternity-support">Maternity Support Programme</option>
@@ -166,21 +169,14 @@ const InstitutionalContact = ({ programType }) => {
                             ) : isSchool ? (
                                 <>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <select
+                                        <input
+                                            type="text"
                                             name="designation"
                                             value={formData.designation}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%22%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
-                                        >
-                                            <option value="">Designation</option>
-                                            <option value="principal">Principal</option>
-                                            <option value="director">Director</option>
-                                            <option value="dean">Dean</option>
-                                            <option value="coordinator">Coordinator</option>
-                                            <option value="teacher">Teacher</option>
-                                            <option value="management">Management</option>
-                                            <option value="other">Other</option>
-                                        </select>
+                                            placeholder="Designation"
+                                            className="w-full px-4 py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900"
+                                        />
                                         <select
                                             name="board"
                                             value={formData.board}
@@ -210,7 +206,7 @@ const InstitutionalContact = ({ programType }) => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
-                                            <option value="">Interested In</option>
+
                                             <option value="counselling">Counselling</option>
                                             <option value="special-education">Special Education</option>
                                             <option value="workshop">Workshop</option>
@@ -248,7 +244,7 @@ const InstitutionalContact = ({ programType }) => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
-                                            <option value="">Interested In</option>
+                
                                             <option value="counselling">Counselling</option>
                                             <option value="soft-life-skills">Soft & Life Skills Classes</option>
                                             <option value="workshop">Workshop</option>
