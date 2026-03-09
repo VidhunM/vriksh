@@ -360,7 +360,7 @@ const CareerCounselling = () => {
                             <span className="bg-white text-[#000000] px-4 py-1.5 sm:px-5 sm:py-2 inline-block rounded-none shadow-sm">Decisions</span>
                         </h2>
                         <p className="text-white text-sm sm:text-[20px] leading-relaxed max-w-[480px] font-medium pt-1">
-                            Discover yourself to understand what truly drives you and choose a career path that fits your strengths, interests, and aspirations.
+                            Discover yourself to understand what truly drives you and choose a career path that aligns with your strengths, interests, and aspirations.
                         </p>
                     </div>
 
