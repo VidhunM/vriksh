@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Wellness = () => {
+    const navigate = useNavigate();
     return (
         <section id="wellness" className="py-8 bg-white">
             <div className="max-w-[1240px] mx-auto px-6">
@@ -31,10 +33,16 @@ const Wellness = () => {
                             <div className="mb-6 lg:mb-10 w-full flex flex-col items-center lg:items-start">
                                 <h4 className="text-xl sm:text-[17px] font-bold text-gray-900 mb-3 sm:mb-5 text-center lg:text-left">Choose Your Institution</h4>
                                 <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
-                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-8 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
+                                    <button
+                                        onClick={() => navigate('/school')}
+                                        className="bg-white text-[#520378] border border-[#520378]/30 px-8 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm"
+                                    >
                                         School
                                     </button>
-                                    <button className="bg-white text-[#520378] border border-[#520378]/30 px-8 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm">
+                                    <button
+                                        onClick={() => navigate('/college')}
+                                        className="bg-white text-[#520378] border border-[#520378]/30 px-8 py-1.5 sm:px-9 sm:py-2 rounded-full font-semibold text-xs sm:text-[14px] transition-all transform hover:bg-[#520378] hover:text-white hover:scale-105 active:scale-95 shadow-sm"
+                                    >
                                         College
                                     </button>
                                 </div>

@@ -37,7 +37,7 @@ const Header = () => {
       label: 'Vriksh E - Academy',
       subItems: [
         { label: 'Workshops', href: '/workshop' },
-        { label: 'Training Program', href: '/training' },
+        { label: 'Training Programs', href: '/training' },
         { label: 'Certificate Courses', href: '/certificate' }
       ]
     },

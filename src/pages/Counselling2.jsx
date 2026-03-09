@@ -36,12 +36,12 @@ const assurances = [
   {
     title: 'Confidentiality',
     text: 'Secure and Confidential Sessions',
-    icon: '/icons/Guidance.png',      
+    icon: '/icons/Guidance.png',
   },
   {
     title: 'Convenience',
     text: 'Online sessions from the comfort of your home',
-    icon: '/icons/confidential.png',      
+    icon: '/icons/confidential.png',
   },
   {
     title: 'Easy Access',
@@ -143,6 +143,13 @@ const Counselling2 = () => {
   const nextSlide = () => {
     setTestIndex((prev) => (prev + 1) % totalSlides);
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % inspirationalQuotes.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="bg-white pt-0">
@@ -290,11 +297,10 @@ const Counselling2 = () => {
                       {tab.label}
                     </span>
                     <div
-                      className={`w-3 h-3 rounded-full border-2 transition-all ${
-                        activeExpertTab === tab.id
-                          ? 'bg-white border-white'
-                          : 'bg-transparent border-white/60 group-hover:border-white'
-                      }`}
+                      className={`w-3 h-3 rounded-full border-2 transition-all ${activeExpertTab === tab.id
+                        ? 'bg-white border-white'
+                        : 'bg-transparent border-white/60 group-hover:border-white'
+                        }`}
                     />
                   </button>
                 ))}
@@ -346,28 +352,34 @@ const Counselling2 = () => {
             </div>
 
             {/* Right: Quote Card */}
-            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-6 sm:p-8 shadow-sm border border-[#F3E6C7] flex flex-col justify-between min-h-[380px]">
-              <div>
-                <span className="text-[40px] sm:text-[150px] font-serif text-gray-400 leading-none block -mb-4 sm:-mb-8">&ldquo;</span>
-                <p className="text-[18px] sm:text-[22px] text-gray-800 leading-[1.5] font-geist whitespace-pre-line">
-                  {inspirationalQuotes[quoteIndex].quote}
-                </p>
-                <p className="text-[14px] sm:text-[15px] text-gray-600 font-geist mt-4">
-                  &mdash;{inspirationalQuotes[quoteIndex].author}
-                </p>
-              </div>
-              {/* Carousel dots */}
-              <div className="flex justify-left gap-2 mt-6">
-                {inspirationalQuotes.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setQuoteIndex(i)}
-                    className={`h-2 rounded-full transition-all ${
-                      i === quoteIndex ? 'w-6 bg-[#520378]' : 'w-2 bg-gray-300'
-                    }`}
-                    aria-label={`Quote ${i + 1}`}
+            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-6 sm:p-10 shadow-sm border border-[#F3E6C7] flex flex-col justify-between h-[320px] sm:h-[380px]">
+              <div className="flex flex-col flex-1 justify-between">
+                <div>
+                  {/* Large quote icon */}
+                  <img
+                    src="/icons/quotes.png"
+                    alt="Quote"
+                    className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-4 opacity-60"
                   />
-                ))}
+                  <p className="text-[18px] sm:text-[22px] font-semibold text-gray-800 leading-[1.4] font-inter-tight">
+                    {inspirationalQuotes[quoteIndex].quote}
+                  </p>
+                  <p className="text-[13px] sm:text-[14px] text-gray-500 font-geist mt-3">
+                    -{inspirationalQuotes[quoteIndex].author}
+                  </p>
+                </div>
+                {/* Carousel dots */}
+                <div className="flex gap-2 mt-6">
+                  {inspirationalQuotes.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setQuoteIndex(i)}
+                      className={`h-2.5 w-2.5 rounded-full transition-all ${i === quoteIndex ? 'bg-[#3d3d3d]' : 'bg-gray-300'
+                        }`}
+                      aria-label={`Quote ${i + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -386,7 +398,7 @@ const Counselling2 = () => {
                 key={item.title}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 flex items-center justify-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 mb-4 flex items-center justify-center">
                   <img
                     src={item.icon}
                     alt={item.title}
@@ -482,9 +494,8 @@ const Counselling2 = () => {
               <button
                 key={i}
                 onClick={() => setTestIndex(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  testIndex === i ? 'w-6 bg-[#520378]' : 'w-2 bg-gray-300'
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${testIndex === i ? 'w-6 bg-[#520378]' : 'w-2 bg-gray-300'
+                  }`}
                 aria-label={`Go to testimonial page ${i + 1}`}
               />
             ))}
@@ -493,13 +504,13 @@ const Counselling2 = () => {
       </div>
 
       {/* Contact Section */}
-      <div className="bg-white py-12 sm:py-16">
+      <div id="contact" className="bg-white py-12 sm:py-16">
         <div className="max-w-[1240px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Left: Heading & Description */}
             <div>
               <h2 className="text-[28px] sm:text-[36px] font-bold text-gray-950 leading-[1.15] mb-4 font-inter-tight">
-                We&apos;ll help you <br/>get started
+                We&apos;ll help you <br />get started
               </h2>
               <p className="text-[14px] sm:text-[19px] text-gray-600 leading-[1.7] font-geist max-w-[520px]">
                 Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace.

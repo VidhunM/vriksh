@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const categories = ['Counselling', 'Special Education', 'Corporate', 'Teachers', 'Students', 'Parents'];
 
@@ -88,6 +89,7 @@ const allWorkshopCards = [
 ];
 
 const WorkshopsListing = () => {
+    const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = React.useState('Counselling');
     const [visibleCount, setVisibleCount] = React.useState(4);
     const [mobilePage, setMobilePage] = React.useState(0);
@@ -196,7 +198,10 @@ const WorkshopsListing = () => {
                                     </div>
                                 </div>
 
-                                <button className="w-[110px] pb-1.5 pt-1.5 mb-1 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]">
+                                <button 
+                                    onClick={() => navigate('/workshop#contact')}
+                                    className="w-[110px] pb-1.5 pt-1.5 mb-1 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]"
+                                >
                                     Enquire Now
                                 </button>
                             </div>
@@ -265,7 +270,10 @@ const WorkshopsListing = () => {
                                         </div>
                                     </div>
 
-                                    <button className="w-[100px] pb-1.5 pt-1.5 mb-0.5 rounded-full text-[12px] font-medium transition-all active:scale-95 bg-[#520378] text-white">
+                                    <button 
+                                        onClick={() => navigate('/workshop#contact')}
+                                        className="w-[100px] pb-1.5 pt-1.5 mb-0.5 rounded-full text-[12px] font-medium transition-all active:scale-95 bg-[#520378] text-white"
+                                    >
                                         Enquire Now
                                     </button>
                                 </div>

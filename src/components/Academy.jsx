@@ -1,23 +1,32 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Academy = () => {
+    const navigate = useNavigate();
     const categories = [
         {
-            title: 'Webinars',
+            title: 'Workshop',
             desc: 'Our experts conduct curated webinars to provide the most engaging and effective learning experience.',
-            btnText: 'browse topics'
+            btnText: 'browse topics',
+            link: '/workshop#contact'
         },
         {
             title: 'Training Programs',
             desc: <span>Interactive, activity-based programs designed by our in-house experts to equip you with practical skills for real-world application.</span>,
-            btnText: 'Explore Programs'
+            btnText: 'Explore Programs',
+            link: '/training#contact'
         },
         {
             title: 'Certificate Courses',
             desc: 'Learn from experienced experts and gain the practical skills needed to advance your career.',
-            btnText: 'Discover Courses'
+            btnText: 'Discover Courses',
+            link: '/certificate#contact'
         }
     ];
+
+    const handleButtonClick = (link) => {
+        navigate(link);
+    };
 
     return (
         <section id="academy" className="py-12 sm:py-16 bg-gradient-to-b from-[#FFF9E1] to-white overflow-hidden relative">
@@ -74,7 +83,10 @@ const Academy = () => {
                                     <p className="text-[13.5px] text-gray-950/90 mb-4 leading-[1.6] font-medium w-full text-center flex-grow flex items-center justify-center">
                                         {cat.desc}
                                     </p>
-                                    <button className="w-auto sm:w-full px-4 sm:px-0 bg-[#520378] text-white py-2.5 rounded-full font-bold text-[11px] hover:bg-[#520378]/90 transition-all shadow-md uppercase tracking-wider mt-auto mx-auto">
+                                    <button
+                                        onClick={() => handleButtonClick(cat.link)}
+                                        className="w-auto sm:w-full px-4 sm:px-0 bg-[#520378] text-white py-2.5 rounded-full font-bold text-[11px] hover:bg-[#520378]/90 transition-all shadow-md uppercase tracking-wider mt-auto mx-auto"
+                                    >
                                         {cat.btnText}
                                     </button>
                                 </div>

@@ -28,7 +28,7 @@ const InstitutionalContact = ({ programType }) => {
     const isCollege = programType === "College-Based";
 
     return (
-        <section className="w-full py-16 sm:py-18" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+        <section id="contact" className="w-full py-16 sm:py-18 scroll-mt-20" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start -mt-10">
 
@@ -150,7 +150,7 @@ const InstitutionalContact = ({ programType }) => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-white text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
-
+                                            <option value="" disabled hidden>Interested In</option>
                                             <option value="full-program">Full Program</option>
                                             <option value="counselling">Counselling</option>
                                             <option value="training">Training</option>
@@ -206,7 +206,7 @@ const InstitutionalContact = ({ programType }) => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
-
+                                            <option value="" disabled hidden>Interested In</option>
                                             <option value="counselling">Counselling</option>
                                             <option value="special-education">Special Education</option>
                                             <option value="workshop">Workshop</option>
@@ -244,7 +244,7 @@ const InstitutionalContact = ({ programType }) => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 pr-12 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[15px] bg-[#FFFAE44D] text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%234A5568%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[position:right_1.25rem_center] bg-no-repeat bg-[size:1.25em]"
                                         >
-                
+                                            <option value="" disabled hidden>Interested In</option>
                                             <option value="counselling">Counselling</option>
                                             <option value="soft-life-skills">Soft & Life Skills Classes</option>
                                             <option value="workshop">Workshop</option>

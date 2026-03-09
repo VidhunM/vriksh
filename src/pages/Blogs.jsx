@@ -5,46 +5,25 @@ const categories = ['Counselling', 'Students', 'Workshop', 'College'];
 
 const blogPosts = [
     {
-        id: 1,
-        date: "February 12, 2025",
-        title: "Recognizing Stress Before It Becomes Burnout",
+        id: 7,
+        date: "April 01, 2025",
+        title: "Overthinking: When Your Mind Refuses to Switch Off",
         category: "Counselling",
-        image: "/images/blogid.jpg"
+        image: "/images/Overthinking.jpg"
     },
     {
-        id: 2,
-        date: "February 23, 2025",
-        title: "How Counselling Can Help You Navigate Life's Challenges",
+        id: 8,
+        date: "April 10, 2025",
+        title: "Screen Addiction: How Digital Devices Trap the Brain",
         category: "Counselling",
-        image: "/images/blogid.jpg"
+        image: "/images/Screentime.jpg"
     },
     {
-        id: 3,
-        date: "March 03, 2025",
-        title: "Student Mental Health: Supporting Young Minds",
+        id: 9,
+        date: "April 18, 2025",
+        title: "Academic Pressure: When Success Becomes Stress",
         category: "Counselling",
-        image: "/images/blogid.jpg"
-    },
-    {
-        id: 4,
-        date: "March 05, 2025",
-        title: "Student Mental Health: Supporting Young Minds",
-        category: "Counselling",
-        image: "/images/blogid.jpg"
-    },
-    {
-        id: 5,
-        date: "March 12, 2025",
-        title: "Building Emotional Resilience in Everyday Life",
-        category: "Counselling",
-        image: "/images/blogid.jpg"
-    },
-    {
-        id: 6,
-        date: "March 20, 2025",
-        title: "Managing Workplace Stress: A Guide for Professionals",
-        category: "Counselling",
-        image: "/images/blogid.jpg"
+        image: "/images/Academic pressure.jpg"
     }
 ];
 

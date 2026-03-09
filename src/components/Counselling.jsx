@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Counselling = () => {
+    const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = useState('Stress & Anxiety');
 
     const categories = [
@@ -155,7 +157,10 @@ const Counselling = () => {
                             </div>
 
                             <div>
-                                <button className="bg-white text-[#520378] px-6 py-2 sm:px-8 sm:py-2.5 rounded-full font-semibold text-xs sm:text-[14px] hover:bg-brand-cream transition-all shadow-lg active:scale-95">
+                                <button
+                                    onClick={() => navigate('/counselling#contact')}
+                                    className="bg-white text-[#520378] px-6 py-2 sm:px-8 sm:py-2.5 rounded-full font-semibold text-xs sm:text-[14px] hover:bg-brand-cream transition-all shadow-lg active:scale-95"
+                                >
                                     {activeContent.cta}
                                 </button>
                             </div>

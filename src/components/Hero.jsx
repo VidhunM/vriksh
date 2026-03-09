@@ -1,46 +1,67 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+    const navigate = useNavigate();
     const banners = [
         {
             image: '/images/hero.png',
             title: <span>Enriching Minds.<br />Strengthening Future</span>,
             description: 'Confidential, evidence-based mental health and well-being solutions for individuals, institutions, and organisations',
-            buttonText: "Let's Talk"
+            buttonText: "Let's Talk",
+            link: "#contact"
         },
         {
             image: '/images/banner 2.png',
             title: "Learn real-world mental heath skills with Vriksh E- Academy",
             description: "",
-            buttonText: "Explore Courses"
+            buttonText: "Explore Courses",
+            link: "/upcoming-events#contact"
         },
         {
             image: '/images/banner 3.png',
             title: "Safe and confidential counselling where your voice truly matters.",
             description: "",
-            buttonText: "Start Your Healing Journey"
+            buttonText: "Start Your Healing Journey",
+            link: "/counselling#contact"
         },
         {
             image: '/images/banner 4.png',
             title: "Empowering Campuses, Transforming Young Minds",
             description: "",
-            buttonText: "Get in Touch"
+            buttonText: "Get in Touch",
+            link: "/school#contact"
         },
         {
             image: '/images/banner 5.png',
             title: "Partnering with colleges to shape confident, resilient students",
             description: "",
-            buttonText: "Partner with us"
+            buttonText: "Partner with us",
+            link: "/college#contact"
         },
         {
             image: '/images/banner 6.png',
             title: <span>Stronger employees. Resilient teams.<br className="hidden sm:block" />Powered by Vriksh EAP</span>,
             description: "",
-            buttonText: "Get Started"
+            buttonText: "Get Started",
+            link: "/corporate-eap#contact"
         }
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    const handleButtonClick = (link) => {
+        if (link.startsWith('#')) {
+            const targetId = link.substring(1);
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Use navigate for internal links to preserve SPA state and hash handling
+            navigate(link);
+        }
+    };
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % banners.length);
@@ -133,7 +154,10 @@ const Hero = () => {
                                     className={`flex justify-center ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-400' : ''
                                         }`}
                                 >
-                                    <button className="bg-white text-[#520378] px-6 sm:px-10 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl mt-1.5 sm:mt-0">
+                                    <button
+                                        onClick={() => handleButtonClick(banner.link)}
+                                        className="bg-white text-[#520378] px-6 sm:px-10 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-2xl mt-1.5 sm:mt-0"
+                                    >
                                         {banner.buttonText}
                                     </button>
                                 </div>

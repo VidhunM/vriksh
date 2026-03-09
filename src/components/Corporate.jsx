@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Corporate = () => {
     const [isPaused, setIsPaused] = useState(false);
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(`${path}#contact`);
+    };
+
     const cards = [
         {
             number: '01',
-            title: 'Webinars',
+            title: 'Workshop',
             desc: 'Led by experienced psychologists, our curated and highly interactive sessions foster insight, reflection, and practical workplace application.',
-            buttonText: 'Elevate Your Workforce'
+            buttonText: 'Elevate Your Workforce',
+            path: '/workshop'
         },
         {
             number: '02',
             title: 'Training Programs',
             desc: 'Expert-led, experiential programs designed to foster insight, enhance capabilities, and drive workplace excellence.',
-            buttonText: 'Strengthen Your Team'
+            buttonText: 'Strengthen Your Team',
+            path: '/training'
         },
         {
             number: '03',
             title: 'Employee Assistance Program (EAP)',
             desc: 'Expert-designed, tailored wellbeing solutions that strengthen employee resilience, improve performance, and support a healthier workplace culture.',
-            buttonText: 'Build a Resilient Workforce'
+            buttonText: 'Build a Resilient Workforce',
+            path: '/corporate-eap'
         }
     ];
 
@@ -42,7 +52,10 @@ const Corporate = () => {
                             A resilient workforce is the foundation of a high-performing organisation.
                             At Vriksh, we help organisations build emotionally strong, focused, and future-ready teams. Our structured workplace wellbeing solutions enhance productivity, engagement, and overall performance. We design personalised programs that align with your organisational goals -  because when your people thrive, your business grows.
                         </p>
-                        <button className="bg-white text-[#4A148C] px-6 py-2 sm:px-8 sm:py-2.5 rounded-full font-bold text-sm sm:text-base hover:bg-brand-cream hover:-translate-y-1 transition-all shadow-lg active:scale-95">
+                        <button
+                            onClick={() => handleNavigation('/corporate-eap')}
+                            className="bg-white text-[#4A148C] px-6 py-2 sm:px-8 sm:py-2.5 rounded-full font-bold text-sm sm:text-base hover:bg-brand-cream hover:-translate-y-1 transition-all shadow-lg active:scale-95"
+                        >
                             Enquire Now
                         </button>
                     </div>
@@ -68,7 +81,10 @@ const Corporate = () => {
                                     <p className="text-xs sm:text-[14px] md:text-[15px] text-gray-600 mb-4 sm:mb-6 leading-relaxed">
                                         {card.desc}
                                     </p>
-                                    <button className="bg-[#520378] text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-semibold text-xs sm:text-[14px] hover:bg-[#6A1B9A] transition-all hover:-translate-y-0.5 shadow-md active:scale-95">
+                                    <button
+                                        onClick={() => handleNavigation(card.path)}
+                                        className="bg-[#520378] text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-semibold text-xs sm:text-[14px] hover:bg-[#6A1B9A] transition-all hover:-translate-y-0.5 shadow-md active:scale-95"
+                                    >
                                         {card.buttonText}
                                     </button>
                                 </div>
@@ -82,3 +98,4 @@ const Corporate = () => {
 };
 
 export default Corporate;
+

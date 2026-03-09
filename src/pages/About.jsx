@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import AnimatedNumber from '../components/AnimatedNumber';
 
 
@@ -286,9 +287,9 @@ const About = () => {
                         <h3 className="text-white text-[clamp(20px,5vw,34px)] font-bold mb-3 sm:mb-4 max-w-[600px] leading-tight font-inter-tight">
                             Rooted in care, <br className="hidden sm:block" />  Growing with you
                         </h3>
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-6 sm:py-3 rounded-full font-bold text-[14px] sm:text-[20px] transition-all transform hover:scale-115">
+                        <Link to="/#contact" className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-6 sm:py-3 rounded-full font-bold text-[14px] sm:text-[20px] transition-all transform hover:scale-115">
                             Get Started
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
