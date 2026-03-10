@@ -348,7 +348,10 @@ const College = () => {
                             Create a resilient campus where students feel supported, confident, and ready to face life’s challenges. Our programs help young adults manage stress, build healthy relationships, and develop emotional skills essential for personal and academic growth. Through counselling, wellbeing initiatives, and mental health awareness, we support students in navigating challenges and preparing for the future. By fostering a positive and inclusive campus culture, we help build a healthier, stronger learning environment.
                         </p>
                         <div>
-                            <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
+                            <button
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95"
+                            >
                                 Partner With Us
                             </button>
                         </div>
@@ -400,7 +403,10 @@ const College = () => {
                         }
                     `}</style>
                     <div className="flex justify-center">
-                        <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95"
+                        >
                             Get in Touch With Us
                         </button>
                     </div>
@@ -577,7 +583,10 @@ const College = () => {
                             </div>
 
                             <div className="mt-8 sm:mt-12 flex justify-center">
-                                <button className="bg-white hover:bg-gray-50 text-[#520378] px-8 py-3.5 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                                <button
+                                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                    className="bg-white hover:bg-gray-50 text-[#520378] px-8 py-3.5 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md"
+                                >
                                     Get in Touch With Us
                                 </button>
                             </div>
@@ -701,7 +710,10 @@ const College = () => {
                     </div>
 
                     <div className="mt-8 sm:mt-10 flex justify-center">
-                        <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg tracking-wide">
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-lg tracking-wide"
+                        >
                             Get Started Today
                         </button>
                     </div>

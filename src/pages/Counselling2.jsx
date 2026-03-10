@@ -179,7 +179,10 @@ const Counselling2 = () => {
               Here, your experiences matter, and you are never alone in your journey. Our caring mental health
               professionals walk alongside you, offering support, understanding, and gentle guidance.
             </p>
-            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md"
+            >
               Talk to a Counsellor Today
             </button>
           </div>
@@ -224,7 +227,10 @@ const Counselling2 = () => {
                   <p className="text-[13px] sm:text-[17px] text-gray-700 leading-[1.6] mb-5 flex-1 font-geist">
                     {service.description}
                   </p>
-                  <button className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#400260] transition-all self-start">
+                  <button
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#400260] transition-all self-start"
+                  >
                     {service.cta}
                   </button>
                 </div>
@@ -277,7 +283,10 @@ const Counselling2 = () => {
                 Our team of experienced and compassionate counsellors is dedicated to supporting emotional wellbeing across all age groups. With diverse expertise in mental health, education, and therapeutic practices, they provide empathetic guidance in a safe and confidential space, helping individuals navigate challenges and move toward healing and growth.
               </p>
             </div>
-            <button className="shrink-0 border-2 border-white bg-white hover:bg-gray-100 text-[#520378] px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all lg:mt-18">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="shrink-0 border-2 border-white bg-white hover:bg-gray-100 text-[#520378] px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all lg:mt-18"
+            >
               Get in touch with us
             </button>
           </div>
@@ -468,7 +477,7 @@ const Counselling2 = () => {
                         {item.role}
                       </p>
                     </div>
-                    <p className="text-[13px] sm:text-[15px] text-gray-700 leading-relaxed mb-6 flex-1 font-geist">
+                    <p className="text-[13px] sm:text-[17px] text-gray-700 leading-relaxed mb-6 flex-1 font-geist">
                       “{item.text}”
                     </p>
                     <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">

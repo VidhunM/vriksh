@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import AnimatedNumber from '../components/AnimatedNumber';
+import InstitutionalContact from '../components/InstitutionalContact';
 
 const servicesData = [
     { title: <><span>Career</span><br />Assessments</>, text: "Evaluate your strengths, skills, interests, and personality to gain a clear understanding of which career paths suit you best.", iconSrc: "/icons/career assement.png" },
@@ -171,7 +172,7 @@ const CareerCounselling = () => {
             <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1240px] mx-auto px-6">
                     <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
-                        CAREER GUIDANCE 
+                        CAREER GUIDANCE
                     </h1>
                 </div>
             </div>
@@ -197,7 +198,10 @@ const CareerCounselling = () => {
                             change, we're here to support you at every step.
                         </p>
 
-                        <button className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95">
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[#520378] text-white px-5 py-2 sm:px-10 sm:py-4 rounded-full font-bold text-[13px] sm:text-base hover:bg-[#6b049d] transition-all transform hover:scale-105 shadow-md active:scale-95"
+                        >
                             Discover your path
                         </button>
                     </div>
@@ -276,7 +280,10 @@ const CareerCounselling = () => {
                     </div>
 
                     <div className="flex justify-center relative z-20">
-                        <button className="bg-[#520378] text-white px-8 py-2.5 sm:px-12 sm:py-3.5 rounded-full font-bold text-sm sm:text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-xl active:scale-95">
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[#520378] text-white px-8 py-2.5 sm:px-12 sm:py-3.5 rounded-full font-bold text-sm sm:text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-xl active:scale-95"
+                        >
                             Talk to an Expert
                         </button>
                     </div>
@@ -436,7 +443,10 @@ const CareerCounselling = () => {
                     </div>
 
                     <div className="flex justify-center">
-                        <button className="bg-[#520378] text-white px-6 py-2 sm:px-10 sm:py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-lg active:scale-95">
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[#520378] text-white px-6 py-2 sm:px-10 sm:py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#4C0070] transition-all transform hover:scale-105 shadow-lg active:scale-95"
+                        >
                             Book your session today
                         </button>
                     </div>
@@ -681,6 +691,9 @@ const CareerCounselling = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Get in Touch Section */}
+            <InstitutionalContact programType="Career-Counselling" />
         </div>
     );
 };

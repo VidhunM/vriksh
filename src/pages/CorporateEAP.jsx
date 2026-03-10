@@ -126,7 +126,10 @@ const CorporateEAP = () => {
                             <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
                                 Our Employee Assistance Programme (EAP) provides confidential mental health support that enables employees to manage stress, strengthen resilience, and enhance well-being - empowering organizations to build a healthier, more productive, and engaged workforce.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md"
+                            >
                                 Talk to an expert
                             </button>
                         </div>

@@ -111,17 +111,20 @@ const UpcomingEvents = () => {
         {
             title: "Workshops",
             description: <>Knowledge enrichment sessions with <span className="whitespace-nowrap">well-curated</span> experiential components on focused topics that support skill advancement</>,
-            icon: <img src="/icons/workshop.png" alt="Workshops icon" className="w-8 h-8 object-contain" />
+            icon: <img src="/icons/workshop.png" alt="Workshops icon" className="w-8 h-8 object-contain" />,
+            link: "/workshop"
         },
         {
             title: "Training Programs",
             description: "Hands-on, interactive programs led by trained psychologists, designed to build practical skills through reflective & insight-oriented learning",
-            icon: <img src="/icons/training program.png" alt="Training Programs icon" className="w-8 h-8 object-contain" />
+            icon: <img src="/icons/training program.png" alt="Training Programs icon" className="w-8 h-8 object-contain" />,
+            link: "/training"
         },
         {
             title: "Certificate Courses",
             description: "Expert-led online courses designed to help you build new skills, strengthen your expertise, and advance confidently in your career",
-            icon: <img src="/icons/certificate course.png" alt="Certificate Courses icon" className="w-8 h-8 object-contain" />
+            icon: <img src="/icons/certificate course.png" alt="Certificate Courses icon" className="w-8 h-8 object-contain" />,
+            link: "/certificate"
         }
     ];
 
@@ -435,9 +438,11 @@ const UpcomingEvents = () => {
                                             </div>
                                             <h3 className="text-lg sm:text-xl font-bold text-gray-950 mb-2 sm:mb-4 font-geist">{program.title}</h3>
                                             <p className="text-sm sm:text-base text-gray-900 leading-relaxed mb-4 sm:mb-6">{program.description}</p>
-                                            <button className="bg-[#520378] text-white px-5 py-2 sm:px-7 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#6b049d] transition-colors">
-                                                Know more
-                                            </button>
+                                            <Link to={program.link}>
+                                                <button className="bg-[#520378] text-white px-5 py-2 sm:px-7 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#6b049d] transition-colors">
+                                                    Know more
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 ))}
@@ -464,9 +469,11 @@ const UpcomingEvents = () => {
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-950 mb-4 font-geist">{program.title}</h3>
                                 <p className="text-base text-gray-900 leading-relaxed mb-auto pb-6">{program.description}</p>
-                                <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors">
-                                    Know more
-                                </button>
+                                <Link to={program.link}>
+                                    <button className="bg-[#520378] text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-[#6b049d] transition-colors">
+                                        Know more
+                                    </button>
+                                </Link>
                             </div>
                         ))}
                     </div>
