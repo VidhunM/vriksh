@@ -24,6 +24,27 @@ const blogPosts = [
         title: "Academic Pressure: When Success Becomes Stress",
         category: "Counselling",
         image: "/images/Academic pressure.jpg"
+    },
+    {
+        id: 10,
+        date: "March 10, 2026",
+        title: "10 Signs You May Need Professional Counselling",
+        category: "Counselling",
+        image: "/images/Signs You May Need Professional Counselling.jpg"
+    },
+    {
+        id: 11,
+        date: "March 15, 2026",
+        title: "How to Help Children Express Their Feelings",
+        category: "Counselling",
+        image: "/images/Children Express Their Feelings.jpg"
+    },
+    {
+        id: 12,
+        date: "March 20, 2026",
+        title: "When Your Mind Talks, Your Body Listens",
+        category: "Counselling",
+        image: "/images/mind body connection.jpg"
     }
 ];
 
