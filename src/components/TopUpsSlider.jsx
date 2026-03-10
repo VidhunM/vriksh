@@ -95,8 +95,8 @@ const TopUpsSlider = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",        // Pin when top of container hits top of viewport
-                end: "+=3000",           // Reduced from 3000 for faster scroll
-                scrub: 1,              // Slightly more responsive smoothing
+                end: "+=1800",           // Reduced for faster scroll progression
+                scrub: 0.6,              // Lowered for snappier, more responsive movement
                 pin: true,               // Pin the entire container
                 pinSpacing: true,
                 anticipatePin: 1,
@@ -106,17 +106,17 @@ const TopUpsSlider = () => {
         // Animate cards stacking
         cards.forEach((card, i) => {
             if (i === 0) {
-                tl.to({}, { duration: 0.5 }); // Reduced pause for first card
+                tl.to({}, { duration: 0.3 }); // Reduced pause for first card
                 return;
             }
 
             tl.to(card, {
                 yPercent: 0,
-                ease: "power2.inOut",    // Added easing for smoother movement
-                duration: 1            // Increased duration for more gradual movement
+                ease: "power2.out",    // Faster exit than inOut
+                duration: 1
             });
 
-            tl.to({}, { duration: 0.5 }); // Reduced pause for subsequent cards
+            tl.to({}, { duration: 0.3 }); // Reduced pause for subsequent cards
         });
 
         return () => {

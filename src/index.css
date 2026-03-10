@@ -104,6 +104,7 @@
   .why-marquee {
     animation-duration: 45s !important;
   }
+
   .corporate-marquee {
     animation-duration: 35s !important;
   }
@@ -208,16 +209,30 @@
     font-size: 20px;
     letter-spacing: 0.05em;
   }
+
   #certificate h2 {
     font-size: 24px;
     line-height: 1.2;
   }
+
   #certificate h3 {
     font-size: 18px;
     line-height: 1.25;
   }
+
   #certificate p {
     font-size: 15px;
     line-height: 1.7;
   }
+}
+
+/* Custom Date/Time Picker Icon Color #520378 */
+input[type="datetime-local"] {
+  accent-color: #520378;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  /* Filters white icon to #520378 (roughly) */
+  filter: invert(12%) sepia(91%) saturate(5437%) hue-rotate(279deg) brightness(88%) contrast(106%);
 }

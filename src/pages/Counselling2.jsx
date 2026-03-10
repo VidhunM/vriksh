@@ -592,17 +592,11 @@ const Counselling2 = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Preferred Time for Session</label>
-                    <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
-                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
-                    >
-                      <option value="">Select time</option>
-                      <option value="morning">Morning (9 AM - 12 PM)</option>
-                      <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-                      <option value="evening">Evening (5 PM - 9 PM)</option>
-                      <option value="weekend">Weekend</option>
-                    </select>
+                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Preferred Date and Time for Session</label>
+                    <input
+                      type="datetime-local"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white cursor-pointer"
+                    />
                   </div>
                 </div>
                 <div>
