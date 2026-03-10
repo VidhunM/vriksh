@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Events = () => {
+    const navigate = useNavigate();
     const events = [
         {
             image: '/images/events.png',
@@ -91,7 +93,10 @@ const Events = () => {
                                                     <span className="text-gray-400 line-through text-xs sm:text-[14px]">{event.originalPrice}</span>
                                                     <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.currentPrice}</span>
                                                 </div>
-                                                <button className="bg-[#520378] text-white px-3 py-1.5 sm:py-2 rounded-full font-bold text-[11px] sm:text-[12px] whitespace-nowrap">
+                                                <button
+                                                    onClick={() => navigate('/event-details')}
+                                                    className="bg-[#520378] text-white px-3 py-1.5 sm:py-2 rounded-full font-bold text-[11px] sm:text-[12px] whitespace-nowrap"
+                                                >
                                                     Know more
                                                 </button>
                                             </div>
@@ -125,7 +130,10 @@ const Events = () => {
                                         <span className="text-gray-400 line-through text-[15px]">{event.originalPrice}</span>
                                         <span className="text-gray-950 font-bold text-[18px]">{event.currentPrice}</span>
                                     </div>
-                                    <button className="bg-[#520378] text-white px-6 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all shadow-sm whitespace-nowrap">
+                                    <button
+                                        onClick={() => navigate('/event-details')}
+                                        className="bg-[#520378] text-white px-6 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all shadow-sm whitespace-nowrap"
+                                    >
                                         Know more
                                     </button>
                                 </div>
