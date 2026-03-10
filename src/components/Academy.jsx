@@ -8,19 +8,19 @@ const Academy = () => {
             title: 'Workshop',
             desc: 'Our experts conduct curated webinars to provide the most engaging and effective learning experience.',
             btnText: 'browse topics',
-            link: '/workshop#contact'
+            link: '/workshop'
         },
         {
             title: 'Training Programs',
             desc: <span>Interactive, activity-based programs designed by our in-house experts to equip you with practical skills for real-world application.</span>,
             btnText: 'Explore Programs',
-            link: '/training#contact'
+            link: '/training'
         },
         {
             title: 'Certificate Courses',
             desc: 'Learn from experienced experts and gain the practical skills needed to advance your career.',
             btnText: 'Discover Courses',
-            link: '/certificate#contact'
+            link: '/certificate'
         }
     ];
 
