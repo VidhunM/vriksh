@@ -67,7 +67,7 @@ const Blogs = () => {
             {/* ── Featured Insights Section ── */}
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12">
                 <h2 className="text-[#1A1A1A] text-[24px] sm:text-[32px] font-bold mb-6 font-inter-tight">
-                    Featured Insights
+                    Featured Insight
                 </h2>
 
                 {/* Featured Blog Card */}

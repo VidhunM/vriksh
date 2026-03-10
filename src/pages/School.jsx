@@ -611,13 +611,13 @@ const School = () => {
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight tracking-wide text-center">
                         Silent Struggles of Today's Students
                     </h2>
-                    <p className="text-[#4A5568] text-[13px] sm:text-[19px] text-center max-w-[800px] mb-4 sm:mb-20 lg:mb-6 font-geist leading-[1.6]">
+                    <p className="text-[#4A5568] text-[13px] sm:text-[19px] text-center max-w-[890px] mb-4 sm:mb-20 lg:mb-6 font-geist leading-[1.6]">
                         Indian students face rising risks of digital dependency,
                         emotional distress, and academic pressure.
                     </p>
 
                     {/* Overlapping Circles Container */}
-                    <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center w-full max-w-[1000px] gap-0 sm:gap-0 mt-2 mb-4 sm:mt-0 sm:mb-0">
+                    <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center w-full max-w-[1000px] gap-0 sm:gap-0 mt-2 mb-4 md:mt-12 sm:mb-0">
 
                         {/* Circle 1 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-8 translate-x-[8%] translate-y-[8%] md:translate-x-0 md:translate-y-6 hover:bg-gray-50/50 transition-all duration-300">
@@ -648,7 +648,7 @@ const School = () => {
             </section>
             {/* ── Benefits Section ── */}
             <div
-                className="w-full pt-0 pb-10 sm:py-14"
+                className="w-full pt-0 pb-10 sm:py-8"
                 style={{ background: 'linear-gradient(360deg, #FFF9E3 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">

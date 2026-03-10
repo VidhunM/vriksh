@@ -26,6 +26,7 @@ const InstitutionalContact = ({ programType }) => {
     const isEAP = programType === "Corporate-EAP";
     const isSchool = programType === "School-Based";
     const isCollege = programType === "College-Based";
+    const isCareer = programType === "Career-Counselling";
 
     return (
         <section id="contact" className="w-full py-16 sm:py-18 scroll-mt-20" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
@@ -41,9 +42,11 @@ const InstitutionalContact = ({ programType }) => {
                             <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">
                                 {isEAP
                                     ? "Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace."
-                                    : isCollege
-                                        ? "Looking for trusted college-based mental health support? Vriksh partners with colleges to promote students’ emotional well-being through counselling services, wellbeing programs, and mental health awareness initiatives."
-                                        : "Looking for trusted school-based mental health support? Vriksh partners with schools to nurture students’ emotional well-being and resilience through counselling services, special education support, student wellbeing programs, and mental health awareness initiatives - helping create healthier and more supportive learning environments."}
+                                    : isCareer
+                                        ? "Connect with us to explore your strengths, interests, and future opportunities through structured career counselling and psychometric assessments."
+                                        : isCollege
+                                            ? "Looking for trusted college-based mental health support? Vriksh partners with colleges to promote students’ emotional well-being through counselling services, wellbeing programs, and mental health awareness initiatives."
+                                            : "Looking for trusted school-based mental health support? Vriksh partners with schools to nurture students’ emotional well-being and resilience through counselling services, special education support, student wellbeing programs, and mental health awareness initiatives - helping create healthier and more supportive learning environments."}
                             </p>
                             {isCollege && (
                                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-[550px]">

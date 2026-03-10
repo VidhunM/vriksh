@@ -201,7 +201,7 @@ const Counselling2 = () => {
       </div>
 
       {/* Counselling Services */}
-      <div className="py-12 sm:py-8 bg-white">
+      <div id="services" className="py-12 sm:py-8 bg-white">
         <div className="max-w-[1240px] mx-auto px-6">
           <h2 className="text-[20px] sm:text-[34px] font-bold text-gray-950 mb-8 text-center font-inter-tight">
             Counselling Services

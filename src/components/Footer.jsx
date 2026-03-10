@@ -13,16 +13,16 @@ const Footer = () => {
                         <div className="space-y-4">
                             <h3 className="text-base font-semibold">Counselling</h3>
                             <ul className="space-y-2 opacity-90 text-[14px] font-light">
-                                <li><Link to="/counselling" className="hover:opacity-100 transition-opacity">For Depression</Link></li>
-                                <li><Link to="/counselling" className="hover:opacity-100 transition-opacity">Stress & Anxiety</Link></li>
-                                <li><Link to="/counselling" className="hover:opacity-100 transition-opacity">Marriage / Relationship</Link></li>
-                                <li><Link to="/counselling" className="hover:opacity-100 transition-opacity">Child / Adolescent</Link></li>
-                                <li><Link to="/counselling" className="hover:opacity-100 transition-opacity">Grief / Loss of loved ones</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Individual Counselling</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Children and Adolescent</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Counselling</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Academic and Career Counselling</Link></li>
                             </ul>
                         </div>
                         <div className="space-y-4">
                             <h3 className="text-base font-semibold">Vriksh E-Academy</h3>
                             <ul className="space-y-2 opacity-90 text-[14px] font-light">
+                                <li><Link to="/upcoming-events" className="hover:opacity-100 transition-opacity">Upcoming Events</Link></li>
                                 <li><Link to="/workshop" className="hover:opacity-100 transition-opacity">Workshop</Link></li>
                                 <li><Link to="/training" className="hover:opacity-100 transition-opacity">Training Programs</Link></li>
                                 <li><Link to="/certificate" className="hover:opacity-100 transition-opacity">Certificate Courses</Link></li>

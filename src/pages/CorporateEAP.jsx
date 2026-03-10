@@ -209,7 +209,7 @@ const CorporateEAP = () => {
                                 <AnimatedNumber end={14} suffix="%" />
                             </h3>
                             <p className="text-[#1A1A1A] text-[9.5px] sm:text-[15px] font-normal leading-[1.4] max-w-[160px]">
-                                Indian employees<br />report truly thriving<br />In Life
+                                Indian employees<br />report truly thriving<br />In life
                             </p>
                         </div>
 

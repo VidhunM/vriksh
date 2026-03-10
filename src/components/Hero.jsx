@@ -6,8 +6,8 @@ const Hero = () => {
     const banners = [
         {
             image: '/images/hero.png',
-            title: <span>Enriching Minds.<br />Strengthening Future</span>,
-            description: 'Confidential, evidence-based mental health and well-being solutions for individuals, institutions, and organisations',
+            title: <span>Enriching Minds<br />Strengthening Future</span>,
+            description: <span>Confidential, evidence-based mental health and well-being solutions for <span className="whitespace-nowrap">individuals, institutions, and organisations</span></span>,
             buttonText: "Let's Talk",
             link: "#contact"
         },
@@ -16,11 +16,11 @@ const Hero = () => {
             title: "Learn real-world mental heath skills with Vriksh E- Academy",
             description: "",
             buttonText: "Explore Courses",
-            link: "/upcoming-events#contact"
+            link: "/upcoming-events"
         },
         {
             image: '/images/banner 3.png',
-            title: "Safe and confidential counselling where your voice truly matters.",
+            title: "Safe and confidential counselling where your voice truly matters",
             description: "",
             buttonText: "Start Your Healing Journey",
             link: "/counselling#contact"
@@ -142,7 +142,7 @@ const Hero = () => {
                                 {banner.description && (
                                     <p
                                         key={`desc-${currentSlide}`}
-                                        className={`text-[13px] md:text-[clamp(15px,2vw,18px)] lg:text-[21px] mb-6 sm:mb-10 max-w-[650px] lg:max-w-[850px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
+                                        className={`text-[13px] md:text-[clamp(15px,2vw,18px)] lg:text-[24px] mb-6 sm:mb-10 max-w-[650px] lg:max-w-[850px] opacity-90 leading-relaxed font-normal text-center mx-auto px-2 sm:px-4 drop-shadow-md ${index === currentSlide ? 'animate-slide-up-fade opacity-0 delay-200' : ''
                                             }`}
                                     >
                                         {banner.description}

@@ -37,25 +37,34 @@ const topUpPrograms = [
     }
 ];
 
-const CardContent = ({ program }) => (
-    <div className="w-full h-full flex items-center justify-center">
-        <div className="w-[90%] max-w-[950px] h-[450px] bg-[#f8f9fa] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col md:flex-row border border-gray-100">
-            <div className="md:w-[45%] h-[200px] md:h-full bg-white p-4">
-                <div className="w-full h-full rounded-xl overflow-hidden shadow-inner">
-                    <img src={program.image} alt={program.title} className={`w-full h-full object-cover ${program.imagePosition || 'object-center'}`} />
+const CardContent = ({ program }) => {
+    const handleEnquireClick = () => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    return (
+        <div className="w-full h-full flex items-center justify-center">
+            <div className="w-[90%] max-w-[950px] h-[450px] bg-[#f8f9fa] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col md:flex-row border border-gray-100">
+                <div className="md:w-[45%] h-[200px] md:h-full bg-white p-4">
+                    <div className="w-full h-full rounded-xl overflow-hidden shadow-inner">
+                        <img src={program.image} alt={program.title} className={`w-full h-full object-cover ${program.imagePosition || 'object-center'}`} />
+                    </div>
+                </div>
+                <div className="md:w-[55%] p-8 md:p-12 flex flex-col justify-center text-left">
+                    <h3 className="text-[#1A1A1A] text-2xl md:text-[clamp(18px,4vw,42px)] font-bold mb-4 tracking-tight md:leading-[1.1]">{program.title}</h3>
+                    <p className="text-[#1A1A1A] text-sm md:text-[18px] font-medium mb-3 opacity-90">{program.subtext}</p>
+                    <p className="text-[#475467] text-[12px] md:text-base leading-relaxed mb-8">{program.desc}</p>
+                    <button
+                        onClick={handleEnquireClick}
+                        className="w-fit bg-[#1A1A1A] text-white px-8 py-3 rounded-full font-bold hover:bg-black transition-colors active:scale-95"
+                    >
+                        {program.cta}
+                    </button>
                 </div>
             </div>
-            <div className="md:w-[55%] p-8 md:p-12 flex flex-col justify-center text-left">
-                <h3 className="text-[#1A1A1A] text-2xl md:text-[clamp(18px,4vw,42px)] font-bold mb-4 tracking-tight md:leading-[1.1]">{program.title}</h3>
-                <p className="text-[#1A1A1A] text-sm md:text-[18px] font-medium mb-3 opacity-90">{program.subtext}</p>
-                <p className="text-[#475467] text-[12px] md:text-base leading-relaxed mb-8">{program.desc}</p>
-                <button className="w-fit bg-[#1A1A1A] text-white px-8 py-3 rounded-full font-bold hover:bg-black transition-colors active:scale-95">
-                    {program.cta}
-                </button>
-            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const TopUpsSlider = () => {
     const containerRef = useRef(null);
@@ -150,12 +159,7 @@ const TopUpsSlider = () => {
                 ))}
             </div>
 
-            {/* Fixed Talk to Us Button - stays at bottom during pin */}
-            <div className="z-50 pb-4 flex-shrink-0">
-                <button className="bg-white text-[#520378] px-12 py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition-transform">
-                    Talk to Us
-                </button>
-            </div>
+
         </div>
     );
 };

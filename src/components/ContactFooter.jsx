@@ -4,14 +4,18 @@ import { useLocation } from 'react-router-dom';
 const ContactFooter = () => {
     const [serviceOpen, setServiceOpen] = useState(false);
     const [sourceOpen, setSourceOpen] = useState(false);
+    const [backgroundOpen, setBackgroundOpen] = useState(false);
     const [selectedService, setSelectedService] = useState('');
     const [selectedSource, setSelectedSource] = useState('');
+    const [selectedBackground, setSelectedBackground] = useState('');
 
     const serviceRef = useRef(null);
     const sourceRef = useRef(null);
+    const backgroundRef = useRef(null);
 
     const location = useLocation();
-    const isAcademyPage = ['/workshop'].includes(location.pathname);
+    const isAcademyPage = ['/workshop', '/training', '/certificate', '/upcoming-events'].includes(location.pathname);
+    const isHomePage = location.pathname === '/';
 
     const allServices = [
         "Counselling",
@@ -30,7 +34,22 @@ const ContactFooter = () => {
         "Online Certificate Courses"
     ];
 
-    const services = isAcademyPage ? academyServices : allServices;
+    const backgroundOptions = [
+        "School Student",
+        "College Student",
+        "Psychology Student",
+        "Educator / Teacher",
+        "Professional",
+        "Parent",
+        "Others"
+    ];
+
+    const homeServices = [
+        "Career Guidance",
+        "Career Awareness Talk - School"
+    ];
+
+    const services = isHomePage ? homeServices : (isAcademyPage ? academyServices : allServices);
 
     const sources = [
         "Google Search",
@@ -53,6 +72,9 @@ const ContactFooter = () => {
             if (sourceRef.current && !sourceRef.current.contains(event.target)) {
                 setSourceOpen(false);
             }
+            if (backgroundRef.current && !backgroundRef.current.contains(event.target)) {
+                setBackgroundOpen(false);
+            }
         };
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -66,15 +88,32 @@ const ContactFooter = () => {
                         {/* Left Side: Content */}
                         <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
                             <h2 className="text-[28px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-wide">
-                                Get in Touch with <br /> Vriksh
+                                {isAcademyPage ? (
+                                    <>Get in Touch with <br /> Vriksh E-Academy</>
+                                ) : (
+                                    <>Get in Touch with <br /> Vriksh</>
+                                )}
                             </h2>
                             <div className="space-y-6">
-                                <p className="text-gray-950 text-base -mt-2 md:text-[18px] leading-relaxed max-w-[500px]">
-                                    Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
-                                </p>
-                                <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
-                                    From counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide evidence-based support that truly makes a difference.
-                                </p>
+                                {isAcademyPage ? (
+                                    <>
+                                        <p className="text-gray-950 text-base -mt-2 md:text-[18px] leading-relaxed max-w-[500px]">
+                                            Interested in our courses, workshops, or training programs? Connect with Vriksh Psychological Support Services | Vriksh E-Academy to learn more about our psychology, counselling, and special education learning opportunities.
+                                        </p>
+                                        <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                            Our team will be happy to guide you on course details, registrations, and upcoming programs. Reach out to us and take the next step in your learning journey.
+                                        </p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <p className="text-gray-950 text-base -mt-2 md:text-[18px] leading-relaxed max-w-[500px]">
+                                            Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
+                                        </p>
+                                        <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                            From counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide evidence-based support that truly makes a difference.
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
 
@@ -108,6 +147,49 @@ const ContactFooter = () => {
                                         className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                 </div>
+
+                                {isAcademyPage && (
+                                    <div className="grid sm:grid-cols-2 gap-5">
+                                        <input
+                                            type="text"
+                                            placeholder="Topic interested in"
+                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
+                                        />
+                                        {/* Your Background Dropdown */}
+                                        <div className="relative" ref={backgroundRef}>
+                                            <div
+                                                onClick={() => setBackgroundOpen(!backgroundOpen)}
+                                                className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
+                                            >
+                                                <span className="text-gray-950">
+                                                    {selectedBackground || "Your Background"}
+                                                </span>
+                                                <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${backgroundOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                            </div>
+                                            {backgroundOpen && (
+                                                <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-2xl z-50 overflow-hidden animate-slide-up-fade origin-top">
+                                                    <div className="max-h-[300px] overflow-y-auto py-2">
+                                                        {backgroundOptions.map((option) => (
+                                                            <div
+                                                                key={option}
+                                                                onClick={() => {
+                                                                    setSelectedBackground(option);
+                                                                    setBackgroundOpen(false);
+                                                                }}
+                                                                className="px-5 py-3.5 hover:bg-[#520378] hover:text-white transition-colors cursor-pointer text-[15px] text-gray-800 font-medium"
+                                                            >
+                                                                {option}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="grid sm:grid-cols-2 gap-5 relative z-20">
                                     {/* Custom Service Dropdown */}
                                     <div className="relative" ref={serviceRef}>
@@ -115,7 +197,7 @@ const ContactFooter = () => {
                                             onClick={() => setServiceOpen(!serviceOpen)}
                                             className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                         >
-                                            <span className={selectedService ? "text-gray-950" : "text-gray-950"}>
+                                            <span className="text-gray-950">
                                                 {selectedService || "Services interested in"}
                                             </span>
                                             <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${serviceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,7 +230,7 @@ const ContactFooter = () => {
                                             onClick={() => setSourceOpen(!sourceOpen)}
                                             className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-gradient-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                         >
-                                            <span className={selectedSource ? "text-gray-950" : "text-gray-950"}>
+                                            <span className="text-gray-950">
                                                 {selectedSource || "How did you hear about us?"}
                                             </span>
                                             <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${sourceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -48,7 +48,7 @@ const blogPosts = [
 
 const articleContent = {
     7: (
-        <div className="prose prose-lg max-w-none text-[#4A5568] font-geist leading-[1.8]">
+        <div className="prose prose-lg text-[15px] sm:text-[19px] max-w-none text-[#4A5568] font-geist leading-[1.8]">
             <p className="mb-6">
                 Have you ever found yourself thinking about the same incident again and again, unable to let it go? Perhaps you replay a conversation repeatedly in your mind, wondering if you said the wrong thing, or you stay awake at night worrying about something that happened days ago. It can feel as if your mind is stuck in a loop, replaying the same thoughts over and over like a playlist you cannot pause. If this sounds familiar, you are not alone. Many people experience moments where their thoughts overwhelm them. This experience is commonly known as overthinking.
             </p>
@@ -70,7 +70,7 @@ const articleContent = {
         </div>
     ),
     8: (
-        <div className="prose prose-lg max-w-none text-[#4A5568] font-geist leading-[1.8]">
+        <div className="prose prose-lg text-[15px] sm:text-[19px] max-w-none text-[#4A5568] font-geist leading-[1.8]">
             <p className="mb-6">
                 Today, screens are a big part of children's everyday life. Phones, tablets, video games, and laptops are used for learning, entertainment, and staying connected with friends. While technology is helpful, it can sometimes become difficult for children and teenagers to put the device down. Many parents often hear lines like, "Just five more minutes!" which slowly turns into another half an hour.
             </p>
@@ -101,7 +101,7 @@ const articleContent = {
         </div>
     ),
     9: (
-        <div className="prose prose-lg max-w-none text-[#4A5568] font-geist leading-[1.8]">
+        <div className="prose prose-lg text-[15px] sm:text-[19px] max-w-none text-[#4A5568] font-geist leading-[1.8]">
             <p className="mb-6">
                 For many students today, life often revolves around marks, exams, and expectations. Questions like "How many marks did you get?", "Did you come first?", or "What will you study in the future?" are common in everyday conversations. While doing well in academics is important, the constant pressure to perform can sometimes turn learning into a stressful experience.
             </p>
@@ -126,7 +126,7 @@ const articleContent = {
         </div>
     ),
     10: (
-        <div className="prose prose-lg max-w-none text-[#4A5568] font-geist leading-[1.8]">
+        <div className="prose prose-lg text-[15px] sm:text-[19px] max-w-none text-[#4A5568] font-geist leading-[1.8]">
             <p className="mb-6">
                 Most of us grow up hearing things like “Be strong,” “Don’t overthink,” or “Everyone has problems.” Because of this, many people ignore their emotional struggles for a long time. We keep pushing through stress, sadness, or confusion, hoping things will get better on their own. Sometimes they do. But sometimes our mind needs the same care and attention that we give our physical health. Talking to a counsellor can help you understand your thoughts, manage emotions, and feel less alone in what you are going through. At Vriksh Psychological Support Services, many people reach out for counselling not because something is “wrong,” but because they want clarity, support, and healthier ways to cope with life.
             </p>
@@ -195,7 +195,7 @@ const articleContent = {
         </div>
     ),
     11: (
-        <div className="prose prose-lg max-w-none text-[#4A5568] font-geist leading-[1.8]">
+        <div className="prose prose-lg text-[15px] sm:text-[19px] max-w-none text-[#4A5568] font-geist leading-[1.8]">
             <p className="mb-6">
                 If you’ve ever heard a child say “I don’t know” when you ask what’s wrong, you’re not alone. Many parents experience moments where a child is clearly upset, but cannot explain why. Sometimes the child cries over something that seems small, refuses to talk, or suddenly becomes angry. As adults, we may feel confused and wonder, “Why can’t they just tell me what they feel?”
             </p>
@@ -258,7 +258,7 @@ const articleContent = {
         </div>
     ),
     12: (
-        <div className="prose prose-lg max-w-none text-[#4A5568] font-geist leading-[1.8]">
+        <div className="prose prose-lg text-[15px] sm:text-[19px] max-w-none text-[#4A5568] font-geist leading-[1.8]">
             <p className="mb-6">
                 Have you ever had a knot in your stomach before an important meeting, or felt your heart race when you’re anxious? Maybe after a stressful day you noticed a headache, tight shoulders, or complete exhaustion. Most of us have experienced moments like these but rarely stop to think about why they happen.
             </p>
@@ -350,11 +350,11 @@ const BlogDetails = () => {
 
                 {/* ── Top Part (Hero): Centered Title & Header Image ── */}
                 <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
-                    <h1 className="text-[#1A1A1A] text-[32px] sm:text-[42px] lg:text-[52px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-8 sm:mb-12">
+                    <h1 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-8 sm:mb-12">
                         {post.title}
                     </h1>
 
-                    <div className="w-full rounded-[24px] overflow-hidden shadow-sm aspect-[21/9] sm:aspect-[21/10]">
+                    <div className="w-full rounded-[24px] overflow-hidden shadow-sm aspect-[21/7] sm:aspect-[21/8]">
                         <img
                             src={post.image}
                             alt={post.title}
@@ -365,7 +365,7 @@ const BlogDetails = () => {
 
                 {/* ── Article Content ── */}
                 {content && (
-                    <div className="max-w-[860px] mx-auto mb-16 sm:mb-20">
+                    <div className="w-full mx-auto mb-16 sm:mb-20 text-justify">
                         {content}
                     </div>
                 )}

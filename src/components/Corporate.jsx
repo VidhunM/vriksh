@@ -15,14 +15,14 @@ const Corporate = () => {
             title: 'Workshop',
             desc: 'Led by experienced psychologists, our curated and highly interactive sessions foster insight, reflection, and practical workplace application.',
             buttonText: 'Elevate Your Workforce',
-            path: '/workshop'
+            path: '/corporate-eap'
         },
         {
             number: '02',
             title: 'Training Programs',
             desc: 'Expert-led, experiential programs designed to foster insight, enhance capabilities, and drive workplace excellence.',
             buttonText: 'Strengthen Your Team',
-            path: '/training'
+            path: '/corporate-eap'
         },
         {
             number: '03',
