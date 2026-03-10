@@ -45,7 +45,10 @@ const Training = () => {
                             <p className="text-sm sm:text-base md:text-[18px] text-gray-600 leading-[1.7] mb-4 sm:mb-6 max-w-[750px] font-medium font-geist">
                                 Experience training that goes beyond theory - interactive, practical, and application-driven, helping you gain deeper insights into every topic and strengthen your professional skills.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-xs sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button
+                                onClick={() => document.getElementById('training-cards-section')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-xs sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md"
+                            >
                                 Explore Training Programs
                             </button>
                         </div>

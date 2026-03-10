@@ -44,7 +44,10 @@ const Certificate = () => {
                             <p className="text-sm sm:text-base md:text-[18px] text-gray-600 leading-[1.7] mb-4 sm:mb-6 max-w-[750px] font-medium font-geist">
                                 Expert-led online courses designed to help you build new skills, strengthen your expertise, and advance confidently in your career.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-xs sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button
+                                onClick={() => document.getElementById('certificate-cards-section')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-xs sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md"
+                            >
                                 Explore Certificate Courses
                             </button>
                         </div>

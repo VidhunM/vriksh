@@ -44,7 +44,10 @@ const Workshop = () => {
                             <p className="text-sm sm:text-[18px] text-gray-600 leading-[1.7] mb-4 sm:mb-6 max-w-[750px] font-medium font-geist">
                                 Step into a world of learning – practical, engaging, and skill boosting workshops under one roof. Build clarity, competence, and confidence with every session you attend.
                             </p>
-                            <button className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md">
+                            <button
+                                onClick={() => document.getElementById('workshop-cards-section')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#520378] hover:bg-[#400260] text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full font-semibold text-[14px] sm:text-[15px] transition-all hover:scale-105 active:scale-95 shadow-md"
+                            >
                                 Explore workshop
                             </button>
                         </div>

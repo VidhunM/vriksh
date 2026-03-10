@@ -145,7 +145,7 @@ const WorkshopsListing = () => {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap gap-3 justify-center mb-12">
+                <div id="workshop-cards-section" className="flex flex-wrap gap-3 justify-center mb-12">
                     {categories.map((cat) => (
                         <button
                             key={cat}
@@ -198,7 +198,7 @@ const WorkshopsListing = () => {
                                     </div>
                                 </div>
 
-                                <button 
+                                <button
                                     onClick={() => navigate('/workshop#contact')}
                                     className="w-[110px] pb-1.5 pt-1.5 mb-1 rounded-full text-[13px] font-medium transition-all active:scale-95 bg-[#520378] text-white group-hover:bg-white group-hover:text-[#520378]"
                                 >
@@ -270,7 +270,7 @@ const WorkshopsListing = () => {
                                         </div>
                                     </div>
 
-                                    <button 
+                                    <button
                                         onClick={() => navigate('/workshop#contact')}
                                         className="w-[100px] pb-1.5 pt-1.5 mb-0.5 rounded-full text-[12px] font-medium transition-all active:scale-95 bg-[#520378] text-white"
                                     >

@@ -137,7 +137,7 @@ const CertificateListing = () => {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap gap-3 justify-center mb-12">
+                <div id="certificate-cards-section" className="flex flex-wrap gap-3 justify-center mb-12">
                     {categories.map((cat) => (
                         <button
                             key={cat}

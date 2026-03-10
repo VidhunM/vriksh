@@ -86,7 +86,7 @@ const TrainingListing = () => {
           <p className="text-[16px] font-medium text-gray-800 tracking-wide font-geist">Live • Online • Accessible Worldwide</p>
         </div>
 
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
+        <div id="training-cards-section" className="flex flex-wrap gap-3 justify-center mb-12">
           {categories.map((cat) => (
             <button
               key={cat}

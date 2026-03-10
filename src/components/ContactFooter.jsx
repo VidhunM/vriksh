@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ContactFooter = () => {
     const [serviceOpen, setServiceOpen] = useState(false);
@@ -9,7 +10,10 @@ const ContactFooter = () => {
     const serviceRef = useRef(null);
     const sourceRef = useRef(null);
 
-    const services = [
+    const location = useLocation();
+    const isAcademyPage = ['/workshop'].includes(location.pathname);
+
+    const allServices = [
         "Counselling",
         "Online Workshop",
         "Online Training Programs",
@@ -19,6 +23,14 @@ const ContactFooter = () => {
         "Institution Wellness Program - School",
         "Institution Wellness Program - College"
     ];
+
+    const academyServices = [
+        "Online Workshop",
+        "Online Training Programs",
+        "Online Certificate Courses"
+    ];
+
+    const services = isAcademyPage ? academyServices : allServices;
 
     const sources = [
         "Google Search",
