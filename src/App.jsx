@@ -17,6 +17,7 @@ import CorporateEAP from './pages/CorporateEAP';
 import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 import BlogDetails from './pages/BlogDetails';
+import EventDetails from './pages/EventDetails';
 import Counselling2 from './pages/Counselling2';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
@@ -33,6 +34,7 @@ function AppContent() {
   const isBlogDetailPage = location.pathname.startsWith('/blog/');
   const isCounsellingPage = location.pathname === '/counselling';
   const isCareerCounsellingPage = location.pathname === '/career-counselling';
+  const isEventDetailsPage = location.pathname === '/event-details';
 
   return (
     <div className="app">
@@ -53,10 +55,11 @@ function AppContent() {
           <Route path="/counselling" element={<Counselling2 />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/event-details" element={<EventDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && !isCorporateEAPPage && !isBlogsPage && !isBlogDetailPage && !isCounsellingPage && !isCareerCounsellingPage && <ContactFooter />}
+      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && !isCorporateEAPPage && !isBlogsPage && !isBlogDetailPage && !isCounsellingPage && !isCareerCounsellingPage && !isEventDetailsPage && <ContactFooter />}
       <Footer />
 
       {/* Floating WhatsApp Icon */}

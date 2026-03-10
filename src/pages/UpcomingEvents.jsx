@@ -387,9 +387,11 @@ const UpcomingEvents = () => {
 
                                     {/* Action Buttons */}
                                     <div className="flex gap-2">
-                                        <button className={`flex-1 ${activeCardId === event.id ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
-                                            Know more
-                                        </button>
+                                        <Link to="/event-details" className="flex-1">
+                                            <button className={`w-full ${activeCardId === event.id ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
+                                                Know more
+                                            </button>
+                                        </Link>
                                         <button className={`flex-1 border-2 ${activeCardId === event.id ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}>
                                             Enroll Now
                                         </button>
