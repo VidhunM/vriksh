@@ -1,5 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const EventDetails = () => {
     const { id } = useParams();
@@ -7,6 +11,10 @@ const EventDetails = () => {
     // Testimonials State
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
+    
+    // GSAP Refs
+    const containerRef = useRef(null);
+    const cardRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -124,6 +132,39 @@ const EventDetails = () => {
 
     // Default to event 1 if no ID or invalid ID
     const event = eventsData[id] || eventsData['1'];
+
+    // Smooth Floating Card Effect using GSAP
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            const mm = gsap.matchMedia();
+            
+            mm.add("(min-width: 1024px)", () => {
+                const container = containerRef.current;
+                const card = cardRef.current;
+                
+                if (container && card) {
+                    // 380 margin-top compensate + flex item padding
+                    const maxTranslate = container.offsetHeight - card.offsetHeight + 380;
+                    
+                    if (maxTranslate > 0) {
+                        gsap.to(card, {
+                            y: maxTranslate,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: container,
+                                start: "top top+=128", // Start when top of container hits 128px from top of viewport
+                                end: "bottom bottom", // End when bottom of container hits bottom of viewport
+                                scrub: 1.5, // 1.5 second lag for smooth floating effect
+                                invalidateOnRefresh: true
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        return () => ctx.revert();
+    }, [event]);
 
     const reviews = [
         {
@@ -255,8 +296,9 @@ const EventDetails = () => {
                         </div>
                     </div>
 
-                    <div className="lg:w-1/3 relative z-20">
-                        <div className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:sticky lg:top-32 lg:-mt-[380px]">
+                    <div className="lg:w-1/3 relative z-20" ref={containerRef}>
+                        {/* Remove lg:sticky and lg:top-32, replacing with GSAP control */}
+                        <div ref={cardRef} className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:-mt-[380px] will-change-transform">
                             {/* Card Image */}
                             <div className="aspect-video relative overflow-hidden">
                                 <img
@@ -300,8 +342,10 @@ const EventDetails = () => {
                                     </div>
                                 </div>
 
+                                <div className="h-px bg-gray-200 mb-6"></div>
+
                                 <div className="text-center mb-6">
-                                    <span className="text-3xl font-bold text-gray-950 font-inter-tight">
+                                    <span className="text-2xl font-bold text-gray-950 font-inter-tight">
                                         {event.price}{event.price !== 'FREE' && '+GST'}
                                     </span>
                                 </div>
