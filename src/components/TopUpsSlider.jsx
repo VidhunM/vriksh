@@ -76,6 +76,7 @@ const TopUpsSlider = () => {
     );
     const [mobileIndex, setMobileIndex] = useState(0);
     const scrollRef = useRef(null);
+    const isProgrammatic = useRef(false);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -90,10 +91,14 @@ const TopUpsSlider = () => {
     useEffect(() => {
         if (isMobile && scrollRef.current) {
             const el = scrollRef.current;
+            // Ensure we start from the left edge
+            el.scrollLeft = 0;
             const child = el.children[mobileIndex];
             if (child) {
-                const centeredLeft = child.offsetLeft - (el.clientWidth - child.clientWidth) / 2;
-                el.scrollTo({ left: centeredLeft, behavior: 'auto' });
+                const targetLeft = child.offsetLeft + child.offsetWidth / 2 - el.clientWidth / 2;
+                isProgrammatic.current = true;
+                el.scrollTo({ left: targetLeft, behavior: 'auto' });
+                setTimeout(() => { isProgrammatic.current = false; }, 250);
             }
         }
     }, [isMobile, mobileIndex]);
@@ -150,8 +155,10 @@ const TopUpsSlider = () => {
             if (!el) return;
             const child = el.children[i];
             if (!child) return;
-            const centeredLeft = child.offsetLeft - (el.clientWidth - child.clientWidth) / 2;
-            el.scrollTo({ left: centeredLeft, behavior: 'smooth' });
+            const targetLeft = child.offsetLeft + child.offsetWidth / 2 - el.clientWidth / 2;
+            isProgrammatic.current = true;
+            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+            setTimeout(() => { isProgrammatic.current = false; }, 300);
         };
         const prev = () => {
             const next = Math.max(0, mobileIndex - 1);
@@ -165,12 +172,15 @@ const TopUpsSlider = () => {
             scrollToIndex(nextIdx);
         };
         const onScroll = () => {
+            if (isProgrammatic.current) return;
             const el = scrollRef.current;
             if (!el) return;
             let nearest = 0;
             let minDelta = Infinity;
             Array.from(el.children).forEach((child, idx) => {
-                const delta = Math.abs(child.offsetLeft - el.scrollLeft);
+                const childCenter = child.offsetLeft + child.offsetWidth / 2;
+                const viewportCenter = el.scrollLeft + el.clientWidth / 2;
+                const delta = Math.abs(childCenter - viewportCenter);
                 if (delta < minDelta) {
                     minDelta = delta;
                     nearest = idx;
@@ -201,10 +211,10 @@ const TopUpsSlider = () => {
                     <div
                         ref={scrollRef}
                         onScroll={onScroll}
-                        className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-0 scroll-smooth no-scrollbar justify-center"
+                        className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-0 pl-[10vw] pr-[10vw] scroll-smooth no-scrollbar"
                     >
                         {topUpPrograms.map((p, i) => (
-                            <div key={i} className="snap-center shrink-0 w-[78vw]">
+                            <div key={i} className="snap-center shrink-0 w-[80vw]">
                                 <CardContent program={p} />
                             </div>
                         ))}
