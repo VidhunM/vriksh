@@ -329,32 +329,28 @@ const InstitutionalContact = ({ programType }) => {
                                 </>
                             )}
 
-                            {!isEAP && (
-                                <>
-                                    <textarea
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        placeholder="Message"
-                                        rows="4"
-                                        className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[13px] sm:text-[15px] resize-none"
-                                    ></textarea>
+                            <textarea
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                placeholder="Message"
+                                rows="4"
+                                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-[8px] border border-gray-300 focus:border-[#520378] focus:ring-1 focus:ring-[#520378] transition-all outline-none text-[13px] sm:text-[15px] resize-none"
+                            ></textarea>
 
-                                    <div className="flex items-start gap-3">
-                                        <input
-                                            type="checkbox"
-                                            id="authorize_inst"
-                                            name="authorized"
-                                            checked={formData.authorized}
-                                            onChange={handleChange}
-                                            className="mt-1 w-4 h-4 sm:w-5 sm:h-5 rounded border-gray-300 text-[#520378] focus:ring-0 focus:ring-offset-0 cursor-pointer"
-                                        />
-                                        <label htmlFor="authorize_inst" className="text-[13px] sm:text-[14px] text-gray-600 leading-tight cursor-pointer">
-                                            I authorize Vriksh Psychological Support Services to contact me with updates and notifications
-                                        </label>
-                                    </div>
-                                </>
-                            )}
+                            <div className="flex items-start gap-3">
+                                <input
+                                    type="checkbox"
+                                    id="authorize_inst"
+                                    name="authorized"
+                                    checked={formData.authorized}
+                                    onChange={handleChange}
+                                    className="mt-1 w-4 h-4 sm:w-5 sm:h-5 rounded border-gray-300 text-[#520378] focus:ring-0 focus:ring-offset-0 cursor-pointer"
+                                />
+                                <label htmlFor="authorize_inst" className="text-[13px] sm:text-[14px] text-gray-600 leading-tight cursor-pointer">
+                                    I authorize Vriksh Psychological Support Services to contact me with updates and notifications
+                                </label>
+                            </div>
 
                             <button
                                 type="submit"

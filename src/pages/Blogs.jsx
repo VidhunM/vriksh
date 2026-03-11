@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const categories = ['Counselling', 'Students', 'Workshop', 'College'];
@@ -50,8 +50,32 @@ const blogPosts = [
 
 const Blogs = () => {
     const [activeCategory, setActiveCategory] = useState('Counselling');
+    const [blogIndex, setBlogIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     const filteredPosts = blogPosts.filter(post => post.category === activeCategory);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Reset index when category changes
+    useEffect(() => {
+        setBlogIndex(0);
+    }, [activeCategory]);
+
+    const prevSlide = () => {
+        setBlogIndex((prev) => (prev - 1 + filteredPosts.length) % filteredPosts.length);
+    };
+
+    const nextSlide = () => {
+        setBlogIndex((prev) => (prev + 1) % filteredPosts.length);
+    };
 
     return (
         <section className="bg-white pt-0 min-h-screen pb-8">
@@ -168,30 +192,69 @@ const Blogs = () => {
                     </div>
                 </div>
 
-                {/* Blog Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                    {filteredPosts.map((post) => (
-                        <div key={post.id} className="group cursor-pointer">
-                            <Link to={`/blog/${post.id}`}>
-                                <div className="aspect-[4/3] mb-6 overflow-hidden rounded-[20px]">
-                                    <img
-                                        src={post.image}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
+                {/* Blog Grid / Mobile Slider */}
+                <div className="relative group/slider">
+                    {/* Mobile Arrows */}
+                    <div className="flex sm:hidden justify-between absolute top-[30%] -translate-y-1/2 w-full z-10 px-2 pointer-events-none">
+                        <button
+                            onClick={prevSlide}
+                            className="w-10 h-10 rounded-full bg-white/90 shadow-md flex items-center justify-center pointer-events-auto active:scale-95 transition-transform"
+                        >
+                            <svg className="w-5 h-5 text-[#520378]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button
+                            onClick={nextSlide}
+                            className="w-10 h-10 rounded-full bg-white/90 shadow-md flex items-center justify-center pointer-events-auto active:scale-95 transition-transform"
+                        >
+                            <svg className="w-5 h-5 text-[#520378]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+
+                    <div className="overflow-hidden">
+                        <div
+                            className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 transition-transform duration-500 ease-in-out"
+                            style={{
+                                transform: isMobile ? `translateX(-${blogIndex * 100}%)` : 'none',
+                                display: isMobile ? 'flex' : 'grid'
+                            }}
+                        >
+                            {filteredPosts.map((post) => (
+                                <div key={post.id} className="group cursor-pointer flex-none w-full sm:w-auto">
+                                    <Link to={`/blog/${post.id}`}>
+                                        <div className="aspect-[4/3] mb-6 overflow-hidden rounded-[20px]">
+                                            <img
+                                                src={post.image}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
+                                        <p className="text-gray-400 text-[13px] font-medium mb-3">
+                                            {post.date}
+                                        </p>
+                                        <h3 className="text-[#1A1A1A] text-[18px] sm:text-[20px] font-bold mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors">
+                                            {post.title}
+                                        </h3>
+                                    </Link>
+                                    <Link to={`/blog/${post.id}`} className="inline-block bg-[#520378] text-white px-8 py-2.5 rounded-full text-[14px] font-bold hover:bg-[#400260] transition-all">
+                                        Read more
+                                    </Link>
                                 </div>
-                                <p className="text-gray-400 text-[13px] font-medium mb-3">
-                                    {post.date}
-                                </p>
-                                <h3 className="text-[#1A1A1A] text-[18px] sm:text-[20px] font-bold mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors">
-                                    {post.title}
-                                </h3>
-                            </Link>
-                            <Link to={`/blog/${post.id}`} className="inline-block bg-[#520378] text-white px-8 py-2.5 rounded-full text-[14px] font-bold hover:bg-[#400260] transition-all">
-                                Read more
-                            </Link>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Mobile Dots */}
+                    {isMobile && filteredPosts.length > 1 && (
+                        <div className="flex sm:hidden justify-center gap-1.5 mt-8">
+                            {filteredPosts.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setBlogIndex(i)}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${blogIndex === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-300'}`}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
