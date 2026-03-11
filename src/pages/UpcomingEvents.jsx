@@ -291,7 +291,7 @@ const UpcomingEvents = () => {
                             {
                                 id: 1,
                                 image: "/images/uc1.jpeg",
-                                title: "ADHD Toolkit - Practical Strategies and Activities",
+                                title: "ADHD Toolkit – Practical Strategies & Activities",
                                 description: "Practical strategies and 20+ activities to improve focus, attention, and impulse control",
                                 date: "20-03-2026",
                                 time: "5:00PM - 6:30 PM",
