@@ -44,7 +44,7 @@ const CardContent = ({ program }) => {
 
     return (
         <div className="w-full h-full flex items-center justify-center">
-            <div className="w-[90%] max-w-[950px] h-[450px] bg-[#f8f9fa] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col md:flex-row border border-gray-100">
+            <div className="w-[90%] max-w-[950px] h-auto md:h-[450px] bg-[#f8f9fa] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col md:flex-row border border-gray-100">
                 <div className="md:w-[45%] h-[200px] md:h-full bg-white p-4">
                     <div className="w-full h-full rounded-xl overflow-hidden shadow-inner">
                         <img src={program.image} alt={program.title} className={`w-full h-full object-cover ${program.imagePosition || 'object-center'}`} />
@@ -56,7 +56,7 @@ const CardContent = ({ program }) => {
                     <p className="text-[#475467] text-[12px] md:text-base leading-relaxed mb-8">{program.desc}</p>
                     <button
                         onClick={handleEnquireClick}
-                        className="w-fit bg-[#1A1A1A] text-white px-8 py-3 rounded-full font-bold hover:bg-black transition-colors active:scale-95"
+                        className="w-fit bg-[#1A1A1A] text-white px-8 py-3 rounded-full font-bold md:hover:bg-black transition-colors md:active:scale-95"
                     >
                         {program.cta}
                     </button>
@@ -69,7 +69,7 @@ const CardContent = ({ program }) => {
 const TopUpsSlider = () => {
     const containerRef = useRef(null);
     const cardsRef = useRef([]);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 1024);

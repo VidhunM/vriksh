@@ -82,7 +82,7 @@ const testimonials = [
 ];
 
 const CorporateEAP = () => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {

@@ -371,10 +371,11 @@ const EventDetails = () => {
                                     </div>
                                     <div className="relative group">
                                         <select
+                                            defaultValue=""
                                             className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer text-gray-500"
                                             style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
                                         >
-                                            <option value="">Age</option>
+                                            <option value="" disabled hidden>Age</option>
                                             {Array.from({ length: 80 }, (_, i) => i + 5).map((age) => (
                                                 <option key={age} value={age}>{age}</option>
                                             ))}
@@ -384,10 +385,11 @@ const EventDetails = () => {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div className="relative group">
                                         <select
+                                            defaultValue=""
                                             className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer text-gray-500"
                                             style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
                                         >
-                                            <option value="">Type of Support Needed</option>
+                                            <option value="" disabled hidden>Type of Support Needed</option>
                                             <option value="adhd">ADHD Toolkit Support</option>
                                             <option value="counselling">Professional Counselling</option>
                                             <option value="training">Academy Training</option>
@@ -395,10 +397,11 @@ const EventDetails = () => {
                                     </div>
                                     <div className="relative group">
                                         <select
+                                            defaultValue=""
                                             className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer text-gray-500"
                                             style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
                                         >
-                                            <option value="">Preferred Time for Session</option>
+                                            <option value="" disabled hidden>Preferred Time for Session</option>
                                             <option value="morning">Morning (9 AM - 12 PM)</option>
                                             <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
                                             <option value="evening">Evening (4 PM - 8 PM)</option>
