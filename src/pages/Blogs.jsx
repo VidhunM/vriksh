@@ -66,40 +66,71 @@ const Blogs = () => {
 
             {/* ── Featured Insights Section ── */}
             <div className="max-w-[1240px] mx-auto px-6 py-8 sm:py-12">
-                <h2 className="text-[#1A1A1A] text-[24px] sm:text-[32px] font-bold mb-6 font-inter-tight">
+                <h2 className="text-[#1A1A1A] text-[24px] sm:text-[32px] font-bold mb-8 font-inter-tight">
                     Featured Insight
                 </h2>
 
-                {/* Featured Blog Card */}
-                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
-                    {/* Image Area */}
-                    <div className="lg:w-3/5">
-                        <img
-                            src="/images/counselling 2.png"
-                            alt="Featured Blog"
-                            className="w-full h-full object-cover rounded-[20px] shadow-sm"
-                        />
+                <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+                    {/* Left: Large Image Card */}
+                    <div className="lg:w-1/2 relative group overflow-hidden rounded-[32px] shadow-lg cursor-pointer">
+                        <Link to="/blog/12">
+                            <img
+                                src="/images/mind body connection.jpg"
+                                alt="When Your Mind Talks, Your Body Listens"
+                                className="w-full h-[400px] lg:h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <span className="text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-3">Featured Post</span>
+                                <h3 className="text-white text-[24px] sm:text-[32px] font-bold font-inter-tight leading-tight">
+                                    When Your Mind Talks, <br /> Your Body Listens
+                                </h3>
+                            </div>
+                        </Link>
                     </div>
 
-                    {/* Details Card */}
-                    <div className="lg:w-2/5 bg-[#FFF9E1] rounded-[20px] p-8 sm:p-10 flex flex-col justify-between shadow-sm">
-                        <div>
-                            <p className="text-[#1A1A1A] text-[12px] sm:text-[14px] font-bold tracking-[0.1em] uppercase mb-6 font-inter-tight">
-                                JULY 2025
-                            </p>
-                            <h3 className="text-[#1A1A1A] text-[24px] sm:text-[28px] lg:text-[32px] font-bold mb-6 font-inter-tight leading-[1.2]">
-                               Keep when your mind talks, your body listens as featured insight
+                    {/* Right: Content Cards Stack */}
+                    <div className="lg:w-1/2 flex flex-col gap-6">
+                        {/* Main Content Card */}
+                        <div className="bg-[#FFF9E1] rounded-[32px] p-8 sm:p-10 flex flex-col flex-grow shadow-sm hover:shadow-md transition-shadow">
+                            <div className="flex justify-between items-start mb-6">
+                                <p className="text-[#1A1A1A] text-[12px] font-bold tracking-[0.1em] uppercase font-inter-tight">
+                                    MARCH 20, 2026
+                                </p>
+                                <span className="bg-[#520378] text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                                    Counselling
+                                </span>
+                            </div>
+                            <h3 className="text-[#1A1A1A] text-[22px] sm:text-[28px] font-bold mb-4 font-inter-tight leading-[1.3]">
+                                Discover the deep connection between your emotions and physical health.
                             </h3>
-                            <p className="text-[#4A5568] text-[15px] sm:text-[19px] font-geist leading-[1.7] mb-8">
-                                Anxiety is one of the most common mental health challenges people experience today.
-                                In this article, our psychologists explain the common signs of anxiety, its possible causes,
-                                and practical strategies that can help individuals regain.
+                            <p className="text-[#4A5568] text-[15px] sm:text-[17px] font-geist leading-[1.7] mb-8">
+                                Our emotions, mind, and body are constantly communicating. What we feel emotionally often shows up physically—from a racing heart when anxious to tight shoulders after a long day.
                             </p>
+                            <Link to="/blog/12" className="mt-auto flex items-center gap-2 group/btn">
+                                <span className="text-[#1A1A1A] font-bold text-[16px] group-hover/btn:underline font-inter-tight transition-all">
+                                    Read Full Story
+                                </span>
+                                <div className="w-8 h-8 rounded-full bg-[#520378] text-white flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                    →
+                                </div>
+                            </Link>
                         </div>
 
-                        <button className="text-[#1A1A1A] font-bold text-[16px] hover:underline flex items-center gap-2 transition-all w-fit font-inter-tight">
-                            Read More
-                        </button>
+                        {/* Secondary Highlights Card */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <Link to="/blog/7" className="bg-white border border-gray-100 rounded-[24px] p-6 shadow-sm hover:shadow-md transition-all group">
+                                <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2">Editor's Choice</p>
+                                <h4 className="text-[#1A1A1A] text-[16px] font-bold font-inter-tight leading-snug group-hover:text-[#520378] transition-colors">
+                                    Overthinking: When Your Mind Refuses to Switch Off
+                                </h4>
+                            </Link>
+                            <Link to="/blog/11" className="bg-white border border-gray-100 rounded-[24px] p-6 shadow-sm hover:shadow-md transition-all group">
+                                <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2">Trending</p>
+                                <h4 className="text-[#1A1A1A] text-[16px] font-bold font-inter-tight leading-snug group-hover:text-[#520378] transition-colors">
+                                    How to Help Children Express Their Feelings
+                                </h4>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
