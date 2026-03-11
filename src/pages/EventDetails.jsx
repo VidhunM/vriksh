@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 
 const EventDetails = () => {
+    const { id } = useParams();
+
     // Testimonials State
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
@@ -15,6 +18,106 @@ const EventDetails = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    const eventsData = {
+        '1': {
+            title: 'ADHD Toolkit – Practical Strategies & Activities',
+            tag: 'Workshop',
+            summary: 'Practical strategies and 20+ activities to improve focus, attention, and impulse control',
+            rating: 4.9,
+            createdBy: 'Vriksh Psychological Support Services | Vriksh E-Academy',
+            lastUpdated: '2026',
+            language: 'English',
+            price: 'Rs.1000',
+            image: '/images/counselling 2.png',
+            time: '5:00PM - 6:30 PM',
+            date: '20-03-2026',
+            highlights: [
+                '20+ practical activities for real world application',
+                'E-Certificate from Vriksh Psychological Support Services'
+            ],
+            description: [
+                'Want to better support children and teens with Attention Deficit Hyperactivity Disorder (ADHD)? In this session, you’ll gain practical, hands-on strategies to understand ADHD and effectively support attention, behaviour regulation, and focus in everyday settings like home and school.'
+            ],
+            whatYouLearn: [
+                "Understand the overview and key challenges of Attention Deficit Hyperactivity Disorder (ADHD) in children and teens",
+                "Learn 20+ practical activities to improve attention, sitting tolerance, impulse control, and focus",
+                "Explore effective strategies for parents and teachers, including ready-to-use templates and homework ideas",
+                "Access activity materials and an E-Certificate to support practical implementation"
+            ],
+            whoFor: [
+                "Parents", "Teachers", "Psychology students", "Counsellors",
+                "Anyone interested in understanding and supporting children with ADHD"
+            ]
+        },
+        '2': {
+            title: 'Self-Care: Pause, Recharge & Reconnect',
+            tag: 'Workshop',
+            summary: 'Learn simple strategies to nurture emotional well-being and manage everyday stress.',
+            rating: 4.9,
+            createdBy: 'Vriksh Psychological Support Services | Vriksh E-Academy',
+            lastUpdated: '2026',
+            language: 'English',
+            price: 'FREE',
+            image: '/images/uc2.jpeg',
+            time: '6:00PM - 7:00 PM',
+            date: '04-04-2026',
+            cardTitle: 'AI for Brainstorming and Planning',
+            highlights: [
+                'Simple self-care practices for everyday well-being',
+                'Guided mindfulness activity'
+            ],
+            description: [
+                'Feeling overwhelmed or constantly busy? This Free Self-Care Webinar is designed to help you slow down, reflect, and reconnect with yourself. In this interactive session, you will learn practical self-care techniques and mindfulness practices that support emotional balance and mental clarity.',
+                'Through simple exercises and guided reflection, participants will discover ways to integrate self-care into their daily routine and build healthier habits for overall well-being.'
+            ],
+            whatYouLearn: [
+                'Understand the importance of self-care for emotional and mental well-being.',
+                'Learn simple self-care strategies to manage stress and maintain balance in daily life.',
+                'Practice guided mindfulness techniques to relax the mind and reconnect with yourself.',
+                'Discover daily micro self-care habits that can be easily integrated into your routine.'
+            ],
+            whoFor: [
+                'Students, working professionals, parents, educators, and anyone who wants to prioritize their mental and emotional well-being.'
+            ],
+            enrollLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfD_XU_your_form_id/viewform',
+            whatsappLink: 'https://chat.whatsapp.com/your-invite-link'
+        },
+        '3': {
+            title: 'Building Trust with Students in Counselling Sessions',
+            tag: 'Workshop',
+            summary: 'Fostering trust for open and meaningful counselling conversations.',
+            rating: 4.9,
+            createdBy: 'Vriksh Psychological Support Services | Vriksh E-Academy',
+            lastUpdated: '2026',
+            language: 'English',
+            price: 'FREE',
+            image: '/images/uc3.jpeg',
+            time: '6:00PM - 7:00 PM',
+            date: '23-03-2026',
+            highlights: [
+                'Practical trust-building exercises',
+                'Ethical confidentiality boundaries'
+            ],
+            description: [
+                'Trust is the heart of effective counselling. When students feel safe, respected, and heard, they are more likely to open up and seek support.',
+                'This interactive workshop helps counsellors understand how small behaviours—such as listening, empathy, and clear communication - can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
+            ],
+            whatYouLearn: [
+                'Understand why trust and rapport are essential in student counselling.',
+                'Learn simple communication techniques that help students feel comfortable sharing.',
+                'Explore ways to create safe and supportive counselling spaces.',
+                'Understand confidentiality and ethical boundaries when working with students.',
+                'Engage in short interactive activities and reflection exercises to practice trust-building approaches.'
+            ],
+            whoFor: [
+                'School counsellors, college counsellors, psychologists, educators, and professionals who work closely with students and want to strengthen their counselling practice.'
+            ]
+        }
+    };
+
+    // Default to event 1 if no ID or invalid ID
+    const event = eventsData[id] || eventsData['1'];
 
     const reviews = [
         {
@@ -56,10 +159,17 @@ const EventDetails = () => {
         return result;
     };
     const handleEnrollNow = () => {
-        // Since it's a new page, it might not have the contact section yet, 
-        // but typically we'd scroll to a form or navigate to a contact page.
-        // For now, let's assume we want to scroll to a contact section if present.
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        if (event.enrollLink) {
+            window.open(event.enrollLink, '_blank');
+        } else {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleWhatsappJoin = () => {
+        if (event.whatsappLink) {
+            window.open(event.whatsappLink, '_blank');
+        }
     };
 
     return (
@@ -69,10 +179,10 @@ const EventDetails = () => {
                 <div className="max-w-[1320px] mx-auto px-6 relative">
                     <div className="lg:w-2/3">
                         <h1 className="text-white text-3xl sm:text-5xl font-bold mb-6 leading-tight font-inter-tight">
-                            ADHD Toolkit – Practical <br className="hidden sm:block" /> Strategies & Activities
+                            {event.title}
                         </h1>
                         <p className="text-white/90 text-sm sm:text-lg mb-8 max-w-2xl leading-relaxed">
-                            Learn practical strategies and explore 20+ engaging activities to support children and teens with Attention Deficit Hyperactivity Disorder. Gain tools to improve attention, sitting tolerance, impulse control, and focus
+                            {event.summary}
                         </p>
 
                         {/* Rating */}
@@ -86,24 +196,25 @@ const EventDetails = () => {
                                 </svg>
                             </div>
                             <div className="flex text-orange-400 text-[18px]">
-                                {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                {Array.from({ length: Math.floor(event.rating) }).map((_, i) => <span key={i}>★</span>)}
+                                {event.rating % 1 !== 0 && <span>★</span>}
                             </div>
                         </div>
 
                         {/* Badges - White pill with purple text */}
                         <div className="bg-white rounded-full px-5 py-2.5 w-fit mb-8 shadow-sm">
-                            <span className="text-[#520378] text-sm font-bold">Created by Vriksh Psychological Support Services | Vriksh E-Academy</span>
+                            <span className="text-[#520378] text-sm font-bold">{event.createdBy}</span>
                         </div>
 
                         {/* Meta */}
                         <div className="flex items-center gap-6 text-white text-sm sm:text-base font-medium">
                             <div className="flex items-center gap-2">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                Last updated 2026
+                                Last updated {event.lastUpdated}
                             </div>
                             <div className="flex items-center gap-2">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                English
+                                {event.language}
                             </div>
                         </div>
                     </div>
@@ -117,23 +228,16 @@ const EventDetails = () => {
                     <div className="lg:w-2/3">
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-6 font-inter-tight">Description:</h2>
                         <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed">
-                            <p>
-                                Want to better support children and teens with Attention Deficit Hyperactivity Disorder (ADHD)?
-                                In this session, you’ll gain practical, hands-on strategies to understand ADHD and effectively
-                                support attention, behaviour regulation, and focus in everyday settings like home and school.
-                            </p>
+                            {event.description.map((p, i) => (
+                                <p key={i} className="mb-4">{p}</p>
+                            ))}
                         </div>
 
                         {/* What you'll learn */}
                         <div className="mt-12 bg-[#FFFDEA] rounded-2xl p-8 sm:p-10 border border-[#F3E6C7]">
                             <h3 className="text-2xl sm:text-2xl font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
                             <ul className="space-y-6">
-                                {[
-                                    "Understand the overview and key challenges of Attention Deficit Hyperactivity Disorder (ADHD) in children and teens",
-                                    "Learn 20+ practical activities to improve attention, sitting tolerance, impulse control, and focus",
-                                    "Explore effective strategies for parents and teachers, including ready-to-use templates and homework ideas",
-                                    "Access activity materials and an E-Certificate to support practical implementation"
-                                ].map((item, i) => (
+                                {event.whatYouLearn.map((item, i) => (
                                     <li key={i} className="flex items-start gap-4 group">
                                         <div className="mt-1 bg-black rounded-full p-1 shrink-0">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -150,43 +254,57 @@ const EventDetails = () => {
                             {/* Card Image */}
                             <div className="aspect-video relative overflow-hidden">
                                 <img
-                                    src="/images/counselling 2.png"
-                                    alt="ADHD Toolkit Session"
+                                    src={event.image}
+                                    alt={event.title}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
 
                             {/* Card Details */}
                             <div className="p-6">
+                                {event.cardTitle && (
+                                    <div className="text-xl font-bold text-[#520378] mb-4 font-inter-tight">
+                                        {event.cardTitle}
+                                    </div>
+                                )}
                                 <div className="text-3xl font-bold text-gray-950 mb-7 font-inter-tight">
-                                    ₹850 + GST
+                                    {event.price}
                                 </div>
 
                                 <div className="space-y-4 mb-10">
                                     <div className="flex items-center gap-4 text-gray-700">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        <span className="text-[15px] font-medium text-gray-600">Last updated 2026</span>
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        <span className="text-[15px] font-medium text-gray-600">{event.date}</span>
                                     </div>
                                     <div className="flex items-center gap-4 text-gray-700">
                                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        <span className="text-[15px] font-medium text-gray-600">6:00PM - 7:30PM</span>
+                                        <span className="text-[15px] font-medium text-gray-600">{event.time}</span>
                                     </div>
-                                    <div className="flex items-start gap-4 text-gray-700">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                        <span className="text-[15px] font-medium text-gray-600">20+ practical activities for real world application</span>
-                                    </div>
-                                    <div className="flex items-start gap-4 text-gray-700">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                                        <span className="text-[15px] font-medium text-gray-600 leading-tight">E-Certificate from Vriksh Psychological Support Services</span>
-                                    </div>
+                                    {event.highlights.map((highlight, i) => (
+                                        <div key={i} className="flex items-start gap-4 text-gray-700">
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                            <span className="text-[15px] font-medium text-gray-600">{highlight}</span>
+                                        </div>
+                                    ))}
                                 </div>
 
-                                <button
-                                    onClick={handleEnrollNow}
-                                    className="w-full bg-[#3D005C] text-white py-3 rounded-full font-bold text-lg hover:bg-black transition-all active:scale-[0.98] shadow-lg"
-                                >
-                                    Enroll Now
-                                </button>
+                                <div className="space-y-3">
+                                    <button
+                                        onClick={handleEnrollNow}
+                                        className="w-full bg-[#3D005C] text-white py-3 rounded-full font-bold text-lg hover:bg-black transition-all active:scale-[0.98] shadow-lg"
+                                    >
+                                        Enroll Now
+                                    </button>
+                                    {event.whatsappLink && (
+                                        <button
+                                            onClick={handleWhatsappJoin}
+                                            className="w-full border-2 border-[#25D366] text-[#25D366] py-3 rounded-full font-bold text-lg hover:bg-[#25D366] hover:text-white transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                                        >
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                            Whatsapp Link to join
+                                        </button>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -196,7 +314,7 @@ const EventDetails = () => {
                 <div className="mt-16">
                     <h3 className="text-2xl font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
                     <div className="flex flex-wrap gap-x-10 gap-y-6 mb-6">
-                        {["Parents", "Teachers", "Psychology students", "Counsellors"].map((audience, i) => (
+                        {event.whoFor.map((audience, i) => (
                             <div key={i} className="flex items-center gap-3">
                                 <div className="bg-black rounded-full p-0.5 shrink-0">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -204,12 +322,6 @@ const EventDetails = () => {
                                 <span className="text-gray-700 text-[16px] font-medium font-geist">{audience}</span>
                             </div>
                         ))}
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <div className="bg-black rounded-full p-0.5 shrink-0">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <span className="text-gray-700 text-[16px] font-medium font-geist">Anyone interested in understanding and supporting children with ADHD</span>
                     </div>
                 </div>
 

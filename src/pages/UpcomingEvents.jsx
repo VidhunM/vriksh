@@ -285,44 +285,38 @@ const UpcomingEvents = () => {
                     {/* Events Grid / Mobile Slider */}
                     <div
                         ref={eventsScrollRef}
-                        className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
+                        className="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-3 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
                     >
                         {[
                             {
                                 id: 1,
-                                title: "Intervention strategies in school counselling",
-                                description: "From theory to practice: Activity-based school counselling tools",
-                                date: "20-02-2026",
-                                time: "6:00 - 7:30PM",
+                                image: "/images/uc1.jpeg",
+                                title: "ADHD Toolkit - Practical Strategies and Activities",
+                                description: "Practical strategies and 20+ activities to improve focus, attention, and impulse control",
+                                date: "20-03-2026",
+                                time: "5:00PM - 6:30 PM",
                                 rating: "4.9",
-                                price: "Rs.800"
+                                price: "Rs.1000"
                             },
                             {
                                 id: 2,
-                                title: "Intervention strategies in school counselling",
-                                description: "From theory to practice: Activity-based school counselling tools",
-                                date: "20-02-2026",
-                                time: "6:00 - 7:30PM",
+                                image: "/images/uc2.jpeg",
+                                title: "Self-Care: Pause, Recharge & Reconnect",
+                                description: "Learn simple strategies to nurture emotional well-being and manage everyday stress.",
+                                date: "04-04-2026",
+                                time: "6:00PM - 7:00 PM",
                                 rating: "4.9",
-                                price: "Rs.800"
+                                price: "FREE"
                             },
                             {
                                 id: 3,
-                                title: "Intervention strategies in school counselling",
-                                description: "From theory to practice: Activity-based school counselling tools",
-                                date: "20-02-2026",
-                                time: "6:00 - 7:30PM",
+                                image: "/images/uc3.jpeg",
+                                title: "Building Trust with Students in Counselling Sessions",
+                                description: "Fostering trust for open and meaningful counselling conversations.",
+                                date: "23-03-2026",
+                                time: "6:00PM - 7:00 PM",
                                 rating: "4.9",
-                                price: "Rs.800"
-                            },
-                            {
-                                id: 4,
-                                title: "Intervention strategies in school counselling",
-                                description: "From theory to practice: Activity-based school counselling tools",
-                                date: "20-02-2026",
-                                time: "6:00 - 7:30PM",
-                                rating: "4.9",
-                                price: "Rs.800"
+                                price: "FREE"
                             }
                         ].map((event) => (
                             <div
@@ -333,7 +327,7 @@ const UpcomingEvents = () => {
                                 {/* Card Image - Full Bleed with Internal Padding effect */}
                                 <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
                                     <img
-                                        src="/images/events.png"
+                                        src={event.image}
                                         alt={event.title}
                                         className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                                     />
@@ -341,17 +335,17 @@ const UpcomingEvents = () => {
 
                                 {/* Card Content */}
                                 <div className="px-5 pb-5 flex flex-col flex-grow">
-                                    <h3 className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist line-clamp-2`}>
+                                    <h3 className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist`}>
                                         {event.title}
                                     </h3>
-                                    <p className={`text-[14px] ${activeCardId === event.id ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3 line-clamp-2`}>
+                                    <p className={`text-[14px] ${activeCardId === event.id ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3`}>
                                         {event.description}
                                     </p>
 
                                     <div className={`h-px ${activeCardId === event.id ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>
 
                                     <p className={`text-[12px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white mb-2 flex items-center gap-2`}>
-                                        Live | Online | Accessible Worldwide
+                                        Live | Online | Workshop
                                     </p>
 
                                     {/* Date and Time */}
@@ -387,7 +381,7 @@ const UpcomingEvents = () => {
 
                                     {/* Action Buttons */}
                                     <div className="flex gap-2">
-                                        <Link to="/event-details" className="flex-1">
+                                        <Link to={`/event-details/${event.id}`} className="flex-1">
                                             <button className={`w-full ${activeCardId === event.id ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
                                                 Know more
                                             </button>

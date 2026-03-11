@@ -55,6 +55,7 @@ function AppContent() {
           <Route path="/counselling" element={<Counselling2 />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/event-details/:id" element={<EventDetails />} />
           <Route path="/event-details" element={<EventDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

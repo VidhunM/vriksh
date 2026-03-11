@@ -5,25 +5,28 @@ const Events = () => {
     const navigate = useNavigate();
     const events = [
         {
-            image: '/images/events.png',
-            title: 'Neuro Linguistic Programming - Basics ( Direct )',
+            id: 1,
+            image: '/images/uc1.jpeg',
+            title: 'ADHD Toolkit - Practical Strategies and Activities Practical strategies and 20+ activities to improve focus, attention, and impulse control',
             rating: 4.9,
-            originalPrice: '₹65,000',
-            currentPrice: '₹49,999'
+            originalPrice: '₹1500',
+            currentPrice: '₹1000'
         },
         {
-            image: '/images/events.png',
-            title: 'Neuro Linguistic Programming - Basics ( Direct )',
+            id: 2,
+            image: '/images/uc2.jpeg',
+            title: 'Self-Care: Pause, Recharge & Reconnect Learn simple strategies to nurture emotional well-being and manage everyday stress. ',
             rating: 4.9,
-            originalPrice: '₹65,000',
-            currentPrice: '₹49,999'
+            originalPrice: '₹1500',
+            currentPrice: 'FREE'
         },
         {
-            image: '/images/events.png',
-            title: 'Neuro Linguistic Programming - Basics ( Direct )',
+            id: 3,
+            image: '/images/uc3.jpeg',
+            title: 'Building Trust with Students in Counselling Sessions Fostering trust for open and meaningful counselling conversations.',
             rating: 4.9,
-            originalPrice: '₹65,000',
-            currentPrice: '₹49,999'
+            originalPrice: '₹1500',
+            currentPrice: 'FREE'
         }
     ];
 
@@ -94,7 +97,7 @@ const Events = () => {
                                                     <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.currentPrice}</span>
                                                 </div>
                                                 <button
-                                                    onClick={() => navigate('/event-details')}
+                                                    onClick={() => navigate(`/event-details/${event.id}`)}
                                                     className="bg-[#520378] text-white px-3 py-1.5 sm:py-2 rounded-full font-bold text-[11px] sm:text-[12px] whitespace-nowrap"
                                                 >
                                                     Know more
@@ -131,7 +134,7 @@ const Events = () => {
                                         <span className="text-gray-950 font-bold text-[18px]">{event.currentPrice}</span>
                                     </div>
                                     <button
-                                        onClick={() => navigate('/event-details')}
+                                        onClick={() => navigate(`/event-details/${event.id}`)}
                                         className="bg-[#520378] text-white px-6 py-2.5 rounded-full font-bold text-[14px] hover:bg-[#520378]/90 transition-all shadow-sm whitespace-nowrap"
                                     >
                                         Know more
