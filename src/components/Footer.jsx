@@ -6,8 +6,8 @@ const Footer = () => {
     return (
         <footer className="bg-[#520378] text-white pt-12 pb-8 px-6 lg:px-12">
             <div className="max-w-[1240px] mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 items-start mb-12">
-
+                {/* Desktop View (md and above) */}
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 items-start mb-12">
                     {/* Column 1: Counselling & Academy */}
                     <div className="space-y-10 lg:pl-12 md:pl-8">
                         <div className="space-y-4">
@@ -65,14 +65,14 @@ const Footer = () => {
                     </div>
 
                     {/* Column 4: Logo Section */}
-                    <div className="flex justify-center lg:justify-end lg:pl-8">
-                        <div className="bg-[#EEEAF4] w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] flex-shrink-0 rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 relative lg:-left-8 lg:top-12 aspect-square">
+                    <div className="flex justify-end lg:pl-8">
+                        <div className="bg-[#EEEAF4] w-[320px] h-[320px] flex-shrink-0 rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 relative lg:-left-8 lg:top-12 aspect-square">
                             <div className="mb-6 flex flex-col items-center">
                                 <Link to="/">
                                     <img
                                         src="/logo.png"
                                         alt="VRIKSH Logo"
-                                        className="h-14 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-2"
+                                        className="h-14 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-[-4px]"
                                     />
                                 </Link>
                                 <div className="w-full h-[2px] bg-black/20 my-4 max-w-[160px]"></div>
@@ -89,6 +89,84 @@ const Footer = () => {
                                     <FaLinkedinIn size={16} className="stroke-[1]" />
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Mobile View (below md) */}
+                <div className="md:hidden flex flex-col items-center text-center space-y-12 mb-12">
+                    {/* Logo & Socials Section */}
+                    <div className="bg-[#EEEAF4] w-[280px] h-[280px] rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 aspect-square">
+                        <div className="mb-4 flex flex-col items-center">
+                            <Link to="/">
+                                <img
+                                    src="/logo.png"
+                                    alt="VRIKSH Logo"
+                                    className="h-12 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-4"
+                                />
+                            </Link>
+                            <div className="w-24 h-[1px] bg-black/20 my-3"></div>
+                        </div>
+                        <div className="flex gap-4">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                                <FaFacebookF size={14} />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                                <FaInstagram size={14} />
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                                <FaLinkedinIn size={14} />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Links Grid for Mobile */}
+                    <div className="grid grid-cols-1 gap-10 w-full px-4">
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-bold">Counselling</h3>
+                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                                <li><Link to="/counselling#services">Individual Counselling</Link></li>
+                                <li><Link to="/counselling#services">Children and Adolescent</Link></li>
+                                <li><Link to="/counselling#services">Counselling</Link></li>
+                                <li><Link to="/counselling#services">Academic and Career Counselling</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-bold">Vriksh E-Academy</h3>
+                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                                <li><Link to="/upcoming-events">Upcoming Events</Link></li>
+                                <li><Link to="/workshop">Workshop</Link></li>
+                                <li><Link to="/training">Training Programs</Link></li>
+                                <li><Link to="/certificate">Certificate Courses</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-bold">Corporate</h3>
+                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                                <li><Link to="/corporate-eap">EAP Program</Link></li>
+                                <li><Link to="/workshop">Webinars / Workshops</Link></li>
+                                <li><Link to="/training">Training Programs</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-bold">Institution Wellness</h3>
+                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                                <li><Link to="/school">For Schools</Link></li>
+                                <li><Link to="/college">For College</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-bold">Useful Links</h3>
+                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                                <li><Link to="/blogs">Blog</Link></li>
+                                <li><Link to="/contact">Contact Us</Link></li>
+                                <li><Link to="#">Ethics</Link></li>
+                                <li><Link to="#">Refund Policy</Link></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
