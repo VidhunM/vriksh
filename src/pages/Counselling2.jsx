@@ -151,6 +151,17 @@ const Counselling2 = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveExpertTab((prev) => {
+        const currentIndex = expertTabs.findIndex((tab) => tab.id === prev);
+        const nextIndex = (currentIndex + 1) % expertTabs.length;
+        return expertTabs[nextIndex].id;
+      });
+    }, 4000); // Switch expert tab every 4 seconds
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="bg-white pt-0">
       {/* Banner + Hero */}
