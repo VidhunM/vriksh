@@ -115,6 +115,8 @@ const inspirationalQuotes = [
 const Counselling2 = () => {
   const [itemsVisible, setItemsVisible] = useState(3);
   const [testIndex, setTestIndex] = useState(0);
+  const [serviceIndex, setServiceIndex] = useState(0);
+  const [assureIndex, setAssureIndex] = useState(0);
   const [activeExpertTab, setActiveExpertTab] = useState('experience');
   const [quoteIndex, setQuoteIndex] = useState(0);
 
@@ -147,6 +149,24 @@ const Counselling2 = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % inspirationalQuotes.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (window.innerWidth < 768) {
+        setServiceIndex((prev) => (prev + 1) % counsellingServices.length);
+      }
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (window.innerWidth < 768) {
+        setAssureIndex((prev) => (prev + 1) % assurances.length);
+      }
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -218,7 +238,8 @@ const Counselling2 = () => {
             Counselling Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Desktop View: Grid */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {counsellingServices.map((service) => (
               <div
                 key={service.title}
@@ -248,17 +269,68 @@ const Counselling2 = () => {
               </div>
             ))}
           </div>
+
+          {/* Mobile View: Slider */}
+          <div className="md:hidden relative">
+            <div className="overflow-hidden px-1">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${serviceIndex * 100}%)` }}
+              >
+                {counsellingServices.map((service) => (
+                  <div key={service.title} className="w-full flex-none px-2">
+                    <div className="bg-white rounded-[24px] overflow-hidden shadow-sm flex flex-col h-full border border-gray-100">
+                      <div className="h-[200px] w-full overflow-hidden">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-6 flex flex-col flex-1">
+                        <h3 className="text-[18px] font-semibold text-gray-900 mb-3 font-inter-tight leading-tight">
+                          {service.title}
+                        </h3>
+                        <p className="text-[14px] text-gray-700 leading-[1.6] mb-5 flex-1 font-geist">
+                          {service.description}
+                        </p>
+                        <button
+                          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                          className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-6 py-2.5 rounded-full text-[13px] font-semibold active:scale-95 transition-all self-start"
+                        >
+                          {service.cta}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Slider Dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {counsellingServices.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setServiceIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${serviceIndex === i ? 'w-6 bg-[#520378]' : 'w-2 bg-gray-300'
+                    }`}
+                  aria-label={`Go to service ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Stats Section */}
       <div className="px-4 sm:px-8 pb-10">
-        <div className="max-w-[1240px] mx-auto bg-[#FFF9E1] rounded-[20px] px-5 sm:px-10 py-6 sm:py-8 shadow-sm">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="max-w-[1240px] mx-auto bg-[#FFF9E1] rounded-[20px] px-3 sm:px-10 py-6 sm:py-8 shadow-sm">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-[#FFFDF5] border border-[#F3E6C7] rounded-[16px] px-5 py-5 flex flex-col items-center text-center"
+                className="bg-[#FFFDF5] border border-[#F3E6C7] rounded-[16px] px-3 py-5 flex flex-col items-center text-center"
               >
                 {stat.icon && (
                   <div className="w-10 h-10 mb-3 flex items-center justify-center">
@@ -412,20 +484,22 @@ const Counselling2 = () => {
           <h2 className="text-[20px] sm:text-[34px] font-bold text-[#520378] text-center mb-10 font-inter-tight">
             What do we assure?
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+
+          {/* Desktop View: Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
             {assurances.map((item) => (
               <div
                 key={item.title}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 mb-4 flex items-center justify-center">
+                <div className="w-22 h-22 sm:w-20 sm:h-20 lg:w-28 lg:h-28 mb-4 flex items-center justify-center">
                   <img
                     src={item.icon}
                     alt={item.title}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <div className="bg-[#520378] rounded-[14px] px-5 py-6 shadow-md hover:shadow-lg transition-all w-full">
+                <div className="bg-[#520378] rounded-[14px] px-5 py-6 shadow-md hover:shadow-lg transition-all w-full h-full">
                   <h3 className="text-[14px] sm:text-[16px] font-bold text-white mb-2 font-inter-tight">
                     {item.title}
                   </h3>
@@ -435,6 +509,51 @@ const Counselling2 = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile View: Slider */}
+          <div className="md:hidden relative">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${assureIndex * 100}%)` }}
+              >
+                {assurances.map((item) => (
+                  <div key={item.title} className="w-full flex-none px-4">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-24 h-24 mb-6 flex items-center justify-center">
+                        <img
+                          src={item.icon}
+                          alt={item.title}
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                      <div className="bg-[#520378] rounded-[20px] px-6 py-8 shadow-lg w-full min-h-[160px] flex flex-col justify-center">
+                        <h3 className="text-[18px] font-bold text-white mb-3 font-inter-tight">
+                          {item.title}
+                        </h3>
+                        <p className="text-[14px] text-white/90 leading-[1.6] font-geist">
+                          {item.text}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Slider Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {assurances.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setAssureIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${assureIndex === i ? 'w-6 bg-[#520378]' : 'w-2 bg-gray-300'
+                    }`}
+                  aria-label={`Go to assurance ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
