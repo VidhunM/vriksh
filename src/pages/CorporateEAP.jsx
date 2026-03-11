@@ -136,11 +136,11 @@ const CorporateEAP = () => {
                     </div>
 
                     {/* Mobile Image */}
-                    <div className="block sm:hidden w-full h-[360px] mt-0 overflow-hidden relative z-10 flex justify-end">
+                    <div className="block sm:hidden w-full h-[360px] mt-0 overflow-hidden relative z-10 flex justify-center">
                         <img
                             src="/images/eap01.png"
                             alt="EAP Support Mobile"
-                            className="w-[115%] max-w-[115%] h-full object-cover object-top relative right-[-5%]"
+                            className="w-[115%] max-w-none h-full object-cover object-top relative right-[-5%]"
                         />
                     </div>
                 </div>
@@ -177,7 +177,7 @@ const CorporateEAP = () => {
             </div>
 
             {/* Workplace & Wellbeing Snapshot */}
-            <div className="relative w-full py-10 sm:py-16 bg-white overflow-hidden">
+            <div className="relative w-full pt-14 pb-0 sm:py-16 bg-white overflow-hidden">
                 {/* Background watermark */}
                 <div
                     className="absolute -top-40 left-20 sm:left-[10%] lg:left-[15%] w-[350px] sm:w-[500px] h-full bg-no-repeat bg-left-top opacity-50 pointer-events-none"
@@ -192,7 +192,7 @@ const CorporateEAP = () => {
                         Employees worldwide face low engagement, limited wellbeing, and rising workplace stress, highlighting the need for stronger mental health and wellbeing support.
                     </p>
 
-                    <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center w-full max-w-[900px] gap-0 sm:gap-0 mt-2 mb-4 sm:mt-0 sm:mb-0">
+                    <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center w-full max-w-[900px] gap-0 sm:gap-0 mt-2 mb-0 sm:mt-0 sm:mb-0">
                         {/* Circle 1 */}
                         <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-10 translate-x-[8%] translate-y-[8%] md:translate-x-0 md:translate-y-14 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">
@@ -228,7 +228,7 @@ const CorporateEAP = () => {
 
             {/* Empowering Employees Section */}
             <div
-                className="w-full bg-[#520378] bg-[length:80%_auto] sm:bg-[length:120%_80%] bg-bottom bg-no-repeat py-16 sm:py-20 relative overflow-hidden mt-14"
+                className="w-full bg-[#520378] bg-[length:80%_auto] sm:bg-[length:120%_80%] bg-bottom bg-no-repeat py-16 sm:py-20 relative overflow-hidden mt-6 sm:mt-14"
                 style={{ backgroundImage: "url('/images/wdwo.png')" }}
             >
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center relative z-10">
@@ -322,16 +322,16 @@ const CorporateEAP = () => {
             </div>
 
             {/* Boost Your Employee Morale Section */}
-            <div className="w-full pt-16 pb-0 sm:py-14 bg-white">
+            <div className="w-full pt-10 pb-0 sm:py-14 bg-white">
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col items-center">
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center tracking-tight">
                         Boost your employee morale
                     </h2>
-                    <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-12 sm:mb-16 font-geist leading-[1.6]">
+                    <p className="text-[#475467] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-6 sm:mb-16 font-geist leading-[1.6]">
                         Supporting employee well-being creates measurable impact - from higher retention and talent attraction to improved performance and reduced costs.
                     </p>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 sm:gap-10 w-full mb-12 items-center justify-center">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 sm:gap-10 w-full mb-4 sm:mb-12 items-center justify-center">
                         {[
                             { percent: 72, label: "Increased Employee Retention" },
                             { percent: 58, label: "Increase in New Talents" },
@@ -348,16 +348,16 @@ const CorporateEAP = () => {
                             // Mobile overlapping logic
                             let mobileClasses = "";
                             if (isMobile) {
-                                if (idx === 0) mobileClasses = "translate-x-[8%] translate-y-[8%] z-10";
-                                if (idx === 1) mobileClasses = "-translate-x-[8%] translate-y-[8%] z-20";
-                                if (idx === 2) mobileClasses = "translate-x-[8%] -translate-y-[8%] z-30";
-                                if (idx === 3) mobileClasses = "-translate-x-[8%] -translate-y-[8%] z-40";
-                                if (idx === 4) mobileClasses = "col-span-2 justify-self-center -translate-y-12 z-50";
+                                if (idx === 0) mobileClasses = "translate-x-[2%] translate-y-[2%] z-10";
+                                if (idx === 1) mobileClasses = "-translate-x-[2%] translate-y-[2%] z-20";
+                                if (idx === 2) mobileClasses = "translate-x-[2%] -translate-y-[2%] z-30";
+                                if (idx === 3) mobileClasses = "-translate-x-[2%] -translate-y-[2%] z-40";
+                                if (idx === 4) mobileClasses = "col-span-2 justify-self-center -translate-y-8 z-50";
                             }
 
                             return (
                                 <div key={idx} className={`flex flex-col items-center text-center group ${mobileClasses}`}>
-                                    <div className="relative w-[180px] h-[180px] sm:w-[150px] sm:h-[150px] lg:w-[180px] lg:h-[180px] transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                                    <div className="relative w-[160px] h-[160px] sm:w-[150px] sm:h-[150px] lg:w-[180px] lg:h-[180px] transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
                                         <div className="absolute inset-0 rounded-full border-[0.5px] border-[#999999] opacity-0 sm:hidden"></div>
                                         <svg
                                             height={isMobile ? "150" : "100%"}
