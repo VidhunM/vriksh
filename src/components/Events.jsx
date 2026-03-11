@@ -7,7 +7,7 @@ const Events = () => {
         {
             id: 1,
             image: '/images/uc1.jpeg',
-            title: 'ADHD Toolkit - Practical Strategies and Activities Practical strategies and 20+ activities to improve focus, attention, and impulse control',
+            title: 'ADHD Toolkit – Practical Strategies & Activities',
             rating: 4.9,
             originalPrice: '₹1500',
             currentPrice: '₹1000'
@@ -15,17 +15,17 @@ const Events = () => {
         {
             id: 2,
             image: '/images/uc2.jpeg',
-            title: 'Self-Care: Pause, Recharge & Reconnect Learn simple strategies to nurture emotional well-being and manage everyday stress. ',
+            title: 'Self-Care: Pause, Recharge & Reconnect',
             rating: 4.9,
-            originalPrice: '₹1500',
+            originalPrice: '₹850',
             currentPrice: 'FREE'
         },
         {
             id: 3,
             image: '/images/uc3.jpeg',
-            title: 'Building Trust with Students in Counselling Sessions Fostering trust for open and meaningful counselling conversations.',
+            title: 'Building Trust with Students in Counselling Sessions.',
             rating: 4.9,
-            originalPrice: '₹1500',
+            originalPrice: '₹850',
             currentPrice: 'FREE'
         }
     ];

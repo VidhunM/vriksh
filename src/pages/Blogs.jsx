@@ -101,10 +101,10 @@ const Blogs = () => {
                                 </span>
                             </div>
                             <h3 className="text-[#1A1A1A] text-[22px] sm:text-[28px] font-bold mb-4 font-inter-tight leading-[1.3]">
-                                Discover the deep connection between your emotions and physical health.
+                               Your mind and body are always in conversation. Are you listening?
                             </h3>
                             <p className="text-[#4A5568] text-[15px] sm:text-[17px] font-geist leading-[1.7] mb-8">
-                                Our emotions, mind, and body are constantly communicating. What we feel emotionally often shows up physically—from a racing heart when anxious to tight shoulders after a long day.
+                                Have you ever had a knot in your stomach before an important meeting, or felt your heart race when you’re anxious? Maybe after a stressful day you noticed a headache, tight shoulders, or complete exhaustion. Most of us have experienced moments like these but rarely stop to think about why they happen.
                             </p>
                             <Link to="/blog/12" className="mt-auto flex items-center gap-2 group/btn">
                                 <span className="text-[#1A1A1A] font-bold text-[16px] group-hover/btn:underline font-inter-tight transition-all">

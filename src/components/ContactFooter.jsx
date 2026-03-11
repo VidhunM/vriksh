@@ -45,7 +45,7 @@ const ContactFooter = () => {
     ];
 
     const homeServices = [
-        "Consultation",
+        "Counselling",
         "Workshop",
         "Training program",
         "Certificate Course",
@@ -116,7 +116,7 @@ const ContactFooter = () => {
                                             Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
                                         </p>
                                         <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
-                                            From Counselling and Vriksh E-Academy Online Courses to Institutional Wellness Programs and CorporateEAP Solutions, we provide evidence-based support that truly makes a difference.
+                                            From Counselling and Vriksh E-Academy Online Courses to Institutional Wellness Programs and Corporate EAP Solutions, we provide evidence-based support that truly makes a difference.
                                         </p>
                                     </>
                                 )}
