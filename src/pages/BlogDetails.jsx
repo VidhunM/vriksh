@@ -350,15 +350,15 @@ const BlogDetails = () => {
 
                 {/* ── Top Part (Hero): Centered Title & Header Image ── */}
                 <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
-                    <h1 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-8 sm:mb-12">
+                    <h1 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-12 sm:mb-16">
                         {post.title}
                     </h1>
 
-                    <div className="w-full rounded-[24px] overflow-hidden shadow-sm aspect-[21/7] sm:aspect-[21/8]">
+                    <div className="w-full rounded-[24px] overflow-hidden shadow-sm aspect-[21/7] sm:aspect-[21/8] mt-4 sm:mt-8">
                         <img
                             src={post.image}
                             alt={post.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-[center_25%]"
                         />
                     </div>
                 </div>
@@ -385,7 +385,7 @@ const BlogDetails = () => {
                                             <img
                                                 src={post.image}
                                                 alt={post.title}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="w-full h-full object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-105"
                                             />
                                         </div>
                                         <p className="text-gray-400 text-[12px] font-medium mb-3">

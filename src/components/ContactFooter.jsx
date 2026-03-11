@@ -196,39 +196,41 @@ const ContactFooter = () => {
                                     </div>
                                 )}
 
-                                <div className="grid sm:grid-cols-2 gap-5 relative z-20">
+                                <div className={`grid ${isAcademyPage ? 'sm:grid-cols-1' : 'sm:grid-cols-2'} gap-5 relative z-20`}>
                                     {/* Custom Service Dropdown */}
-                                    <div className="relative" ref={serviceRef}>
-                                        <div
-                                            onClick={() => setServiceOpen(!serviceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
-                                        >
-                                            <span className="text-gray-950">
-                                                {selectedService || "Services interested in"}
-                                            </span>
-                                            <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${serviceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                                            </svg>
-                                        </div>
-                                        {serviceOpen && (
-                                            <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-2xl z-50 overflow-hidden animate-slide-up-fade origin-top">
-                                                <div className="max-h-[300px] overflow-y-auto py-2">
-                                                    {services.map((option) => (
-                                                        <div
-                                                            key={option}
-                                                            onClick={() => {
-                                                                setSelectedService(option);
-                                                                setServiceOpen(false);
-                                                            }}
-                                                            className="px-5 py-3.5 hover:bg-[#520378] hover:text-white transition-colors cursor-pointer text-[15px] text-gray-800 font-medium"
-                                                        >
-                                                            {option}
-                                                        </div>
-                                                    ))}
-                                                </div>
+                                    {!isAcademyPage && (
+                                        <div className="relative" ref={serviceRef}>
+                                            <div
+                                                onClick={() => setServiceOpen(!serviceOpen)}
+                                                className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
+                                            >
+                                                <span className="text-gray-950">
+                                                    {selectedService || "Services interested in"}
+                                                </span>
+                                                <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${serviceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                                                </svg>
                                             </div>
-                                        )}
-                                    </div>
+                                            {serviceOpen && (
+                                                <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-2xl z-50 overflow-hidden animate-slide-up-fade origin-top">
+                                                    <div className="max-h-[300px] overflow-y-auto py-2">
+                                                        {services.map((option) => (
+                                                            <div
+                                                                key={option}
+                                                                onClick={() => {
+                                                                    setSelectedService(option);
+                                                                    setServiceOpen(false);
+                                                                }}
+                                                                className="px-5 py-3.5 hover:bg-[#520378] hover:text-white transition-colors cursor-pointer text-[15px] text-gray-800 font-medium"
+                                                            >
+                                                                {option}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
 
                                     {/* Custom Source Dropdown */}
                                     <div className="relative" ref={sourceRef}>
