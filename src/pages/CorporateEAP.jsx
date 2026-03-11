@@ -448,7 +448,7 @@ const EAPTestimonials = () => {
 
     return (
         <div
-            className="py-12 sm:py-14"
+            className="py-8 sm:py-14"
             style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
         >
             <div className="max-w-[1320px] mx-auto px-6">
@@ -478,20 +478,20 @@ const EAPTestimonials = () => {
                 </div>
 
                 {/* Header with Navigation - Mobile */}
-                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8">
-                    <h2 className="text-xl font-bold text-gray-950 font-inter-tight">
+                <div className="sm:hidden flex flex-row justify-between items-center w-full mb-6">
+                    <h2 className="text-lg font-bold text-gray-950 font-inter-tight">
                         Trusted by Individuals, Institutions & Professionals
                     </h2>
                     <div className="flex gap-3">
                         <button
                             onClick={() => { prevSlide(); setMobileTestNav('left'); }}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 transition-all active:scale-95 ${mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'}`}
+                            className={`w-9 h-9 rounded-full flex items-center justify-center shadow-sm border border-gray-100 transition-all active:scale-95 ${mobileTestNav === 'left' ? 'bg-[#520378] text-white' : 'bg-white'}`}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                         </button>
                         <button
                             onClick={() => { nextSlide(); setMobileTestNav('right'); }}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 transition-all active:scale-95 ${mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'}`}
+                            className={`w-9 h-9 rounded-full flex items-center justify-center shadow-sm border border-gray-100 transition-all active:scale-95 ${mobileTestNav === 'right' ? 'bg-[#520378] text-white' : 'bg-white'}`}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
@@ -509,12 +509,12 @@ const EAPTestimonials = () => {
                                 key={`${item.name}-${index}`}
                                 className="w-full md:w-1/2 lg:w-1/3 flex-none px-4"
                             >
-                                <div className="bg-white rounded-[24px] p-8 flex flex-col shadow-sm border border-gray-50 min-h-[400px] h-full">
+                                <div className="bg-white rounded-[24px] p-6 sm:p-8 flex flex-col shadow-sm border border-gray-50 min-h-[320px] sm:min-h-[400px] h-full">
                                     <div className="mb-6">
-                                        <h3 className="text-lg sm:text-xl font-bold text-gray-950 mb-1 font-inter-tight">{item.name}</h3>
-                                        <p className="text-sm sm:text-base text-gray-500 font-geist">{item.role}</p>
+                                        <h3 className="text-base sm:text-xl font-bold text-gray-950 mb-1 font-inter-tight">{item.name}</h3>
+                                        <p className="text-xs sm:text-base text-gray-500 font-geist">{item.role}</p>
                                     </div>
-                                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 font-geist flex-grow">
+                                    <p className="text-gray-700 text-[13px] sm:text-base leading-relaxed mb-6 sm:mb-8 font-geist flex-grow">
                                         &ldquo;{item.text}&rdquo;
                                     </p>
                                     <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
@@ -531,7 +531,7 @@ const EAPTestimonials = () => {
                                                 {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                             </div>
                                         </div>
-                                        <span className="text-xs sm:text-base font-bold text-gray-800 font-geist">{item.date}</span>
+                                        <span className="text-[11px] sm:text-base font-bold text-gray-800 font-geist">{item.date}</span>
                                     </div>
                                 </div>
                             </div>
@@ -540,7 +540,7 @@ const EAPTestimonials = () => {
                 </div>
 
                 {/* Dot Indicators */}
-                <div className="flex justify-center gap-2 mt-12">
+                <div className="flex justify-center gap-2 mt-8 sm:mt-12">
                     {Array.from({ length: totalSlides }).map((_, i) => (
                         <button
                             key={i}

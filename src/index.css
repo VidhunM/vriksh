@@ -236,3 +236,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   /* Filters white icon to #520378 (roughly) */
   filter: invert(12%) sepia(91%) saturate(5437%) hue-rotate(279deg) brightness(88%) contrast(106%);
 }
+
+/* Hide horizontal/vertical scrollbars when desired */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
