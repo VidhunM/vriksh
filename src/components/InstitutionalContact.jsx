@@ -70,7 +70,7 @@ const InstitutionalContact = ({ programType }) => {
                                 {isEAP
                                     ? "Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace."
                                     : isCareer
-                                        ? "Connect with us to explore your strengths, interests, and future opportunities through structured career counselling and psychometric assessments."
+                                        ? "Confused about the right career path? Connect with us to explore your strengths, interests, and future opportunities through structured career counselling and psychometric assessments."
                                         : isCollege
                                             ? "Looking for trusted college-based mental health support? Vriksh partners with colleges to promote students’ emotional well-being through counselling services, wellbeing programs, and mental health awareness initiatives."
                                             : "Looking for trusted school-based mental health support? Vriksh partners with schools to nurture students’ emotional well-being and resilience through counselling services, special education support, student wellbeing programs, and mental health awareness initiatives - helping create healthier and more supportive learning environments."}

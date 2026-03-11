@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedNumber from '../components/AnimatedNumber';
+import ContactFooter from '../components/ContactFooter';
 
 
 
@@ -50,6 +51,7 @@ const About = () => {
     }, []);
 
     return (
+        <>
         <section id="about" className="bg-white">
             {/* Header Banner */}
             <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 flex items-center justify-center">
@@ -294,6 +296,8 @@ const About = () => {
                 </div>
             </div>
         </section>
+        <ContactFooter />
+        </>
     );
 };
 
