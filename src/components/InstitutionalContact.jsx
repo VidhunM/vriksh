@@ -62,7 +62,7 @@ const InstitutionalContact = ({ programType }) => {
 
                     {/* Left Side: Content */}
                     <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start pt-2">
-                        <h2 className="text-[24px] sm:text-[42px] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
+                        <h2 className="text-[24px] sm:text-[42px] font-extrabold text-gray-900 leading-[1.1] tracking-wide mb-4">
                             {isEAP ? "We’ll help you get started." : "Get in Touch with Vriksh"}
                         </h2>
                         <div className="space-y-6">
