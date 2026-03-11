@@ -45,8 +45,14 @@ const ContactFooter = () => {
     ];
 
     const homeServices = [
-        "Career Guidance",
-        "Career Awareness Talk - School"
+        "Consultation",
+        "Workshop",
+        "Training program",
+        "Certificate Course",
+        "Institutional Wellness Program - Schools",
+        "Institutional Wellness Program - College",
+        "EAP - Corporate",
+        "Career Guidance"
     ];
 
     const services = isHomePage ? homeServices : (isAcademyPage ? academyServices : allServices);
@@ -110,7 +116,7 @@ const ContactFooter = () => {
                                             Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
                                         </p>
                                         <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
-                                            From counselling and Vriksh E-Academy online courses to institutional wellness programs and corporate EAP solutions, we provide evidence-based support that truly makes a difference.
+                                            From Counselling and Vriksh E-Academy Online Courses to Institutional Wellness Programs and CorporateEAP Solutions, we provide evidence-based support that truly makes a difference.
                                         </p>
                                     </>
                                 )}

@@ -88,7 +88,7 @@ const Blogs = () => {
                                 JULY 2025
                             </p>
                             <h3 className="text-[#1A1A1A] text-[24px] sm:text-[28px] lg:text-[32px] font-bold mb-6 font-inter-tight leading-[1.2]">
-                                Understanding Anxiety: Signs, Causes
+                               Keep when your mind talks, your body listens as featured insight
                             </h3>
                             <p className="text-[#4A5568] text-[15px] sm:text-[19px] font-geist leading-[1.7] mb-8">
                                 Anxiety is one of the most common mental health challenges people experience today.
