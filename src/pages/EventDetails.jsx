@@ -65,7 +65,7 @@ const EventDetails = () => {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero Section */}
-            <div className="bg-[#520378] pt-28 pb-10 sm:pt-40 sm:pb-32">
+            <div className="bg-[#520378] pt-28 pb-6 sm:pt-40 sm:pb-12">
                 <div className="max-w-[1320px] mx-auto px-6 relative">
                     <div className="lg:w-2/3">
                         <h1 className="text-white text-3xl sm:text-5xl font-bold mb-6 leading-tight font-inter-tight">
@@ -111,7 +111,7 @@ const EventDetails = () => {
             </div>
 
             {/* Content Section */}
-            <div className="max-w-[1320px] mx-auto px-6 pt-4 sm:pt-6 pb-20 relative">
+            <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-20 relative">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                     {/* Left: Description */}
                     <div className="lg:w-2/3">
@@ -146,7 +146,7 @@ const EventDetails = () => {
                     </div>
 
                     <div className="lg:w-1/3 relative z-20">
-                        <div className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:sticky lg:top-32 lg:-mt-140">
+                        <div className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:sticky lg:top-32 lg:-mt-[480px]">
                             {/* Card Image */}
                             <div className="aspect-video relative overflow-hidden">
                                 <img
