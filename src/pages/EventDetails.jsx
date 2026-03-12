@@ -273,73 +273,8 @@ const EventDetails = () => {
             <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-20 relative">
                 {/* Flex container that holds everything */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20" ref={containerRef}>
-                    {/* Left: Description, What you'll learn, Who For, Other Events */}
-                    <div className="lg:w-2/3">
-                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-6 font-inter-tight">Description:</h2>
-                        <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed">
-                            {event.description.map((p, i) => (
-                                <p key={i} className="mb-4">{p}</p>
-                            ))}
-                        </div>
-
-                        {/* What you'll learn */}
-                        <div className="mt-12 bg-[#FFFDEA] rounded-2xl p-8 sm:p-10 border border-[#F3E6C7]">
-                            <h3 className="text-2xl sm:text-2xl font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
-                            <ul className="space-y-6">
-                                {event.whatYouLearn.map((item, i) => (
-                                    <li key={i} className="flex items-start gap-4 group">
-                                        <div className="mt-1 bg-black rounded-full p-1 shrink-0">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                        </div>
-                                        <span className="text-gray-700 text-[15px] sm:text-[17px] leading-relaxed font-geist">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Who this session is for - Moved inside Left Column */}
-                        <div className="mt-16">
-                            <h3 className="text-2xl font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
-                            <div className="flex flex-wrap gap-x-10 gap-y-6 mb-6">
-                                {event.whoFor.map((audience, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <div className="bg-black rounded-full p-0.5 shrink-0">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                        </div>
-                                        <span className="text-gray-700 text-[16px] font-medium font-geist">{audience}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Other Events - Moved inside Left Column */}
-                        <div className="mt-20">
-                            <h3 className="text-2xl font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
-                            <div className="flex overflow-x-auto gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0">
-                                {Object.values(eventsData)
-                                    .filter(ev => ev.title !== event.title) // Exclude current event
-                                    .slice(0, 2) // Take only "Self Care" and "Building Trust" if event 1 is active
-                                    .map((ev, i) => {
-                                        // Find the key/id for this event to use in the link
-                                        const evId = Object.keys(eventsData).find(key => eventsData[key].title === ev.title);
-                                        return (
-                                            <Link
-                                                to={`/event-details/${evId}`}
-                                                key={i}
-                                                className={`shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white hover:bg-[#F3F3F3] rounded-[16px] px-6 py-5 flex flex-row items-center shadow-sm border border-gray-100 transition-all duration-300 group cursor-pointer justify-center min-h-[100px]`}
-                                            >
-                                                {/* Card Content - Just Title */}
-                                                <h3 className={`text-[16px] xl:text-[18px] font-bold text-gray-950 group-hover:text-[#520378] leading-tight font-geist text-center transition-colors m-0`}>
-                                                    {ev.title}
-                                                </h3>
-                                            </Link>
-                                        )
-                                    })}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="lg:w-1/3 relative z-20">
+                    {/* Right: Card - Order 1 on mobile, 2 on desktop */}
+                    <div className="lg:w-1/3 relative z-20 order-1 lg:order-2">
                         {/* Remove lg:sticky and lg:top-32, replacing with GSAP control */}
                         <div ref={cardRef} className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:-mt-[380px] will-change-transform">
                             {/* Card Image */}
@@ -410,6 +345,72 @@ const EventDetails = () => {
                                         </button>
                                     )}
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Left: Description, What you'll learn, Who For, Other Events - Order 2 on mobile, 1 on desktop */}
+                    <div className="lg:w-2/3 order-2 lg:order-1">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-6 font-inter-tight">Description:</h2>
+                        <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed">
+                            {event.description.map((p, i) => (
+                                <p key={i} className="mb-4">{p}</p>
+                            ))}
+                        </div>
+
+                        {/* What you'll learn */}
+                        <div className="mt-12 bg-[#FFFDEA] rounded-2xl p-8 sm:p-10 border border-[#F3E6C7]">
+                            <h3 className="text-2xl sm:text-2xl font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
+                            <ul className="space-y-6">
+                                {event.whatYouLearn.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-4 group">
+                                        <div className="mt-1 bg-black rounded-full p-1 shrink-0">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                        </div>
+                                        <span className="text-gray-700 text-[15px] sm:text-[17px] leading-relaxed font-geist">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Who this session is for - Moved inside Left Column */}
+                        <div className="mt-16">
+                            <h3 className="text-2xl font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
+                            <div className="flex flex-wrap gap-x-10 gap-y-6 mb-6">
+                                {event.whoFor.map((audience, i) => (
+                                    <div key={i} className="flex items-center gap-3">
+                                        <div className="bg-black rounded-full p-0.5 shrink-0">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                        </div>
+                                        <span className="text-gray-700 text-[16px] font-medium font-geist">{audience}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Other Events - Moved inside Left Column */}
+                        <div className="mt-20">
+                            <h3 className="text-2xl font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
+                            <div className="flex overflow-x-auto gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                                {Object.values(eventsData)
+                                    .filter(ev => ev.title !== event.title) // Exclude current event
+                                    .slice(0, 2) // Take only "Self Care" and "Building Trust" if event 1 is active
+                                    .map((ev, i) => {
+                                        // Find the key/id for this event to use in the link
+                                        const evId = Object.keys(eventsData).find(key => eventsData[key].title === ev.title);
+                                        return (
+                                            <Link
+                                                to={`/event-details/${evId}`}
+                                                key={i}
+                                                className={`shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white hover:bg-[#F3F3F3] rounded-[16px] px-6 py-5 flex flex-row items-center shadow-sm border border-gray-100 transition-all duration-300 group cursor-pointer justify-center min-h-[100px]`}
+                                            >
+                                                {/* Card Content - Just Title */}
+                                                <h3 className={`text-[16px] xl:text-[18px] font-bold text-gray-950 group-hover:text-[#520378] leading-tight font-geist text-center transition-colors m-0`}>
+                                                    {ev.title}
+                                                </h3>
+                                            </Link>
+                                        )
+                                    })}
                             </div>
                         </div>
                     </div>

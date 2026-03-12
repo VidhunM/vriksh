@@ -88,34 +88,34 @@ const ContactFooter = () => {
 
     return (
         <footer className="footer-area">
-            <section id="contact" className="pt-10 pb-16 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+            <section id="contact" className="pt-8 pb-10 lg:pt-10 lg:pb-16 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
                 <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
-                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 justify-between items-start">
                         {/* Left Side: Content */}
-                        <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
-                            <h2 className="text-[28px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-wide">
+                        <div className="w-full lg:w-[45%] space-y-4 lg:space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
+                            <h2 className="text-[24px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-wide">
                                 {isAcademyPage ? (
-                                    <>Get in Touch with <br /> Vriksh E-Academy</>
+                                    <>Get in Touch with <br className="hidden lg:block" /> Vriksh E-Academy</>
                                 ) : (
-                                    <>Get in Touch with <br /> Vriksh</>
+                                    <>Get in Touch with <br className="hidden lg:block" /> Vriksh</>
                                 )}
                             </h2>
-                            <div className="space-y-6">
+                            <div className="space-y-3 lg:space-y-6">
                                 {isAcademyPage ? (
                                     <>
-                                        <p className="text-gray-950 text-base -mt-2 md:text-[18px] leading-relaxed max-w-[500px]">
+                                        <p className="text-gray-950 text-sm lg:text-[18px] leading-relaxed max-w-[500px]">
                                             Interested in our courses, workshops, or training programs? Connect with Vriksh Psychological Support Services | Vriksh E-Academy to learn more about our psychology, counselling, and special education learning opportunities.
                                         </p>
-                                        <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                        <p className="text-gray-950 text-sm lg:text-[18px] leading-relaxed max-w-[500px]">
                                             Our team will be happy to guide you on course details, registrations, and upcoming programs. Reach out to us and take the next step in your learning journey.
                                         </p>
                                     </>
                                 ) : (
                                     <>
-                                        <p className="text-gray-950 text-base -mt-2 md:text-[18px] leading-relaxed max-w-[500px]">
+                                        <p className="text-gray-950 text-sm lg:text-[18px] leading-relaxed max-w-[500px]">
                                             Looking for trusted counselling, impactful wellbeing programs, or practical mental health learning? Vriksh partners with individuals, institutions, and organisations to create real emotional growth and lasting change.
                                         </p>
-                                        <p className="text-gray-950 text-base md:text-[18px] leading-relaxed max-w-[500px]">
+                                        <p className="text-gray-950 text-sm lg:text-[18px] leading-relaxed max-w-[500px]">
                                             From Counselling and Vriksh E-Academy Online Courses to Institutional Wellness Programs and Corporate EAP Solutions, we provide evidence-based support that truly makes a difference.
                                         </p>
                                     </>
@@ -124,11 +124,11 @@ const ContactFooter = () => {
                         </div>
 
                         {/* Right Side: Form */}
-                        <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start">
-                            <h3 className="text-[22px] font-bold text-[#520378] mb-8 leading-snug text-center lg:text-left">
+                        <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start mt-4 lg:mt-0">
+                            <h3 className="text-[18px] lg:text-[22px] font-bold text-[#520378] mb-4 lg:mb-8 leading-snug text-center lg:text-left">
                                 Start your journey with us - Enriching Minds.
                             </h3>
-                            <form className="space-y-5 w-full">
+                            <form className="space-y-4 w-full">
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"

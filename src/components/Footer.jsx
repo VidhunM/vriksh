@@ -94,37 +94,37 @@ const Footer = () => {
                 </div>
 
                 {/* Mobile View (below md) */}
-                <div className="md:hidden flex flex-col items-center text-center space-y-12 mb-12">
+                <div className="md:hidden flex flex-col items-center text-center space-y-8 mb-8">
                     {/* Logo & Socials Section */}
-                    <div className="bg-[#EEEAF4] w-[280px] h-[280px] rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 aspect-square">
+                    <div className="bg-[#EEEAF4] w-[240px] h-[240px] rounded-full flex flex-col items-center justify-center p-6 shadow-lg border-2 border-white/5 aspect-square">
                         <div className="mb-4 flex flex-col items-center">
                             <Link to="/">
                                 <img
                                     src="/logo.png"
                                     alt="VRIKSH Logo"
-                                    className="h-12 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-4"
+                                    className="h-10 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-4"
                                 />
                             </Link>
-                            <div className="w-24 h-[1px] bg-black/20 my-3"></div>
+                            <div className="w-20 h-[1px] bg-black/20 my-3"></div>
                         </div>
-                        <div className="flex gap-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
-                                <FaFacebookF size={14} />
+                        <div className="flex gap-3">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                                <FaFacebookF size={12} />
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
-                                <FaInstagram size={14} />
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                                <FaInstagram size={12} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
-                                <FaLinkedinIn size={14} />
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                                <FaLinkedinIn size={12} />
                             </a>
                         </div>
                     </div>
 
                     {/* Links Grid for Mobile */}
-                    <div className="grid grid-cols-1 gap-10 w-full px-4">
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-bold">Counselling</h3>
-                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-8 w-full px-4 text-left">
+                        <div className="space-y-3">
+                            <h3 className="text-base font-bold">Counselling</h3>
+                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/counselling#services">Individual Counselling</Link></li>
                                 <li><Link to="/counselling#services">Children and Adolescent</Link></li>
                                 <li><Link to="/counselling#services">Counselling</Link></li>
@@ -132,9 +132,9 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-bold">Vriksh E-Academy</h3>
-                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                        <div className="space-y-3">
+                            <h3 className="text-base font-bold">Vriksh E-Academy</h3>
+                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/upcoming-events">Upcoming Events</Link></li>
                                 <li><Link to="/workshop">Workshop</Link></li>
                                 <li><Link to="/training">Training Programs</Link></li>
@@ -142,26 +142,26 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-bold">Corporate</h3>
-                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                        <div className="space-y-3">
+                            <h3 className="text-base font-bold">Corporate</h3>
+                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/corporate-eap">EAP Program</Link></li>
                                 <li><Link to="/workshop">Webinars / Workshops</Link></li>
                                 <li><Link to="/training">Training Programs</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-bold">Institution Wellness</h3>
-                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                        <div className="space-y-3">
+                            <h3 className="text-base font-bold">Institution Wellness</h3>
+                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/school">For Schools</Link></li>
                                 <li><Link to="/college">For College</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-bold">Useful Links</h3>
-                            <ul className="space-y-3 opacity-90 text-[15px] font-light">
+                        <div className="space-y-3 col-span-2 text-center pt-2">
+                            <h3 className="text-base font-bold">Useful Links</h3>
+                            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/blogs">Blog</Link></li>
                                 <li><Link to="/contact">Contact Us</Link></li>
                                 <li><Link to="#">Ethics</Link></li>
