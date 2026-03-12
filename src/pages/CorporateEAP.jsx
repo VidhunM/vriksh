@@ -99,7 +99,7 @@ const CorporateEAP = () => {
                 {/* Purple top banner */}
                 <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10 w-full">
                     <div className="max-w-[1240px] mx-auto px-6">
-                        <h1 className="text-white text-[clamp(24px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
+                        <h1 className="text-white text-[18px] sm:text-[clamp(24px,4vw,40px)] font-bold tracking-[0.08em] uppercase font-inter-tight">
                             EMPLOYEE ASSISTANCE PROGRAMME (EAP)
                         </h1>
                     </div>
@@ -188,7 +188,7 @@ const CorporateEAP = () => {
                     <h2 className="text-[#520378] text-[20px] sm:text-[34px] font-bold mb-4 font-inter-tight text-center">
                         Workplace &amp; Wellbeing Snapshot
                     </h2>
-                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-10 sm:mb-14 lg:mb-6 font-geist leading-[1.6]">
+                    <p className="text-[#333333] text-[13px] sm:text-[19px] text-center max-w-[900px] mb-4 sm:mb-14 lg:mb-6 font-geist leading-[1.6]">
                         Employees worldwide face low engagement, limited wellbeing, and rising workplace stress, highlighting the need for stronger mental health and wellbeing support.
                     </p>
 
@@ -247,7 +247,7 @@ const CorporateEAP = () => {
                                 <button
                                     onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
                                     disabled={currentSlide === 0}
-                                    className={`absolute left-[-15px] top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#520378]/20 border border-white/30 flex items-center justify-center transition-all z-20 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10 active:scale-95'}`}
+                                    className={`absolute left-[-15px] top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#520378]/50 border border-white/70 flex items-center justify-center transition-all z-20 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'hover:bg-[#520378]/70 active:scale-95'}`}
                                 >
                                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -258,7 +258,7 @@ const CorporateEAP = () => {
                                         setCurrentSlide(prev => (prev + 1) * 3 < offeringCards.length ? prev + 1 : prev);
                                     }}
                                     disabled={(currentSlide + 1) * 3 >= offeringCards.length}
-                                    className={`absolute right-[-15px] top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#520378]/20 border border-white/30 flex items-center justify-center transition-all z-20 ${(currentSlide + 1) * 3 >= offeringCards.length ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10 active:scale-95'}`}
+                                    className={`absolute right-[-15px] top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#520378]/50 border border-white/70 flex items-center justify-center transition-all z-20 ${(currentSlide + 1) * 3 >= offeringCards.length ? 'opacity-0 pointer-events-none' : 'hover:bg-[#520378]/70 active:scale-95'}`}
                                 >
                                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -56,12 +56,12 @@ const InstitutionalContact = ({ programType }) => {
     ];
 
     return (
-        <section id="contact" className="w-full py-12 sm:py-18 scroll-mt-20" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+        <section id="contact" className="w-full py-8 sm:py-18 scroll-mt-20" style={{ background: isEAP ? '#FFFFFF' : 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
             <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between items-start -mt-10">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-20 justify-between items-start -mt-6 sm:-mt-10">
 
                     {/* Left Side: Content */}
-                    <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start pt-2">
+                    <div className="w-full lg:w-[45%] space-y-4 sm:space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start pt-2">
                         <h2 className="text-[20px] sm:text-[42px] font-extrabold text-gray-900 leading-[1.1] tracking-wide mb-4">
                             {isEAP ? "We’ll help you get started." : "Get in Touch with Vriksh"}
                         </h2>
@@ -89,12 +89,12 @@ const InstitutionalContact = ({ programType }) => {
                     </div>
 
                     {/* Right Side: Form */}
-                    <div className="w-full lg:w-[50%] flex flex-col pt-2">
-                        <h3 className="text-[18px] sm:text-[28px] font-bold text-[#520378] mb-1 leading-snug">
+                    <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start lg:pt-2">
+                        <h3 className="text-[18px] sm:text-[28px] font-bold text-[#520378] mb-1 leading-snug text-center lg:text-left">
                             {isEAP ? "New Business Enquiry" : `Partner With Us: ${programType} Mental Health Program`}
                         </h3>
                         {isEAP && (
-                            <p className="text-[#475467] text-[13px] sm:text-[16px] mb-8 font-geist">
+                            <p className="text-[#475467] text-[13px] sm:text-[16px] mb-8 font-geist text-center lg:text-left">
                                 Share your details here, and partnerships team will get in touch with you
                             </p>
                         )}

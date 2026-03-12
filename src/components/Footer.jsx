@@ -79,13 +79,13 @@ const Footer = () => {
                             </div>
 
                             <div className="flex gap-4">
-                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
                                     <FaFacebookF size={16} className="stroke-[1]" />
                                 </a>
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
                                     <FaInstagram size={16} className="stroke-[1]" />
                                 </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
                                     <FaLinkedinIn size={16} className="stroke-[1]" />
                                 </a>
                             </div>
@@ -108,13 +108,13 @@ const Footer = () => {
                             <div className="w-20 h-[1px] bg-black/20 my-3"></div>
                         </div>
                         <div className="flex gap-3">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                            <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
                                 <FaFacebookF size={12} />
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                            <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
                                 <FaInstagram size={12} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
+                            <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
                                 <FaLinkedinIn size={12} />
                             </a>
                         </div>
@@ -127,8 +127,8 @@ const Footer = () => {
                             <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/counselling#services">Individual Counselling</Link></li>
                                 <li><Link to="/counselling#services">Children and Adolescent</Link></li>
-                                <li><Link to="/counselling#services">Counselling</Link></li>
                                 <li><Link to="/counselling#services">Academic and Career Counselling</Link></li>
+                                <li><Link to="/counselling#services">others</Link></li>
                             </ul>
                         </div>
 
@@ -146,13 +146,13 @@ const Footer = () => {
                             <h3 className="text-base font-bold">Corporate</h3>
                             <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/corporate-eap">EAP Program</Link></li>
-                                <li><Link to="/workshop">Webinars / Workshops</Link></li>
+                                <li><Link to="/workshop">Workshops</Link></li>
                                 <li><Link to="/training">Training Programs</Link></li>
                             </ul>
                         </div>
 
                         <div className="space-y-3">
-                            <h3 className="text-base font-bold">Institution Wellness</h3>
+                            <h3 className="text-base font-bold">Institutional Wellness Program</h3>
                             <ul className="space-y-2 opacity-90 text-[13px] font-light">
                                 <li><Link to="/school">For Schools</Link></li>
                                 <li><Link to="/college">For College</Link></li>

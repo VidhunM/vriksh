@@ -189,7 +189,7 @@ const TopUpsSlider = () => {
             if (nearest !== mobileIndex) setMobileIndex(nearest);
         };
         return (
-            <div className="bg-[#520378] py-12">
+            <div className="bg-[#520378] py-6 md:py-12">
                 <h2 className="text-white text-3xl font-bold text-center mb-6">Top ups</h2>
                 <div className="relative">
                     <button

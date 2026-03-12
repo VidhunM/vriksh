@@ -178,7 +178,7 @@ const Counselling2 = () => {
         const nextIndex = (currentIndex + 1) % expertTabs.length;
         return expertTabs[nextIndex].id;
       });
-    }, 4000); // Switch expert tab every 4 seconds
+    }, 8000); // Switch expert tab every 8 seconds (Slowed down from 4s)
     return () => clearInterval(timer);
   }, []);
 
@@ -378,18 +378,18 @@ const Counselling2 = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             <div className="flex-1 w-full">
               {/* Tab Navigation */}
-              <div className="flex flex-wrap gap-6 sm:gap-8 mb-8">
+              <div className="flex justify-between md:justify-start md:gap-10 mb-8 w-full">
                 {expertTabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveExpertTab(tab.id)}
-                    className="flex flex-col items-center gap-2 group"
+                    className="flex flex-col items-center gap-2 group min-w-[60px]"
                   >
-                    <span className={`text-[13px] sm:text-[15px] font-medium transition-colors ${activeExpertTab === tab.id ? 'text-white' : 'text-white/70 group-hover:text-white'}`}>
+                    <span className={`text-[13px] sm:text-[15px] font-medium transition-colors whitespace-nowrap ${activeExpertTab === tab.id ? 'text-white' : 'text-white/70 group-hover:text-white'}`}>
                       {tab.label}
                     </span>
                     <div
-                      className={`w-3 h-3 rounded-full border-2 transition-all ${activeExpertTab === tab.id
+                      className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border-2 transition-all ${activeExpertTab === tab.id
                         ? 'bg-white border-white'
                         : 'bg-transparent border-white/60 group-hover:border-white'
                         }`}
@@ -479,9 +479,9 @@ const Counselling2 = () => {
       </div>
 
       {/* Assurances */}
-      <div className="bg-white py-12 sm:py-16">
+      <div className="bg-white py-4 sm:py-16">
         <div className="max-w-[1240px] mx-auto px-6">
-          <h2 className="text-[20px] sm:text-[34px] font-bold text-[#520378] text-center mb-10 font-inter-tight">
+          <h2 className="text-[20px] sm:text-[34px] font-bold text-[#520378] text-center mb-4 sm:mb-10 font-inter-tight">
             What do we assure?
           </h2>
 
@@ -521,7 +521,7 @@ const Counselling2 = () => {
                 {assurances.map((item) => (
                   <div key={item.title} className="w-full flex-none px-4">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-24 h-24 mb-6 flex items-center justify-center">
+                      <div className="w-26 h-26 mb-2 flex items-center justify-center">
                         <img
                           src={item.icon}
                           alt={item.title}
@@ -560,30 +560,53 @@ const Counselling2 = () => {
 
       {/* Testimonials */}
       <div
-        className="py-12 sm:py-18"
+        className="py-10 sm:py-20 border-t border-black/5"
         style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
       >
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
-            <h2 className="text-[22px] sm:text-[34px] font-bold text-gray-950 font-inter-tight leading-tight max-w-[520px]">
+          {/* Header with Navigation - Desktop */}
+          <div className="hidden sm:flex justify-between items-end mb-12">
+            <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold text-black font-inter-tight leading-tight">
               What our clients say
             </h2>
-            <div className="flex gap-3">
+            {/* Carousel Controls */}
+            <div className="flex gap-3 mb-2">
               <button
                 onClick={prevSlide}
-                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white text-gray-500 hover:border-[#520378] hover:text-[#520378] transition-all"
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center bg-white text-gray-400 hover:border-[#520378] hover:text-[#520378] transition-all shadow-sm active:scale-95"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
               </button>
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-[#520378] hover:text-white transition-all"
+                className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#520378] hover:text-white transition-all shadow-sm active:scale-95"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Header with Navigation - Mobile */}
+          <div className="sm:hidden flex flex-row justify-between items-center w-full mb-10 gap-4">
+            <h2 className="text-xl font-bold text-gray-900 leading-[1.1] text-left font-inter-tight">
+              What our clients say
+            </h2>
+            <div className="flex gap-3">
+              <button
+                onClick={prevSlide}
+                className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 bg-white"
+              >
+                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 bg-white"
+              >
+                <svg className="w-5 h-5 text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
               </button>
             </div>
           </div>
@@ -598,27 +621,46 @@ const Counselling2 = () => {
                   key={`${item.name}-${index}`}
                   className="w-full md:w-1/2 lg:w-1/3 flex-none px-3 sm:px-4"
                 >
-                  <div className="bg-white rounded-[22px] p-7 sm:p-8 shadow-sm border border-gray-100 flex flex-col h-full">
-                    <div className="mb-5">
-                      <h3 className="text-[16px] sm:text-[18px] font-bold text-gray-950 mb-1 font-inter-tight">
-                        {item.name}
-                      </h3>
-                      <p className="text-[12px] sm:text-[13px] text-gray-500 font-geist">
-                        {item.role}
-                      </p>
+                  <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-sm border border-black/5 flex flex-col h-full hover:shadow-md transition-shadow">
+                    <div className="mb-6">
+                      <h4 className="text-base sm:text-lg font-bold text-gray-950 mb-0.5">{item.name}</h4>
+                      <p className="text-xs sm:text-sm text-gray-500 font-medium italic">{item.role}</p>
                     </div>
-                    <p className="text-[13px] sm:text-[17px] text-gray-700 leading-relaxed mb-6 flex-1 font-geist">
-                      “{item.text}”
+                    <p className="text-gray-800 text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-10 flex-grow font-medium">
+                      "{item.text}"
                     </p>
-                    <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="flex text-[#FCA253] text-[14px]">
-                          {'★★★★★'.split('').map((s, i) => (
-                            <span key={i}>{s}</span>
+                    {/* Footer with Google & Stars */}
+                    <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-auto">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 flex items-center justify-center">
+                          <svg viewBox="0 0 24 24" className="w-6 h-6">
+                            <path
+                              fill="#4285F4"
+                              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                            />
+                            <path
+                              fill="#34A853"
+                              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                            />
+                            <path
+                              fill="#FBBC05"
+                              d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.84z"
+                            />
+                            <path
+                              fill="#EA4335"
+                              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                            />
+                          </svg>
+                        </div>
+                        <div className="flex">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <svg key={star} className="w-4 h-4 text-[#FCA65B]" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
                           ))}
                         </div>
                       </div>
-                      <span className="text-[11px] sm:text-[12px] font-bold text-gray-800 font-geist">
+                      <span className="text-xs sm:text-sm font-bold text-gray-800 font-geist">
                         {item.date}
                       </span>
                     </div>
@@ -643,13 +685,13 @@ const Counselling2 = () => {
       </div>
 
       {/* Contact Section */}
-      <div id="contact" className="bg-white py-12 sm:py-16">
-        <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+      <div id="contact" className="bg-white pt-8 pb-12 sm:pt-16 sm:pb-20 scroll-mt-20" style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}>
+        <div className="max-w-[1240px] mx-auto px-6 sm:px-12">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 justify-between items-start">
             {/* Left: Heading & Description */}
-            <div>
-              <h2 className="text-[28px] sm:text-[36px] font-bold text-gray-950 leading-[1.15] mb-4 font-inter-tight">
-                We&apos;ll help you <br />get started
+            <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col items-center lg:items-start pt-2">
+              <h2 className="text-[28px] sm:text-[42px] font-extrabold text-gray-950 leading-[1.1] mb-4 font-inter-tight tracking-wide">
+                We&apos;ll help you <br className="hidden sm:block" />get started
               </h2>
               <p className="text-[14px] sm:text-[19px] text-gray-600 leading-[1.7] font-geist max-w-[520px]">
                 Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace.
@@ -657,46 +699,46 @@ const Counselling2 = () => {
             </div>
 
             {/* Right: Contact Form */}
-            <div>
-              <h3 className="text-[20px] sm:text-[24px] font-bold text-[#520378] mb-1 font-inter-tight">
+            <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start mt-4 lg:mt-0">
+              <h3 className="text-[20px] sm:text-[24px] font-bold text-[#520378] mb-1 font-inter-tight text-center lg:text-left">
                 Contact Us
               </h3>
-              <p className="text-[13px] sm:text-[19px] text-gray-600 mb-6 font-geist">
+              <p className="text-[13px] sm:text-[19px] text-gray-600 mb-8 font-geist text-center lg:text-left">
                 Reach out for support. We&apos;re here to listen.
               </p>
-              <form className="space-y-4">
+              <form className="space-y-4 w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Full Name</label>
+                  <div className="space-y-1.5">
+                    <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Full Name</label>
                     <input
                       type="text"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
                       placeholder="Enter your name"
                     />
                   </div>
-                  <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Email Address</label>
+                  <div className="space-y-1.5">
+                    <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Email Address</label>
                     <input
                       type="email"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
                       placeholder="you@example.com"
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Phone Number</label>
+                  <div className="space-y-1.5">
+                    <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Phone Number</label>
                     <input
                       type="tel"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378]"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
                       placeholder="Enter phone number"
                     />
                   </div>
-                  <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Age</label>
+                  <div className="space-y-1.5">
+                    <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Age</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
-                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer transition-all"
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select age</option>
                       {Array.from({ length: 83 }, (_, i) => i + 18).map((age) => (
@@ -706,40 +748,40 @@ const Counselling2 = () => {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Type of Support Needed</label>
+                  <div className="space-y-1.5">
+                    <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Type of Support Needed</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer"
-                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer transition-all"
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select type</option>
                       <option value="individual">Individual Counselling</option>
                       <option value="children">Children & Adolescent</option>
                       <option value="academic">Academic & Career</option>
                       <option value="corporate">Corporate / Workplace</option>
-                      <option value="online">Online Counselling</option>
+                      
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <div>
-                    <label className="block text-[15px] font-medium text-gray-700 mb-1">Preferred Date and Time for Session</label>
+                  <div className="space-y-1.5">
+                    <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Preferred Date and Time</label>
                     <input
                       type="datetime-local"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white cursor-pointer"
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white cursor-pointer transition-all"
                     />
                   </div>
                 </div>
-                <div>
-                  <label className="block text-[15px] font-medium text-gray-700 mb-1">Message</label>
+                <div className="space-y-1.5">
+                  <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Message</label>
                   <textarea
                     rows="4"
-                    className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none"
+                    className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none transition-all"
                     placeholder="Share your message or concerns"
                   />
                 </div>
                 <button
                   type="button"
-                  className="w-full bg-[#520378] hover:bg-[#400260] text-white font-semibold text-[15px] py-2.5 rounded-[10px] shadow-md transition-all active:scale-95"
+                  className="w-full sm:w-auto bg-[#520378] hover:bg-[#400260] text-white font-bold text-[14px] sm:text-[16px] px-10 py-3 rounded-full shadow-md transition-all active:scale-95 mt-2"
                 >
                   Submit
                 </button>
