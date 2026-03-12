@@ -345,16 +345,16 @@ const BlogDetails = () => {
     const content = articleContent[blogId];
 
     return (
-        <section className="bg-white pt-20 sm:pt-28 pb-12">
-            <div className="max-w-[1240px] mx-auto px-6">
+        <section className="bg-white pt-24 sm:pt-28 pb-10 sm:pb-12">
+            <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
 
                 {/* ── Top Part (Hero): Centered Title & Header Image ── */}
-                <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
-                    <h1 className="text-[#1A1A1A] text-[28px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.15] max-w-[900px] mb-12 sm:mb-6">
+                <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+                    <h1 className="text-[#1A1A1A] text-[22px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.2] sm:leading-[1.15] max-w-[900px] mb-8 sm:mb-6 px-2 sm:px-0">
                         {post.title}
                     </h1>
 
-                    <div className="w-full rounded-[24px] overflow-hidden shadow-sm aspect-[21/7] sm:aspect-[21/8] mt-4 sm:mt-8">
+                    <div className="w-full rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-sm aspect-[16/9] sm:aspect-[21/8] mt-2 sm:mt-8">
                         <img
                             src={post.image}
                             alt={post.title}
@@ -365,39 +365,39 @@ const BlogDetails = () => {
 
                 {/* ── Article Content ── */}
                 {content && (
-                    <div className="w-full mx-auto mb-16 sm:mb-20 text-justify">
+                    <div className="w-full mx-auto mb-12 sm:mb-20 text-justify px-1 sm:px-0">
                         {content}
                     </div>
                 )}
 
                 {/* ── Related Blogs Section ── */}
                 {relatedPosts.length > 0 && (
-                    <div className="mt-4 sm:mt-8">
-                        <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight mb-8">
+                    <div className="mt-4 sm:mt-8 border-t border-gray-100 pt-10 sm:pt-0 sm:border-t-0">
+                        <h2 className="text-[#1A1A1A] text-[26px] sm:text-[42px] font-bold font-inter-tight mb-8">
                             Related Blogs
                         </h2>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-y-12">
                             {relatedPosts.map((post) => (
                                 <div key={post.id} className="group cursor-pointer">
                                     <Link to={`/blog/${post.id}`}>
-                                        <div className="aspect-[4/3] mb-6 overflow-hidden rounded-[20px]">
+                                        <div className="aspect-[4/3] mb-5 sm:mb-6 overflow-hidden rounded-[20px]">
                                             <img
                                                 src={post.image}
                                                 alt={post.title}
                                                 className="w-full h-full object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-105"
                                             />
                                         </div>
-                                        <p className="text-gray-400 text-[12px] font-medium mb-3">
+                                        <p className="text-gray-400 text-[11px] sm:text-[12px] font-medium mb-2 sm:mb-3">
                                             {post.date}
                                         </p>
-                                        <h3 className="text-[#1A1A1A] text-[18px] sm:text-[20px] font-bold mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors">
+                                        <h3 className="text-[#1A1A1A] text-[17px] sm:text-[20px] font-bold mb-5 sm:mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors">
                                             {post.title}
                                         </h3>
                                     </Link>
                                     <Link
                                         to={`/blog/${post.id}`}
-                                        className="inline-block bg-[#520378] text-white px-8 py-2.5 rounded-full text-[14px] font-bold hover:bg-[#400260] transition-all"
+                                        className="inline-block bg-[#520378] text-white px-7 sm:px-8 py-2 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-bold hover:bg-[#400260] transition-all"
                                     >
                                         Read more
                                     </Link>
