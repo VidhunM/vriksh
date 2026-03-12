@@ -55,6 +55,18 @@ const Counselling = () => {
 
     const activeContent = contentMap[activeCategory];
 
+    const handlePrev = () => {
+        const currentIndex = categories.indexOf(activeCategory);
+        const prevIndex = (currentIndex - 1 + categories.length) % categories.length;
+        setActiveCategory(categories[prevIndex]);
+    };
+
+    const handleNext = () => {
+        const currentIndex = categories.indexOf(activeCategory);
+        const nextIndex = (currentIndex + 1) % categories.length;
+        setActiveCategory(categories[nextIndex]);
+    };
+
     return (
         <section
             id="counselling"
@@ -91,21 +103,10 @@ const Counselling = () => {
                     Counselling
                 </h2>
 
-                {/* Category Buttons - Mobile (Manual Horizontal Scroll) */}
-                <div className="lg:hidden overflow-x-auto mb-8 py-2">
-                    <div className="flex gap-4 w-max px-1">
-                        {categories.map((cat, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setActiveCategory(cat)}
-                                className={`whitespace-nowrap px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-[12px] sm:text-[13px] font-medium transition-all flex-shrink-0 ${activeCategory === cat
-                                    ? 'bg-white text-[#520378] shadow-md'
-                                    : 'bg-transparent text-white border border-white/40 hover:bg-white/10'
-                                    }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
+                {/* Category Selection - Mobile (Arrow Navigation) */}
+                <div className="lg:hidden mb-8 flex flex-col items-center">
+                    <div className="bg-white text-[#520378] px-6 py-2 rounded-full text-[14px] font-bold shadow-md transition-all duration-300">
+                        {activeCategory}
                     </div>
                 </div>
 
@@ -129,7 +130,26 @@ const Counselling = () => {
                 <div className="flex flex-col lg:flex-row gap-10 lg:items-center min-h-[400px]">
 
                     {/* Image Column */}
-                    <div className="lg:w-[40%] flex justify-center">
+                    <div className="lg:w-[40%] flex flex-col items-center">
+                        {/* Mobile Navigation Arrows */}
+                        <div className="lg:hidden flex justify-end w-full max-w-[460px] gap-2 mb-3">
+                            <button
+                                onClick={handlePrev}
+                                className="w-9 h-9 rounded-full bg-white text-[#520378] flex items-center justify-center shadow-lg active:scale-90 transition-all"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button
+                                onClick={handleNext}
+                                className="w-9 h-9 rounded-full bg-white text-[#520378] flex items-center justify-center shadow-lg active:scale-90 transition-all"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
                         <div className="rounded-[18px] overflow-hidden shadow-xl h-[250px] sm:h-[280px] lg:h-[300px] w-full max-w-[460px]">
                             <img
                                 src="/images/counselling 2.png"
