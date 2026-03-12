@@ -138,7 +138,7 @@ const Hero = () => {
                             >
                                 <h1
                                     key={`title-${index}`}
-                                    className={`text-[clamp(18px,4vw,54px)] sm:text-[clamp(32px,7vw,54px)] font-bold leading-[1.2] sm:leading-[1.1] tracking-tight mb-3 sm:mb-6 drop-shadow-xl text-center max-w-[1240px] px-2 sm:px-0 ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
+                                    className={`text-[clamp(18px,4vw,54px)] sm:text-[clamp(32px,7vw,54px)] font-bold leading-[1.2] sm:leading-[1.1] tracking-wide mb-3 sm:mb-6 drop-shadow-xl text-center max-w-[1240px] px-2 sm:px-0 ${index === currentSlide ? 'animate-slide-up-fade opacity-100' : 'opacity-0'
                                         }`}
                                 >
                                     {banner.title}
