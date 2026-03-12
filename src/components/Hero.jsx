@@ -27,6 +27,7 @@ const Hero = () => {
         },
         {
             image: '/images/banner 4.png',
+            mobileImage: '/images/mobile banner 4.png',
             title: "Empowering Campuses, Transforming Young Minds",
             description: "",
             buttonText: "Get in Touch",
@@ -86,11 +87,15 @@ const Hero = () => {
                         className={`absolute inset-0 transition-opacity duration-[2500ms] ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
                             }`}
                     >
-                        <img
-                            src={banner.image}
-                            alt={`Banner ${index + 1}`}
-                            className={`w-full h-full object-cover ${index === 1 ? 'object-center sm:object-[center_50%]' : 'object-center sm:object-top'} ${index === currentSlide ? (index % 2 === 0 ? 'animate-zoom-left' : 'animate-zoom-right') : ''}`}
-                        />
+                        <picture>
+                            <source media="(max-width: 640px)" srcSet={banner.mobileImage || banner.image} />
+                            <source media="(min-width: 641px)" srcSet={banner.image} />
+                            <img
+                                src={banner.image}
+                                alt={`Banner ${index + 1}`}
+                                className={`w-full h-full object-cover ${index === 1 ? 'object-center sm:object-[center_50%]' : 'object-center sm:object-top'} ${index === currentSlide ? (index % 2 === 0 ? 'animate-zoom-left' : 'animate-zoom-right') : ''}`}
+                            />
+                        </picture>
                         {/* Overlays */}
                         <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div>
                     </div>
