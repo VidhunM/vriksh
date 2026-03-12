@@ -121,9 +121,9 @@ const Footer = () => {
                     </div>
 
                     {/* Links Grid for Mobile */}
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-12 w-full px-4">
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-12 w-full px-4">
                         <div className="space-y-4">
-                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end">Counselling</h3>
+                            <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end whitespace-nowrap">Counselling</h3>
                             <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/counselling#services" className="active:text-white transition-colors">Individual Counselling</Link></li>
                                 <li><Link to="/counselling#services" className="active:text-white transition-colors">Children and Adolescent</Link></li>
@@ -133,7 +133,7 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end">Vriksh E-Academy</h3>
+                            <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end whitespace-nowrap">Vriksh E-Academy</h3>
                             <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/upcoming-events" className="active:text-white transition-colors">Upcoming Events</Link></li>
                                 <li><Link to="/workshop" className="active:text-white transition-colors">Workshop</Link></li>
@@ -143,7 +143,7 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end">Corporate</h3>
+                            <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end whitespace-nowrap">Corporate</h3>
                             <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/corporate-eap" className="active:text-white transition-colors">EAP Program</Link></li>
                                 <li><Link to="/workshop" className="active:text-white transition-colors">Workshops</Link></li>
@@ -152,7 +152,7 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end leading-tight">Institutional Wellness Program</h3>
+                            <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end leading-tight">Institutional Wellness Program</h3>
                             <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/school" className="active:text-white transition-colors">For Schools</Link></li>
                                 <li><Link to="/college" className="active:text-white transition-colors">For College</Link></li>
@@ -160,7 +160,7 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4 col-span-2 pt-4">
-                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2">Useful Links</h3>
+                            <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90 border-b border-white/20 pb-2">Useful Links</h3>
                             <div className="grid grid-cols-2 gap-4 text-white/70 text-[13px] font-light">
                                 <ul className="space-y-3">
                                     <li><Link to="/blogs" className="active:text-white transition-colors">Blog</Link></li>
