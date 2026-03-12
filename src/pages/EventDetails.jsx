@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -323,16 +323,16 @@ const EventDetails = () => {
                                         // Find the key/id for this event to use in the link
                                         const evId = Object.keys(eventsData).find(key => eventsData[key].title === ev.title);
                                         return (
-                                            <div
+                                            <Link
+                                                to={`/event-details/${evId}`}
                                                 key={i}
                                                 className={`shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white hover:bg-[#F3F3F3] rounded-[16px] px-6 py-5 flex flex-row items-center shadow-sm border border-gray-100 transition-all duration-300 group cursor-pointer justify-center min-h-[100px]`}
-                                                onClick={() => window.location.href = `/event-details/${evId}`}
                                             >
                                                 {/* Card Content - Just Title */}
                                                 <h3 className={`text-[16px] xl:text-[18px] font-bold text-gray-950 group-hover:text-[#520378] leading-tight font-geist text-center transition-colors m-0`}>
                                                     {ev.title}
                                                 </h3>
-                                            </div>
+                                            </Link>
                                         )
                                     })}
                             </div>
