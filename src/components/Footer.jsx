@@ -94,78 +94,78 @@ const Footer = () => {
                 </div>
 
                 {/* Mobile View (below md) */}
-                <div className="md:hidden flex flex-col items-center text-center space-y-8 mb-8">
+                <div className="md:hidden flex flex-col items-center text-center space-y-10 mb-10">
                     {/* Logo & Socials Section */}
-                    <div className="bg-[#EEEAF4] w-[240px] h-[240px] rounded-full flex flex-col items-center justify-center p-6 shadow-lg border-2 border-white/5 aspect-square">
+                    <div className="bg-[#F3F0F8] w-[220px] h-[220px] rounded-full flex flex-col items-center justify-center p-6 shadow-xl border-4 border-white/10 aspect-square">
                         <div className="mb-4 flex flex-col items-center">
                             <Link to="/">
                                 <img
                                     src="/logo.png"
                                     alt="VRIKSH Logo"
-                                    className="h-10 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-4"
+                                    className="h-10 w-auto object-contain mb-1"
                                 />
                             </Link>
-                            <div className="w-20 h-[1px] bg-black/20 my-3"></div>
+                            <div className="w-16 h-[1px] bg-black/10 my-4"></div>
                         </div>
-                        <div className="flex gap-3">
-                            <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
-                                <FaFacebookF size={12} />
+                        <div className="flex gap-4">
+                            <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+                                <FaFacebookF size={14} />
                             </a>
-                            <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
-                                <FaInstagram size={12} />
+                            <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+                                <FaInstagram size={14} />
                             </a>
-                            <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-md">
-                                <FaLinkedinIn size={12} />
+                            <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+                                <FaLinkedinIn size={14} />
                             </a>
                         </div>
                     </div>
 
                     {/* Links Grid for Mobile */}
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-8 w-full px-4 text-left">
-                        <div className="space-y-3">
-                            <h3 className="text-base font-bold">Counselling</h3>
-                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
-                                <li><Link to="/counselling#services">Individual Counselling</Link></li>
-                                <li><Link to="/counselling#services">Children and Adolescent</Link></li>
-                                <li><Link to="/counselling#services">Academic and Career Counselling</Link></li>
-                                <li><Link to="/counselling#services">others</Link></li>
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-10 w-full px-6 text-left">
+                        <div className="space-y-4">
+                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90">Counselling</h3>
+                            <ul className="space-y-2.5 opacity-80 text-[13px] font-light leading-relaxed">
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Individual Counselling</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Child & Adolescent</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Academic & Career</Link></li>
+                                <li><Link to="/counselling#services" className="hover:opacity-100 transition-opacity">Others</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-3">
-                            <h3 className="text-base font-bold">Vriksh E-Academy</h3>
-                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
-                                <li><Link to="/upcoming-events">Upcoming Events</Link></li>
-                                <li><Link to="/workshop">Workshop</Link></li>
-                                <li><Link to="/training">Training Programs</Link></li>
-                                <li><Link to="/certificate">Certificate Courses</Link></li>
+                        <div className="space-y-4">
+                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90">Academy</h3>
+                            <ul className="space-y-2.5 opacity-80 text-[13px] font-light leading-relaxed">
+                                <li><Link to="/upcoming-events" className="hover:opacity-100 transition-opacity">Upcoming Events</Link></li>
+                                <li><Link to="/workshop" className="hover:opacity-100 transition-opacity">Workshop</Link></li>
+                                <li><Link to="/training" className="hover:opacity-100 transition-opacity">Training Programs</Link></li>
+                                <li><Link to="/certificate" className="hover:opacity-100 transition-opacity">Certificates</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-3">
-                            <h3 className="text-base font-bold">Corporate</h3>
-                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
-                                <li><Link to="/corporate-eap">EAP Program</Link></li>
-                                <li><Link to="/workshop">Workshops</Link></li>
-                                <li><Link to="/training">Training Programs</Link></li>
+                        <div className="space-y-4">
+                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90">Corporate</h3>
+                            <ul className="space-y-2.5 opacity-80 text-[13px] font-light leading-relaxed">
+                                <li><Link to="/corporate-eap" className="hover:opacity-100 transition-opacity">EAP Program</Link></li>
+                                <li><Link to="/workshop" className="hover:opacity-100 transition-opacity">Workshops</Link></li>
+                                <li><Link to="/training" className="hover:opacity-100 transition-opacity">Training</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-3">
-                            <h3 className="text-base font-bold">Institutional Wellness Program</h3>
-                            <ul className="space-y-2 opacity-90 text-[13px] font-light">
-                                <li><Link to="/school">For Schools</Link></li>
-                                <li><Link to="/college">For College</Link></li>
+                        <div className="space-y-4">
+                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90">Wellness</h3>
+                            <ul className="space-y-2.5 opacity-80 text-[13px] font-light leading-relaxed">
+                                <li><Link to="/school" className="hover:opacity-100 transition-opacity">For Schools</Link></li>
+                                <li><Link to="/college" className="hover:opacity-100 transition-opacity">For College</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-3 col-span-2 text-center pt-2">
-                            <h3 className="text-base font-bold">Useful Links</h3>
-                            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 opacity-90 text-[13px] font-light">
-                                <li><Link to="/blogs">Blog</Link></li>
-                                <li><Link to="/contact">Contact Us</Link></li>
-                                <li><Link to="#">Ethics</Link></li>
-                                <li><Link to="#">Refund Policy</Link></li>
+                        <div className="space-y-5 col-span-2 text-center pt-6 border-t border-white/10">
+                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90">Useful Links</h3>
+                            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 opacity-80 text-[13px] font-light">
+                                <li><Link to="/blogs" className="hover:opacity-100 transition-opacity">Blog</Link></li>
+                                <li><Link to="/contact" className="hover:opacity-100 transition-opacity">Contact Us</Link></li>
+                                <li><Link to="#" className="hover:opacity-100 transition-opacity">Ethics</Link></li>
+                                <li><Link to="#" className="hover:opacity-100 transition-opacity">Refund Policy</Link></li>
                             </ul>
                         </div>
                     </div>
