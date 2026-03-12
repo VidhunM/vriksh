@@ -7,7 +7,7 @@ const Hero = () => {
         {
             image: '/images/hero.png',
             title: <span>Enriching Minds<br />Strengthening Future</span>,
-            description: <span>Confidential, evidence-based mental health and well-being solutions for <span className="whitespace-nowrap">individuals, institutions, and organisations</span></span>,
+            description: <span>Confidential, evidence-based mental health and well-being solutions for <span className="sm:whitespace-nowrap">individuals, institutions, and organisations</span></span>,
             buttonText: "Let's Talk",
             link: "#contact"
         },
@@ -93,7 +93,7 @@ const Hero = () => {
                             <img
                                 src={banner.image}
                                 alt={`Banner ${index + 1}`}
-                                className={`w-full h-full object-cover ${index === 1 ? 'object-center sm:object-[center_50%]' : 'object-center sm:object-top'} ${index === currentSlide ? (index % 2 === 0 ? 'animate-zoom-left' : 'animate-zoom-right') : ''}`}
+                                className={`w-full h-full object-cover ${index === 1 ? 'object-center sm:object-[center_50%]' : index === 3 ? 'object-center translate-y-[20%] scale-[1.3] sm:translate-y-0 sm:scale-100 sm:object-top' : 'object-center sm:object-top'} ${index === currentSlide ? (index % 2 === 0 ? 'animate-zoom-left' : 'animate-zoom-right') : ''}`}
                             />
                         </picture>
                         {/* Overlays */}
