@@ -214,7 +214,7 @@ const CorporateEAP = () => {
                         </div>
 
                         {/* Circle 3 */}
-                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-10 col-span-2 justify-self-center -translate-x-4 -translate-y-4 md:translate-x-0 md:translate-y-14 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
+                        <div className="w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full border-[0.5px] border-[#999999] bg-transparent flex flex-col items-center justify-center text-center p-3 sm:p-4 z-10 col-span-2 justify-self-center -translate-x-2 -translate-y-4 md:translate-x-0 md:translate-y-14 md:-ml-8 hover:bg-gray-50/50 transition-all duration-300">
                             <h3 className="text-[#F37321] text-[38px] sm:text-[44px] font-medium mb-2 leading-none">
                                 <AnimatedNumber end={40} suffix="%" />
                             </h3>
