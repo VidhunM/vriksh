@@ -96,7 +96,7 @@ const Footer = () => {
                 {/* Mobile View (below md) */}
                 <div className="md:hidden flex flex-col items-center space-y-12 mb-12">
                     {/* Logo & Socials Section */}
-                    <div className="bg-[#EEEAF4] w-[220px] h-[220px] rounded-full flex flex-col items-center justify-center p-6 shadow-xl border-4 border-white/10 aspect-square relative overflow-hidden">
+                    <div className="bg-[#EEEAF4] w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center p-6 shadow-xl border-4 border-white/10 aspect-square relative overflow-hidden">
                         <div className="mb-4 flex flex-col items-center relative z-10">
                             <Link to="/">
                                 <img
@@ -121,10 +121,10 @@ const Footer = () => {
                     </div>
 
                     {/* Links Grid for Mobile */}
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-10 w-full px-2">
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-12 w-full px-4">
                         <div className="space-y-4">
-                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90 border-b border-white/10 pb-2">Counselling</h3>
-                            <ul className="space-y-2.5 text-white/70 text-[13px] font-light">
+                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end">Counselling</h3>
+                            <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/counselling#services" className="active:text-white transition-colors">Individual Counselling</Link></li>
                                 <li><Link to="/counselling#services" className="active:text-white transition-colors">Children and Adolescent</Link></li>
                                 <li><Link to="/counselling#services" className="active:text-white transition-colors">Academic and Career Counselling</Link></li>
@@ -133,8 +133,8 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90 border-b border-white/10 pb-2">Vriksh E-Academy</h3>
-                            <ul className="space-y-2.5 text-white/70 text-[13px] font-light">
+                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end">Vriksh E-Academy</h3>
+                            <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/upcoming-events" className="active:text-white transition-colors">Upcoming Events</Link></li>
                                 <li><Link to="/workshop" className="active:text-white transition-colors">Workshop</Link></li>
                                 <li><Link to="/training" className="active:text-white transition-colors">Training Programs</Link></li>
@@ -143,8 +143,8 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90 border-b border-white/10 pb-2">Corporate</h3>
-                            <ul className="space-y-2.5 text-white/70 text-[13px] font-light">
+                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end">Corporate</h3>
+                            <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/corporate-eap" className="active:text-white transition-colors">EAP Program</Link></li>
                                 <li><Link to="/workshop" className="active:text-white transition-colors">Workshops</Link></li>
                                 <li><Link to="/training" className="active:text-white transition-colors">Training Programs</Link></li>
@@ -152,33 +152,36 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90 border-b border-white/10 pb-2">Institutional Wellness Program</h3>
-                            <ul className="space-y-2.5 text-white/70 text-[13px] font-light">
+                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2 min-h-[48px] flex items-end leading-tight">Institutional Wellness Program</h3>
+                            <ul className="space-y-3 text-white/70 text-[13px] font-light leading-relaxed">
                                 <li><Link to="/school" className="active:text-white transition-colors">For Schools</Link></li>
                                 <li><Link to="/college" className="active:text-white transition-colors">For College</Link></li>
                             </ul>
                         </div>
 
-                        <div className="space-y-4 col-span-2 text-center pt-4">
-                            <h3 className="text-[15px] font-bold tracking-wide uppercase text-white/90">Useful Links</h3>
-                            <div className="w-12 h-[2px] bg-white/20 mx-auto mb-4"></div>
-                            <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-white/70 text-[13px] font-light">
-                                <li><Link to="/blogs" className="active:text-white transition-colors">Blog</Link></li>
-                                <li><Link to="/contact" className="active:text-white transition-colors">Contact Us</Link></li>
-                                <li><Link to="#" className="active:text-white transition-colors">Ethics</Link></li>
-                                <li><Link to="#" className="active:text-white transition-colors">Refund Policy</Link></li>
-                            </ul>
+                        <div className="space-y-4 col-span-2 pt-4">
+                            <h3 className="text-[14px] font-bold tracking-wider uppercase text-white/90 border-b border-white/20 pb-2">Useful Links</h3>
+                            <div className="grid grid-cols-2 gap-4 text-white/70 text-[13px] font-light">
+                                <ul className="space-y-3">
+                                    <li><Link to="/blogs" className="active:text-white transition-colors">Blog</Link></li>
+                                    <li><Link to="/contact" className="active:text-white transition-colors">Contact Us</Link></li>
+                                </ul>
+                                <ul className="space-y-3">
+                                    <li><Link to="#" className="active:text-white transition-colors">Ethics</Link></li>
+                                    <li><Link to="#" className="active:text-white transition-colors">Refund Policy</Link></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border border-white/30 rounded-[25px] px-8 py-4 flex flex-col md:flex-row justify-between items-center text-[12px] font-light opacity-90">
-                    <div className="flex gap-10 mb-4 md:mb-0">
+                <div className="border border-white/20 rounded-[20px] px-6 py-5 flex flex-col md:flex-row justify-between items-center text-[12px] font-light opacity-90 space-y-4 md:space-y-0 text-center md:text-left">
+                    <div className="flex gap-8 justify-center md:justify-start">
                         <Link to="#" className="hover:opacity-100 transition-opacity">Terms & Conditions</Link>
                         <Link to="#" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
                     </div>
-                    <div className="text-center md:text-right">
+                    <div className="opacity-70">
                         Copyright © 2026 vriksh. All rights reserved
                     </div>
                 </div>
