@@ -389,7 +389,7 @@ const EventDetails = () => {
 
                                 <div className="text-center mb-6">
                                     <span className="text-2xl font-bold text-gray-950 font-inter-tight">
-                                        {event.price}{event.price !== 'FREE' && '+GST'}
+                                        {event.price}{event.price !== 'FREE' && ' Incl. GST'}
                                     </span>
                                 </div>
 
@@ -496,110 +496,7 @@ const EventDetails = () => {
                     )}
                 </div>
             </section>
-            {/* Contact Section */}
-            <div id="contact" className="bg-white py-12 sm:py-24">
-                <div className="max-w-[1320px] mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-start">
-                        {/* Left: Heading & Description */}
-                        <div>
-                            <h2 className="text-[32px] sm:text-[48px] font-bold text-gray-950 leading-[1.1] mb-6 font-inter-tight">
-                                We'll help you get <br /> started
-                            </h2>
-                            <p className="text-sm sm:text-lg text-gray-600 leading-relaxed font-geist max-w-[480px]">
-                                Connect with our experts to explore employee wellness solutions and discover how Vriksh can help you build a healthier, high-performing workplace
-                            </p>
-                        </div>
 
-                        {/* Right: Contact Form */}
-                        <div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-[#520378] mb-1 font-inter-tight">
-                                Contact Us
-                            </h3>
-                            <p className="text-sm sm:text-lg text-gray-600 mb-8 font-geist">
-                                Reach out for support. We're here to listen.
-                            </p>
-                            <form className="space-y-5">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                    <div className="relative group">
-                                        <input
-                                            type="text"
-                                            className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
-                                            placeholder="Full Name"
-                                        />
-                                    </div>
-                                    <div className="relative group">
-                                        <input
-                                            type="email"
-                                            className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
-                                            placeholder="Email Address"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                    <div className="relative group">
-                                        <input
-                                            type="tel"
-                                            className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
-                                            placeholder="Phone Number"
-                                        />
-                                    </div>
-                                    <div className="relative group">
-                                        <select
-                                            defaultValue=""
-                                            className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer text-gray-500"
-                                            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
-                                        >
-                                            <option value="" disabled hidden>Age</option>
-                                            {Array.from({ length: 80 }, (_, i) => i + 5).map((age) => (
-                                                <option key={age} value={age}>{age}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                    <div className="relative group">
-                                        <select
-                                            defaultValue=""
-                                            className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer text-gray-500"
-                                            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
-                                        >
-                                            <option value="" disabled hidden>Type of Support Needed</option>
-                                            <option value="adhd">ADHD Toolkit Support</option>
-                                            <option value="counselling">Professional Counselling</option>
-                                            <option value="training">Academy Training</option>
-                                        </select>
-                                    </div>
-                                    <div className="relative group">
-                                        <select
-                                            defaultValue=""
-                                            className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer text-gray-500"
-                                            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem' }}
-                                        >
-                                            <option value="" disabled hidden>Preferred Time for Session</option>
-                                            <option value="morning">Morning (9 AM - 12 PM)</option>
-                                            <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                                            <option value="evening">Evening (4 PM - 8 PM)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="relative group">
-                                    <textarea
-                                        rows="4"
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-sm sm:text-base outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none transition-all"
-                                        placeholder="Message"
-                                    />
-                                </div>
-                                <button
-                                    type="button"
-                                    className="px-10 py-3.5 bg-[#520378] hover:bg-[#400260] text-white font-bold rounded-full shadow-lg transition-all active:scale-95 group flex items-center gap-2"
-                                >
-                                    Submit
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };

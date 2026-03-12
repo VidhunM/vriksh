@@ -14,7 +14,7 @@ const ContactFooter = () => {
     const backgroundRef = useRef(null);
 
     const location = useLocation();
-    const isAcademyPage = ['/workshop', '/training', '/certificate', '/upcoming-events'].includes(location.pathname);
+    const isAcademyPage = ['/workshop', '/training', '/certificate', '/upcoming-events', '/event-details'].some(path => location.pathname.startsWith(path));
     const isHomePage = location.pathname === '/';
 
     const allServices = [

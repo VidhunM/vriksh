@@ -444,8 +444,8 @@ const Counselling2 = () => {
             </div>
 
             {/* Right: Quote Card */}
-            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-6 sm:p-10 shadow-sm border border-[#F3E6C7] flex flex-col justify-between h-[320px] sm:h-[380px]">
-              <div className="flex flex-col flex-1 justify-between">
+            <div className="lg:col-span-5 bg-[#FFF9E1] rounded-[20px] p-6 sm:p-10 shadow-sm border border-[#F3E6C7] flex flex-col justify-end h-[320px] sm:h-[380px]">
+              <div className="flex flex-col flex-1 justify-end pt-10 sm:pt-12">
                 <div>
                   {/* Large quote icon */}
                   <img
@@ -461,7 +461,7 @@ const Counselling2 = () => {
                   </p>
                 </div>
                 {/* Carousel dots */}
-                <div className="flex gap-2 mt-6">
+                <div className="flex gap-2 mt-auto pt-6">
                   {inspirationalQuotes.map((_, i) => (
                     <button
                       key={i}
