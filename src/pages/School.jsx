@@ -328,7 +328,7 @@ const School = () => {
             {/* ── Purple Header Banner ── */}
             <div className="bg-[#520378] pt-24 pb-6 sm:pt-36 sm:pb-10 text-center relative z-10 w-full">
                 <div className="max-w-[1240px] mx-auto px-6">
-                    <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
+                    <h1 className="text-[24px] sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
                         SCHOOL-BASED MENTAL HEALTH PROGRAM
                     </h1>
                 </div>
@@ -342,11 +342,11 @@ const School = () => {
                 <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 w-full mb-16 lg:mb-24">
                     {/* Left side text */}
                     <div className="flex-1 max-w-[600px] flex flex-col justify-center">
-                        <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-tight">
+                        <h2 className="text-2xl sm:text-4xl lg:text-[38px] font-bold text-[#062623] leading-[1.1] mb-5 font-inter-tight tracking-wide">
                             Enriching Minds, Empowering<br className="hidden sm:block" /> School Communities
                         </h2>
                         <p className="text-sm lg:text-base sm:text-[17px] text-gray-700 leading-[1.7] mb-6 max-w-[750px] font-medium font-geist">
-                            Transform your campus into a resilient and emotionally healthy community with our School-Based Mental Health Program. Designed to support students, teachers, and parents, the program focuses on nurturing emotional well-being and building practical life skills. With a focus on early identification and timely guidance, we help address concerns before they grow. Together, we foster a compassionate school culture where every child feels safe, heard, and valued.
+                            Transform your campus into a resilient and emotionally healthy community with our school based mental health program. Designed to support students, teachers, and parents, the program focuses on nurturing emotional well-being and building practical life skills. With a focus on early identification and timely guidance, we help address concerns before they grow. Together, we foster a compassionate school culture where every child feels safe, heard, and valued.
                         </p>
                         <div>
                             <button
@@ -426,7 +426,7 @@ const School = () => {
                     style={{ backgroundImage: "url('/images/wdwo.png')" }}
                 >
                     <div className="max-w-[1600px] mx-auto px-6 relative z-10 flex flex-col items-center">
-                        <h2 className="text-white text-[28px] sm:text-[34px] font-bold mb-3 font-inter-tight text-center">
+                        <h2 className="text-white text-[20px] sm:text-[34px] font-bold mb-3 font-inter-tight text-center">
                             What do we offer?
                         </h2>
                         <p className="text-white/90 text-[13px] sm:text-[19px] text-center max-w-[700px] mb-8 sm:mb-10 font-geist leading-[1.6]">

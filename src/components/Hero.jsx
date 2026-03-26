@@ -7,7 +7,7 @@ const Hero = () => {
         {
             image: '/images/hero.png',
             title: <span>Enriching Minds<br />Strengthening Future</span>,
-            description: <span>Confidential, evidence-based mental health and well-being solutions for <span className="sm:whitespace-nowrap">individuals, institutions, and organisations</span></span>,
+            description: <span>Confidential, evidence-based mental health and <br className="sm:hidden" />well-being solutions for <span className="sm:whitespace-nowrap">individuals, institutions, and organisations</span></span>,
             buttonText: "Let's Talk",
             link: "#contact"
         },

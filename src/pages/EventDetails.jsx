@@ -11,10 +11,12 @@ const EventDetails = () => {
     // Testimonials State
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
+    const [otherEventsIndex, setOtherEventsIndex] = useState(0);
 
     // GSAP Refs
     const containerRef = useRef(null);
     const cardRef = useRef(null);
+    const otherEventsScrollRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -115,7 +117,7 @@ const EventDetails = () => {
             ],
             description: [
                 'Trust is the heart of effective counselling. When students feel safe, respected, and heard, they are more likely to open up and seek support.',
-                'This interactive workshop helps counsellors understand how small behaviours—such as listening, empathy, and clear communication - can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
+                'This interactive workshop helps counsellors understand how small behaviours—such as clear communication - can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
             ],
             whatYouLearn: [
                 'Understand why trust and rapport are essential in student counselling.',
@@ -168,25 +170,67 @@ const EventDetails = () => {
 
     const reviews = [
         {
-            name: 'Ananya R.',
-            role: 'Individual Counselling Client',
-            text: 'Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.',
-            rating: 5,
-            date: 'June 2025'
+            name: "Madhavi",
+            role: "Counsellor",
+            text: "Vriksh training webinars are crisp and clearly explained. I thoroughly enjoyed all the sessions. The trainers are highly knowledgeable and experienced. Thank you for such insightful learning experiences.",
+            date: "February 2025",
+            rating: 5
         },
         {
-            name: 'Ananya R.',
-            role: 'Individual Counselling Client',
-            text: 'Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.',
-            rating: 5,
-            date: 'June 2025'
+            name: "Dr. Ashwini Kamath",
+            role: "Special Educator",
+            text: "Very informative and useful seminar on DTLD conducted by Vriksh. I would highly recommend all special educators and counselors to attend their sessions.",
+            date: "October 2025",
+            rating: 5
         },
         {
-            name: 'Ananya R.',
-            role: 'Individual Counselling Client',
-            text: 'Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.',
-            rating: 5,
-            date: 'June 2025'
+            name: "Suriyasre",
+            role: "Counsellor",
+            text: "The workshop on Crisis Intervention was highly informative and interactive — truly worth our time. I sincerely appreciate the effort invested in preparing detailed study material, along with the necessary diagnostic tools relevant to the topic. Thank you for the valuable learning experience.",
+            date: "November 2024",
+            rating: 5
+        },
+        {
+            name: "Pooja",
+            role: "Counsellor",
+            text: "I have attended a few workshops with Vriksh, and each time I was satisfied with the content and the way the sessions were delivered. The experts are highly interactive and engaging. I look forward to learning more with Vriksh.",
+            date: "May 2025",
+            rating: 5
+        },
+        {
+            name: "Dambar Sensei",
+            role: "Counsellor",
+            text: "I have attended two workshops conducted by your organization. The material was very crisp, and the delivery was effective with excellent engagement. The sessions were highly interactive as well. Thank you for the enriching experience.",
+            date: "January 2025",
+            rating: 5
+        },
+        {
+            name: "Veena Padmanabha",
+            role: "Counsellor",
+            text: "An excellent initiative with a professional and well-structured approach. One can truly rely on the information provided. Superb coordination among the team. Highly commendable!",
+            date: "July 2025",
+            rating: 5
+        },
+        {
+            name: "Ananya R.",
+            role: "Individual Counselling Client",
+            text: "Vriksh provided me with a safe and understanding space to express myself. The sessions helped me manage my anxiety and rebuild my confidence step by step. I truly felt heard and supported throughout my journey.",
+            date: "June 2025",
+            rating: 5
+        },
+        {
+            name: "Disha Arunagiri",
+            role: "Counsellor",
+            text: "Vriksh is coming up with a lot of great practical content, and each workshop is worth the money. The sessions are interactive and not just theoretical, which keeps me focused and engaged, listening to every word of the speaker. I would love to learn more from Vriksh. Go for it if you want to improve your practice. Thank you, Vriksh.",
+            date: "January 2025",
+            rating: 5
+        },
+        {
+            name: "Ayesha Barvin",
+            role: "Special Educator",
+            text: "I had a wonderful session with Vriksh and gained a lot of knowledge after joining the course. The time management of the course was excellent. The instructors were very humble and cleared all our doubts patiently.",
+            date: "March 2025",
+            rating: 5
         }
     ];
 
@@ -204,6 +248,27 @@ const EventDetails = () => {
             result.push(reviews[(currentIndex + i) % reviews.length]);
         }
         return result;
+    };
+
+    const handleOtherEventsScroll = () => {
+        if (otherEventsScrollRef.current) {
+            const container = otherEventsScrollRef.current;
+            const scrollLeft = container.scrollLeft;
+            const itemWidth = container.offsetWidth - 48; // Adjust based on -mx-6 px-6 (48px total)
+            const newIndex = Math.round(scrollLeft / itemWidth);
+            setOtherEventsIndex(newIndex);
+        }
+    };
+
+    const scrollToOtherEvent = (index) => {
+        if (otherEventsScrollRef.current) {
+            const container = otherEventsScrollRef.current;
+            const itemWidth = container.offsetWidth - 48;
+            container.scrollTo({
+                left: index * itemWidth,
+                behavior: 'smooth'
+            });
+        }
     };
     const handleEnrollNow = () => {
         if (event.enrollLink) {
@@ -270,7 +335,7 @@ const EventDetails = () => {
             </div>
 
             {/* Content Section */}
-            <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-20 relative">
+            <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-8 sm:pb-20 relative">
                 {/* Flex container that holds everything */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20" ref={containerRef}>
                     {/* Right: Card - Order 1 on mobile, 2 on desktop */}
@@ -390,10 +455,13 @@ const EventDetails = () => {
                         {/* Other Events - Moved inside Left Column */}
                         <div className="mt-20">
                             <h3 className="text-2xl font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
-                            <div className="flex overflow-x-auto gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                            <div 
+                                ref={otherEventsScrollRef}
+                                onScroll={handleOtherEventsScroll}
+                                className="flex overflow-x-auto gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-2 -mx-6 px-6 md:mx-0 md:px-0"
+                            >
                                 {Object.values(eventsData)
                                     .filter(ev => ev.title !== event.title) // Exclude current event
-                                    .slice(0, 2) // Take only "Self Care" and "Building Trust" if event 1 is active
                                     .map((ev, i) => {
                                         // Find the key/id for this event to use in the link
                                         const evId = Object.keys(eventsData).find(key => eventsData[key].title === ev.title);
@@ -411,21 +479,36 @@ const EventDetails = () => {
                                         )
                                     })}
                             </div>
+
+                            {/* Pagination Dots - Mobile Only */}
+                            <div className="flex md:hidden justify-center gap-2 mt-4 pb-6">
+                                {Object.values(eventsData)
+                                    .filter(ev => ev.title !== event.title)
+                                    .map((_, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => scrollToOtherEvent(i)}
+                                            className={`h-1.5 rounded-full transition-all duration-300 ${otherEventsIndex === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-300'
+                                                }`}
+                                            aria-label={`Go to event ${i + 1}`}
+                                        />
+                                    ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* What our Clients say - Local slider to avoid changing Testimonials.jsx */}
-            <section id="testimonials" className="py-12 sm:py-16 bg-[#FEF9E7]">
+            <section id="testimonials" className="pt-6 pb-0 sm:py-16 bg-[#FEF9E7]">
                 <div className="max-w-[1320px] mx-auto px-6">
-                    <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-8 sm:mb-12 gap-6 sm:gap-0">
-                        <div className="max-w-[550px]">
-                            <h2 className="text-2xl md:text-[34px] font-bold text-gray-950 leading-[1.1] text-center sm:text-left font-inter-tight">
+                    <div className="flex flex-row justify-between items-center w-full mb-10 sm:mb-12 gap-4">
+                        <div className="max-w-[250px] sm:max-w-[550px]">
+                            <h2 className="text-xl sm:text-[34px] font-bold text-gray-950 leading-[1.1] text-left font-inter-tight">
                                 What our Clients say
                             </h2>
                         </div>
-                        <div className="flex gap-3 self-end sm:self-auto">
+                        <div className="flex gap-3">
                             <button
                                 onClick={prevSlide}
                                 className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 hover:shadow-md transition-all active:scale-95 group"

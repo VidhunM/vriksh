@@ -167,9 +167,9 @@ const Blogs = () => {
 
             {/* ── Insights for a Healthier Mind Section ── */}
             <div className="max-w-[1240px] mx-auto px-5 sm:px-6 py-8 sm:py-12">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-6 sm:gap-8 mb-8 sm:mb-12">
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-1 sm:gap-8 mb-8 sm:mb-12">
                     <div className="max-w-[800px]">
-                        <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight leading-[1.1] mb-6 sm:mb-8">
+                        <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight leading-[1.1] mb-3 sm:mb-8">
                             Insights for a <br className="hidden sm:block" /> Healthier Mind
                         </h2>
 

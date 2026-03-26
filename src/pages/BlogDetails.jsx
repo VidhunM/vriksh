@@ -365,7 +365,7 @@ const BlogDetails = () => {
 
                 {/* ── Article Content ── */}
                 {content && (
-                    <div className="w-full mx-auto mb-12 sm:mb-20 text-justify px-1 sm:px-0">
+                    <div className="w-full mx-auto mb-12 sm:mb-20 text-left sm:text-justify px-4 sm:px-0">
                         {content}
                     </div>
                 )}

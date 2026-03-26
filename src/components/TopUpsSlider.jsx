@@ -52,7 +52,7 @@ const CardContent = ({ program }) => {
                 </div>
                 <div className="md:w-[55%] p-5 md:p-12 flex flex-col justify-center text-left">
                     <h3 className="text-[#1A1A1A] text-lg md:text-[clamp(18px,4vw,42px)] font-bold mb-2.5 tracking-tight md:leading-[1.1]">{program.title}</h3>
-                    <p className="text-[#1A1A1A] text-[11px] md:text-[18px] font-medium mb-2 opacity-90">{program.subtext}</p>
+                    <p className="text-[#1A1A1A] text-[14px] md:text-[18px] font-medium mb-2 opacity-90">{program.subtext}</p>
                     <p className="text-[#475467] text-[10px] md:text-base leading-relaxed mb-5">{program.desc}</p>
                     <button
                         onClick={handleEnquireClick}

@@ -126,7 +126,7 @@ const ContactFooter = () => {
                         {/* Right Side: Form */}
                         <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start mt-4 lg:mt-0">
                             <h3 className="text-[18px] lg:text-[22px] font-bold text-[#520378] mb-4 lg:mb-8 leading-snug text-center lg:text-left">
-                                Start your journey with us - Enriching Minds.
+                                Start your journey with us - <br className="sm:hidden" />Enriching Minds.
                             </h3>
                             <form className="space-y-4 w-full">
                                 <div className="grid sm:grid-cols-2 gap-5">

@@ -312,7 +312,7 @@ const Counselling2 = () => {
                         <h3 className="text-[18px] font-semibold text-gray-900 mb-3 font-inter-tight leading-tight">
                           {service.title}
                         </h3>
-                        <p className="text-[14px] text-gray-700 leading-[1.6] mb-5 flex-1 font-geist">
+                        <p className="text-[14px] text-gray-700 leading-[1.6] mb-2 flex-1 font-geist">
                           {service.description}
                         </p>
                         <button
