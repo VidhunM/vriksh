@@ -85,23 +85,44 @@ const expertTabs = [
   {
     id: 'experience',
     label: 'Experience',
-    content: "Our counselors hold a Master's degree in Psychology and bring years of experience in providing compassionate counselling and therapy.",
+    content: (
+      <>
+        Our counselors hold a Master's degree in Psychology and bring years of experience in providing compassionate
+        counselling and therapy.
+      </>
+    ),
   },
   {
     id: 'expertise',
     label: 'Expertise',
-    content: 'Our counsellors are skilled in a range of evidence-based therapeutic approaches, supporting individuals through diverse emotional and behavioural challenges with care and understanding.',
+    content: (
+      <>
+        Our counsellors are skilled in a range of evidence-based therapeutic approaches, supporting individuals through
+        diverse emotional and behavioural challenges with care and understanding.
+      </>
+    ),
   },
   {
     id: 'well-trained',
     label: 'Well-Trained',
-    content: ' Our team undergoes continuous professional training to deepen their knowledge, sharpen their counselling skills, and provide thoughtful, effective support.',
+    content: (
+      <>
+        Our team undergoes continuous professional training to deepen their knowledge, sharpen their counselling skills,
+        and provide thoughtful, effective support.
+      </>
+    ),
   },
   {
     id: 'open-minded',
     label: 'Open-Minded',
-    content: 'Our counselors listen with empathy and respect, creating a safe, non-judgmental space where individuals feel heard, valued, and supported in their healing journey. ',
-  }
+    content: (
+      <>
+        Our counselors listen with empathy and respect, creating a safe,{' '}
+        <span className="whitespace-nowrap">non-judgmental</span> space where individuals feel heard, valued, and
+        supported in their healing journey.
+      </>
+    ),
+  },
 ];
 
 const inspirationalQuotes = [
@@ -759,7 +780,7 @@ const Counselling2 = () => {
                       <option value="children">Children & Adolescent</option>
                       <option value="academic">Academic & Career</option>
                       <option value="corporate">Corporate / Workplace</option>
-                      
+
                       <option value="other">Other</option>
                     </select>
                   </div>

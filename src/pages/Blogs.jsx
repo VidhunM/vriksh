@@ -192,7 +192,7 @@ const Blogs = () => {
 
                     <div className="lg:max-w-[500px]">
                         <p className="text-[#4A5568] text-[14px] sm:text-[19px] font-geist leading-[1.6] sm:leading-[1.7]">
-                            Thoughtful articles, practical guidance, and expert perspectives from Vriksh Enriching Minds to help individuals,
+                            Thoughtful articles, practical guidance, and expert perspectives to help individuals,
                             students, and professionals build emotional resilience and mental wellbeing.
                         </p>
                     </div>

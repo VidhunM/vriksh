@@ -8,7 +8,7 @@ const tabs = [
     "Career Guidance & Support",
     "Workshops for Students & Staff",
     "Psychometric Assessment Program",
-    "In-Depth Analytics & Reporting – College"
+    "In-Depth Analytics & Reporting "
 ];
 
 const collegeCounsellingCards = [
