@@ -8,6 +8,8 @@ const Events = () => {
             id: 1,
             image: '/images/uc1.jpeg',
             title: 'ADHD Toolkit – Practical Strategies & Activities',
+            date: '20-03-2026',
+            time: '5:00PM - 6:30 PM',
             rating: 4.9,
             originalPrice: '₹1500',
             currentPrice: '₹1000'
@@ -16,6 +18,8 @@ const Events = () => {
             id: 2,
             image: '/images/uc2.jpeg',
             title: 'Self-Care: Pause, Recharge & Reconnect',
+            date: '04-04-2026',
+            time: '6:00PM - 7:00 PM',
             rating: 4.9,
             originalPrice: '₹850',
             currentPrice: 'FREE'
@@ -24,6 +28,8 @@ const Events = () => {
             id: 3,
             image: '/images/uc3.jpeg',
             title: 'Building Trust with Students in Counselling Sessions.',
+            date: '23-03-2026',
+            time: '6:00PM - 7:00 PM',
             rating: 4.9,
             originalPrice: '₹850',
             currentPrice: 'FREE'
@@ -85,10 +91,29 @@ const Events = () => {
                                             <h3 className="text-[15px] sm:text-[17px] font-bold mb-2 sm:mb-3 text-gray-950 leading-snug h-[40px] sm:h-[45px] overflow-hidden">
                                                 {event.title}
                                             </h3>
-                                            <div className="flex items-center gap-1.5 mb-6">
+                                            <div className="flex items-center gap-1.5 mb-3">
                                                 <span className="text-[16px] text-gray-600 font-bold">({event.rating})</span>
                                                 <div className="flex text-orange-400 text-[15px]">
                                                     {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                                </div>
+                                            </div>
+                                            {/* Date and Time */}
+                                            <div className="flex flex-col gap-1 mb-4 text-[12px] font-bold text-gray-700">
+                                                <div className="flex items-center gap-2">
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                    </svg>
+                                                    {event.date}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                                        <circle cx="12" cy="12" r="10"></circle>
+                                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                                    </svg>
+                                                    {event.time}
                                                 </div>
                                             </div>
                                             <div className="flex justify-between items-center gap-2">
@@ -122,10 +147,29 @@ const Events = () => {
                                 <h3 className="text-[18px] font-bold mb-3 text-gray-950 leading-snug h-[50px] overflow-hidden">
                                     {event.title}
                                 </h3>
-                                <div className="flex items-center gap-2 mb-6">
+                                <div className="flex items-center gap-2 mb-3">
                                     <span className="text-[18px] text-gray-600 font-bold">({event.rating})</span>
                                     <div className="flex text-orange-400 text-[17px]">
                                         {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                    </div>
+                                </div>
+                                {/* Date and Time */}
+                                <div className="flex items-center gap-5 mb-5 text-[14px] font-bold text-gray-700">
+                                    <div className="flex items-center gap-2">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                        {event.date}
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        {event.time}
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center gap-6">

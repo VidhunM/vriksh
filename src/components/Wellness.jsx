@@ -25,13 +25,13 @@ const Wellness = () => {
                                 Vriksh Institution Wellness Program
                             </h2>
 
-                            <p className="text-sm sm:text-[19px] lg:text-[15px] text-gray-800 leading-relaxed font-normal mb-6 sm:mb-8 text-center lg:text-left">
+                            <p className="text-base sm:text-[20px] lg:text-[18px] text-gray-800 leading-relaxed font-normal mb-6 sm:mb-8 text-center lg:text-left">
                                 Want to build a supportive ecosystem that empowers your students to thrive emotionally and academically?
                                 We partner with schools and colleges to strengthen student communities through counselling, career guidance, life skills training, personality development, and more - nurturing confident, resilient young individuals.
                             </p>
 
                             <div className="mb-6 lg:mb-10 w-full flex flex-col items-center lg:items-start">
-                                <h4 className="text-xl sm:text-[17px] font-bold text-gray-900 mb-3 sm:mb-5 text-center lg:text-left">Choose Your Institution</h4>
+                                <h4 className="text-xl sm:text-[22px] font-bold text-gray-900 mb-3 sm:mb-5 text-center lg:text-left">Choose Your Institution</h4>
                                 <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                                     <button
                                         onClick={() => navigate('/school')}

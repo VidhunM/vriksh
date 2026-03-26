@@ -42,7 +42,7 @@ const Hero = () => {
         },
         {
             image: '/images/banner 6.png',
-            title: <span>Stronger employees. Resilient teams.<br className="hidden sm:block" />Powered by Vriksh EAP</span>,
+            title: "Stronger employees. Resilient teams. Powered by Vriksh EAP",
             description: "",
             buttonText: "Get Started",
             link: "/corporate-eap#contact"

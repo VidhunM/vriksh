@@ -20,7 +20,7 @@ const Training = () => {
                 <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center relative z-10">
                     <div className="max-w-[1240px] mx-auto px-6">
                         <h1 className="text-white text-xl sm:text-[clamp(26px,4vw,40px)] font-bold tracking-wide sm:tracking-[0.08em] uppercase font-inter-tight">
-                            TRAINING
+                            TRAINING PROGRAMS
                         </h1>
                     </div>
                 </div>
