@@ -203,6 +203,67 @@ const Counselling2 = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // ✅ NEW FORM STATE
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    age: '',
+    support: '',
+    datetime: '',
+    message: ''
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  // ✅ NEW FUNCTIONS
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.phone) {
+      alert("Please fill required fields");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzPTZch4Xvd7OcwAr6Pt7LuCqOA_LOO-i8dRMCQE5U1-wjx1fa1S8LE3iF7B28SVfUwTA/exec", {
+        method: "POST",
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        alert("Form submitted successfully!");
+
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          age: '',
+          support: '',
+          datetime: '',
+          message: ''
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error submitting form");
+    }
+
+    setLoading(false);
+  };
+
+
   return (
     <section className="bg-white pt-0">
       {/* Banner + Hero */}
@@ -727,22 +788,30 @@ const Counselling2 = () => {
               <p className="text-[13px] sm:text-[19px] text-gray-600 mb-8 font-geist text-center lg:text-left">
                 Reach out for support. We&apos;re here to listen.
               </p>
-              <form className="space-y-4 w-full">
+              <form className="space-y-4 w-full" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Full Name</label>
                     <input
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
                       placeholder="Enter your name"
+                      required
                     />
                   </div>
                   <div className="space-y-1.5">
                     <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Email Address</label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
                       placeholder="you@example.com"
+                      required
                     />
                   </div>
                 </div>
@@ -751,14 +820,21 @@ const Counselling2 = () => {
                     <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Phone Number</label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] transition-all"
                       placeholder="Enter phone number"
+                      required
                     />
                   </div>
                   <div className="space-y-1.5">
                     <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Age</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer transition-all"
+                      name="age"
+                      value={formData.age}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] appearance-none cursor-pointer transition-all"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select age</option>
@@ -772,7 +848,10 @@ const Counselling2 = () => {
                   <div className="space-y-1.5">
                     <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Type of Support Needed</label>
                     <select
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white appearance-none cursor-pointer transition-all"
+                      name="support"
+                      value={formData.support}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] appearance-none cursor-pointer transition-all"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25rem', paddingRight: '2.5rem' }}
                     >
                       <option value="">Select type</option>
@@ -780,7 +859,6 @@ const Counselling2 = () => {
                       <option value="children">Children & Adolescent</option>
                       <option value="academic">Academic & Career</option>
                       <option value="corporate">Corporate / Workplace</option>
-
                       <option value="other">Other</option>
                     </select>
                   </div>
@@ -788,7 +866,10 @@ const Counselling2 = () => {
                     <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Preferred Date and Time</label>
                     <input
                       type="datetime-local"
-                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] bg-white cursor-pointer transition-all"
+                      name="datetime"
+                      value={formData.datetime}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] cursor-pointer transition-all"
                     />
                   </div>
                 </div>
@@ -796,15 +877,19 @@ const Counselling2 = () => {
                   <label className="block text-[14px] sm:text-[15px] font-medium text-gray-700">Message</label>
                   <textarea
                     rows="4"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full border border-gray-300 rounded-[8px] px-3 py-2.5 sm:py-3 text-[14px] sm:text-[15px] outline-none focus:ring-1 focus:ring-[#520378]/40 focus:border-[#520378] resize-none transition-all"
                     placeholder="Share your message or concerns"
                   />
                 </div>
                 <button
-                  type="button"
-                  className="w-full sm:w-auto bg-[#520378] hover:bg-[#400260] text-white font-bold text-[14px] sm:text-[16px] px-10 py-3 rounded-full shadow-md transition-all active:scale-95 mt-2"
+                  type="submit"
+                  disabled={loading}
+                  className="w-full sm:w-auto bg-[#520378] hover:bg-[#400260] text-white font-bold text-[14px] sm:text-[16px] px-10 py-3 rounded-full shadow-md transition-all active:scale-95 mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Submit
+                  {loading ? "Submitting..." : "Submit"}
                 </button>
               </form>
             </div>
