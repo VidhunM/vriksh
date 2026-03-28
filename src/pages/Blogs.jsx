@@ -53,7 +53,11 @@ const Blogs = () => {
     const [blogIndex, setBlogIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
 
-    const filteredPosts = blogPosts.filter(post => post.category === activeCategory);
+    const [apiBlogs, setApiBlogs] = useState([]);
+
+    const allBlogs = [...blogPosts, ...apiBlogs];
+
+    const filteredPosts = allBlogs.filter(post => post.category === activeCategory);
 
     useEffect(() => {
         const handleResize = () => {
@@ -62,6 +66,13 @@ const Blogs = () => {
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+    fetch("http://localhost:5000/blogs")
+        .then(res => res.json())
+        .then(data => setApiBlogs(data))
+        .catch(err => console.log(err));
     }, []);
 
     // Reset index when category changes
@@ -226,7 +237,7 @@ const Blogs = () => {
                         >
                             {filteredPosts.map((post) => (
                                 <div key={post.id} className="group cursor-pointer flex-none w-full sm:w-auto bg-white rounded-[24px] overflow-hidden border border-gray-100 sm:border-none sm:bg-transparent shadow-sm sm:shadow-none pb-6 sm:pb-0 transition-all">
-                                    <Link to={`/blog/${post.id}`}>
+                                    <Link to={`/blog/${post._id || post.id}`}>
                                         <div className="aspect-[16/10] sm:aspect-[4/3] mb-5 sm:mb-6 overflow-hidden sm:rounded-[20px]">
                                             <img
                                                 src={post.image}
@@ -244,7 +255,7 @@ const Blogs = () => {
                                         </div>
                                     </Link>
                                     <div className="px-5 sm:px-0">
-                                        <Link to={`/blog/${post.id}`} className="inline-flex items-center gap-2 text-[#520378] font-bold text-[14px] group/link">
+                                        <Link to={`/blog/${post._id || post.id}`} className="inline-flex items-center gap-2 text-[#520378] font-bold text-[14px] group/link">
                                             <span className="group-hover/link:underline">Read more</span>
                                             <svg className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                                         </Link>

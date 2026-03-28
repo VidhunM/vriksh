@@ -8,6 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const EventDetails = () => {
     const { id } = useParams();
 
+    const defaultRegistrationLink =
+        "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
+
+    const [apiEvent, setApiEvent] = useState(null);
+    const [allEvents, setAllEvents] = useState([]);
+
     // Testimonials State
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
@@ -60,7 +66,9 @@ const EventDetails = () => {
             whoFor: [
                 "Parents", "Teachers", "Psychology students", "Counsellors",
                 "Anyone interested in understanding and supporting children with ADHD"
-            ]
+            ],
+            enrollLink: defaultRegistrationLink,
+            whatsappLink: defaultRegistrationLink
         },
         '2': {
             title: 'Self-Care: Pause, Recharge & Reconnect',
@@ -94,8 +102,8 @@ const EventDetails = () => {
             whoFor: [
                 'Students, working professionals, parents, educators, and anyone who wants to prioritize their mental and emotional well-being.'
             ],
-            enrollLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfD_XU_your_form_id/viewform',
-            whatsappLink: 'https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform?usp=publish-editor'
+            enrollLink: defaultRegistrationLink,
+            whatsappLink: defaultRegistrationLink
         },
         '3': {
             title: 'Building Trust with Students in Counselling Sessions',
@@ -117,7 +125,7 @@ const EventDetails = () => {
             ],
             description: [
                 'Trust is the heart of effective counselling. When students feel safe, respected, and heard, they are more likely to open up and seek support.',
-                'This interactive workshop helps counsellors understand how small behaviours - such as clear communication can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
+                'This interactive workshop helps counsellors understand how small behaviours—such as clear communication - can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
             ],
             whatYouLearn: [
                 'Understand why trust and rapport are essential in student counselling.',
@@ -128,14 +136,80 @@ const EventDetails = () => {
             ],
             whoFor: [
                 'School counsellors, college counsellors, psychologists, educators, and professionals who work closely with students and want to strengthen their counselling practice.'
-            ]
+            ],
+            enrollLink: defaultRegistrationLink,
+            whatsappLink: defaultRegistrationLink
         }
     };
 
-    // Default to event 1 if no ID or invalid ID
-    const event = eventsData[id] || eventsData['1'];
+    useEffect(() => {
+        fetch(`http://localhost:5000/events/${id}`)
+            .then((res) => {
+                if (!res.ok) return null;
+                return res.json();
+            })
+            .then((data) => {
+                if (data && !data.error) {
+                    setApiEvent(data);
+                } else {
+                    setApiEvent(null);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                setApiEvent(null);
+            });
+    }, [id]);
 
-    // Smooth Floating Card Effect using GSAP
+    useEffect(() => {
+        fetch("http://localhost:5000/events")
+            .then((res) => {
+                if (!res.ok) return [];
+                return res.json();
+            })
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    setAllEvents(data);
+                } else {
+                    setAllEvents([]);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                setAllEvents([]);
+            });
+    }, []);
+
+    const fallbackEvent = eventsData[id] || eventsData['1'];
+
+    const event = apiEvent
+        ? {
+            ...apiEvent,
+            rating: apiEvent.rating || 4.9,
+            createdBy: apiEvent.createdBy || 'Vriksh Psychological Support Services | Vriksh E-Academy',
+            lastUpdated: apiEvent.lastUpdated || '2026',
+            language: apiEvent.language || 'English',
+            summary: apiEvent.summary || apiEvent.description || '',
+            description: Array.isArray(apiEvent.description)
+                ? apiEvent.description
+                : [apiEvent.description || ''],
+            whatYouLearn: Array.isArray(apiEvent.whatYouLearn) && apiEvent.whatYouLearn.length > 0
+                ? apiEvent.whatYouLearn
+                : [],
+            whoFor: Array.isArray(apiEvent.whoFor) && apiEvent.whoFor.length > 0
+                ? apiEvent.whoFor
+                : [],
+            enrollLink: apiEvent.registrationLink || defaultRegistrationLink,
+            whatsappLink: apiEvent.registrationLink || defaultRegistrationLink
+        }
+        : fallbackEvent;
+
+    const otherEvents = allEvents.length > 0
+        ? allEvents.filter((ev) => (ev._id || ev.id) !== (apiEvent?._id || apiEvent?.id))
+        : Object.entries(eventsData)
+            .filter(([key]) => key !== id)
+            .map(([key, value]) => ({ ...value, _fallbackId: key }));
+
     useEffect(() => {
         let ctx = gsap.context(() => {
             const mm = gsap.matchMedia();
@@ -145,7 +219,6 @@ const EventDetails = () => {
                 const card = cardRef.current;
 
                 if (container && card) {
-                    // 380 margin-top compensate + flex item padding
                     const maxTranslate = container.offsetHeight - card.offsetHeight + 380;
 
                     if (maxTranslate > 0) {
@@ -154,9 +227,9 @@ const EventDetails = () => {
                             ease: "none",
                             scrollTrigger: {
                                 trigger: container,
-                                start: "top top+=128", // Start when top of container hits 128px from top of viewport
-                                end: "bottom bottom", // End when bottom of container hits bottom of viewport
-                                scrub: 1.5, // 1.5 second lag for smooth floating effect
+                                start: "top top+=128",
+                                end: "bottom bottom",
+                                scrub: 1.5,
                                 invalidateOnRefresh: true
                             }
                         });
@@ -254,7 +327,7 @@ const EventDetails = () => {
         if (otherEventsScrollRef.current) {
             const container = otherEventsScrollRef.current;
             const scrollLeft = container.scrollLeft;
-            const itemWidth = container.offsetWidth - 48; // Adjust based on -mx-6 px-6 (48px total)
+            const itemWidth = container.offsetWidth - 48;
             const newIndex = Math.round(scrollLeft / itemWidth);
             setOtherEventsIndex(newIndex);
         }
@@ -270,23 +343,17 @@ const EventDetails = () => {
             });
         }
     };
+
     const handleEnrollNow = () => {
-        if (event.enrollLink) {
-            window.open(event.enrollLink, '_blank');
-        } else {
-            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-        }
+        window.open(event.enrollLink || defaultRegistrationLink, '_blank');
     };
 
     const handleWhatsappJoin = () => {
-        if (event.whatsappLink) {
-            window.open(event.whatsappLink, '_blank');
-        }
+        window.open(event.whatsappLink || defaultRegistrationLink, '_blank');
     };
 
     return (
         <div className="bg-white min-h-screen">
-            {/* Hero Section */}
             <div className="bg-[#520378] pt-28 pb-12 sm:pt-40 sm:pb-20">
                 <div className="max-w-[1320px] mx-auto px-6 relative">
                     <div className="lg:w-2/3">
@@ -297,7 +364,6 @@ const EventDetails = () => {
                             {event.summary}
                         </p>
 
-                        {/* Rating */}
                         <div className="flex items-center gap-2.5 mb-8">
                             <div className="w-6 h-6 flex items-center justify-center">
                                 <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -314,12 +380,10 @@ const EventDetails = () => {
                             </div>
                         </div>
 
-                        {/* Badges - White pill with purple text */}
                         <div className="bg-white rounded-full px-5 py-2.5 w-fit mb-8 shadow-sm">
                             <span className="text-[#520378] text-sm font-bold">{event.createdBy}</span>
                         </div>
 
-                        {/* Meta */}
                         <div className="flex items-center gap-6 text-white text-sm sm:text-base font-medium">
                             <div className="flex items-center gap-2">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -334,15 +398,10 @@ const EventDetails = () => {
                 </div>
             </div>
 
-            {/* Content Section */}
             <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-8 sm:pb-20 relative">
-                {/* Flex container that holds everything */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20" ref={containerRef}>
-                    {/* Right: Card - Order 1 on mobile, 2 on desktop */}
                     <div className="lg:w-1/3 relative z-20 order-1 lg:order-2">
-                        {/* Remove lg:sticky and lg:top-32, replacing with GSAP control */}
                         <div ref={cardRef} className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:-mt-[380px] will-change-transform">
-                            {/* Card Image */}
                             <div className="aspect-video relative overflow-hidden">
                                 <img
                                     src={event.image}
@@ -351,9 +410,7 @@ const EventDetails = () => {
                                 />
                             </div>
 
-                            {/* Card Details */}
                             <div className="p-6">
-                                {/* Info Grid */}
                                 <div className="grid grid-cols-2 gap-y-6 mb-8">
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
@@ -400,59 +457,57 @@ const EventDetails = () => {
                                     >
                                         Enroll Now
                                     </button>
-                                    {event.whatsappLink && (
-                                        <button
-                                            onClick={handleWhatsappJoin}
-                                            className="w-full border-2 border-[#520378] text-[#520378] py-3.5 rounded-full font-bold text-lg hover:bg-[#520378] hover:text-white transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-                                        >
-                                            Register Here
-                                        </button>
-                                    )}
+                                    <button
+                                        onClick={handleWhatsappJoin}
+                                        className="w-full border-2 border-[#520378] text-[#520378] py-3.5 rounded-full font-bold text-lg hover:bg-[#520378] hover:text-white transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                                    >
+                                        Register Here
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Left: Description, What you'll learn, Who For, Other Events - Order 2 on mobile, 1 on desktop */}
                     <div className="lg:w-2/3 order-2 lg:order-1">
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-6 font-inter-tight">Description:</h2>
                         <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed">
                             {event.description.map((p, i) => (
-                                <p key={i} className="mb-4">{p}</p>
+                                <p key={i} className="mb-4 whitespace-pre-line">{p}</p>
                             ))}
                         </div>
 
-                        {/* What you'll learn */}
-                        <div className="mt-12 bg-[#FFFDEA] rounded-2xl p-8 sm:p-10 border border-[#F3E6C7]">
-                            <h3 className="text-2xl sm:text-2xl font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
-                            <ul className="space-y-6">
-                                {event.whatYouLearn.map((item, i) => (
-                                    <li key={i} className="flex items-start gap-4 group">
-                                        <div className="mt-1 bg-black rounded-full p-1 shrink-0">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                        </div>
-                                        <span className="text-gray-700 text-[15px] sm:text-[17px] leading-relaxed font-geist">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Who this session is for - Moved inside Left Column */}
-                        <div className="mt-16">
-                            <h3 className="text-2xl font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
-                            <div className="flex flex-wrap gap-x-10 gap-y-6 mb-6">
-                                {event.whoFor.map((audience, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <div className="bg-black rounded-full p-0.5 shrink-0">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                        </div>
-                                        <span className="text-gray-700 text-[16px] font-medium font-geist">{audience}</span>
-                                    </div>
-                                ))}
+                        {event.whatYouLearn && event.whatYouLearn.length > 0 && (
+                            <div className="mt-12 bg-[#FFFDEA] rounded-2xl p-8 sm:p-10 border border-[#F3E6C7]">
+                                <h3 className="text-2xl sm:text-2xl font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
+                                <ul className="space-y-6">
+                                    {event.whatYouLearn.map((item, i) => (
+                                        <li key={i} className="flex items-start gap-4 group">
+                                            <div className="mt-1 bg-black rounded-full p-1 shrink-0">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            </div>
+                                            <span className="text-gray-700 text-[15px] sm:text-[17px] leading-relaxed font-geist">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                        </div>
+                        )}
 
-                        {/* Other Events - Moved inside Left Column */}
+                        {event.whoFor && event.whoFor.length > 0 && (
+                            <div className="mt-16">
+                                <h3 className="text-2xl font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
+                                <div className="flex flex-wrap gap-x-10 gap-y-6 mb-6">
+                                    {event.whoFor.map((audience, i) => (
+                                        <div key={i} className="flex items-center gap-3">
+                                            <div className="bg-black rounded-full p-0.5 shrink-0">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            </div>
+                                            <span className="text-gray-700 text-[16px] font-medium font-geist">{audience}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         <div className="mt-20">
                             <h3 className="text-2xl font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
                             <div
@@ -460,46 +515,38 @@ const EventDetails = () => {
                                 onScroll={handleOtherEventsScroll}
                                 className="flex overflow-x-auto gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-2 -mx-6 px-6 md:mx-0 md:px-0"
                             >
-                                {Object.values(eventsData)
-                                    .filter(ev => ev.title !== event.title) // Exclude current event
-                                    .map((ev, i) => {
-                                        // Find the key/id for this event to use in the link
-                                        const evId = Object.keys(eventsData).find(key => eventsData[key].title === ev.title);
-                                        return (
-                                            <Link
-                                                to={`/event-details/${evId}`}
-                                                key={i}
-                                                className={`shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white hover:bg-[#F3F3F3] rounded-[16px] px-6 py-5 flex flex-row items-center shadow-sm border border-gray-100 transition-all duration-300 group cursor-pointer justify-center min-h-[100px]`}
-                                            >
-                                                {/* Card Content - Just Title */}
-                                                <h3 className={`text-[16px] xl:text-[18px] font-bold text-gray-950 group-hover:text-[#520378] leading-tight font-geist text-center transition-colors m-0`}>
-                                                    {ev.title}
-                                                </h3>
-                                            </Link>
-                                        )
-                                    })}
+                                {otherEvents.map((ev, i) => {
+                                    const evId = ev._id || ev.id || ev._fallbackId;
+                                    return (
+                                        <Link
+                                            to={`/event-details/${evId}`}
+                                            key={evId || i}
+                                            className="shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white hover:bg-[#F3F3F3] rounded-[16px] px-6 py-5 flex flex-row items-center shadow-sm border border-gray-100 transition-all duration-300 group cursor-pointer justify-center min-h-[100px]"
+                                        >
+                                            <h3 className="text-[16px] xl:text-[18px] font-bold text-gray-950 group-hover:text-[#520378] leading-tight font-geist text-center transition-colors m-0">
+                                                {ev.title}
+                                            </h3>
+                                        </Link>
+                                    );
+                                })}
                             </div>
 
-                            {/* Pagination Dots - Mobile Only */}
                             <div className="flex md:hidden justify-center gap-2 mt-4 pb-6">
-                                {Object.values(eventsData)
-                                    .filter(ev => ev.title !== event.title)
-                                    .map((_, i) => (
-                                        <button
-                                            key={i}
-                                            onClick={() => scrollToOtherEvent(i)}
-                                            className={`h-1.5 rounded-full transition-all duration-300 ${otherEventsIndex === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-300'
-                                                }`}
-                                            aria-label={`Go to event ${i + 1}`}
-                                        />
-                                    ))}
+                                {otherEvents.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => scrollToOtherEvent(i)}
+                                        className={`h-1.5 rounded-full transition-all duration-300 ${otherEventsIndex === i ? 'w-6 bg-[#520378]' : 'w-1.5 bg-gray-300'
+                                            }`}
+                                        aria-label={`Go to event ${i + 1}`}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* What our Clients say - Local slider to avoid changing Testimonials.jsx */}
             <section id="testimonials" className="pt-6 pb-0 sm:py-16 bg-[#FEF9E7]">
                 <div className="max-w-[1320px] mx-auto px-6">
                     <div className="flex flex-row justify-between items-center w-full mb-10 sm:mb-12 gap-4">
@@ -579,7 +626,6 @@ const EventDetails = () => {
                     )}
                 </div>
             </section>
-
         </div>
     );
 };

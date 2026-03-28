@@ -98,6 +98,7 @@ const UpcomingEvents = () => {
         }
     ];
 
+    const [events, setEvents] = useState([]);
     const [testIndex, setTestIndex] = useState(0);
     const [openIndex, setOpenIndex] = useState(null);
     const [activeCardId, setActiveCardId] = useState(null);
@@ -106,6 +107,9 @@ const UpcomingEvents = () => {
     const programTimerRef = useRef(null);
     const getProgramDuration = () => (window.matchMedia('(max-width: 767px)').matches ? 12000 : 3000);
     const [mobileTestNav, setMobileTestNav] = useState(null);
+
+    const defaultRegistrationLink =
+        "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
 
     const programCards = [
         {
@@ -127,6 +131,25 @@ const UpcomingEvents = () => {
             link: "/certificate"
         }
     ];
+
+    useEffect(() => {
+        fetch("http://localhost:5000/events")
+            .then((res) => {
+                if (!res.ok) return [];
+                return res.json();
+            })
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    setEvents(data);
+                } else {
+                    setEvents([]);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                setEvents([]);
+            });
+    }, []);
 
     useEffect(() => {
         const start = () => {
@@ -173,15 +196,14 @@ const UpcomingEvents = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // Auto-slide for testimonials on mobile
     useEffect(() => {
         const interval = window.innerWidth < 768 ? 12000 : 5000;
         const timer = setInterval(() => {
-            return; // disabled on mobile and desktop
+            return;
         }, interval);
         return () => clearInterval(timer);
     }, [totalSlides]);
-    // --- Event Slider Logic ---
+
     const eventsScrollRef = React.useRef(null);
 
     const scrollEventsLeft = () => {
@@ -196,12 +218,10 @@ const UpcomingEvents = () => {
         }
     };
 
-    // Auto-scroll disabled: mobile uses manual buttons only
     useEffect(() => { }, []);
 
     return (
         <div className="pt-0">
-            {/* Header Banner - Centered alignment requested */}
             <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 text-center">
                 <div className="max-w-[1320px] mx-auto px-6">
                     <h1 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-wider font-inter-tight">
@@ -210,14 +230,11 @@ const UpcomingEvents = () => {
                 </div>
             </div>
 
-            {/* Main Content */}
             <div
                 className="pt-4 pb-8 sm:py-12 overflow-hidden"
                 style={{ background: 'linear-gradient(180deg, #FFFAE4 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-6 lg:gap-12 xl:gap-20">
-
-                    {/* Left Column: Text Content */}
                     <div className="flex-1 text-left">
                         <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 leading-[1.25] mb-6 sm:mb-8 font-geist tracking-normal shrink-0">
                             Bridging Education to <br className="hidden sm:block" /> Professional Practice
@@ -235,7 +252,6 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Right Column: New Composite Hero Image */}
                     <div className="flex-1 relative w-full lg:w-auto flex items-center justify-center xl:translate-x-10">
                         <img
                             src="/images/Vriksh upcoming events (1) 1.png"
@@ -246,10 +262,8 @@ const UpcomingEvents = () => {
                 </div>
             </div>
 
-            {/* Explore Upcoming Events Section */}
             <div className="bg-white py-4 sm:py-6">
                 <div className="max-w-[1320px] mx-auto px-6">
-                    {/* Header with Title and Nav Arrows */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6">
                         <div className="max-w-[800px]">
                             <h2 className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2 text-gray-900 font-geist">
@@ -282,124 +296,104 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Events Grid / Mobile Slider */}
                     <div
                         ref={eventsScrollRef}
                         className="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-3 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
                     >
-                        {[
-                            {
-                                id: 1,
-                                image: "/images/uc1.jpeg",
-                                title: "ADHD Toolkit – Practical Strategies & Activities",
-                                description: "Practical strategies and 20+ activities to improve focus, attention, and impulse control",
-                                date: "20-03-2026",
-                                time: "5:00PM - 6:30 PM",
-                                rating: "4.9",
-                                price: "Rs.1000"
-                            },
-                            {
-                                id: 2,
-                                image: "/images/uc2.jpeg",
-                                title: "Self-Care: Pause, Recharge & Reconnect",
-                                description: "Learn simple strategies to nurture emotional well-being and manage everyday stress.",
-                                date: "04-04-2026",
-                                time: "6:00PM - 7:00 PM",
-                                rating: "4.9",
-                                price: "FREE"
-                            },
-                            {
-                                id: 3,
-                                image: "/images/uc3.jpeg",
-                                title: "Building Trust with Students in Counselling Sessions",
-                                description: "Fostering trust for open and meaningful counselling conversations.",
-                                date: "23-03-2026",
-                                time: "6:00PM - 7:00 PM",
-                                rating: "4.9",
-                                price: "FREE"
-                            }
-                        ].map((event) => (
-                            <div
-                                key={event.id}
-                                onClick={() => setActiveCardId(activeCardId === event.id ? null : event.id)}
-                                className={`shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-center ${activeCardId === event.id ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
-                            >
-                                {/* Card Image - Full Bleed with Internal Padding effect */}
-                                <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
-                                    <img
-                                        src={event.image}
-                                        alt={event.title}
-                                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                                    />
-                                </div>
+                        {events.map((event) => {
+                            const eventId = event._id || event.id;
 
-                                {/* Card Content */}
-                                <div className="px-5 pb-5 flex flex-col flex-grow">
-                                    <h3 className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist`}>
-                                        {event.title}
-                                    </h3>
-                                    <p className={`text-[14px] ${activeCardId === event.id ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3`}>
-                                        {event.description}
-                                    </p>
-
-                                    <div className={`h-px ${activeCardId === event.id ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>
-
-                                    <p className={`text-[12px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white mb-2 flex items-center gap-2`}>
-                                        Live | Online | Workshop
-                                    </p>
-
-                                    {/* Date and Time */}
-                                    <div className={`flex flex-wrap gap-x-4 gap-y-1 mb-4 text-[12px] font-bold ${activeCardId === event.id ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
-                                        <div className="flex items-center gap-2">
-                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
-                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                                            </svg>
-                                            {event.date}
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
-                                                <circle cx="12" cy="12" r="10"></circle>
-                                                <polyline points="12 6 12 12 16 14"></polyline>
-                                            </svg>
-                                            {event.time}
-                                        </div>
+                            return (
+                                <div
+                                    key={eventId}
+                                    onClick={() => setActiveCardId(activeCardId === eventId ? null : eventId)}
+                                    className={`shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-center ${activeCardId === eventId ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
+                                >
+                                    <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
+                                        <img
+                                            src={event.image}
+                                            alt={event.title}
+                                            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                                        />
                                     </div>
 
-                                    {/* Bottom Info: Rating and Price Row */}
-                                    <div className="flex justify-between items-center mb-3 mt-auto">
-                                        <div className="flex items-center gap-1">
-                                            <span className={`text-[12px] font-bold ${activeCardId === event.id ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>({event.rating})</span>
-                                            <div className="flex text-orange-400 text-[18px]">
-                                                {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                    <div className="px-5 pb-5 flex flex-col flex-grow">
+                                        <h3 className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist`}>
+                                            {event.title}
+                                        </h3>
+                                        <p className={`text-[14px] ${activeCardId === eventId ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3`}>
+                                            {event.description}
+                                        </p>
+
+                                        <div className={`h-px ${activeCardId === eventId ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>
+
+                                        <p className={`text-[12px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white mb-2 flex items-center gap-2`}>
+                                            Live | Online | {event.type || "Workshop"}
+                                        </p>
+
+                                        <div className={`flex flex-wrap gap-x-4 gap-y-1 mb-4 text-[12px] font-bold ${activeCardId === eventId ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
+                                            <div className="flex items-center gap-2">
+                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                </svg>
+                                                {event.date}
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                    <circle cx="12" cy="12" r="10"></circle>
+                                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                                </svg>
+                                                {event.time}
                                             </div>
                                         </div>
-                                        <span className={`text-[18px] font-bold ${activeCardId === event.id ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>{event.price}</span>
-                                    </div>
 
-                                    {/* Action Buttons */}
-                                    <div className="flex gap-2">
-                                        <Link to={`/event-details/${event.id}`} className="flex-1">
-                                            <button className={`w-full ${activeCardId === event.id ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
-                                                Know more
-                                            </button>
-                                        </Link>
-                                        <button className={`flex-1 border-2 ${activeCardId === event.id ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}>
-                                            Enroll Now
-                                        </button>
+                                        <div className="flex justify-between items-center mb-3 mt-auto">
+                                            <div className="flex items-center gap-1">
+                                                <span className={`text-[12px] font-bold ${activeCardId === eventId ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
+                                                    ({event.rating || "4.9"})
+                                                </span>
+                                                <div className="flex text-orange-400 text-[18px]">
+                                                    {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                                </div>
+                                            </div>
+                                            <span className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                {event.price}
+                                            </span>
+                                        </div>
+
+                                        <div className="flex gap-2">
+                                            <Link to={`/event-details/${eventId}`} className="flex-1">
+                                                <button className={`w-full ${activeCardId === eventId ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
+                                                    Know more
+                                                </button>
+                                            </Link>
+
+                                            <a
+                                                href={event.registrationLink || defaultRegistrationLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    className={`w-full border-2 ${activeCardId === eventId ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}
+                                                >
+                                                    Enroll Now
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </div>
 
-            {/* Choose the Right Program Section */}
             <div className="py-4 sm:py-20 relative overflow-hidden bg-white">
-                {/* Process Wallpaper Image */}
                 <img
                     src="/images/BG.png"
                     alt=""
@@ -419,7 +413,6 @@ const UpcomingEvents = () => {
                         </p>
                     </div>
 
-                    {/* ── Mobile: Auto-Slide Carousel ── */}
                     <div className="md:hidden relative">
                         <div className="overflow-hidden rounded-[32px]">
                             <div
@@ -444,7 +437,6 @@ const UpcomingEvents = () => {
                                 ))}
                             </div>
                         </div>
-                        {/* Dot Indicators */}
                         <div className="flex justify-center gap-2 mt-5">
                             {programCards.map((_, i) => (
                                 <button
@@ -456,7 +448,6 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* ── Desktop: Original 3-column grid (hidden on mobile) ── */}
                     <div className="hidden md:grid md:grid-cols-3 gap-8">
                         {programCards.map((program, index) => (
                             <div key={index} className="bg-[#FFB169] rounded-[32px] p-6 sm:p-7 flex flex-col items-start shadow-lg hover:-translate-y-2 transition-all duration-300">
@@ -476,13 +467,11 @@ const UpcomingEvents = () => {
                 </div>
             </div>
 
-            {/* Testimonials Section */}
             <div
                 className="py-8 sm:py-16"
                 style={{ background: 'linear-gradient(180deg, #FFF9E1 0%, #FFFFFF 100%)' }}
             >
                 <div className="max-w-[1320px] mx-auto px-6">
-                    {/* Header with Title and Nav Arrows - Desktop */}
                     <div className="hidden md:flex justify-between items-center mb-10 gap-6">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-950 font-geist">
                             What our learners say
@@ -509,7 +498,6 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Header with Navigation - Mobile */}
                     <div className="sm:hidden flex flex-row justify-between items-center w-full mb-8 -mt-2">
                         <h2 className="text-xl font-bold text-gray-950 font-geist">
                             What our learners say
@@ -532,7 +520,6 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Testimonial Slider Container */}
                     <div className="overflow-hidden">
                         <div
                             className="flex sm:transition-transform sm:duration-700 ease-in-out"
@@ -575,7 +562,6 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Dot Indicators */}
                     <div className="flex justify-center gap-1.5 mt-10">
                         {Array.from({ length: totalSlides }).map((_, i) => (
                             <button
@@ -592,17 +578,14 @@ const UpcomingEvents = () => {
                 </div>
             </div>
 
-            {/* Our Trusted Partners Section */}
             <div className="bg-white py-4 sm:py-12">
                 <div className="max-w-[1240px] mx-auto px-6 text-center">
                     <h2 className="text-xl sm:text-4xl font-bold text-[#520378] mb-8 uppercase tracking-wide font-geist">
                         Trusted by the Best
                     </h2>
 
-                    {/* Logos Container Capsule - Exactly matching the image style */}
                     <div className="max-w-[1200px] mx-auto border border-black rounded-full py-4 sm:py-6 overflow-hidden relative">
                         <div className="animate-marquee flex items-center">
-                            {/* Duplicate set of logos for seamless loop */}
                             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                 <div key={num} className="flex-shrink-0 flex items-center justify-center px-6 sm:px-10">
                                     <img
@@ -612,7 +595,6 @@ const UpcomingEvents = () => {
                                     />
                                 </div>
                             ))}
-                            {/* Duplicate for seamless loop */}
                             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                 <div key={`dup-${num}`} className="flex-shrink-0 flex items-center justify-center px-6 sm:px-10">
                                     <img
@@ -629,7 +611,6 @@ const UpcomingEvents = () => {
 
             <div className="bg-white pt-2 pb-12 sm:pt-4 sm:pb-20">
                 <div className="max-w-[1320px] mx-auto px-6 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
-                    {/* Left: Questions List */}
                     <div className="flex-1 w-full">
                         <h2 className="text-xl sm:text-4xl lg:text-[42px] font-bold mb-6 sm:mb-8 text-gray-950 font-inter-tight text-left leading-tight">
                             Frequently asked questions
@@ -661,7 +642,6 @@ const UpcomingEvents = () => {
                         </div>
                     </div>
 
-                    {/* Right: Side Image */}
                     <div className="flex-1 w-full lg:max-w-[480px] h-auto aspect-[3/3.8] rounded-[36px] overflow-hidden shadow-2xl relative">
                         <img
                             src="/images/FAQ.png"
