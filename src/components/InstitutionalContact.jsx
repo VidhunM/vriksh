@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+// ← Paste your deployed Apps Script URL here after deploying google_apps_script_institutional.js
+const INSTITUTIONAL_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyg_fbdzLASZuKfVidEhe7kYd8mt-a9OMKffhy_gDG7rbUznXC8J8heJr244Dso4XbK/exec';
+
 const InstitutionalContact = ({ programType }) => {
     const [formData, setFormData] = useState({
         fullName: '',
@@ -15,12 +18,64 @@ const InstitutionalContact = ({ programType }) => {
         authorized: false
     });
 
+    const [submitting, setSubmitting] = useState(false);
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
+    };
+
+    // Map programType → sheet tab name
+    const getSheetName = () => {
+        if (programType === 'Corporate-EAP')      return 'corporate-eap';
+        if (programType === 'School-Based')       return 'school-based';
+        if (programType === 'College-Based')      return 'college-based';
+        if (programType === 'Career-Counselling') return 'career-counselling';
+        return 'institutional-general';
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+
+        const dataToSend = {
+            ...formData,
+            sheetName: getSheetName()
+        };
+
+        try {
+            await fetch(INSTITUTIONAL_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSend)
+            });
+
+            alert('Thank you! Your enquiry has been submitted.');
+
+            // Reset form
+            setFormData({
+                fullName: '',
+                workEmail: '',
+                phoneNumber: '',
+                institutionName: '',
+                designation: '',
+                board: '',
+                location: '',
+                interestedIn: '',
+                numberOfEmployees: '',
+                message: '',
+                authorized: false
+            });
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('Oops! Something went wrong. Please try again.');
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     const isEAP = programType === "Corporate-EAP";
@@ -100,7 +155,7 @@ const InstitutionalContact = ({ programType }) => {
                         )}
                         {!isEAP && <div className="mb-8" />}
 
-                        <form className="space-y-4 sm:space-y-5 w-full">
+                        <form className="space-y-4 sm:space-y-5 w-full" onSubmit={handleSubmit}>
                             {/* Row 1: Name & Email */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                 <input
@@ -354,9 +409,10 @@ const InstitutionalContact = ({ programType }) => {
 
                             <button
                                 type="submit"
-                                className="bg-[#520378] text-white px-7 py-2 sm:px-10 sm:py-3 rounded-full font-bold text-[14px] sm:text-[16px] hover:bg-[#400260] transition-all shadow-md active:scale-95"
+                                disabled={submitting}
+                                className="bg-[#520378] text-white px-7 py-2 sm:px-10 sm:py-3 rounded-full font-bold text-[14px] sm:text-[16px] hover:bg-[#400260] transition-all shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Submit
+                                {submitting ? 'Sending...' : 'Submit'}
                             </button>
                         </form>
                     </div>

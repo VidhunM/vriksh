@@ -59,6 +59,7 @@ const ContactFooter = () => {
         phoneNumber: '',
         location: '',
         topic: '',
+        source: '',
         message: '',
         authorize: false
     });
@@ -108,17 +109,15 @@ const ContactFooter = () => {
 
         const dataToSend = {
             ...formData,
-            topic: isAcademyPage ? formData.topic : (selectedService || formData.topic), 
+            topic: isAcademyPage ? formData.topic : (selectedService || formData.topic),
             background: selectedBackground,
-            source: selectedSource,
             authorized: formData.authorize,
             sheetName: getSheetName()
         };
 
         try {
             // Updated to the user's provided Apps Script URL
-            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTJxQ1dWhU1de2467qDvmfM4wz82ilvE7__U0jF8k9Maawsl2eHLgUth2Qe8RznU-a/exec';
-
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby7m7iW7zW8OmRTRg4tVCAM2zeouPtJcX_svLmj8cG5OZRKAsBSJMGGPXd1xfSqbhJy/exec';
             // Only use local log if no URL is provided or it's still the placeholder
             if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL') {
                 console.log('Form submission data (local test):', dataToSend);
@@ -143,6 +142,7 @@ const ContactFooter = () => {
                 phoneNumber: '',
                 location: '',
                 topic: '',
+                source: '',
                 message: '',
                 authorize: false
             });
@@ -362,6 +362,7 @@ const ContactFooter = () => {
                                                             key={option}
                                                             onClick={() => {
                                                                 setSelectedSource(option);
+                                                                setFormData(prev => ({ ...prev, source: option }));
                                                                 setSourceOpen(false);
                                                             }}
                                                             className="px-5 py-3.5 hover:bg-[#520378] hover:text-white transition-colors cursor-pointer text-[15px] text-gray-800 font-medium"

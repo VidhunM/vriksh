@@ -22,6 +22,12 @@ import Counselling2 from './pages/Counselling2';
 import ContactFooter from './components/ContactFooter';
 import Footer from './components/Footer';
 import './index.css';
+import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminLayout from "./pages/Admin/AdminLayout";
+import BlogsAdmin from "./pages/Admin/BlogsAdmin";
+import EventsAdmin from "./pages/Admin/EventsAdmin";
+import ProtectedRoute from "./pages/Admin/ProtectedRoute";
+import EventInquiriesAdmin from "./pages/Admin/EventInquiriesAdmin";
 
 function AppContent() {
   const location = useLocation();
@@ -34,11 +40,12 @@ function AppContent() {
   const isBlogDetailPage = location.pathname.startsWith('/blog/');
   const isCounsellingPage = location.pathname === '/counselling';
   const isCareerCounsellingPage = location.pathname === '/career-counselling';
-
+  const isAdminPage = location.pathname.startsWith('/admin');
 
   return (
     <div className="app">
-      <Header />
+      {!isAdminPage && <Header />}
+
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -58,21 +65,59 @@ function AppContent() {
           <Route path="/event-details/:id" element={<EventDetails />} />
           <Route path="/event-details" element={<EventDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<AdminLogin />} />
+
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="blogs" element={<BlogsAdmin />} />
+            <Route path="events" element={<EventsAdmin />} />
+            <Route path="event-inquiries" element={<EventInquiriesAdmin />} />
+          </Route>
+
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute>
+                <AdminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="blogs" element={<BlogsAdmin />} />
+            <Route path="events" element={<EventsAdmin />} />
+          </Route>
         </Routes>
       </main>
-      {!isAboutPage && !isContactPage && !isSchoolPage && !isCollegePage && !isCorporateEAPPage && !isBlogsPage && !isBlogDetailPage && !isCounsellingPage && !isCareerCounsellingPage && <ContactFooter />}
-      <Footer />
 
-      {/* Floating WhatsApp Icon */}
-      <a
-        href="https://wa.me/919880274824"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 w-14 h-14 bg-[#25D366] text-white rounded-full flex justify-center items-center shadow-[0_4px_14px_rgba(37,211,102,0.4)] hover:scale-110 transition-all z-[999]"
-        aria-label="Chat on WhatsApp"
-      >
-        <FaWhatsapp size={32} />
-      </a>
+      {!isAdminPage &&
+        !isAboutPage &&
+        !isContactPage &&
+        !isSchoolPage &&
+        !isCollegePage &&
+        !isCorporateEAPPage &&
+        !isBlogsPage &&
+        !isBlogDetailPage &&
+        !isCounsellingPage &&
+        !isCareerCounsellingPage && <ContactFooter />}
+
+      {!isAdminPage && <Footer />}
+
+      {!isAdminPage && (
+        <a
+          href="https://wa.me/919880274824"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 w-14 h-14 bg-[#25D366] text-white rounded-full flex justify-center items-center shadow-[0_4px_14px_rgba(37,211,102,0.4)] hover:scale-110 transition-all z-[999]"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp size={32} />
+        </a>
+      )}
     </div>
   );
 }
