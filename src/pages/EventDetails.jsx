@@ -117,7 +117,7 @@ const EventDetails = () => {
             ],
             description: [
                 'Trust is the heart of effective counselling. When students feel safe, respected, and heard, they are more likely to open up and seek support.',
-                'This interactive workshop helps counsellors understand how small behaviours—such as clear communication - can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
+                'This interactive workshop helps counsellors understand how small behaviours - such as clear communication can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
             ],
             whatYouLearn: [
                 'Understand why trust and rapport are essential in student counselling.',
@@ -455,7 +455,7 @@ const EventDetails = () => {
                         {/* Other Events - Moved inside Left Column */}
                         <div className="mt-20">
                             <h3 className="text-2xl font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
-                            <div 
+                            <div
                                 ref={otherEventsScrollRef}
                                 onScroll={handleOtherEventsScroll}
                                 className="flex overflow-x-auto gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-2 -mx-6 px-6 md:mx-0 md:px-0"

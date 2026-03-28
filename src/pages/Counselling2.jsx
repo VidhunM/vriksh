@@ -359,7 +359,7 @@ const Counselling2 = () => {
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${serviceIndex * 100}%)` }}
               >
-                {counsellingServices.map((service) => (
+                {counsellingServices.map((service, index) => (
                   <div key={service.title} className="w-full flex-none px-2">
                     <div className="bg-white rounded-[24px] overflow-hidden shadow-sm flex flex-col h-full border border-gray-100">
                       <div className="h-[200px] w-full overflow-hidden">
@@ -373,12 +373,12 @@ const Counselling2 = () => {
                         <h3 className="text-[18px] font-semibold text-gray-900 mb-3 font-inter-tight leading-tight">
                           {service.title}
                         </h3>
-                        <p className="text-[14px] text-gray-700 leading-[1.6] mb-2 flex-1 font-geist">
+                        <p className={`text-[14px] text-gray-700 leading-[1.6] ${index === 0 ? 'mb-1' : 'mb-2'} flex-1 font-geist`}>
                           {service.description}
                         </p>
                         <button
                           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                          className="mt-auto inline-flex items-center justify-center bg-[#520378] text-white px-6 py-2.5 rounded-full text-[13px] font-semibold active:scale-95 transition-all self-start"
+                          className={`${index === 0 ? 'mt-1' : 'mt-auto'} inline-flex items-center justify-center bg-[#520378] text-white px-6 py-2.5 rounded-full text-[13px] font-semibold active:scale-95 transition-all self-start`}
                         >
                           {service.cta}
                         </button>
