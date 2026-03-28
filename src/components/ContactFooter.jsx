@@ -1,7 +1,67 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+const ALL_SERVICES = [
+    "Counselling",
+    "Online Workshop",
+    "Online Training Programs",
+    "Online Certificate Courses",
+    "Career Guidance",
+    "Corporate Programs",
+    "Institution Wellness Program - School",
+    "Institution Wellness Program - College"
+];
+
+const ACADEMY_SERVICES = [
+    "Online Workshop",
+    "Online Training Programs",
+    "Online Certificate Courses"
+];
+
+const BACKGROUND_OPTIONS = [
+    "School Student",
+    "College Student",
+    "Psychology Student",
+    "Educator / Teacher",
+    "Professional",
+    "Parent",
+    "Others"
+];
+
+const HOME_SERVICES = [
+    "Counselling",
+    "Workshop",
+    "Training program",
+    "Certificate Course",
+    "Institutional Wellness Program - School",
+    "Institutional Wellness Program - College",
+    "EAP - Corporate",
+    "Career Guidance"
+];
+
+const SOURCES = [
+    "Google Search",
+    "Instagram",
+    "Facebook",
+    "LinkedIn",
+    "Friend/Referral",
+    "Advertisement",
+    "Website",
+    "Email",
+    "Newsletter",
+    "Other"
+];
+
 const ContactFooter = () => {
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+        location: '',
+        topic: '',
+        message: '',
+        authorize: false
+    });
     const [serviceOpen, setServiceOpen] = useState(false);
     const [sourceOpen, setSourceOpen] = useState(false);
     const [backgroundOpen, setBackgroundOpen] = useState(false);
@@ -9,66 +69,96 @@ const ContactFooter = () => {
     const [selectedSource, setSelectedSource] = useState('');
     const [selectedBackground, setSelectedBackground] = useState('');
 
+    const [submitting, setSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
     const serviceRef = useRef(null);
     const sourceRef = useRef(null);
     const backgroundRef = useRef(null);
 
     const location = useLocation();
-    const isAcademyPage = ['/workshop', '/training', '/certificate', '/upcoming-events', '/event-details'].some(path => location.pathname.startsWith(path));
-    const isHomePage = location.pathname === '/';
+    const pathname = location?.pathname || '';
+    const isAcademyPage = ['/about', '/workshop', '/training', '/certificate', '/upcoming-events', '/event-details'].some(path => pathname.startsWith(path));
+    const isHomePage = pathname === '/';
 
-    const allServices = [
-        "Counselling",
-        "Online Workshop",
-        "Online Training Programs",
-        "Online Certificate Courses",
-        "Career Guidance",
-        "Corporate Programs",
-        "Institution Wellness Program - School",
-        "Institution Wellness Program - College"
-    ];
+    // Determine sheet name based on path
+    const getSheetName = () => {
+        if (pathname === '/') return 'home';
+        if (pathname.startsWith('/about')) return 'about';
+        if (pathname.startsWith('/workshop')) return 'workshop';
+        if (pathname.startsWith('/training')) return 'training';
+        if (pathname.startsWith('/certificate')) return 'certificate';
+        if (pathname.startsWith('/upcoming-events')) return 'upcoming-events';
+        if (pathname.startsWith('/event-details')) return 'event-details';
+        return 'general_contact';
+    };
 
-    const academyServices = [
-        "Online Workshop",
-        "Online Training Programs",
-        "Online Certificate Courses"
-    ];
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
 
-    const backgroundOptions = [
-        "School Student",
-        "College Student",
-        "Psychology Student",
-        "Educator / Teacher",
-        "Professional",
-        "Parent",
-        "Others"
-    ];
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+        setSubmitStatus(null);
 
-    const homeServices = [
-        "Counselling",
-        "Workshop",
-        "Training program",
-        "Certificate Course",
-        "Institutional Wellness Program - School",
-        "Institutional Wellness Program - College",
-        "EAP - Corporate",
-        "Career Guidance"
-    ];
+        const dataToSend = {
+            ...formData,
+            topic: isAcademyPage ? formData.topic : (selectedService || formData.topic), 
+            background: selectedBackground,
+            source: selectedSource,
+            authorized: formData.authorize,
+            sheetName: getSheetName()
+        };
 
-    const services = isHomePage ? homeServices : (isAcademyPage ? academyServices : allServices);
+        try {
+            // Updated to the user's provided Apps Script URL
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTJxQ1dWhU1de2467qDvmfM4wz82ilvE7__U0jF8k9Maawsl2eHLgUth2Qe8RznU-a/exec';
 
-    const sources = [
-        "Google Search",
-        "Instagram",
-        "Facebook",
-        "LinkedIn",
-        "Friend/Referral",
-        "Advertisement",
-        "Website",
-        "Email",
-        "Newsletter",
-        "Other"
-    ];
+            // Only use local log if no URL is provided or it's still the placeholder
+            if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL') {
+                console.log('Form submission data (local test):', dataToSend);
+                alert('Success! (Local test mode)');
+            } else {
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataToSend),
+                });
+
+                alert('Thank you! Your message has been sent.');
+            }
+
+            setSubmitStatus('success');
+            setFormData({
+                fullName: '',
+                email: '',
+                phoneNumber: '',
+                location: '',
+                topic: '',
+                message: '',
+                authorize: false
+            });
+            setSelectedService('');
+            setSelectedSource('');
+            setSelectedBackground('');
+        } catch (error) {
+            console.error('Submission error:', error);
+            setSubmitStatus('error');
+            alert('Oops! Something went wrong. Please try again later.');
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    const services = isHomePage ? HOME_SERVICES : (isAcademyPage ? ACADEMY_SERVICES : ALL_SERVICES);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -128,28 +218,44 @@ const ContactFooter = () => {
                             <h3 className="text-[18px] lg:text-[22px] font-bold text-[#520378] mb-4 lg:mb-8 leading-snug text-center lg:text-left">
                                 Start your journey with us - <br className="sm:hidden" />Enriching Minds.
                             </h3>
-                            <form className="space-y-4 w-full">
+                            <form onSubmit={handleSubmit} className="space-y-4 w-full">
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleChange}
                                         placeholder="Full Name"
+                                        required
                                         className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                     <input
                                         type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         placeholder="Email"
+                                        required
                                         className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                 </div>
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
+                                        onChange={handleChange}
                                         placeholder="Phone Number"
+                                        required
                                         className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                     <input
                                         type="text"
+                                        name="location"
+                                        value={formData.location}
+                                        onChange={handleChange}
                                         placeholder="Location"
+                                        required
                                         className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                     />
                                 </div>
@@ -158,6 +264,9 @@ const ContactFooter = () => {
                                     <div className="grid sm:grid-cols-2 gap-5">
                                         <input
                                             type="text"
+                                            name="topic"
+                                            value={formData.topic}
+                                            onChange={handleChange}
                                             placeholder="Topic interested in"
                                             className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base"
                                         />
@@ -177,7 +286,7 @@ const ContactFooter = () => {
                                             {backgroundOpen && (
                                                 <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-2xl z-50 overflow-hidden animate-slide-up-fade origin-top">
                                                     <div className="max-h-[300px] overflow-y-auto py-2">
-                                                        {backgroundOptions.map((option) => (
+                                                        {BACKGROUND_OPTIONS.map((option) => (
                                                             <div
                                                                 key={option}
                                                                 onClick={() => {
@@ -202,9 +311,9 @@ const ContactFooter = () => {
                                         <div className="relative" ref={serviceRef}>
                                             <div
                                                 onClick={() => setServiceOpen(!serviceOpen)}
-                                                className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
+                                                className="w-full px-4 py-2.5 rounded-[6px] bg-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                             >
-                                                <span className="text-gray-950">
+                                                <span className="text-gray-950 font-medium">
                                                     {selectedService || "Services interested in"}
                                                 </span>
                                                 <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${serviceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -233,12 +342,12 @@ const ContactFooter = () => {
                                     )}
 
                                     {/* Custom Source Dropdown */}
-                                    <div className="relative" ref={sourceRef}>
+                                    <div className="relative w-full" ref={sourceRef} style={{ zIndex: 30 }}>
                                         <div
                                             onClick={() => setSourceOpen(!sourceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-gradient-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
+                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                         >
-                                            <span className="text-gray-950">
+                                            <span className="text-gray-950 font-medium">
                                                 {selectedSource || "How did you hear about us?"}
                                             </span>
                                             <svg className={`w-4 h-4 text-[#94a3b8] transition-transform duration-200 ${sourceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -248,7 +357,7 @@ const ContactFooter = () => {
                                         {sourceOpen && (
                                             <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-2xl z-50 overflow-hidden animate-slide-up-fade origin-top">
                                                 <div className="max-h-[300px] overflow-y-auto py-2">
-                                                    {sources.map((option) => (
+                                                    {SOURCES.map((option) => (
                                                         <div
                                                             key={option}
                                                             onClick={() => {
@@ -266,8 +375,12 @@ const ContactFooter = () => {
                                     </div>
                                 </div>
                                 <textarea
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     placeholder="Your message"
                                     rows="4"
+                                    required
                                     className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] focus:border-brand-purple focus:ring-0 focus:outline-none transition-all placeholder:text-gray-950 text-gray-950 text-sm lg:text-base resize-none font-sans"
                                 ></textarea>
 
@@ -276,6 +389,10 @@ const ContactFooter = () => {
                                         <input
                                             type="checkbox"
                                             id="authorize"
+                                            name="authorize"
+                                            checked={formData.authorize}
+                                            onChange={handleChange}
+                                            required
                                             className="w-5 h-5 rounded border-[#94a3b8] text-brand-purple focus:ring-0 cursor-pointer"
                                         />
                                     </div>
@@ -286,9 +403,10 @@ const ContactFooter = () => {
 
                                 <button
                                     type="submit"
-                                    className="bg-[#520378] text-white px-12 py-3 rounded-full font-bold text-[16px] hover:bg-brand-purple-dark transition-all shadow-md mt-2"
+                                    disabled={submitting}
+                                    className="bg-[#520378] text-white px-12 py-3 rounded-full font-bold text-[16px] hover:bg-brand-purple-dark transition-all shadow-md mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    Submit
+                                    {submitting ? 'Sending...' : 'Submit'}
                                 </button>
                             </form>
                         </div>
@@ -296,6 +414,7 @@ const ContactFooter = () => {
                 </div>
             </section>
         </footer>
+
     );
 };
 
