@@ -1,4 +1,4 @@
-import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -56,12 +56,29 @@ const Footer = () => {
                     </div>
 
                     {/* Column 3: Institution Wellness Program */}
-                    <div className="space-y-4 lg:pl-4">
-                        <h3 className="text-base font-semibold">Institution Wellness Program</h3>
-                        <ul className="space-y-2 opacity-90 text-[14px] font-light">
-                            <li><Link to="/school" className="hover:opacity-100 transition-opacity">For Schools</Link></li>
-                            <li><Link to="/college" className="hover:opacity-100 transition-opacity">For College</Link></li>
-                        </ul>
+                    <div className="space-y-12 lg:-ml-10">
+                        <div className="space-y-4">
+                            <h3 className="text-base font-semibold">Institution Wellness Program</h3>
+                            <ul className="space-y-2 opacity-90 text-[14px] font-light">
+                                <li><Link to="/school" className="hover:opacity-100 transition-opacity">For Schools</Link></li>
+                                <li><Link to="/college" className="hover:opacity-100 transition-opacity">For College</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Newsletter Part */}
+                        <div className="space-y-4">
+                            <h3 className="text-base font-semibold whitespace-nowrap">Subscribe to our news letter</h3>
+                            <div className="bg-transparent border border-white/40 rounded-xl p-1.5 flex items-center max-w-[280px]">
+                                <input
+                                    type="email"
+                                    placeholder="Your email id"
+                                    className="bg-transparent border-none outline-none px-3 py-1 text-sm w-full placeholder:text-white/40 text-white font-light"
+                                />
+                                <button className="bg-white text-[#520378] w-9 h-9 flex items-center justify-center rounded-lg hover:scale-105 transition-all flex-shrink-0">
+                                    <ArrowUpRight size={20} />
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Column 4: Logo Section */}
@@ -170,6 +187,21 @@ const Footer = () => {
                                     <li><Link to="#" className="active:text-white transition-colors">Ethics</Link></li>
                                     <li><Link to="#" className="active:text-white transition-colors">Refund Policy</Link></li>
                                 </ul>
+                            </div>
+                        </div>
+
+                        {/* Mobile Newsletter */}
+                        <div className="space-y-4 col-span-2 pt-8">
+                            <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90">Subscribe to our newsletter</h3>
+                            <div className="bg-transparent border border-white/40 rounded-xl p-1.5 flex items-center w-full">
+                                <input
+                                    type="email"
+                                    placeholder="Your email id"
+                                    className="bg-transparent border-none outline-none px-3 py-2 text-[13px] w-full placeholder:text-white/40 text-white font-light"
+                                />
+                                <button className="bg-white text-[#520378] w-10 h-10 flex items-center justify-center rounded-lg active:scale-95 transition-all flex-shrink-0 shadow-lg">
+                                    <ArrowUpRight size={20} />
+                                </button>
                             </div>
                         </div>
                     </div>
