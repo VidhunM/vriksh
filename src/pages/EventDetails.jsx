@@ -37,118 +37,10 @@ const EventDetails = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const eventsData = {
-        '1': {
-            title: 'ADHD Toolkit – Practical Strategies & Activities',
-            tag: 'Workshop',
-            type: 'Webinar',
-            level: 'Beginner',
-            summary: 'Learn practical strategies and explore 20+ engaging activities to support children and teens with Attention Deficit Hyperactivity Disorder. Gain tools to improve attention, sitting tolerance, impulse control, and focus.',
-            rating: 4.9,
-            createdBy: 'Vriksh Psychological Support Services | Vriksh E-Academy',
-            lastUpdated: '2026',
-            language: 'English',
-            price: 'Rs.1000',
-            image: '/images/uc1.jpeg',
-            time: '5:00PM - 6:30 PM',
-            date: '20-03-2026',
-            highlights: [
-                '20+ practical activities for real world application',
-                'E-Certificate from Vriksh Psychological Support Services'
-            ],
-            description: [
-                'Want to better support children and teens with Attention Deficit Hyperactivity Disorder (ADHD)? In this session, you’ll gain practical, hands-on strategies to understand ADHD and effectively support attention, behaviour regulation, and focus in everyday settings like home and school.'
-            ],
-            whatYouLearn: [
-                "Understand the overview and key challenges of Attention Deficit Hyperactivity Disorder (ADHD) in children and teens",
-                "Learn 20+ practical activities to improve attention, sitting tolerance, impulse control, and focus",
-                "Explore effective strategies for parents and teachers, including ready-to-use templates and homework ideas",
-                "Access activity materials and an E-Certificate to support practical implementation"
-            ],
-            whoFor: [
-                "Parents", "Teachers", "Psychology students", "Counsellors",
-                "Anyone interested in understanding and supporting children with ADHD"
-            ],
-            enrollLink: defaultRegistrationLink,
-            whatsappLink: defaultRegistrationLink
-        },
-        '2': {
-            title: 'Self-Care: Pause, Recharge & Reconnect',
-            tag: 'Workshop',
-            type: 'Webinar',
-            level: 'Beginner',
-            summary: 'Learn simple, practical strategies to nurture your emotional and mental well-being. Explore mindful practices and self-care tools that help you pause, reconnect with yourself, and manage everyday stress.',
-            rating: 4.9,
-            createdBy: 'Vriksh Psychological Support Services | Vriksh E-Academy',
-            lastUpdated: '2026',
-            language: 'English',
-            price: 'FREE',
-            image: '/images/uc2.jpeg',
-            time: '6:00PM - 7:00 PM',
-            date: '04-04-2026',
-            cardTitle: 'AI for Brainstorming and Planning',
-            highlights: [
-                'Simple self-care practices for everyday well-being',
-                'Guided mindfulness activity'
-            ],
-            description: [
-                'Feeling overwhelmed or constantly busy? This Free Self-Care Webinar is designed to help you slow down, reflect, and reconnect with yourself. In this interactive session, you will learn practical self-care techniques and mindfulness practices that support emotional balance and mental clarity.',
-                'Through simple exercises and guided reflection, participants will discover ways to integrate self-care into their daily routine and build healthier habits for overall well-being.'
-            ],
-            whatYouLearn: [
-                'Understand the importance of self-care for emotional and mental well-being.',
-                'Learn simple self-care strategies to manage stress and maintain balance in daily life.',
-                'Practice guided mindfulness techniques to relax the mind and reconnect with yourself.',
-                'Discover daily micro self-care habits that can be easily integrated into your routine.'
-            ],
-            whoFor: [
-                'Students, working professionals, parents, educators, and anyone who wants to prioritize their mental and emotional well-being.'
-            ],
-            enrollLink: defaultRegistrationLink,
-            whatsappLink: defaultRegistrationLink
-        },
-        '3': {
-            title: 'Building Trust with Students in Counselling Sessions',
-            tag: 'Workshop',
-            type: 'Webinar',
-            level: 'Beginner',
-            summary: 'Learn practical ways to build trust with students, create a safe counselling space, and communicate with empathy while maintaining ethical confidentiality.',
-            rating: 4.9,
-            createdBy: 'Vriksh Psychological Support Services | Vriksh E-Academy',
-            lastUpdated: '2026',
-            language: 'English',
-            price: 'FREE',
-            image: '/images/uc3.jpeg',
-            time: '6:00PM - 7:00 PM',
-            date: '23-03-2026',
-            highlights: [
-                'Practical trust-building exercises',
-                'Ethical confidentiality boundaries'
-            ],
-            description: [
-                'Trust is the heart of effective counselling. When students feel safe, respected, and heard, they are more likely to open up and seek support.',
-                'This interactive workshop helps counsellors understand how small behaviours—such as clear communication - can build strong connections with students. Through simple activities, short role-play exercises, and real counselling scenarios, participants will explore practical ways to create safe and supportive counselling environments. The session will also highlight the importance of confidentiality and how to communicate its boundaries ethically while maintaining student trust.'
-            ],
-            whatYouLearn: [
-                'Understand why trust and rapport are essential in student counselling.',
-                'Learn simple communication techniques that help students feel comfortable sharing.',
-                'Explore ways to create safe and supportive counselling spaces.',
-                'Understand confidentiality and ethical boundaries when working with students.',
-                'Engage in short interactive activities and reflection exercises to practice trust-building approaches.'
-            ],
-            whoFor: [
-                'School counsellors, college counsellors, psychologists, educators, and professionals who work closely with students and want to strengthen their counselling practice.'
-            ],
-            enrollLink: defaultRegistrationLink,
-            whatsappLink: defaultRegistrationLink
-        }
-    };
-
     useEffect(() => {
         setLoading(true);
         console.log("Fetching event details for ID:", id);
         
-        // If it's a numeric ID (1, 2, 3), we might want to check static data first or just let API fail
         fetch(`${API_BASE_URL}/events/${id}`)
             .then((res) => {
                 if (!res.ok) throw new Error("Event not found or server error");
@@ -162,7 +54,7 @@ const EventDetails = () => {
                 setLoading(false);
             })
             .catch((err) => {
-                console.warn("API fetch failed, falling back to static data if available:", err);
+                console.warn("API fetch failed:", err);
                 setApiEvent(null);
                 setLoading(false);
             });
@@ -187,37 +79,31 @@ const EventDetails = () => {
             });
     }, []);
 
-    const fallbackEvent = eventsData[id] || eventsData['1'];
-
-    const event = apiEvent
-        ? {
-            ...apiEvent,
-            rating: apiEvent.rating || 4.9,
-            createdBy: apiEvent.createdBy || 'Vriksh Psychological Support Services | Vriksh E-Academy',
-            lastUpdated: apiEvent.lastUpdated || '2026',
-            language: apiEvent.language || 'English',
-            summary: apiEvent.summary || apiEvent.description || '',
-            description: Array.isArray(apiEvent.description)
-                ? apiEvent.description
-                : [apiEvent.description || ''],
-            whatYouLearn: Array.isArray(apiEvent.whatYouLearn) && apiEvent.whatYouLearn.length > 0
-                ? apiEvent.whatYouLearn
-                : [],
-            whoFor: Array.isArray(apiEvent.whoFor) && apiEvent.whoFor.length > 0
-                ? apiEvent.whoFor
-                : [],
-            enrollLink: apiEvent.registrationLink || defaultRegistrationLink,
-            whatsappLink: apiEvent.registrationLink || defaultRegistrationLink
-        }
-        : fallbackEvent;
-
-    const otherEvents = allEvents.length > 0
-        ? allEvents.filter((ev) => (ev._id || ev.id) !== (apiEvent?._id || apiEvent?.id))
-        : Object.entries(eventsData)
-            .filter(([key]) => key !== id)
-            .map(([key, value]) => ({ ...value, _fallbackId: key }));
+    // ✅ IMPORTANT: Define "event" safely here so GSAP hook can use it
+    const event = apiEvent ? {
+        ...apiEvent,
+        rating: apiEvent.rating || 4.9,
+        createdBy: apiEvent.createdBy || 'Vriksh Psychological Support Services | Vriksh E-Academy',
+        lastUpdated: apiEvent.lastUpdated || '2026',
+        language: apiEvent.language || 'English',
+        summary: apiEvent.summary || apiEvent.description || '',
+        description: Array.isArray(apiEvent.description)
+            ? apiEvent.description
+            : [apiEvent.description || ''],
+        whatYouLearn: Array.isArray(apiEvent.whatYouLearn) && apiEvent.whatYouLearn.length > 0
+            ? apiEvent.whatYouLearn
+            : [],
+        whoFor: Array.isArray(apiEvent.whoFor) && apiEvent.whoFor.length > 0
+            ? apiEvent.whoFor
+            : [],
+        enrollLink: apiEvent.registrationLink || defaultRegistrationLink,
+        whatsappLink: apiEvent.registrationLink || defaultRegistrationLink
+    } : null;
 
     useEffect(() => {
+        // Only run GSAP if event exists
+        if (!event) return;
+
         let ctx = gsap.context(() => {
             const mm = gsap.matchMedia();
 
@@ -352,13 +238,14 @@ const EventDetails = () => {
     };
 
     const handleEnrollNow = () => {
-        window.open(event.enrollLink || defaultRegistrationLink, '_blank');
+        if (event) window.open(event.enrollLink || defaultRegistrationLink, '_blank');
     };
 
     const handleWhatsappJoin = () => {
-        window.open(event.whatsappLink || defaultRegistrationLink, '_blank');
+        if (event) window.open(event.whatsappLink || defaultRegistrationLink, '_blank');
     };
 
+    // Hooks finished, safe to return
     if (loading) {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
@@ -366,6 +253,17 @@ const EventDetails = () => {
             </div>
         );
     }
+
+    if (!event) {
+        return (
+            <div className="min-h-screen bg-white flex flex-col items-center justify-center gap-4">
+                <h2 className="text-2xl font-bold text-gray-800">Event Not Found</h2>
+                <Link to="/upcoming-events" className="text-[#520378] font-bold hover:underline">View All Events</Link>
+            </div>
+        );
+    }
+
+    const otherEvents = allEvents.filter((ev) => (ev._id || ev.id) !== (apiEvent?._id || apiEvent?.id));
 
     return (
         <div className="bg-white min-h-screen">

@@ -307,35 +307,8 @@ const UpcomingEvents = () => {
                         ref={eventsScrollRef}
                         className="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-3 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
                     >
-                        {(events.length > 0 ? events : [
-                            {
-                                id: '1',
-                                title: 'ADHD Toolkit – Practical Strategies & Activities',
-                                description: 'Learn practical strategies and explore 20+ engaging activities to support children and teens with ADHD.',
-                                date: '20-03-2026',
-                                time: '5:00PM - 6:30 PM',
-                                image: '/images/uc1.jpeg',
-                                price: '₹1000'
-                            },
-                            {
-                                id: '2',
-                                title: 'Self-Care: Pause, Recharge & Reconnect',
-                                description: 'Learn simple, practical strategies to nurture your emotional and mental well-being.',
-                                date: '04-04-2026',
-                                time: '6:00PM - 7:00 PM',
-                                image: '/images/uc2.jpeg',
-                                price: 'FREE'
-                            },
-                            {
-                                id: '3',
-                                title: 'Building Trust with Students in Counselling Sessions',
-                                description: 'Learn practical ways to build trust with students and create a safe counselling space.',
-                                date: '23-03-2026',
-                                time: '6:00PM - 7:00 PM',
-                                image: '/images/uc3.jpeg',
-                                price: 'FREE'
-                            }
-                        ]).map((event) => {
+                        {events.length > 0 ? (
+                            events.map((event) => {
                             const eventId = event._id || event.id;
 
                             return (
@@ -423,7 +396,13 @@ const UpcomingEvents = () => {
                                     </div>
                                 </div>
                             );
-                        })}
+                        })
+                    ) : (
+                        <div className="col-span-3 py-20 text-center bg-[#FFFAE4]/30 rounded-[32px] border-2 border-dashed border-[#520378]/20 w-full">
+                            <p className="text-[#520378] font-bold text-lg">No upcoming events scheduled at the moment.</p>
+                            <p className="text-gray-600 mt-2">Check back soon for new workshops and training programs!</p>
+                        </div>
+                    )}
                     </div>
                 </div>
             </div>

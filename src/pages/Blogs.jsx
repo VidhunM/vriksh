@@ -5,51 +5,6 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const categories = ["Counselling", "Institutional", "Workshop"];
 
-const blogPosts = [
-    {
-        id: 7,
-        date: "April 01, 2025",
-        title: "Overthinking: When Your Mind Refuses to Switch Off",
-        category: "Counselling",
-        image: "/images/Overthinking.jpg"
-    },
-    {
-        id: 8,
-        date: "April 10, 2025",
-        title: "Screen Addiction: How Digital Devices Trap the Brain",
-        category: "Counselling",
-        image: "/images/Screentime.jpg"
-    },
-    {
-        id: 9,
-        date: "April 18, 2025",
-        title: "Academic Pressure: When Success Becomes Stress",
-        category: "Counselling",
-        image: "/images/Academic pressure.jpg"
-    },
-    {
-        id: 10,
-        date: "March 10, 2026",
-        title: "10 Signs You May Need Professional Counselling",
-        category: "Counselling",
-        image: "/images/Signs You May Need Professional Counselling.jpg"
-    },
-    {
-        id: 11,
-        date: "March 15, 2026",
-        title: "How to Help Children Express Their Feelings",
-        category: "Counselling",
-        image: "/images/Children Express Their Feelings.jpg"
-    },
-    {
-        id: 12,
-        date: "March 20, 2026",
-        title: "When Your Mind Talks, Your Body Listens",
-        category: "Counselling",
-        image: "/images/mind body connection.jpg"
-    }
-];
-
 const Blogs = () => {
     const [activeCategory, setActiveCategory] = useState('Counselling');
     const [blogIndex, setBlogIndex] = useState(0);
@@ -57,8 +12,9 @@ const Blogs = () => {
 
     const [apiBlogs, setApiBlogs] = useState([]);
 
-    const allBlogs = [...blogPosts, ...apiBlogs];
-    const latestBlog = apiBlogs.length > 0 ? apiBlogs[0] : blogPosts[blogPosts.length - 1];
+    const allBlogs = apiBlogs;
+    const latestBlog = apiBlogs.length > 0 ? apiBlogs[0] : null;
+    const secondaryBlogs = apiBlogs.slice(1, 3);
 
     const filteredPosts = allBlogs.filter(post => post.category === activeCategory);
 
@@ -157,24 +113,27 @@ const Blogs = () => {
 
                         {/* Secondary Highlights Card */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                            <Link to="/blog/7" className="bg-white border border-gray-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:shadow-md transition-all group flex flex-col justify-center min-h-[100px]">
-                                <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2 flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#520378]"></span>
-                                    Editor's Choice
-                                </p>
-                                <h4 className="text-[#1A1A1A] text-[15px] sm:text-[16px] font-bold font-inter-tight leading-snug group-hover:text-[#520378] transition-colors">
-                                    Overthinking: When Your Mind Refuses to Switch Off
-                                </h4>
-                            </Link>
-                            <Link to="/blog/11" className="bg-white border border-gray-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:shadow-md transition-all group flex flex-col justify-center min-h-[100px]">
-                                <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2 flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#520378]"></span>
-                                    Trending
-                                </p>
-                                <h4 className="text-[#1A1A1A] text-[15px] sm:text-[16px] font-bold font-inter-tight leading-snug group-hover:text-[#520378] transition-colors">
-                                    How to Help Children Express Their Feelings
-                                </h4>
-                            </Link>
+                            {secondaryBlogs.length > 0 ? (
+                                secondaryBlogs.map((sBlog, idx) => (
+                                    <Link 
+                                        key={sBlog._id} 
+                                        to={`/blog/${sBlog._id}`} 
+                                        className="bg-white border border-gray-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:shadow-md transition-all group flex flex-col justify-center min-h-[100px]"
+                                    >
+                                        <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2 flex items-center gap-2">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-[#520378]"></span>
+                                            {idx === 0 ? "Editor's Choice" : "Trending"}
+                                        </p>
+                                        <h4 className="text-[#1A1A1A] text-[15px] sm:text-[16px] font-bold font-inter-tight leading-snug group-hover:text-[#520378] transition-colors">
+                                            {sBlog.title}
+                                        </h4>
+                                    </Link>
+                                ))
+                            ) : (
+                                <div className="col-span-2 bg-white/50 border border-gray-100 border-dashed rounded-[24px] p-5 flex items-center justify-center text-gray-400 text-sm">
+                                    More insights coming soon...
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -240,8 +199,8 @@ const Blogs = () => {
                             }}
                         >
                             {filteredPosts.map((post) => (
-                                <div key={post.id} className="group cursor-pointer flex-none w-full sm:w-auto bg-white rounded-[24px] overflow-hidden border border-gray-100 sm:border-none sm:bg-transparent shadow-sm sm:shadow-none pb-6 sm:pb-0 transition-all">
-                                    <Link to={`/blog/${post._id || post.id}`}>
+                                <div key={post._id || post.id} className="group cursor-pointer flex-none w-full sm:w-auto bg-white rounded-[24px] overflow-hidden border border-gray-100 sm:border-none sm:bg-transparent shadow-sm sm:shadow-none pb-6 sm:pb-0 transition-all">
+                                    <Link to={`/blog/${post._id}`}>
                                         <div className="aspect-[16/10] sm:aspect-[4/3] mb-5 sm:mb-6 overflow-hidden sm:rounded-[20px]">
                                             <img
                                                 src={post.image}
