@@ -335,28 +335,28 @@ const EventDetails = () => {
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Type</span>
                                         </div>
-                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.type}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-[26px]">{event.type}</span>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Level</span>
                                         </div>
-                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.level}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-[26px]">{event.level}</span>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Date</span>
                                         </div>
-                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.date}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-[26px]">{event.date}</span>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Time</span>
                                         </div>
-                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.time}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-[26px]">{event.time}</span>
                                     </div>
                                 </div>
 
@@ -386,17 +386,17 @@ const EventDetails = () => {
                         </div>
                     </div>
 
-                    <div className="lg:w-2/3 order-2 lg:order-1">
-                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-6 font-inter-tight">Description:</h2>
-                        <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed scrollbar-none quill-content">
+                    <div className="lg:w-2/3">
+                        <h2 className="text-[20px] sm:text-[22px] font-bold text-gray-950 mb-3 font-inter-tight">Description:</h2>
+                        <div className="text-gray-600 font-geist leading-relaxed quill-content text-[14px] sm:text-[15px] lg:text-[16px] text-left sm:text-justify">
                             {event.description.map((p, i) => (
-                                <div key={i} className="mb-4" dangerouslySetInnerHTML={{ __html: p }} />
+                                <div key={i} className="[&_p]:mt-0" dangerouslySetInnerHTML={{ __html: p }} />
                             ))}
                         </div>
 
                         {event.whatYouLearn && event.whatYouLearn.length > 0 && (
                             <div className="mt-12 bg-[#FFFDEA] rounded-2xl p-8 sm:p-10 border border-[#F3E6C7]">
-                                <h3 className="text-2xl sm:text-2xl font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
+                                <h3 className="text-[22px] sm:text-[28px] font-bold text-gray-950 mb-8 font-inter-tight">What you'll learn:</h3>
                                 <ul className="space-y-6">
                                     {event.whatYouLearn.map((item, i) => (
                                         <li key={i} className="flex items-start gap-4 group">
@@ -412,7 +412,7 @@ const EventDetails = () => {
 
                         {event.whoFor && event.whoFor.length > 0 && (
                             <div className="mt-16">
-                                <h3 className="text-2xl font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
+                                <h3 className="text-[22px] sm:text-[28px] font-bold text-gray-950 mb-8 font-inter-tight">Who this session is for:</h3>
                                 <div className="flex flex-wrap gap-x-10 gap-y-6 mb-6">
                                     {event.whoFor.map((audience, i) => (
                                         <div key={i} className="flex items-center gap-3">
@@ -427,7 +427,7 @@ const EventDetails = () => {
                         )}
 
                         <div className="mt-20">
-                            <h3 className="text-2xl font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
+                            <h3 className="text-[22px] sm:text-[28px] font-bold text-gray-950 mb-10 font-inter-tight">Other Events</h3>
                             <div
                                 ref={otherEventsScrollRef}
                                 onScroll={handleOtherEventsScroll}
