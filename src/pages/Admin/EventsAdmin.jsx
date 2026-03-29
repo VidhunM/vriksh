@@ -94,7 +94,7 @@ const EventsAdmin = () => {
     const quillFormats = [
         'header',
         'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet',
+        'list',
         'link', 'image'
     ];
 
@@ -103,7 +103,7 @@ const EventsAdmin = () => {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setForm({ ...form, image: reader.result });
+                setForm(prev => ({ ...prev, image: reader.result }));
             };
             reader.readAsDataURL(file);
         }
@@ -118,7 +118,10 @@ const EventsAdmin = () => {
         endTime: "",
         price: "",
         title: "",
+        summary: "",
         description: "",
+        whatYoullLearn: "",
+        whoThisSessionIsFor: "",
         registrationLink: defaultRegistrationLink
     });
 
@@ -137,7 +140,7 @@ const EventsAdmin = () => {
     }, []);
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
     const resetForm = () => {
@@ -150,7 +153,10 @@ const EventsAdmin = () => {
             endTime: "",
             price: "",
             title: "",
+            summary: "",
             description: "",
+            whatYoullLearn: "",
+            whoThisSessionIsFor: "",
             registrationLink: defaultRegistrationLink
         });
         setEditId(null);
@@ -173,20 +179,46 @@ const EventsAdmin = () => {
                 time: buildTimeRange(form.startTime, form.endTime),
                 price: form.price,
                 title: form.title,
+                summary: form.summary,
                 description: form.description,
+                whatYoullLearn: form.whatYoullLearn,
+                whoThisSessionIsFor: form.whoThisSessionIsFor,
                 registrationLink: form.registrationLink?.trim() || defaultRegistrationLink
             };
 
-            await fetch(url, {
+            const response = await fetch(url, {
                 method,
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
             });
 
+            if (!response.ok) {
+                const errBody = await response.text();
+                throw new Error(`Save failed: ${response.status} ${errBody}`);
+            }
+
+            const savedEvent = await response.json();
+
+            // Clear form and modes BEFORE alert for better UX
             resetForm();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
+            if (editId) {
+                setEvents((prevEvents) =>
+                    prevEvents.map((ev) => (ev._id === savedEvent._id ? savedEvent : ev))
+                );
+                alert("Event updated successfully.");
+            } else {
+                setEvents((prevEvents) => [savedEvent, ...prevEvents]);
+                alert("Event created successfully.");
+            }
+
+            // fetchEvents() is redundant if we update the state with the return value, 
+            // but we keep it for safety at the end.
             fetchEvents();
         } catch (error) {
             console.error("Error saving event:", error);
+            alert("Unable to save event. Please try again.");
         }
     };
 
@@ -202,7 +234,12 @@ const EventsAdmin = () => {
             endTime: parsedTime.endTime,
             price: event.price || "",
             title: event.title || "",
-            description: event.description || "",
+            summary: event.summary || "",
+            description: Array.isArray(event.description)
+                ? event.description.join("\n")
+                : event.description || "",
+            whatYoullLearn: event.whatYoullLearn || "",
+            whoThisSessionIsFor: event.whoThisSessionIsFor || "",
             registrationLink: event.registrationLink || defaultRegistrationLink
         });
 
@@ -403,15 +440,30 @@ const EventsAdmin = () => {
                             />
                         </div>
 
+                        <div>
+                            <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                Summary
+                            </label>
+                            <input
+                                type="text"
+                                name="summary"
+                                value={form.summary}
+                                onChange={handleChange}
+                                placeholder="Short summary for hero section"
+                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                                required
+                            />
+                        </div>
+
                         <div className="quill-editor-container">
                             <label className="text-xs md:text-sm font-semibold text-gray-700 mb-1.5 block">
                                 Description
                             </label>
                             <div className="bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 focus-within:border-purple-500 focus-within:ring-4 focus-within:ring-purple-100 transition">
-                                <ReactQuill 
+                                <ReactQuill
                                     theme="snow"
                                     value={form.description}
-                                    onChange={(content) => setForm({ ...form, description: content })}
+                                    onChange={(content) => setForm(prev => ({ ...prev, description: content }))}
                                     modules={quillModules}
                                     formats={quillFormats}
                                     placeholder="Write the full event description here..."
@@ -452,6 +504,34 @@ const EventsAdmin = () => {
                                     font-style: normal;
                                 }
                             `}</style>
+                        </div>
+
+                        <div>
+                            <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                What You’ll Learn
+                            </label>
+                            <input
+                                type="text"
+                                name="whatYoullLearn"
+                                value={form.whatYoullLearn}
+                                onChange={handleChange}
+                                placeholder="Summary of learning outcomes"
+                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                Who This Session Is For
+                            </label>
+                            <input
+                                type="text"
+                                name="whoThisSessionIsFor"
+                                value={form.whoThisSessionIsFor}
+                                onChange={handleChange}
+                                placeholder="Target audience"
+                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                            />
                         </div>
 
                         <div>
@@ -578,7 +658,7 @@ const EventsAdmin = () => {
                                             </p>
                                         </div>
 
-                                        <div 
+                                        <div
                                             className="text-xs md:text-sm text-gray-600 line-clamp-3 min-h-[50px] md:min-h-[60px]"
                                             dangerouslySetInnerHTML={{ __html: event.description || "No description available for this event." }}
                                         />

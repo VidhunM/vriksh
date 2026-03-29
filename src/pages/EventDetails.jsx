@@ -40,7 +40,7 @@ const EventDetails = () => {
     useEffect(() => {
         setLoading(true);
         console.log("Fetching event details for ID:", id);
-        
+
         fetch(`${API_BASE_URL}/events/${id}`)
             .then((res) => {
                 if (!res.ok) throw new Error("Event not found or server error");
@@ -79,6 +79,15 @@ const EventDetails = () => {
             });
     }, []);
 
+    const parseArrayField = (fieldValue) => {
+        if (Array.isArray(fieldValue)) return fieldValue.filter((item) => item && item.toString().trim() !== "");
+        if (typeof fieldValue !== "string") return [];
+        return fieldValue
+            .split(/[,;\n]+/)
+            .map((item) => item.trim())
+            .filter((item) => item !== "");
+    };
+
     // ✅ IMPORTANT: Define "event" safely here so GSAP hook can use it
     const event = apiEvent ? {
         ...apiEvent,
@@ -90,12 +99,8 @@ const EventDetails = () => {
         description: Array.isArray(apiEvent.description)
             ? apiEvent.description
             : [apiEvent.description || ''],
-        whatYouLearn: Array.isArray(apiEvent.whatYouLearn) && apiEvent.whatYouLearn.length > 0
-            ? apiEvent.whatYouLearn
-            : [],
-        whoFor: Array.isArray(apiEvent.whoFor) && apiEvent.whoFor.length > 0
-            ? apiEvent.whoFor
-            : [],
+        whatYouLearn: parseArrayField(apiEvent.whatYouLearn || apiEvent.whatYoullLearn),
+        whoFor: parseArrayField(apiEvent.whoFor || apiEvent.whoThisSessionIsFor),
         enrollLink: apiEvent.registrationLink || defaultRegistrationLink,
         whatsappLink: apiEvent.registrationLink || defaultRegistrationLink
     } : null;
