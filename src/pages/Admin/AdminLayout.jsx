@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { LayoutDashboard, FileText, CalendarDays, Shield, Mail } from "lucide-react";
+import { 
+    LayoutDashboard, 
+    FileText, 
+    CalendarDays, 
+    Mail, 
+    Menu, 
+    X 
+} from "lucide-react";
 
 const AdminLayout = () => {
     const location = useLocation();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const navItems = [
         {
@@ -26,18 +36,46 @@ const AdminLayout = () => {
             path: "/admin/event-inquiries",
             icon: <Mail size={18} />
         }
-
     ];
 
     return (
-        <div className="min-h-screen bg-[#f6f3fb] flex">
+        <div className="min-h-screen bg-[#f6f3fb] flex flex-col lg:flex-row relative overflow-x-hidden">
+            {/* Mobile Header */}
+            <header className="lg:hidden h-20 bg-gradient-to-r from-[#4b0b78] to-[#6a11cb] text-white flex items-center justify-between px-6 sticky top-0 z-50 shadow-lg">
+                <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-md p-1.5">
+                        <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                    </div>
+                    <h2 className="text-lg font-bold tracking-wide">Vriksh Admin</h2>
+                </div>
+                <button 
+                    onClick={toggleMenu}
+                    className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors border border-white/20"
+                >
+                    {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
+            </header>
+
+            {/* Mobile Backdrop */}
+            {isMenuOpen && (
+                <div 
+                    className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                />
+            )}
+
             {/* Sidebar */}
-            <aside className="w-[280px] bg-gradient-to-b from-[#4b0b78] to-[#6a11cb] text-white border-r border-white/10 shadow-2xl flex flex-col">
-                {/* Brand */}
-                <div className="px-6 py-7 border-b border-white/10">
+            <aside className={`
+                w-[280px] bg-gradient-to-b from-[#4b0b78] to-[#6a11cb] text-white border-r border-white/10 shadow-2xl flex flex-col
+                fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0
+                ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
+                lg:h-screen lg:sticky lg:top-0
+            `}>
+                {/* Brand - visible on lg screens */}
+                <div className="px-6 py-7 border-b border-white/10 hidden lg:block">
                     <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center shadow-md">
-                            <Shield size={22} />
+                        <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-md p-2">
+                            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
                         </div>
                         <div>
                             <h2 className="text-xl font-bold tracking-wide">Vriksh Admin</h2>
@@ -46,8 +84,21 @@ const AdminLayout = () => {
                     </div>
                 </div>
 
+                {/* Brand for mobile drawer */}
+                <div className="px-6 py-7 border-b border-white/10 flex lg:hidden items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center p-1.5">
+                            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                        </div>
+                        <h2 className="text-lg font-bold tracking-wide">Vriksh Admin</h2>
+                    </div>
+                    <button onClick={() => setIsMenuOpen(false)} className="text-white/70 hover:text-white">
+                        <X size={20} />
+                    </button>
+                </div>
+
                 {/* Nav */}
-                <nav className="p-5 space-y-3">
+                <nav className="p-5 space-y-3 flex-1 overflow-y-auto custom-scrollbar">
                     {navItems.map((item) => {
                         const isActive =
                             location.pathname === item.path ||
@@ -57,6 +108,7 @@ const AdminLayout = () => {
                             <Link
                                 key={item.path}
                                 to={item.path}
+                                onClick={() => setIsMenuOpen(false)}
                                 className={`flex items-center gap-3 rounded-2xl px-4 py-3.5 border transition-all duration-200 ${
                                     isActive
                                         ? "bg-white text-[#5b1693] border-white shadow-lg"
@@ -73,7 +125,7 @@ const AdminLayout = () => {
                 </nav>
 
                 {/* Bottom info */}
-                <div className="mt-auto p-5">
+                <div className="p-5">
                     <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
                         <p className="text-sm font-semibold">Admin Workspace</p>
                         <p className="text-xs text-white/70 mt-1">
@@ -84,8 +136,10 @@ const AdminLayout = () => {
             </aside>
 
             {/* Main */}
-            <main className="flex-1 bg-[#f8f6fc] p-6 md:p-8 overflow-x-hidden">
-                <Outlet />
+            <main className="flex-1 bg-[#f8f6fc] p-4 md:p-8 overflow-x-hidden min-h-0 min-w-0">
+                <div className="max-w-[1600px] mx-auto">
+                    <Outlet />
+                </div>
             </main>
         </div>
     );

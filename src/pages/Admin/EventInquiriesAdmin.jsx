@@ -30,83 +30,93 @@ const EventInquiriesAdmin = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#f7f4fb] via-white to-[#f3ecfb] p-4 md:p-8">
+        <div className="min-h-screen bg-gradient-to-br from-[#f7f4fb] via-white to-[#f3ecfb] p-3 md:p-8">
             <div className="max-w-7xl mx-auto">
-                <div className="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div className="mb-6 md:mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
-                        <p className="text-sm font-medium text-[#7c3aed] mb-2">
+                        <p className="text-xs md:text-sm font-medium text-[#7c3aed] mb-1">
                             Admin Panel / Event Inquiries
                         </p>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
                             User Event Form Submissions
                         </h2>
-                        <p className="text-gray-500 mt-2 text-sm md:text-base">
+                        <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-base">
                             View all submissions from the Upcoming Events page form.
                         </p>
                     </div>
 
-                    <div className="bg-white border border-purple-100 shadow-sm rounded-2xl px-5 py-4 min-w-[160px]">
-                        <p className="text-sm text-gray-500">Total Submissions</p>
-                        <h3 className="text-2xl font-bold text-[#6d28d9]">
+                    <div className="bg-white border border-purple-100 shadow-sm rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 w-full lg:w-auto">
+                        <p className="text-xs md:text-sm text-gray-500">Total Submissions</p>
+                        <h3 className="text-xl md:text-2xl font-bold text-[#6d28d9]">
                             {inquiries.length}
                         </h3>
                     </div>
                 </div>
 
                 {inquiries.length === 0 ? (
-                    <div className="bg-white border border-purple-100 rounded-3xl p-10 text-center shadow-sm">
-                        <h4 className="text-xl font-bold text-gray-900">No submissions found</h4>
-                        <p className="text-gray-500 mt-2">
+                    <div className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-8 md:p-10 text-center shadow-sm">
+                        <h4 className="text-lg md:text-xl font-bold text-gray-900">No submissions found</h4>
+                        <p className="text-gray-500 mt-2 text-sm md:text-base">
                             User form entries from Upcoming Events will appear here.
                         </p>
                     </div>
                 ) : (
-                    <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
                         {inquiries.map((item) => (
                             <div
                                 key={item._id}
-                                className="bg-white border border-purple-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition"
+                                className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-sm hover:shadow-md transition"
                             >
-                                <div className="flex items-start justify-between gap-4 mb-4">
-                                    <div>
-                                        <h3 className="text-xl font-bold text-gray-900">{item.fullName}</h3>
-                                        <p className="text-sm text-gray-500">
+                                <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-5 md:mb-6">
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 truncate">
+                                            {item.fullName}
+                                        </h3>
+                                        <p className="text-xs md:text-sm text-gray-500">
                                             {new Date(item.createdAt).toLocaleString()}
                                         </p>
                                     </div>
 
                                     <button
                                         onClick={() => handleDelete(item._id)}
-                                        className="inline-flex items-center justify-center gap-2 rounded-2xl bg-red-50 text-red-600 font-semibold px-4 py-2 hover:bg-red-100 transition"
+                                        className="sm:shrink-0 inline-flex items-center justify-center gap-2 rounded-xl md:rounded-2xl bg-red-50 text-red-600 text-sm font-semibold px-4 py-2 hover:bg-red-100 transition w-full sm:w-auto"
                                     >
                                         <Trash2 size={16} />
                                         Delete
                                     </button>
                                 </div>
 
-                                <div className="space-y-3 text-sm text-gray-700">
-                                    <p className="flex items-center gap-2">
-                                        <Mail size={16} className="text-purple-500" />
-                                        {item.email}
-                                    </p>
-                                    <p className="flex items-center gap-2">
-                                        <Phone size={16} className="text-purple-500" />
-                                        {item.phoneNumber}
-                                    </p>
-                                    <p className="flex items-center gap-2">
-                                        <MapPin size={16} className="text-purple-500" />
-                                        {item.location}
-                                    </p>
-                                    <p className="flex items-center gap-2">
-                                        <UserRound size={16} className="text-purple-500" />
-                                        Topic: {item.topicInterestedIn}
-                                    </p>
-                                    <p><span className="font-semibold">Background:</span> {item.background}</p>
-                                    <p><span className="font-semibold">Heard About Us:</span> {item.heardAboutUs}</p>
-                                    <p><span className="font-semibold">Consent:</span> {item.consent ? "Yes" : "No"}</p>
-                                    <div>
-                                        <p className="font-semibold mb-1">Message:</p>
-                                        <p className="text-gray-600 whitespace-pre-line">{item.message}</p>
+                                <div className="space-y-3.5 md:space-y-4 text-sm text-gray-700">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                        <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
+                                            <Mail size={16} className="text-purple-500 shrink-0" />
+                                            <span className="truncate">{item.email}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
+                                            <Phone size={16} className="text-purple-500 shrink-0" />
+                                            <span className="truncate">{item.phoneNumber}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
+                                            <MapPin size={16} className="text-purple-500 shrink-0" />
+                                            <span className="truncate">{item.location}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100 cursor-default">
+                                            <UserRound size={16} className="text-purple-500 shrink-0" />
+                                            <span className="truncate text-xs">Topic: {item.topicInterestedIn}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-purple-50/40 p-3.5 md:p-4 rounded-xl space-y-2 text-xs md:text-sm">
+                                        <p><span className="font-bold text-purple-700">Background:</span> {item.background}</p>
+                                        <p><span className="font-bold text-purple-700">Heard About Us:</span> {item.heardAboutUs}</p>
+                                        <p><span className="font-bold text-purple-700">Consent:</span> {item.consent ? "Yes" : "No"}</p>
+                                    </div>
+
+                                    <div className="p-3.5 md:p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                        <p className="font-bold text-gray-900 mb-2 uppercase text-[10px] tracking-wider">User Message</p>
+                                        <p className="text-gray-600 whitespace-pre-line text-sm leading-relaxed">
+                                            {item.message || "No message provided."}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

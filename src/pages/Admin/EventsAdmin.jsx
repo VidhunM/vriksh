@@ -221,56 +221,56 @@ const EventsAdmin = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#f7f4fb] via-white to-[#f3ecfb] p-4 md:p-8">
+        <div className="min-h-screen bg-gradient-to-br from-[#f7f4fb] via-white to-[#f3ecfb] p-3 md:p-8">
             <div className="max-w-7xl mx-auto">
-                <div className="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div className="mb-6 md:mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
-                        <p className="text-sm font-medium text-[#7c3aed] mb-2">
+                        <p className="text-xs md:text-sm font-medium text-[#7c3aed] mb-1">
                             Admin Panel / Event Management
                         </p>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
                             {editId ? "Edit Event" : "Manage Events"}
                         </h2>
-                        <p className="text-gray-500 mt-2 text-sm md:text-base">
+                        <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-base">
                             Create, update, and organize upcoming events.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 w-full lg:w-auto">
-                        <div className="bg-white border border-purple-100 shadow-sm rounded-2xl px-5 py-4 min-w-[160px]">
-                            <p className="text-sm text-gray-500">Total Events</p>
-                            <h3 className="text-2xl font-bold text-[#6d28d9]">
+                    <div className="grid grid-cols-2 gap-3 md:gap-4 w-full lg:w-auto">
+                        <div className="bg-white border border-purple-100 shadow-sm rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4">
+                            <p className="text-xs md:text-sm text-gray-500">Total Events</p>
+                            <h3 className="text-xl md:text-2xl font-bold text-[#6d28d9]">
                                 {events.length}
                             </h3>
                         </div>
-                        <div className="bg-white border border-purple-100 shadow-sm rounded-2xl px-5 py-4 min-w-[160px]">
-                            <p className="text-sm text-gray-500">Status</p>
-                            <h3 className="text-lg font-semibold text-green-600">
+                        <div className="bg-white border border-purple-100 shadow-sm rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4">
+                            <p className="text-xs md:text-sm text-gray-500">Status</p>
+                            <h3 className="text-base md:text-lg font-semibold text-green-600">
                                 Active
                             </h3>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-white/90 backdrop-blur-sm border border-purple-100 shadow-xl rounded-3xl p-5 md:p-8 mb-10">
+                <div className="bg-white/90 backdrop-blur-sm border border-purple-100 shadow-xl rounded-2xl md:rounded-3xl p-4 md:p-8 mb-8 md:mb-10">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600 to-fuchsia-500 flex items-center justify-center text-white shadow-md">
-                            <CalendarDays size={22} />
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-gradient-to-br from-purple-600 to-fuchsia-500 flex items-center justify-center text-white shadow-md">
+                            <CalendarDays size={20} className="md:w-6 md:h-6" />
                         </div>
                         <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                            <h3 className="text-lg md:text-2xl font-bold text-gray-900">
                                 {editId ? "Update Event Details" : "Create New Event"}
                             </h3>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-xs md:text-sm text-gray-500">
                                 Fill in the event information below.
                             </p>
                         </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                             <div>
-                                <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                <label className="text-xs md:text-sm font-semibold text-gray-700 mb-1.5 md:block">
                                     Event Image
                                 </label>
                                 <div className="relative group">
@@ -283,10 +283,10 @@ const EventsAdmin = () => {
                                     />
                                     <label
                                         htmlFor="event-image-upload"
-                                        className="flex items-center gap-2 w-full rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 hover:bg-white hover:border-purple-500 cursor-pointer px-4 py-3.5 text-gray-600 transition"
+                                        className="flex items-center gap-2 w-full rounded-xl md:rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 hover:bg-white hover:border-purple-500 cursor-pointer px-3 md:px-4 py-3 md:py-3.5 text-gray-600 transition text-sm"
                                     >
-                                        <Upload size={20} className="text-purple-500" />
-                                        <span>{form.image ? "Change Image" : "Upload Event Image"}</span>
+                                        <Upload size={18} className="text-purple-500" />
+                                        <span className="truncate">{form.image ? "Change Image" : "Upload Event Image"}</span>
                                     </label>
                                 </div>
                             </div>
@@ -403,10 +403,10 @@ const EventsAdmin = () => {
                         </div>
 
                         <div className="quill-editor-container">
-                            <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                            <label className="text-xs md:text-sm font-semibold text-gray-700 mb-1.5 block">
                                 Description
                             </label>
-                            <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 focus-within:border-purple-500 focus-within:ring-4 focus-within:ring-purple-100 transition">
+                            <div className="bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 focus-within:border-purple-500 focus-within:ring-4 focus-within:ring-purple-100 transition">
                                 <ReactQuill 
                                     theme="snow"
                                     value={form.description}
@@ -414,7 +414,7 @@ const EventsAdmin = () => {
                                     modules={quillModules}
                                     formats={quillFormats}
                                     placeholder="Write the full event description here..."
-                                    className="h-64"
+                                    className="h-48 md:h-64"
                                 />
                             </div>
                             <style>{`
@@ -429,10 +429,19 @@ const EventsAdmin = () => {
                                     background: #f9fafb;
                                     border-color: transparent !important;
                                     border-bottom: 1px solid #e5e7eb !important;
+                                    padding: 8px !important;
                                 }
                                 .quill-editor-container .ql-container {
                                     border-color: transparent !important;
-                                    font-size: 1rem;
+                                    font-size: 0.95rem;
+                                }
+                                @media (max-width: 640px) {
+                                    .quill-editor-container .ql-editor {
+                                        min-height: 150px;
+                                    }
+                                    .quill-editor-container .ql-toolbar .ql-formats {
+                                        margin-right: 8px !important;
+                                    }
                                 }
                                 .quill-editor-container .ql-editor {
                                     min-height: 200px;
@@ -507,87 +516,86 @@ const EventsAdmin = () => {
                             </p>
                         </div>
                     </div>
-
                     {events.length === 0 ? (
-                        <div className="bg-white border border-purple-100 rounded-3xl p-10 text-center shadow-sm">
-                            <div className="w-16 h-16 mx-auto rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4">
-                                <CalendarDays size={28} />
+                        <div className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-8 md:p-10 text-center shadow-sm">
+                            <div className="w-14 h-14 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4">
+                                <CalendarDays size={24} className="md:w-7 md:h-7" />
                             </div>
-                            <h4 className="text-xl font-bold text-gray-900">
+                            <h4 className="text-lg md:text-xl font-bold text-gray-900">
                                 No events found
                             </h4>
-                            <p className="text-gray-500 mt-2">
+                            <p className="text-gray-500 mt-2 text-sm md:text-base">
                                 Start by adding your first event from the form above.
                             </p>
                         </div>
                     ) : (
-                        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">
                             {events.map((event) => (
                                 <div
                                     key={event._id}
-                                    className="group bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                    className="group bg-white border border-purple-100 rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                                 >
                                     <div className="relative">
                                         <img
                                             src={event.image}
                                             alt={event.title}
-                                            className="h-52 w-full object-cover"
+                                            className="h-48 md:h-52 w-full object-cover"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-80" />
                                         <div className="absolute bottom-4 left-4 right-4">
-                                            <span className="inline-block text-xs font-semibold bg-white/90 text-purple-700 px-3 py-1 rounded-full">
+                                            <span className="inline-block text-[10px] md:text-xs font-semibold bg-white/90 text-purple-700 px-2.5 py-1 rounded-full">
                                                 {event.type || "Event"}
                                             </span>
                                         </div>
                                     </div>
 
-                                    <div className="p-5">
-                                        <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                                    <div className="p-4 md:p-5">
+                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 line-clamp-2 leading-tight">
                                             {event.title}
                                         </h3>
 
-                                        <div className="space-y-2 mb-4 text-sm text-gray-500">
+                                        <div className="space-y-1.5 md:space-y-2 mb-4 text-xs md:text-sm text-gray-500">
                                             <p className="flex items-center gap-2">
-                                                <CalendarDays size={15} className="text-purple-500" />
+                                                <CalendarDays size={14} className="text-purple-500" />
                                                 {event.date || "No date"}
                                             </p>
                                             <p className="flex items-center gap-2">
-                                                <Clock3 size={15} className="text-purple-500" />
+                                                <Clock3 size={14} className="text-purple-500" />
                                                 {event.time || "No time"}
                                             </p>
                                             <p className="flex items-center gap-2">
-                                                <Layers3 size={15} className="text-purple-500" />
+                                                <Layers3 size={14} className="text-purple-500" />
                                                 {event.level || "All Levels"}
                                             </p>
                                             <p className="flex items-center gap-2">
-                                                <IndianRupee size={15} className="text-purple-500" />
+                                                <IndianRupee size={14} className="text-purple-500" />
                                                 {event.price || "Free"}
                                             </p>
-                                            <p className="flex items-center gap-2 truncate">
-                                                <LinkIcon size={15} className="text-purple-500" />
-                                                {event.registrationLink || defaultRegistrationLink}
+                                            <p className="flex items-center gap-2 truncate pr-2">
+                                                <LinkIcon size={14} className="text-purple-500 shrink-0" />
+                                                <span className="truncate">{event.registrationLink || "Standard Link"}</span>
                                             </p>
                                         </div>
 
                                         <div 
-                                            className="text-sm text-gray-600 line-clamp-3 min-h-[60px]"
+                                            className="text-xs md:text-sm text-gray-600 line-clamp-3 min-h-[50px] md:min-h-[60px]"
                                             dangerouslySetInnerHTML={{ __html: event.description || "No description available for this event." }}
                                         />
 
-                                        <div className="flex gap-3 mt-5">
+                                        <div className="flex gap-3 mt-4 md:mt-5">
                                             <button
                                                 onClick={() => handleEdit(event)}
-                                                className="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-50 text-blue-700 font-semibold py-3 hover:bg-blue-100 transition"
+                                                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl md:rounded-2xl bg-blue-50 text-blue-700 text-sm font-semibold py-2.5 md:py-3 hover:bg-blue-100 transition"
                                             >
-                                                <Pencil size={16} />
+                                                <Pencil size={15} />
                                                 Edit
                                             </button>
 
                                             <button
                                                 onClick={() => handleDelete(event._id)}
-                                                className="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-red-50 text-red-600 font-semibold py-3 hover:bg-red-100 transition"
+                                                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl md:rounded-2xl bg-red-50 text-red-600 text-sm font-semibold py-2.5 md:py-3 hover:bg-red-100 transition"
                                             >
-                                                <Trash2 size={16} />
+                                                <Trash2 size={15} />
                                                 Delete
                                             </button>
                                         </div>
