@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import API_BASE_URL from "../api/config";
 
 const UpcomingEvents = () => {
     const stripHtml = (html) => {
@@ -139,7 +140,7 @@ const UpcomingEvents = () => {
 
     useEffect(() => {
         console.log("Fetching events from backend...");
-        fetch("http://localhost:5000/events")
+        fetch(`${API_BASE_URL}/events`)
             .then((res) => {
                 if (!res.ok) throw new Error("Failed to fetch events");
                 return res.json();

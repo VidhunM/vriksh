@@ -1,5 +1,15 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import API_BASE_URL from '../api/config';
+import { 
+    Calendar, 
+    Clock, 
+    User, 
+    Share2, 
+    ArrowLeft, 
+    ChevronRight,
+    Search
+} from 'lucide-react';
 
 const blogPosts = [
     {
@@ -342,15 +352,13 @@ const BlogDetails = () => {
 
     // 🔥 FETCH FROM BACKEND
     React.useEffect(() => {
-    fetch(`http://localhost:5000/blogs/${id}`)
-        .then(res => {
-            if (!res.ok) {
-                return null;
-            }
-            return res.json();
-        })
-        .then(data => setApiBlog(data))
-        .catch(err => console.log(err));
+        fetch(`${API_BASE_URL}/blogs/${id}`)
+            .then(res => {
+                if (!res.ok) return null;
+                return res.json();
+            })
+            .then(data => setApiBlog(data))
+            .catch(err => console.log(err));
     }, [id]);
 
     // 🔥 HYBRID LOGIC

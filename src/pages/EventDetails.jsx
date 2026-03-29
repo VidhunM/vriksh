@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import API_BASE_URL from '../api/config';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -13,6 +14,7 @@ const EventDetails = () => {
 
     const [apiEvent, setApiEvent] = useState(null);
     const [allEvents, setAllEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     // Testimonials State
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -143,26 +145,31 @@ const EventDetails = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/events/${id}`)
+        setLoading(true);
+        console.log("Fetching event details for ID:", id);
+        
+        // If it's a numeric ID (1, 2, 3), we might want to check static data first or just let API fail
+        fetch(`${API_BASE_URL}/events/${id}`)
             .then((res) => {
-                if (!res.ok) return null;
+                if (!res.ok) throw new Error("Event not found or server error");
                 return res.json();
             })
             .then((data) => {
+                console.log("API Event Data:", data);
                 if (data && !data.error) {
                     setApiEvent(data);
-                } else {
-                    setApiEvent(null);
                 }
+                setLoading(false);
             })
             .catch((err) => {
-                console.log(err);
+                console.warn("API fetch failed, falling back to static data if available:", err);
                 setApiEvent(null);
+                setLoading(false);
             });
     }, [id]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/events")
+        fetch(`${API_BASE_URL}/events`)
             .then((res) => {
                 if (!res.ok) return [];
                 return res.json();
@@ -352,6 +359,14 @@ const EventDetails = () => {
         window.open(event.whatsappLink || defaultRegistrationLink, '_blank');
     };
 
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#520378]"></div>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-white min-h-screen">
             <div className="bg-[#520378] pt-28 pb-12 sm:pt-40 sm:pb-20">
@@ -411,34 +426,34 @@ const EventDetails = () => {
                             </div>
 
                             <div className="p-6">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 md:gap-y-6 mb-8">
+                                <div className="grid grid-cols-2 gap-y-6 mb-8">
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Type</span>
                                         </div>
-                                        <span className="text-[15px] font-bold text-[#520378] ml-6.5">{event.type}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.type}</span>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Level</span>
                                         </div>
-                                        <span className="text-[15px] font-bold text-[#520378] ml-6.5">{event.level}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.level}</span>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Date</span>
                                         </div>
-                                        <span className="text-[15px] font-bold text-[#520378] ml-6.5">{event.date}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.date}</span>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-2 text-gray-900">
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Time</span>
                                         </div>
-                                        <span className="text-[15px] font-bold text-[#520378] ml-6.5">{event.time}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-6.5">{event.time}</span>
                                     </div>
                                 </div>
 

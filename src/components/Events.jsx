@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../api/config';
 
 const Events = () => {
     const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Events = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/events")
+        fetch(`${API_BASE_URL}/events`)
             .then(res => res.json())
             .then(data => {
                 const formattedData = data.map(event => ({
@@ -18,9 +19,9 @@ const Events = () => {
                     title: event.title,
                     date: event.date,
                     time: event.time,
-                    rating: event.rating || 4.9,
-                    originalPrice: event.originalPrice || '',
-                    currentPrice: event.price || 'FREE',
+                    type: event.type || "Workshop",
+                    rating: event.rating ?? 4.9,
+                    price: event.price || 'FREE',
                     ...event
                 }));
                 setApiEvents(formattedData);
@@ -106,7 +107,7 @@ const Events = () => {
                                                     {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                                 </div>
                                             </div>
-                                            {/* Date and Time */}
+                                            {/* Date, Time and Type */}
                                             <div className="flex flex-col gap-1 mb-4 text-[12px] font-bold text-gray-700">
                                                 <div className="flex items-center gap-2">
                                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
@@ -124,11 +125,14 @@ const Events = () => {
                                                     </svg>
                                                     {event.time}
                                                 </div>
+                                                <div className="flex items-center gap-2 text-[#520378] mt-1">
+                                                    <div className="w-1 h-1 rounded-full bg-[#520378]"></div> 
+                                                    Live | Online | {event.type}
+                                                </div>
                                             </div>
                                             <div className="flex justify-between items-center gap-2">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-gray-400 line-through text-xs sm:text-[14px]">{event.originalPrice}</span>
-                                                    <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.currentPrice}</span>
+                                                <div className="flex items-center gap-2 leading-none">
+                                                    <span className="text-gray-950 font-bold text-sm sm:text-[17px]">{event.price}</span>
                                                 </div>
                                                 <button
                                                     onClick={() => navigate(`/event-details/${event.id}`)}
@@ -162,29 +166,34 @@ const Events = () => {
                                         {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                     </div>
                                 </div>
-                                {/* Date and Time */}
-                                <div className="flex items-center gap-5 mb-5 text-[14px] font-bold text-gray-700">
-                                    <div className="flex items-center gap-2">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                                        </svg>
-                                        {event.date}
+                                {/* Date, Time and Type */}
+                                <div className="flex flex-col gap-2 mb-5 text-[14px] font-bold text-gray-700">
+                                    <div className="flex items-center gap-5">
+                                        <div className="flex items-center gap-2">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>
+                                            {event.date}
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            {event.time}
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <polyline points="12 6 12 12 16 14"></polyline>
-                                        </svg>
-                                        {event.time}
+                                    <div className="flex items-center gap-2 text-[#520378]">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#520378]"></div>
+                                        Live | Online | {event.type}
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center gap-6">
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-gray-400 line-through text-[15px]">{event.originalPrice}</span>
-                                        <span className="text-gray-950 font-bold text-[18px]">{event.currentPrice}</span>
+                                    <div className="flex items-center gap-3 leading-none">
+                                        <span className="text-gray-950 font-bold text-[18px]">{event.price}</span>
                                     </div>
                                     <button
                                         onClick={() => navigate(`/event-details/${event.id}`)}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import API_BASE_URL from "../../api/config";
 
 const AddBlog = () => {
     const [blogs, setBlogs] = useState([]);
@@ -16,7 +17,7 @@ const AddBlog = () => {
 
     // Fetch blogs
     const fetchBlogs = async () => {
-        const res = await fetch("http://localhost:5000/blogs");
+        const res = await fetch(`${API_BASE_URL}/blogs`);
         const data = await res.json();
         setBlogs(data);
     };
@@ -38,8 +39,8 @@ const AddBlog = () => {
         e.preventDefault();
 
         const url = editingId
-            ? `http://localhost:5000/blogs/${editingId}`
-            : "http://localhost:5000/blogs";
+            ? `${API_BASE_URL}/blogs/${editingId}`
+            : `${API_BASE_URL}/blogs`;
 
         const method = editingId ? "PUT" : "POST";
 
@@ -65,7 +66,7 @@ const AddBlog = () => {
 
     // Delete
     const deleteBlog = async (id) => {
-        await fetch(`http://localhost:5000/blogs/${id}`, {
+        await fetch(`${API_BASE_URL}/blogs/${id}`, {
             method: "DELETE"
         });
         fetchBlogs();

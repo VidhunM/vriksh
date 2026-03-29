@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon, Upload, Layers as Layers3 } from "lucide-react";
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import API_BASE_URL from "../../api/config";
 
 const BlogsAdmin = () => {
     const formatDateForDisplay = (dateStr) => {
@@ -66,7 +67,7 @@ const BlogsAdmin = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await fetch("http://localhost:5000/blogs");
+            const res = await fetch(`${API_BASE_URL}/blogs`);
             const data = await res.json();
             setBlogs(data);
         } catch (error) {
@@ -84,8 +85,8 @@ const BlogsAdmin = () => {
         try {
             const method = editId ? "PUT" : "POST";
             const url = editId
-                ? `http://localhost:5000/blogs/${editId}`
-                : "http://localhost:5000/blogs";
+                ? `${API_BASE_URL}/blogs/${editId}`
+                : `${API_BASE_URL}/blogs`;
 
             const payload = {
                 ...form,
@@ -116,7 +117,7 @@ const BlogsAdmin = () => {
 
     const deleteBlog = async (id) => {
         try {
-            await fetch(`http://localhost:5000/blogs/${id}`, {
+            await fetch(`${API_BASE_URL}/blogs/${id}`, {
                 method: "DELETE"
             });
             fetchBlogs();

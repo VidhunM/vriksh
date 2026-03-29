@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import API_BASE_URL from '../api/config';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const categories = ["Counselling", "Institutional", "Workshop"];
 
@@ -70,10 +72,10 @@ const Blogs = () => {
     }, []);
 
     useEffect(() => {
-    fetch("http://localhost:5000/blogs")
-        .then(res => res.json())
-        .then(data => setApiBlogs(data))
-        .catch(err => console.log(err));
+        fetch(`${API_BASE_URL}/blogs`)
+            .then((res) => res.json())
+            .then(data => setApiBlogs(data))
+            .catch(err => console.log(err));
     }, []);
 
     // Reset index when category changes

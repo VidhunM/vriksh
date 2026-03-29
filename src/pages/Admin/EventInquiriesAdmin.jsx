@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Mail, MapPin, Phone, Trash2, UserRound } from "lucide-react";
+import API_BASE_URL from "../../api/config";
 
 const EventInquiriesAdmin = () => {
     const [inquiries, setInquiries] = useState([]);
 
     const fetchInquiries = async () => {
         try {
-            const res = await fetch("http://localhost:5000/event-inquiries");
+            const res = await fetch(`${API_BASE_URL}/event-inquiries`);
             const data = await res.json();
             setInquiries(data);
         } catch (error) {
@@ -20,7 +21,7 @@ const EventInquiriesAdmin = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:5000/event-inquiries/${id}`, {
+            await fetch(`${API_BASE_URL}/event-inquiries/${id}`, {
                 method: "DELETE"
             });
             fetchInquiries();

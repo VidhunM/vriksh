@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import API_BASE_URL from '../../api/config';
 
 const defaultRegistrationLink =
     "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
@@ -123,7 +124,7 @@ const EventsAdmin = () => {
 
     const fetchEvents = async () => {
         try {
-            const res = await fetch("http://localhost:5000/events");
+            const res = await fetch(`${API_BASE_URL}/events`);
             const data = await res.json();
             setEvents(data);
         } catch (error) {
@@ -161,8 +162,8 @@ const EventsAdmin = () => {
         try {
             const method = editId ? "PUT" : "POST";
             const url = editId
-                ? `http://localhost:5000/events/${editId}`
-                : "http://localhost:5000/events";
+                ? `${API_BASE_URL}/events/${editId}`
+                : `${API_BASE_URL}/events`;
 
             const payload = {
                 image: form.image,
@@ -211,7 +212,7 @@ const EventsAdmin = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:5000/events/${id}`, {
+            await fetch(`${API_BASE_URL}/events/${id}`, {
                 method: "DELETE"
             });
             fetchEvents();
