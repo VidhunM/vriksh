@@ -138,21 +138,22 @@ const UpcomingEvents = () => {
     ];
 
     useEffect(() => {
+        console.log("Fetching events from backend...");
         fetch("http://localhost:5000/events")
             .then((res) => {
-                if (!res.ok) return [];
+                if (!res.ok) throw new Error("Failed to fetch events");
                 return res.json();
             })
             .then((data) => {
-                if (Array.isArray(data)) {
+                console.log("Fetched events:", data);
+                if (Array.isArray(data) && data.length > 0) {
                     setEvents(data);
                 } else {
-                    setEvents([]);
+                    console.log("No events found in backend, showing fallback.");
                 }
             })
             .catch((err) => {
-                console.log(err);
-                setEvents([]);
+                console.error("Error fetching events:", err);
             });
     }, []);
 
@@ -305,7 +306,35 @@ const UpcomingEvents = () => {
                         ref={eventsScrollRef}
                         className="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-3 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
                     >
-                        {events.map((event) => {
+                        {(events.length > 0 ? events : [
+                            {
+                                id: '1',
+                                title: 'ADHD Toolkit – Practical Strategies & Activities',
+                                description: 'Learn practical strategies and explore 20+ engaging activities to support children and teens with ADHD.',
+                                date: '20-03-2026',
+                                time: '5:00PM - 6:30 PM',
+                                image: '/images/uc1.jpeg',
+                                price: '₹1000'
+                            },
+                            {
+                                id: '2',
+                                title: 'Self-Care: Pause, Recharge & Reconnect',
+                                description: 'Learn simple, practical strategies to nurture your emotional and mental well-being.',
+                                date: '04-04-2026',
+                                time: '6:00PM - 7:00 PM',
+                                image: '/images/uc2.jpeg',
+                                price: 'FREE'
+                            },
+                            {
+                                id: '3',
+                                title: 'Building Trust with Students in Counselling Sessions',
+                                description: 'Learn practical ways to build trust with students and create a safe counselling space.',
+                                date: '23-03-2026',
+                                time: '6:00PM - 7:00 PM',
+                                image: '/images/uc3.jpeg',
+                                price: 'FREE'
+                            }
+                        ]).map((event) => {
                             const eventId = event._id || event.id;
 
                             return (

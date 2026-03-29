@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon, Upload } from "lucide-react";
+import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon, Upload, Layers as Layers3 } from "lucide-react";
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 
@@ -29,6 +29,7 @@ const BlogsAdmin = () => {
         title: "",
         author: "",
         date: "",
+        category: "Counselling",
         image: "",
         slug: "",
         content: ""
@@ -101,6 +102,7 @@ const BlogsAdmin = () => {
                 title: "",
                 author: "",
                 date: "",
+                category: "Counselling",
                 image: "",
                 slug: "",
                 content: ""
@@ -128,6 +130,7 @@ const BlogsAdmin = () => {
             title: blog.title || "",
             author: blog.author || "",
             date: blog.date || "",
+            category: blog.category || "Counselling",
             image: blog.image || "",
             slug: blog.slug || "",
             content: blog.content || ""
@@ -238,14 +241,29 @@ const BlogsAdmin = () => {
                             </div>
                         </div>
 
-                        <div>
-                            <label className="text-sm font-semibold text-gray-700 mb-2 block">Slug</label>
-                            <input
-                                placeholder="Enter blog slug"
-                                value={form.slug}
-                                onChange={(e) => setForm({ ...form, slug: e.target.value })}
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label className="text-sm font-semibold text-gray-700 mb-2 block">Slug</label>
+                                <input
+                                    placeholder="Enter blog slug"
+                                    value={form.slug}
+                                    onChange={(e) => setForm({ ...form, slug: e.target.value })}
+                                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="text-sm font-semibold text-gray-700 mb-2 block">Category</label>
+                                <select
+                                    value={form.category}
+                                    onChange={(e) => setForm({ ...form, category: e.target.value })}
+                                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                                >
+                                    <option value="Counselling">Counselling</option>
+                                    <option value="Institutional">Institutional</option>
+                                    <option value="Workshop">Workshop</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div className="quill-editor-container">
@@ -397,6 +415,10 @@ const BlogsAdmin = () => {
                                                     {blog.slug}
                                                 </p>
                                             )}
+                                            <p className="text-sm text-gray-500 flex items-center gap-2">
+                                                <Layers3 size={15} className="text-purple-500" />
+                                                {blog.category || "Counselling"}
+                                            </p>
                                         </div>
 
                                         <div 

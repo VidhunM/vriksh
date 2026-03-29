@@ -1,40 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Events = () => {
     const navigate = useNavigate();
-    const events = [
-        {
-            id: 1,
-            image: '/images/uc1.jpeg',
-            title: 'ADHD Toolkit – Practical Strategies & Activities',
-            date: '20-03-2026',
-            time: '5:00PM - 6:30 PM',
-            rating: 4.9,
-            originalPrice: '₹1500',
-            currentPrice: '₹1000'
-        },
-        {
-            id: 2,
-            image: '/images/uc2.jpeg',
-            title: 'Self-Care: Pause, Recharge & Reconnect',
-            date: '04-04-2026',
-            time: '6:00PM - 7:00 PM',
-            rating: 4.9,
-            originalPrice: '₹850',
-            currentPrice: 'FREE'
-        },
-        {
-            id: 3,
-            image: '/images/uc3.jpeg',
-            title: 'Building Trust with Students in Counselling Sessions.',
-            date: '23-03-2026',
-            time: '6:00PM - 7:00 PM',
-            rating: 4.9,
-            originalPrice: '₹850',
-            currentPrice: 'FREE'
-        }
-    ];
+    const [apiEvents, setApiEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+
+
+    useEffect(() => {
+        fetch("http://localhost:5000/events")
+            .then(res => res.json())
+            .then(data => {
+                const formattedData = data.map(event => ({
+                    id: event._id,
+                    image: event.image,
+                    title: event.title,
+                    date: event.date,
+                    time: event.time,
+                    rating: event.rating || 4.9,
+                    originalPrice: event.originalPrice || '',
+                    currentPrice: event.price || 'FREE',
+                    ...event
+                }));
+                setApiEvents(formattedData);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error fetching events:", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const events = apiEvents;
 
     const [mobileIndex, setMobileIndex] = useState(0);
     const nextMobile = () => setMobileIndex((i) => (i + 1) % events.length);
@@ -74,7 +72,18 @@ const Events = () => {
                     </div>
                 </div>
 
-                {/* Mobile Carousel View (manual buttons, no auto scroll) */}
+                {loading ? (
+                    <div className="flex justify-center items-center py-20">
+                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#520378]"></div>
+                    </div>
+                ) : events.length === 0 ? (
+                    <div className="text-center py-20 bg-[#f9f9f9] rounded-3xl border-2 border-dashed border-gray-200">
+                        <p className="text-gray-500 text-lg font-medium">No upcoming events found at the moment.</p>
+                        <p className="text-gray-400 text-sm mt-1">Check back later or follow us on social media for updates!</p>
+                    </div>
+                ) : (
+                    <>
+                        {/* Mobile Carousel View (manual buttons, no auto scroll) */}
                 <div className="md:hidden">
                     <div className="relative overflow-hidden">
                         <div
@@ -188,8 +197,10 @@ const Events = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </>
+        )}
+    </div>
+</section>
     );
 };
 

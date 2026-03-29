@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const categories = [];
+const categories = ["Counselling", "Institutional", "Workshop"];
 
 const blogPosts = [
     {
@@ -56,6 +56,7 @@ const Blogs = () => {
     const [apiBlogs, setApiBlogs] = useState([]);
 
     const allBlogs = [...blogPosts, ...apiBlogs];
+    const latestBlog = apiBlogs.length > 0 ? apiBlogs[0] : blogPosts[blogPosts.length - 1];
 
     const filteredPosts = allBlogs.filter(post => post.category === activeCategory);
 
@@ -108,16 +109,16 @@ const Blogs = () => {
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
                     {/* Left: Large Image Card */}
                     <div className="lg:w-1/2 relative group overflow-hidden rounded-[24px] sm:rounded-[32px] shadow-lg cursor-pointer h-[320px] sm:h-[400px] lg:h-auto">
-                        <Link to="/blog/12" className="h-full block">
+                        <Link to={`/blog/${latestBlog?._id || latestBlog?.id}`} className="h-full block">
                             <img
-                                src="/images/mind body connection.jpg"
-                                alt="When Your Mind Talks, Your Body Listens"
+                                src={latestBlog?.image}
+                                alt={latestBlog?.title}
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-8">
-                                <span className="text-[#FCA253] text-[10px] sm:text-[12px] font-bold tracking-[0.2em] uppercase mb-2 sm:mb-3">Featured Post</span>
+                                <span className="text-[#FCA253] text-[10px] sm:text-[12px] font-bold tracking-[0.2em] uppercase mb-2 sm:mb-3">Latest Post</span>
                                 <h3 className="text-white text-[22px] sm:text-[32px] font-bold font-inter-tight leading-tight group-hover:text-[#FCA253] transition-colors">
-                                    When Your Mind Talks, <br /> Your Body Listens
+                                    {latestBlog?.title}
                                 </h3>
                             </div>
                         </Link>
@@ -138,10 +139,11 @@ const Blogs = () => {
                             <h3 className="text-[#1A1A1A] text-[20px] sm:text-[28px] font-bold mb-4 sm:mb-5 font-inter-tight leading-[1.3]">
                                Your mind and body are always in conversation. Are you listening?
                             </h3>
-                            <p className="text-[#4A5568] text-[14px] sm:text-[17px] font-geist leading-[1.6] sm:leading-[1.7] mb-6 sm:mb-8">
-                                Have you ever had a knot in your stomach before an important meeting, or felt your heart race when you’re anxious? Maybe after a stressful day you noticed a headache, tight shoulders, or complete exhaustion. Most of us have experienced moments like these but rarely stop to think about why they happen.
-                            </p>
-                            <Link to="/blog/12" className="mt-auto flex items-center gap-3 group/btn">
+                            <div 
+                                className="text-[#4A5568] text-[14px] sm:text-[17px] font-geist leading-[1.6] sm:leading-[1.7] mb-6 sm:mb-8 line-clamp-3"
+                                dangerouslySetInnerHTML={{ __html: latestBlog?.content || "No content available." }}
+                            />
+                            <Link to={`/blog/${latestBlog?._id || latestBlog?.id}`} className="mt-auto flex items-center gap-3 group/btn">
                                 <span className="text-[#520378] font-bold text-[15px] sm:text-[16px] group-hover/btn:underline font-inter-tight transition-all">
                                     Read Full Story
                                 </span>
