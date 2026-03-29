@@ -2,6 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const UpcomingEvents = () => {
+    const stripHtml = (html) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        return doc.body.textContent || "";
+    };
+
     const testimonials = [
         {
             name: "Madhavi",
@@ -321,8 +326,8 @@ const UpcomingEvents = () => {
                                         <h3 className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist`}>
                                             {event.title}
                                         </h3>
-                                        <p className={`text-[14px] ${activeCardId === eventId ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3`}>
-                                            {event.description}
+                                        <p className={`text-[14px] ${activeCardId === eventId ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3 line-clamp-2`}>
+                                            {stripHtml(event.description || "")}
                                         </p>
 
                                         <div className={`h-px ${activeCardId === eventId ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>

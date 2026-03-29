@@ -7,8 +7,11 @@ import {
     Clock3,
     IndianRupee,
     Link as LinkIcon,
-    Layers3
+    Layers3,
+    Upload
 } from "lucide-react";
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 const defaultRegistrationLink =
     "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
@@ -76,6 +79,34 @@ const parseTimeRange = (range) => {
 const EventsAdmin = () => {
     const [events, setEvents] = useState([]);
     const [editId, setEditId] = useState(null);
+
+    const quillModules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['link', 'image'],
+            ['clean']
+        ],
+    };
+
+    const quillFormats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet',
+        'link', 'image'
+    ];
+
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setForm({ ...form, image: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
     const [form, setForm] = useState({
         image: "",
@@ -240,17 +271,24 @@ const EventsAdmin = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label className="text-sm font-semibold text-gray-700 mb-2 block">
-                                    Image URL
+                                    Event Image
                                 </label>
-                                <input
-                                    type="text"
-                                    name="image"
-                                    value={form.image}
-                                    onChange={handleChange}
-                                    placeholder="Paste event image URL"
-                                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
-                                    required
-                                />
+                                <div className="relative group">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageUpload}
+                                        className="hidden"
+                                        id="event-image-upload"
+                                    />
+                                    <label
+                                        htmlFor="event-image-upload"
+                                        className="flex items-center gap-2 w-full rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 hover:bg-white hover:border-purple-500 cursor-pointer px-4 py-3.5 text-gray-600 transition"
+                                    >
+                                        <Upload size={20} className="text-purple-500" />
+                                        <span>{form.image ? "Change Image" : "Upload Event Image"}</span>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
@@ -364,19 +402,46 @@ const EventsAdmin = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className="quill-editor-container">
                             <label className="text-sm font-semibold text-gray-700 mb-2 block">
                                 Description
                             </label>
-                            <textarea
-                                name="description"
-                                value={form.description}
-                                onChange={handleChange}
-                                rows={6}
-                                placeholder="Write the full event description here..."
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-4 text-gray-800 transition resize-none"
-                                required
-                            />
+                            <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 focus-within:border-purple-500 focus-within:ring-4 focus-within:ring-purple-100 transition">
+                                <ReactQuill 
+                                    theme="snow"
+                                    value={form.description}
+                                    onChange={(content) => setForm({ ...form, description: content })}
+                                    modules={quillModules}
+                                    formats={quillFormats}
+                                    placeholder="Write the full event description here..."
+                                    className="h-64"
+                                />
+                            </div>
+                            <style>{`
+                                .quill-editor-container .ql-container {
+                                    border-bottom-left-radius: 12px;
+                                    border-bottom-right-radius: 12px;
+                                    font-family: inherit;
+                                }
+                                .quill-editor-container .ql-toolbar {
+                                    border-top-left-radius: 12px;
+                                    border-top-right-radius: 12px;
+                                    background: #f9fafb;
+                                    border-color: transparent !important;
+                                    border-bottom: 1px solid #e5e7eb !important;
+                                }
+                                .quill-editor-container .ql-container {
+                                    border-color: transparent !important;
+                                    font-size: 1rem;
+                                }
+                                .quill-editor-container .ql-editor {
+                                    min-height: 200px;
+                                }
+                                .quill-editor-container .ql-editor.ql-blank::before {
+                                    color: #9ca3af;
+                                    font-style: normal;
+                                }
+                            `}</style>
                         </div>
 
                         <div>
@@ -504,9 +569,10 @@ const EventsAdmin = () => {
                                             </p>
                                         </div>
 
-                                        <p className="text-sm text-gray-600 line-clamp-3 min-h-[60px]">
-                                            {event.description || "No description available for this event."}
-                                        </p>
+                                        <div 
+                                            className="text-sm text-gray-600 line-clamp-3 min-h-[60px]"
+                                            dangerouslySetInnerHTML={{ __html: event.description || "No description available for this event." }}
+                                        />
 
                                         <div className="flex gap-3 mt-5">
                                             <button

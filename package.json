@@ -15,9 +15,11 @@
     "@tailwindcss/vite": "^4.2.0",
     "gsap": "^3.14.2",
     "lucide-react": "^1.7.0",
+    "quill-paste-smart": "^2.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
+    "react-quill-new": "^3.8.3",
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {

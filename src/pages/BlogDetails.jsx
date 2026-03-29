@@ -359,9 +359,10 @@ const BlogDetails = () => {
         apiBlog;
 
     const content = post?.content ? (
-    <div className="max-w-none text-[18px] leading-[2.1] text-[#3f5673] whitespace-pre-line">
-        {post.content}
-    </div>
+    <div 
+        className="max-w-none text-[18px] leading-[2.1] text-[#3f5673] quill-content"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+    />
 ) : (
     articleContent[blogId]
 );

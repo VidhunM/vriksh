@@ -470,9 +470,9 @@ const EventDetails = () => {
 
                     <div className="lg:w-2/3 order-2 lg:order-1">
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 mb-6 font-inter-tight">Description:</h2>
-                        <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed">
+                        <div className="prose prose-lg text-gray-700 max-w-none font-geist leading-relaxed scrollbar-none quill-content">
                             {event.description.map((p, i) => (
-                                <p key={i} className="mb-4 whitespace-pre-line">{p}</p>
+                                <div key={i} className="mb-4" dangerouslySetInnerHTML={{ __html: p }} />
                             ))}
                         </div>
 

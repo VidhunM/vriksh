@@ -1,7 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon } from "lucide-react";
+import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon, Upload } from "lucide-react";
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 const BlogsAdmin = () => {
+    const formatDateForDisplay = (dateStr) => {
+        if (!dateStr) return "";
+        // If it's already in a readable format, return it
+        if (isNaN(Date.parse(dateStr))) return dateStr;
+        
+        const date = new Date(dateStr);
+        return date.toLocaleDateString('en-US', {
+            month: 'long',
+            day: '2-digit',
+            year: 'numeric'
+        }).toUpperCase();
+    };
+
+    const formatDateForInput = (dateStr) => {
+        if (!dateStr) return "";
+        const date = new Date(dateStr);
+        if (isNaN(date.getTime())) return "";
+        return date.toISOString().split('T')[0];
+    };
+
     const [blogs, setBlogs] = useState([]);
     const [form, setForm] = useState({
         title: "",
@@ -12,6 +34,34 @@ const BlogsAdmin = () => {
         content: ""
     });
     const [editId, setEditId] = useState(null);
+
+    const quillModules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['link', 'image'],
+            ['clean']
+        ],
+    };
+
+    const quillFormats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet',
+        'link', 'image'
+    ];
+
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setForm({ ...form, image: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
     const fetchBlogs = async () => {
         try {
@@ -36,10 +86,15 @@ const BlogsAdmin = () => {
                 ? `http://localhost:5000/blogs/${editId}`
                 : "http://localhost:5000/blogs";
 
+            const payload = {
+                ...form,
+                date: formatDateForDisplay(form.date)
+            };
+
             await fetch(url, {
                 method,
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form)
+                body: JSON.stringify(payload)
             });
 
             setForm({
@@ -154,8 +209,8 @@ const BlogsAdmin = () => {
                                 <label className="text-sm font-semibold text-gray-700 mb-2 block">Date</label>
                                 <div className="relative">
                                     <input
-                                        placeholder="MM/DD/YYYY"
-                                        value={form.date}
+                                        type="date"
+                                        value={formatDateForInput(form.date)}
                                         onChange={(e) => setForm({ ...form, date: e.target.value })}
                                         className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
                                     />
@@ -163,14 +218,22 @@ const BlogsAdmin = () => {
                             </div>
 
                             <div>
-                                <label className="text-sm font-semibold text-gray-700 mb-2 block">Image URL</label>
-                                <div className="relative">
+                                <label className="text-sm font-semibold text-gray-700 mb-2 block">Blog Image</label>
+                                <div className="relative group">
                                     <input
-                                        placeholder="Paste image URL"
-                                        value={form.image}
-                                        onChange={(e) => setForm({ ...form, image: e.target.value })}
-                                        className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageUpload}
+                                        className="hidden"
+                                        id="blog-image-upload"
                                     />
+                                    <label
+                                        htmlFor="blog-image-upload"
+                                        className="flex items-center gap-2 w-full rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 hover:bg-white hover:border-purple-500 cursor-pointer px-4 py-3 text-gray-600 transition"
+                                    >
+                                        <Upload size={20} className="text-purple-500" />
+                                        <span>{form.image ? "Change Image" : "Upload Blog Image"}</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -185,15 +248,44 @@ const BlogsAdmin = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className="quill-editor-container">
                             <label className="text-sm font-semibold text-gray-700 mb-2 block">Content</label>
-                            <textarea
-                                placeholder="Write the full blog content here..."
-                                rows={6}
-                                value={form.content}
-                                onChange={(e) => setForm({ ...form, content: e.target.value })}
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-4 text-gray-800 transition resize-none"
-                            />
+                            <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 focus-within:border-purple-500 focus-within:ring-4 focus-within:ring-purple-100 transition">
+                                <ReactQuill 
+                                    theme="snow"
+                                    value={form.content}
+                                    onChange={(content) => setForm({ ...form, content })}
+                                    modules={quillModules}
+                                    formats={quillFormats}
+                                    placeholder="Write the full blog content here..."
+                                    className="h-64"
+                                />
+                            </div>
+                            <style>{`
+                                .quill-editor-container .ql-container {
+                                    border-bottom-left-radius: 12px;
+                                    border-bottom-right-radius: 12px;
+                                    font-family: inherit;
+                                }
+                                .quill-editor-container .ql-toolbar {
+                                    border-top-left-radius: 12px;
+                                    border-top-right-radius: 12px;
+                                    background: #f9fafb;
+                                    border-color: transparent !important;
+                                    border-bottom: 1px solid #e5e7eb !important;
+                                }
+                                .quill-editor-container .ql-container {
+                                    border-color: transparent !important;
+                                    font-size: 1rem;
+                                }
+                                .quill-editor-container .ql-editor {
+                                    min-height: 200px;
+                                }
+                                .quill-editor-container .ql-editor.ql-blank::before {
+                                    color: #9ca3af;
+                                    font-style: normal;
+                                }
+                            `}</style>
                         </div>
 
                         {/* Image Preview */}
@@ -307,9 +399,10 @@ const BlogsAdmin = () => {
                                             )}
                                         </div>
 
-                                        <p className="text-sm text-gray-600 line-clamp-3 min-h-[60px]">
-                                            {blog.content || "No content available for this blog."}
-                                        </p>
+                                        <div 
+                                            className="text-sm text-gray-600 line-clamp-3 min-h-[60px]"
+                                            dangerouslySetInnerHTML={{ __html: blog.content || "No content available for this blog." }}
+                                        />
 
                                         <div className="flex gap-3 mt-5">
                                             <button
