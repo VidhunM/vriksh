@@ -77,7 +77,7 @@ const Footer = () => {
                                     <img
                                         src="/logo.png"
                                         alt="VRIKSH Logo"
-                                        className="h-14 w-auto object-contain mb-2 mr-5 lg:mr-8 lg:translate-x-[-4px]"
+                                        className="h-14 w-auto object-contain mb-4 mr-2 lg:mr-4"
                                     />
                                 </Link>
                                 <div className="w-full h-[2px] bg-black/20 my-4 max-w-[160px]"></div>
@@ -107,7 +107,7 @@ const Footer = () => {
                                 <img
                                     src="/logo.png"
                                     alt="VRIKSH Logo"
-                                    className="h-10 w-auto object-contain mb-1"
+                                    className="h-10 w-auto object-contain mb-1 mr-8"
                                 />
                             </Link>
                             <div className="w-16 h-[1px] bg-[#520378]/20 my-3"></div>
