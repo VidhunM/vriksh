@@ -160,7 +160,7 @@ const AddBlog = () => {
                         {blogs.map(blog => (
                             <div key={blog._id} className="bg-white rounded-2xl shadow-md overflow-hidden">
 
-                                <img src={blog.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop"} alt=""
+                                <img src={blog.image} alt=""
                                     className="h-40 w-full object-cover" />
 
                                 <div className="p-4">

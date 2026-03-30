@@ -60,6 +60,26 @@ const BlogsAdmin = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [resetCounter, setResetCounter] = useState(0); // Add a counter to force ReactQuill re-mount
 
+    // Helper to generate slug from title
+    const generateSlug = (title) => {
+        return title
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '') // Remove special chars
+            .replace(/\s+/g, '-')     // Replace spaces with -
+            .replace(/-+/g, '-')      // Replace multiple - with single -
+            .trim();
+    };
+
+    // Update slug when title changes if it's a new blog or slug is empty
+    const handleTitleChange = (e) => {
+        const newTitle = e.target.value;
+        const updates = { title: newTitle };
+        if (!editId || !form.slug) {
+            updates.slug = generateSlug(newTitle);
+        }
+        setForm({ ...form, ...updates });
+    };
+
     const quillModules = {
         toolbar: [
             [{ 'header': [1, 2, 3, false] }],
@@ -80,9 +100,43 @@ const BlogsAdmin = () => {
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
+            // Compress image before setting it to form
             const reader = new FileReader();
             reader.onloadend = () => {
-                setForm({ ...form, image: reader.result });
+                const img = new Image();
+                img.onload = () => {
+                    // Create a canvas to compress the image
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+
+                    // Max dimensions
+                    const MAX_WIDTH = 1200;
+                    const MAX_HEIGHT = 800;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Get compressed base64 string
+                    const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+                    setForm({ ...form, image: compressedBase64 });
+                };
+                img.src = reader.result;
             };
             reader.readAsDataURL(file);
         }
@@ -184,6 +238,7 @@ const BlogsAdmin = () => {
             content: blog.content || ""
         });
         setEditId(blog._id);
+        setResetCounter(prev => prev + 1);
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
@@ -238,7 +293,7 @@ const BlogsAdmin = () => {
                                     <input
                                         placeholder="Enter blog title"
                                         value={form.title}
-                                        onChange={(e) => setForm({ ...form, title: e.target.value })}
+                                        onChange={handleTitleChange}
                                         className="w-full rounded-xl md:rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-3.5 md:px-4 py-3 md:py-3.5 text-sm md:text-gray-800 transition"
                                     />
                                 </div>
@@ -452,18 +507,28 @@ const BlogsAdmin = () => {
                                     className="group bg-white border border-purple-100 rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                                 >
                                     <div className="relative">
-                                        <img
-                                            src={blog.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop"}
-                                            alt={blog.title}
-                                            className="h-48 md:h-52 w-full object-cover"
-                                            onError={(e) => {
-                                                e.target.src = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop";
-                                            }}
-                                        />
+                                        {blog.image ? (
+                                            <img
+                                                src={blog.image}
+                                                alt={blog.title}
+                                                className="h-48 md:h-52 w-full object-cover"
+                                                onError={(e) => {
+                                                    e.target.style.display = "none";
+                                                    e.target.parentElement.classList.add("bg-purple-50", "flex", "items-center", "justify-center");
+                                                    const icon = document.createElement("div");
+                                                    icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-200"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>`;
+                                                    e.target.parentElement.appendChild(icon);
+                                                }}
+                                            />
+                                        ) : (
+                                            <div className="h-48 md:h-52 w-full bg-purple-50 flex items-center justify-center">
+                                                <ImageIcon size={48} className="text-purple-200" />
+                                            </div>
+                                        )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-80" />
                                         <div className="absolute bottom-4 left-4 right-4">
                                             <span className="inline-block text-[10px] md:text-xs font-semibold bg-white/90 text-purple-700 px-2.5 py-1 rounded-full">
-                                                Blog Post
+                                                {blog.category || "Counselling"}
                                             </span>
                                         </div>
                                     </div>

@@ -37,7 +37,7 @@ const BlogDetails = () => {
     }, [id]);
 
     React.useEffect(() => {
-        fetch(`${API_BASE_URL}/blogs`)
+        fetch(`${API_BASE_URL}/blogs?includeContent=true`)
             .then(res => res.json())
             .then(data => {
                 if (Array.isArray(data)) {

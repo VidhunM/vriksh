@@ -28,7 +28,7 @@ const Blogs = () => {
     }, []);
 
     useEffect(() => {
-        fetch(`${API_BASE_URL}/blogs`)
+        fetch(`${API_BASE_URL}/blogs?includeContent=true`)
             .then((res) => res.json())
             .then(data => {
                 if (Array.isArray(data)) {
@@ -223,10 +223,6 @@ const Blogs = () => {
                                             <h3 className="text-[#1A1A1A] text-[18px] sm:text-[20px] font-bold mb-2 sm:mb-3 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors min-h-[50px] sm:min-h-0">
                                                 {post.title}
                                             </h3>
-                                            <div
-                                                className="text-[#4A5568] text-[13px] sm:text-[14px] font-geist leading-[1.6] mb-5 sm:mb-6 line-clamp-2 opacity-80"
-                                                dangerouslySetInnerHTML={{ __html: post.content || "No content available." }}
-                                            />
                                         </div>
                                     </Link>
                                     <div className="px-5 sm:px-0">
