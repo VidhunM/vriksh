@@ -29,7 +29,7 @@ import EventsAdmin from "./pages/Admin/EventsAdmin";
 import ProtectedRoute from "./pages/Admin/ProtectedRoute";
 import EventInquiriesAdmin from "./pages/Admin/EventInquiriesAdmin";
 import TermsAndConditions from './pages/TermsAndConditions';
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import PrivacyPolicy from './pages/Privacy';
 import Ethics from './pages/Ethics';
 import RefundPolicy from './pages/RefundPolicy';
 

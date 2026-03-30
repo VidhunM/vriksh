@@ -73,7 +73,7 @@ const BlogsAdmin = () => {
     const quillFormats = [
         'header',
         'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet',
+        'list',
         'link', 'image'
     ];
 
@@ -92,9 +92,17 @@ const BlogsAdmin = () => {
         try {
             const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`);
             const data = await res.json();
-            setBlogs(data);
+            if (Array.isArray(data)) {
+                setBlogs(data);
+            } else if (data && Array.isArray(data.data)) {
+                setBlogs(data.data);
+            } else {
+                console.error("API returned non-array data:", data);
+                setBlogs([]);
+            }
         } catch (error) {
             console.error("Error fetching blogs:", error);
+            setBlogs([]);
         }
     };
 

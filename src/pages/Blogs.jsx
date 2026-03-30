@@ -12,9 +12,9 @@ const Blogs = () => {
 
     const [apiBlogs, setApiBlogs] = useState([]);
 
-    const allBlogs = apiBlogs;
-    const latestBlog = apiBlogs.length > 0 ? apiBlogs[0] : null;
-    const secondaryBlogs = apiBlogs.slice(1, 3);
+    const allBlogs = Array.isArray(apiBlogs) ? apiBlogs : [];
+    const latestBlog = allBlogs.length > 0 ? allBlogs[0] : null;
+    const secondaryBlogs = allBlogs.slice(1, 3);
 
     const filteredPosts = allBlogs.filter(post => post.category === activeCategory);
 
@@ -30,7 +30,15 @@ const Blogs = () => {
     useEffect(() => {
         fetch(`${API_BASE_URL}/blogs`)
             .then((res) => res.json())
-            .then(data => setApiBlogs(data))
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setApiBlogs(data);
+                } else if (data && Array.isArray(data.data)) {
+                    setApiBlogs(data.data);
+                } else {
+                    console.error("API returned non-array data:", data);
+                }
+            })
             .catch(err => console.log(err));
     }, []);
 

@@ -39,7 +39,15 @@ const BlogDetails = () => {
     React.useEffect(() => {
         fetch(`${API_BASE_URL}/blogs`)
             .then(res => res.json())
-            .then(data => setAllApiBlogs(data))
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setAllApiBlogs(data);
+                } else if (data && Array.isArray(data.data)) {
+                    setAllApiBlogs(data.data);
+                } else {
+                    setAllApiBlogs([]);
+                }
+            })
             .catch(err => console.log(err));
     }, []);
 
