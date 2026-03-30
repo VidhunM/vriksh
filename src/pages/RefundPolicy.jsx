@@ -111,7 +111,7 @@ const RefundPolicy = () => {
                         <p>Vriksh Psychological Support Services reserves the right to update this policy at any time. Changes will be posted on this page.</p>
                     </div>
 
-                    <div className="bg-[#520378]/5 p-6 rounded-2xl border border-[#520378]/10 text-center">
+                    <div>
                         <h2 className="text-xl font-bold text-[#520378] mb-4">11. Acceptance</h2>
                         <p className="font-medium">By booking a session or making a payment, you acknowledge that you have read, understood, and agreed to this Payment & Refund Policy.</p>
                     </div>

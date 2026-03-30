@@ -118,7 +118,7 @@ const Ethics = () => {
                         <p>We reserve the right to update this Ethics Policy at any time. Changes will be posted on this page. We encourage users to review this page periodically.</p>
                     </div>
 
-                    <div className="bg-[#520378]/5 p-6 rounded-2xl border border-[#520378]/10 text-center">
+                    <div>
                         <h2 className="text-xl font-bold text-[#520378] mb-4">11. Acceptance</h2>
                         <p className="font-medium">By using our services, you acknowledge that you have read and understood this Ethics Policy.</p>
                     </div>
