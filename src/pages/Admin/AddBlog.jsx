@@ -4,6 +4,7 @@ import API_BASE_URL from "../../api/config";
 const AddBlog = () => {
     const [blogs, setBlogs] = useState([]);
     const [editingId, setEditingId] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const [formData, setFormData] = useState({
         title: "",
@@ -17,11 +18,11 @@ const AddBlog = () => {
 
     // Fetch blogs
     const fetchBlogs = async () => {
-        const res = await fetch(`${API_BASE_URL}/blogs`);
+        const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`);
         const data = await res.json();
         setBlogs(data);
     };
-// eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         fetchBlogs();
     }, []);
@@ -37,31 +38,42 @@ const AddBlog = () => {
     // Submit (Add / Edit)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting) return;
 
-        const url = editingId
-            ? `${API_BASE_URL}/blogs/${editingId}`
-            : `${API_BASE_URL}/blogs`;
+        setIsSubmitting(true);
+        // Yield to browser to avoid [Violation] 'submit' handler took <N>ms
+        await new Promise(resolve => setTimeout(resolve, 0));
 
-        const method = editingId ? "PUT" : "POST";
+        try {
+            const url = editingId
+                ? `${API_BASE_URL}/blogs/${editingId}`
+                : `${API_BASE_URL}/blogs`;
 
-        await fetch(url, {
-            method,
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
+            const method = editingId ? "PUT" : "POST";
 
-        setFormData({
-            title: "",
-            author: "",
-            image: "",
-            content: "",
-            date: "",
-            category: "Counselling",
-            slug: ""
-        });
+            await fetch(url, {
+                method,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
 
-        setEditingId(null);
-        fetchBlogs();
+            setFormData({
+                title: "",
+                author: "",
+                image: "",
+                content: "",
+                date: "",
+                category: "Counselling",
+                slug: ""
+            });
+
+            setEditingId(null);
+            fetchBlogs();
+        } catch (error) {
+            console.error("Error submitting blog:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     // Delete
@@ -123,9 +135,17 @@ const AddBlog = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-[#520378] text-white py-3 rounded-lg font-semibold hover:bg-[#3d025a]"
+                            disabled={isSubmitting}
+                            className={`w-full bg-[#520378] text-white py-3 rounded-lg font-semibold hover:bg-[#3d025a] transition-all flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                         >
-                            {editingId ? "Update Blog" : "Add Blog"}
+                            {isSubmitting ? (
+                                <>
+                                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                    <span>{editingId ? "Updating..." : "Adding..."}</span>
+                                </>
+                            ) : (
+                                editingId ? "Update Blog" : "Add Blog"
+                            )}
                         </button>
                     </form>
                 </div>
@@ -140,7 +160,7 @@ const AddBlog = () => {
                         {blogs.map(blog => (
                             <div key={blog._id} className="bg-white rounded-2xl shadow-md overflow-hidden">
 
-                                <img src={blog.image} alt=""
+                                <img src={blog.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop"} alt=""
                                     className="h-40 w-full object-cover" />
 
                                 <div className="p-4">

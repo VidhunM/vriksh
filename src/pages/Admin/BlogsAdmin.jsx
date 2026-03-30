@@ -7,10 +7,22 @@ import API_BASE_URL from "../../api/config";
 const BlogsAdmin = () => {
     const formatDateForDisplay = (dateStr) => {
         if (!dateStr) return "";
-        // If it's already in a readable format, return it
-        if (isNaN(Date.parse(dateStr))) return dateStr;
         
+        // If it matches YYYY-MM-DD format, parse it manually to avoid timezone shifts
+        if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+            const [year, month, day] = dateStr.split('-').map(Number);
+            const date = new Date(year, month - 1, day);
+            return date.toLocaleDateString('en-US', {
+                month: 'long',
+                day: '2-digit',
+                year: 'numeric'
+            }).toUpperCase();
+        }
+
+        // Fallback for existing data or other formats
         const date = new Date(dateStr);
+        if (isNaN(date.getTime())) return dateStr;
+        
         return date.toLocaleDateString('en-US', {
             month: 'long',
             day: '2-digit',
@@ -20,9 +32,18 @@ const BlogsAdmin = () => {
 
     const formatDateForInput = (dateStr) => {
         if (!dateStr) return "";
+        
+        // If it's already in YYYY-MM-DD format, return it
+        if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+
         const date = new Date(dateStr);
         if (isNaN(date.getTime())) return "";
-        return date.toISOString().split('T')[0];
+        
+        // Use local date parts to avoid timezone shifts back to previous day
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
     };
 
     const [blogs, setBlogs] = useState([]);
@@ -36,6 +57,8 @@ const BlogsAdmin = () => {
         content: ""
     });
     const [editId, setEditId] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [resetCounter, setResetCounter] = useState(0); // Add a counter to force ReactQuill re-mount
 
     const quillModules = {
         toolbar: [
@@ -67,7 +90,7 @@ const BlogsAdmin = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await fetch(`${API_BASE_URL}/blogs`);
+            const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`);
             const data = await res.json();
             setBlogs(data);
         } catch (error) {
@@ -81,6 +104,13 @@ const BlogsAdmin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
+
+        // Yield to the browser to avoid [Violation] 'submit' handler took <N>ms
+        // This prevents the synchronous part of the handler from blocking the UI thread
+        await new Promise(resolve => setTimeout(resolve, 0));
 
         try {
             const method = editId ? "PUT" : "POST";
@@ -88,16 +118,20 @@ const BlogsAdmin = () => {
                 ? `${API_BASE_URL}/blogs/${editId}`
                 : `${API_BASE_URL}/blogs`;
 
-            const payload = {
-                ...form,
-                date: formatDateForDisplay(form.date)
-            };
+            // We store the raw date from the input (YYYY-MM-DD) 
+            // to make it easier to edit later
+            const payload = { ...form };
 
-            await fetch(url, {
+            const response = await fetch(url, {
                 method,
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Failed to save blog");
+            }
 
             setForm({
                 title: "",
@@ -109,9 +143,14 @@ const BlogsAdmin = () => {
                 content: ""
             });
             setEditId(null);
+            setResetCounter(prev => prev + 1); // Force ReactQuill re-mount
             fetchBlogs();
+            alert(editId ? "Blog updated successfully!" : "Blog added successfully!");
         } catch (error) {
             console.error("Error saving blog:", error);
+            alert(error.message || "Error saving blog. Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -270,7 +309,8 @@ const BlogsAdmin = () => {
                         <div className="quill-editor-container">
                             <label className="text-xs md:text-sm font-semibold text-gray-700 mb-1.5 block">Content</label>
                             <div className="bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 focus-within:border-purple-500 focus-within:ring-4 focus-within:ring-purple-100 transition">
-                                <ReactQuill 
+                                <ReactQuill
+                                    key={`${editId || 'new'}-${resetCounter}`}
                                     theme="snow"
                                     value={form.content}
                                     onChange={(content) => setForm({ ...form, content })}
@@ -334,10 +374,20 @@ const BlogsAdmin = () => {
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
                                 type="submit"
-                                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-purple-700 to-fuchsia-600 px-6 py-3.5 text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all"
+                                disabled={isSubmitting}
+                                className={`inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-purple-700 to-fuchsia-600 px-6 py-3.5 text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                             >
-                                <PlusCircle size={18} />
-                                {editId ? "Update Blog" : "Add Blog"}
+                                {isSubmitting ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        <span>{editId ? "Updating..." : "Adding..."}</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <PlusCircle size={18} />
+                                        <span>{editId ? "Update Blog" : "Add Blog"}</span>
+                                    </>
+                                )}
                             </button>
 
                             {editId && (
@@ -348,11 +398,13 @@ const BlogsAdmin = () => {
                                             title: "",
                                             author: "",
                                             date: "",
+                                            category: "Counselling",
                                             image: "",
                                             slug: "",
                                             content: ""
                                         });
                                         setEditId(null);
+                                        setResetCounter(prev => prev + 1);
                                     }}
                                     className="rounded-2xl border border-gray-200 bg-white px-6 py-3.5 text-gray-700 font-semibold hover:bg-gray-50 transition"
                                 >
@@ -393,9 +445,12 @@ const BlogsAdmin = () => {
                                 >
                                     <div className="relative">
                                         <img
-                                            src={blog.image}
+                                            src={blog.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop"}
                                             alt={blog.title}
                                             className="h-48 md:h-52 w-full object-cover"
+                                            onError={(e) => {
+                                                e.target.src = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop";
+                                            }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-80" />
                                         <div className="absolute bottom-4 left-4 right-4">
@@ -417,7 +472,7 @@ const BlogsAdmin = () => {
                                             </p>
                                             <p className="flex items-center gap-2">
                                                 <CalendarDays size={14} className="text-purple-500" />
-                                                {blog.date || "No date"}
+                                                {formatDateForDisplay(blog.date) || "No date"}
                                             </p>
                                             <p className="flex items-center gap-2 truncate pr-2">
                                                 <LinkIcon size={14} className="text-purple-500 shrink-0" />
@@ -429,7 +484,7 @@ const BlogsAdmin = () => {
                                             </p>
                                         </div>
 
-                                        <div 
+                                        <div
                                             className="text-xs md:text-sm text-gray-600 line-clamp-3 min-h-[50px] md:min-h-[60px]"
                                             dangerouslySetInnerHTML={{ __html: blog.content || "No content available for this blog." }}
                                         />

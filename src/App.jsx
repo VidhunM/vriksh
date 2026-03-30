@@ -28,6 +28,11 @@ import BlogsAdmin from "./pages/Admin/BlogsAdmin";
 import EventsAdmin from "./pages/Admin/EventsAdmin";
 import ProtectedRoute from "./pages/Admin/ProtectedRoute";
 import EventInquiriesAdmin from "./pages/Admin/EventInquiriesAdmin";
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Ethics from './pages/Ethics';
+import RefundPolicy from './pages/RefundPolicy';
+
 
 function AppContent() {
   const location = useLocation();
@@ -41,6 +46,7 @@ function AppContent() {
   const isCounsellingPage = location.pathname === '/counselling';
   const isCareerCounsellingPage = location.pathname === '/career-counselling';
   const isAdminPage = location.pathname.startsWith('/admin');
+  const isLegalPage = ['/terms-and-conditions', '/privacy-policy', '/ethics', '/refund-policy'].includes(location.pathname);
 
   return (
     <div className="app">
@@ -65,6 +71,10 @@ function AppContent() {
           <Route path="/event-details/:id" element={<EventDetails />} />
           <Route path="/event-details" element={<EventDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/ethics" element={<Ethics />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/admin" element={<AdminLogin />} />
 
           <Route
@@ -103,7 +113,8 @@ function AppContent() {
         !isBlogsPage &&
         !isBlogDetailPage &&
         !isCounsellingPage &&
-        !isCareerCounsellingPage && <ContactFooter />}
+        !isCareerCounsellingPage && 
+        !isLegalPage && <ContactFooter />}
 
       {!isAdminPage && <Footer />}
 

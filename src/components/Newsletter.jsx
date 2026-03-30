@@ -50,13 +50,13 @@ const Newsletter = () => {
   return (
     <div className="space-y-4">
       <h3 className="text-[12px] font-bold tracking-wide uppercase text-white/90 md:text-base md:font-semibold md:normal-case md:text-white whitespace-nowrap">
-        Subscribe to our news letter
+        Subscribe to our newsletter
       </h3>
 
       <div className="bg-transparent border border-white/40 rounded-xl p-1.5 flex items-center max-w-[280px] w-full">
         <input
           type="email"
-          placeholder="Your email id"
+          placeholder="Your Email ID"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="bg-transparent border-none outline-none px-3 py-2 md:py-1 text-[13px] md:text-sm w-full placeholder:text-white/40 text-white font-light"

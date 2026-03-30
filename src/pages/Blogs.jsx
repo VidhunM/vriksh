@@ -88,16 +88,16 @@ const Blogs = () => {
                         <div className="bg-[#FFF9E1] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 flex flex-col flex-grow shadow-sm border border-[#520378]/5 hover:shadow-md transition-shadow">
                             <div className="flex justify-between items-center mb-5 sm:mb-6">
                                 <p className="text-[#520378] text-[11px] sm:text-[12px] font-bold tracking-[0.1em] uppercase font-inter-tight opacity-80">
-                                    MARCH 20, 2026
+                                    {latestBlog?.date || "RECENT"}
                                 </p>
                                 <span className="bg-[#520378] text-white text-[9px] sm:text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider shadow-sm">
-                                    Counselling
+                                    {latestBlog?.category || "Insight"}
                                 </span>
                             </div>
                             <h3 className="text-[#1A1A1A] text-[20px] sm:text-[28px] font-bold mb-4 sm:mb-5 font-inter-tight leading-[1.3]">
-                               Your mind and body are always in conversation. Are you listening?
+                                {latestBlog?.title}
                             </h3>
-                            <div 
+                            <div
                                 className="text-[#4A5568] text-[14px] sm:text-[17px] font-geist leading-[1.6] sm:leading-[1.7] mb-6 sm:mb-8 line-clamp-3"
                                 dangerouslySetInnerHTML={{ __html: latestBlog?.content || "No content available." }}
                             />
@@ -115,9 +115,9 @@ const Blogs = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             {secondaryBlogs.length > 0 ? (
                                 secondaryBlogs.map((sBlog, idx) => (
-                                    <Link 
-                                        key={sBlog._id} 
-                                        to={`/blog/${sBlog._id}`} 
+                                    <Link
+                                        key={sBlog._id}
+                                        to={`/blog/${sBlog._id}`}
                                         className="bg-white border border-gray-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:shadow-md transition-all group flex flex-col justify-center min-h-[100px]"
                                     >
                                         <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2 flex items-center gap-2">
@@ -212,9 +212,13 @@ const Blogs = () => {
                                             <p className="text-[#520378] text-[12px] sm:text-[13px] font-bold mb-2 sm:mb-3 opacity-70">
                                                 {post.date}
                                             </p>
-                                            <h3 className="text-[#1A1A1A] text-[18px] sm:text-[20px] font-bold mb-5 sm:mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors min-h-[50px] sm:min-h-0">
+                                            <h3 className="text-[#1A1A1A] text-[18px] sm:text-[20px] font-bold mb-2 sm:mb-3 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors min-h-[50px] sm:min-h-0">
                                                 {post.title}
                                             </h3>
+                                            <div
+                                                className="text-[#4A5568] text-[13px] sm:text-[14px] font-geist leading-[1.6] mb-5 sm:mb-6 line-clamp-2 opacity-80"
+                                                dangerouslySetInnerHTML={{ __html: post.content || "No content available." }}
+                                            />
                                         </div>
                                     </Link>
                                     <div className="px-5 sm:px-0">
@@ -246,4 +250,6 @@ const Blogs = () => {
     );
 };
 
+
 export default Blogs;
+

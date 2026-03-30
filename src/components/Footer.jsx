@@ -48,8 +48,8 @@ const Footer = () => {
                                     <li><Link to="/contact" className="hover:opacity-100 transition-opacity">Contact Us</Link></li>
                                 </ul>
                                 <ul className="space-y-2">
-                                    <li><Link to="#" className="hover:opacity-100 transition-opacity">Ethics</Link></li>
-                                    <li><Link to="#" className="hover:opacity-100 transition-opacity">Refund Policy</Link></li>
+                                    <li><Link to="/ethics" className="hover:opacity-100 transition-opacity">Ethics</Link></li>
+                                    <li><Link to="/refund-policy" className="hover:opacity-100 transition-opacity">Refund Policy</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -172,8 +172,8 @@ const Footer = () => {
                                     <li><Link to="/contact" className="active:text-white transition-colors">Contact Us</Link></li>
                                 </ul>
                                 <ul className="space-y-3">
-                                    <li><Link to="#" className="active:text-white transition-colors">Ethics</Link></li>
-                                    <li><Link to="#" className="active:text-white transition-colors">Refund Policy</Link></li>
+                                    <li><Link to="/ethics" className="active:text-white transition-colors">Ethics</Link></li>
+                                    <li><Link to="/refund-policy" className="active:text-white transition-colors">Refund Policy</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -188,8 +188,8 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="border border-white/20 rounded-[20px] px-6 py-5 flex flex-col md:flex-row justify-between items-center text-[12px] font-light opacity-90 space-y-4 md:space-y-0 text-center md:text-left">
                     <div className="flex gap-8 justify-center md:justify-start">
-                        <Link to="#" className="hover:opacity-100 transition-opacity">Terms & Conditions</Link>
-                        <Link to="#" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
+                        <Link to="/terms-and-conditions" className="hover:opacity-100 transition-opacity">Terms & Conditions</Link>
+                        <Link to="/privacy-policy" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
                     </div>
                     <div className="opacity-70">
                         Copyright © 2026 vriksh. All rights reserved

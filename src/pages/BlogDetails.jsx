@@ -1,12 +1,12 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import API_BASE_URL from '../api/config';
-import { 
-    Calendar, 
-    Clock, 
-    User, 
-    Share2, 
-    ArrowLeft, 
+import {
+    Calendar,
+    Clock,
+    User,
+    Share2,
+    ArrowLeft,
     ChevronRight,
     Search
 } from 'lucide-react';
@@ -47,7 +47,7 @@ const BlogDetails = () => {
     const post = apiBlog;
 
     const content = post?.content ? (
-        <div 
+        <div
             className="max-w-none text-[18px] leading-[2.1] text-[#3f5673] quill-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
         />
@@ -65,7 +65,7 @@ const BlogDetails = () => {
             <Link to="/blogs" className="text-[#520378] font-bold hover:underline">Return to Blogs</Link>
         </div>
     );
-    
+
     // ✅ RELATED BLOGS (API ONLY)
     const relatedPosts = allApiBlogs
         .filter(p => p._id !== id)
@@ -92,50 +92,50 @@ const BlogDetails = () => {
 
                 {/* ── Article Content ── */}
                 {content && (
-                    <div className="w-full mx-auto mb-12 sm:mb-20 text-left sm:text-justify px-4 sm:px-0">
+                    <div className="w-full mx-auto mb-12 sm:mb-20 text-left sm:text-left px-4 sm:px-0">
                         {content}
                     </div>
                 )}
 
                 {/* ── Related Blogs Section ── */}
                 {relatedPosts.length > 0 && (
-    <div className="mt-4 sm:mt-8 border-t border-gray-100 pt-10 sm:pt-0 sm:border-t-0">
-        <h2 className="text-[#1A1A1A] text-[26px] sm:text-[42px] font-bold font-inter-tight mb-8">
-            Related Blogs
-        </h2>
+                    <div className="mt-4 sm:mt-8 border-t border-gray-100 pt-10 sm:pt-0 sm:border-t-0">
+                        <h2 className="text-[#1A1A1A] text-[26px] sm:text-[42px] font-bold font-inter-tight mb-8">
+                            Related Blogs
+                        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-y-12">
-            {relatedPosts.map((post) => {
-                const relatedId = post._id || post.id;
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-y-12">
+                            {relatedPosts.map((post) => {
+                                const relatedId = post._id || post.id;
 
-                return (
-                    <div key={relatedId} className="group cursor-pointer">
-                        <Link to={`/blog/${relatedId}`}>
-                            <div className="aspect-[4/3] mb-5 sm:mb-6 overflow-hidden rounded-[20px]">
-                                <img
-                                    src={post.image}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                            <p className="text-gray-400 text-[11px] sm:text-[12px] font-medium mb-2 sm:mb-3">
-                                {post.date}
-                            </p>
-                            <h3 className="text-[#1A1A1A] text-[17px] sm:text-[20px] font-bold mb-5 sm:mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors">
-                                {post.title}
-                            </h3>
-                        </Link>
-                        <Link
-                            to={`/blog/${relatedId}`}
-                            className="inline-block bg-[#520378] text-white px-7 sm:px-8 py-2 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-bold hover:bg-[#400260] transition-all"
-                        >
-                            Read more
-                        </Link>
+                                return (
+                                    <div key={relatedId} className="group cursor-pointer">
+                                        <Link to={`/blog/${relatedId}`}>
+                                            <div className="aspect-[4/3] mb-5 sm:mb-6 overflow-hidden rounded-[20px]">
+                                                <img
+                                                    src={post.image}
+                                                    alt={post.title}
+                                                    className="w-full h-full object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                            </div>
+                                            <p className="text-gray-400 text-[11px] sm:text-[12px] font-medium mb-2 sm:mb-3">
+                                                {post.date}
+                                            </p>
+                                            <h3 className="text-[#1A1A1A] text-[17px] sm:text-[20px] font-bold mb-5 sm:mb-6 font-inter-tight leading-[1.3] group-hover:text-[#520378] transition-colors">
+                                                {post.title}
+                                            </h3>
+                                        </Link>
+                                        <Link
+                                            to={`/blog/${relatedId}`}
+                                            className="inline-block bg-[#520378] text-white px-7 sm:px-8 py-2 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-bold hover:bg-[#400260] transition-all"
+                                        >
+                                            Read more
+                                        </Link>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
-                );
-            })}
-        </div>
-    </div>
                 )}
             </div>
         </section>
