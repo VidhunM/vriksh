@@ -47,10 +47,10 @@ const Footer = () => {
                                     <li><Link to="/blogs" className="hover:opacity-100 transition-opacity">Blog</Link></li>
                                     <li><Link to="/contact" className="hover:opacity-100 transition-opacity">Contact Us</Link></li>
                                 </ul>
-                                <ul className="space-y-2">
+                                {/* <ul className="space-y-2">
                                     <li><Link to="/ethics" className="hover:opacity-100 transition-opacity">Ethics</Link></li>
                                     <li><Link to="/refund-policy" className="hover:opacity-100 transition-opacity">Refund Policy</Link></li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                     </div>
@@ -186,13 +186,17 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border border-white/20 rounded-[20px] px-6 py-5 flex flex-col md:flex-row justify-between items-center text-[12px] font-light opacity-90 space-y-4 md:space-y-0 text-center md:text-left">
-                    <div className="flex gap-8 justify-center md:justify-start">
+                <div className="mt-12 pt-8 border-t border-white/10 text-center">
+                    <div className="flex flex-wrap justify-center items-center gap-x-3 md:gap-x-4 gap-y-2 text-[11px] md:text-[12px] font-light tracking-wide opacity-70">
+                        <span>Copyright © 2026 vriksh. All rights reserved.</span>
+                        <span className="opacity-30 hidden md:inline">|</span>
+                        <Link to="/ethics" className="hover:opacity-100 transition-opacity">Ethics</Link>
+                        <span className="opacity-30 hidden md:inline">|</span>
+                        <Link to="/refund-policy" className="hover:opacity-100 transition-opacity">Refund Policy</Link>
+                        <span className="opacity-30 hidden md:inline">|</span>
                         <Link to="/terms-and-conditions" className="hover:opacity-100 transition-opacity">Terms & Conditions</Link>
+                        <span className="opacity-30 hidden md:inline">|</span>
                         <Link to="/privacy-policy" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
-                    </div>
-                    <div className="opacity-70">
-                        Copyright © 2026 vriksh. All rights reserved
                     </div>
                 </div>
             </div>

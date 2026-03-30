@@ -21,7 +21,7 @@ const counsellingServices = [
     description:
       'Academic pressure and career decisions can feel confusing. Our counselling helps you explore your strengths and options so you can move forward with clarity, confidence, and direction.',
     image: '/images/services 3.png',
-    cta: 'Reach Out for Support',
+    cta: 'Take the First Step',
   },
 ];
 

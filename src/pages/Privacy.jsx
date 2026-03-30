@@ -160,7 +160,7 @@ const PrivacyPolicy = () => {
                         <p>We reserve the right to update this Privacy Policy at any time. Changes will be posted on this page. We encourage users to review this page periodically for updates.</p>
                     </div>
 
-                    <div className="bg-[#520378]/5 p-6 rounded-2xl border border-[#520378]/10 text-center">
+                    <div>
                         <h2 className="text-xl font-bold text-[#520378] mb-4">16. Acceptance of Policy</h2>
                         <p className="font-medium">By using this website, you acknowledge that you have read, understood, and agreed to this Privacy Policy.</p>
                     </div>
