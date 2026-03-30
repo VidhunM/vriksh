@@ -15,7 +15,7 @@ import 'react-quill-new/dist/quill.snow.css';
 import API_BASE_URL from '../../api/config';
 
 const defaultRegistrationLink =
-    "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
+    "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
 
 const eventTypeOptions = ["Workshop", "Webinar", "Training Program"];
 const levelOptions = ["Beginner", "Intermediate", "All Levels"];
@@ -63,6 +63,12 @@ const convert12HourTo24Hour = (time12) => {
     if (period.toUpperCase() === "AM" && hours === 12) hours = 0;
 
     return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+};
+
+const parseArrayField = (fieldValue) => {
+    if (Array.isArray(fieldValue)) return fieldValue.filter(item => item && item.toString().trim() !== "");
+    if (typeof fieldValue !== "string") return [];
+    return fieldValue.split(/\n+/).map(item => item.trim()).filter(item => item !== "");
 };
 
 const parseTimeRange = (range) => {
@@ -238,8 +244,12 @@ const EventsAdmin = () => {
             description: Array.isArray(event.description)
                 ? event.description.join("\n")
                 : event.description || "",
-            whatYoullLearn: event.whatYoullLearn || "",
-            whoThisSessionIsFor: event.whoThisSessionIsFor || "",
+            whatYoullLearn: Array.isArray(event.whatYoullLearn)
+                ? event.whatYoullLearn.join("\n")
+                : (event.whatYoullLearn || event.whatYouLearn || ""),
+            whoThisSessionIsFor: Array.isArray(event.whoThisSessionIsFor)
+                ? event.whoThisSessionIsFor.join("\n")
+                : (event.whoThisSessionIsFor || event.whoFor || ""),
             registrationLink: event.registrationLink || defaultRegistrationLink
         });
 
@@ -507,30 +517,30 @@ const EventsAdmin = () => {
                         </div>
 
                         <div>
-                            <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                            <label className="text-sm font-semibold text-gray-700 mb-1 block">
                                 What You’ll Learn
                             </label>
-                            <input
-                                type="text"
+                            <span className="text-[11px] text-gray-500 mb-2 block">Tip: Press 'Enter' for every new point. One point per line.</span>
+                            <textarea
                                 name="whatYoullLearn"
                                 value={form.whatYoullLearn}
                                 onChange={handleChange}
-                                placeholder="Summary of learning outcomes"
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                                placeholder="Example:&#10;Topic 1&#10;Topic 2&#10;Topic 3"
+                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3 text-gray-800 transition min-h-[120px]"
                             />
                         </div>
 
                         <div>
-                            <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                            <label className="text-sm font-semibold text-gray-700 mb-1 block">
                                 Who This Session Is For
                             </label>
-                            <input
-                                type="text"
+                            <span className="text-[11px] text-gray-500 mb-2 block">Tip: Mention target audience on separate lines.</span>
+                            <textarea
                                 name="whoThisSessionIsFor"
                                 value={form.whoThisSessionIsFor}
                                 onChange={handleChange}
-                                placeholder="Target audience"
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
+                                placeholder="Example:&#10;Students&#10;Counselors&#10;Parents"
+                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3 text-gray-800 transition min-h-[100px]"
                             />
                         </div>
 
@@ -659,9 +669,41 @@ const EventsAdmin = () => {
                                         </div>
 
                                         <div
-                                            className="text-xs md:text-sm text-gray-600 line-clamp-3 min-h-[50px] md:min-h-[60px]"
+                                            className="text-xs md:text-sm text-gray-600 line-clamp-3 min-h-[50px] md:min-h-[60px] mb-4"
                                             dangerouslySetInnerHTML={{ __html: event.description || "No description available for this event." }}
                                         />
+
+                                        <div className="space-y-3 pt-3 border-t border-gray-100">
+                                            {parseArrayField(event.whatYoullLearn || event.whatYouLearn).length > 0 && (
+                                                <div className="space-y-1">
+                                                    <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">What You'll Learn:</p>
+                                                    <div className="flex flex-wrap gap-x-3 gap-y-1">
+                                                        {parseArrayField(event.whatYoullLearn || event.whatYouLearn).slice(0, 3).map((item, idx) => (
+                                                            <div key={idx} className="flex items-center gap-1.5 text-[11px] text-gray-600">
+                                                                <div className="bg-green-500 rounded-full p-0.5"><PlusCircle className="text-white w-2 h-2" /></div>
+                                                                <span>{item}</span>
+                                                            </div>
+                                                        ))}
+                                                        {parseArrayField(event.whatYoullLearn || event.whatYouLearn).length > 3 && (
+                                                            <span className="text-[10px] text-gray-400">+{parseArrayField(event.whatYoullLearn || event.whatYouLearn).length - 3} more</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            )}
+                                            {parseArrayField(event.whoThisSessionIsFor || event.whoFor).length > 0 && (
+                                                <div className="space-y-1">
+                                                    <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Who For:</p>
+                                                    <div className="flex flex-wrap gap-x-3 gap-y-1">
+                                                        {parseArrayField(event.whoThisSessionIsFor || event.whoFor).slice(0, 4).map((item, idx) => (
+                                                            <div key={idx} className="flex items-center gap-1.5 text-[11px] text-gray-600">
+                                                                <div className="bg-fuchsia-100 rounded-full p-0.5"><PlusCircle className="text-fuchsia-600 w-2 h-2" /></div>
+                                                                <span>{item}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
 
                                         <div className="flex gap-3 mt-4 md:mt-5">
                                             <button

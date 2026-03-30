@@ -115,7 +115,7 @@ const UpcomingEvents = () => {
     const [mobileTestNav, setMobileTestNav] = useState(null);
 
     const defaultRegistrationLink =
-        "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
+        "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
 
     const programCards = [
         {
@@ -247,7 +247,7 @@ const UpcomingEvents = () => {
                             Bridging Education to <br className="hidden sm:block" /> Professional Practice
                         </h2>
 
-                        <div className="space-y-2 sm:space-y-3">
+                        <div className="space-y-4">
                             <p className="text-sm sm:text-xl font-bold text-[#520378] italic xl:whitespace-nowrap break-keep">
                                 Join 5,000+ learners mastering psychology with confidence
                             </p>
@@ -256,6 +256,17 @@ const UpcomingEvents = () => {
                                 Bridging theory and real-world practice to deliver accessible, <br className="hidden xl:block" />
                                 lifelong learning through customized workshops, training programs, and certification courses
                             </p>
+
+                            <a
+                                href={defaultRegistrationLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block mt-4"
+                            >
+                                <button className="bg-[#520378] text-white px-8 py-3.5 rounded-full font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95">
+                                    Enroll Now
+                                </button>
+                            </a>
                         </div>
                     </div>
 
@@ -309,100 +320,102 @@ const UpcomingEvents = () => {
                     >
                         {events.length > 0 ? (
                             events.map((event) => {
-                            const eventId = event._id || event.id;
+                                const eventId = event._id || event.id;
 
-                            return (
-                                <div
-                                    key={eventId}
-                                    onClick={() => setActiveCardId(activeCardId === eventId ? null : eventId)}
-                                    className={`shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-center ${activeCardId === eventId ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
-                                >
-                                    <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
-                                        <img
-                                            src={event.image}
-                                            alt={event.title}
-                                            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                    </div>
-
-                                    <div className="px-5 pb-5 flex flex-col flex-grow">
-                                        <h3 className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist`}>
-                                            {event.title}
-                                        </h3>
-                                        <p className={`text-[14px] ${activeCardId === eventId ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3 line-clamp-2`}>
-                                            {stripHtml(event.description || "")}
-                                        </p>
-
-                                        <div className={`h-px ${activeCardId === eventId ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>
-
-                                        <p className={`text-[12px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white mb-2 flex items-center gap-2`}>
-                                            Live | Online | {event.type || "Workshop"}
-                                        </p>
-
-                                        <div className={`flex flex-wrap gap-x-4 gap-y-1 mb-4 text-[12px] font-bold ${activeCardId === eventId ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
-                                            <div className="flex items-center gap-2">
-                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
-                                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                                </svg>
-                                                {event.date}
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
-                                                    <circle cx="12" cy="12" r="10"></circle>
-                                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                                </svg>
-                                                {event.time}
-                                            </div>
+                                return (
+                                    <div
+                                        key={eventId}
+                                        onClick={() => setActiveCardId(activeCardId === eventId ? null : eventId)}
+                                        className={`shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-center ${activeCardId === eventId ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
+                                    >
+                                        <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
+                                            <img
+                                                src={event.image}
+                                                alt={event.title}
+                                                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                                            />
                                         </div>
 
-                                        <div className="flex justify-between items-center mb-3 mt-auto">
-                                            <div className="flex items-center gap-1">
-                                                <span className={`text-[12px] font-bold ${activeCardId === eventId ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
-                                                    ({event.rating || "4.9"})
-                                                </span>
-                                                <div className="flex text-orange-400 text-[18px]">
-                                                    {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                        <div className="px-5 pb-5 flex flex-col flex-grow">
+                                            <h3 className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-[#520378]'} group-hover:text-white leading-tight mb-2 font-geist`}>
+                                                {event.title}
+                                            </h3>
+                                            <p className={`text-[14px] ${activeCardId === eventId ? 'text-white/90' : 'text-gray-600'} group-hover:text-white/90 mb-3 line-clamp-2`}>
+                                                {stripHtml(event.description || "")}
+                                            </p>
+
+                                            <div className={`h-px ${activeCardId === eventId ? 'bg-white/20' : 'bg-gray-200'} group-hover:bg-white/20 mb-3`}></div>
+
+                                            <p className={`text-[12px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white mb-2 flex items-center gap-2`}>
+                                                Live | Online | {event.type || "Workshop"}
+                                            </p>
+
+                                            <div className={`flex flex-wrap gap-x-4 gap-y-1 mb-4 text-[12px] font-bold ${activeCardId === eventId ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
+                                                <div className="flex items-center gap-2">
+                                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                    </svg>
+                                                    {event.date}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                        <circle cx="12" cy="12" r="10"></circle>
+                                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                                    </svg>
+                                                    {event.time}
                                                 </div>
                                             </div>
-                                            <span className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
-                                                {event.price}
-                                            </span>
-                                        </div>
 
-                                        <div className="flex gap-2">
-                                            <Link to={`/event-details/${eventId}`} className="flex-1">
-                                                <button className={`w-full ${activeCardId === eventId ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
-                                                    Know more
-                                                </button>
-                                            </Link>
+                                            <div className="flex justify-between items-center mb-3 mt-auto">
+                                                <div className="flex items-center gap-1">
+                                                    <span className={`text-[12px] font-bold ${activeCardId === eventId ? 'text-white/90' : 'text-gray-700'} group-hover:text-white/90`}>
+                                                        ({event.rating || "4.9"})
+                                                    </span>
+                                                    <div className="flex text-orange-400 text-[18px]">
+                                                        {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
+                                                    </div>
+                                                </div>
+                                                <span className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                    {event.price}
+                                                </span>
+                                            </div>
 
-                                            <a
-                                                href={event.registrationLink || defaultRegistrationLink}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex-1"
-                                            >
-                                                <button
-                                                    type="button"
-                                                    className={`w-full border-2 ${activeCardId === eventId ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}
+                                            <div className="flex gap-2">
+                                                <Link to={`/event-details/${eventId}`} className="flex-1">
+                                                    <button className={`w-full ${activeCardId === eventId ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
+                                                        Know more
+                                                    </button>
+                                                </Link>
+
+                                                <a
+                                                    href={(event.title?.toLowerCase().includes('adhd') || event.title?.toLowerCase().includes('building')) 
+                                                        ? "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform" 
+                                                        : "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform"}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex-1"
                                                 >
-                                                    Enroll Now
-                                                </button>
-                                            </a>
+                                                    <button
+                                                        type="button"
+                                                        className={`w-full border-2 ${activeCardId === eventId ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}
+                                                    >
+                                                        Enroll Now
+                                                    </button>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <div className="col-span-3 py-20 text-center bg-[#FFFAE4]/30 rounded-[32px] border-2 border-dashed border-[#520378]/20 w-full">
-                            <p className="text-[#520378] font-bold text-lg">No upcoming events scheduled at the moment.</p>
-                            <p className="text-gray-600 mt-2">Check back soon for new workshops and training programs!</p>
-                        </div>
-                    )}
+                                );
+                            })
+                        ) : (
+                            <div className="col-span-3 py-20 text-center bg-[#FFFAE4]/30 rounded-[32px] border-2 border-dashed border-[#520378]/20 w-full">
+                                <p className="text-[#520378] font-bold text-lg">No upcoming events scheduled at the moment.</p>
+                                <p className="text-gray-600 mt-2">Check back soon for new workshops and training programs!</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

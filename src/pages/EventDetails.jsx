@@ -10,7 +10,7 @@ const EventDetails = () => {
     const { id } = useParams();
 
     const defaultRegistrationLink =
-        "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform";
+        "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
 
     const [apiEvent, setApiEvent] = useState(null);
     const [allEvents, setAllEvents] = useState([]);
@@ -83,7 +83,7 @@ const EventDetails = () => {
         if (Array.isArray(fieldValue)) return fieldValue.filter((item) => item && item.toString().trim() !== "");
         if (typeof fieldValue !== "string") return [];
         return fieldValue
-            .split(/[,;\n]+/)
+            .split(/\n+/)
             .map((item) => item.trim())
             .filter((item) => item !== "");
     };
@@ -243,7 +243,10 @@ const EventDetails = () => {
     };
 
     const handleEnrollNow = () => {
-        if (event) window.open(event.enrollLink || defaultRegistrationLink, '_blank');
+        const link = (event?.title?.toLowerCase().includes('adhd') || event?.title?.toLowerCase().includes('building')) 
+            ? "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform" 
+            : "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
+        window.open(link, "_blank");
     };
 
     const handleWhatsappJoin = () => {
@@ -318,7 +321,7 @@ const EventDetails = () => {
 
             <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-8 sm:pb-20 relative">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20" ref={containerRef}>
-                    <div className="lg:w-1/3 relative z-20 order-1 lg:order-2">
+                    <div className="lg:w-1/3 relative z-20 lg:order-2">
                         <div ref={cardRef} className="bg-white rounded-[24px] shadow-2xl border border-gray-100 overflow-hidden lg:-mt-[380px] will-change-transform">
                             <div className="aspect-video relative overflow-hidden">
                                 <img
@@ -356,7 +359,7 @@ const EventDetails = () => {
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                             <span className="text-[13px] font-medium text-gray-500">Time</span>
                                         </div>
-                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-[26px]">{event.time}</span>
+                                        <span className="text-[14px] sm:text-[15px] font-bold text-[#520378] ml-2 sm:ml-[26px] whitespace-nowrap">{event.time}</span>
                                     </div>
                                 </div>
 
@@ -375,22 +378,20 @@ const EventDetails = () => {
                                     >
                                         Enroll Now
                                     </button>
-                                    <button
-                                        onClick={handleWhatsappJoin}
-                                        className="w-full border-2 border-[#520378] text-[#520378] py-3.5 rounded-full font-bold text-lg hover:bg-[#520378] hover:text-white transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-                                    >
-                                        Register Here
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="lg:w-2/3">
+                    <div className="lg:w-2/3 min-w-0">
                         <h2 className="text-[20px] sm:text-[22px] font-bold text-gray-950 mb-3 font-inter-tight">Description:</h2>
-                        <div className="text-gray-600 font-geist leading-relaxed quill-content text-[14px] sm:text-[15px] lg:text-[16px] text-left sm:text-justify">
+                        <div className="text-gray-600 font-geist leading-relaxed quill-content text-[14px] sm:text-[15px] lg:text-[16px] text-left">
                             {event.description.map((p, i) => (
-                                <div key={i} className="[&_p]:mt-0" dangerouslySetInnerHTML={{ __html: p }} />
+                                <div 
+                                    key={i} 
+                                    className="[&_p]:mt-0 [&_p]:text-left [&_p]:indent-0" 
+                                    dangerouslySetInnerHTML={{ __html: p.replace(/&nbsp;|\u00A0/g, ' ') }} 
+                                />
                             ))}
                         </div>
 
