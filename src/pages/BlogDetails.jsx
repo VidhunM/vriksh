@@ -56,8 +56,8 @@ const BlogDetails = () => {
 
     const content = post?.content ? (
         <div
-            className="max-w-none text-[18px] leading-[2.1] text-[#3f5673] quill-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            className="max-w-none text-[16px] sm:text-[17px] leading-[1.8] text-[#3f5673] quill-content overflow-hidden w-full"
+            dangerouslySetInnerHTML={{ __html: post.content.replace(/&nbsp;/g, ' ') }}
         />
     ) : null;
 
@@ -85,7 +85,7 @@ const BlogDetails = () => {
 
                 {/* ── Top Part (Hero): Centered Title & Header Image ── */}
                 <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
-                    <h1 className="text-[#1A1A1A] text-[22px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.2] sm:leading-[1.15] max-w-[900px] mb-8 sm:mb-6 px-2 sm:px-0">
+                    <h1 className="text-[#1A1A1A] text-[22px] sm:text-[36px] lg:text-[44px] font-bold font-inter-tight leading-[1.2] sm:leading-[1.15] w-full mb-8 sm:mb-6 px-2 sm:px-0">
                         {post.title}
                     </h1>
 

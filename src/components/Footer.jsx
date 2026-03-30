@@ -71,28 +71,30 @@ const Footer = () => {
 
                     {/* Column 4: Logo Section */}
                     <div className="flex justify-end lg:pl-8">
-                        <div className="bg-[#EEEAF4] w-[320px] h-[320px] flex-shrink-0 rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 relative lg:-left-8 lg:top-12 aspect-square">
-                            <div className="mb-6 flex flex-col items-center">
-                                <Link to="/">
-                                    <img
-                                        src="/logo.png"
-                                        alt="VRIKSH Logo"
-                                        className="h-14 w-auto object-contain mb-4 mr-2 lg:mr-4"
-                                    />
-                                </Link>
-                                <div className="w-full h-[2px] bg-black/20 my-4 max-w-[160px]"></div>
-                            </div>
+                        <div className="bg-[#EEEAF4] w-[320px] h-[320px] flex-shrink-0 rounded-full flex flex-col items-center justify-center p-8 shadow-lg border-2 border-white/5 relative lg:left-4 lg:top-12 aspect-square">
+                            <div className="-translate-x-2 flex flex-col items-center">
+                                <div className="mb-6 flex flex-col items-center">
+                                    <Link to="/">
+                                        <img
+                                            src="/logo.png"
+                                            alt="VRIKSH Logo"
+                                            className="h-14 w-auto object-contain mb-4 mr-2 lg:mr-2"
+                                        />
+                                    </Link>
+                                    <div className="w-full h-[2px] bg-black/20 my-4 max-w-[160px]"></div>
+                                </div>
 
-                            <div className="flex gap-4">
-                                <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaFacebookF size={16} className="stroke-[1]" />
-                                </a>
-                                <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaInstagram size={16} className="stroke-[1]" />
-                                </a>
-                                <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
-                                    <FaLinkedinIn size={16} className="stroke-[1]" />
-                                </a>
+                                <div className="flex gap-4">
+                                    <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                        <FaFacebookF size={16} className="stroke-[1]" />
+                                    </a>
+                                    <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                        <FaInstagram size={16} className="stroke-[1]" />
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#520378] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-md">
+                                        <FaLinkedinIn size={16} className="stroke-[1]" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,26 +104,28 @@ const Footer = () => {
                 <div className="md:hidden flex flex-col items-center space-y-12 mb-12">
                     {/* Logo & Socials Section */}
                     <div className="bg-[#EEEAF4] w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center p-6 shadow-xl border-4 border-white/10 aspect-square relative overflow-hidden">
-                        <div className="mb-4 flex flex-col items-center relative z-10">
-                            <Link to="/">
-                                <img
-                                    src="/logo.png"
-                                    alt="VRIKSH Logo"
-                                    className="h-10 w-auto object-contain mb-1 mr-8"
-                                />
-                            </Link>
-                            <div className="w-16 h-[1px] bg-[#520378]/20 my-3"></div>
-                        </div>
-                        <div className="flex gap-4 relative z-10">
-                            <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
-                                <FaFacebookF size={14} />
-                            </a>
-                            <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
-                                <FaInstagram size={14} />
-                            </a>
-                            <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
-                                <FaLinkedinIn size={14} />
-                            </a>
+                        <div className="-translate-x-2 flex flex-col items-center w-full">
+                            <div className="mb-4 flex flex-col items-center relative z-10">
+                                <Link to="/">
+                                    <img
+                                        src="/logo.png"
+                                        alt="VRIKSH Logo"
+                                        className="h-10 w-auto object-contain mb-1 mr-4"
+                                    />
+                                </Link>
+                                <div className="w-16 h-[1px] bg-[#520378]/20 my-3"></div>
+                            </div>
+                            <div className="flex gap-4 relative z-10 w-full justify-center lg:-ml-2">
+                                <a href="https://www.facebook.com/vriksh.em?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
+                                    <FaFacebookF size={14} />
+                                </a>
+                                <a href="https://instagram.com/vriksh.enrichingminds?igshid=o5ntlej5pwea" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
+                                    <FaInstagram size={14} />
+                                </a>
+                                <a href="https://www.linkedin.com/company/vriksh-psychological-support-services/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-[#520378] text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
+                                    <FaLinkedinIn size={14} />
+                                </a>
+                            </div>
                         </div>
                     </div>
 

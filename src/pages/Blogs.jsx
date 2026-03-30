@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API_BASE_URL from '../api/config';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-
-const categories = ["Counselling", "Institutional", "Workshop"];
-
 const Blogs = () => {
-    const [activeCategory, setActiveCategory] = useState('Counselling');
     const [blogIndex, setBlogIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -16,7 +12,7 @@ const Blogs = () => {
     const latestBlog = allBlogs.length > 0 ? allBlogs[0] : null;
     const secondaryBlogs = allBlogs.slice(1, 3);
 
-    const filteredPosts = allBlogs.filter(post => post.category === activeCategory);
+    const filteredPosts = allBlogs;
 
     useEffect(() => {
         const handleResize = () => {
@@ -41,11 +37,6 @@ const Blogs = () => {
             })
             .catch(err => console.log(err));
     }, []);
-
-    // Reset index when category changes
-    useEffect(() => {
-        setBlogIndex(0);
-    }, [activeCategory]);
 
     const prevSlide = () => {
         setBlogIndex((prev) => (prev - 1 + filteredPosts.length) % filteredPosts.length);
@@ -154,22 +145,6 @@ const Blogs = () => {
                         <h2 className="text-[#1A1A1A] text-[32px] sm:text-[42px] font-bold font-inter-tight leading-[1.1] mb-3 sm:mb-8">
                             Insights for a <br className="hidden sm:block" /> Healthier Mind
                         </h2>
-
-                        {/* Filter Chips */}
-                        <div className="flex flex-wrap gap-2 sm:gap-3">
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat}
-                                    onClick={() => setActiveCategory(cat)}
-                                    className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all border ${activeCategory === cat
-                                        ? 'bg-[#520378] text-white border-[#520378]'
-                                        : 'bg-white text-gray-600 border-gray-300 hover:border-gray-400'
-                                        }`}
-                                >
-                                    {cat}
-                                </button>
-                            ))}
-                        </div>
                     </div>
 
                     <div className="lg:max-w-[500px]">

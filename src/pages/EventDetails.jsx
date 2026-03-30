@@ -243,7 +243,7 @@ const EventDetails = () => {
     };
 
     const handleEnrollNow = () => {
-        const link = (event?.title?.toLowerCase().includes('adhd') || event?.title?.toLowerCase().includes('building')) 
+        const link = (event?.title?.toLowerCase().includes('building')) 
             ? "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform" 
             : "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
         window.open(link, "_blank");

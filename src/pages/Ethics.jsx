@@ -5,7 +5,7 @@ const Ethics = () => {
         <section className="bg-white min-h-screen">
             <div className="bg-[#520378] pt-20 pb-4 sm:pt-32 sm:pb-10 flex items-center justify-center">
                 <h1 className="text-white text-[clamp(24px,4vw,36px)] font-bold tracking-[0.05em] uppercase font-inter-tight text-center px-4">
-                    Ethics Policy
+                    Ethics
                 </h1>
             </div>
             <div className="max-w-[1000px] mx-auto px-6 py-12 sm:py-20 text-gray-800 text-[16px] leading-[1.8]">

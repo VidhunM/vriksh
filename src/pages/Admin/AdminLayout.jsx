@@ -31,11 +31,11 @@ const AdminLayout = () => {
             path: "/admin/events",
             icon: <CalendarDays size={18} />
         },
-        {
-            name: "Event Inquiries",
-            path: "/admin/event-inquiries",
-            icon: <Mail size={18} />
-        }
+        // {
+        //     name: "Event Inquiries",
+        //     path: "/admin/event-inquiries",
+        //     icon: <Mail size={18} />
+        // }
     ];
 
     return (
