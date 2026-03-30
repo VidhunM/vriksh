@@ -12,7 +12,7 @@ const Academy = () => {
         },
         {
             title: 'Training Programs',
-            desc: <span>Interactive, activity-based programs designed by our in-house experts to equip you with practical skills for <br className="sm:hidden" /> real-world application.</span>,
+            desc: <span>Interactive, activity-based programs designed by our in-house experts to equip you with practical skills for <br className="sm:hidden" /> <span className="whitespace-nowrap">real-world application.</span></span>,
             btnText: 'Explore Programs',
             link: '/training'
         },
@@ -72,7 +72,7 @@ const Academy = () => {
                         <div className="mb-8 lg:mb-10 text-center lg:text-left">
                             <h2 className="text-2xl sm:text-[34px] font-bold mb-4 sm:mb-6 text-gray-950 leading-tight font-inter-tight">Vriksh E-Academy</h2>
                             <p className="text-sm sm:text-[19px] text-gray-800 max-w-[660px] leading-[1.8] font-normal mx-auto lg:mx-0">
-                                We empower aspiring professionals and <br className="sm:hidden" />communities with live, interactive, skill based <br className="sm:hidden" />mental health programs, bridging theory and real-world practice.
+                                We empower aspiring professionals and <br className="sm:hidden" />communities with live, interactive, skill based <br className="sm:hidden" />mental health programs, bridging theory and <span className="whitespace-nowrap">real-world practice.</span>
                             </p>
                         </div>
 

@@ -311,7 +311,7 @@ const ContactFooter = () => {
                                         <div className="relative" ref={serviceRef}>
                                             <div
                                                 onClick={() => setServiceOpen(!serviceOpen)}
-                                                className="w-full px-4 py-2.5 rounded-[6px] bg-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
+                                                className="w-full px-4 py-2.5 rounded-[6px] bg-gradient-[#FFF9E1] border border-[#94a3b8] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                             >
                                                 <span className="text-gray-950 font-medium">
                                                     {selectedService || "Services interested in"}
@@ -345,7 +345,7 @@ const ContactFooter = () => {
                                     <div className="relative w-full" ref={sourceRef} style={{ zIndex: 30 }}>
                                         <div
                                             onClick={() => setSourceOpen(!sourceOpen)}
-                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
+                                            className="w-full px-4 py-2.5 rounded-[6px] border border-[#94a3b8] bg-gradient-[#FFF9E1] cursor-pointer flex justify-between items-center text-gray-950 text-sm lg:text-base"
                                         >
                                             <span className="text-gray-950 font-medium">
                                                 {selectedSource || "How did you hear about us?"}
