@@ -104,13 +104,13 @@ const Footer = () => {
                 <div className="md:hidden flex flex-col items-center space-y-12 mb-12">
                     {/* Logo & Socials Section */}
                     <div className="bg-[#EEEAF4] w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center p-6 shadow-xl border-4 border-white/10 aspect-square relative overflow-hidden">
-                        <div className="-translate-x-2 flex flex-col items-center w-full">
+                        <div className="-translate-x-0 flex flex-col items-center w-full">
                             <div className="mb-4 flex flex-col items-center relative z-10">
                                 <Link to="/">
                                     <img
                                         src="/logo.png"
                                         alt="VRIKSH Logo"
-                                        className="h-10 w-auto object-contain mb-1 mr-4"
+                                        className="h-10 w-auto object-contain mb-1 -ml-1"
                                     />
                                 </Link>
                                 <div className="w-16 h-[1px] bg-[#520378]/20 my-3"></div>
