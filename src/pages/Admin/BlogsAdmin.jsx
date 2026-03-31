@@ -380,7 +380,7 @@ const BlogsAdmin = () => {
                                     modules={quillModules}
                                     formats={quillFormats}
                                     placeholder="Write the full blog content here..."
-                                    className="h-48 md:h-64"
+                                    className="bg-white"
                                 />
                             </div>
                             <style>{`
@@ -410,7 +410,9 @@ const BlogsAdmin = () => {
                                     }
                                 }
                                 .quill-editor-container .ql-editor {
-                                    min-height: 200px;
+                                    min-height: 250px;
+                                    max-height: 500px;
+                                    overflow-y: auto;
                                 }
                                 .quill-editor-container .ql-editor.ql-blank::before {
                                     color: #9ca3af;

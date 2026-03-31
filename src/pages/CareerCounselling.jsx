@@ -693,7 +693,7 @@ const CareerCounselling = () => {
             </div>
 
             {/* Get in Touch Section */}
-            <InstitutionalContact programType="Career-Counselling" />
+            <InstitutionalContact programType="Career Guidance" />
         </div>
     );
 };

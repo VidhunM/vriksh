@@ -13,7 +13,7 @@ const AdminDashboard = () => {
         { name: 'Contact', url: 'https://docs.google.com/spreadsheets/d/1NMcPLYZ9brsk4fve5JuMsBEQm-J5A2VSAFFSpPz8QkQ/edit?gid=0#gid=0', icon: <Mail className="text-pink-500" size={24} /> },
         { name: 'Newsletter', url: 'https://docs.google.com/spreadsheets/d/1NMcPLYZ9brsk4fve5JuMsBEQm-J5A2VSAFFSpPz8QkQ/edit?gid=1257915033#gid=1257915033', icon: <Newspaper className="text-indigo-500" size={24} /> },
         { name: 'Counselling', url: 'https://docs.google.com/spreadsheets/d/1NMcPLYZ9brsk4fve5JuMsBEQm-J5A2VSAFFSpPz8QkQ/edit?gid=2037083385#gid=2037083385', icon: <Heart className="text-rose-500" size={24} /> },
-        { name: 'Career Counselling', url: 'https://docs.google.com/spreadsheets/d/18oDI4WvdAJr1yO8eYt9UT8cRITWAAddaRsgdvOO0DeY/edit?gid=155700272#gid=155700272', icon: <Compass className="text-teal-500" size={24} /> },
+        { name: 'Career Guidance', url: 'https://docs.google.com/spreadsheets/d/18oDI4WvdAJr1yO8eYt9UT8cRITWAAddaRsgdvOO0DeY/edit?gid=155700272#gid=155700272', icon: <Compass className="text-teal-500" size={24} /> },
         { name: 'Corporate EAP', url: 'https://docs.google.com/spreadsheets/d/18oDI4WvdAJr1yO8eYt9UT8cRITWAAddaRsgdvOO0DeY/edit?gid=996264696#gid=996264696', icon: <Building className="text-slate-500" size={24} /> },
         { name: 'School Based', url: 'https://docs.google.com/spreadsheets/d/18oDI4WvdAJr1yO8eYt9UT8cRITWAAddaRsgdvOO0DeY/edit?gid=1095297424#gid=1095297424', icon: <School className="text-fuchsia-500" size={24} /> },
         { name: 'College Based', url: 'https://docs.google.com/spreadsheets/d/18oDI4WvdAJr1yO8eYt9UT8cRITWAAddaRsgdvOO0DeY/edit?gid=1436446810#gid=1436446810', icon: <Library className="text-amber-600" size={24} /> }
@@ -28,7 +28,7 @@ const AdminDashboard = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {editLinks.map((link, index) => (
-                    <a 
+                    <a
                         key={index}
                         href={link.url}
                         target="_blank"
