@@ -8,21 +8,21 @@ const PrivacyPolicy = () => {
                     Privacy Policy
                 </h1>
             </div>
-            <div className="max-w-[1000px] mx-auto px-6 py-12 sm:py-20 text-gray-800 text-[18px] leading-[1.8]">
+            <div className="max-w-[1000px] mx-auto px-4 sm:px-6 py-12 sm:py-20 text-gray-800 text-[15px] sm:text-[18px] leading-[1.6] sm:leading-[1.8]">
                 <div className="border-b border-gray-200 pb-3 mb-8">
                     <p>
                         <span className="font-bold">Last Updated:</span>
                         <span className="ml-2">30-03-2026</span>
                     </p>
                 </div>
-                <div className="space-y-8 text-justify">
+                <div className="space-y-8 text-left sm:text-justify">
                     <div>
                         <p className="mb-4 font-medium">Vriksh Psychological Support Services is committed to maintaining the privacy, confidentiality, and security of all user information and interactions.</p>
                         <p>This Privacy Policy outlines how we collect, use, store, and protect your information.</p>
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">1. Information We Collect</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">1. Information We Collect</h2>
                         <p>We may collect the following information:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>Name, email address, and phone number</li>
@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">2. How We Use Your Information</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">2. How We Use Your Information</h2>
                         <p>Your information may be used to:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>Respond to enquiries and provide service-related information</li>
@@ -44,7 +44,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">3. Confidentiality of User Information</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">3. Confidentiality of User Information</h2>
                         <ul className="list-disc ml-6 space-y-2">
                             <li>All personal information shared with Vriksh Psychological Support Services is treated as confidential</li>
                             <li>Information is collected, stored, and processed in accordance with applicable data protection laws</li>
@@ -53,11 +53,11 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">4. Confidentiality of Counselling & Therapy Sessions</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">4. Confidentiality of Counselling & Therapy Sessions</h2>
                         <ul className="list-disc ml-6 space-y-2">
                             <li>All counselling and therapy sessions are strictly confidential</li>
                             <li>Information shared during sessions will not be disclosed without explicit user consent, except:
-                                <ul className="list-circle ml-6 mt-2 space-y-1 italic">
+                                <ul className="list-[circle] ml-6 mt-2 space-y-1 italic">
                                     <li>When required by law</li>
                                     <li>In cases of risk of harm to self or others</li>
                                     <li>In situations involving abuse or neglect of minors, elderly individuals, or vulnerable persons</li>
@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">5. Limitations to Confidentiality</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">5. Limitations to Confidentiality</h2>
                         <p>While we take all reasonable steps to protect your data:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>Online communication may not be completely secure</li>
@@ -83,7 +83,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">6. Data Protection</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">6. Data Protection</h2>
                         <p>We implement reasonable security measures to protect personal information against:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>Unauthorized access</li>
@@ -94,7 +94,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">7. Sharing of Information</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">7. Sharing of Information</h2>
                         <p>We do not sell or rent personal data. Information may be shared only:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>When required by law</li>
@@ -104,7 +104,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">8. Cookies</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">8. Cookies</h2>
                         <p>Our website may use cookies to:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>Enhance user experience</li>
@@ -114,7 +114,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">9. User Responsibility</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">9. User Responsibility</h2>
                         <ul className="list-disc ml-6 space-y-2">
                             <li>Users are responsible for maintaining confidentiality of login credentials</li>
                             <li>Exercising caution while sharing personal or sensitive information online</li>
@@ -123,7 +123,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">10. User Rights</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">10. User Rights</h2>
                         <p>You have the right to:</p>
                         <ul className="list-disc ml-6 mt-2 space-y-2">
                             <li>Request access to your personal data</li>
@@ -133,7 +133,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">11. Children’s Privacy</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">11. Children’s Privacy</h2>
                         <ul className="list-disc ml-6 space-y-2">
                             <li>We do not knowingly collect personal data from minors without parental or legal guardian consent</li>
                             <li>If such data is identified, we will take steps to remove it promptly</li>
@@ -141,7 +141,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">12. Use of Third-Party Platforms</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">12. Use of Third-Party Platforms</h2>
                         <ul className="list-disc ml-6 space-y-2">
                             <li>Some services (such as counselling sessions or communication) may be conducted through third-party platforms (e.g., video conferencing tools)</li>
                             <li>We are not responsible for the privacy practices of such platforms</li>
@@ -149,7 +149,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">13. Payments (If Applicable)</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">13. Payments (If Applicable)</h2>
                         <ul className="list-disc ml-6 space-y-2">
                             <li>We do not store sensitive financial information such as card or banking details</li>
                             <li>Payments are processed through secure third-party payment gateways</li>
@@ -157,17 +157,17 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">14. Consent</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">14. Consent</h2>
                         <p className="font-medium italic">By using our website and services, you provide informed consent to the collection and use of your information as outlined in this Privacy Policy.</p>
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">15. Policy Updates</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">15. Policy Updates</h2>
                         <p>We reserve the right to update this Privacy Policy at any time. Changes will be posted on this page. We encourage users to review this page periodically for updates.</p>
                     </div>
 
                     <div>
-                        <h2 className="text-[26px] font-bold mb-6">16. Acceptance of Policy</h2>
+                        <h2 className="text-xl sm:text-[26px] font-bold mb-4 sm:mb-6">16. Acceptance of Policy</h2>
                         <p className="font-medium">By using this website, you acknowledge that you have read, understood, and agreed to this Privacy Policy.</p>
                     </div>
                 </div>

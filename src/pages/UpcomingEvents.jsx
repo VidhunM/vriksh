@@ -257,16 +257,7 @@ const UpcomingEvents = () => {
                                 lifelong learning through customized workshops, training programs, and certification courses
                             </p>
 
-                            <a
-                                href={defaultRegistrationLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block mt-4"
-                            >
-                                <button className="bg-[#520378] text-white px-8 py-3.5 rounded-full font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95">
-                                    Enroll Now
-                                </button>
-                            </a>
+
                         </div>
                     </div>
 

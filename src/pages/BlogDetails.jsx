@@ -56,7 +56,7 @@ const BlogDetails = () => {
 
     const content = post?.content ? (
         <div
-            className="max-w-none text-[16px] sm:text-[17px] leading-[1.8] text-[#3f5673] quill-content overflow-hidden w-full"
+            className="max-w-none text-[15px] sm:text-[19px] leading-[1.8] text-[#1A1A1A] font-inter-tight tracking-wide quill-content overflow-hidden w-full"
             dangerouslySetInnerHTML={{ __html: post.content.replace(/&nbsp;/g, ' ') }}
         />
     ) : null;
@@ -89,7 +89,7 @@ const BlogDetails = () => {
                         {post.title}
                     </h1>
 
-                    <div className="w-full rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-sm aspect-[16/9] sm:aspect-[21/8] mt-2 sm:mt-8">
+                    <div className="w-full sm:w-[95%] lg:w-[90%] max-w-[1000px] rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-sm aspect-[16/9] sm:aspect-[21/8] mt-2 sm:mt-8">
                         <img
                             src={post.image}
                             alt={post.title}
@@ -100,7 +100,7 @@ const BlogDetails = () => {
 
                 {/* ── Article Content ── */}
                 {content && (
-                    <div className="w-full mx-auto mb-12 sm:mb-20 text-left sm:text-left px-4 sm:px-0">
+                    <div className="w-full mx-auto mb-12 sm:mb-20 text-left sm:text-justify font-inter-tight tracking-wide px-4 sm:px-0">
                         {content}
                     </div>
                 )}

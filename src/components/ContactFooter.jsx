@@ -185,7 +185,7 @@ const ContactFooter = () => {
                         <div className="w-full lg:w-[45%] space-y-4 lg:space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
                             <h2 className="text-[24px] sm:text-[34px] font-extrabold text-gray-900 leading-[1.1] tracking-wide">
                                 {isAcademyPage ? (
-                                    <>Get in Touch with <br className="hidden lg:block" /> Vriksh <br /> E-Academy</>
+                                    <>Get in Touch with Vriksh <br /> E-Academy</>
                                 ) : (
                                     <>Get in Touch with <br className="hidden lg:block" /> Vriksh</>
                                 )}
