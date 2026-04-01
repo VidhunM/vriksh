@@ -200,10 +200,10 @@ const Blogs = () => {
                                             </h3>
                                         </div>
                                     </Link>
-                                    <div className="px-5 sm:px-0">
-                                        <Link to={`/blog/${post._id || post.id}`} className="inline-flex items-center gap-2 text-[#520378] font-bold text-[14px] group/link">
-                                            <span className="group-hover/link:underline">Read more</span>
-                                            <svg className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
+                                    <div className="px-5 sm:px-0 pr-10 shrink-0 pb-2">
+                                        <Link to={`/blog/${post._id || post.id}`} className="inline-flex items-center gap-3 text-[#520378] font-bold text-[14px] group/link leading-relaxed">
+                                            <span className="group-hover/link:underline block">Read more&nbsp;&nbsp;&nbsp;</span>
+                                            <svg className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                                         </Link>
                                     </div>
                                 </div>

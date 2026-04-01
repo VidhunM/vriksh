@@ -286,7 +286,7 @@ const UpcomingEvents = () => {
                         <div className="flex justify-end w-full md:w-auto gap-4">
                             <button
                                 onClick={scrollEventsLeft}
-                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all md:hidden"
+                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all"
                             >
                                 <svg width="20" height="20" sm:width="24" sm:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -295,7 +295,7 @@ const UpcomingEvents = () => {
                             </button>
                             <button
                                 onClick={scrollEventsRight}
-                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-black transition-all md:hidden"
+                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-400 text-white flex items-center justify-center hover:bg-black transition-all"
                             >
                                 <svg width="20" height="20" sm:width="24" sm:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -307,7 +307,7 @@ const UpcomingEvents = () => {
 
                     <div
                         ref={eventsScrollRef}
-                        className="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-3 gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
+                        className="flex overflow-x-auto gap-5 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-6 -mx-6 px-6 md:mx-0 md:px-0"
                     >
                         {events.length > 0 ? (
                             events.map((event) => {
@@ -317,7 +317,7 @@ const UpcomingEvents = () => {
                                     <div
                                         key={eventId}
                                         onClick={() => setActiveCardId(activeCardId === eventId ? null : eventId)}
-                                        className={`shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-center ${activeCardId === eventId ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
+                                        className={`shrink-0 w-[85vw] sm:w-[350px] md:w-[380px] snap-center ${activeCardId === eventId ? 'bg-[#520378]' : 'bg-[#FFFAE4]'} hover:bg-[#520378] rounded-[32px] p-2 flex flex-col shadow-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full`}
                                     >
                                         <div className="h-[240px] rounded-[24px] overflow-hidden mb-3 shrink-0">
                                             <img
