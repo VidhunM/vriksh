@@ -19,6 +19,7 @@ const InstitutionalContact = ({ programType }) => {
     });
 
     const [submitting, setSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error' or null
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -54,7 +55,9 @@ const InstitutionalContact = ({ programType }) => {
                 body: JSON.stringify(dataToSend)
             });
 
-            alert('Thank you! Your enquiry has been submitted.');
+            // alert('Thank you! Your enquiry has been submitted.');
+            setSubmitStatus('success');
+            setTimeout(() => setSubmitStatus(null), 5000);
 
             // Reset form
             setFormData({
@@ -72,7 +75,8 @@ const InstitutionalContact = ({ programType }) => {
             });
         } catch (error) {
             console.error('Submission error:', error);
-            alert('Oops! Something went wrong. Please try again.');
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus(null), 5000);
         } finally {
             setSubmitting(false);
         }
@@ -155,7 +159,30 @@ const InstitutionalContact = ({ programType }) => {
                         )}
                         {!isEAP && <div className="mb-8" />}
 
-                        <form className="space-y-4 sm:space-y-5 w-full" onSubmit={handleSubmit}>
+                        {submitStatus === 'success' ? (
+                            <div className="w-full py-12 px-6 bg-white/50 backdrop-blur-sm border border-green-200 rounded-2xl flex flex-col items-center justify-center text-center animate-fade-in shadow-sm">
+                                <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <h4 className="text-xl font-bold text-gray-900 mb-2">Enquiry Submitted!</h4>
+                                <p className="text-gray-600 max-w-sm">Thank you for your interest. Our partnerships team will get in touch with you shortly.</p>
+                                <button 
+                                    onClick={() => setSubmitStatus(null)}
+                                    className="mt-6 text-[#520378] font-semibold hover:underline"
+                                >
+                                    Submit another enquiry
+                                </button>
+                            </div>
+                        ) : (
+                            <form className="space-y-4 sm:space-y-5 w-full" onSubmit={handleSubmit}>
+                                {submitStatus === 'error' && (
+                                    <div className="p-3 bg-red-50 border border-red-100 text-red-600 rounded-lg text-sm mb-4 animate-fade-in flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                                        Oops! Something went wrong. Please try again.
+                                    </div>
+                                )}
                             {/* Row 1: Name & Email */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                 <input
@@ -414,7 +441,8 @@ const InstitutionalContact = ({ programType }) => {
                             >
                                 {submitting ? 'Sending...' : 'Submit'}
                             </button>
-                        </form>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>

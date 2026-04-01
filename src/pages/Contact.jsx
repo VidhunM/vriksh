@@ -203,6 +203,7 @@ const Contact = () => {
     });
 
     const [loading, setLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error' or null
 
     const sources = [
         "Google Search",
@@ -239,7 +240,7 @@ const Contact = () => {
         e.preventDefault();
 
         if (!formData.name || !formData.email || !formData.phone) {
-            alert("Please fill required fields");
+            setSubmitStatus('error');
             return;
         }
 
@@ -251,25 +252,25 @@ const Contact = () => {
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
+            // const result = await response.json(); // mode: no-cors or basic response issues
 
-            if (result.status === "success") {
-                alert("Form submitted successfully!");
+            setSubmitStatus('success');
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                location: '',
+                source: '',
+                message: ''
+            });
 
-                setFormData({
-                    name: '',
-                    email: '',
-                    phone: '',
-                    location: '',
-                    source: '',
-                    message: ''
-                });
-
-                setSelectedSource('');
-            }
+            setSelectedSource('');
+            setTimeout(() => setSubmitStatus(null), 5000);
+            
         } catch (error) {
             console.error(error);
-            alert("Error submitting form");
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus(null), 5000);
         }
 
         setLoading(false);
@@ -339,112 +340,135 @@ const Contact = () => {
                                 Let’s Connect
                             </h3>
 
-                            {/* ✅ ONLY CHANGE: onSubmit added */}
-                            <form className="space-y-6" onSubmit={handleSubmit}>
-
-                                <div className="grid sm:grid-cols-2 gap-6">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        placeholder="Full Name"
-                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
-                                    />
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        placeholder="Email"
-                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
-                                    />
-                                </div>
-
-                                <div className="grid sm:grid-cols-2 gap-6">
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        placeholder="Phone Number (10 digits)"
-                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
-                                    />
-                                    <input
-                                        type="text"
-                                        name="location"
-                                        value={formData.location}
-                                        onChange={handleChange}
-                                        placeholder="Location"
-                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
-                                    />
-                                </div>
-
-                                {/* DROPDOWN */}
-                                <div className="relative" ref={sourceRef}>
-                                    <div
-                                        onClick={() => setSourceOpen(!sourceOpen)}
-                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 cursor-pointer flex justify-between items-center bg-white hover:border-gray-500 transition-all text-gray-400 font-geist"
-                                    >
-                                        <span className={selectedSource ? "text-gray-900" : ""}>
-                                            {selectedSource || "How did you hear about us?"}
-                                        </span>
-                                        <svg className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${sourceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                            {submitStatus === 'success' ? (
+                                <div className="w-full py-16 px-6 bg-[#520378]/5 border border-[#520378]/10 rounded-2xl flex flex-col items-center justify-center text-center animate-fade-in">
+                                    <div className="w-16 h-16 bg-[#520378] text-white rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                                         </svg>
                                     </div>
-
-                                    {sourceOpen && (
-                                        <div className="absolute top-[calc(100%+4px)] left-0 w-full bg-white border border-gray-200 rounded-lg shadow-xl z-50 overflow-hidden py-1">
-                                            <div className="max-h-[240px] overflow-y-auto custom-scrollbar">
-                                                {sources.map((source) => (
-                                                    <div
-                                                        key={source}
-                                                        onClick={() => {
-                                                            setSelectedSource(source);
-                                                            setFormData({ ...formData, source }); // ✅ added only this
-                                                            setSourceOpen(false);
-                                                        }}
-                                                        className="px-4 sm:px-5 py-2.5 sm:py-3 hover:bg-[#520378]/5 hover:text-[#520378] cursor-pointer transition-colors text-sm sm:text-[15px] font-medium text-gray-700 font-geist"
-                                                    >
-                                                        {source}
-                                                    </div>
-                                                ))}
-                                            </div>
+                                    <h4 className="text-2xl font-bold text-gray-950 mb-3">Form Submitted!</h4>
+                                    <p className="text-gray-600 max-w-sm mx-auto">Thank you for reaching out to Vriksh. We have received your message and will get back to you shortly.</p>
+                                    <button 
+                                        onClick={() => setSubmitStatus(null)}
+                                        className="mt-8 text-[#520378] font-bold hover:underline underline-offset-4"
+                                    >
+                                        Send another message
+                                    </button>
+                                </div>
+                            ) : (
+                                <form className="space-y-6" onSubmit={handleSubmit}>
+                                    {submitStatus === 'error' && (
+                                        <div className="p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl text-sm mb-6 animate-fade-in flex items-center gap-3">
+                                            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                                            Please fill in all required fields (Name, Email, and Phone).
                                         </div>
                                     )}
-                                </div>
-
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    placeholder="Your Message"
-                                    rows="5"
-                                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none font-geist"
-                                ></textarea>
-
-                                <div className="flex items-start gap-3 py-2">
-                                    <div className="pt-1">
+                                    <div className="grid sm:grid-cols-2 gap-6">
                                         <input
-                                            type="checkbox"
-                                            id="authorize"
-                                            className="w-5 h-5 rounded border-gray-300 text-[#520378] focus:ring-0 cursor-pointer"
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            placeholder="Full Name"
+                                            className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        />
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="Email"
+                                            className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
                                         />
                                     </div>
-                                    <label htmlFor="authorize" className="text-xs sm:text-[14px] text-gray-600 cursor-pointer leading-relaxed font-geist">
-                                        I authorize Vriksh Psychological Support Services to contact me with updates and notifications
-                                    </label>
-                                </div>
 
-                                <button
-                                    type="submit"
-                                    className="px-10 py-3 sm:px-14 sm:py-4 bg-[#520378] text-white rounded-full font-bold text-base sm:text-lg hover:bg-[#0f063d] transition-all shadow-md active:scale-95 font-geist"
-                                >
-                                    {loading ? "Submitting..." : "Submit"}
-                                </button>
+                                    <div className="grid sm:grid-cols-2 gap-6">
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            placeholder="Phone Number (10 digits)"
+                                            className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        />
+                                        <input
+                                            type="text"
+                                            name="location"
+                                            value={formData.location}
+                                            onChange={handleChange}
+                                            placeholder="Location"
+                                            className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 font-geist"
+                                        />
+                                    </div>
 
-                            </form>
+                                    {/* DROPDOWN */}
+                                    <div className="relative" ref={sourceRef}>
+                                        <div
+                                            onClick={() => setSourceOpen(!sourceOpen)}
+                                            className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 cursor-pointer flex justify-between items-center bg-white hover:border-gray-500 transition-all text-gray-400 font-geist"
+                                        >
+                                            <span className={selectedSource ? "text-gray-900" : ""}>
+                                                {selectedSource || "How did you hear about us?"}
+                                            </span>
+                                            <svg className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${sourceOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                                            </svg>
+                                        </div>
+
+                                        {sourceOpen && (
+                                            <div className="absolute top-[calc(100%+4px)] left-0 w-full bg-white border border-gray-200 rounded-lg shadow-xl z-50 overflow-hidden py-1">
+                                                <div className="max-h-[240px] overflow-y-auto custom-scrollbar">
+                                                    {sources.map((source) => (
+                                                        <div
+                                                            key={source}
+                                                            onClick={() => {
+                                                                setSelectedSource(source);
+                                                                setFormData({ ...formData, source }); // ✅ added only this
+                                                                setSourceOpen(false);
+                                                            }}
+                                                            className="px-4 sm:px-5 py-2.5 sm:py-3 hover:bg-[#520378]/5 hover:text-[#520378] cursor-pointer transition-colors text-sm sm:text-[15px] font-medium text-gray-700 font-geist"
+                                                        >
+                                                            {source}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        placeholder="Your Message"
+                                        rows="5"
+                                        className="w-full px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base rounded-lg border border-gray-400 focus:border-[#520378] focus:ring-0 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none font-geist"
+                                    ></textarea>
+
+                                    <div className="flex items-start gap-3 py-2">
+                                        <div className="pt-1">
+                                            <input
+                                                type="checkbox"
+                                                id="authorize"
+                                                className="w-5 h-5 rounded border-gray-300 text-[#520378] focus:ring-0 cursor-pointer"
+                                            />
+                                        </div>
+                                        <label htmlFor="authorize" className="text-xs sm:text-[14px] text-gray-600 cursor-pointer leading-relaxed font-geist">
+                                            I authorize Vriksh Psychological Support Services to contact me with updates and notifications
+                                        </label>
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        className="px-10 py-3 sm:px-14 sm:py-4 bg-[#520378] text-white rounded-full font-bold text-base sm:text-lg hover:bg-[#0f063d] transition-all shadow-md active:scale-95 font-geist disabled:opacity-70 disabled:cursor-not-allowed"
+                                        disabled={loading}
+                                    >
+                                        {loading ? "Submitting..." : "Submit"}
+                                    </button>
+
+                                </form>
+                            )}
                         </div>
 
                     </div>

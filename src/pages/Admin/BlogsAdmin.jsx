@@ -58,6 +58,7 @@ const BlogsAdmin = () => {
     });
     const [editId, setEditId] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [status, setStatus] = useState({ type: "", message: "" });
     const [resetCounter, setResetCounter] = useState(0); // Add a counter to force ReactQuill re-mount
 
     // Helper to generate slug from title
@@ -194,7 +195,6 @@ const BlogsAdmin = () => {
                 const errorData = await response.json();
                 throw new Error(errorData.error || "Failed to save blog");
             }
-
             setForm({
                 title: "",
                 author: "",
@@ -204,13 +204,17 @@ const BlogsAdmin = () => {
                 slug: "",
                 content: ""
             });
+            const isEdit = !!editId;
             setEditId(null);
-            setResetCounter(prev => prev + 1); // Force ReactQuill re-mount
+            setResetCounter(prev => prev + 1);
             fetchBlogs();
-            alert(editId ? "Blog updated successfully!" : "Blog added successfully!");
+            setStatus({ type: "success", message: isEdit ? "Blog updated successfully!" : "Blog added successfully!" });
+            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
         } catch (error) {
             console.error("Error saving blog:", error);
-            alert(error.message || "Error saving blog. Please try again.");
+            setStatus({ type: "error", message: error.message || "Error saving blog. Please try again." });
+            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
         } finally {
             setIsSubmitting(false);
         }
@@ -267,7 +271,14 @@ const BlogsAdmin = () => {
                             <h3 className="text-base md:text-lg font-semibold text-green-600">Active</h3>
                         </div>
                     </div>
-                </div>
+                    </div>
+
+                {status.message && (
+                    <div className={`mb-6 p-4 rounded-2xl border ${status.type === 'success' ? 'bg-green-50 border-green-100 text-green-700' : 'bg-red-50 border-red-100 text-red-700'} animate-fade-in flex items-center gap-3`}>
+                        <div className={`w-2 h-2 rounded-full ${status.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`} />
+                        <p className="font-semibold text-sm md:text-base">{status.message}</p>
+                    </div>
+                )}
 
                 {/* Form Section */}
                 <div className="bg-white/90 backdrop-blur-sm border border-purple-100 shadow-xl rounded-2xl md:rounded-3xl p-4 md:p-8 mb-8 md:mb-10">

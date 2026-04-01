@@ -86,6 +86,7 @@ const parseTimeRange = (range) => {
 const EventsAdmin = () => {
     const [events, setEvents] = useState([]);
     const [editId, setEditId] = useState(null);
+    const [status, setStatus] = useState({ type: "", message: "" });
 
     const quillModules = {
         toolbar: [
@@ -213,18 +214,21 @@ const EventsAdmin = () => {
                 setEvents((prevEvents) =>
                     prevEvents.map((ev) => (ev._id === savedEvent._id ? savedEvent : ev))
                 );
-                alert("Event updated successfully.");
+                setStatus({ type: "success", message: "Event updated successfully." });
             } else {
                 setEvents((prevEvents) => [savedEvent, ...prevEvents]);
-                alert("Event created successfully.");
+                setStatus({ type: "success", message: "Event created successfully." });
             }
+
+            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
 
             // fetchEvents() is redundant if we update the state with the return value, 
             // but we keep it for safety at the end.
             fetchEvents();
         } catch (error) {
             console.error("Error saving event:", error);
-            alert("Unable to save event. Please try again.");
+            setStatus({ type: "error", message: "Unable to save event. Please try again." });
+            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
         }
     };
 
@@ -299,6 +303,13 @@ const EventsAdmin = () => {
                         </div>
                     </div>
                 </div>
+
+                {status.message && (
+                    <div className={`mb-6 p-4 rounded-2xl border ${status.type === 'success' ? 'bg-green-50 border-green-100 text-green-700' : 'bg-red-50 border-red-100 text-red-700'} animate-fade-in flex items-center gap-3`}>
+                        <div className={`w-2 h-2 rounded-full ${status.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`} />
+                        <p className="font-semibold text-sm md:text-base">{status.message}</p>
+                    </div>
+                )}
 
                 <div className="bg-white/90 backdrop-blur-sm border border-purple-100 shadow-xl rounded-2xl md:rounded-3xl p-4 md:p-8 mb-8 md:mb-10">
                     <div className="flex items-center gap-3 mb-6">

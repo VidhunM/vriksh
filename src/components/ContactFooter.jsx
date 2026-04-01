@@ -132,10 +132,11 @@ const ContactFooter = () => {
                     body: JSON.stringify(dataToSend),
                 });
 
-                alert('Thank you! Your message has been sent.');
+                // alert('Thank you! Your message has been sent.');
             }
 
             setSubmitStatus('success');
+            setTimeout(() => setSubmitStatus(null), 5000);
             setFormData({
                 fullName: '',
                 email: '',
@@ -152,7 +153,7 @@ const ContactFooter = () => {
         } catch (error) {
             console.error('Submission error:', error);
             setSubmitStatus('error');
-            alert('Oops! Something went wrong. Please try again later.');
+            setTimeout(() => setSubmitStatus(null), 5000);
         } finally {
             setSubmitting(false);
         }
@@ -218,7 +219,31 @@ const ContactFooter = () => {
                             <h3 className="text-[18px] lg:text-[22px] font-bold text-[#520378] mb-4 lg:mb-8 leading-snug text-center lg:text-left">
                                 Start your journey with us! <br className="sm:hidden" />Enriching Minds.
                             </h3>
-                            <form onSubmit={handleSubmit} className="space-y-4 w-full">
+
+                            {submitStatus === 'success' ? (
+                                <div className="w-full py-12 px-6 bg-white/50 backdrop-blur-sm border border-green-200 rounded-2xl flex flex-col items-center justify-center text-center animate-fade-in">
+                                    <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h4>
+                                    <p className="text-gray-600">Thank you for reaching out. We'll get back to you soon.</p>
+                                    <button 
+                                        onClick={() => setSubmitStatus(null)}
+                                        className="mt-6 text-[#520378] font-semibold hover:underline"
+                                    >
+                                        Send another message
+                                    </button>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="space-y-4 w-full">
+                                    {submitStatus === 'error' && (
+                                        <div className="p-3 bg-red-50 border border-red-100 text-red-600 rounded-lg text-sm mb-4 animate-fade-in flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                                            Oops! Something went wrong. Please try again.
+                                        </div>
+                                    )}
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <input
                                         type="text"
@@ -410,6 +435,7 @@ const ContactFooter = () => {
                                     {submitting ? 'Sending...' : 'Submit'}
                                 </button>
                             </form>
+                        )}
                         </div>
                     </div>
                 </div>
