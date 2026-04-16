@@ -243,12 +243,9 @@ const EventDetails = () => {
     };
 
     const handleEnrollNow = () => {
-        const link = event?.title?.toLowerCase().includes('adhd')
-            ? "https://docs.google.com/forms/d/e/1FAIpQLSciDd73_tdlFgMbeXhYDgCNn8IrPBx7A0aXI0y8bp7nv5sIrw/viewform"
-            : event?.title?.toLowerCase().includes('building') 
-            ? "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform" 
-            : "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
-        window.open(link, "_blank");
+        if (event && event.enrollLink) {
+            window.open(event.enrollLink, "_blank");
+        }
     };
 
     const handleWhatsappJoin = () => {
@@ -367,7 +364,12 @@ const EventDetails = () => {
 
                                 <div className="h-px bg-gray-200 mb-6"></div>
 
-                                <div className="text-center mb-6">
+                                <div className="text-center mb-6 flex items-center justify-center gap-3">
+                                    {event.originalPrice && (
+                                        <span className="text-lg text-gray-400 line-through font-medium">
+                                            {event.originalPrice}
+                                        </span>
+                                    )}
                                     <span className="text-2xl font-bold text-gray-950 font-inter-tight">
                                         {event.price}{event.price !== 'FREE' && ' Incl. GST'}
                                     </span>

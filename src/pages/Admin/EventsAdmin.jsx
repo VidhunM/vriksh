@@ -129,7 +129,8 @@ const EventsAdmin = () => {
         description: "",
         whatYoullLearn: "",
         whoThisSessionIsFor: "",
-        registrationLink: defaultRegistrationLink
+        registrationLink: defaultRegistrationLink,
+        originalPrice: ""
     });
 
     const fetchEvents = async () => {
@@ -164,7 +165,8 @@ const EventsAdmin = () => {
             description: "",
             whatYoullLearn: "",
             whoThisSessionIsFor: "",
-            registrationLink: defaultRegistrationLink
+            registrationLink: defaultRegistrationLink,
+            originalPrice: ""
         });
         setEditId(null);
     };
@@ -190,7 +192,8 @@ const EventsAdmin = () => {
                 description: form.description,
                 whatYoullLearn: form.whatYoullLearn,
                 whoThisSessionIsFor: form.whoThisSessionIsFor,
-                registrationLink: form.registrationLink?.trim() || defaultRegistrationLink
+                registrationLink: form.registrationLink?.trim() || defaultRegistrationLink,
+                originalPrice: form.originalPrice
             };
 
             const response = await fetch(url, {
@@ -254,7 +257,8 @@ const EventsAdmin = () => {
             whoThisSessionIsFor: Array.isArray(event.whoThisSessionIsFor)
                 ? event.whoThisSessionIsFor.join("\n")
                 : (event.whoThisSessionIsFor || event.whoFor || ""),
-            registrationLink: event.registrationLink || defaultRegistrationLink
+            registrationLink: event.registrationLink || defaultRegistrationLink,
+            originalPrice: event.originalPrice || ""
         });
 
         setEditId(event._id);
@@ -442,6 +446,20 @@ const EventsAdmin = () => {
                                     placeholder="₹499 / FREE"
                                     className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
                                     required
+                                />
+                            </div>
+
+                            <div>
+                                <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                    Original Price (Struck-through)
+                                </label>
+                                <input
+                                    type="text"
+                                    name="originalPrice"
+                                    value={form.originalPrice}
+                                    onChange={handleChange}
+                                    placeholder="e.g. ₹1000"
+                                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none px-4 py-3.5 text-gray-800 transition"
                                 />
                             </div>
                         </div>
@@ -671,7 +689,12 @@ const EventsAdmin = () => {
                                             </p>
                                             <p className="flex items-center gap-2">
                                                 <IndianRupee size={14} className="text-purple-500" />
-                                                {event.price || "Free"}
+                                                <span>
+                                                    {event.originalPrice && (
+                                                        <span className="line-through mr-2 text-gray-400">{event.originalPrice}</span>
+                                                    )}
+                                                    {event.price || "Free"}
+                                                </span>
                                             </p>
                                             <p className="flex items-center gap-2 truncate pr-2">
                                                 <LinkIcon size={14} className="text-purple-500 shrink-0" />

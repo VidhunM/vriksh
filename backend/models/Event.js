@@ -49,6 +49,10 @@ const eventSchema = new mongoose.Schema(
         registrationLink: {
             type: String,
             default: "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform"
+        },
+        originalPrice: {
+            type: String,
+            default: ""
         }
     },
     { timestamps: true }

@@ -134,16 +134,33 @@ const Events = () => {
                                                             Live | Online | {event.type}
                                                         </div>
                                                     </div>
-                                                    <div className="flex justify-between items-center gap-2 md:gap-6">
+                                                    <div className="flex justify-between items-center gap-2 md:gap-4">
                                                         <div className="flex items-center gap-2 leading-none">
-                                                            <span className="text-gray-950 font-bold text-sm sm:text-[18px]">{event.price}</span>
+                                                            {event.originalPrice && (
+                                                                <span className="text-gray-400 line-through text-xs sm:text-[14px] font-medium">{event.originalPrice}</span>
+                                                            )}
+                                                            <span className="text-gray-950 font-bold text-sm sm:text-[16px] xl:text-[18px]">{event.price}</span>
                                                         </div>
-                                                        <button
-                                                            onClick={() => navigate(`/event-details/${event.id}`)}
-                                                            className="bg-[#520378] text-white px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-full font-bold text-[11px] sm:text-[14px] whitespace-nowrap shadow-sm"
-                                                        >
-                                                            Know more
-                                                        </button>
+                                                        <div className="flex gap-2">
+                                                            <button
+                                                                onClick={() => navigate(`/event-details/${event.id}`)}
+                                                                className="bg-[#520378] text-white px-2 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold text-[10px] sm:text-[13px] whitespace-nowrap shadow-sm"
+                                                            >
+                                                                Know more
+                                                            </button>
+                                                            <a
+                                                                href={event.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform"}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                                <button
+                                                                    type="button"
+                                                                    className="border-2 border-[#520378] text-[#520378] px-2 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold text-[10px] sm:text-[13px] whitespace-nowrap bg-white"
+                                                                >
+                                                                    Enroll Now
+                                                                </button>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

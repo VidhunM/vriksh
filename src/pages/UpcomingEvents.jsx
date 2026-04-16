@@ -369,9 +369,16 @@ const UpcomingEvents = () => {
                                                         {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}
                                                     </div>
                                                 </div>
-                                                <span className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
-                                                    {event.price}
-                                                </span>
+                                                <div className="flex items-center gap-2">
+                                                    {event.originalPrice && (
+                                                        <span className={`text-[13px] sm:text-[15px] font-medium line-through ${activeCardId === eventId ? 'text-white/60' : 'text-gray-400'} group-hover:text-white/60`}>
+                                                            {event.originalPrice}
+                                                        </span>
+                                                    )}
+                                                    <span className={`text-[18px] font-bold ${activeCardId === eventId ? 'text-white' : 'text-gray-900'} group-hover:text-white`}>
+                                                        {event.price}
+                                                    </span>
+                                                </div>
                                             </div>
 
                                             <div className="flex gap-2">
@@ -382,11 +389,7 @@ const UpcomingEvents = () => {
                                                 </Link>
 
                                                 <a
-                                                    href={event.title?.toLowerCase().includes('adhd')
-                                                        ? "https://docs.google.com/forms/d/e/1FAIpQLSciDd73_tdlFgMbeXhYDgCNn8IrPBx7A0aXI0y8bp7nv5sIrw/viewform"
-                                                        : event.title?.toLowerCase().includes('building')
-                                                        ? "https://docs.google.com/forms/d/e/1FAIpQLScv1Mc0UCKWzHuRPmqcTKOmR7q6tqSrX9qWJQCtGlh7PbNitg/viewform" 
-                                                        : "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform"}
+                                                    href={event.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform"}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="flex-1"
