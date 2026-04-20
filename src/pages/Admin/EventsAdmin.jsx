@@ -17,7 +17,7 @@ import API_BASE_URL from '../../api/config';
 const defaultRegistrationLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
 
-const eventTypeOptions = ["Workshop", "Webinar", "Training Program"];
+const eventTypeOptions = ["Webinar", "Training Program", "Certificate Course"];
 const levelOptions = ["Beginner", "Intermediate", "All Levels"];
 
 const formatDateForSave = (dateValue) => {
