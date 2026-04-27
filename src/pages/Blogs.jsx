@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API_BASE_URL from '../api/config';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+
+const slugify = (text) => {
+    if (!text) return "";
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-');
+};
 const Blogs = () => {
     const [blogIndex, setBlogIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
@@ -66,7 +77,7 @@ const Blogs = () => {
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
                     {/* Left: Large Image Card */}
                     <div className="lg:w-1/2 relative group overflow-hidden rounded-[24px] sm:rounded-[32px] shadow-lg cursor-pointer h-[320px] sm:h-[400px] lg:h-auto">
-                        <Link to={`/blog/${latestBlog?._id || latestBlog?.id}`} className="h-full block">
+                        <Link to={`/blog/${slugify(latestBlog?.title)}`} className="h-full block">
                             <img
                                 src={latestBlog?.image}
                                 alt={latestBlog?.title}
@@ -100,7 +111,7 @@ const Blogs = () => {
                                 className="text-[#4A5568] text-[14px] sm:text-[17px] font-geist leading-[1.6] sm:leading-[1.7] mb-6 sm:mb-8 line-clamp-3"
                                 dangerouslySetInnerHTML={{ __html: latestBlog?.content || "No content available." }}
                             />
-                            <Link to={`/blog/${latestBlog?._id || latestBlog?.id}`} className="mt-auto flex items-center gap-3 group/btn">
+                            <Link to={`/blog/${slugify(latestBlog?.title)}`} className="mt-auto flex items-center gap-3 group/btn">
                                 <span className="text-[#520378] font-bold text-[15px] sm:text-[16px] group-hover/btn:underline font-inter-tight transition-all">
                                     Read Full Story
                                 </span>
@@ -116,7 +127,7 @@ const Blogs = () => {
                                 secondaryBlogs.map((sBlog, idx) => (
                                     <Link
                                         key={sBlog._id}
-                                        to={`/blog/${sBlog._id}`}
+                                        to={`/blog/${slugify(sBlog.title)}`}
                                         className="bg-white border border-gray-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:shadow-md transition-all group flex flex-col justify-center min-h-[100px]"
                                     >
                                         <p className="text-[#520378] text-[10px] font-bold tracking-[0.1em] uppercase mb-2 flex items-center gap-2">
@@ -183,7 +194,7 @@ const Blogs = () => {
                         >
                             {filteredPosts.map((post) => (
                                 <div key={post._id || post.id} className="group cursor-pointer flex-none w-full sm:w-auto bg-white rounded-[24px] overflow-hidden border border-gray-100 sm:border-none sm:bg-transparent shadow-sm sm:shadow-none pb-6 sm:pb-0 transition-all">
-                                    <Link to={`/blog/${post._id}`}>
+                                    <Link to={`/blog/${slugify(post.title)}`}>
                                         <div className="aspect-[16/10] sm:aspect-[4/3] mb-5 sm:mb-6 overflow-hidden sm:rounded-[20px]">
                                             <img
                                                 src={post.image}
@@ -201,7 +212,7 @@ const Blogs = () => {
                                         </div>
                                     </Link>
                                     <div className="px-5 sm:px-0 pr-10 shrink-0 pb-2">
-                                        <Link to={`/blog/${post._id || post.id}`} className="inline-flex items-center gap-3 text-[#520378] font-bold text-[14px] group/link leading-relaxed">
+                                        <Link to={`/blog/${slugify(post.title)}`} className="inline-flex items-center gap-3 text-[#520378] font-bold text-[14px] group/link leading-relaxed">
                                             <span className="group-hover/link:underline block">Read more&nbsp;&nbsp;&nbsp;</span>
                                             <svg className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                                         </Link>

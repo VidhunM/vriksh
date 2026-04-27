@@ -2,6 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import API_BASE_URL from "../api/config";
 
+const slugify = (text) => {
+    if (!text) return "";
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-');
+};
+
 const UpcomingEvents = () => {
     const stripHtml = (html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -382,7 +393,7 @@ const UpcomingEvents = () => {
                                             </div>
 
                                             <div className="flex gap-2">
-                                                <Link to={`/event-details/${eventId}`} className="flex-1">
+                                                <Link to={`/event-details/${slugify(event.title)}`} className="flex-1">
                                                     <button className={`w-full ${activeCardId === eventId ? 'bg-white text-[#520378]' : 'bg-[#520378] text-white'} group-hover:bg-white group-hover:text-[#520378] py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap`}>
                                                         Know more
                                                     </button>

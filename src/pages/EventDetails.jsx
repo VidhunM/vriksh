@@ -6,8 +6,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const slugify = (text) => {
+    if (!text) return "";
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-');
+};
+
 const EventDetails = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
 
     const defaultRegistrationLink =
         "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
@@ -39,45 +50,34 @@ const EventDetails = () => {
 
     useEffect(() => {
         setLoading(true);
-        console.log("Fetching event details for ID:", id);
+        console.log("Fetching events and finding by slug:", slug);
 
-        fetch(`${API_BASE_URL}/events/${id}`)
+        fetch(`${API_BASE_URL}/events`)
             .then((res) => {
-                if (!res.ok) throw new Error("Event not found or server error");
+                if (!res.ok) throw new Error("Failed to fetch events");
                 return res.json();
             })
             .then((data) => {
-                console.log("API Event Data:", data);
-                if (data && !data.error) {
-                    setApiEvent(data);
+                let eventsList = [];
+                if (Array.isArray(data)) {
+                    eventsList = data;
+                }
+                setAllEvents(eventsList);
+
+                const foundEvent = eventsList.find(e => slugify(e.title) === slug);
+                if (foundEvent) {
+                    setApiEvent(foundEvent);
+                } else {
+                    setApiEvent(null);
                 }
                 setLoading(false);
             })
             .catch((err) => {
-                console.warn("API fetch failed:", err);
+                console.warn("Fetch failed:", err);
                 setApiEvent(null);
                 setLoading(false);
             });
-    }, [id]);
-
-    useEffect(() => {
-        fetch(`${API_BASE_URL}/events`)
-            .then((res) => {
-                if (!res.ok) return [];
-                return res.json();
-            })
-            .then((data) => {
-                if (Array.isArray(data)) {
-                    setAllEvents(data);
-                } else {
-                    setAllEvents([]);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-                setAllEvents([]);
-            });
-    }, []);
+    }, [slug]);
 
     const parseArrayField = (fieldValue) => {
         if (Array.isArray(fieldValue)) return fieldValue.filter((item) => item && item.toString().trim() !== "");
@@ -270,7 +270,7 @@ const EventDetails = () => {
         );
     }
 
-    const otherEvents = allEvents.filter((ev) => (ev._id || ev.id) !== (apiEvent?._id || apiEvent?.id));
+    const otherEvents = allEvents.filter((ev) => slugify(ev.title) !== slug);
 
     return (
         <div className="bg-white min-h-screen">
@@ -442,7 +442,7 @@ const EventDetails = () => {
                                     const evId = ev._id || ev.id || ev._fallbackId;
                                     return (
                                         <Link
-                                            to={`/event-details/${evId}`}
+                                            to={`/event-details/${slugify(ev.title)}`}
                                             key={evId || i}
                                             className="shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white hover:bg-[#F3F3F3] rounded-[16px] px-6 py-5 flex flex-row items-center shadow-sm border border-gray-100 transition-all duration-300 group cursor-pointer justify-center min-h-[100px]"
                                         >

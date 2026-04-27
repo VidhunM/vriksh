@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../api/config';
 
+const slugify = (text) => {
+    if (!text) return "";
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-');
+};
+
 const Events = () => {
     const navigate = useNavigate();
     const [apiEvents, setApiEvents] = useState([]);
@@ -36,8 +47,33 @@ const Events = () => {
     const events = apiEvents;
 
     const [mobileIndex, setMobileIndex] = useState(0);
-    const nextMobile = () => setMobileIndex((i) => (i + 1) % events.length);
-    const prevMobile = () => setMobileIndex((i) => (i - 1 + events.length) % events.length);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Calculate max index to prevent scrolling into empty space
+    const itemsToShow = isDesktop ? 3 : 1;
+    const maxIndex = Math.max(0, events.length - itemsToShow);
+    
+    const nextMobile = () => {
+        if (mobileIndex < maxIndex) {
+            setMobileIndex(mobileIndex + 1);
+        } else {
+            setMobileIndex(0); // Wrap around
+        }
+    };
+
+    const prevMobile = () => {
+        if (mobileIndex > 0) {
+            setMobileIndex(mobileIndex - 1);
+        } else {
+            setMobileIndex(maxIndex); // Wrap around to end
+        }
+    };
 
     return (
         <section id="events" className="pb-12 pt-6 sm:pb-16 sm:pt-8 bg-white">
@@ -90,7 +126,7 @@ const Events = () => {
                                 <div
                                     className="flex transition-transform duration-500 ease-in-out gap-8"
                                     style={{
-                                        transform: `translateX(-${mobileIndex * (window.innerWidth >= 768 ? (100 / 3) : 100)}%)`,
+                                        transform: `translateX(-${mobileIndex * (isDesktop ? (100 / 3) : 100)}%)`,
                                         width: '100%'
                                     }}
                                 >
@@ -143,7 +179,7 @@ const Events = () => {
                                                         </div>
                                                         <div className="flex gap-2">
                                                             <button
-                                                                onClick={() => navigate(`/event-details/${event.id}`)}
+                                                                onClick={() => navigate(`/event-details/${slugify(event.title)}`)}
                                                                 className="bg-[#520378] text-white px-2 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold text-[10px] sm:text-[13px] whitespace-nowrap shadow-sm"
                                                             >
                                                                 Know more
@@ -169,8 +205,6 @@ const Events = () => {
                                 </div>
                             </div>
                         </div>
-
-
                     </>
                 )}
             </div>

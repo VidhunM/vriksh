@@ -11,45 +11,47 @@ import {
     Search
 } from 'lucide-react';
 
+const slugify = (text) => {
+    if (!text) return "";
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-');
+};
+
 const BlogDetails = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
 
     const [apiBlog, setApiBlog] = React.useState(null);
     const [allApiBlogs, setAllApiBlogs] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
 
-    // 🔥 FETCH FROM BACKEND
+    // 🔥 FETCH ALL AND FIND BY SLUG
     React.useEffect(() => {
         setLoading(true);
-        fetch(`${API_BASE_URL}/blogs/${id}`)
-            .then(res => {
-                if (!res.ok) return null;
-                return res.json();
-            })
+        fetch(`${API_BASE_URL}/blogs?includeContent=true`)
+            .then(res => res.json())
             .then(data => {
-                setApiBlog(data);
+                let blogs = [];
+                if (Array.isArray(data)) {
+                    blogs = data;
+                } else if (data && Array.isArray(data.data)) {
+                    blogs = data.data;
+                }
+                setAllApiBlogs(blogs);
+
+                const foundBlog = blogs.find(b => slugify(b.title) === slug);
+                setApiBlog(foundBlog);
                 setLoading(false);
             })
             .catch(err => {
                 console.log(err);
                 setLoading(false);
             });
-    }, [id]);
-
-    React.useEffect(() => {
-        fetch(`${API_BASE_URL}/blogs?includeContent=true`)
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setAllApiBlogs(data);
-                } else if (data && Array.isArray(data.data)) {
-                    setAllApiBlogs(data.data);
-                } else {
-                    setAllApiBlogs([]);
-                }
-            })
-            .catch(err => console.log(err));
-    }, []);
+    }, [slug]);
 
     // Use ONLY API data
     const post = apiBlog;
@@ -76,7 +78,7 @@ const BlogDetails = () => {
 
     // ✅ RELATED BLOGS (API ONLY)
     const relatedPosts = allApiBlogs
-        .filter(p => p._id !== id)
+        .filter(p => slugify(p.title) !== slug)
         .slice(0, 3);
 
     return (
@@ -118,7 +120,7 @@ const BlogDetails = () => {
 
                                 return (
                                     <div key={relatedId} className="group cursor-pointer">
-                                        <Link to={`/blog/${relatedId}`}>
+                                        <Link to={`/blog/${slugify(post.title)}`}>
                                             <div className="aspect-[4/3] mb-5 sm:mb-6 overflow-hidden rounded-[20px]">
                                                 <img
                                                     src={post.image}
@@ -138,7 +140,7 @@ const BlogDetails = () => {
                                             />
                                         </Link>
                                         <Link
-                                            to={`/blog/${relatedId}`}
+                                            to={`/blog/${slugify(post.title)}`}
                                             className="inline-block bg-[#520378] text-white px-7 sm:px-8 py-2 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-bold hover:bg-[#400260] transition-all"
                                         >
                                             Read more

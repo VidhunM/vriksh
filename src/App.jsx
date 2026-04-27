@@ -68,8 +68,8 @@ function AppContent() {
           <Route path="/corporate-eap" element={<CorporateEAP />} />
           <Route path="/counselling" element={<Counselling2 />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog/:id" element={<BlogDetails />} />
-          <Route path="/event-details/:id" element={<EventDetails />} />
+          <Route path="/blog/:slug" element={<BlogDetails />} />
+          <Route path="/event-details/:slug" element={<EventDetails />} />
           <Route path="/event-details" element={<EventDetails />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
