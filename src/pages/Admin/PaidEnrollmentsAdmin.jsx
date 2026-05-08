@@ -9,8 +9,8 @@ const PaidEnrollmentsAdmin = () => {
         try {
             const res = await fetch(`${API_BASE_URL}/event-inquiries`);
             const data = await res.json();
-            // Filter only the enrollments created by our new EnrollModal (they have message === "Direct Enrollment Request")
-            const paidEnrollments = data.filter(item => item.message === "Direct Enrollment Request");
+            // Filter only the enrollments explicitly marked as Paid
+            const paidEnrollments = data.filter(item => item.topicInterestedIn.startsWith("PAID ENROLLMENT"));
             setEnrollments(paidEnrollments);
         } catch (error) {
             console.error("Error fetching enrollments:", error);
@@ -44,12 +44,12 @@ const PaidEnrollmentsAdmin = () => {
                             Paid Event Enrollments
                         </h2>
                         <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-base">
-                            View details of users who filled out the enrollment form for paid events.
+                            View details of users who successfully completed payment for events.
                         </p>
                     </div>
 
                     <div className="bg-white border border-purple-100 shadow-sm rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 w-full lg:w-auto">
-                        <p className="text-xs md:text-sm text-gray-500">Total Enrollments</p>
+                        <p className="text-xs md:text-sm text-gray-500">Total Paid Enrollments</p>
                         <h3 className="text-xl md:text-2xl font-bold text-[#6d28d9]">
                             {enrollments.length}
                         </h3>
@@ -58,9 +58,9 @@ const PaidEnrollmentsAdmin = () => {
 
                 {enrollments.length === 0 ? (
                     <div className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-8 md:p-10 text-center shadow-sm">
-                        <h4 className="text-lg md:text-xl font-bold text-gray-900">No enrollments found</h4>
+                        <h4 className="text-lg md:text-xl font-bold text-gray-900">No paid enrollments found</h4>
                         <p className="text-gray-500 mt-2 text-sm md:text-base">
-                            User enrollments for paid events will appear here.
+                            Confirmed paid enrollments will appear here after successful transaction.
                         </p>
                     </div>
                 ) : (
@@ -70,8 +70,8 @@ const PaidEnrollmentsAdmin = () => {
                                 key={item._id}
                                 className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-sm hover:shadow-md transition relative overflow-hidden"
                             >
-                                <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">
-                                    Pending Payment Verification
+                                <div className="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                                    Payment Verified
                                 </div>
                                 <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-5 md:mb-6 mt-3">
                                     <div className="flex-1 min-w-0">
@@ -79,7 +79,7 @@ const PaidEnrollmentsAdmin = () => {
                                             {item.fullName}
                                         </h3>
                                         <p className="text-xs md:text-sm text-gray-500">
-                                            Submitted: {new Date(item.createdAt).toLocaleString()}
+                                            Date: {new Date(item.createdAt).toLocaleString()}
                                         </p>
                                     </div>
 
@@ -115,7 +115,14 @@ const PaidEnrollmentsAdmin = () => {
                                     <div className="bg-purple-50 p-3.5 md:p-4 rounded-xl border border-purple-100">
                                         <p className="font-bold text-gray-900 mb-1 uppercase text-[10px] tracking-wider text-purple-600">Event Details</p>
                                         <p className="text-gray-800 font-semibold text-sm">
-                                            {item.topicInterestedIn}
+                                            {item.topicInterestedIn.replace("PAID ENROLLMENT: ", "")}
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-green-50/50 p-3.5 md:p-4 rounded-xl border border-green-100">
+                                        <p className="font-bold text-green-700 mb-1 uppercase text-[10px] tracking-wider">Payment Information</p>
+                                        <p className="text-gray-700 text-sm font-medium">
+                                            {item.message}
                                         </p>
                                     </div>
                                 </div>

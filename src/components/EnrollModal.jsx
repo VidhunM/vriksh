@@ -34,7 +34,7 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
         setStatus({ type: '', message: '' });
 
         try {
-            // Optional: submit to backend
+            // Submit initial inquiry to backend
             await fetch(`${API_BASE_URL}/event-inquiries`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -44,8 +44,10 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                     phoneNumber: formData.whatsapp,
                     location: formData.location,
                     background: formData.designation,
-                    topicInterestedIn: `Enrollment for: ${event.title}`,
-                    message: "Direct Enrollment Request"
+                    topicInterestedIn: `Enrollment Inquiry: ${event.title}`,
+                    message: "Direct Enrollment Request - Pending Payment",
+                    heardAboutUs: "Website / Direct Enrollment",
+                    consent: true
                 })
             }).catch(err => console.error("Could not save inquiry:", err));
 
@@ -59,8 +61,30 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                     name: "Vriksh Psychological Support Services",
                     description: "Enrollment: " + event.title,
                     image: "/images/logo2.png",
-                    handler: function (response) {
+                    handler: async function (response) {
                         setStatus({ type: 'success', message: 'Payment successful! Payment ID: ' + response.razorpay_payment_id });
+                        
+                        // Save paid enrollment details
+                        try {
+                            await fetch(`${API_BASE_URL}/event-inquiries`, {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                    fullName: formData.name,
+                                    email: formData.email,
+                                    phoneNumber: formData.whatsapp,
+                                    location: formData.location,
+                                    background: formData.designation,
+                                    topicInterestedIn: `PAID ENROLLMENT: ${event.title}`,
+                                    message: `Payment Successful. Razorpay ID: ${response.razorpay_payment_id}. Amount: ₹${amountInRupees}`,
+                                    heardAboutUs: "Website / Direct Enrollment",
+                                    consent: true
+                                })
+                            });
+                        } catch (err) {
+                            console.error("Could not save paid enrollment:", err);
+                        }
+
                         setTimeout(() => {
                             onClose();
                             setStatus({ type: '', message: '' });
@@ -76,7 +100,7 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                     }
                 };
                 const rzp1 = new window.Razorpay(options);
-                rzp1.on('payment.failed', function (response){
+                rzp1.on('payment.failed', function (response) {
                     setStatus({ type: 'error', message: 'Payment failed: ' + response.error.description });
                 });
                 rzp1.open();
@@ -106,7 +130,7 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                     >
                         <X size={20} />
                     </button>
-                    
+
                     <h3 className="text-2xl font-bold text-[#520378] mb-1 pr-10 leading-tight">
                         Enroll in Event
                     </h3>

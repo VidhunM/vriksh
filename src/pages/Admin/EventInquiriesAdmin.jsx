@@ -9,8 +9,8 @@ const EventInquiriesAdmin = () => {
         try {
             const res = await fetch(`${API_BASE_URL}/event-inquiries`);
             const data = await res.json();
-            // Filter out Paid Enrollments (so they only show in PaidEnrollmentsAdmin)
-            const generalInquiries = data.filter(item => item.message !== "Direct Enrollment Request");
+            // Show all inquiries except those explicitly marked as Paid Enrollments
+            const generalInquiries = data.filter(item => !item.topicInterestedIn.startsWith("PAID ENROLLMENT"));
             setInquiries(generalInquiries);
         } catch (error) {
             console.error("Error fetching inquiries:", error);
