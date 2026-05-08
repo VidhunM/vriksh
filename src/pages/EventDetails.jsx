@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import API_BASE_URL from '../api/config';
+import EnrollModal from '../components/EnrollModal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -31,6 +32,7 @@ const EventDetails = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsVisible, setItemsVisible] = useState(3);
     const [otherEventsIndex, setOtherEventsIndex] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // GSAP Refs
     const containerRef = useRef(null);
@@ -243,8 +245,13 @@ const EventDetails = () => {
     };
 
     const handleEnrollNow = () => {
-        if (event && event.enrollLink) {
-            window.open(event.enrollLink, "_blank");
+        if (event) {
+            const isFree = !event.price || event.price.toLowerCase().includes('free') || event.price.trim() === '0';
+            if (isFree) {
+                window.open(event.enrollLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform", "_blank");
+            } else {
+                setIsModalOpen(true);
+            }
         }
     };
 
@@ -549,6 +556,12 @@ const EventDetails = () => {
                     )}
                 </div>
             </section>
+            
+            <EnrollModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                event={event} 
+            />
         </div>
     );
 };

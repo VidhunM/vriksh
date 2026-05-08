@@ -28,6 +28,7 @@ import BlogsAdmin from "./pages/Admin/BlogsAdmin";
 import EventsAdmin from "./pages/Admin/EventsAdmin";
 import ProtectedRoute from "./pages/Admin/ProtectedRoute";
 import EventInquiriesAdmin from "./pages/Admin/EventInquiriesAdmin";
+import PaidEnrollmentsAdmin from "./pages/Admin/PaidEnrollmentsAdmin";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/Privacy';
@@ -89,6 +90,7 @@ function AppContent() {
             <Route path="blogs" element={<BlogsAdmin />} />
             <Route path="events" element={<EventsAdmin />} />
             <Route path="event-inquiries" element={<EventInquiriesAdmin />} />
+            <Route path="paid-enrollments" element={<PaidEnrollmentsAdmin />} />
           </Route>
 
           <Route

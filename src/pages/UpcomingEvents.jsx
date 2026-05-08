@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import API_BASE_URL from "../api/config";
+import EnrollModal from '../components/EnrollModal';
 
 const slugify = (text) => {
     if (!text) return "";
@@ -124,6 +125,19 @@ const UpcomingEvents = () => {
     const programTimerRef = useRef(null);
     const getProgramDuration = () => (window.matchMedia('(max-width: 767px)').matches ? 12000 : 3000);
     const [mobileTestNav, setMobileTestNav] = useState(null);
+
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleEnrollClick = (event) => {
+        const isFree = !event.price || event.price.toLowerCase().includes('free') || event.price.trim() === '0';
+        if (isFree) {
+            window.open(event.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform", "_blank");
+        } else {
+            setSelectedEvent(event);
+            setIsModalOpen(true);
+        }
+    };
 
     const defaultRegistrationLink =
         "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
@@ -399,19 +413,13 @@ const UpcomingEvents = () => {
                                                     </button>
                                                 </Link>
 
-                                                <a
-                                                    href={event.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform"}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex-1"
+                                                <button
+                                                    type="button"
+                                                    onClick={(e) => { e.stopPropagation(); handleEnrollClick(event); }}
+                                                    className={`w-full flex-1 border-2 ${activeCardId === eventId ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}
                                                 >
-                                                    <button
-                                                        type="button"
-                                                        className={`w-full border-2 ${activeCardId === eventId ? 'border-white text-white' : 'border-[#520378] text-[#520378]'} group-hover:border-white group-hover:text-white py-2 rounded-full font-bold text-[13px] transition-all whitespace-nowrap`}
-                                                    >
-                                                        Enroll Now
-                                                    </button>
-                                                </a>
+                                                    Enroll Now
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -685,6 +693,12 @@ const UpcomingEvents = () => {
                     </div>
                 </div>
             </div>
+            
+            <EnrollModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                event={selectedEvent} 
+            />
         </div>
     );
 };

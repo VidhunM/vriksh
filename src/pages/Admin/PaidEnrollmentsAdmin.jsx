@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Mail, MapPin, Phone, Trash2, UserRound } from "lucide-react";
+import { Mail, MapPin, Phone, Trash2, UserRound, GraduationCap } from "lucide-react";
 import API_BASE_URL from "../../api/config";
 
-const EventInquiriesAdmin = () => {
-    const [inquiries, setInquiries] = useState([]);
+const PaidEnrollmentsAdmin = () => {
+    const [enrollments, setEnrollments] = useState([]);
 
-    const fetchInquiries = async () => {
+    const fetchEnrollments = async () => {
         try {
             const res = await fetch(`${API_BASE_URL}/event-inquiries`);
             const data = await res.json();
-            // Filter out Paid Enrollments (so they only show in PaidEnrollmentsAdmin)
-            const generalInquiries = data.filter(item => item.message !== "Direct Enrollment Request");
-            setInquiries(generalInquiries);
+            // Filter only the enrollments created by our new EnrollModal (they have message === "Direct Enrollment Request")
+            const paidEnrollments = data.filter(item => item.message === "Direct Enrollment Request");
+            setEnrollments(paidEnrollments);
         } catch (error) {
-            console.error("Error fetching inquiries:", error);
+            console.error("Error fetching enrollments:", error);
         }
     };
 
     useEffect(() => {
-        fetchInquiries();
+        fetchEnrollments();
     }, []);
 
     const handleDelete = async (id) => {
@@ -26,9 +26,9 @@ const EventInquiriesAdmin = () => {
             await fetch(`${API_BASE_URL}/event-inquiries/${id}`, {
                 method: "DELETE"
             });
-            fetchInquiries();
+            fetchEnrollments();
         } catch (error) {
-            console.error("Error deleting inquiry:", error);
+            console.error("Error deleting enrollment:", error);
         }
     };
 
@@ -38,45 +38,48 @@ const EventInquiriesAdmin = () => {
                 <div className="mb-6 md:mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
                         <p className="text-xs md:text-sm font-medium text-[#7c3aed] mb-1">
-                            Admin Panel / Event Inquiries
+                            Admin Panel / Paid Enrollments
                         </p>
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-                            User Event Form Submissions
+                            Paid Event Enrollments
                         </h2>
                         <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-base">
-                            View all submissions from the Upcoming Events page form.
+                            View details of users who filled out the enrollment form for paid events.
                         </p>
                     </div>
 
                     <div className="bg-white border border-purple-100 shadow-sm rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 w-full lg:w-auto">
-                        <p className="text-xs md:text-sm text-gray-500">Total Submissions</p>
+                        <p className="text-xs md:text-sm text-gray-500">Total Enrollments</p>
                         <h3 className="text-xl md:text-2xl font-bold text-[#6d28d9]">
-                            {inquiries.length}
+                            {enrollments.length}
                         </h3>
                     </div>
                 </div>
 
-                {inquiries.length === 0 ? (
+                {enrollments.length === 0 ? (
                     <div className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-8 md:p-10 text-center shadow-sm">
-                        <h4 className="text-lg md:text-xl font-bold text-gray-900">No submissions found</h4>
+                        <h4 className="text-lg md:text-xl font-bold text-gray-900">No enrollments found</h4>
                         <p className="text-gray-500 mt-2 text-sm md:text-base">
-                            User form entries from Upcoming Events will appear here.
+                            User enrollments for paid events will appear here.
                         </p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
-                        {inquiries.map((item) => (
+                        {enrollments.map((item) => (
                             <div
                                 key={item._id}
-                                className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-sm hover:shadow-md transition"
+                                className="bg-white border border-purple-100 rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-sm hover:shadow-md transition relative overflow-hidden"
                             >
-                                <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-5 md:mb-6">
+                                <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">
+                                    Pending Payment Verification
+                                </div>
+                                <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-5 md:mb-6 mt-3">
                                     <div className="flex-1 min-w-0">
-                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 truncate">
+                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 truncate flex items-center gap-2">
                                             {item.fullName}
                                         </h3>
                                         <p className="text-xs md:text-sm text-gray-500">
-                                            {new Date(item.createdAt).toLocaleString()}
+                                            Submitted: {new Date(item.createdAt).toLocaleString()}
                                         </p>
                                     </div>
 
@@ -103,22 +106,16 @@ const EventInquiriesAdmin = () => {
                                             <MapPin size={16} className="text-purple-500 shrink-0" />
                                             <span className="truncate">{item.location}</span>
                                         </div>
-                                        <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100 cursor-default">
-                                            <UserRound size={16} className="text-purple-500 shrink-0" />
-                                            <span className="truncate text-xs">Topic: {item.topicInterestedIn}</span>
+                                        <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
+                                            <GraduationCap size={16} className="text-purple-500 shrink-0" />
+                                            <span className="truncate">Designation: {item.background}</span>
                                         </div>
                                     </div>
 
-                                    <div className="bg-purple-50/40 p-3.5 md:p-4 rounded-xl space-y-2 text-xs md:text-sm">
-                                        <p><span className="font-bold text-purple-700">Background:</span> {item.background}</p>
-                                        <p><span className="font-bold text-purple-700">Heard About Us:</span> {item.heardAboutUs}</p>
-                                        <p><span className="font-bold text-purple-700">Consent:</span> {item.consent ? "Yes" : "No"}</p>
-                                    </div>
-
-                                    <div className="p-3.5 md:p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                        <p className="font-bold text-gray-900 mb-2 uppercase text-[10px] tracking-wider">User Message</p>
-                                        <p className="text-gray-600 whitespace-pre-line text-sm leading-relaxed">
-                                            {item.message || "No message provided."}
+                                    <div className="bg-purple-50 p-3.5 md:p-4 rounded-xl border border-purple-100">
+                                        <p className="font-bold text-gray-900 mb-1 uppercase text-[10px] tracking-wider text-purple-600">Event Details</p>
+                                        <p className="text-gray-800 font-semibold text-sm">
+                                            {item.topicInterestedIn}
                                         </p>
                                     </div>
                                 </div>
@@ -131,4 +128,4 @@ const EventInquiriesAdmin = () => {
     );
 };
 
-export default EventInquiriesAdmin;
+export default PaidEnrollmentsAdmin;

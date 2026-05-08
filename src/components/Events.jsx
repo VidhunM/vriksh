@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../api/config';
+import EnrollModal from './EnrollModal';
 
 const slugify = (text) => {
     if (!text) return "";
@@ -17,6 +18,18 @@ const Events = () => {
     const navigate = useNavigate();
     const [apiEvents, setApiEvents] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleEnrollClick = (event) => {
+        const isFree = !event.price || event.price.toLowerCase().includes('free') || event.price.trim() === '0';
+        if (isFree) {
+            window.open(event.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform", "_blank");
+        } else {
+            setSelectedEvent(event);
+            setIsModalOpen(true);
+        }
+    };
 
 
 
@@ -184,18 +197,13 @@ const Events = () => {
                                                             >
                                                                 Know more
                                                             </button>
-                                                            <a
-                                                                href={event.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform"}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => handleEnrollClick(event)}
+                                                                className="border-2 border-[#520378] text-[#520378] px-2 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold text-[10px] sm:text-[13px] whitespace-nowrap bg-white hover:bg-[#520378] hover:text-white transition-all"
                                                             >
-                                                                <button
-                                                                    type="button"
-                                                                    className="border-2 border-[#520378] text-[#520378] px-2 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold text-[10px] sm:text-[13px] whitespace-nowrap bg-white"
-                                                                >
-                                                                    Enroll Now
-                                                                </button>
-                                                            </a>
+                                                                Enroll Now
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,6 +216,12 @@ const Events = () => {
                     </>
                 )}
             </div>
+            
+            <EnrollModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                event={selectedEvent} 
+            />
         </section>
     );
 };
