@@ -62,7 +62,10 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                     description: "Enrollment: " + event.title,
                     image: "/images/logo2.png",
                     handler: async function (response) {
-                        setStatus({ type: 'success', message: 'Payment successful! Payment ID: ' + response.razorpay_payment_id });
+                        setStatus({ 
+                            type: 'success', 
+                            message: 'Enrollment Successful! Your invoice has been sent to your email.' 
+                        });
                         
                         // Save paid enrollment details
                         try {
@@ -135,82 +138,102 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                     </h3>
                     <p className="text-sm text-gray-500 mb-6 truncate">{event.title}</p>
 
-                    {status.message && (
-                        <div className={`mb-6 p-4 rounded-2xl text-sm font-semibold flex items-center gap-3 ${status.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
-                            {status.type === 'success' ? <Send size={16} /> : <X size={16} />}
-                            {status.message}
-                        </div>
-                    )}
-
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div>
-                            <input
-                                type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="Full Name *"
-                                required
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="Email ID *"
-                                required
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="tel"
-                                name="whatsapp"
-                                value={formData.whatsapp}
-                                onChange={handleChange}
-                                placeholder="WhatsApp Number *"
-                                required
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="text"
-                                name="designation"
-                                value={formData.designation}
-                                onChange={handleChange}
-                                placeholder="Designation (e.g., Student, Professional) *"
-                                required
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="text"
-                                name="location"
-                                value={formData.location}
-                                onChange={handleChange}
-                                placeholder="Location (City) *"
-                                required
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
-                            />
-                        </div>
-
-                        <div className="pt-2">
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#520378] py-4 text-white font-semibold hover:bg-[#6c049e] active:scale-[0.98] transition-all disabled:opacity-70 disabled:active:scale-100"
+                    {status.type === 'success' ? (
+                        <div className="py-12 text-center animate-fade-in">
+                            <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                                <Send size={40} />
+                            </div>
+                            <h4 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h4>
+                            <p className="text-gray-600 px-6">
+                                {status.message}
+                            </p>
+                            <button 
+                                onClick={onClose}
+                                className="mt-8 text-[#520378] font-semibold hover:underline"
                             >
-                                {isSubmitting ? 'Processing...' : (
-                                    <>Proceed to Payment <CreditCard size={18} /></>
-                                )}
+                                Close Window
                             </button>
                         </div>
-                    </form>
+                    ) : (
+                        <>
+                            {status.message && (
+                                <div className={`mb-6 p-4 rounded-2xl text-sm font-semibold flex items-center gap-3 bg-red-50 text-red-700`}>
+                                    <X size={16} />
+                                    {status.message}
+                                </div>
+                            )}
+
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="Full Name *"
+                                        required
+                                        className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="Email ID *"
+                                        required
+                                        className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="tel"
+                                        name="whatsapp"
+                                        value={formData.whatsapp}
+                                        onChange={handleChange}
+                                        placeholder="WhatsApp Number *"
+                                        required
+                                        className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="designation"
+                                        value={formData.designation}
+                                        onChange={handleChange}
+                                        placeholder="Designation (e.g., Student, Professional) *"
+                                        required
+                                        className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="location"
+                                        value={formData.location}
+                                        onChange={handleChange}
+                                        placeholder="Location (City) *"
+                                        required
+                                        className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none focus:border-[#520378] focus:ring-4 focus:ring-[#520378]/10 transition-all"
+                                    />
+                                </div>
+
+                                <div className="pt-2">
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#520378] py-4 text-white font-semibold hover:bg-[#6c049e] active:scale-[0.98] transition-all disabled:opacity-70 disabled:active:scale-100"
+                                    >
+                                        {isSubmitting ? 'Processing...' : (
+                                            <>Proceed to Payment <CreditCard size={18} /></>
+                                        )}
+                                    </button>
+                                </div>
+                            </form>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
