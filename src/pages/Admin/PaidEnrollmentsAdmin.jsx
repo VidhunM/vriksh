@@ -7,11 +7,10 @@ const PaidEnrollmentsAdmin = () => {
 
     const fetchEnrollments = async () => {
         try {
-            const res = await fetch(`${API_BASE_URL}/event-inquiries`);
+            const res = await fetch(`${API_BASE_URL}/event-enrollments`);
             const data = await res.json();
-            // Filter only the enrollments explicitly marked as Paid
-            const paidEnrollments = data.filter(item => item.topicInterestedIn.startsWith("PAID ENROLLMENT"));
-            setEnrollments(paidEnrollments);
+            // Enrollments coming from /event-enrollments are already the paid ones
+            setEnrollments(data);
         } catch (error) {
             console.error("Error fetching enrollments:", error);
         }
@@ -23,7 +22,7 @@ const PaidEnrollmentsAdmin = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`${API_BASE_URL}/event-inquiries/${id}`, {
+            await fetch(`${API_BASE_URL}/event-enrollments/${id}`, {
                 method: "DELETE"
             });
             fetchEnrollments();
@@ -76,7 +75,7 @@ const PaidEnrollmentsAdmin = () => {
                                 <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-5 md:mb-6 mt-3">
                                     <div className="flex-1 min-w-0">
                                         <h3 className="text-lg md:text-xl font-bold text-gray-900 truncate flex items-center gap-2">
-                                            {item.fullName}
+                                            {item.name}
                                         </h3>
                                         <p className="text-xs md:text-sm text-gray-500">
                                             Date: {new Date(item.createdAt).toLocaleString()}
@@ -100,7 +99,7 @@ const PaidEnrollmentsAdmin = () => {
                                         </div>
                                         <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
                                             <Phone size={16} className="text-purple-500 shrink-0" />
-                                            <span className="truncate">{item.phoneNumber}</span>
+                                            <span className="truncate">{item.whatsappNumber}</span>
                                         </div>
                                         <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
                                             <MapPin size={16} className="text-purple-500 shrink-0" />
@@ -108,21 +107,21 @@ const PaidEnrollmentsAdmin = () => {
                                         </div>
                                         <div className="flex items-center gap-2.5 bg-gray-50/80 p-2.5 rounded-xl border border-gray-100">
                                             <GraduationCap size={16} className="text-purple-500 shrink-0" />
-                                            <span className="truncate">Designation: {item.background}</span>
+                                            <span className="truncate">Designation: {item.designation}</span>
                                         </div>
                                     </div>
 
                                     <div className="bg-purple-50 p-3.5 md:p-4 rounded-xl border border-purple-100">
                                         <p className="font-bold text-gray-900 mb-1 uppercase text-[10px] tracking-wider text-purple-600">Event Details</p>
                                         <p className="text-gray-800 font-semibold text-sm">
-                                            {item.topicInterestedIn.replace("PAID ENROLLMENT: ", "")}
+                                            {item.eventId?.title || "N/A"}
                                         </p>
                                     </div>
 
                                     <div className="bg-green-50/50 p-3.5 md:p-4 rounded-xl border border-green-100">
                                         <p className="font-bold text-green-700 mb-1 uppercase text-[10px] tracking-wider">Payment Information</p>
                                         <p className="text-gray-700 text-sm font-medium">
-                                            {item.message}
+                                            Razorpay ID: {item.razorpayPaymentId}
                                         </p>
                                     </div>
                                 </div>

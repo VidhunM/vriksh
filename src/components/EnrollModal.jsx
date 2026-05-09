@@ -66,19 +66,18 @@ const EnrollModal = ({ isOpen, onClose, event }) => {
                         
                         // Save paid enrollment details
                         try {
-                            await fetch(`${API_BASE_URL}/event-inquiries`, {
+                            await fetch(`${API_BASE_URL}/event-enrollments`, {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({
-                                    fullName: formData.name,
+                                    eventId: event._id,
+                                    name: formData.name,
                                     email: formData.email,
-                                    phoneNumber: formData.whatsapp,
+                                    whatsappNumber: formData.whatsapp,
                                     location: formData.location,
-                                    background: formData.designation,
-                                    topicInterestedIn: `PAID ENROLLMENT: ${event.title}`,
-                                    message: `Payment Successful. Razorpay ID: ${response.razorpay_payment_id}. Amount: ₹${amountInRupees}`,
-                                    heardAboutUs: "Website / Direct Enrollment",
-                                    consent: true
+                                    designation: formData.designation,
+                                    paymentStatus: "Completed",
+                                    razorpayPaymentId: response.razorpay_payment_id
                                 })
                             });
                         } catch (err) {
