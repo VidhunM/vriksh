@@ -1,19 +1,26 @@
 import React, { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { 
     LayoutDashboard, 
     FileText, 
     CalendarDays, 
     Mail, 
     Menu, 
-    X 
+    X,
+    LogOut
 } from "lucide-react";
 
 const AdminLayout = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+    const handleLogout = () => {
+        localStorage.removeItem("admin");
+        navigate("/admin", { replace: true });
+    };
 
     const navItems = [
         {
@@ -53,12 +60,22 @@ const AdminLayout = () => {
                     </div>
                     <h2 className="text-lg font-bold tracking-wide">Vriksh Admin</h2>
                 </div>
-                <button 
-                    onClick={toggleMenu}
-                    className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors border border-white/20"
-                >
-                    {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={handleLogout}
+                        className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-500/20 border border-red-400/30 text-red-100 hover:bg-red-600 hover:text-white transition text-xs font-semibold"
+                        title="Logout"
+                    >
+                        <LogOut size={16} />
+                        <span>Logout</span>
+                    </button>
+                    <button 
+                        onClick={toggleMenu}
+                        className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors border border-white/20"
+                    >
+                        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
+                </div>
             </header>
 
             {/* Mobile Backdrop */}
@@ -129,14 +146,21 @@ const AdminLayout = () => {
                     })}
                 </nav>
 
-                {/* Bottom info */}
-                <div className="p-5">
+                {/* Bottom info & Logout */}
+                <div className="p-5 space-y-3">
                     <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
                         <p className="text-sm font-semibold">Admin Workspace</p>
                         <p className="text-xs text-white/70 mt-1">
                             Manage blogs, events, and dashboard content from here.
                         </p>
                     </div>
+                    <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center justify-center gap-3 rounded-2xl px-4 py-3.5 bg-red-500/20 text-red-100 border border-red-500/30 hover:bg-red-600 hover:text-white transition-all duration-200 font-semibold shadow-md"
+                    >
+                        <LogOut size={18} />
+                        <span>Logout</span>
+                    </button>
                 </div>
             </aside>
 

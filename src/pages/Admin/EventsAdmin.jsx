@@ -8,11 +8,14 @@ import {
     IndianRupee,
     Link as LinkIcon,
     Layers3,
-    Upload
+    Upload,
+    CheckCircle2,
+    AlertTriangle,
+    X
 } from "lucide-react";
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
-import API_BASE_URL from '../../api/config';
+import API_BASE_URL, { getHeaders } from '../../api/config';
 
 const defaultRegistrationLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSdmvnXpWL7qR9I6SEuPb7sY7JgKxZ1Fuaymn01rxthd43_vMQ/viewform";
@@ -87,6 +90,8 @@ const EventsAdmin = () => {
     const [events, setEvents] = useState([]);
     const [editId, setEditId] = useState(null);
     const [status, setStatus] = useState({ type: "", message: "" });
+    const [deleteModal, setDeleteModal] = useState({ isOpen: false, id: null, title: "" });
+    const [popupModal, setPopupModal] = useState({ isOpen: false, type: "success", title: "", message: "" });
 
     const quillModules = {
         toolbar: [
@@ -135,7 +140,9 @@ const EventsAdmin = () => {
 
     const fetchEvents = async () => {
         try {
-            const res = await fetch(`${API_BASE_URL}/events`);
+            const res = await fetch(`${API_BASE_URL}/events`, {
+                headers: getHeaders()
+            });
             const data = await res.json();
             setEvents(data);
         } catch (error) {
@@ -198,7 +205,7 @@ const EventsAdmin = () => {
 
             const response = await fetch(url, {
                 method,
-                headers: { "Content-Type": "application/json" },
+                headers: getHeaders({ "Content-Type": "application/json" }),
                 body: JSON.stringify(payload)
             });
 
@@ -208,30 +215,38 @@ const EventsAdmin = () => {
             }
 
             const savedEvent = await response.json();
+            const isEdit = !!editId;
 
             // Clear form and modes BEFORE alert for better UX
             resetForm();
             window.scrollTo({ top: 0, behavior: "smooth" });
 
-            if (editId) {
+            if (isEdit) {
                 setEvents((prevEvents) =>
                     prevEvents.map((ev) => (ev._id === savedEvent._id ? savedEvent : ev))
                 );
-                setStatus({ type: "success", message: "Event updated successfully." });
             } else {
                 setEvents((prevEvents) => [savedEvent, ...prevEvents]);
-                setStatus({ type: "success", message: "Event created successfully." });
             }
 
-            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+            setPopupModal({
+                isOpen: true,
+                type: "success",
+                title: isEdit ? "Event Updated Successfully!" : "Event Created Successfully!",
+                message: isEdit
+                    ? `The event "${savedEvent.title || form.title}" has been updated.`
+                    : `The event "${savedEvent.title || form.title}" has been added.`
+            });
 
-            // fetchEvents() is redundant if we update the state with the return value, 
-            // but we keep it for safety at the end.
             fetchEvents();
         } catch (error) {
             console.error("Error saving event:", error);
-            setStatus({ type: "error", message: "Unable to save event. Please try again." });
-            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+            setPopupModal({
+                isOpen: true,
+                type: "error",
+                title: "Failed to Save Event",
+                message: error.message || "Unable to save event. Please check inputs and try again."
+            });
         }
     };
 
@@ -265,14 +280,45 @@ const EventsAdmin = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    const handleDelete = async (id) => {
+    const openDeleteModal = (event) => {
+        setDeleteModal({
+            isOpen: true,
+            id: event._id,
+            title: event.title || "this event"
+        });
+    };
+
+    const executeDelete = async () => {
+        if (!deleteModal.id) return;
+        const targetId = deleteModal.id;
+        const targetTitle = deleteModal.title;
+        setDeleteModal({ isOpen: false, id: null, title: "" });
+
         try {
-            await fetch(`${API_BASE_URL}/events/${id}`, {
-                method: "DELETE"
+            const res = await fetch(`${API_BASE_URL}/events/${targetId}`, {
+                method: "DELETE",
+                headers: getHeaders()
             });
+
+            if (!res.ok) {
+                throw new Error("Failed to delete event");
+            }
+
             fetchEvents();
+            setPopupModal({
+                isOpen: true,
+                type: "success",
+                title: "Event Deleted Successfully",
+                message: `"${targetTitle}" has been removed.`
+            });
         } catch (error) {
             console.error("Error deleting event:", error);
+            setPopupModal({
+                isOpen: true,
+                type: "error",
+                title: "Delete Failed",
+                message: "Unable to delete event. Please try again."
+            });
         }
     };
 
@@ -749,7 +795,7 @@ const EventsAdmin = () => {
                                             </button>
 
                                             <button
-                                                onClick={() => handleDelete(event._id)}
+                                                onClick={() => openDeleteModal(event)}
                                                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl md:rounded-2xl bg-red-50 text-red-600 text-sm font-semibold py-2.5 md:py-3 hover:bg-red-100 transition"
                                             >
                                                 <Trash2 size={15} />
@@ -763,6 +809,64 @@ const EventsAdmin = () => {
                     )}
                 </div>
             </div>
+
+            {/* Delete Confirmation Modal */}
+            {deleteModal.isOpen && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl border border-gray-100 transform transition-all">
+                        <div className="w-14 h-14 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Trash2 size={28} />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Confirm Deletion</h3>
+                        <p className="text-sm text-gray-600 text-center mb-6">
+                            Are you sure you want to delete <span className="font-semibold text-gray-900">"{deleteModal.title}"</span>? This action cannot be undone.
+                        </p>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => setDeleteModal({ isOpen: false, id: null, title: "" })}
+                                className="flex-1 py-3 px-4 rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={executeDelete}
+                                className="flex-1 py-3 px-4 rounded-xl bg-red-600 text-white font-semibold hover:bg-red-700 transition shadow-lg shadow-red-200"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Status Popup Modal */}
+            {popupModal.isOpen && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl border border-gray-100 text-center transform transition-all">
+                        {popupModal.type === "success" ? (
+                            <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <CheckCircle2 size={36} />
+                            </div>
+                        ) : (
+                            <div className="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <AlertTriangle size={36} />
+                            </div>
+                        )}
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{popupModal.title}</h3>
+                        <p className="text-sm text-gray-600 mb-6">{popupModal.message}</p>
+                        <button
+                            onClick={() => setPopupModal({ isOpen: false, type: "success", title: "", message: "" })}
+                            className={`w-full py-3 px-4 rounded-xl font-semibold text-white transition shadow-lg ${
+                                popupModal.type === "success"
+                                    ? "bg-purple-600 hover:bg-purple-700 shadow-purple-200"
+                                    : "bg-red-600 hover:bg-red-700 shadow-red-200"
+                            }`}
+                        >
+                            OK
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import API_BASE_URL from "../../api/config";
+import API_BASE_URL, { getHeaders } from "../../api/config";
 
 const AddBlog = () => {
     const [blogs, setBlogs] = useState([]);
@@ -18,7 +18,9 @@ const AddBlog = () => {
 
     // Fetch blogs
     const fetchBlogs = async () => {
-        const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`);
+        const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`, {
+            headers: getHeaders()
+        });
         const data = await res.json();
         setBlogs(data);
     };
@@ -53,7 +55,7 @@ const AddBlog = () => {
 
             await fetch(url, {
                 method,
-                headers: { "Content-Type": "application/json" },
+                headers: getHeaders({ "Content-Type": "application/json" }),
                 body: JSON.stringify(formData)
             });
 
@@ -79,7 +81,8 @@ const AddBlog = () => {
     // Delete
     const deleteBlog = async (id) => {
         await fetch(`${API_BASE_URL}/blogs/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: getHeaders()
         });
         fetchBlogs();
     };

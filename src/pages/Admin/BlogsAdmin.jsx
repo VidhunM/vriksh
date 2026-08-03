@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon, Upload, Layers as Layers3 } from "lucide-react";
+import { Pencil, Trash2, PlusCircle, FileText, CalendarDays, User, Image as ImageIcon, Link as LinkIcon, Upload, Layers as Layers3, CheckCircle2, AlertTriangle, X } from "lucide-react";
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
-import API_BASE_URL from "../../api/config";
+import API_BASE_URL, { getHeaders } from "../../api/config";
 
 const BlogsAdmin = () => {
     const formatDateForDisplay = (dateStr) => {
         if (!dateStr) return "";
-        
+
         // If it matches YYYY-MM-DD format, parse it manually to avoid timezone shifts
         if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
             const [year, month, day] = dateStr.split('-').map(Number);
@@ -22,7 +22,7 @@ const BlogsAdmin = () => {
         // Fallback for existing data or other formats
         const date = new Date(dateStr);
         if (isNaN(date.getTime())) return dateStr;
-        
+
         return date.toLocaleDateString('en-US', {
             month: 'long',
             day: '2-digit',
@@ -32,13 +32,13 @@ const BlogsAdmin = () => {
 
     const formatDateForInput = (dateStr) => {
         if (!dateStr) return "";
-        
+
         // If it's already in YYYY-MM-DD format, return it
         if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
 
         const date = new Date(dateStr);
         if (isNaN(date.getTime())) return "";
-        
+
         // Use local date parts to avoid timezone shifts back to previous day
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -60,6 +60,8 @@ const BlogsAdmin = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [status, setStatus] = useState({ type: "", message: "" });
     const [resetCounter, setResetCounter] = useState(0); // Add a counter to force ReactQuill re-mount
+    const [deleteModal, setDeleteModal] = useState({ isOpen: false, id: null, title: "" });
+    const [popupModal, setPopupModal] = useState({ isOpen: false, type: "success", title: "", message: "" });
 
     // Helper to generate slug from title
     const generateSlug = (title) => {
@@ -145,7 +147,9 @@ const BlogsAdmin = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`);
+            const res = await fetch(`${API_BASE_URL}/blogs?includeContent=true`, {
+                headers: getHeaders()
+            });
             const data = await res.json();
             if (Array.isArray(data)) {
                 setBlogs(data);
@@ -187,7 +191,7 @@ const BlogsAdmin = () => {
 
             const response = await fetch(url, {
                 method,
-                headers: { "Content-Type": "application/json" },
+                headers: getHeaders({ "Content-Type": "application/json" }),
                 body: JSON.stringify(payload)
             });
 
@@ -195,6 +199,8 @@ const BlogsAdmin = () => {
                 const errorData = await response.json();
                 throw new Error(errorData.error || "Failed to save blog");
             }
+            const savedBlogTitle = form.title;
+            const isEdit = !!editId;
             setForm({
                 title: "",
                 author: "",
@@ -204,30 +210,70 @@ const BlogsAdmin = () => {
                 slug: "",
                 content: ""
             });
-            const isEdit = !!editId;
             setEditId(null);
             setResetCounter(prev => prev + 1);
             fetchBlogs();
-            setStatus({ type: "success", message: isEdit ? "Blog updated successfully!" : "Blog added successfully!" });
-            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
-            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+
+            setPopupModal({
+                isOpen: true,
+                type: "success",
+                title: isEdit ? "Blog Updated Successfully!" : "Blog Added Successfully!",
+                message: isEdit
+                    ? `The blog "${savedBlogTitle}" has been updated.`
+                    : `The blog "${savedBlogTitle}" has been added.`
+            });
         } catch (error) {
             console.error("Error saving blog:", error);
-            setStatus({ type: "error", message: error.message || "Error saving blog. Please try again." });
-            setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+            setPopupModal({
+                isOpen: true,
+                type: "error",
+                title: "Failed to Save Blog",
+                message: error.message || "Error saving blog. Please try again."
+            });
         } finally {
             setIsSubmitting(false);
         }
     };
 
-    const deleteBlog = async (id) => {
+    const openDeleteModal = (blog) => {
+        setDeleteModal({
+            isOpen: true,
+            id: blog._id,
+            title: blog.title || "this blog"
+        });
+    };
+
+    const executeDelete = async () => {
+        if (!deleteModal.id) return;
+        const targetId = deleteModal.id;
+        const targetTitle = deleteModal.title;
+        setDeleteModal({ isOpen: false, id: null, title: "" });
+
         try {
-            await fetch(`${API_BASE_URL}/blogs/${id}`, {
-                method: "DELETE"
+            const res = await fetch(`${API_BASE_URL}/blogs/${targetId}`, {
+                method: "DELETE",
+                headers: getHeaders()
             });
+
+            if (!res.ok) {
+                throw new Error("Failed to delete blog");
+            }
+
             fetchBlogs();
+            setPopupModal({
+                isOpen: true,
+                type: "success",
+                title: "Blog Deleted Successfully",
+                message: `"${targetTitle}" has been removed.`
+            });
         } catch (error) {
             console.error("Error deleting blog:", error);
+            setPopupModal({
+                isOpen: true,
+                type: "error",
+                title: "Delete Failed",
+                message: "Unable to delete blog. Please try again."
+            });
         }
     };
 
@@ -271,7 +317,7 @@ const BlogsAdmin = () => {
                             <h3 className="text-base md:text-lg font-semibold text-green-600">Active</h3>
                         </div>
                     </div>
-                    </div>
+                </div>
 
                 {status.message && (
                     <div className={`mb-6 p-4 rounded-2xl border ${status.type === 'success' ? 'bg-green-50 border-green-100 text-green-700' : 'bg-red-50 border-red-100 text-red-700'} animate-fade-in flex items-center gap-3`}>
@@ -585,7 +631,7 @@ const BlogsAdmin = () => {
                                             </button>
 
                                             <button
-                                                onClick={() => deleteBlog(blog._id)}
+                                                onClick={() => openDeleteModal(blog)}
                                                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl md:rounded-2xl bg-red-50 text-red-600 text-sm font-semibold py-2.5 md:py-3 hover:bg-red-100 transition"
                                             >
                                                 <Trash2 size={15} />
@@ -599,6 +645,64 @@ const BlogsAdmin = () => {
                     )}
                 </div>
             </div>
+
+            {/* Delete Confirmation Modal */}
+            {deleteModal.isOpen && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl border border-gray-100 transform transition-all">
+                        <div className="w-14 h-14 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Trash2 size={28} />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Confirm Deletion</h3>
+                        <p className="text-sm text-gray-600 text-center mb-6">
+                            Are you sure you want to delete <span className="font-semibold text-gray-900">"{deleteModal.title}"</span>? This action cannot be undone.
+                        </p>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => setDeleteModal({ isOpen: false, id: null, title: "" })}
+                                className="flex-1 py-3 px-4 rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={executeDelete}
+                                className="flex-1 py-3 px-4 rounded-xl bg-red-600 text-white font-semibold hover:bg-red-700 transition shadow-lg shadow-red-200"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Status Popup Modal */}
+            {popupModal.isOpen && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl border border-gray-100 text-center transform transition-all">
+                        {popupModal.type === "success" ? (
+                            <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <CheckCircle2 size={36} />
+                            </div>
+                        ) : (
+                            <div className="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <AlertTriangle size={36} />
+                            </div>
+                        )}
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{popupModal.title}</h3>
+                        <p className="text-sm text-gray-600 mb-6">{popupModal.message}</p>
+                        <button
+                            onClick={() => setPopupModal({ isOpen: false, type: "success", title: "", message: "" })}
+                            className={`w-full py-3 px-4 rounded-xl font-semibold text-white transition shadow-lg ${
+                                popupModal.type === "success"
+                                    ? "bg-purple-600 hover:bg-purple-700 shadow-purple-200"
+                                    : "bg-red-600 hover:bg-red-700 shadow-red-200"
+                            }`}
+                        >
+                            OK
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
